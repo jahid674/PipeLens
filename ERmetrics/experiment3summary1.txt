@@ -1,0 +1,212 @@
+experiment 3 summary statistics:
+search space size stats: 36
+stats for search space size: 36
+parameter ranking algorithm:
+[15. 16. 18. 23.]
+parameter ranking algorithm iterations q1: 15.0
+parameter ranking algorithm iterations q2: 16.0
+parameter ranking algorithm iterations q3: 18.0
+parameter ranking algorithm iterations q4: 23.0
+[0.958715 0.96071  0.96071  0.96402 ]
+parameter ranking algorithm f-score q1: 0.95872
+parameter ranking algorithm f-score q2: 0.96071
+parameter ranking algorithm f-score q3: 0.96071
+parameter ranking algorithm f-score q4: 0.96402
+0
+parameter ranking algorithm failures: 0
+projection parameter ranking algorithm:
+[15. 16. 19. 42.]
+projection parameter ranking algorithm iterations q1: 15.0
+projection parameter ranking algorithm iterations q2: 16.0
+projection parameter ranking algorithm iterations q3: 19.0
+projection parameter ranking algorithm iterations q4: 42.0
+[0.95808 0.96062 0.96071 0.96402]
+projection parameter ranking algorithm f-score q1: 0.95808
+projection parameter ranking algorithm f-score q2: 0.96062
+projection parameter ranking algorithm f-score q3: 0.96071
+projection parameter ranking algorithm f-score q4: 0.96402
+0
+projection parameter ranking algorithm failures: 0
+profile ranking algorithm:
+[219. 219. 226. 272.]
+profile ranking algorithm iterations q1: 219.0
+profile ranking algorithm iterations q2: 219.0
+profile ranking algorithm iterations q3: 226.0
+profile ranking algorithm iterations q4: 272.0
+[0.96071 0.96071 0.96071 0.96402]
+profile ranking algorithm f-score q1: 0.96071
+profile ranking algorithm f-score q2: 0.96071
+profile ranking algorithm f-score q3: 0.96071
+profile ranking algorithm f-score q4: 0.96402
+0
+profile ranking algorithm failures: 0
+grid search algorithm:
+[ 11.   23.   42.5 145. ]
+grid search iterations q1: 11.0
+grid search iterations q2: 23.0
+grid search iterations q3: 42.5
+grid search iterations q4: 145.0
+[0.95808  0.960355 0.96284  0.96402 ]
+grid search f-score q1: 0.95808
+grid search f-score q2: 0.96036
+grid search f-score q3: 0.96284
+grid search f-score q4: 0.96402
+
+search space size stats: 54
+stats for search space size: 54
+parameter ranking algorithm:
+[12. 13. 18. 25.]
+parameter ranking algorithm iterations q1: 12.0
+parameter ranking algorithm iterations q2: 13.0
+parameter ranking algorithm iterations q3: 18.0
+parameter ranking algorithm iterations q4: 25.0
+[0.96062 0.96071 0.96071 0.96402]
+parameter ranking algorithm f-score q1: 0.96062
+parameter ranking algorithm f-score q2: 0.96071
+parameter ranking algorithm f-score q3: 0.96071
+parameter ranking algorithm f-score q4: 0.96402
+0
+parameter ranking algorithm failures: 0
+projection parameter ranking algorithm:
+[15. 16. 26. 30.]
+projection parameter ranking algorithm iterations q1: 15.0
+projection parameter ranking algorithm iterations q2: 16.0
+projection parameter ranking algorithm iterations q3: 26.0
+projection parameter ranking algorithm iterations q4: 30.0
+[0.96062 0.96071 0.96071 0.96402]
+projection parameter ranking algorithm f-score q1: 0.96062
+projection parameter ranking algorithm f-score q2: 0.96071
+projection parameter ranking algorithm f-score q3: 0.96071
+projection parameter ranking algorithm f-score q4: 0.96402
+0
+projection parameter ranking algorithm failures: 0
+profile ranking algorithm:
+[14.5 20.  24.  33. ]
+profile ranking algorithm iterations q1: 14.5
+profile ranking algorithm iterations q2: 20.0
+profile ranking algorithm iterations q3: 24.0
+profile ranking algorithm iterations q4: 33.0
+[0.96062 0.96062 0.96062 0.96402]
+profile ranking algorithm f-score q1: 0.96062
+profile ranking algorithm f-score q2: 0.96062
+profile ranking algorithm f-score q3: 0.96062
+profile ranking algorithm f-score q4: 0.96402
+0
+profile ranking algorithm failures: 0
+grid search algorithm:
+[ 11.   23.   42.5 145. ]
+grid search iterations q1: 11.0
+grid search iterations q2: 23.0
+grid search iterations q3: 42.5
+grid search iterations q4: 145.0
+[0.95808  0.960355 0.96284  0.96402 ]
+grid search f-score q1: 0.95808
+grid search f-score q2: 0.96036
+grid search f-score q3: 0.96284
+grid search f-score q4: 0.96402
+
+search space size stats: 65
+stats for search space size: 65
+parameter ranking algorithm:
+[12. 13. 18. 25.]
+parameter ranking algorithm iterations q1: 12.0
+parameter ranking algorithm iterations q2: 13.0
+parameter ranking algorithm iterations q3: 18.0
+parameter ranking algorithm iterations q4: 25.0
+[0.96062 0.96071 0.96071 0.96402]
+parameter ranking algorithm f-score q1: 0.96062
+parameter ranking algorithm f-score q2: 0.96071
+parameter ranking algorithm f-score q3: 0.96071
+parameter ranking algorithm f-score q4: 0.96402
+0
+parameter ranking algorithm failures: 0
+projection parameter ranking algorithm:
+[15. 16. 27. 31.]
+projection parameter ranking algorithm iterations q1: 15.0
+projection parameter ranking algorithm iterations q2: 16.0
+projection parameter ranking algorithm iterations q3: 27.0
+projection parameter ranking algorithm iterations q4: 31.0
+[0.96062 0.96071 0.96071 0.96402]
+projection parameter ranking algorithm f-score q1: 0.96062
+projection parameter ranking algorithm f-score q2: 0.96071
+projection parameter ranking algorithm f-score q3: 0.96071
+projection parameter ranking algorithm f-score q4: 0.96402
+0
+projection parameter ranking algorithm failures: 0
+profile ranking algorithm:
+[11. 15. 17. 21.]
+profile ranking algorithm iterations q1: 11.0
+profile ranking algorithm iterations q2: 15.0
+profile ranking algorithm iterations q3: 17.0
+profile ranking algorithm iterations q4: 21.0
+[0.96062 0.96062 0.96062 0.96402]
+profile ranking algorithm f-score q1: 0.96062
+profile ranking algorithm f-score q2: 0.96062
+profile ranking algorithm f-score q3: 0.96062
+profile ranking algorithm f-score q4: 0.96402
+0
+profile ranking algorithm failures: 0
+grid search algorithm:
+[ 11.   23.   42.5 145. ]
+grid search iterations q1: 11.0
+grid search iterations q2: 23.0
+grid search iterations q3: 42.5
+grid search iterations q4: 145.0
+[0.95808  0.960355 0.96284  0.96402 ]
+grid search f-score q1: 0.95808
+grid search f-score q2: 0.96036
+grid search f-score q3: 0.96284
+grid search f-score q4: 0.96402
+
+search space size stats: 72
+stats for search space size: 72
+parameter ranking algorithm:
+[12. 13. 18. 25.]
+parameter ranking algorithm iterations q1: 12.0
+parameter ranking algorithm iterations q2: 13.0
+parameter ranking algorithm iterations q3: 18.0
+parameter ranking algorithm iterations q4: 25.0
+[0.96062 0.96071 0.96071 0.96402]
+parameter ranking algorithm f-score q1: 0.96062
+parameter ranking algorithm f-score q2: 0.96071
+parameter ranking algorithm f-score q3: 0.96071
+parameter ranking algorithm f-score q4: 0.96402
+0
+parameter ranking algorithm failures: 0
+projection parameter ranking algorithm:
+[15. 16. 31. 35.]
+projection parameter ranking algorithm iterations q1: 15.0
+projection parameter ranking algorithm iterations q2: 16.0
+projection parameter ranking algorithm iterations q3: 31.0
+projection parameter ranking algorithm iterations q4: 35.0
+[0.96062 0.96071 0.96071 0.96402]
+projection parameter ranking algorithm f-score q1: 0.96062
+projection parameter ranking algorithm f-score q2: 0.96071
+projection parameter ranking algorithm f-score q3: 0.96071
+projection parameter ranking algorithm f-score q4: 0.96402
+0
+projection parameter ranking algorithm failures: 0
+profile ranking algorithm:
+[ 8.5 11.  13.  22. ]
+profile ranking algorithm iterations q1: 8.5
+profile ranking algorithm iterations q2: 11.0
+profile ranking algorithm iterations q3: 13.0
+profile ranking algorithm iterations q4: 22.0
+[0.96062 0.96062 0.96062 0.96402]
+profile ranking algorithm f-score q1: 0.96062
+profile ranking algorithm f-score q2: 0.96062
+profile ranking algorithm f-score q3: 0.96062
+profile ranking algorithm f-score q4: 0.96402
+0
+profile ranking algorithm failures: 0
+grid search algorithm:
+[ 11.   23.   42.5 145. ]
+grid search iterations q1: 11.0
+grid search iterations q2: 23.0
+grid search iterations q3: 42.5
+grid search iterations q4: 145.0
+[0.95808  0.960355 0.96284  0.96402 ]
+grid search f-score q1: 0.95808
+grid search f-score q2: 0.96036
+grid search f-score q3: 0.96284
+grid search f-score q4: 0.96402

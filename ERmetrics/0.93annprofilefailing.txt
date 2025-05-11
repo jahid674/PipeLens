@@ -1,0 +1,39 @@
+[1 3 4 5 2 0]
+[-3.67840171e-06 -1.42796535e+00  1.91339376e-01  5.97988939e-01
+  3.33595883e-01  3.17909164e-01]
+stop count
+[2 1 3 0 4]
+[ 1.61602679e+02 -8.08668750e+03 -1.87489861e+04  2.46645833e+02
+  7.07481657e-12]
+av sim
+[2 1 0 3 4]
+[-2.32466518e-02  3.00127292e-01  7.10315694e-01  2.17745833e-03
+ -1.37561296e-16]
+sim q1
+[2 1 0 3 4]
+[-3.82567857e-02  4.72587917e-01  8.23233333e-01 -1.10968333e-02
+ -7.73873321e-17]
+sim q2
+[2 1 0 3 4]
+[-3.09482589e-02  2.75483333e-01  8.62920000e-01  1.15050000e-03
+ -2.88806691e-16]
+sim q3
+[2 1 0 3 4]
+[-1.49406696e-02  2.14964583e-01  6.11031667e-01  8.06333333e-04
+ -2.55415641e-16]
+sample f-score
+[2 4 1 3 0]
+[ 0.00562665  0.0565751  -0.57548382  0.02626837 -0.40154653]
+
+,q size,pf,block clean threshold,weighting schema,matching threshold,stop count,av sim,sim q1,sim q2,sim q3,sample f-score,f-score
+0,0,0,0.35,2,0.65,0,1.0,1.0,1.0,1.0,0.01811,0.0491 //Init Iter 1
+1,0,0,0.05,2,0.65,0,1.0,1.0,1.0,1.0,0.01811,0.0491 //Check av sim profile (block clean threshold)
+2,0,0,0.35,2,0.65,0,1.0,1.0,1.0,1.0,0.01811,0.0491 //Check av sim profile (pf)
+3,5,0,0.35,2,0.65,0,0.2747,0.0,0.0,1.0,0.95715,0.92857 //Improves av sim profile check f-score (q-size) Iter 2
+4,5,0,0.35,0,0.65,0,0.29718,0.0,0.0,1.0,0.94964,0.93009 //Check av sim profile (weighting schema)
+5,5,0,0.35,2,0.05,0,0.2747,0.0,0.0,1.0,0.86111,0.26904 //Check av sim profile (matching threshold)
+6,5,0,0.95,2,0.65,0,1.0,1.0,1.0,1.0,0.01811,0.08535 //Improves sim q2 profile check f-score (block clean threshold) Iter 3
+//Check modifying parameters to improve sim q2/sim q3 profiles but it is impossible to improve them from profile value obtained above
+7,5,0,0.05,2,0.65,0,0.04681,0.0,0.0,0.0,0.9931,0.9316 //Improve sample f-score profile check f-score early exit (block clean threshold) Iter 4
+
+

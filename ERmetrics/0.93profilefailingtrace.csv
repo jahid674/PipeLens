@@ -1,0 +1,5 @@
+,q size,pf,block clean threshold,weighting schema,matching threshold,cur_f
+0,0,0,0.35,2,0.65,0.0491 //Initial parameters
+1,5,0,0.35,2,0.65,0.92857 //Optimize average similarity
+2,5,0,0.95,2,0.65,0.08535 //Optimize sim q2
+3,5,0,0.05,2,0.65,0.9316 //Optimize sample f-score

@@ -1,0 +1,257 @@
+experiment 2 summary statistics
+stats for search space size: 648
+parameter ranking algorithm:
+parameter ranking algorithm iterations q1: 13.0
+parameter ranking algorithm iterations q2: 14.0
+parameter ranking algorithm iterations q3: 24.0
+parameter ranking algorithm iterations q4: 27.0
+parameter ranking algorithm f-score q1: 0.96091
+parameter ranking algorithm f-score q2: 0.96303
+parameter ranking algorithm f-score q3: 0.96385
+parameter ranking algorithm f-score q4: 0.96385
+parameter ranking algorithm failures: 0
+projection parameter ranking algorithm:
+projection parameter ranking algorithm iterations q1: 17.0
+projection parameter ranking algorithm iterations q2: 18.0
+projection parameter ranking algorithm iterations q3: 38.0
+projection parameter ranking algorithm iterations q4: 42.0
+projection parameter ranking algorithm f-score q1: 0.96091
+projection parameter ranking algorithm f-score q2: 0.96303
+projection parameter ranking algorithm f-score q3: 0.96385
+projection parameter ranking algorithm f-score q4: 0.96385
+projection parameter ranking algorithm failures: 0
+profile ranking algorithm:
+profile ranking algorithm iterations q1: 5.0
+profile ranking algorithm iterations q2: 7.0
+profile ranking algorithm iterations q3: 8.0
+profile ranking algorithm iterations q4: 10.0
+stop count sample iterations q1: 3.0
+stop count sample iterations q2: 3.0
+stop count sample iterations q3: 4.0
+stop count sample iterations q4: 7.0
+av sim sample iterations q1: 3.0
+av sim sample iterations q2: 4.0
+av sim sample iterations q3: 4.0
+av sim sample iterations q4: 4.0
+sim q1 sample iterations q1: 4.0
+sim q1 sample iterations q2: 6.0
+sim q1 sample iterations q3: 7.0
+sim q1 sample iterations q4: 8.0
+sim q2 sample iterations q1: 4.0
+sim q2 sample iterations q2: 6.0
+sim q2 sample iterations q3: 7.0
+sim q2 sample iterations q4: 8.0
+sim q3 sample iterations q1: 4.0
+sim q3 sample iterations q2: 7.0
+sim q3 sample iterations q3: 7.0
+sim q3 sample iterations q4: 8.0
+sample f-score sample iterations q1: 3.0
+sample f-score sample iterations q2: 4.0
+sample f-score sample iterations q3: 6.0
+sample f-score sample iterations q4: 8.0
+profile ranking algorithm f-score q1: 0.96247
+profile ranking algorithm f-score q2: 0.96247
+profile ranking algorithm f-score q3: 0.96247
+profile ranking algorithm f-score q4: 0.96385
+profile ranking algorithm failures: 0
+grid search algorithm:
+grid search iterations q1: 10.0
+grid search iterations q2: 24.0
+grid search iterations q3: 48.0
+grid search iterations q4: 136.0
+grid search f-score q1: 0.95606
+grid search f-score q2: 0.96178
+grid search f-score q3: 0.96333
+grid search f-score q4: 0.96385
+stats for search space size: 200
+parameter ranking algorithm:
+parameter ranking algorithm iterations q1: 7.0
+parameter ranking algorithm iterations q2: 9.0
+parameter ranking algorithm iterations q3: 11.0
+parameter ranking algorithm iterations q4: 18.0
+parameter ranking algorithm f-score q1: 0.95609
+parameter ranking algorithm f-score q2: 0.96247
+parameter ranking algorithm f-score q3: 0.96385
+parameter ranking algorithm f-score q4: 0.96385
+parameter ranking algorithm failures: 0
+projection parameter ranking algorithm:
+projection parameter ranking algorithm iterations q1: 9.0
+projection parameter ranking algorithm iterations q2: 11.0
+projection parameter ranking algorithm iterations q3: 12.0
+projection parameter ranking algorithm iterations q4: 23.0
+projection parameter ranking algorithm f-score q1: 0.95609
+projection parameter ranking algorithm f-score q2: 0.96247
+projection parameter ranking algorithm f-score q3: 0.96385
+projection parameter ranking algorithm f-score q4: 0.96385
+projection parameter ranking algorithm failures: 0
+profile ranking algorithm:
+profile ranking algorithm iterations q1: 3.0
+profile ranking algorithm iterations q2: 4.0
+profile ranking algorithm iterations q3: 5.0
+profile ranking algorithm iterations q4: 7.0
+stop count sample iterations q1: 2.0
+stop count sample iterations q2: 3.0
+stop count sample iterations q3: 3.0
+stop count sample iterations q4: 4.0
+av sim sample iterations q1: 3.0
+av sim sample iterations q2: 3.0
+av sim sample iterations q3: 4.0
+av sim sample iterations q4: 4.0
+sim q1 sample iterations q1: 3.0
+sim q1 sample iterations q2: 4.0
+sim q1 sample iterations q3: 4.0
+sim q1 sample iterations q4: 4.0
+sim q2 sample iterations q1: 3.0
+sim q2 sample iterations q2: 4.0
+sim q2 sample iterations q3: 4.0
+sim q2 sample iterations q4: 4.0
+sim q3 sample iterations q1: 2.5
+sim q3 sample iterations q2: 4.0
+sim q3 sample iterations q3: 4.0
+sim q3 sample iterations q4: 4.0
+sample f-score sample iterations q1: 2.0
+sample f-score sample iterations q2: 3.0
+sample f-score sample iterations q3: 4.0
+sample f-score sample iterations q4: 4.0
+profile ranking algorithm f-score q1: 0.96247
+profile ranking algorithm f-score q2: 0.96247
+profile ranking algorithm f-score q3: 0.96247
+profile ranking algorithm f-score q4: 0.96385
+profile ranking algorithm failures: 0
+grid search algorithm:
+grid search iterations q1: 7.5
+grid search iterations q2: 14.0
+grid search iterations q3: 25.0
+grid search iterations q4: 59.0
+grid search f-score q1: 0.95609
+grid search f-score q2: 0.96247
+grid search f-score q3: 0.96333
+grid search f-score q4: 0.96385
+stats for search space size: 96
+parameter ranking algorithm:
+parameter ranking algorithm iterations q1: 2.0
+parameter ranking algorithm iterations q2: 4.5
+parameter ranking algorithm iterations q3: 8.5
+parameter ranking algorithm iterations q4: 10.0
+parameter ranking algorithm f-score q1: 0.95613
+parameter ranking algorithm f-score q2: 0.96247
+parameter ranking algorithm f-score q3: 0.96303
+parameter ranking algorithm f-score q4: 0.96385
+parameter ranking algorithm failures: 0
+projection parameter ranking algorithm:
+projection parameter ranking algorithm iterations q1: 7.0
+projection parameter ranking algorithm iterations q2: 8.0
+projection parameter ranking algorithm iterations q3: 9.0
+projection parameter ranking algorithm iterations q4: 10.0
+projection parameter ranking algorithm f-score q1: 0.95609
+projection parameter ranking algorithm f-score q2: 0.9593
+projection parameter ranking algorithm f-score q3: 0.96303
+projection parameter ranking algorithm f-score q4: 0.96385
+projection parameter ranking algorithm failures: 0
+profile ranking algorithm:
+profile ranking algorithm iterations q1: 4.0
+profile ranking algorithm iterations q2: 4.5
+profile ranking algorithm iterations q3: 6.0
+profile ranking algorithm iterations q4: 7.0
+stop count sample iterations q1: 3.0
+stop count sample iterations q2: 3.0
+stop count sample iterations q3: 3.0
+stop count sample iterations q4: 4.0
+av sim sample iterations q1: 3.0
+av sim sample iterations q2: 3.0
+av sim sample iterations q3: 4.0
+av sim sample iterations q4: 4.0
+sim q1 sample iterations q1: 3.0
+sim q1 sample iterations q2: 4.0
+sim q1 sample iterations q3: 4.0
+sim q1 sample iterations q4: 4.0
+sim q2 sample iterations q1: 4.0
+sim q2 sample iterations q2: 4.0
+sim q2 sample iterations q3: 4.0
+sim q2 sample iterations q4: 4.0
+sim q3 sample iterations q1: 3.0
+sim q3 sample iterations q2: 4.0
+sim q3 sample iterations q3: 4.0
+sim q3 sample iterations q4: 4.0
+sample f-score sample iterations q1: 3.0
+sample f-score sample iterations q2: 4.0
+sample f-score sample iterations q3: 4.0
+sample f-score sample iterations q4: 4.0
+profile ranking algorithm f-score q1: 0.96247
+profile ranking algorithm f-score q2: 0.96247
+profile ranking algorithm f-score q3: 0.96247
+profile ranking algorithm f-score q4: 0.96247
+profile ranking algorithm failures: 0
+grid search algorithm:
+grid search iterations q1: 4.0
+grid search iterations q2: 7.5
+grid search iterations q3: 15.5
+grid search iterations q4: 46.0
+grid search f-score q1: 0.95604
+grid search f-score q2: 0.96247
+grid search f-score q3: 0.96385
+grid search f-score q4: 0.96385
+stats for search space size: 48
+parameter ranking algorithm:
+parameter ranking algorithm iterations q1: 2.5
+parameter ranking algorithm iterations q2: 4.0
+parameter ranking algorithm iterations q3: 5.0
+parameter ranking algorithm iterations q4: 7.0
+parameter ranking algorithm f-score q1: 0.96247
+parameter ranking algorithm f-score q2: 0.96303
+parameter ranking algorithm f-score q3: 0.96385
+parameter ranking algorithm f-score q4: 0.96385
+parameter ranking algorithm failures: 0
+projection parameter ranking algorithm:
+projection parameter ranking algorithm iterations q1: 5.0
+projection parameter ranking algorithm iterations q2: 6.5
+projection parameter ranking algorithm iterations q3: 8.5
+projection parameter ranking algorithm iterations q4: 12.0
+projection parameter ranking algorithm f-score q1: 0.96247
+projection parameter ranking algorithm f-score q2: 0.96303
+projection parameter ranking algorithm f-score q3: 0.96385
+projection parameter ranking algorithm f-score q4: 0.96385
+projection parameter ranking algorithm failures: 0
+profile ranking algorithm:
+profile ranking algorithm iterations q1: 3.5
+profile ranking algorithm iterations q2: 4.0
+profile ranking algorithm iterations q3: 6.0
+profile ranking algorithm iterations q4: 7.0
+stop count sample iterations q1: 2.5
+stop count sample iterations q2: 3.0
+stop count sample iterations q3: 3.0
+stop count sample iterations q4: 3.0
+av sim sample iterations q1: 3.0
+av sim sample iterations q2: 3.0
+av sim sample iterations q3: 4.0
+av sim sample iterations q4: 4.0
+sim q1 sample iterations q1: 3.0
+sim q1 sample iterations q2: 3.5
+sim q1 sample iterations q3: 4.0
+sim q1 sample iterations q4: 4.0
+sim q2 sample iterations q1: 4.0
+sim q2 sample iterations q2: 4.0
+sim q2 sample iterations q3: 4.0
+sim q2 sample iterations q4: 4.0
+sim q3 sample iterations q1: 3.0
+sim q3 sample iterations q2: 3.5
+sim q3 sample iterations q3: 4.0
+sim q3 sample iterations q4: 4.0
+sample f-score sample iterations q1: 2.5
+sample f-score sample iterations q2: 4.0
+sample f-score sample iterations q3: 4.0
+sample f-score sample iterations q4: 4.0
+profile ranking algorithm f-score q1: 0.96247
+profile ranking algorithm f-score q2: 0.96247
+profile ranking algorithm f-score q3: 0.96247
+profile ranking algorithm f-score q4: 0.96247
+profile ranking algorithm failures: 0
+grid search algorithm:
+grid search iterations q1: 5.0
+grid search iterations q2: 8.0
+grid search iterations q3: 12.0
+grid search iterations q4: 26.0
+grid search f-score q1: 0.95604
+grid search f-score q2: 0.96247
+grid search f-score q3: 0.96385
+grid search f-score q4: 0.96385

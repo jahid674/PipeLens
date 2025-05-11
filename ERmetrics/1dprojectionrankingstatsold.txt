@@ -1,0 +1,71 @@
+naive parameter projection ranking algorithm statistics
+stats for f-score goal: 0.8
+ranking algorithm iterations q1: 1.0
+ranking algorithm iterations q2: 1.0
+ranking algorithm iterations q3: 4.0
+ranking algorithm f-score q1: 0.837
+ranking algorithm f-score q2: 0.90211
+ranking algorithm f-score q3: 0.95766
+ranking algorithm failures: 0
+grid search iterations q1: 1.0
+grid search iterations q2: 2.0
+grid search iterations q3: 3.5
+grid search f-score q1: 0.8654
+grid search f-score q2: 0.94438
+grid search f-score q3: 0.96325
+stats for f-score goal: 0.9
+ranking algorithm iterations q1: 1.0
+ranking algorithm iterations q2: 4.0
+ranking algorithm iterations q3: 13.0
+ranking algorithm f-score q1: 0.90963
+ranking algorithm f-score q2: 0.94662
+ranking algorithm f-score q3: 0.95766
+ranking algorithm failures: 0
+grid search iterations q1: 2.0
+grid search iterations q2: 3.0
+grid search iterations q3: 6.0
+grid search f-score q1: 0.9475
+grid search f-score q2: 0.95766
+grid search f-score q3: 0.96597
+stats for f-score goal: 0.95
+ranking algorithm iterations q1: 1.0
+ranking algorithm iterations q2: 12.5
+ranking algorithm iterations q3: 15.0
+ranking algorithm f-score q1: 0.95596
+ranking algorithm f-score q2: 0.96469
+ranking algorithm f-score q3: 0.96469
+ranking algorithm failures: 0
+grid search iterations q1: 2.0
+grid search iterations q2: 3.5
+grid search iterations q3: 7.0
+grid search f-score q1: 0.95766
+grid search f-score q2: 0.96494
+grid search f-score q3: 0.97063
+stats for f-score goal: 0.98
+ranking algorithm iterations q1: 17.0
+ranking algorithm iterations q2: 17.0
+ranking algorithm iterations q3: 17.5
+ranking algorithm f-score q1: 0.98586
+ranking algorithm f-score q2: 0.98599
+ranking algorithm f-score q3: 0.98599
+ranking algorithm failures: 0
+grid search iterations q1: 17.5
+grid search iterations q2: 38.0
+grid search iterations q3: 70.5
+grid search f-score q1: 0.98428
+grid search f-score q2: 0.98565
+grid search f-score q3: 0.98586
+stats for f-score goal: 0.99
+ranking algorithm iterations q1: 300.0
+ranking algorithm iterations q2: 301.0
+ranking algorithm iterations q3: 328.0
+ranking algorithm f-score q1: 0.99307
+ranking algorithm f-score q2: 0.99307
+ranking algorithm f-score q3: 0.99307
+ranking algorithm failures: 0
+grid search iterations q1: 132.0
+grid search iterations q2: 230.5
+grid search iterations q3: 355.5
+grid search f-score q1: 0.99307
+grid search f-score q2: 0.99307
+grid search f-score q3: 0.99307
