@@ -1,0 +1,1 @@
+{"operator1_script": "/data/scripts/operator1/script1.py", "read_path": "/tmp/inputs_20200527.csv", "read_mode": "once", "write_mode": "append", "operator2_script": "/data/scripts/operator2/aggregation.py", "threshold": 0.1, "folds": 2, "result": "True"}
