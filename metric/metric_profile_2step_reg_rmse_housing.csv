@@ -1,0 +1,72 @@
+1.0,ranking,iterations q1,2.0
+1.0,ranking,iterations q2,4.0
+1.0,ranking,iterations q3,4.5
+1.0,ranking,iterations q4,11.0
+1.0,ranking,utility q1,161.69508
+1.0,ranking,utility q2,161.80792
+1.0,ranking,utility q3,161.80792
+1.0,ranking,utility q4,161.94588
+
+1.0,grid search,iterations q1,2.0
+1.0,grid search,iterations q2,4.0
+1.0,grid search,iterations q3,8.0
+1.0,grid search,iterations q4,30.0
+1.0,grid search,utility q1,154.69858
+1.0,grid search,utility q2,155.14735
+1.0,grid search,utility q3,156.04293
+1.0,grid search,utility q4,161.94588
+
+0.95,ranking,iterations q1,1.0
+0.95,ranking,iterations q2,2.0
+0.95,ranking,iterations q3,3.0
+0.95,ranking,iterations q4,11.0
+0.95,ranking,utility q1,161.80792
+0.95,ranking,utility q2,163.16076
+0.95,ranking,utility q3,167.67826
+0.95,ranking,utility q4,169.93396
+
+0.95,grid search,iterations q1,1.0
+0.95,grid search,iterations q2,2.0
+0.95,grid search,iterations q3,3.0
+0.95,grid search,iterations q4,9.0
+0.95,grid search,utility q1,155.26413
+0.95,grid search,utility q2,163.51481
+0.95,grid search,utility q3,168.15928
+0.95,grid search,utility q4,169.93396
+
+0.89,ranking,iterations q1,1.0
+0.89,ranking,iterations q2,1.0
+0.89,ranking,iterations q3,3.0
+0.89,ranking,iterations q4,10.0
+0.89,ranking,utility q1,161.80792
+0.89,ranking,utility q2,168.01966
+0.89,ranking,utility q3,174.90912
+0.89,ranking,utility q4,179.95075
+
+0.89,grid search,iterations q1,1.0
+0.89,grid search,iterations q2,1.0
+0.89,grid search,iterations q3,2.0
+0.89,grid search,iterations q4,5.0
+0.89,grid search,utility q1,156.17792
+0.89,grid search,utility q2,168.20395
+0.89,grid search,utility q3,173.82932
+0.89,grid search,utility q4,179.95075
+
+0.86,ranking,iterations q1,1.0
+0.86,ranking,iterations q2,1.0
+0.86,ranking,iterations q3,3.0
+0.86,ranking,iterations q4,6.0
+0.86,ranking,utility q1,162.61984
+0.86,ranking,utility q2,168.66917
+0.86,ranking,utility q3,177.85657
+0.86,ranking,utility q4,182.74483
+
+0.86,grid search,iterations q1,1.0
+0.86,grid search,iterations q2,1.0
+0.86,grid search,iterations q3,2.0
+0.86,grid search,iterations q4,5.0
+0.86,grid search,utility q1,163.31547
+0.86,grid search,utility q2,168.7322
+0.86,grid search,utility q3,176.91333
+0.86,grid search,utility q4,182.40248
+
