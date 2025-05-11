@@ -1,0 +1,237 @@
+,id,title,authors,venue,year
+6,304584,The-active-MultiSync-controller-of-the-cubetree-storage-organization,"Nick Roussopoulos, Yannis Kotidis, Yannis Sismanis",International Conference on Management of Data,1999
+17,304570,An-XJML-based-wrapper-generator-for-Web-information-extraction,"Ling Liu, Wei Han, David Buttler, Calton Pu, Wei Tang",International Conference on Management of Data,1999
+23,304568,Improving-OLTP-data-quality-using-data-warehouse-mechanisms,"Matthias Jarke, Christoph Quix, Guido Blees, Dirk Lehmann, Gunter Michalk, Stefan Stierl",International Conference on Management of Data,1999
+43,304244,In-memory-data-management-for-consumer-transactions-the-timesten-approach,CORPORATE TimesTen Team,International Conference on Management of Data,1999
+53,304215,DynaMat:-a-dynamic-view-management-system-for-data-warehouses,"Yannis Kotidis, Nick Roussopoulos",International Conference on Management of Data,1999
+57,304227,"Of-crawlers,-portals,-mice,-and-men:-is-there-more-to-mining-the-Web?","Minos N. Garofalakis, Sridhar Ramaswamy, Rajeev Rastogi, Kyuseok Shim",International Conference on Management of Data,1999
+66,335381,On-line-reorganization-in-object-databases,"Mohana K. Lakhamraju, Rajeev Rastogi, S. Seshadri, S. Sudarshan",International Conference on Management of Data,2000
+76,335412,Spatial-join-selectivity-using-power-laws,"Christos Faloutsos, Bernhard Seeger, Agma Traina, Caetano Traina, Jr.",International Conference on Management of Data,2000
+79,335415,Influence-sets-based-on-reverse-nearest-neighbor-queries,"Flip Korn, S. Muthukrishnan",International Conference on Management of Data,2000
+81,331984,Improving-database-design-through-the-analysis-of-relationships,"Debabrata Dey, Veda C. Storey, Terence M. Barron",ACM Transactions on Database Systems (TODS) ,1999
+82,331992,The-SIFT-information-dissemination-system,"Tak W. Yan, Hector Garcia-Molina",ACM Transactions on Database Systems (TODS) ,1999
+84,333609,Chorochronos:-a-research-network-for-spatiotemporal-database-systems,"Andrew Frank, Stephane Grumbach, Ralf Hartmut G&#252;ting, Christian S. Jensen, Manolis Koubarakis, Nikos Lorentzos, Yannis Manolopoulos, Enrico Nardelli, Barbara Pernici, Hans-J&#246;rg Schek, Michel Scholl, Timos Sellis, Babis Theodoulidis, Peter Widmayer",ACM SIGMOD Record ,1999
+99,310064,Design-principles-for-data-intensive-Web-sites,"Stefano Ceri, Piero Fraternali, Stefano Paraboschi",ACM SIGMOD Record ,1999
+101,310710,Broadcast-protocols-to-support-efficient-retrieval-from-databases-by-mobile-users,"Anindya Datta, Debra E. VanderMeer, Aslihan Celik, Vijay Kumar",ACM Transactions on Database Systems (TODS) ,1999
+126,310060,Agent-based-semantic-interoperability-in-infosleuth,"Jerry Fowler, Brad Perry, Marian Nodine, Bruce Bargmeyer",ACM SIGMOD Record ,1999
+129,277954,Keynote-address,Larry J. Ellison,International Conference on Management of Data,1995
+140,276388,MultiMediaMiner:-a-system-prototype-for-multimedia-data-mining,"Osmar R. Za&#239;ane, Jiawei Han, Ze-Nian Li, Sonny H. Chee, Jenny Y. Chiang",International Conference on Management of Data,1998
+153,276376,CQ:-a-personalized-update-monitoring-toolkit,"Ling Liu, Calton Pu, Wei Tang, David Buttler, John Biggs, Tong Zhou, Paul Benninghoff, Wei Han, Fenghua Yu",International Conference on Management of Data,1998
+169,276360,Data-in-your-face:-push-technology-in-perspective,"Michael Franklin, Stan Zdonik",International Conference on Management of Data,1998
+170,276359,"Ubiquitous,-self-tuning,-scalable-servers",Peter Spiro,International Conference on Management of Data,1998
+172,276357,Managing-large-systems-with-DB2-UDB,Chris Eaton,International Conference on Management of Data,1998
+175,276354,Microsoft-universal-data-access-platform,"Jos&#233; A. Blakeley, Michael J. Pizzo",International Conference on Management of Data,1998
+176,276352,Java-and-relational-databases-(tutorial):-SQLJ,"Gray Clossman, Phil Shaw, Mark Hapner, Johannes Klein, Richard Pledereder, Brian Becker",International Conference on Management of Data,1998
+197,304209,An-adaptive-query-execution-system-for-data-integration,"Zachary G. Ives, Daniela Florescu, Marc Friedman, Alon Levy, Daniel S. Weld",International Conference on Management of Data,1999
+214,304194,Querying-network-directories,"H. V. Jagadish, Laks V. S. Lakshmanan, Tova Milo, Divesh Srivastava, Dimitra Vista",International Conference on Management of Data,1999
+218,293152,An-efficient-method-for-checking-object-oriented-database-schema-correctness,"A. Formica, H. D. Groger, M. Missikoff",ACM Transactions on Database Systems (TODS) ,1998
+244,280360,CapBasED-AMS:-a-capability-based-and-event-driven-activity-management-system,"Patrick C. K. Hung, Helen P. Yeung, Kamalakar Karlapalem",International Conference on Management of Data,1996
+299,375685,Independence-is-good:-dependency-based-histogram-synopses-for-high-dimensional-data,"Amol Deshpande, Minos Garofalakis, Rajeev Rastogi",International Conference on Management of Data,2001
+307,375703,Materialized-view-selection-and-maintenance-using-multi-query-optimization,"Hoshi Mistry, Prasan Roy, S. Sudarshan, Krithi Ramamritham",International Conference on Management of Data,2001
+320,381897,"Database-research-at-the-Indian-Institute-of-Technology,-Bombay","D. B. Phatak, N. L. Sarda, S. Seshadri, S. Sudarshan",ACM SIGMOD Record ,1996
+321,381895,Object-query-standards,Andrew E. Wade,ACM SIGMOD Record ,1996
+328,383893,Data-Mining-with-optimized-two-dimensional-association-rules,"Takeshi Fukuda, Yasuhiko Morimoto, Shimichi Morishita, Takeshi Tokuyama",ACM Transactions on Database Systems (TODS) ,2001
+343,505055,Editorial,Richard Snodgrass,ACM Transactions on Database Systems (TODS) ,2001
+357,375779,RETINA:-a-real-time-traffic-navigation-system,"Kam-Yiu Lam, Edward Chan, Tei-Wei Kuo, S. W. Ng, Dick Hung",International Conference on Management of Data,2001
+359,375783,Lots-o'Ticks:-real-time-high-performance-time-series-queries-on-billions-of-trades-and-quotes,"Arthur Whitney, Dennis Shasha",International Conference on Management of Data,2001
+374,381870,Real-time-index-concurrency-control,"Jayant R. Haritsa, S. Seshadri",ACM SIGMOD Record ,1996
+399,335466,Internet-traffic-warehouse,"Chung-Min Chen, Munir Cochinwala, Claudio Petrone, Marc Pucci, Sunil Samtani, Patrizia Santa",International Conference on Management of Data,2000
+403,336579,AQR-toolkit:-an-adaptive-query-routing-middleware-for-distributed-data-intensive-systems,"Ling Liu, Calton Pu, David Buttler, Wei Han, Henrique Paques, Wei Tang",International Conference on Management of Data,2000
+411,336564,"i3:-intelligent,-interactive-investigation-of-OLAP-data-cubes","Sunita Sarawagi, Gayatri Sathe",International Conference on Management of Data,2000
+416,335430,WebView-materialization,"Alexandros Labrinidis, Nick Roussopoulos",International Conference on Management of Data,2000
+444,335437,Efficient-algorithms-for-mining-outliers-from-large-data-sets,"Sridhar Ramaswamy, Rajeev Rastogi, Kyuseok Shim",International Conference on Management of Data,2000
+472,373678,Querying-multi-dimensional-data-indexed-using-the-Hilbert-space-filling-curve,"J. K. Lawder, P. J. H. King",ACM SIGMOD Record ,2001
+473,373638,Re-designing-distance-functions-and-distance-based-applications-for-high-dimensional-data,Charu C. Aggarwal,ACM SIGMOD Record ,2001
+474,373631,EIHA?!?:-deploying-Web-and-WAP-services-using-XML-technology,"Chiara Biancheri, Jean-Christophe Pazzaglia, Gavino Paddeu",ACM SIGMOD Record ,2001
+497,357777,Tracing-the-lineage-of-view-data-in-a-warehousing-environment,"Yingwei Cui, Jennifer Widom, Janet L. Wiener",ACM Transactions on Database Systems (TODS) ,2000
+501,362096,Report-on-second-international-workshop-on-advanced-issues-of-E-commerce-and-Web-based-information-systems,"Kun-Lung Wu, Philip S. Yu",ACM SIGMOD Record ,2000
+503,362101,Spatial-operators,"Eliseo Clementini, Paolino Di Felice",ACM SIGMOD Record ,2000
+510,357776,A-cost-model-for-query-processing-in-high-dimensional-data-spaces,Christian B&#246;hm,ACM Transactions on Database Systems (TODS) ,2000
+513,601865,Book-review-column,Karl Aberer,ACM SIGMOD Record ,2002
+517,601869,Automata-theory-for-XML-researchers,Frank Neven,ACM SIGMOD Record ,2002
+529,565143,Combining-fuzzy-information:-an-overview,Ronald Fagin,ACM SIGMOD Record ,2002
+550,603886,Career-enhancing-services-at-SIGMOD-online,"Alexandros Labrinidis, Alberto O. Mendelzon",ACM SIGMOD Record ,2001
+555,604268,ADAM:-a-testbed-for-exploring-the-use-of-data-mining-in-intrusion-detection,"Daniel Barbar&#225;, Julia Couto, Sushil Jajodia, Ningning Wu",ACM SIGMOD Record ,2001
+579,615196,DECLARE-and-SDS:-early-efforts-to-commercialize-deductive-database-technology,"Werner Kie&#223;ling, Helmut Schmidt, Werner Strau&#223;, Gerhard D&#252;nzinger",The VLDB Journal &mdash; The International Journal on Very Large Data Bases ,1994
+580,615193,An-introduction-to-deductive-database-languages-and-systems,"Kotagiri Ramamohanarao, James Harland",The VLDB Journal &mdash; The International Journal on Very Large Data Bases ,1994
+584,615209,Qualitative-representation-of-spatial-knowledge-in-two-dimensional-space,"Dimitris Papadias, Timos Sellis",The VLDB Journal &mdash; The International Journal on Very Large Data Bases ,1994
+587,615208,A-semantic-modeling-approach-for-image-retrieval-by-content,"Wesley W. Chu, Ion T. Ieong, Ricky K. Taira",The VLDB Journal &mdash; The International Journal on Very Large Data Bases ,1994
+605,604284,On-the-academic-interview-circuit:-an-end-to-end-discussion,U&#287;ur &#199;etintemel,ACM SIGMOD Record ,2001
+616,637420,Emergent-semantics-and-the-multimedia-semantic-web,"W. I. Grosky, D. V. Sreenath, F. Fotouhi",ACM SIGMOD Record ,2002
+637,615226,Orthogonally-persistent-object-systems,"Malcolm Atkinson, Ronald Morrison",The VLDB Journal &mdash; The International Journal on Very Large Data Bases ,1995
+642,564694,Efficient-integration-and-aggregation-of-historical-information,"Mirek Riedewald, Divyakant Agrawal, Amr El Abbadi",International Conference on Management of Data,2002
+645,564701,Best-effort-cache-synchronization-with-source-cooperation,"Chris Olston, Jennifer Widom",International Conference on Management of Data,2002
+649,507364,Reminiscences-on-influential-papers,Kenneth A. Ross,ACM SIGMOD Record ,2002
+697,564705,Accelerating-XPath-location-steps,Torsten Grust,International Conference on Management of Data,2002
+702,564711,Skew-handling-techniques-in-sort-merge-join,"Wei Li, Dengfeng Gao, Richard Thomas Snodgrass",International Conference on Management of Data,2002
+703,564713,StatiX:-making-XML-count,"Juliana Freire, Jayant R. Haritsa, Maya Ramanath, Prasan Roy, J&#233;r&#244;me Sim&#233;on",International Conference on Management of Data,2002
+712,564775,COUGAR:-the-network-is-the-database,"Wai Fu Fung, David Sun, Johannes Gehrke",International Conference on Management of Data,2002
+714,564773,ACDN:-a-content-delivery-network-for-applications,"Pradnya Karbhari, Michael Rabinovich, Zhen Xiao, Fred Douglis",International Conference on Management of Data,2002
+717,564769,ToXgene:-a-template-based-data-generator-for-XML,"Denilson Barbosa, Alberto Mendelzon, John Keenleyside, Kelly Lyons",International Conference on Management of Data,2002
+718,564768,The-XXL-search-engine:-ranked-retrieval-of-XML-data-using-indexes-and-ontologies,"Anja Theobald, Gerhard Weikum",International Conference on Management of Data,2002
+725,564761,Mid-tier-caching:-the-TimesTen-approach, The TimesTen Team,International Conference on Management of Data,2002
+729,564755,Quadtree-and-R-tree-indexes-in-oracle-spatial:-a-comparison-using-GIS-data,"Ravi Kanth V Kothuri, Siva Ravada, Daniel Abugov",International Conference on Management of Data,2002
+734,564746,Wavelet-synopses-with-error-guarantees,"Minos Garofalakis, Phillip B. Gibbons",International Conference on Management of Data,2002
+742,565135,Report-on-the-ACM-fourth-international-workshop-on-data-warehousing-and-OLAP-(DOLAP-2001),Joachim Hammer,ACM SIGMOD Record ,2002
+743,565134,"On-building-an-infrastructure-for-mobile-and-wireless-systems:-report-on-the-NSF-workshop-on-an-infrastructure-for-mobile-and-wireless-systems,-Oct.-15,-2001","Birgitta K&#246;nig-Ries, Kia Makki, Sam Makki, Charles Perkins, Niki Pissinou, Peter Reiher, Peter Scheuermann, Jari Veijalainen, Ouri Wolfson",ACM SIGMOD Record ,2002
+744,565129,Book-review-column,Karl Aberer,ACM SIGMOD Record ,2002
+752,565120,The-design-of-a-retrieval-technique-for-high-dimensional-data-on-tertiary-storage,"Ratko Orlandic, Jack Lukaszuk, Craig Swietlik",ACM SIGMOD Record ,2002
+762,564796,Tutorial:-application-servers-and-associated-technologies,C. Mohan,International Conference on Management of Data,2002
+764,564785,XBase:-making-your-gigabyte-disk-queriable,"Hongjun Lu, Guoren Wang, Ge Yu, Yubin Bao, Jianhua Lv, Yaxin Yu",International Conference on Management of Data,2002
+771,671335,Materialized-Views-in-Oracle,"Randall G. Bello, Karl Dias, Alan Downing, James J. Feenan, Jr., James L. Finnerty, William D. Norcott, Harry Sun, Andrew Witkowski, Mohamed Ziauddin",Very Large Data Bases,1998
+779,671343,Atomicity-versus-Anonymity:-Distributed-Transactions-for-Electronic-Commerce,J. D. Tygar,Very Large Data Bases,1998
+780,671346,Proximity-Search-in-Databases,"Roy Goldman, Narayanan Shivakumar, Suresh Venkatasubramanian, Hector Garcia-Molina",Very Large Data Bases,1998
+807,671495,Dynamic-Load-Balancing-for-Parallel-Association-Rule-Mining-on-Heterogenous-PC-Cluster-Systems,"Masahisa Tamura, Masaru Kitsuregawa",Very Large Data Bases,1999
+808,671502,"Industrial-Panel-on-Data-Warehousing-Technologies:-Experiences,-Challenges,-and-Directions",Umeshwar Dayal,Very Large Data Bases,1999
+823,671512,Extracting-Large-Scale-Knowledge-Bases-from-the-Web,"Ravi Kumar, Prabhakar Raghavan, Sridhar Rajagopalan, Andrew Tomkins",Very Large Data Bases,1999
+828,671521,Fast-Algorithms-for-Maintaining-Replica-Consistency-in-Lazy-Master-Replicated-Databases,"Esther Pacitti, Pascale Minet, Eric Simon",Very Large Data Bases,1999
+848,671673,Integrating-Heterogenous-Overlapping-Databases-through-Object-Oriented-Transformations,"Vanja Josifovski, Tore Risch",Very Large Data Bases,1999
+856,671682,INSITE:-A-Tool-for-Interpreting-Users?-Interaction-with-a-Web-Space,"Cyrus Shahabi, Adil Faisal, Farnoush Banaei Kashani, Jabed Faruque",Very Large Data Bases,2000
+862,671680,"Panel:-Future-Directions-of-Database-Research---The-VLDB-Broadening-Strategy,-Part-2",Michael L. Brodie,Very Large Data Bases,2000
+865,671693,A-Case-Based-Approach-to-Information-Integration,"Maurizio Panti, Luca Spalazzi, Alberto Giretti",Very Large Data Bases,2000
+874,671700,"Toto,-We're-Not-in-Kansas-Anymore:-On-Transitioning-from-Research-to-the-Real-(Invited-Industrial-Talk)",Michael J. Carey,Very Large Data Bases,2000
+886,671836,Integration-of-Data-Mining-with-Database-Technology,"Amir Netz, Surajit Chaudhuri, Jeff Bernhardt, Usama M. Fayyad",Very Large Data Bases,2000
+916,641270,Energy-performance-trade-offs-for-spatial-access-methods-on-memory-resident-data,"Ning An, Sudhanva Gurumurthi, Anand Sivasubramaniam, Narayanan Vijaykrishnan, Mahmut Kandemir, Mary Jane Irwin",The VLDB Journal &mdash; The International Journal on Very Large Data Bases ,2002
+959,671009,Caprera:-An-Activity-Framework-for-Transaction-Processing-on-Wide-Area-Networks,"Suresh Kumar, Eng-Kee Kwang, Divyakant Agrawal",Very Large Data Bases,1997
+972,671021,Towards-an-ODMG-Compliant-Visual-Object-Query-Language,"Manoj Chavda, Peter T. Wood",Very Large Data Bases,1997
+979,671180,The-Cubetree-Storage-Organization,"Nick Roussopoulos, Yannis Kotidis",Very Large Data Bases,1998
+1012,671328,Mining-Surprising-Patterns-Using-Temporal-Description-Length,"Soumen Chakrabarti, Sunita Sarawagi, Byron Dom",Very Large Data Bases,1998
+1034,673648,Implementing-Abstract-Objects-with-Inheritance-in-Datalogneg,Hasan M. Jamil,Very Large Data Bases,1997
+1037,673651,Efficient-Construction-of-Regression-Trees-with-Range-and-Region-Splitting,"Yasuhiko Morimoto, Hiromu Ishii, Shinichi Morishita",Very Large Data Bases,1997
+1038,673652,Geo/Environmental-and-Medical-Data-Management-in-the-RasDaMan-System,"Peter Baumann, Paula Furtado, Roland Ritsch, Norbert Widmann",Very Large Data Bases,1997
+1057,757416,Information-Management-for-Genome-Level-Bioinformatics,"Norman W. Paton, Carole A. Goble",Very Large Data Bases,2001
+1058,756643,"Physical-Data-Independence,-Constraints,-and-Optimization-with-Universal-Plans","Alin Deutsch, Lucian Popa, Val Tannen",Very Large Data Bases,1999
+1081,673664,Vertical-Data-Migration-in-Large-Near-Line-Document-Archives-Based-on-Markov-Chain-Predictions,"Achim Kraiss, Gerhard Weikum",Very Large Data Bases,1997
+1084,673669,Fast-Incremental-Maintenance-of-Approximate-Histograms,"Phillip B. Gibbons, Yossi Matias, Viswanath Poosala",Very Large Data Bases,1997
+1102,673332,Obtaining-Complete-Answers-from-Incomplete-Databases,Alon Y. Levy,Very Large Data Bases,1996
+1111,673305,High-Concurrency-Locking-in-R-Trees,"Marcel Kornacker, Douglas Banks",Very Large Data Bases,1995
+1132,673491,SPRINT:-A-Scalable-Parallel-Classifier-for-Data-Mining,"John C. Shafer, Rakesh Agrawal, Manish Mehta",Very Large Data Bases,1996
+1138,673469,Querying-Heterogeneous-Information-Sources-Using-Source-Descriptions,"Alon Y. Levy, Anand Rajaraman, Joann J. Ordille",Very Large Data Bases,1996
+1142,673465,Of-Objects-and-Databases:-A-Decade-of-Turmoil,"Michael J. Carey, David J. DeWitt",Very Large Data Bases,1996
+1160,765547,Data-placement-in-shared-nothing-parallel-database-systems,"Manish Mehta, David J. DeWitt",The VLDB Journal &mdash; The International Journal on Very Large Data Bases ,1997
+1174,765544,"The-hB-$^\\Pi$-tree:-a-multi-attribute-index-supporting-concurrency,-recovery-and-node-consolidation","Georgios Evangelidis, David Lomet, Betty Salzberg",The VLDB Journal &mdash; The International Journal on Very Large Data Bases ,1997
+1183,765535,Integrating-reliable-memory-in-databases,"Wee Teck Ng, Peter M. Chen",The VLDB Journal &mdash; The International Journal on Very Large Data Bases ,1998
+1186,767098,Query-processing-techniques-for-arrays,"Arunprasad P. Marathe, Kenneth Salem",The VLDB Journal &mdash; The International Journal on Very Large Data Bases ,2002
+1190,767131,A-template-model-for-multidimensional-inter-transactional-association-rules,"Ling Feng, Jeffrey Xu Yu, Hongjun Lu, Jiawei Han",The VLDB Journal &mdash; The International Journal on Very Large Data Bases ,2002
+1194,765853,Building-knowledge-base-management-systems,"John Mylopoulos, Vinay Chaudhri, Dimitris Plexousakis, Adel Shrufi, Thodoros Topologlou",The VLDB Journal &mdash; The International Journal on Very Large Data Bases ,1996
+1201,765756,A-taxonomy-of-correctness-criteria-in-database-applications,"Krithi Ramamritham, Panos K. Chrysanthis",The VLDB Journal &mdash; The International Journal on Very Large Data Bases ,1996
+1203,765754,Mariposa:-a-wide-area-distributed-database-system,"Michael Stonebraker, Paul M. Aoki, Witold Litwin, Avi Pfeffer, Adam Sah, Jeff Sidell, Carl Staelin, Andrew Yu",The VLDB Journal &mdash; The International Journal on Very Large Data Bases ,1996
+1208,765690,The-GMAP:-a-versatile-tool-for-physical-data-independence,"Odysseas G. Tsatalos, Marvin H. Solomon, Yannis E. Ioannidis",The VLDB Journal &mdash; The International Journal on Very Large Data Bases ,1996
+1216,765219,Guest-editorial,"Paolo Atzeni, Alberto O. Mendelzon",The VLDB Journal &mdash; The International Journal on Very Large Data Bases ,2000
+1221,764219,Quantifiable-data-mining-using-ratio-rules,"Flip Korn, Alexandros Labrinidis, Yannis Kotidis, Christos Faloutsos",The VLDB Journal &mdash; The International Journal on Very Large Data Bases ,2000
+1222,764222,Update-propagation-strategies-to-improve-freshness-in-lazy-master-replicated-databases,"Esther Pacitti, Eric Simon",The VLDB Journal &mdash; The International Journal on Very Large Data Bases ,2000
+1229,764205,Efficient-filtering-of-XML-documents-with-XPath-expressions,"C.-Y. Chan, P. Felber, M. Garofalakis, R. Rastogi",The VLDB Journal &mdash; The International Journal on Very Large Data Bases ,2002
+1236,762472,Description-logics-for-semantic-query-optimization-in-object-oriented-database-systems,"Domenico Beneventano, Sonia Bergamaschi, Claudio Sartori",ACM Transactions on Database Systems (TODS) ,2003
+1262,765508,Indexing-very-high-dimensional-sparse-and-quasi-sparse-vectors-for-similarity-searches,"Changzhou Wang, X. Sean Wang",The VLDB Journal &mdash; The International Journal on Very Large Data Bases ,2001
+1269,765239,Online-dynamic-reordering,"Vijayshankar Raman, Bhaskaran Raman, Joseph M. Hellerstein",The VLDB Journal &mdash; The International Journal on Very Large Data Bases ,2000
+1292,672189,Supervised-Wrapper-Generation-with-Lixto,"Robert Baumgartner, Sergio Flesca, Georg Gottlob",Very Large Data Bases,2001
+1300,672190,"Improving-Business-Process-Quality-through-Exception-Understanding,-Prediction,-and-Prevention","Daniela Grigori, Fabio Casati, Umeshwar Dayal, Ming-Chien Shan",Very Large Data Bases,2001
+1305,181551,In-memory-of-Bob-Kooi-(1951-1993),Michael Stonebraker,ACM SIGMOD Record ,1994
+1321,672204,Hyperqueries:-Dynamic-Distributed-Query-Processing-on-the-Internet,"Alfons Kemper, Christian Wiesner",Very Large Data Bases,2001
+1339,672353,Are-Web-Services-the-Next-Revolution-in-e-Commerce?-(Panel),"Shalom Tsur, Serge Abiteboul, Rakesh Agrawal, Umeshwar Dayal, Johannes Klein, Gerhard Weikum",Very Large Data Bases,2001
+1340,672354,SMOOTH---A-Distributed-Multimedia-Database-System,"Harald Kosch, L&#225;szl&#243; B&#246;sz&#246;rm&#233;nyi, Alexander Bachlechner, Christian Hanin, Christian Hofbauer, Margit Lang, Carmen Riedler, Roland Tusch",Very Large Data Bases,2001
+1357,671858,Evolution-of-Groupware-for-Business-Applications:-A-Database-Perspective-on-Lotus-Domino/Notes,"C. Mohan, Ron Barber, S. Watts, A. Somani, Markos Zaharioudakis",Very Large Data Bases,2000
+1394,672013,Computing-Geographical-Scopes-of-Web-Resources,"Junyan Ding, Luis Gravano, Narayanan Shivakumar",Very Large Data Bases,2000
+1399,672020,Caching-Strategies-for-Data-Intensive-Web-Sites,"Khaled Yagoub, Daniela Florescu, Val&#233;rie Issarny, Patrick Valduriez",Very Large Data Bases,2000
+1432,673000,Dali:-A-High-Performance-Main-Memory-Storage-Manager,"H. V. Jagadish, Daniel F. Lieuwen, Rajeev Rastogi, Abraham Silberschatz, S. Sudarshan",Very Large Data Bases,1994
+1436,673141,A-Product-Specification-Database-for-Visual-Prototyping,"Kazutoshi Sumiya, Kouichi Yasutake, Hirohiko Tanaka, Norio Sanada, Yoshihiko Imai",Very Large Data Bases,1995
+1448,673137,A-Non-Uniform-Data-Fragmentation-Strategy-for-Parallel-Main-Menory-Database-Systems,"N. Bassiliades, Ioannis P. Vlahavas",Very Large Data Bases,1995
+1449,673136,"The-ClustRa-Telecom-Database:-High-Availability,-High-Throughput,-and-Real-Time-Response","Svein-Olaf Hvasshovd, &#216;ystein Torbj&#248;rnsen, Svein Erik Bratsberg, Per Holager",Very Large Data Bases,1995
+1453,673157,Querying-Shapes-of-Histories,"Rakesh Agrawal, Giuseppe Psaila, Edward L. Wimmers, Mohamed Za&#239;t",Very Large Data Bases,1995
+1461,673149,L/MRP:-A-Buffer-Management-Strategy-for-Interactive-Continuous-Data-Flows-in-a-Multimedia-DBMS,"Frank Moser, Achim Kraiss, Wolfgang Klas",Very Large Data Bases,1995
+1482,673170,Redo-Recovery-after-System-Crashes,"David B. Lomet, Mark R. Tuttle",Very Large Data Bases,1995
+1497,223859,The-Lotus-notes-storage-system,Kenneth Moore,International Conference on Management of Data,1995
+1499,223857,"Object-oriented,-rapid-application-development-in-a-PC-database-environment",CORPORATE Fox Development Team Microsoft,International Conference on Management of Data,1995
+1503,223853,An-online-video-placement-policy-based-on-bandwidth-to-space-ratio-(BSR),"Asit Dan, Dinkar Sitaram",International Conference on Management of Data,1995
+1504,223851,The-SPIFFI-scalable-video-on-demand-system,"Craig S. Freedman, David J. DeWitt",International Conference on Management of Data,1995
+1505,223850,Efficient-maintenance-of-materialized-mediated-views,"James J. Lu, Guido Moerkotte, Joachim Schue, V. S. Subrahmanian",International Conference on Management of Data,1995
+1509,223846,Reducing-multidatabase-query-response-time-by-tree-balancing,"Weimin Du, Ming-Chien Shan, Umeshwar Dayal",International Conference on Management of Data,1995
+1510,223845,Dynamic-resource-brokering-for-multi-user-query-execution,"Diane L. Davison, Goetz Graefe",International Conference on Management of Data,1995
+1518,223814,Implementing-crash-recovery-in-QuickStore:-a-performance-study,"Seth J. White, David J. DeWitt",International Conference on Management of Data,1995
+1540,223877,Informix-online-XPS,Bob Gerber,International Conference on Management of Data,1995
+1545,223872,Leveraging-the-information-asset,Janet Perna,International Conference on Management of Data,1995
+1548,223869,Data-extraction-and-transformation-for-the-data-warehouse,Case Squire,International Conference on Management of Data,1995
+1564,212016,Addressing-techniques-used-in-database-object-managers-O2-and-ORION,"Andr&#233; Gamache, Nadjiba Sahraoui",ACM SIGMOD Record ,1995
+1576,202671,Information-systems-research-at-RWTH-Aachen,Matthias Jarke,ACM SIGMOD Record ,1995
+1582,202673,A-comparison-of-three-user-interfaces-to-relational-microcomputer-data-bases,"Carl Medsker, Margaret Christensen, Il-Yeol Song",ACM SIGMOD Record ,1995
+1588,223807,The-merge/purge-problem-for-large-databases,"Mauricio A. Hern&#225;ndez, Salvatore J. Stolfo",International Conference on Management of Data,1995
+1592,219777,The-new-middleware,Rich Finkelstein,ACM SIGMOD Record ,1995
+1600,219758,Temporal-database-system-implementations,Michael H. B&#246;hlen,ACM SIGMOD Record ,1995
+1605,219766,The-database-group-at-National-Technical-University-of-Athens-(NTUA),CORPORATE National Technical Univ. of Athens,ACM SIGMOD Record ,1995
+1620,191931,DEC-data-distributor:-for-data-replication-and-data-warehousing,Daniel J. Dietterich,International Conference on Management of Data,1994
+1621,191930,Oracle's-symmetric-replication-technology-and-implications-for-application-design,"Dean Daniels, Lip Boon Doo, Alan Downing, Curtis Elsbernd, Gary Hallmark, Sandeep Jain, Bob Jenkins, Peter Lim, Gordon Smith, Benny Souder, Jim Stamos",International Conference on Management of Data,1994
+1640,191926,Sequence-query-processing,"Praveen Seshadri, Miron Livny, Raghu Ramakrishnan",International Conference on Management of Data,1994
+1662,202663,HODFA:-an-architectural-framework-for-homogenizing-heterogeneous-legacy-databases,"Kamalakar Karlapalem, Qing Li, Chung-Dak Shum",ACM SIGMOD Record ,1995
+1666,191965,Ptool:-a-scalable-persistent-object-manager,"R. L. Grossman, X. Qin",International Conference on Management of Data,1994
+1674,191988,GENESYS:-a-system-for-efficient-spatial-query-processing,"Thomas Brinkhoff, Hans-Peter Kriegel, Ralf Schneider, Bernhard Seeger",International Conference on Management of Data,1994
+1680,187445,How-to-modify-SQL-queries-in-order-to-guarantee-sure-answers,H.-J. Klein,ACM SIGMOD Record ,1994
+1693,190633,A-new-join-algorithm,"Dong Keun Shin, Arnold Charles Meltzer",ACM SIGMOD Record ,1994
+1704,181567,The-database-research-group-at-ETH-Zurich,"Moira C. Norrie, Stephen M. Blott, Hans-J&#246;rg Schek, Gerhard Weikum",ACM SIGMOD Record ,1994
+1706,181565,Text-databases:-a-survey-of-text-models-and-systems,Arjan Loeffen,ACM SIGMOD Record ,1994
+1712,191856,Data-modeling-of-time-based-media,"Simon Gibbs, Christian Breiteneder, Dennis Tsichritzis",International Conference on Management of Data,1994
+1718,191874,Adaptive-selectivity-estimation-using-query-feedback,"Chungmin Melvin Chen, Nick Roussopoulos",International Conference on Management of Data,1994
+1721,191877,Estimating-page-fetches-for-index-scans-with-finite-LRU-buffers,"Arun Swami, K. Bernhard Schiefer",International Conference on Management of Data,1994
+1724,191884,AlphaSort:-a-RISC-machine-sort,"Chris Nyberg, Tom Barclay, Zarka Cvetanovic, Jim Gray, Dave Lomet",International Conference on Management of Data,1994
+1731,190644,Using-metadata-for-the-intelligent-browsing-of-structured-media-objects,"William I. Grosky, Farshad Fotouhi, Ishwar K. Sethi, Bogdan Capatina",ACM SIGMOD Record ,1994
+1732,190645,Metadata-for-integrating-speech-documents-in-a-text-retrieval-system,"Ulrike Glavitsch, Peter Sch&#228;uble, Martin Wechsler",ACM SIGMOD Record ,1994
+1745,271089,Research-issues-in-federated-database-systems:-report-of-EFDBS-'97-workshop,"S. Conrad, B. Eaglestone, W. Hasselbring, M. Roantree, M. Sch&#246;hoff, M. Str&#228;ssler, M. Vermeer, F. Saltor",ACM SIGMOD Record ,1997
+1766,273265,Workflow-history-management,"Pinar Koksal, Sena Nural Arpinar, Asuman Dogac",ACM SIGMOD Record ,1998
+1777,276320,Dimensionality-reduction-for-similarity-searching-in-dynamic-databases,"K. V. Ravi Kanth, Divyakant Agrawal, Ambuj Singh",International Conference on Management of Data,1998
+1780,276317,Cost-based-query-scrambling-for-initial-delays,"Tolga Urhan, Michael J. Franklin, Laurent Amsaleg",International Conference on Management of Data,1998
+1781,276316,Interaction-of-query-evaluation-and-buffer-management-for-information-retrieval,"Bj&#246;rn T. J&#243;nsson, Michael J. Franklin, Divesh Srivastava",International Conference on Management of Data,1998
+1789,276308,Parallel-mining-algorithms-for-generalized-association-rules-with-classification-hierarchy,"Takahiko Shintani, Masaru Kitsuregawa",International Conference on Management of Data,1998
+1792,276336,Bitmap-index-design-and-evaluation,"Chee-Yong Chan, Yannis E. Ioannidis",International Conference on Management of Data,1998
+1806,276322,Using-schematically-heterogeneous-structures,Re&#233;e J. Miller,International Conference on Management of Data,1998
+1810,253325,Dynamic-itemset-counting-and-implication-rules-for-market-basket-data,"Sergey Brin, Rajeev Motwani, Jeffrey D. Ullman, Shalom Tsur",International Conference on Management of Data,1997
+1811,253322,High-performance-sorting-on-networks-of-workstations,"Andrea C. Arpaci-Dusseau, Remzi H. Arpaci-Dusseau, David E. Culler, Joseph M. Hellerstein, David A. Patterson",International Conference on Management of Data,1997
+1827,253359,Temporal-aggregation-in-active-database-rules,"Iakovos Motakis, Carlo Zaniolo",International Conference on Management of Data,1997
+1829,253362,Secure-transaction-processing-in-firm-real-time-database-systems,"Binto George, Jayant Haritsa",International Conference on Management of Data,1997
+1848,253373,Data-warehousing-and-OLAP-for-decision-support,"Surajit Chaudhuri, Umeshwar Dayal",International Conference on Management of Data,1997
+1851,253368,"Lessons-from-Wall-Street:-case-studies-in-configuration,-tuning,-and-distribution",Dennis Shasha,International Conference on Management of Data,1997
+1855,253374,Query-optimization-at-the-crossroads,Surajit Chaudhuri,International Conference on Management of Data,1997
+1886,234903,Scientists-called-upon-to-take-actions,Xiaolei Qian,ACM SIGMOD Record ,1996
+1887,236712,Model-and-verification-of-a-data-manager-based-on-ARIES,Dean Kuo,ACM Transactions on Database Systems (TODS) ,1996
+1890,245893,Spotfire:-an-information-exploration-environment,Christopher Ahlberg,ACM SIGMOD Record ,1996
+1892,245885,"A-response-to-R.-Camps'-article-Domains,-relations-and-religious-wars",C. J. Date,ACM SIGMOD Record ,1996
+1895,245886,"In-reply-to-Domains,-relations-and-religious-wars",Hugh Darwen,ACM SIGMOD Record ,1996
+1896,245903,Report-from-the-NSF-workshop-on-workflow-and-process-automation-in-information-systems,"Amit Sheth, Dimitrios Georgakopoulos, Stef M. M. Joosten, Marek Rusinkiewicz, Walt Scacchi, Jack Wileden, Alexander L. Wolf",ACM SIGMOD Record ,1996
+1906,248605,Integrating-modelling-systems-for-environmental-management-information-systems,"David J. Abel, Kerry Taylor, Dean Kun",ACM SIGMOD Record ,1997
+1908,245909,New-programs-at-DARPA-and-NSF,Xiolai Qian,ACM SIGMOD Record ,1996
+1912,248615,Extraction-of-object-oriented-structures-from-existing-relational-databases,"Shekar Ramanathan, Julia Hodges",ACM SIGMOD Record ,1997
+1913,248616,An-overview-of-data-warehousing-and-OLAP-technology,"Surajit Chaudhuri, Umeshwar Dayal",ACM SIGMOD Record ,1997
+1924,249980,On-the-semantics-of-now-in-databases,"James Clifford, Curtis Dyreson, Tom&#225;s Isakowitz, Christian S. Jensen, Richard Thomas Snodgrass",ACM Transactions on Database Systems (TODS) ,1997
+1944,232622,The-building-blocks-for-specifying-communication-behavior-of-complex-objects:-an-activity-driven-approach,"Ling Liu, Robert Meersman",ACM Transactions on Database Systems (TODS) ,1996
+1946,232691,Implementing-deductive-databases-by-mixed-integer-programming,"Colin Bell, Anil Nerode, Raymond T. Ng, V. S. Subrahmanian",ACM Transactions on Database Systems (TODS) ,1996
+1954,233318,SQL-query-optimization:-reordering-for-a-general-class-of-queries,"Piyush Goel, Bala Iyer",International Conference on Management of Data,1996
+1955,233317,Rapid-bushy-join-order-optimization-with-Cartesian-products,"Bennet Vance, David Maier",International Conference on Management of Data,1996
+1966,233331,Hot-mirroring:-a-method-of-hiding-parity-update-penalty-and-degradation-during-rebuilds-for-RAID5,"Kazuhiko Mogi, Masaru Kitsuregawa",International Conference on Management of Data,1996
+1975,233337,Spatial-hash-joins,"Ming-Ling Lo, Chinya V. Ravishankar",International Conference on Management of Data,1996
+1976,233344,Structures-for-manipulating-proposed-updates-in-object-oriented-databases,"Michael Doherty, Richard Hull, Mohammed Rupawalla",International Conference on Management of Data,1996
+1990,233360,Cost-based-optimization-for-magic:-algebra-and-implementation,"Praveen Seshadri, Joseph M. Hellerstein, Hamid Pirahesh, T. Y. Cliff Leung, Raghu Ramakrishnan, Divesh Srivastava, Peter J. Stuckey, S. Sudarshan",International Conference on Management of Data,1996
+1992,233368,A-query-language-and-optimization-techniques-for-unstructured-data,"Peter Buneman, Susan Davidson, Gerd Hillebrand, Dan Suciu",International Conference on Management of Data,1996
+2032,872798,Mapping-data-in-peer-to-peer-systems:-semantics-and-algorithmic-issues,"Anastasios Kementsietsidis, Marcelo Arenas, Ren&#233;e J. Miller",International Conference on Management of Data,2003
+2046,872800,Scientific-data-repositories:-designing-for-a-moving-target,"Etzard Stolte, Christoph von Praun, Gustavo Alonso, Thomas Gross",International Conference on Management of Data,2003
+2065,776996,Peer-to-peer:-harnessing-the-power-of-disruptive-technologies,Mario A. Nascimento,ACM SIGMOD Record ,2003
+2081,872768,QC-trees:-an-efficient-summary-structure-for-semantic-OLAP,"Laks V. S. Lakshmanan, Jian Pei, Yan Zhao",International Conference on Management of Data,2003
+2084,872772,Rights-protection-for-relational-data,"Radu Sion, Mikhail Atallah, Sunil Prabhakar",International Conference on Management of Data,2003
+2086,872775,XPRESS:-a-queriable-compression-for-XML-data,"Jun-Ki Min, Myung-Jae Park, Chin-Wan Chung",International Conference on Management of Data,2003
+2088,872777,Containment-join-size-estimation:-models-and-methods,"Wei Wang, Haifeng Jiang, Hongjun Lu, Jeffrey Xu Yu",International Conference on Management of Data,2003
+2091,872780,Warping-indexes-with-envelope-transforms-for-query-by-humming,"Yunyue Zhu, Dennis Shasha",International Conference on Management of Data,2003
+2093,872783,On-schema-matching-with-opaque-column-names-and-data-values,"Jaewoo Kang, Jeffrey F. Naughton",International Conference on Management of Data,2003
+2107,767144,Efficiently-publishing-relational-data-as-XML-documents,"Jayavel Shanmugasundaram, Eugene Shekita, Rimon Barr, Michael Carey, Bruce Lindsay, Hamid Pirahesh, Berthold Reinwald",The VLDB Journal &mdash; The International Journal on Very Large Data Bases ,2001
+2109,767151,Answering-queries-using-views:-A-survey,Alon Y. Halevy,The VLDB Journal &mdash; The International Journal on Very Large Data Bases ,2001
+2115,767154,A-survey-of-approaches-to-automatic-schema-matching,"Erhard Rahm, Philip A. Bernstein",The VLDB Journal &mdash; The International Journal on Very Large Data Bases ,2001
+2123,776988,XPath-processing-in-a-nutshell,"Georg Gottlob, Christoph Koch, Reinhard Pichler",ACM SIGMOD Record ,2003
+2135,758372,Objectivity-Industrial-Exhibit, Objectivity,Very Large Data Bases,1998
+2158,673335,DISNIC-PLAN:-A-NICNET-Based-Distributed-Database-for-Micro-level-Planning-in-India,M. Moni,Very Large Data Bases,1996
+2162,673162,Informix-Online-XPS:-A-Dynamically-Scalable-RDBMS-for-Open-Parallel-Platforms,Hannes Spintzik,Very Large Data Bases,1995
+2170,671856,The-Zero-Latency-Enterprise,Dave Liles,Very Large Data Bases,2000
+2173,958946,Preference-formulas-in-relational-queries,Jan Chomicki,ACM Transactions on Database Systems (TODS) ,2003
+2183,672376,Walking-Through-a-Very-Large-Virtual-Environment-in-Real-time,"Lidan Shou, Jason Chionh, Zhiyong Huang, Yixin Ruan, Kian-Lee Tan",Very Large Data Bases,2001
+2208,959079,Review-of-Web-caching-and-replication-by-Michael-Rabinovich-and-Oliver-Spatscheck.-Addison-Wesley-2002.,"Qiang Wang, Brian D. Davison",ACM SIGMOD Record ,2003
+2211,672834,Including-Group-By-in-Query-Optimization,"Surajit Chaudhuri, Kyuseok Shim",Very Large Data Bases,1994
+2221,672829,Reasoning-About-Spatial-Relationships-in-Picture-Retrieval-Systems,"A. Prasad Sistla, Clement T. Yu, R. Haddad",Very Large Data Bases,1994
+2247,672965,Investigation-of-Algebraic-Query-Optimisation-Techniques-for-Database-Programming-Languages,"Alexandra Poulovassilis, Carol Small",Very Large Data Bases,1994
+2248,937601,Are-quorums-an-alternative-for-data-replication?,"Ricardo Jim&#233;nez-Peris, M. Pati&#241;o-Mart&#237;nez, Gustavo Alonso, Bettina Kemme",ACM Transactions on Database Systems (TODS) ,2003
+2274,950491,Computing-complete-answers-to-queries-in-the-presence-of-limited-access-patterns,Chen Li,The VLDB Journal &mdash; The International Journal on Very Large Data Bases ,2003
+2291,672980,GraphDB:-Modeling-and-Querying-Graphs-in-Databases,Ralf Hartmut G&#252;ting,Very Large Data Bases,1994
