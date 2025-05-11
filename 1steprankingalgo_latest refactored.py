@@ -31,7 +31,7 @@ from modules.Util.reader import Reader
 from modules.normalization.normalizer import Normalizer
 from modules.missing_value.imputer import Imputer
 from modules.models.model import ModelTrainer
-from pipeline_execution import PipelineExecutor
+from pipeline_execution.pipeline_execution import PipelineExecutor
 from modules.models.metric import MetricEvaluator
 from modules.outlier_detection.outlier_detector import OutlierDetector
 from sklearn.naive_bayes import GaussianNB
@@ -598,7 +598,6 @@ for f_goal in f_goals:
 
         failures = 0
         for seed_ in historical_data.values.tolist():
-                print('seed',seed_)
                 seen = set()
                 # p.grid_search(f_goal,seen)
                 # gs_idistr.append(p.gs_idistr[0])

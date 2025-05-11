@@ -166,9 +166,12 @@ class PipelineExecutor:
         reg = Regression()
         model = reg.generate_regression(X, y)
         coefs = model.coef_
-        coef_rank = np.argsort(np.abs(coefs)).tolist()[::-1]
+        print(coefs)
+        print(model.intercept_)
 
+        coef_rank = np.argsort(np.abs(coefs)).tolist()[::-1]
         logging.info(f'coef {coefs}')
+        print(coef_rank)
         return param_lst_df, coefs, coef_rank
     
     def current_par_lookup(self, X_train, y_train,
