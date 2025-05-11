@@ -3,7 +3,7 @@ import pandas as pd
 import numpy as np
 import logging
 import random
-from modules.normalization.normalizer import Normalizer
+#from modules.normalization.normalizer import Normalizer
 from modules.missing_value.imputer import Imputer
 from modules.outlier_detection.outlier_detector import OutlierDetector
 from modules.models.model import ModelTrainer
@@ -252,7 +252,7 @@ class PipelineExecutor:
 
 
 
-'''dataset_name = 'adult'
+dataset_name = 'adult'
 metric_type = 'sp'
 modelType= 'lr'
 filename_train = f'historical_data/historical_data_train_profile_{modelType}_{metric_type}_{dataset_name}.csv'
@@ -301,4 +301,4 @@ cur_par=[0, 0, 0, 0]
 
 utility= executor.current_par_lookup(X_train, y_train,
                      pipeline_order=['mv', 'norm', 'od', 'model'], cur_par=cur_par)
-print('utility:', utility)'''
+print('utility:', utility)
