@@ -21,7 +21,7 @@ class Regression:
 if __name__ == "__main__":
     reg = Regression()
     #reg.test()
-    profile = Profile()
+    profile = Profile(df=None)
 
     t1=pd.read_csv('DBLP-ACM/DBLP2.csv',encoding="latin-1")
     t2=pd.read_csv('DBLP-ACM/ACM.csv')
