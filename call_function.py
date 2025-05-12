@@ -5,5 +5,5 @@ from modules.models.model import ModelTrainer
 from modules.models.metric import MetricEvaluator
 from regression import Regression
 from LoadDataset import LoadDataset
-from pipeline_execution import PipelineExecution
-from profiling.profile import Profile
+from modules.profiling.profile import Profile
+from pipeline_execution.pipeline_execution import PipelineExecutor

@@ -3,11 +3,12 @@ import pandas as pd
 import numpy as np
 import logging
 import random
+
+from modules.models.model import ModelTrainer
+from modules.models.metric import MetricEvaluator
 from modules.normalization.normalizer import Normalizer
 from modules.missing_value.imputer import Imputer
 from modules.outlier_detection.outlier_detector import OutlierDetector
-from modules.models.model import ModelTrainer
-from modules.models.metric import MetricEvaluator
 from regression import Regression
 from LoadDataset import LoadDataset
 
