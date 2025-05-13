@@ -6,4 +6,4 @@ from modules.models.metric import MetricEvaluator
 from regression import Regression
 from LoadDataset import LoadDataset
 from modules.profiling.profile import Profile
-from pipeline_execution.pipeline_execution import PipelineExecutor
+from pipeline_executions import PipelineExecutor

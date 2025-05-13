@@ -77,6 +77,8 @@ class OutlierDetector:
         priv_idx_train = [i for i, val in enumerate(outlier_sensitive_train) if val == 1]
         unpriv_idx_train = [i for i, val in enumerate(outlier_sensitive_train) if val == 0]
 
+        frac = round((1 - sum(mask)/len(outlier_y_pred)) * 100, 4)
+
         if not excluded_cols.empty:
             excluded_cols = excluded_cols.iloc[mask].reset_index(drop=True)
             outlier_X_train = pd.concat([outlier_X_train, excluded_cols], axis=1)
@@ -85,7 +87,7 @@ class OutlierDetector:
         if self.verbose:
             print(f"Outlier detection completed in {time.time() - start_time:.2f} seconds.\n")
 
-        return outlier_X_train, outlier_y_train, outlier_sensitive_train, priv_idx_train, unpriv_idx_train
+        return outlier_X_train, outlier_y_train, outlier_sensitive_train, frac
 
 
 '''X_train = pd.DataFrame({

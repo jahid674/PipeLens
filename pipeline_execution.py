@@ -236,7 +236,7 @@ class PipelineExecutor:
                                     outlier_detector = OutlierDetector(X_processed, strategy='lof', k=k,
                                                                            contamination=self.contamination_train_lof, verbose=False)
 
-                                X_processed, y_processed, sensitive_processed, _, _ = outlier_detector.transform(
+                                X_processed, y_processed, sensitive_processed, _ = outlier_detector.transform(
                                         y_processed, sensitive_processed)
 
                         trainer = ModelTrainer(self.model_selection[param4])
@@ -333,12 +333,12 @@ class PipelineExecutor:
                                         outlier_detector = OutlierDetector(X_processed, strategy='lof', k=k,
                                                                            contamination=self.contamination_train_lof, verbose=False)
 
-                                    X_processed, y_processed, sensitive_processed, _, _ = outlier_detector.transform(
+                                    X_processed, y_processed, sensitive_processed, fraction_out = outlier_detector.transform(
                                         y_processed, sensitive_processed)
                                     od_param = [param3 + 1]
 
 
-                            fraction_out = round((p.get_fraction_of_outlier(X_processed))*100, 4)
+                            #fraction_out = round((p.get_fraction_of_outlier(X_processed))*100, 4)
 
                             #model training
                             trainer = ModelTrainer(self.model_selection[param4])
@@ -515,7 +515,7 @@ utility= executor.current_par_lookup(X_train, y_train,
 print('utility:', utility)'''
 
 
-'''dataset_name = 'adult'
+dataset_name = 'adult'
 metric_type = 'sp'
 modelType= 'lr'
 filename_train = f'historical_data/historical_data_train_profile_{modelType}_{metric_type}_{dataset_name}.csv'
@@ -561,7 +561,8 @@ print(pro_coef)
 print(pro_coef_rank)
 print(par_coef)
 print(par_coef_rank)
-print("Pipeline execution completed.")'''
+print("Pipeline execution completed.")
+
 '''cur_par=[0, 0, 0, 0]
 
 utility= executor.current_par_lookup(X_train, y_train,
