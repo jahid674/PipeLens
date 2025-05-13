@@ -17,8 +17,8 @@ random.seed(0)
 class Profile:
     profile_lst = []
 
-    def __init__(self, df):
-        self.df = df
+    def __init__(self):
+        #self.df = df
         self.profiles = {}
         self.df_list = {}
         self.attributes = {}
@@ -263,11 +263,10 @@ class Profile:
                 else:
                     corr = self.categorical_correlation(data_final[column], data_final[target_column])
 
-            profile[(f'corr_{column}', f'ot_{column}')] = [
-                column,
-                round(corr * scaling_factor, 5),
-                round(outlier * scaling_factor, 5)
-            ]
+            name = column
+            tuple = ('corr_' + name,  'ot_' + name)
+            profile[tuple]= [column,round(corr*scaling_factor,5),round(outlier*scaling_factor,5)]
+            #i+=1
 
         dd = []
         keys = []

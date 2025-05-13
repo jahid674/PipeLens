@@ -31,7 +31,7 @@ from modules.Util.reader import Reader
 from modules.normalization.normalizer import Normalizer
 from modules.missing_value.imputer import Imputer
 from modules.models.model import ModelTrainer
-from pipeline_execution.pipeline_execution import PipelineExecutor
+from pipeline_execution import PipelineExecutor
 from modules.models.metric import MetricEvaluator
 from modules.outlier_detection.outlier_detector import OutlierDetector
 from sklearn.naive_bayes import GaussianNB
@@ -150,19 +150,6 @@ class base:
                 self.gs_idistr = []
                 self.gs_fdistr = []
 
-        #delete
-        def getIdxSensitive(self, df, sensitive_var):
-                priv_idx = df.index[df[sensitive_var]==1]
-                unpriv_idx = df.index[df[sensitive_var]==0]
-                sensitive_attr = df[sensitive_var]
-                return priv_idx, unpriv_idx, sensitive_attr
-        #delete
-        def computeStatisticalParity(self, p_priv, p_unpriv):
-                # p_priv = pd.DataFrame(p_priv)[1]
-                # p_unpriv = pd.DataFrame(p_unpriv)[1]
-                diff = p_priv.mean() - p_unpriv.mean()
-                return diff
-
         def optimize(self, init_params, f_goal):
                 
                 self.rank_iter = 0  #Iteration count by ranking algorithm
@@ -177,6 +164,7 @@ class base:
                 self.ranges['missing_value'] = list(np.unique(self.historical_data_pd['missing_value']))
                 self.ranges['normalization'] = list(np.unique(self.historical_data_pd['normalization']))
                 self.ranges['outlier'] = list(np.unique(self.historical_data_pd['outlier']))
+                self.ranges['model'] = list(np.unique(self.historical_data_pd['model']))
                 seen = set()
                 
                 logging.info(f'current param {cur_params}')
@@ -198,7 +186,7 @@ class base:
                                                 current_paramter_value =  self.ranges[cur_strategy][-1]
                                         else:
                                                 current_paramter_value =  self.ranges[cur_strategy][0]
-                
+
                                         cur_params = cur_params_opt.copy()
                                         cur_params[cur_strategy] = current_paramter_value
 
@@ -206,8 +194,10 @@ class base:
                                         if(tuple(cur_params.items())) in seen:
                                                 continue
                                         
-                                        cur_f  = self.f_score_look_up2(self.historical_data_pd,list(cur_params.values()))
-                                        #cur_f  = executor.current_par_lookup(X_train, y_train, pipeline_order=['mv', 'norm', 'od', 'model'], cur_par=cur_params)
+                                        #cur_f  = self.f_score_look_up2(self.historical_data_pd,list(cur_params.values()))
+                                        cur_f = executor.current_par_lookup(X_test, y_test,
+                                                                pipeline_order=['missing_value', 'normalization', 'outlier', 'model'],
+                                                                cur_par=[cur_params['missing_value'], cur_params['normalization'], cur_params['outlier'], cur_params['model']])
                                         seen.add(tuple(cur_params.items()))
                                         
                                         self.rank_iter += 1
@@ -260,7 +250,11 @@ class base:
                                                 self.rank_f = opt_f
                                                 
                                                 logging.info(f'Next param {cur_params}')
-                                                cur_f  = self.f_score_look_up2(self.historical_data_pd,list(cur_params.values()))
+                                                #cur_f  = self.f_score_look_up2(self.historical_data_pd,list(cur_params.values()))
+                                                cur_f = executor.current_par_lookup(X_test, y_test,
+                                                                pipeline_order=['missing_value', 'normalization', 'outlier', 'model'],
+                                                                cur_par=[cur_params['missing_value'], cur_params['normalization'], cur_params['outlier'], cur_params['model']])
+
                                                 opt_f,cur_params_opt,found = self.f_lookup(cur_f,f_goal,cur_params_opt,cur_params,opt_f)
                                                 logging.info(f'Optimal paramater {cur_params_opt}, optimal fairness {opt_f} ')
 
@@ -303,10 +297,10 @@ class base:
                 return opt_f,cur_params_opt,found
 
         def f_score_look_up2(self,profiles_df,elem):
-                column_names =['missing_value', 'normalization', 'outlier', 'fairness']
+                column_names =['missing_value', 'normalization', 'outlier', 'model', 'fairness']
                 try:
                         return round(profiles_df.loc[(profiles_df[column_names[0]] == elem[0]) & (profiles_df[column_names[1]] == elem[1] ) 
-                                               & (profiles_df[column_names[2]] == elem[2])].iloc[0]['fairness'],5)
+                                               & (profiles_df[column_names[2]] == elem[2]) & (profiles_df[column_names[3]] == elem[3])].iloc[0]['fairness'],5)
                 except Exception as e :
                         print(e)
                         import pdb;pdb.set_trace()
@@ -351,7 +345,7 @@ class base:
 
 
 
-        def pipeline_execution_test(self,file_name):
+        '''def pipeline_execution_test(self,file_name):
                 # inject missing values in the most important column
                 param_lst_df = None
                 if not(os.path.exists(file_name)):
@@ -511,7 +505,7 @@ class base:
 
                         param_lst_df = pd.DataFrame(param_lst, columns=["missing_value","normalization","outlier","fairness"])
                         
-                        param_lst_df.to_csv(file_name,index=False)
+                        param_lst_df.to_csv(file_name,index=False)'''
 
         def write_quartiles(self,csv_writer, algorithm, metric, quartiles):
                 if dataset_name in ['adult', 'hmda']:
@@ -544,9 +538,10 @@ executor = PipelineExecutor(
     contamination_train=contamination_train,
     contamination_train_lof=contamination_train_lof
 )
-priv_idx, unpriv_idx, sensitive_attr_train = executor.getIdxSensitive(X_train, sensitive_variable)
-pipeline_df, coefs, coef_rank = executor.run_pipeline(filename_train, X_train, y_train, pipeline_order=['mv', 'norm', 'od', 'model'])
-
+_, _, sensitive_attr_train = executor.getIdxSensitive(X_train, sensitive_variable)
+pipeline_df, coefs, coef_rank = executor.run_pipeline(filename_train, X_train, y_train, pipeline_order=['missing_value', 'normalization', 'outlier', 'model'])
+historical_test,_,_ = executor.run_pipeline(filename_test, X_test, y_test, pipeline_order=['missing_value', 'normalization', 'outlier', 'model'])
+historical_data = pd.read_csv(filename_test)
 
 if scalability_bool:
         filename_test = 'metric/scalability/historical_data_test_profile_'+modelType+'_'+metric_type+'_'+dataset_name+'_'+str(len(knn_k_lst))+'.csv'
@@ -566,8 +561,7 @@ elif(dataset_name=='housing'):
 else:
         print('Please profile goals ')
 
-# #Read from historical data gererated on training data 
-historical_data = pd.read_csv(filename_test)
+
 p.historical_data_pd = historical_data;
 # #Convert to list of list containing all the combination of transformers in a fixed pipeline
 p.historical_data = historical_data.values.tolist();
@@ -598,6 +592,7 @@ for f_goal in f_goals:
 
         failures = 0
         for seed_ in historical_data.values.tolist():
+                #print(seed_)
                 seen = set()
                 # p.grid_search(f_goal,seen)
                 # gs_idistr.append(p.gs_idistr[0])

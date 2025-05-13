@@ -2,11 +2,11 @@ Fairness Goal,Grid search,Iteration,Value
 0.95,ranking,iterations q1,1.0
 0.95,ranking,iterations q2,2.0
 0.95,ranking,iterations q3,2.0
-0.95,ranking,iterations q4,13.0
+0.95,ranking,iterations q4,12.0
 0.95,ranking,Fairness q1,0.04379
 0.95,ranking,Fairness q2,0.04379
 0.95,ranking,Fairness q3,0.04379
-0.95,ranking,Fairness q4,0.04379
+0.95,ranking,Fairness q4,0.04409
 
 Fairness Goal,Grid search,Iteration,Value
 0.94,ranking,iterations q1,1.0
@@ -14,7 +14,7 @@ Fairness Goal,Grid search,Iteration,Value
 0.94,ranking,iterations q3,2.0
 0.94,ranking,iterations q4,2.0
 0.94,ranking,Fairness q1,0.04379
-0.94,ranking,Fairness q2,0.04379
+0.94,ranking,Fairness q2,0.04409
 0.94,ranking,Fairness q3,0.05369
 0.94,ranking,Fairness q4,0.0589
 
