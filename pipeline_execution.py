@@ -515,7 +515,7 @@ utility= executor.current_par_lookup(X_train, y_train,
 print('utility:', utility)'''
 
 
-dataset_name = 'adult'
+'''dataset_name = 'adult'
 metric_type = 'sp'
 modelType= 'lr'
 filename_train = f'historical_data/historical_data_train_profile_{modelType}_{metric_type}_{dataset_name}.csv'
@@ -561,7 +561,7 @@ print(pro_coef)
 print(pro_coef_rank)
 print(par_coef)
 print(par_coef_rank)
-print("Pipeline execution completed.")
+print("Pipeline execution completed.")'''
 '''cur_par=[0, 0, 0, 0]
 
 utility= executor.current_par_lookup(X_train, y_train,

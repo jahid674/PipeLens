@@ -202,11 +202,14 @@ class Profile:
         (_,_,_,fn) = pm.pair_matching(pairs, gt_list)
         return fn
     
-    def outlier(self, lst):
-        mean = statistics.mean(lst)
-        std = statistics.stdev(lst)
-        count = sum(1 for v in lst if v > mean + 2 * std or v < mean - 2 * std)
-        return count / len(lst)
+    def outlier(self,lst):
+        mean=statistics.mean(lst)
+        std=statistics.stdev(lst)
+        count=0
+        for v in lst:
+            if v>mean+2*std or v<mean-2*std:
+                count+=1
+            return count*1.0/len(lst)
 
     def missing(self, lst):
         count = 0
@@ -219,21 +222,23 @@ class Profile:
                     count += 1
         return count / len(lst)
 
-    def correlation(self, lst1, lst2):
+    def correlation(self,lst1,lst2):
         try:
-            r, _ = pearsonr(lst1, lst2)
-            return r
-        except Exception as e:
-            print("Correlation error:", e)
-            return 0
+            (r,p)= pearsonr(lst1,lst2)
+            if True:
+                    return r
+            else:
+                    return 0
+        except:
+            print("efe")
 
-    def categorical_correlation(self, lst1, lst2):
-        cross_tab = pd.crosstab(lst1, lst2)
-        chi2, _, _, _ = chi2_contingency(cross_tab)
+    def categorical_correlation(self,lst1,lst2):
+        cross_tab=pd.crosstab(lst1,lst2)
+        chi2, p, dof, ex=chi2_contingency(cross_tab)
         return chi2
 
     def categorical_numerical_correlation(self, lst1, lst2):
-        (chi2, _) = stats.f_oneway(lst1, lst2)
+        (chi2, p) = stats.f_oneway(lst1, lst2)
         return chi2
     
     def get_fraction_of_outlier(self,data):

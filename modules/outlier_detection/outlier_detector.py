@@ -15,7 +15,7 @@ class OutlierDetector:
     """
 
     def __init__(self, dataset, strategy='none', k=None, contamination=0.2, verbose=False, exclude=None):
-        self.dataset = dataset.copy()
+        self.df = dataset.copy()
         self.strategy = strategy.lower()
         self.contamination = contamination
         self.verbose = verbose
@@ -32,39 +32,37 @@ class OutlierDetector:
         if self.verbose:
             print("---------->> Starting Outlier Detection <<-----------")
 
-        df = self.dataset.copy()
-
-        excluded_cols = df[self.exclude] if self.exclude else pd.DataFrame()
-        df = df.drop(columns=self.exclude, errors='ignore')
+        excluded_cols = self.df[self.exclude] if self.exclude else pd.DataFrame()
+        self.df = self.df.drop(columns=self.exclude, errors='ignore')
 
         if self.strategy == 'none':
             if self.verbose:
                 print("No outlier detection applied.")
-            outlier_y_pred = np.ones(len(df))
+            outlier_y_pred = np.ones(len(self.df))
 
         elif self.strategy == 'if':
             if self.verbose:
                 print(f"Applying Isolation Forest with contamination={self.contamination}")
             clf = IsolationForest(n_estimators=50, contamination=self.contamination, random_state=0)
-            outlier_y_pred = clf.fit_predict(df)
+            outlier_y_pred = clf.fit_predict(self.df)
 
         elif self.strategy == 'lof':
             if self.verbose:
                 print(f"Applying Local Outlier Factor with k={self.k}, contamination={self.contamination}")
             lof = LocalOutlierFactor(n_neighbors=self.k, contamination=self.contamination)
-            outlier_y_pred = lof.fit_predict(df)
+            outlier_y_pred = lof.fit_predict(self.df)
 
         else:
             raise ValueError("Invalid strategy selected.")
 
         mask = outlier_y_pred != -1
 
-        outlier_X_train = df.copy()
+        outlier_X_train = self.df.copy()
         outlier_y_train = y_train.copy() if y_train is not None else None
         outlier_sensitive_train = sensitive_attr_train.copy() if sensitive_attr_train is not None else None
 
         if self.verbose:
-            print(f"Total samples: {len(df)}, Remaining after outlier removal: {sum(mask)}")
+            print(f"Total samples: {len(self.df)}, Remaining after outlier removal: {sum(mask)}")
 
         if (sum(mask) > 0) and (sum(mask) < len(outlier_y_pred)):
             outlier_X_train = outlier_X_train[mask]

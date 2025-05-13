@@ -194,10 +194,10 @@ class base:
                                         if(tuple(cur_params.items())) in seen:
                                                 continue
                                         
-                                        #cur_f  = self.f_score_look_up2(self.historical_data_pd,list(cur_params.values()))
-                                        cur_f = executor.current_par_lookup(X_test, y_test,
-                                                                pipeline_order=['missing_value', 'normalization', 'outlier', 'model'],
-                                                                cur_par=[cur_params['missing_value'], cur_params['normalization'], cur_params['outlier'], cur_params['model']])
+                                        cur_f  = self.f_score_look_up2(self.historical_data_pd,list(cur_params.values()))
+                                        #cur_f = executor.current_par_lookup(X_test, y_test,
+                                                                #pipeline_order=['missing_value', 'normalization', 'outlier', 'model'],
+                                                                #cur_par=[cur_params['missing_value'], cur_params['normalization'], cur_params['outlier'], cur_params['model']])
                                         seen.add(tuple(cur_params.items()))
                                         
                                         self.rank_iter += 1
@@ -250,10 +250,10 @@ class base:
                                                 self.rank_f = opt_f
                                                 
                                                 logging.info(f'Next param {cur_params}')
-                                                #cur_f  = self.f_score_look_up2(self.historical_data_pd,list(cur_params.values()))
-                                                cur_f = executor.current_par_lookup(X_test, y_test,
-                                                                pipeline_order=['missing_value', 'normalization', 'outlier', 'model'],
-                                                                cur_par=[cur_params['missing_value'], cur_params['normalization'], cur_params['outlier'], cur_params['model']])
+                                                cur_f  = self.f_score_look_up2(self.historical_data_pd,list(cur_params.values()))
+                                                #cur_f = executor.current_par_lookup(X_test, y_test,
+                                                 #               pipeline_order=['missing_value', 'normalization', 'outlier', 'model'],
+                                                 #               cur_par=[cur_params['missing_value'], cur_params['normalization'], cur_params['outlier'], cur_params['model']])
 
                                                 opt_f,cur_params_opt,found = self.f_lookup(cur_f,f_goal,cur_params_opt,cur_params,opt_f)
                                                 logging.info(f'Optimal paramater {cur_params_opt}, optimal fairness {opt_f} ')
@@ -522,8 +522,8 @@ class base:
 p = base()
 
 
-filename_test = 'historical_data/historical_data_test_profile_'+modelType+'_'+metric_type+'_'+dataset_name+'.csv'
-filename_train = 'historical_data/historical_data_train_profile_'+modelType+'_'+metric_type+'_'+dataset_name+'.csv'
+filename_test = 'historical_data/historical_data_test_'+modelType+'_'+metric_type+'_'+dataset_name+'.csv'
+filename_train = 'historical_data/historical_data_train_'+modelType+'_'+metric_type+'_'+dataset_name+'.csv'
 
 executor = PipelineExecutor(
     dataset_name=dataset_name,
@@ -544,8 +544,8 @@ historical_test,_,_ = executor.run_pipeline(filename_test, X_test, y_test, pipel
 historical_data = pd.read_csv(filename_test)
 
 if scalability_bool:
-        filename_test = 'metric/scalability/historical_data_test_profile_'+modelType+'_'+metric_type+'_'+dataset_name+'_'+str(len(knn_k_lst))+'.csv'
-        filename_train = 'metric/scalability/historical_data_train_profile_'+modelType+'_'+metric_type+'_'+dataset_name+'_'+str(len(knn_k_lst))+'.csv'
+        filename_test = 'metric/scalability/historical_data_test_'+modelType+'_'+metric_type+'_'+dataset_name+'_'+str(len(knn_k_lst))+'.csv'
+        filename_train = 'metric/scalability/historical_data_train_'+modelType+'_'+metric_type+'_'+dataset_name+'_'+str(len(knn_k_lst))+'.csv'
 
 #p.pipeline_execution(filename_train)
 #p.pipeline_execution_test(filename_test)
