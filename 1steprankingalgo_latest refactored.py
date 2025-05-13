@@ -175,6 +175,7 @@ class base:
                         self.rank_f = opt_f
                         return 
                 seen.add(tuple(cur_params_opt.items()))
+                
                 while(iter_size<len(coef_rank)):
                 
                         if iter_size == 0:
@@ -345,167 +346,7 @@ class base:
 
 
 
-        '''def pipeline_execution_test(self,file_name):
-                # inject missing values in the most important column
-                param_lst_df = None
-                if not(os.path.exists(file_name)):
-                        idx_test = np.arange(0, len(X_test), 1)
-                        mv_test = pd.DataFrame(idx_test).sample(frac=tau_test, replace=False, random_state=1).index
-                        if (dataset_name == 'hmda'):
-                                X_test['lien_status'][mv_test] = np.NaN
-                        elif (dataset_name == 'adult'):
-                                X_test['Martial_Status'][mv_test] = np.NaN
-                        elif(dataset_name=='housing'):
-                                X_test['OverallQual'][mv_test] = np.NaN
-
-                        params_metrics = []
-                        print("Running pipeline combinations ...")
-                        
-                        mv_params = len(mv_strategy)
-                        od_params = len(od_strategy)
-                        norm_params = len(norm_strategy)
-                        if 'knn' in mv_strategy:
-                                mv_params += len(knn_k_lst) - 1
-                        if 'lof' in od_strategy:
-                                od_params += len(lof_k_lst) - 1
-
-                        mv_param = ''
-                        norm_param = ''
-                        od_param = ''
-
-                        param_lst = []
-                        if metric_type == 'sp' or metric_type=='accuracy_score' :
-                                priv_idx_test, unpriv_idx_test, sensitive_attr_test = self.getIdxSensitive(X_test, sensitive_variable)
-
-
-                        for param1 in range(mv_params):
-                                for param2 in range(norm_params):
-                                        for param3 in range(od_params):
-                                                if param1 < len(mv_strategy) - 1:
-                                                        if mv_strategy[param1] == 'drop':
-                                                                if dataset_name == 'hmda':
-                                                                        mv_idx = X_test[X_test['lien_status'].isna()].index.tolist()
-                                                                elif dataset_name == 'adult':
-                                                                        mv_idx = X_test[X_test['Martial_Status'].isna()].index.tolist()
-                                                                elif dataset_name == 'housing':
-                                                                        mv_idx = X_test[X_test.isna().any(axis=1)].index.tolist()
-                                                                imputed_X_test = X_test.drop(mv_idx)
-                                                                imputed_X_test.reset_index(drop=True, inplace=True)
-                                                                updated_y_test = y_test.copy()
-                                                                for idx in sorted(mv_idx, reverse=True):
-                                                                        del updated_y_test[idx]
-                                                                updated_y_test.reset_index(drop=True, inplace=True)
-                                                                if metric_type=='sp' or metric_type=='accuracy_score':
-                                                                        updated_sensitive_attr_test = sensitive_attr_test.drop(mv_idx)
-                                                                        updated_sensitive_attr_test.reset_index(drop=True, inplace=True)
-                                                                mv_param = [1]
-                                                        elif mv_strategy[param1] in ['mean', 'median', 'most_frequent']:
-                                                                imputed_X_test = SimpleImputer(missing_values=np.nan, strategy=mv_strategy[param1]).fit(X_test).transform(X_test)
-                                                                updated_y_test = y_test.copy()
-                                                                if metric_type=='sp' or metric_type=='accuracy_score' :
-                                                                        updated_sensitive_attr_test = sensitive_attr_test.copy()
-                                                                if mv_strategy[param1] == 'mean':
-                                                                        mv_param = [2]
-                                                                if mv_strategy[param1] == 'median':
-                                                                        mv_param = [3]
-                                                                if mv_strategy[param1] == 'most_frequent':
-                                                                        mv_param = [4]
-                                                                        # import pdb;pdb.set_trace()
-                                                else:
-                                                        k = knn_k_lst[param1-4] # start accessing number of neighbors in knn
-                                                        imputed_X_test = KNNImputer(n_neighbors=k).fit_transform(X_test)
-                                                        mv_param = [param1+1]
-                                
-                                
-                                                if norm_strategy[param2] == 'none':
-                                                        scaled_X_test = imputed_X_test.copy()
-                                                        norm_param = [1]
-                                                elif norm_strategy[param2] == 'ss':
-                                                        scaled_X_test = StandardScaler().fit(imputed_X_test).transform(imputed_X_test) 
-                                                        norm_param = [2]
-                                                elif norm_strategy[param2] == 'rs':
-                                                        scaled_X_test = RobustScaler().fit(imputed_X_test).transform(imputed_X_test) 
-                                                        norm_param = [3]
-                                                elif norm_strategy[param2] == 'ma':
-                                                        scaled_X_test = MaxAbsScaler().fit(imputed_X_test).transform(imputed_X_test) 
-                                                        norm_param = [4]
-                                                elif norm_strategy[param2] == 'mm':
-                                                        scaled_X_test = MinMaxScaler().fit(imputed_X_test).transform(imputed_X_test) 
-                                                        norm_param = [5]
-                                                if isinstance(scaled_X_test, np.ndarray):
-                                                       
-                                                       scaled_X_test = pd.DataFrame(data=scaled_X_test,columns=X_test.columns)
-                                                if param3 < len(od_strategy) - 1:
-                                                        if od_strategy[param3] == 'none':
-                                                                outlier_y_pred = np.ones(len(scaled_X_test))
-                                                                od_param = [1]
-                                                        if od_strategy[param3] == 'if':
-                                                                outlier_y_pred = IsolationForest(n_estimators=50,contamination=contamination_test,random_state=0).fit_predict(scaled_X_test)
-                                                                od_param = [2]
-                                                else:
-                                                        k = lof_k_lst[param3 - 2] # start accessing number of neighbors in lof
-                                                        outlier_y_pred = LocalOutlierFactor(n_neighbors=k, contamination=contamination_test_lof).fit_predict(scaled_X_test)
-                                                        od_param = [param3+1]
-                                                mask = outlier_y_pred != -1
-
-                                                outlier_X_test = scaled_X_test.copy()
-                                                outlier_y_test = updated_y_test.copy()
-                                                priv_idx_test = None
-                                                unpriv_idx_test = None
-                                                if(metric_type=='sp' ):
-                                                        outlier_sensitive_test = updated_sensitive_attr_test.copy()
-                                                        if (sum(mask) > 0 and sum(mask) < len(outlier_y_pred)): # at least one outlier
-                                                                # import pdb;pdb.set_trace()
-                                                                outlier_X_test, outlier_y_test, outlier_sensitive_test = scaled_X_test[mask], updated_y_test[mask], updated_sensitive_attr_test[mask]
-                                                                outlier_y_test.reset_index(drop=True, inplace=True)
-                                                                outlier_X_test.reset_index(drop=True, inplace=True)
-                                                                outlier_sensitive_test.reset_index(drop=True, inplace=True)   
-
-                                                        priv_idx_test = [i for i, val in enumerate(outlier_sensitive_test) if val == 1]
-                                                        unpriv_idx_test = [i for i, val in enumerate(outlier_sensitive_test) if val == 0]
-                                                elif dataset_name=='housing' or metric_type=='accuracy_score':
-                                                        if (sum(mask) > 0 and sum(mask) < len(outlier_y_pred)): # at least one outlier
-                                                                # import pdb;pdb.set_trace()
-                                                                outlier_X_test, outlier_y_test = scaled_X_test[mask], updated_y_test[mask]
-                                                                outlier_y_test.reset_index(drop=True, inplace=True)
-                                                                outlier_X_test.reset_index(drop=True, inplace=True)
-
-
-                                                updated_model = None
-                                                #import pdb;pdb.set_trace()
-                                                if modelType == 'lr':
-                                                        updated_model = LogisticRegression(random_state=0).fit(outlier_X_test, outlier_y_test)
-                                                elif modelType == 'nb':
-                                                        updated_model = GaussianNB().fit(outlier_X_test, outlier_y_test)
-                                                elif modelType == 'rf':
-                                                        updated_model = RandomForestClassifier(random_state=0).fit(outlier_X_test, outlier_y_test)
-                                                elif modelType=='reg':
-                                                        updated_model = Regression().generate_regression(outlier_X_test,outlier_y_test)
-
-                                                y_pred = updated_model.predict(outlier_X_test)
-                                                # eqOdds_test = self.computeEqualizedOdds(y_pred, outlier_y_test, priv_idx_test, unpriv_idx_test)
-                                                outc = None
-                                                # import pdb;pdb.set_trace()
-                                                if metric_type== 'sp':
-                                                        outc = self.computeStatisticalParity(y_pred[priv_idx_test],y_pred[unpriv_idx_test])
-                                                elif metric_type=='f-1':
-                                                        outc = f1_score(outlier_y_test,y_pred)
-                                                elif metric_type=='accuracy_score':
-                                                        outc = 1-accuracy_score(outlier_y_test,y_pred)
-                                                elif metric_type=='mae':
-                                                        outc = mean_absolute_error(outlier_y_test, y_pred)
-                                                elif metric_type=='rmse':
-                                                        outc = np.sqrt(root_mean_squared_error(outlier_y_test, y_pred)) 
-                                                f = [outc]
-                                                param_lst.append(mv_param + norm_param + od_param + f)
-                                                
-                                                print(str(mv_param + norm_param + od_param + f))
-                                        
-
-
-                        param_lst_df = pd.DataFrame(param_lst, columns=["missing_value","normalization","outlier","fairness"])
-                        
-                        param_lst_df.to_csv(file_name,index=False)'''
+        
 
         def write_quartiles(self,csv_writer, algorithm, metric, quartiles):
                 if dataset_name in ['adult', 'hmda']:
@@ -594,9 +435,9 @@ for f_goal in f_goals:
         for seed_ in historical_data.values.tolist():
                 #print(seed_)
                 seen = set()
-                # p.grid_search(f_goal,seen)
-                # gs_idistr.append(p.gs_idistr[0])
-                # gs_fdistr.append(p.gs_fdistr[0])
+                p.grid_search(f_goal,seen)
+                gs_idistr.append(p.gs_idistr[0])
+                gs_fdistr.append(p.gs_fdistr[0])
                 p.optimize(seed_, f_goal)
 
                 if (h_sample_bool):

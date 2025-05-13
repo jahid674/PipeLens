@@ -42,9 +42,9 @@ class PipelineExecutor:
             return 'race'
         return None
     
-    def set_dataset(self, dataset):
-        self.numerical_columns = dataset.select_dtypes(include=['int', 'float']).columns
-        self.categorical_columns = dataset.select_dtypes(include=['object']).columns
+    #def set_dataset(self, dataset):
+    #    self.numerical_columns = dataset.select_dtypes(include=['int', 'float']).columns
+    #    self.categorical_columns = dataset.select_dtypes(include=['object']).columns
 
     def getIdxSensitive(self, df, sensitive_var):
         priv_idx = df.index[df[sensitive_var] == 1]
@@ -134,7 +134,7 @@ class PipelineExecutor:
                                         outlier_detector = OutlierDetector(X_processed, strategy='lof', k=k,
                                                                            contamination=self.contamination_train_lof, verbose=False)
 
-                                    X_processed, y_processed, sensitive_processed, _, _ = outlier_detector.transform(
+                                    X_processed, y_processed, sensitive_processed, _= outlier_detector.transform(
                                         y_processed, sensitive_processed)
                                     od_param = [param3 + 1]
 
@@ -153,7 +153,7 @@ class PipelineExecutor:
                                 priv_idx=priv_idx,
                                 unpriv_idx=unpriv_idx
                             )
-
+                            
                             param_lst.append(mv_param + norm_param + od_param + model_param + [outc])
                             print(mv_param + norm_param + od_param + model_param + [outc])
 
@@ -261,7 +261,7 @@ class PipelineExecutor:
         p = Profile()
 
         if os.path.exists(file_name):
-            param_lst_df = param_lst_df = pd.read_csv(file_name)
+            param_lst_df = pd.read_csv(file_name)
         else:
             X_train = self.inject_missing_values(X_train, self.tau_train)
 
@@ -269,7 +269,7 @@ class PipelineExecutor:
             od_params = len(self.od_strategy) + len(self.lof_k_lst) - 1 if 'lof' in self.od_strategy else len(self.od_strategy)
             norm_params = len(self.norm_strategy)
             model_params = len(self.model_selection)
-
+            numerical_columns = X_train.select_dtypes(include=['int', 'float']).columns
             sensitive_var = self.get_sensitive_variable()
             priv_idx_train, unpriv_idx_train, sensitive_attr_train = self.getIdxSensitive(X_train, sensitive_var)
 
@@ -375,7 +375,7 @@ class PipelineExecutor:
                             )
 
                             f = [outc]
-                            profile_gen,key_profile = p.populate_profiles(pd.concat([X_processed, y_processed], axis=1), self.numerical_columns, target_variable_name, fraction_out, self.metric_type)
+                            profile_gen,key_profile = p.populate_profiles(pd.concat([X_processed, y_processed], axis=1), numerical_columns, target_variable_name, fraction_out, self.metric_type)
                                                         
                             param_lst.append(mv_param + norm_param + od_param + model_param + sens_data + profile_gen + f)
                             print(str(mv_param + norm_param + od_param + model_param + f))
@@ -533,7 +533,7 @@ lof_k_lst = [1, 5, 10, 20, 30]
 #dataset, X_train, y_train, X_test, y_test = loader.load()
 
 
-tau_train = 0.1
+'''tau_train = 0.1
 contamination_train = 0.2
 contamination_train_lof = 'auto'
 
@@ -561,7 +561,7 @@ print(pro_coef)
 print(pro_coef_rank)
 print(par_coef)
 print(par_coef_rank)
-print("Pipeline execution completed.")
+print("Pipeline execution completed.")'''
 
 '''cur_par=[0, 0, 0, 0]
 

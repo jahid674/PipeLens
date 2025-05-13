@@ -1,41 +1,43 @@
 import itertools
 # from modules.outlier_detection.outlier_detector import OutlierDetector
-from modules.missing_value.imputer import DataImputer
+# from modules.missing_value.imputer import DataImputer
 from modules.Util.reader import Reader
-from modules.normalization.normalizer import DataNormalizer
 from modules.metric.metric import metric
 from sklearn.naive_bayes import GaussianNB
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import precision_score, recall_score, f1_score
 from regression import Regression
-from sklearn.linear_model import LinearRegression
 from sklearn.metrics import mean_absolute_error, mean_squared_error, root_mean_squared_error
 import time
 import csv
 import os
 import pandas as pd
 import numpy as np
-import math
 from itertools import product
 import random
 from itertools import cycle
+import operator
 import sys
+from sklearn.feature_selection import SelectKBest
+from sklearn.feature_selection import mutual_info_regression
 from sklearn.preprocessing import LabelEncoder
 import matplotlib.pyplot as plt
 from sklearn.metrics import  confusion_matrix
 from sklearn.ensemble import IsolationForest
 from sklearn.neighbors import LocalOutlierFactor
 # from modules.outlier_detection.outlier_detector import OutlierDetector
+# from modules.missing_value.imputer import DataImputer
 from modules.Util.reader import Reader
 from modules.normalization.normalizer import Normalizer
 from modules.missing_value.imputer import Imputer
 from modules.models.model import ModelTrainer
-from pipeline_execution.pipeline_execution import PipelineExecutor
+from pipeline_execution import PipelineExecutor
 from modules.models.metric import MetricEvaluator
 from modules.outlier_detection.outlier_detector import OutlierDetector
 from sklearn.naive_bayes import GaussianNB
 from regression import Regression
 from sklearn.linear_model import LogisticRegression
+from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import  confusion_matrix
 from sklearn.inspection import permutation_importance
 from sklearn.preprocessing import MaxAbsScaler, MinMaxScaler, RobustScaler, StandardScaler
@@ -50,61 +52,29 @@ from itertools import product
 import random
 import copy
 import csv 
-from sklearn.metrics import f1_score,accuracy_score
+from sklearn.metrics import f1_score,accuracy_score,balanced_accuracy_score
 from scipy.stats import rankdata
 from sklearn.preprocessing import LabelEncoder
 import logging
-from sklearn.svm import OneClassSVM
-from sklearn.feature_selection import SelectKBest
-from sklearn.feature_selection import mutual_info_regression
-
-import statistics 
-from sklearn.preprocessing import LabelEncoder
-# import prose.datainsights as di
-from scipy.stats import chisquare,chi2_contingency
-from scipy import stats
+import numpy as np
+from LoadDataset import LoadDataset
+from modules.profiling.profile import Profile
 
 
-tau_train = 0.1 # fraction of missing values
-tau_test = 0.1
-contamination_train = 0.2
-contamination_test = 0.2
-
-contamination_train_lof = 0.2
-contamination_test_lof = 0.2
-
-# contamination_train = 0.1
-# contamination_test = 0.4
-
-# tau_train = 0.05 # fraction of missing values
-# tau_test = 0.4
-
-# contamination_train_lof = 0.1
-# contamination_test_lof = 0.4
-
-# knn_k = 1 # knn number of neighbors
-# lof_k = 50 # number of neighbors for local outlier factor
 knn_k_lst = [1, 5, 10, 20, 30]
 lof_k_lst = [1, 5, 10, 20, 30]
-# knn_k_lst = [1]
-# lof_k_lst = [1]
-
 len_knn = len(knn_k_lst)
 len_lof = len(lof_k_lst)
 norm_strategy = ['none', 'ss', 'rs', 'ma', 'mm'] # standard scaler, robust scaler, max absolute scaler, minmax scaler
 mv_strategy = ['drop', 'mean', 'median', 'most_frequent', 'knn']
 od_strategy = ['none', 'if', 'lof'] # local outlier factor, isolation forest
-
-# norm_strategy = ['none'] 
-# mv_strategy = ['drop', 'knn']
-# od_strategy = ['none', 'lof']
-
-dataset = 'hmda'
+model_selection = ['lr']#, 'rf' #, 'nb', 'reg']
+dataset_name = 'adult' # 'hmda', 'housing'
 modelType = 'lr' #'lr' 'reg'
 metric_type = 'accuracy_score' # rmse, accuracy_score, sp
 algo_type = '2step'
 from sklearn.ensemble import RandomForestClassifier
-logging.basicConfig(filename='logs/profile_'+algo_type+"_"+dataset+'_'+modelType+'_'+'metric_type'+'.log', filemode = 'w',level=logging.DEBUG, format='%(asctime)s - %(levelname)s - %(message)s')
+logging.basicConfig(filename='logs/profile_'+algo_type+"_"+dataset_name+'_'+modelType+'_'+'metric_type'+'.log', filemode = 'w',level=logging.DEBUG, format='%(asctime)s - %(levelname)s - %(message)s')
 
 h_sample_bool = False
 h_sample = 0.005 # sample h_sample fraction of historical data
@@ -118,291 +88,59 @@ if scalability_bool:
         norm_strategy = ['none', 'ss', 'rs', 'ma', 'mm']
         mv_strategy = ['drop', 'mean', 'median', 'most_frequent', 'knn']
         od_strategy = ['none', 'if', 'lof']
+        model_selection = ['lr', 'rf', 'nb', 'reg']
 
-column_names = ['Age','Workclass','fnlwgt','Education','Education_Num','Martial_Status','Occupation','Relationship','Race','Sex','Capital_Gain','Capital_Loss','Hours_per_week','Country','income']
-categorical_cols = ['Age','Workclass', 'Education', 'Martial_Status', 'Relationship', 'Race', 'Sex','Hours_per_week','income']
-from scipy.stats import pearsonr
-class Profile:
-  profile_lst=[]
-  def __init__(self):
-    pass
-  def outlier(self,lst):
-    mean=statistics.mean(lst)
-    std=statistics.stdev(lst)
-    count=0
-    for v in lst:
-      if v>mean+2*std or v<mean-2*std:
-        count+=1
-    return count*1.0/len(lst)
-  def missing(self,lst):
-    count = 0
-    for v in lst:
-      try:
-        if np.isnan(v):
-          count += 1
-      except:
-        if len(v) == 0:
-          count += 1
-    return count*1.0/len(lst)
-  
-  def correlation(self,lst1,lst2):
-    try:
-        (r,p)= pearsonr(lst1,lst2)
-        if True:
-                return r
-        else:
-                return 0
-    except:
-           print("efe")
-    
-  def categorical_correlation(self,lst1,lst2):
-    cross_tab=pd.crosstab(lst1,lst2)
-    chi2, p, dof, ex=chi2_contingency(cross_tab)
-    return chi2
+#column_names = ['Age','Workclass','fnlwgt','Education','Education_Num','Martial_Status','Occupation','Relationship','Race','Sex','Capital_Gain','Capital_Loss','Hours_per_week','Country','income']
+#categorical_cols = ['Age','Workclass', 'Education', 'Martial_Status', 'Relationship', 'Race', 'Sex','Hours_per_week','income']
+#from scipy.stats import pearsonr
 
-  def categorical_numerical_correlation(self,lst1,lst2):
-    (chi2,p)=stats.f_oneway(lst1,lst2)
-    return chi2
-  def get_fraction_of_outlier(self,data):
-        svm_model = OneClassSVM(kernel='rbf')  # You can adjust the parameters as needed
-        svm_model.fit(data)
+loader = LoadDataset(dataset_name)
+dataset, X_train, y_train, X_test, y_test = loader.load()
 
-        # Step 2: Predict the labels of your data points
-        predicted_labels = svm_model.predict(data)
-
-        # Step 3: Count the number of predicted outliers
-        n_outliers = (predicted_labels == -1).sum()
-
-        # Step 4: Calculate the fraction of outliers
-        fraction_outliers = n_outliers / len(data)
-        return fraction_outliers
-  
-  def populate_profiles(self,data_final,outlier):
-    scaling_factor = 1
-    
-    profile_map={}
-    # import pdb;pdb.set_trace()
-
-
-    categorical_values={}
-    #Partition each column as categorical, numerical and textual
-    #Each profilehas four parameters where 3rd is conditional attribute 4th is value
-#     le = LabelEncoder()
-    
-#     for column in categorical_columns:
-      
-#       data_final[column] = le.fit_transform(data_final[column]) 
-      
-    profile = {}
-    i = 0
-    # import pdb;pdb.set_trace()
-    
-    if(dataset == 'hmda'):
-       target = 'action_taken'
-    elif dataset =='adult':
-       target = 'income'
-    elif dataset =='housing':
+if dataset_name == 'adult':
+        tau_train = 0.1 # fraction of missing values
+        tau_test = 0.1
+        contamination_train = 0.2
+        contamination_test = 0.2
+        contamination_train_lof = 'auto'
+        contamination_test_lof = 'auto'
+        target = 'income'
+        sensitive_variable='Sex'
+        numerical_columns = X_train.select_dtypes(include=['int', 'float']).columns
+        categorical_columns = X_train.select_dtypes(include=['object']).columns
+elif dataset_name == 'hmda':
+        tau_train = 0.2 # fraction of missing values
+        tau_test = 0.1
+        contamination_train = 0.3
+        contamination_test = 0.2
+        contamination_train_lof = 0.3
+        contamination_test_lof = 0.2
+        target = 'action_taken'
+        sensitive_variable='race'
+        numerical_columns = X_train.select_dtypes(include=['int', 'float']).columns
+        categorical_columns = X_train.select_dtypes(include=['object']).columns
+elif dataset_name == 'housing':
+        tau_train = 0.2 # fraction of missing values
+        tau_test = 0.1
+        contamination_train = 0.3
+        contamination_test = 0.2
+        contamination_train_lof = 0.3
+        contamination_test_lof = 0.2
         target = 'SalePrice'
+        numerical_columns = X_train.select_dtypes(include=['int', 'float']).columns
+        categorical_columns = X_train.select_dtypes(include=['object']).columns
 
-       
-    for column in data_final.columns:
+profiler = Profile()
+#outlier_fraction = profiler.get_fraction_of_outlier(dataset[numerical_columns])
+'''results, keys = profiler.populate_profiles(
+    data_final=dataset,
+    numerical_columns=numerical_columns,
+    target_column=target,
+    outlier=outlier_fraction,
+    metric_type='classification'
+)'''
 
-        if(column==target):
-          continue
-        if(metric_type=='rmse' or metric_type=='mae'):
-                if column in numerical_columns :
-                        #pearson -  regression 
-                        corr = self.correlation(data_final[column],data_final[target])
-                else:
-                        #categorical_numerical_correlation - regression
-                        corr = self.categorical_numerical_correlation(data_final[column],data_final[target])
-        else:
-                if column in numerical_columns :
-                       corr = self.categorical_numerical_correlation(data_final[column],data_final[target])
-                else:
-                        #categorical_numerical_correlation - regression
-                        corr = self.categorical_correlation(data_final[column],data_final[target])
-               
-        # missing_value = self.missing(self.df[categorical_columns[i]])
-        #outlier  = self.outlier(self.df[categorical_columns[i]])
-        
-        name = column
-        tuple = ('corr_' + name,  'ot_' + name)
-        profile[tuple]= [column,round(corr*scaling_factor,5),round(outlier*scaling_factor,5)]
-        i+=1
-    dd = []
-    keys = []
-    for val in profile:
-        # import pdb;pdb.set_trace()
-        dd.append(profile[val][1])
-        dd.append(profile[val][2])
-        keys.append(val[0])
-        keys.append(val[1])
-    return dd,keys
 
-numerical_columns = []
-if dataset == 'hmda':
-    hmda_train  = "data/hmda/hmda_Orleans_X_train_1.csv"
-    hmda_test = "data/hmda/hmda_Orleans_X_test_1.csv"
-
-    train,test = Reader(hmda_train,hmda_test).load_data()
-
-    for column in train.columns:
-        train[column] = train[column].astype('category')
-        test[column] = test[column].astype('category')
-
-    y_train = train['action_taken']
-    X_train = train.drop('action_taken', axis=1)
-
-    y_test = test['action_taken']
-    X_test = test.drop('action_taken', axis=1)
-    tau_train = 0.2 # fraction of missing values
-    tau_test = 0.1
-    contamination_train = 0.3
-    contamination_test = 0.2
-    contamination_train_lof = 0.3
-    contamination_test_lof = 0.2
-elif dataset == 'adult':
-    adult_train  = "data/adult/adult_test.csv"
-    adult_test = "data/adult/adult_train.csv"
-    train,test = Reader(adult_train,adult_test).load_data()
-    #train,test =  train[categorical_cols],test[categorical_cols]
-    
-    categorical_columns = train.select_dtypes(include=['object']).columns
-    numerical_columns = train.select_dtypes(include=['int', 'float']).columns
-    
-    label_encoder = LabelEncoder()
-    for column in categorical_columns:
-        le = LabelEncoder()
-        column_unique = list(train[column]) + list(test[column])
-        column_unique = pd.unique(column_unique)
-        le.fit(column_unique)
-        train[column] = le.transform(train[column])
-        test[column] = le.transform(test[column])
-        train[column] = train[column].astype('category')
-        test[column] = test[column].astype('category')
-
-    y_train = train['income']
-    X_train = train.drop('income', axis=1)
-    y_test = test['income']
-    X_test = test.drop('income', axis=1)
-
-    tau_train = 0.1 # fraction of missing values
-    tau_test = 0.1
-    contamination_train = 0.2
-    contamination_test = 0.2
-    contamination_train_lof = 'auto'
-    contamination_test_lof = 'auto'
-elif dataset == 'housing':
-    house_train  = "data/house/housing_train.csv"
-    house_test = "data/house/housing_test.csv"
-    train, test = Reader(house_train, house_test).load_data()
-    
-    missing_percentage = (train.isnull().sum() / len(train)) * 100
-    columns_to_drop = missing_percentage[missing_percentage > 40].index.tolist()
-    train.drop(columns=columns_to_drop, inplace=True)
-
-    missing_values_count = train.isnull().sum()
-    total_cells = np.product(train.shape)
-    total_missing = missing_values_count.sum()
-    missing_percentage = (total_missing / total_cells) * 100
-    missing_data = pd.DataFrame({'Missing Values': missing_values_count,
-                        'Percentage': (missing_values_count / train.shape[0]) * 100})
-#     print("Total missing values:", total_missing)
-#     print("Percentage of missing values:", missing_percentage)
-#     print("\nMissing value count and percentage per column:")
-#     logging.warning(missing_data)
-
-#     with pd.option_context('display.max_rows', None, 'display.max_columns', None):
-#             print(missing_data)
-    missing_colmn_categorical = ['Electrical','BsmtFinType2','BsmtQual','BsmtCond','BsmtExposure','BsmtFinType1','GarageType','GarageFinish','GarageQual','GarageCond']
-    missing_colmn_numerical  = ['LotFrontage','GarageYrBlt','MasVnrArea']
-    for column in missing_colmn_categorical:
-        most_frequent = train[column].mode()[0]
-        train[column].fillna(most_frequent, inplace=True)
-    for column in missing_colmn_numerical:
-        median_value = train[column].median()
-        train[column].fillna(median_value, inplace=True)
-
-    missing_values_count = train.isnull().sum()
-    total_cells = np.product(train.shape)
-    total_missing = missing_values_count.sum()
-    missing_percentage = (total_missing / total_cells) * 100
-    missing_data = pd.DataFrame({'Missing Values': missing_values_count,
-                        'Percentage': (missing_values_count / train.shape[0]) * 100})
-#     print("Total missing values:", total_missing)
-#     print("Percentage of missing values:", missing_percentage)
-#     print("\nMissing value count and percentage per column:")
-#     logging.warning(missing_data)
-
-#     with pd.option_context('display.max_rows', None, 'display.max_columns', None):
-        #     print(missing_data)
-#     y_train = X_train['SalePrice']
-#     y_test = X_test['SalePrice']
-#     X_train, X_test, y_train, y_test = train_test_split(train, train, test_size=0.6, random_state=10)
-
-#     X_train = train
-#     y_train = train['SalePrice'] 
-#     X_train.reset_index(drop=True, inplace=True)
-#     y_train.reset_index(drop=True, inplace=True)
-    categorical_columns = train.select_dtypes(include=['object']).columns
-    numerical_columns = train.select_dtypes(include=['int','float']).columns
-    
-    label_encoder = LabelEncoder()
-    for column in categorical_columns:
-        le = LabelEncoder()
-        column_unique = list(train[column]) + list(test[column])
-        column_unique = pd.unique(column_unique)
-        le.fit(column_unique)
-        train[column] = le.transform(train[column])
-        test[column] = le.transform(test[column])
-        train[column] = train[column].astype('category')
-        test[column] = test[column].astype('category')
-    
-    X_train = train.copy()
-    y_train = X_train['SalePrice'].loc[X_train.index]
-    X_train = X_train.drop(['SalePrice'], axis=1)
-
-    X_test = test.copy()
-    y_test = X_test['SalePrice'].loc[X_test.index]
-    X_test = X_test.drop(['SalePrice'], axis=1)
-    
-#     X_train = RobustScaler().fit(X_train).transform(X_train) 
-# #     y_train = RobustScaler().fit(y_train.to_frame()).transform(y_train.to_frame()) 
-#     model = LinearRegression()
-#     y_pred = model.fit(X_train, y_train).predict(X_train)
-#     print(y_train)
-#     print(y_pred)
-#     rmse = np.sqrt(root_mean_squared_error(y_train, y_pred)) 
-#     print("---RMSE----", rmse)
-
-    from sklearn.feature_selection import f_regression
-    selector = SelectKBest(score_func=f_regression, k=15)
-#     selector = SelectKBest(score_func=mutual_info_regression, k=15) # score_func incorporates randomness
-    selector.fit(X_train, y_train)
-    selected_indices = selector.get_support(indices=True)
-    selected_features = X_train.columns[selected_indices]
-    feature_scores = selector.scores_
-    selected_features_scores = pd.DataFrame({'Feature': X_train.columns, 'Score': feature_scores})
-    selected_features_scores.sort_values(by='Score', ascending=False, inplace=True)
-#     print(selected_features_scores)
-    selected_features_set = set(selected_features)
-    # Filter the DataFrame to include only the scores of the selected features
-    selected_features_scores_filtered = selected_features_scores[selected_features_scores['Feature'].isin(selected_features_set)]
-#     print(selected_features_scores_filtered)
-#     logging.warn(X_train.isnull().sum())
-#     logging.warn(X_test.isnull().sum())
-    print("Selected features: ", selected_features_set)
-
-    X_train = X_train[selected_features]
-    X_test = X_test[selected_features]
-
-    tau_train = 0.2 # fraction of missing values
-    tau_test = 0.1
-    contamination_train = 0.3
-    contamination_test = 0.2
-    contamination_train_lof = 0.3
-    contamination_test_lof = 0.2
         
 class base:
         def __init__(self):
@@ -422,6 +160,8 @@ class base:
                 self.normalizer_strategies = ['none', 'ss', 'rs', 'ma', 'mm']
                 self.no_name_mapping = {'none': 'norm_none', 'ss': 'norm_ss', 'rs': 'norm_rs', 'ma': 'norm_ma', 'mm': 'norm_mm'}
 
+                self.model_selection = ['lr', 'rf', 'nb', 'reg']
+                self.model_name_mapping = {'lr': 'model_lr', 'rf': 'model_rf', 'nb': 'model_nb', 'reg': 'model_reg'}
                 #normalization 
                 #
 
@@ -429,11 +169,7 @@ class base:
                 self.ranges['normalization'] = [1, 5, 10, 20, 30]
                 self.ranges['outlier'] = [1, 5, 10, 20, 30]
 
-                self.base_strategies  =['missing_value', 'normalization', 'outlier']
-                
-
-
-
+                self.base_strategies  =['missing_value', 'normalization', 'outlier', 'model']
                 self.historical_data = []   
                 self.historical_data_pd = []
                 self.gs_idistr = []
@@ -452,6 +188,7 @@ class base:
                 self.sublist_3 = [] 
                 self.column_name = ['normal','imputer','outlier_strategy' ]
                 self.profile_dist = {}
+
 
         def getIdxSensitive(self, df, dataset):
                 if dataset == 'hmda':
@@ -511,6 +248,7 @@ class base:
                 except Exception as e :
                         print(e)
                         # import pdb;pdb.set_trace()
+
         def optimize(self, init_params, f_goal):
                 logging.info(f'2step Starting Grasp search for utility score:{f_goal}')
                 #======Intitalize variable start here =====
@@ -686,6 +424,7 @@ class base:
                         if iter_size>len(self.historical_data):
                            print('Not able to find ')
                            break
+        
         def f_score_look_up2(self,profiles_df,elem):
                 column_names =['missing_value', 'normalization', 'outlier', 'fairness']
                 # return elem[-1]
@@ -699,6 +438,7 @@ class base:
                 except Exception as e :
                         print(e)
                         import pdb;pdb.set_trace()
+
         def grid_search(self, f_goal, iterations,seen):
                 self.gs_idistr = []
                 self.gs_fdistr = []
@@ -989,12 +729,12 @@ class base:
                         # X = StandardScaler().fit(X).transform(X)
                         reg = Regression()
                         model = reg.generate_regression(X, y)
-                        coefs = model.coef_
+                        coefs_par = model.coef_
                         # print(model.intercept_)
-                        self.ranking_param[elem] =  np.argsort(np.abs(coefs))[::-1]
+                        self.ranking_param[elem] =  np.argsort(np.abs(coefs_par))[::-1]
                         print(self.ranking_param[elem])
                         
-                        self.param_coeff[elem] =  coefs
+                        self.param_coeff[elem] =  coefs_par
                         print(f'name : {elem} {self.param_coeff[elem]}')
 
                 for idx,profile_index in enumerate(self.profile_ranking):
@@ -1196,15 +936,30 @@ class base:
 
 p = base()
 
-filename_test = 'historical_data/historical_data_test_profile_'+modelType+'_'+metric_type+'_'+dataset+'.csv'
-filename_train = 'historical_data/historical_data_train_profile_'+modelType+'_'+metric_type+'_'+dataset+'.csv'
+filename_test = 'historical_data/historical_data_test_profile_'+modelType+'_'+metric_type+'_'+dataset_name+'.csv'
+filename_train = 'historical_data/historical_data_train_profile_'+modelType+'_'+metric_type+'_'+dataset_name+'.csv'
 
 if scalability_bool:
-        filename_test = 'metric/scalability/historical_data_test_profile_'+modelType+'_'+metric_type+'_'+dataset+'_'+str(len(knn_k_lst))+'.csv'
-        filename_train = 'metric/scalability/historical_data_train_profile_'+modelType+'_'+metric_type+'_'+dataset+'_'+str(len(knn_k_lst))+'.csv'
+        filename_test = 'metric/scalability/historical_data_test_profile_'+modelType+'_'+metric_type+'_'+dataset_name+'_'+str(len(knn_k_lst))+'.csv'
+        filename_train = 'metric/scalability/historical_data_train_profile_'+modelType+'_'+metric_type+'_'+dataset_name+'_'+str(len(knn_k_lst))+'.csv'
 
-p.create_historic_data(filename_train)
-p.create_historic_data_test(filename_test)
+executor = PipelineExecutor(
+    dataset_name=dataset_name,
+    metric_type=metric_type,
+    mv_strategy=mv_strategy,
+    norm_strategy=norm_strategy,
+    od_strategy=od_strategy,
+    model_selection=model_selection,
+    knn_k_lst=knn_k_lst,
+    lof_k_lst=lof_k_lst,
+    tau_train=tau_train,
+    contamination_train=contamination_train,
+    contamination_train_lof=contamination_train_lof
+)
+_, _, sensitive_attr_train = executor.getIdxSensitive(X_train, sensitive_variable)
+coefs, _, coefs_par, _ = executor.run_pipeline_algo2(filename_train, X_train, y_train)
+_,_,_,_ = executor.run_pipeline_algo2(filename_train, X_train, y_train, pipeline_order=['missing_value', 'normalization', 'outlier', 'model'])
+historical_data = pd.read_csv(filename_train)
 
 f_goals = []
 if(dataset =='adult'):
@@ -1222,8 +977,8 @@ else:
         print('Please profile goals ')
 
 # #Read from historical data gererated on training data 
-historical_data = pd.read_csv(filename_test)
 p.historical_data_pd = historical_data;
+# #Convert to list of list containing all the combination of transformers in a fixed pipeline
 p.historical_data = historical_data.values.tolist();
 
 if (h_sample_bool):
