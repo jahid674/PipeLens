@@ -28,7 +28,7 @@ class GridSearch:
                 continue
 
             seen.add(param_tuple)
-            cur_f = self.score_lookup.f_score_look_up2(self.historical_data_pd, elem)
+            cur_f = self.score_lookup.utility_look_up(self.historical_data_pd, elem)
             gs_iter += 1
 
             if self.metric_type != 'f-1':

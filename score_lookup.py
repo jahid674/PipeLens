@@ -8,7 +8,7 @@ class ScoreLookup:
         self.pipeline_order = pipeline_order
         self.metric_type = metric_type
 
-    def f_score_look_up2(self,profiles_df,elem):
+    def utility_look_up(self,profiles_df,elem):
                 column_names = self.pipeline_order + [f'utility_{self.metric_type}']
                 try:
                         return round(profiles_df.loc[(profiles_df[column_names[0]] == elem[0]) & (profiles_df[column_names[1]] == elem[1] ) 
@@ -33,15 +33,6 @@ class ScoreLookup:
             sorted_params = sorted(score.items(), key=operator.itemgetter(1))
 
             return sorted_params
-    
-    def write_quartiles(csv_writer, f_goal, f_goals, algorithm, metric, quartiles, dataset_name):
-        if dataset_name in ['adult', 'hmda']:
-            fair_label = round(1 - f_goal, 2)
-        else:
-            fair_label = round(1 - (f_goal - min(f_goals)) / min(f_goals), 2)
-
-        for i, q in enumerate(quartiles, 1):
-            csv_writer.writerow([fair_label, algorithm, f"{metric} q{i}", round(q, 5)])
 
     
     

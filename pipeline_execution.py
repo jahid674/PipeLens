@@ -526,7 +526,7 @@ class PipelineExecutor:
 
 
 
-datasets = ['adult', 'hmda', 'housing']
+'''datasets = ['adult', 'hmda', 'housing']
 metric_types = ['sp', 'accuracy_score', 'f-1']
 model_types = ['lr', 'rf', 'nb']
 pipeline_order = ['missing_value', 'normalization', 'outlier', 'model']
@@ -546,66 +546,10 @@ for dataset_name in datasets:
 
             # Load historical data and score parameters
             historical_data = pd.read_csv(filename_train)
-            _, _ = executor.score_parameter(historical_data)
+            _, _ = executor.score_parameter(historical_data)'''
 
 
 '''cur_par=[1, 1, 1, 1]
 
 utility= executor.current_par_lookup(cur_par=cur_par)
-print('utility:', utility)'''
-
-
-
-'''dataset_name = 'adult'
-metric_type = 'sp'
-modelType= 'lr'
-filename_train = f'historical_data/historical_data_train_profile_{modelType}_{metric_type}_{dataset_name}.csv'
-
-
-mv_strategy = ['drop', 'mean', 'median', 'most_frequent', 'knn']
-norm_strategy = ['none', 'ss', 'rs', 'ma', 'mm']
-od_strategy = ['none', 'if', 'lof']
-model_selection = ['lr']
-knn_k_lst = [1, 5, 10, 20, 30]
-lof_k_lst = [1, 5, 10, 20, 30]
-
-
-#loader = LoadDataset(dataset_name)
-#dataset, X_train, y_train, X_test, y_test = loader.load()
-
-
-tau_train = 0.1
-contamination_train = 0.2
-contamination_train_lof = 'auto'
-
-
-executor = PipelineExecutor(
-    dataset_name=dataset_name,
-    metric_type=metric_type,
-    mv_strategy=mv_strategy,
-    norm_strategy=norm_strategy,
-    od_strategy=od_strategy,
-    model_selection=model_selection,
-    knn_k_lst=knn_k_lst,
-    lof_k_lst=lof_k_lst,
-    tau_train=tau_train,
-    contamination_train=contamination_train,
-    contamination_train_lof=contamination_train_lof
-)
-loader = LoadDataset(dataset_name)
-datasets, X_train, y_train, X_test, y_test = loader.load()
-executor.set_dataset(X_train)
-sensitive_var = executor.get_sensitive_variable()
-_, _, sensitive_attr_train = executor.getIdxSensitive(X_train, sensitive_var)
-pro_coef, pro_coef_rank, par_coef, par_coef_rank = executor.run_pipeline_algo2(filename_train, X_train, y_train)
-print(pro_coef)
-print(pro_coef_rank)
-print(par_coef)
-print(par_coef_rank)
-print("Pipeline execution completed.")'''
-
-'''cur_par=[0, 0, 0, 0]
-
-utility= executor.current_par_lookup(X_train, y_train,
-                     pipeline_order=['missing_value', 'normalization', 'outlier', 'model'], cur_par=cur_par)
 print('utility:', utility)'''

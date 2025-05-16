@@ -7,11 +7,9 @@ import logging
 from opaque_optimizer import OpaqueOptimizer
 from gridsearch import GridSearch
 
-# Load configuration
 with open('config.json', 'r') as f:
     config = json.load(f)
 
-# Unpack config
 dataset_name = config["dataset_name"]
 model_type = config["model_type"]
 metric_type = config["metric_type"]
@@ -36,7 +34,6 @@ p = OpaqueOptimizer(dataset_name, model_type, metric_type, pipeline_type, pipeli
 historical_data = pd.read_csv(filename_test)
 grid = GridSearch(historical_data, pipeline_order, metric_type)
 
-# Run experiment
 with open(metric_path, 'w') as f:
     csv_writer = csv.writer(f)
     for f_goal in f_goals:

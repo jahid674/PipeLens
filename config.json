@@ -1,7 +1,7 @@
 {
   "dataset_name": "adult",
   "model_type": "lr",
-  "metric_type": "f-1",
+  "metric_type": "sp",
   "pipeline_type": "ml",
   "pipeline_order": ["missing_value", "normalization", "outlier", "model"],
   "f_goals": {

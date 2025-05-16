@@ -48,7 +48,7 @@ class OpaqueOptimizer:
         self.rank_f = -1
         cur_params = init_params.copy()
         cur_params_opt = {strategy: selection for strategy, selection in zip(self.base_strategies, init_params[:len(self.base_strategies)])}
-        opt_f = self.score_lookup.f_score_look_up2(self.historical_data_pd, init_params)
+        opt_f = self.score_lookup.utility_look_up(self.historical_data_pd, init_params)
 
         if self.pipeline_type == 'ml':
             self.set_ranges()
@@ -77,19 +77,22 @@ class OpaqueOptimizer:
             current_paramter_value = self.ranges[cur_strategy][-1] if self.coefs[val] < 0 else self.ranges[cur_strategy][0]
             cur_params = cur_params_opt.copy()
             cur_params[cur_strategy] = current_paramter_value
-
+            logging.info(f'Next param {cur_params}')
             if tuple(cur_params.items()) in seen:
                 continue
 
-            cur_f = self.score_lookup.f_score_look_up2(self.historical_data_pd, list(cur_params.values()))
+            cur_f = self.score_lookup.utility_look_up(self.historical_data_pd, list(cur_params.values()))
             seen.add(tuple(cur_params.items()))
             self.rank_iter += 1
+            logging.info(f'fairness found : {cur_f} ,optimal fairness : {opt_f}')
             opt_f, cur_params_opt, found = self.f_lookup(cur_f, f_goal, cur_params_opt, cur_params, opt_f)
+            logging.info(f'Optimal paramater {cur_params_opt} ')
             if found:
                 return True, opt_f, cur_params_opt
         return False, opt_f, cur_params_opt
 
     def exhaustive_search(self, comb_size, seen, cur_params_opt, f_goal, opt_f):
+        logging.info('Fall back')
         self.fail_with_fallback += 1
         comb_lst = self.score_lookup.identify_param(self.coef_rank, comb_size)
         for comb in comb_lst:
@@ -106,8 +109,10 @@ class OpaqueOptimizer:
                 seen.add(tuple(cur_params.items()))
                 self.rank_iter += 1
                 self.rank_f = opt_f
-                cur_f = self.score_lookup.f_score_look_up2(self.historical_data_pd, list(cur_params.values()))
+                logging.info(f'Next param {cur_params}')
+                cur_f = self.score_lookup.utility_look_up(self.historical_data_pd, list(cur_params.values()))
                 opt_f, cur_params_opt, found = self.f_lookup(cur_f, f_goal, cur_params_opt, cur_params, opt_f)
+                logging.info(f'Optimal paramater {cur_params_opt}, optimal fairness {opt_f} ')
                 if found:
                     return True, opt_f, cur_params_opt
         return False, opt_f, cur_params_opt
