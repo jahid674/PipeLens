@@ -1,0 +1,20 @@
+{
+  "dataset_name": "adult",
+  "model_type": "lr",
+  "metric_type": "f-1",
+  "pipeline_type": "ml",
+  "pipeline_order": ["missing_value", "normalization", "outlier", "model"],
+  "f_goals": {
+    "adult": [0.05, 0.06, 0.13, 0.16],
+    "hmda": [0.06, 0.07, 0.08, 0.09],
+    "housing": [162, 170, 180, 185]
+  },
+  "paths": {
+    "train_data": "historical_data/historical_data_train_{model_type}_{metric_type}_{dataset_name}.csv",
+    "test_data": "historical_data/historical_data_test_{model_type}_{metric_type}_{dataset_name}.csv",
+    "metric_output": "metric/metric_{model_type}_{metric_type}_{dataset_name}.csv",
+    "log_file": "logs/{dataset_name}_modelType_{metric_type}.log"
+  }
+}
+
+  

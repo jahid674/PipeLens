@@ -1,4 +1,4 @@
-missing_value,normalization,outlier,model,fairness
+missing_value,normalization,outlier,model,utility_sp
 1,1,1,1,0.05890059639151461
 1,1,2,1,0.09299200481403593
 1,1,3,1,0.05550270853754288

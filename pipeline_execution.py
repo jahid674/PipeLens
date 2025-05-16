@@ -16,37 +16,72 @@ from modules.profiling.profile import Profile
 import math
 
 class PipelineExecutor:
-    def __init__(self, dataset_name, metric_type,
-                 mv_strategy, norm_strategy, od_strategy, model_selection,
-                 knn_k_lst, lof_k_lst, tau_train,
-                 contamination_train, contamination_train_lof, h_sample_bool=False):
-        self.dataset_name = dataset_name
-        self.metric_type = metric_type
-        self.mv_strategy = mv_strategy
-        self.norm_strategy = norm_strategy
-        self.od_strategy = od_strategy
-        self.model_selection = model_selection
-        self.knn_k_lst = knn_k_lst
-        self.lof_k_lst = lof_k_lst
-        self.tau_train = tau_train
-        self.contamination_train = contamination_train
-        self.contamination_train_lof = contamination_train_lof
-        self.h_sample_bool = h_sample_bool
-        if self.h_sample_bool:
-            self.h_sample = 0.005
+    def __init__(self, pipeline_type, dataset_name, metric_type, pipeline_ord, execution_type='pass', h_sample_bool=False, scalability_bool=False):
+        
+        self.pipeline_type = pipeline_type # 'ml' or 'em'
 
-    def get_sensitive_variable(self):
-        if self.dataset_name == 'adult':
-            return 'Sex'
-        elif self.dataset_name == 'hmda':
-            return 'race'
-        return None
+        if self.pipeline_type == 'ml':
+            self.dataset_name = dataset_name
+            self.metric_type = metric_type
+            self.h_sample_bool = h_sample_bool
+            if self.h_sample_bool:
+                self.h_sample = 0.005
+            self.scalability_bool = scalability_bool
+            self.mv_strategy = ['drop', 'mean', 'median', 'most_frequent', 'knn']
+            self.norm_strategy = ['none', 'ss', 'rs', 'ma', 'mm']
+            self.od_strategy = ['none', 'if', 'lof']
+            self.model_selection = ['lr'] # 
+            self.knn_k_lst = [1, 5, 10, 20, 30]
+            self.lof_k_lst = [1, 5, 10, 20, 30]
+            self.pipeline_order = pipeline_ord
+            self.execution_type = execution_type # 'pass' or 'fail'
+
+            loader = LoadDataset(self.dataset_name)
+            self.dataset, self.X_train, self.y_train, self.X_test, self.y_test = loader.load()
+            self.sensitive_var = loader.get_sensitive_variable()
+
+
+            if dataset_name == 'adult':
+                    if self.execution_type == 'pass':
+                        self.tau = 0.1 # fraction of missing values
+                        self.contamination = 0.2
+                        self.contamination_lof = 'auto'
+                    else:
+                        self.tau = 0.1
+                        self.contamination = 0.2
+                        self.contamination_lof = 'auto'
+            elif dataset_name == 'hmda':
+                    if self.execution_type == 'pass':
+                        self.tau = 0.05 # fraction of missing values
+                        self.contamination = 0.1
+                        self.contamination_lof = 0.1
+                    else:
+                        self.tau = 0.1
+                        self.contamination = 0.2
+                        self.contamination_lof = 0.2
+
+            elif dataset_name == 'housing':
+                    
+                    if self.execution_type == 'pass':
+                        self.tau = 0.2 # fraction of missing values
+                        self.contamination = 0.3
+                        self.contamination_lof = 0.3
+                    else:
+                        self.tau = 0.1
+                        self.contamination = 0.2
+                        self.contamination_lof = 0.2
+            else:
+                raise ValueError("Invalid dataset name for ML pipeline. Supported datasets are: 'adult', 'hmda', 'housing'.")
+        
+        elif self.pipeline_type == 'em':
+            print('pipeline_type is em')
     
     #def set_dataset(self, dataset):
     #    self.numerical_columns = dataset.select_dtypes(include=['int', 'float']).columns
     #    self.categorical_columns = dataset.select_dtypes(include=['object']).columns
 
     def getIdxSensitive(self, df, sensitive_var):
+
         priv_idx = df.index[df[sensitive_var] == 1]
         unpriv_idx = df.index[df[sensitive_var] == 0]
         sensitive_attr = df[sensitive_var]
@@ -66,21 +101,28 @@ class PipelineExecutor:
             X_modified.loc[mv_train, 'OverallQual'] = np.nan
         return X_modified
     
-    def run_pipeline(self, file_name, X_train, y_train,
-                     pipeline_order=['missing_value', 'normalization', 'outlier', 'model']):
+    def run_pipeline(self, file_name): #use execution type fail for test
+
+        if self.execution_type == 'pass':
+            X_copy=self.X_train.copy()
+            y_copy=self.y_train.copy()
+        if self.execution_type == 'fail':
+            X_copy=self.X_test.copy()
+            y_copy=self.y_test.copy()
+            
+        
         param_lst_df = None
         if os.path.exists(file_name):
-            param_lst_df = pd.read_csv(file_name)[list(pipeline_order) + ["fairness"]]
+            param_lst_df = pd.read_csv(file_name)[list(self.pipeline_order) + [f'utility_{self.metric_type}']] #[f'utility_{self.metric_type}']
         else:
-            X_train = self.inject_missing_values(X_train, self.tau_train)
+            X_copy = self.inject_missing_values(X_copy, self.tau)
 
             mv_params = len(self.mv_strategy) + len(self.knn_k_lst) - 1 if 'knn' in self.mv_strategy else len(self.mv_strategy)
             od_params = len(self.od_strategy) + len(self.lof_k_lst) - 1 if 'lof' in self.od_strategy else len(self.od_strategy)
             norm_params = len(self.norm_strategy)
             model_params = len(self.model_selection)
 
-            sensitive_var = self.get_sensitive_variable()
-            priv_idx_train, unpriv_idx_train, sensitive_attr_train = self.getIdxSensitive(X_train, sensitive_var)
+            _, _, sensitive_attr_train = self.getIdxSensitive(X_copy, self.sensitive_var)
 
             param_lst = []
             print("Running pipeline combinations...")
@@ -89,13 +131,13 @@ class PipelineExecutor:
                 for param2 in range(norm_params):
                     for param3 in range(od_params):
                         for param4 in range(model_params):
-                            X_processed = X_train.copy()
-                            y_processed = y_train.copy()
+                            X_processed = X_copy.copy()
+                            y_processed = y_copy.copy()
                             sensitive_processed = sensitive_attr_train.copy()
 
                             mv_param, norm_param, od_param, model_param = [], [], [], []
 
-                            for step in pipeline_order:
+                            for step in self.pipeline_order:
                                 if step == 'missing_value':
                                     if param1 < len(self.mv_strategy) - 1:
                                         strategy = self.mv_strategy[param1]
@@ -128,20 +170,20 @@ class PipelineExecutor:
                                             outlier_detector = OutlierDetector(X_processed, strategy=od_choice)
                                         elif od_choice == 'if':
                                             outlier_detector = OutlierDetector(X_processed, strategy=od_choice,
-                                                                               contamination=self.contamination_train, verbose=False)
+                                                                               contamination=self.contamination, verbose=False)
                                     else:
                                         k = self.lof_k_lst[param3 - (len(self.od_strategy) - 1)]
                                         outlier_detector = OutlierDetector(X_processed, strategy='lof', k=k,
-                                                                           contamination=self.contamination_train_lof, verbose=False)
+                                                                           contamination=self.contamination_lof, verbose=False)
 
-                                    X_processed, y_processed, sensitive_processed, _= outlier_detector.transform(
+                                    X_processed, y_processed, sensitive_processed, _ = outlier_detector.transform(
                                         y_processed, sensitive_processed)
                                     od_param = [param3 + 1]
 
                             trainer = ModelTrainer(self.model_selection[param4])
-                            model = trainer.train(X_processed, y_processed)
+                            updated_model = trainer.train(X_processed, y_processed)
                             model_param = [param4 + 1]
-                            y_pred = model.predict(X_processed)
+                            y_pred = updated_model.predict(X_processed)
 
                             priv_idx = [i for i, val in enumerate(sensitive_processed) if val == 1]
                             unpriv_idx = [i for i, val in enumerate(sensitive_processed) if val == 0]
@@ -154,40 +196,59 @@ class PipelineExecutor:
                                 unpriv_idx=unpriv_idx
                             )
                             
-                            param_lst.append(mv_param + norm_param + od_param + model_param + [outc])
-                            print(mv_param + norm_param + od_param + model_param + [outc])
+                            param_map = {
+                                'missing_value': mv_param,
+                                'normalization': norm_param,
+                                'outlier': od_param,
+                                'model': model_param
+                            }
 
-            param_lst_df = pd.DataFrame(param_lst, columns=pipeline_order + ["fairness"])
-            param_lst_df.to_csv(file_name, index=False)
- 
-        y = param_lst_df['fairness']
-        X = param_lst_df.drop('fairness', axis=1)
+                            ordered_params = []
+                            for step in self.pipeline_order:
+                                ordered_params += param_map.get(step, [])
 
-        if self.h_sample_bool:
-            import math
-            print(" ------ Sampling --------", self.h_sample)
-            random.seed(42)
-            sample_idx = random.sample(list(range(len(X))), math.ceil(self.h_sample * len(X)))
-            X = X.iloc[sample_idx]
-            y = y.iloc[sample_idx]
+                            param_lst.append(ordered_params + [outc])
+                            print(ordered_params + [outc])
 
-        reg = Regression()
-        model = reg.generate_regression(X, y)
-        coefs = model.coef_
-        print(coefs)
-        print(model.intercept_)
 
-        coef_rank = np.argsort(np.abs(coefs)).tolist()[::-1]
-        logging.info(f'coef {coefs}')
-        print(coef_rank)
-        return param_lst_df, coefs, coef_rank
-    
-    def current_par_lookup(self, X_train, y_train,
-                     pipeline_order=['missing_value', 'normalization', 'outlier', 'model'], cur_par=[]):
-        X_train = self.inject_missing_values(X_train, self.tau_train)
+            self.param_lst_df = pd.DataFrame(param_lst, columns=self.pipeline_order + [f'utility_{self.metric_type}'])
+            self.param_lst_df.to_csv(file_name, index=False)
 
-        sensitive_var = self.get_sensitive_variable()
-        _, _, sensitive_attr_train = self.getIdxSensitive(X_train, sensitive_var)
+    def score_parameter(self, param_lst_df):
+        if self.pipeline_type == 'ml':
+            param_lst_df = param_lst_df.copy()
+
+            y = param_lst_df[f'utility_{self.metric_type}']
+            X = param_lst_df.drop([f'utility_{self.metric_type}'], axis=1)
+
+            if self.h_sample_bool:
+                import math
+                print(" ------ Sampling --------", self.h_sample)
+                random.seed(42)
+                sample_idx = random.sample(list(range(len(X))), math.ceil(self.h_sample * len(X)))
+                X = X.iloc[sample_idx]
+                y = y.iloc[sample_idx]
+
+            reg = Regression()
+            model = reg.generate_regression(X, y)
+            coefs = model.coef_
+            print('coefficient', coefs)
+            print('Intercept',model.intercept_)
+            coefs = coefs
+            coef_rank = np.argsort(np.abs(coefs)).tolist()[::-1]
+            print('ranking',coef_rank)
+            logging.info(f'coef {coefs}')
+
+            return coefs, coef_rank
+
+
+    def current_par_lookup(self, cur_par=[]): #use execution type fail for test
+
+        X_test = self.X_test.copy()
+        y_test = self.y_test.copy()
+        X_test = self.inject_missing_values(X_test, self.tau)
+
+        _, _, sensitive_attr_train = self.getIdxSensitive(X_test, self.sensitive_var)
 
         param_lst = []
         print("Running pipeline combinations...")
@@ -196,11 +257,11 @@ class PipelineExecutor:
             for param2 in [int(cur_par[1])-1]:
                 for param3 in [int(cur_par[2])-1]:
                      for param4 in [int(cur_par[3])-1]:
-                        X_processed = X_train.copy()
-                        y_processed = y_train.copy()
+                        X_processed = X_test.copy()
+                        y_processed = y_test.copy()
                         sensitive_processed = sensitive_attr_train.copy()
 
-                        for step in pipeline_order:
+                        for step in self.pipeline_order:
                             if step == 'missing_value':
                                 if param1 < len(self.mv_strategy) - 1:
                                     strategy = self.mv_strategy[param1]
@@ -230,11 +291,12 @@ class PipelineExecutor:
                                         outlier_detector = OutlierDetector(X_processed, strategy=od_choice)
                                     elif od_choice == 'if':
                                         outlier_detector = OutlierDetector(X_processed, strategy=od_choice,
-                                                                               contamination=self.contamination_train, verbose=False)
+                                                                        contamination=self.contamination, verbose=False)
                                 else:
                                     k = self.lof_k_lst[param3 - (len(self.od_strategy) - 1)]
                                     outlier_detector = OutlierDetector(X_processed, strategy='lof', k=k,
-                                                                           contamination=self.contamination_train_lof, verbose=False)
+                                                                    contamination=self.contamination_lof, verbose=False)
+
 
                                 X_processed, y_processed, sensitive_processed, _ = outlier_detector.transform(
                                         y_processed, sensitive_processed)
@@ -254,7 +316,8 @@ class PipelineExecutor:
                             unpriv_idx=unpriv_idx
                             )      
         return outc
-    def run_pipeline_algo2(self, file_name, X_train, y_train,
+    
+    '''def run_pipeline_algo2(self, file_name, X_train, y_train,
                      pipeline_order=['missing_value', 'normalization', 'outlier', 'model']):
         param_lst_df = None
         key_profile = []
@@ -459,7 +522,37 @@ class PipelineExecutor:
                 print(self.profiles[profile_index])
         print('33')
         
-        return self.profile_coefs, self.profile_ranking, self.param_coeff, self.ranking_param
+        return self.profile_coefs, self.profile_ranking, self.param_coeff, self.ranking_param'''
+
+
+
+datasets = ['adult', 'hmda', 'housing']
+metric_types = ['sp', 'accuracy_score', 'f-1']
+model_types = ['lr', 'rf', 'nb']
+pipeline_order = ['missing_value', 'normalization', 'outlier', 'model']
+
+for dataset_name in datasets:
+    for metric_type in metric_types:
+        for model_type in model_types:
+            print(f"\n--- Processing: Dataset={dataset_name}, Model={model_type}, Metric={metric_type} ---")
+            filename_train = f'historical_data/historical_data_train_{model_type}_{metric_type}_{dataset_name}.csv'
+            executor = PipelineExecutor(
+                pipeline_type='ml',
+                dataset_name=dataset_name,
+                metric_type=metric_type,
+                pipeline_ord=pipeline_order
+            )
+            executor.run_pipeline(filename_train)
+
+            # Load historical data and score parameters
+            historical_data = pd.read_csv(filename_train)
+            _, _ = executor.score_parameter(historical_data)
+
+
+'''cur_par=[1, 1, 1, 1]
+
+utility= executor.current_par_lookup(cur_par=cur_par)
+print('utility:', utility)'''
 
 
 
@@ -477,63 +570,11 @@ knn_k_lst = [1, 5, 10, 20, 30]
 lof_k_lst = [1, 5, 10, 20, 30]
 
 
-loader = LoadDataset(dataset_name)
-dataset, X_train, y_train, X_test, y_test = loader.load()
-
-
-tau_train = 0.1
-contamination_train = 0.2
-contamination_train_lof = 'auto'
-
-
-executor = PipelineExecutor(
-    dataset_name=dataset_name,
-    metric_type=metric_type,
-    mv_strategy=mv_strategy,
-    norm_strategy=norm_strategy,
-    od_strategy=od_strategy,
-    model_selection=model_selection,
-    knn_k_lst=knn_k_lst,
-    lof_k_lst=lof_k_lst,
-    tau_train=tau_train,
-    contamination_train=contamination_train,
-    contamination_train_lof=contamination_train_lof
-)
-
-
-sensitive_var = executor.get_sensitive_variable()
-_, _, sensitive_attr_train = executor.getIdxSensitive(X_train, sensitive_var)
-pipeline_df, coefs, coef_rank = executor.run_pipeline(filename_train, X_train, y_train)
-print(pipeline_df)
-print(coefs)
-print(coef_rank)
-print("Pipeline execution completed.")
-cur_par=[0, 0, 0, 0]
-
-utility= executor.current_par_lookup(X_train, y_train,
-                     pipeline_order=['missing_value', 'normalization', 'outlier', 'model'], cur_par=cur_par)
-print('utility:', utility)'''
-
-
-dataset_name = 'adult'
-metric_type = 'sp'
-modelType= 'lr'
-filename_train = f'historical_data/historical_data_train_profile_{modelType}_{metric_type}_{dataset_name}.csv'
-
-
-mv_strategy = ['drop', 'mean', 'median', 'most_frequent', 'knn']
-norm_strategy = ['none', 'ss', 'rs', 'ma', 'mm']
-od_strategy = ['none', 'if', 'lof']
-model_selection = ['lr']
-knn_k_lst = [1, 5, 10, 20, 30]
-lof_k_lst = [1, 5, 10, 20, 30]
-
-
 #loader = LoadDataset(dataset_name)
 #dataset, X_train, y_train, X_test, y_test = loader.load()
 
 
-'''tau_train = 0.1
+tau_train = 0.1
 contamination_train = 0.2
 contamination_train_lof = 'auto'
 

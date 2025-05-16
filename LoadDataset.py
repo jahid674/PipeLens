@@ -13,6 +13,12 @@ class LoadDataset:
         self.y_train = None
         self.X_test = None
         self.y_test = None
+        
+    def get_sensitive_variable(self):
+        if self.dataset_name == 'adult':
+            return 'Sex'
+        elif self.dataset_name == 'hmda':
+            return 'race'
 
     def load(self):
         if self.dataset_name == 'hmda':
