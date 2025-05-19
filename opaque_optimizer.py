@@ -80,11 +80,11 @@ class OpaqueOptimizer:
             logging.info(f'Next param {cur_params}')
             if tuple(cur_params.items()) in seen:
                 continue
-
+            #cur_f = modify this with the current par lookup
             cur_f = self.score_lookup.utility_look_up(self.historical_data_pd, list(cur_params.values()))
             seen.add(tuple(cur_params.items()))
             self.rank_iter += 1
-            logging.info(f'fairness found : {cur_f} ,optimal fairness : {opt_f}')
+            logging.info(f'utiltiy found : {cur_f} ,optimal utility : {opt_f}')
             opt_f, cur_params_opt, found = self.f_lookup(cur_f, f_goal, cur_params_opt, cur_params, opt_f)
             logging.info(f'Optimal paramater {cur_params_opt} ')
             if found:
@@ -112,7 +112,7 @@ class OpaqueOptimizer:
                 logging.info(f'Next param {cur_params}')
                 cur_f = self.score_lookup.utility_look_up(self.historical_data_pd, list(cur_params.values()))
                 opt_f, cur_params_opt, found = self.f_lookup(cur_f, f_goal, cur_params_opt, cur_params, opt_f)
-                logging.info(f'Optimal paramater {cur_params_opt}, optimal fairness {opt_f} ')
+                logging.info(f'Optimal paramater {cur_params_opt}, optimal utility {opt_f} ')
                 if found:
                     return True, opt_f, cur_params_opt
         return False, opt_f, cur_params_opt

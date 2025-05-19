@@ -14,6 +14,8 @@ from regression import Regression
 from LoadDataset import LoadDataset
 from modules.profiling.profile import Profile
 import math
+import importlib
+import itertools
 
 class PipelineExecutor:
     def __init__(self, pipeline_type, dataset_name, metric_type, pipeline_ord, execution_type='pass', h_sample_bool=False, scalability_bool=False):
@@ -33,12 +35,20 @@ class PipelineExecutor:
             self.model_selection = ['lr'] # 
             self.knn_k_lst = [1, 5, 10, 20, 30]
             self.lof_k_lst = [1, 5, 10, 20, 30]
-            self.pipeline_order = pipeline_ord
+            self.pipeline_order = pipeline_ord # always keep model at the end
             self.execution_type = execution_type # 'pass' or 'fail'
 
             loader = LoadDataset(self.dataset_name)
             self.dataset, self.X_train, self.y_train, self.X_test, self.y_test = loader.load()
             self.sensitive_var = loader.get_sensitive_variable()
+
+            # Dynamically define parameter space based on pipeline_order
+            self.strategy_counts = {
+                'missing_value': len(self.mv_strategy) + len(self.knn_k_lst) - 1 if 'knn' in self.mv_strategy else len(self.mv_strategy),
+                'normalization': len(self.norm_strategy),
+                'outlier': len(self.od_strategy) + len(self.lof_k_lst) - 1 if 'lof' in self.od_strategy else len(self.od_strategy),
+                'model': len(self.model_selection)
+            }
 
 
             if dataset_name == 'adult':
@@ -72,16 +82,27 @@ class PipelineExecutor:
                         self.contamination_lof = 0.2
             else:
                 raise ValueError("Invalid dataset name for ML pipeline. Supported datasets are: 'adult', 'hmda', 'housing'.")
+            
+            self.shared_config = {
+                'mv_strategy': self.mv_strategy,
+                'knn_k_lst': self.knn_k_lst,
+                'norm_strategy': self.norm_strategy,
+                'od_strategy': self.od_strategy,
+                'lof_k_lst': self.lof_k_lst,
+                'contamination': self.contamination,
+                'contamination_lof': self.contamination_lof,
+                'model_selection': self.model_selection,
+                'metric_type': self.metric_type
+            }
         
         elif self.pipeline_type == 'em':
             print('pipeline_type is em')
     
-    #def set_dataset(self, dataset):
-    #    self.numerical_columns = dataset.select_dtypes(include=['int', 'float']).columns
-    #    self.categorical_columns = dataset.select_dtypes(include=['object']).columns
+    def set_dataset(self, dataset):
+        self.numerical_columns = dataset.select_dtypes(include=['int', 'float']).columns
+        self.categorical_columns = dataset.select_dtypes(include=['object']).columns
 
     def getIdxSensitive(self, df, sensitive_var):
-
         priv_idx = df.index[df[sensitive_var] == 1]
         unpriv_idx = df.index[df[sensitive_var] == 0]
         sensitive_attr = df[sensitive_var]
@@ -100,119 +121,60 @@ class PipelineExecutor:
         elif self.dataset_name == 'housing':
             X_modified.loc[mv_train, 'OverallQual'] = np.nan
         return X_modified
-    
-    def run_pipeline(self, file_name): #use execution type fail for test
 
+
+    def run_pipeline(self, file_name):
         if self.execution_type == 'pass':
-            X_copy=self.X_train.copy()
-            y_copy=self.y_train.copy()
-        if self.execution_type == 'fail':
-            X_copy=self.X_test.copy()
-            y_copy=self.y_test.copy()
-            
-        
-        param_lst_df = None
+            X_copy, y_copy = self.X_train.copy(), self.y_train.copy()
+        elif self.execution_type == 'fail':
+            X_copy, y_copy = self.X_test.copy(), self.y_test.copy()
+
         if os.path.exists(file_name):
-            param_lst_df = pd.read_csv(file_name)[list(self.pipeline_order) + [f'utility_{self.metric_type}']] #[f'utility_{self.metric_type}']
-        else:
-            X_copy = self.inject_missing_values(X_copy, self.tau)
+            self.param_lst_df = pd.read_csv(file_name)[self.pipeline_order + [f'utility_{self.metric_type}']]
+            return
 
-            mv_params = len(self.mv_strategy) + len(self.knn_k_lst) - 1 if 'knn' in self.mv_strategy else len(self.mv_strategy)
-            od_params = len(self.od_strategy) + len(self.lof_k_lst) - 1 if 'lof' in self.od_strategy else len(self.od_strategy)
-            norm_params = len(self.norm_strategy)
-            model_params = len(self.model_selection)
+        X_copy = self.inject_missing_values(X_copy, self.tau)
+        _, _, sensitive_attr_train = self.getIdxSensitive(X_copy, self.sensitive_var)
 
-            _, _, sensitive_attr_train = self.getIdxSensitive(X_copy, self.sensitive_var)
+        param_ranges = [range(self.strategy_counts[step]) for step in self.pipeline_order]
+        param_combinations = itertools.product(*param_ranges)
 
-            param_lst = []
-            print("Running pipeline combinations...")
+        param_lst = []
+        print("Running pipeline combinations...")
 
-            for param1 in range(mv_params):
-                for param2 in range(norm_params):
-                    for param3 in range(od_params):
-                        for param4 in range(model_params):
-                            X_processed = X_copy.copy()
-                            y_processed = y_copy.copy()
-                            sensitive_processed = sensitive_attr_train.copy()
+        for combo in param_combinations:
+            X, y, sens = X_copy.copy(), y_copy.copy(), sensitive_attr_train.copy()
+            param_record = []
 
-                            mv_param, norm_param, od_param, model_param = [], [], [], []
+            for i, step in enumerate(self.pipeline_order):
+                param_index = combo[i]
+                module_name = f"pipeline_component.{step}_handler"
+                class_name = ''.join(w.capitalize() for w in step.split('_')) + "Handler"
 
-                            for step in self.pipeline_order:
-                                if step == 'missing_value':
-                                    if param1 < len(self.mv_strategy) - 1:
-                                        strategy = self.mv_strategy[param1]
-                                        imputer = Imputer(X_processed, strategy=strategy, verbose=False)
-                                        if strategy == 'drop':
-                                            X_processed, y_processed, sensitive_processed = imputer.transform(y_processed, sensitive_processed)
-                                        else:
-                                            X_processed = imputer.transform(y_processed, sensitive_processed)
-                                        y_processed = y_processed.copy()
-                                        sensitive_processed = sensitive_processed.copy()
-                                        mv_param = [param1 + 1]
-                                    else:
-                                        k = self.knn_k_lst[param1 - (len(self.mv_strategy) - 1)]
-                                        imputer = Imputer(X_processed, strategy='knn', k=k, verbose=False)
-                                        X_processed = imputer.transform(y_processed, sensitive_processed)
-                                        y_processed = y_processed.copy()
-                                        sensitive_processed = sensitive_processed.copy()
-                                        mv_param = [param1 + 1]
+                try:
+                    handler_module = importlib.import_module(module_name)
+                    handler_class = getattr(handler_module, class_name)
+                except (ModuleNotFoundError, AttributeError) as e:
+                    raise ImportError(f"Error loading handler for '{step}': {e}")
 
-                                elif step == 'normalization':
-                                    strategy = self.norm_strategy[param2]
-                                    normalizer = Normalizer(X_processed, strategy=strategy, verbose=False)
-                                    X_processed = normalizer.transform()
-                                    norm_param = [param2 + 1]
+                handler = handler_class(strategy=param_index, config=self.shared_config)
+                result = handler.apply(X, y, sens)
 
-                                elif step == 'outlier':
-                                    if param3 < len(self.od_strategy) - 1:
-                                        od_choice = self.od_strategy[param3]
-                                        if od_choice == 'none':
-                                            outlier_detector = OutlierDetector(X_processed, strategy=od_choice)
-                                        elif od_choice == 'if':
-                                            outlier_detector = OutlierDetector(X_processed, strategy=od_choice,
-                                                                               contamination=self.contamination, verbose=False)
-                                    else:
-                                        k = self.lof_k_lst[param3 - (len(self.od_strategy) - 1)]
-                                        outlier_detector = OutlierDetector(X_processed, strategy='lof', k=k,
-                                                                           contamination=self.contamination_lof, verbose=False)
+                if isinstance(result, float) or isinstance(result, int):
+                    utility = result
+                elif isinstance(result, tuple):
+                    X, y, sens = result
+                else:
+                    raise ValueError(f"Expected tuple output from {class_name}.apply")
 
-                                    X_processed, y_processed, sensitive_processed, _ = outlier_detector.transform(
-                                        y_processed, sensitive_processed)
-                                    od_param = [param3 + 1]
+                param_record.append(param_index + 1)
 
-                            trainer = ModelTrainer(self.model_selection[param4])
-                            updated_model = trainer.train(X_processed, y_processed)
-                            model_param = [param4 + 1]
-                            y_pred = updated_model.predict(X_processed)
+            param_lst.append(param_record + [utility])
+            print(param_record + [utility])
 
-                            priv_idx = [i for i, val in enumerate(sensitive_processed) if val == 1]
-                            unpriv_idx = [i for i, val in enumerate(sensitive_processed) if val == 0]
+        self.param_lst_df = pd.DataFrame(param_lst, columns=self.pipeline_order + [f'utility_{self.metric_type}'])
+        self.param_lst_df.to_csv(file_name, index=False)
 
-                            metric_evaluator = MetricEvaluator(self.metric_type)
-                            outc = metric_evaluator.compute(
-                                y_true=y_processed,
-                                y_pred=y_pred,
-                                priv_idx=priv_idx,
-                                unpriv_idx=unpriv_idx
-                            )
-                            
-                            param_map = {
-                                'missing_value': mv_param,
-                                'normalization': norm_param,
-                                'outlier': od_param,
-                                'model': model_param
-                            }
-
-                            ordered_params = []
-                            for step in self.pipeline_order:
-                                ordered_params += param_map.get(step, [])
-
-                            param_lst.append(ordered_params + [outc])
-                            print(ordered_params + [outc])
-
-
-            self.param_lst_df = pd.DataFrame(param_lst, columns=self.pipeline_order + [f'utility_{self.metric_type}'])
-            self.param_lst_df.to_csv(file_name, index=False)
 
     def score_parameter(self, param_lst_df):
         if self.pipeline_type == 'ml':
@@ -242,81 +204,39 @@ class PipelineExecutor:
             return coefs, coef_rank
 
 
-    def current_par_lookup(self, cur_par=[]): #use execution type fail for test
+    def current_par_lookup(self, cur_par=[]):
+        if len(cur_par) != len(self.pipeline_order):
+            raise ValueError("Mismatch between cur_par and pipeline_order.")
 
         X_test = self.X_test.copy()
         y_test = self.y_test.copy()
         X_test = self.inject_missing_values(X_test, self.tau)
+        _, _, sensitive = self.getIdxSensitive(X_test, self.sensitive_var)
 
-        _, _, sensitive_attr_train = self.getIdxSensitive(X_test, self.sensitive_var)
+        X, y, sens = X_test.copy(), y_test.copy(), sensitive.copy()
 
-        param_lst = []
-        print("Running pipeline combinations...")
+        for i, step in enumerate(self.pipeline_order):
+            param_index = int(cur_par[i]) - 1
+            module_name = f"pipeline_component.{step}_handler"
+            class_name = ''.join(w.capitalize() for w in step.split('_')) + "Handler"
 
-        for param1 in [int(cur_par[0])-1]:
-            for param2 in [int(cur_par[1])-1]:
-                for param3 in [int(cur_par[2])-1]:
-                     for param4 in [int(cur_par[3])-1]:
-                        X_processed = X_test.copy()
-                        y_processed = y_test.copy()
-                        sensitive_processed = sensitive_attr_train.copy()
+            try:
+                handler_module = importlib.import_module(module_name)
+                handler_class = getattr(handler_module, class_name)
+            except (ModuleNotFoundError, AttributeError) as e:
+                raise ImportError(f"Error loading handler for '{step}': {e}")
 
-                        for step in self.pipeline_order:
-                            if step == 'missing_value':
-                                if param1 < len(self.mv_strategy) - 1:
-                                    strategy = self.mv_strategy[param1]
-                                    imputer = Imputer(X_processed, strategy=strategy, verbose=False)
-                                    if strategy == 'drop':
-                                        X_processed, y_processed, sensitive_processed = imputer.transform(y_processed, sensitive_processed)
-                                    else:
-                                        X_processed = imputer.transform(y_processed, sensitive_processed)
-                                    y_processed = y_processed.copy()
-                                    sensitive_processed = sensitive_processed.copy()
-                                else:
-                                    k = self.knn_k_lst[param1 - (len(self.mv_strategy) - 1)]
-                                    imputer = Imputer(X_processed, strategy='knn', k=k, verbose=False)
-                                    X_processed = imputer.transform(y_processed, sensitive_processed)
-                                    y_processed = y_processed.copy()
-                                    sensitive_processed = sensitive_processed.copy()
+            handler = handler_class(strategy=param_index, config=self.shared_config)
+            result = handler.apply(X, y, sens)
 
-                            elif step == 'normalization':
-                                strategy = self.norm_strategy[param2]
-                                normalizer = Normalizer(X_processed, strategy=strategy, verbose=False)
-                                X_processed = normalizer.transform()
+            if isinstance(result, float) or isinstance(result, int):
+                return result
+            else:
+                X, y, sens = result
 
-                            elif step == 'outlier':
-                                if param3 < len(self.od_strategy) - 1:
-                                    od_choice = self.od_strategy[param3]
-                                    if od_choice == 'none':
-                                        outlier_detector = OutlierDetector(X_processed, strategy=od_choice)
-                                    elif od_choice == 'if':
-                                        outlier_detector = OutlierDetector(X_processed, strategy=od_choice,
-                                                                        contamination=self.contamination, verbose=False)
-                                else:
-                                    k = self.lof_k_lst[param3 - (len(self.od_strategy) - 1)]
-                                    outlier_detector = OutlierDetector(X_processed, strategy='lof', k=k,
-                                                                    contamination=self.contamination_lof, verbose=False)
+        raise ValueError("No output returned from final pipeline component.")
 
 
-                                X_processed, y_processed, sensitive_processed, _ = outlier_detector.transform(
-                                        y_processed, sensitive_processed)
-
-                        trainer = ModelTrainer(self.model_selection[param4])
-                        model = trainer.train(X_processed, y_processed)
-                        y_pred = model.predict(X_processed)
-
-                        priv_idx = [i for i, val in enumerate(sensitive_processed) if val == 1]
-                        unpriv_idx = [i for i, val in enumerate(sensitive_processed) if val == 0]
-
-                        metric_evaluator = MetricEvaluator(self.metric_type)
-                        outc = metric_evaluator.compute(
-                            y_true=y_processed,
-                            y_pred=y_pred,
-                            priv_idx=priv_idx,
-                            unpriv_idx=unpriv_idx
-                            )      
-        return outc
-    
     '''def run_pipeline_algo2(self, file_name, X_train, y_train,
                      pipeline_order=['missing_value', 'normalization', 'outlier', 'model']):
         param_lst_df = None
@@ -526,30 +446,26 @@ class PipelineExecutor:
 
 
 
-'''datasets = ['adult', 'hmda', 'housing']
-metric_types = ['sp', 'accuracy_score', 'f-1']
-model_types = ['lr', 'rf', 'nb']
+dataset_name = 'adult'
+metric_type = 'sp'
+model_type = 'lr'
 pipeline_order = ['missing_value', 'normalization', 'outlier', 'model']
 
-for dataset_name in datasets:
-    for metric_type in metric_types:
-        for model_type in model_types:
-            print(f"\n--- Processing: Dataset={dataset_name}, Model={model_type}, Metric={metric_type} ---")
-            filename_train = f'historical_data/historical_data_train_{model_type}_{metric_type}_{dataset_name}.csv'
-            executor = PipelineExecutor(
+
+filename_train = f'historical_data/historical_data_train_{model_type}_{metric_type}_{dataset_name}.csv'
+executor = PipelineExecutor(
                 pipeline_type='ml',
                 dataset_name=dataset_name,
                 metric_type=metric_type,
                 pipeline_ord=pipeline_order
             )
-            executor.run_pipeline(filename_train)
+executor.run_pipeline(filename_train)
 
-            # Load historical data and score parameters
-            historical_data = pd.read_csv(filename_train)
-            _, _ = executor.score_parameter(historical_data)'''
+historical_data = pd.read_csv(filename_train)
+_, _ = executor.score_parameter(historical_data)
 
 
-'''cur_par=[1, 1, 1, 1]
+cur_par=[1, 1, 1, 1]
 
 utility= executor.current_par_lookup(cur_par=cur_par)
-print('utility:', utility)'''
+print('utility:', utility)
