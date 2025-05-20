@@ -10,6 +10,7 @@ from gridsearch import GridSearch
 with open('config.json', 'r') as f:
     config = json.load(f)
 
+
 dataset_name = config["dataset_name"]
 model_type = config["model_type"]
 metric_type = config["metric_type"]
@@ -28,7 +29,7 @@ log_path = config["paths"]["log_file"].format(
 
 logging.basicConfig(filename=log_path, filemode='w', level=logging.DEBUG)
 
-# Initialize optimizer
+
 p = OpaqueOptimizer(dataset_name, model_type, metric_type, pipeline_type, pipeline_order,
                     filename_train, filename_test)
 historical_data = pd.read_csv(filename_test)

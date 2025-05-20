@@ -42,7 +42,7 @@ class PipelineExecutor:
             self.dataset, self.X_train, self.y_train, self.X_test, self.y_test = loader.load()
             self.sensitive_var = loader.get_sensitive_variable()
 
-            # Dynamically define parameter space based on pipeline_order
+            #known domain
             self.strategy_counts = {
                 'missing_value': len(self.mv_strategy) + len(self.knn_k_lst) - 1 if 'knn' in self.mv_strategy else len(self.mv_strategy),
                 'normalization': len(self.norm_strategy),
@@ -237,7 +237,7 @@ class PipelineExecutor:
         raise ValueError("No output returned from final pipeline component.")
 
 
-    '''def run_pipeline_algo2(self, file_name, X_train, y_train,
+    def run_pipeline_algo2(self, file_name, X_train, y_train,
                      pipeline_order=['missing_value', 'normalization', 'outlier', 'model']):
         param_lst_df = None
         key_profile = []
@@ -246,15 +246,15 @@ class PipelineExecutor:
         if os.path.exists(file_name):
             param_lst_df = pd.read_csv(file_name)
         else:
-            X_train = self.inject_missing_values(X_train, self.tau_train)
+            X_train = self.inject_missing_values(X_train, self.tau)
 
             mv_params = len(self.mv_strategy) + len(self.knn_k_lst) - 1 if 'knn' in self.mv_strategy else len(self.mv_strategy)
             od_params = len(self.od_strategy) + len(self.lof_k_lst) - 1 if 'lof' in self.od_strategy else len(self.od_strategy)
             norm_params = len(self.norm_strategy)
             model_params = len(self.model_selection)
             numerical_columns = X_train.select_dtypes(include=['int', 'float']).columns
-            sensitive_var = self.get_sensitive_variable()
-            priv_idx_train, unpriv_idx_train, sensitive_attr_train = self.getIdxSensitive(X_train, sensitive_var)
+            #sensitive_var = self.get_sensitive_variable()
+            priv_idx_train, unpriv_idx_train, sensitive_attr_train = self.getIdxSensitive(X_train, self.sensitive_var)
 
             param_lst = []
             sens_attr_name = ''
@@ -310,11 +310,11 @@ class PipelineExecutor:
                                             outlier_detector = OutlierDetector(X_processed, strategy=od_choice)
                                         elif od_choice == 'if':
                                             outlier_detector = OutlierDetector(X_processed, strategy=od_choice,
-                                                                               contamination=self.contamination_train, verbose=False)
+                                                                               contamination=self.contamination, verbose=False)
                                     else:
                                         k = self.lof_k_lst[param3 - (len(self.od_strategy) - 1)]
                                         outlier_detector = OutlierDetector(X_processed, strategy='lof', k=k,
-                                                                           contamination=self.contamination_train_lof, verbose=False)
+                                                                           contamination=self.contamination_lof, verbose=False)
 
                                     X_processed, y_processed, sensitive_processed, fraction_out = outlier_detector.transform(
                                         y_processed, sensitive_processed)
@@ -342,7 +342,7 @@ class PipelineExecutor:
                                 cov = concat_X_y[sens_attr_name].cov(concat_X_y[y_processed.name])
                                 class_imbalance_ratio = round((y_processed == 1).sum()/len(y_train),5)
                                 sens_data =[out_before_out_strat,out_before_norm_strat,diff_sensitive_attr,ratio_sensitive_attr,cov,class_imbalance_ratio]
-                                if(metric_type=='accuracy_score'):
+                                if(self.metric_type=='accuracy_score'):
                                         sens_data =[out_before_out_strat,out_before_norm_strat,class_imbalance_ratio]
                             else:
                                     profile_median = y_processed.median()
@@ -442,7 +442,7 @@ class PipelineExecutor:
                 print(self.profiles[profile_index])
         print('33')
         
-        return self.profile_coefs, self.profile_ranking, self.param_coeff, self.ranking_param'''
+        return self.profile_coefs, self.profile_ranking, self.param_coeff, self.ranking_param
 
 
 
@@ -452,12 +452,13 @@ model_type = 'lr'
 pipeline_order = ['missing_value', 'normalization', 'outlier', 'model']
 
 
-filename_train = f'historical_data/historical_data_train_{model_type}_{metric_type}_{dataset_name}.csv'
+filename_train = f'historical_data/historical_data_test_{model_type}_{metric_type}_{dataset_name}.csv'
 executor = PipelineExecutor(
                 pipeline_type='ml',
                 dataset_name=dataset_name,
                 metric_type=metric_type,
-                pipeline_ord=pipeline_order
+                pipeline_ord=pipeline_order,
+                execution_type='fail',
             )
 executor.run_pipeline(filename_train)
 

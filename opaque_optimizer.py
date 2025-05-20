@@ -30,12 +30,12 @@ class OpaqueOptimizer:
         self.historical_data_pd = pd.read_csv(self.filename_test)
         self.historical_data = self.historical_data_pd.values.tolist()
 
-        executor_pass = PipelineExecutor(pipeline_type=self.pipeline_type,
+        self.executor_pass = PipelineExecutor(pipeline_type=self.pipeline_type,
                                          dataset_name=self.dataset_name,
                                          metric_type=self.metric_type,
                                          pipeline_ord=self.pipeline_order)
         pasing_hist_data = pd.read_csv(self.filename_train)
-        self.coefs, self.coef_rank = executor_pass.score_parameter(pasing_hist_data)
+        self.coefs, self.coef_rank = self.executor_pass.score_parameter(pasing_hist_data)
 
         self.score_lookup = ScoreLookup(pipeline_order, metric_type)
 
@@ -80,8 +80,8 @@ class OpaqueOptimizer:
             logging.info(f'Next param {cur_params}')
             if tuple(cur_params.items()) in seen:
                 continue
-            #cur_f = modify this with the current par lookup
-            cur_f = self.score_lookup.utility_look_up(self.historical_data_pd, list(cur_params.values()))
+            cur_f = self.executor_pass.current_par_lookup(cur_params)
+            #cur_f = self.score_lookup.utility_look_up(self.historical_data_pd, list(cur_params.values()))
             seen.add(tuple(cur_params.items()))
             self.rank_iter += 1
             logging.info(f'utiltiy found : {cur_f} ,optimal utility : {opt_f}')
@@ -110,7 +110,8 @@ class OpaqueOptimizer:
                 self.rank_iter += 1
                 self.rank_f = opt_f
                 logging.info(f'Next param {cur_params}')
-                cur_f = self.score_lookup.utility_look_up(self.historical_data_pd, list(cur_params.values()))
+                cur_f = self.executor_pass.current_par_lookup(cur_params)
+                #cur_f = self.score_lookup.utility_look_up(self.historical_data_pd, list(cur_params.values()))
                 opt_f, cur_params_opt, found = self.f_lookup(cur_f, f_goal, cur_params_opt, cur_params, opt_f)
                 logging.info(f'Optimal paramater {cur_params_opt}, optimal utility {opt_f} ')
                 if found:

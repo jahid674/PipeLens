@@ -71,7 +71,7 @@ od_strategy = ['none', 'if', 'lof'] # local outlier factor, isolation forest
 model_selection = ['lr']#, 'rf' #, 'nb', 'reg']
 dataset_name = 'adult' # 'hmda', 'housing'
 modelType = 'lr' #'lr' 'reg'
-metric_type = 'accuracy_score' # rmse, accuracy_score, sp
+metric_type = 'sp' # rmse, accuracy_score, sp
 algo_type = '2step'
 from sklearn.ensemble import RandomForestClassifier
 logging.basicConfig(filename='logs/profile_'+algo_type+"_"+dataset_name+'_'+modelType+'_'+'metric_type'+'.log', filemode = 'w',level=logging.DEBUG, format='%(asctime)s - %(levelname)s - %(message)s')
@@ -447,20 +447,13 @@ filename_train = 'historical_data/historical_data_train_profile_'+modelType+'_'+
 if scalability_bool:
         filename_test = 'metric/scalability/historical_data_test_profile_'+modelType+'_'+metric_type+'_'+dataset_name+'_'+str(len(knn_k_lst))+'.csv'
         filename_train = 'metric/scalability/historical_data_train_profile_'+modelType+'_'+metric_type+'_'+dataset_name+'_'+str(len(knn_k_lst))+'.csv'
-
+pipeline_order = ['missing_value', 'normalization', 'outlier', 'model']
 executor = PipelineExecutor(
-    dataset_name=dataset_name,
-    metric_type=metric_type,
-    mv_strategy=mv_strategy,
-    norm_strategy=norm_strategy,
-    od_strategy=od_strategy,
-    model_selection=model_selection,
-    knn_k_lst=knn_k_lst,
-    lof_k_lst=lof_k_lst,
-    tau_train=tau_train,
-    contamination_train=contamination_train,
-    contamination_train_lof=contamination_train_lof
-)
+                pipeline_type='ml',
+                dataset_name=dataset_name,
+                metric_type=metric_type,
+                pipeline_ord=pipeline_order
+            )
 _, _, sensitive_attr_train = executor.getIdxSensitive(X_train, sensitive_variable)
 coefs, _, coefs_par, _ = executor.run_pipeline_algo2(filename_train, X_train, y_train)
 _,_,_,_ = executor.run_pipeline_algo2(filename_train, X_train, y_train, pipeline_order=['missing_value', 'normalization', 'outlier', 'model'])
