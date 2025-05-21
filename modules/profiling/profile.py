@@ -241,6 +241,7 @@ class Profile:
         (chi2, p) = stats.f_oneway(lst1, lst2)
         return chi2
     
+
     
     def get_fraction_of_outlier(self,data):
         svm_model = OneClassSVM(kernel='rbf')

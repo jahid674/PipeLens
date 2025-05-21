@@ -20,6 +20,7 @@ class OutlierDetector:
         self.contamination = contamination
         self.verbose = verbose
         self.exclude = exclude if isinstance(exclude, list) else [exclude] if exclude else []
+        self.frac = None
 
         if self.strategy not in ['none', 'if', 'lof']:
             raise ValueError("Strategy must be one of 'none', 'if', or 'lof'.")
@@ -56,7 +57,7 @@ class OutlierDetector:
             raise ValueError("Invalid strategy selected.")
 
         mask = outlier_y_pred != -1
-
+        self.frac = round((1 - sum(mask)/len(outlier_y_pred)) * 100, 4)
         outlier_X_train = self.df.copy()
         outlier_y_train = y_train.copy() if y_train is not None else None
         outlier_sensitive_train = sensitive_attr_train.copy() if sensitive_attr_train is not None else None
@@ -73,11 +74,12 @@ class OutlierDetector:
             if outlier_sensitive_train is not None:
                 outlier_sensitive_train = sensitive_attr_train[mask]
                 outlier_sensitive_train.reset_index(drop=True, inplace=True)
+                
         # it can be eliminated
         priv_idx_train = [i for i, val in enumerate(outlier_sensitive_train) if val == 1]
         unpriv_idx_train = [i for i, val in enumerate(outlier_sensitive_train) if val == 0]
 
-        frac = round((1 - sum(mask)/len(outlier_y_pred)) * 100, 4)
+        
 
         if not excluded_cols.empty:
             excluded_cols = excluded_cols.iloc[mask].reset_index(drop=True)
@@ -87,7 +89,12 @@ class OutlierDetector:
         if self.verbose:
             print(f"Outlier detection completed in {time.time() - start_time:.2f} seconds.\n")
 
-        return outlier_X_train, outlier_y_train, outlier_sensitive_train, frac
+        return outlier_X_train, outlier_y_train, outlier_sensitive_train
+    
+    def get_frac(self):
+        if self.frac is None:
+            raise ValueError("Fraction of outliers not calculated. Please run transform() first.")
+        return self.frac
 
 
 '''X_train = pd.DataFrame({

@@ -1,7 +1,7 @@
 class NewComponent:
-    def __init__(self, executor, strategy):
+    def __init__(self, strategy, config):
         self.strategy = strategy
-        # use executor to access shared settings like contamination, model list, etc.
+        self. new_component_strategy = config['new_component_strategy']
 
     def apply(self, X, y, sensitive):
         # If preprocessing:

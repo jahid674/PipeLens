@@ -41,6 +41,7 @@ class PipelineExecutor:
             loader = LoadDataset(self.dataset_name)
             self.dataset, self.X_train, self.y_train, self.X_test, self.y_test = loader.load()
             self.sensitive_var = loader.get_sensitive_variable()
+            self.target_variable_name = self.y_train.name
 
             #known domain
             self.strategy_counts = {
@@ -92,7 +93,9 @@ class PipelineExecutor:
                 'contamination': self.contamination,
                 'contamination_lof': self.contamination_lof,
                 'model_selection': self.model_selection,
-                'metric_type': self.metric_type
+                'metric_type': self.metric_type,
+                'sensitive_var': self.sensitive_var,
+                'target_var': self.target_variable_name
             }
         
         elif self.pipeline_type == 'em':
@@ -113,14 +116,14 @@ class PipelineExecutor:
         X_modified = X.copy()
         idx_train = np.arange(0, len(X_modified), 1)
         mv_train = pd.DataFrame(idx_train).sample(frac=frac, replace=False, random_state=1).index
-
-        if self.dataset_name == 'hmda':
-            X_modified.loc[mv_train, 'lien_status'] = np.nan
-        elif self.dataset_name == 'adult':
-            X_modified.loc[mv_train, 'Martial_Status'] = np.nan
-        elif self.dataset_name == 'housing':
-            X_modified.loc[mv_train, 'OverallQual'] = np.nan
-        return X_modified
+        if self.pipeline_type == 'ml':
+            if self.dataset_name == 'hmda':
+                X_modified.loc[mv_train, 'lien_status'] = np.nan
+            elif self.dataset_name == 'adult':
+                X_modified.loc[mv_train, 'Martial_Status'] = np.nan
+            elif self.dataset_name == 'housing':
+                X_modified.loc[mv_train, 'OverallQual'] = np.nan
+            return X_modified
 
 
     def run_pipeline(self, file_name):
@@ -132,9 +135,10 @@ class PipelineExecutor:
         if os.path.exists(file_name):
             self.param_lst_df = pd.read_csv(file_name)[self.pipeline_order + [f'utility_{self.metric_type}']]
             return
-
-        X_copy = self.inject_missing_values(X_copy, self.tau)
-        _, _, sensitive_attr_train = self.getIdxSensitive(X_copy, self.sensitive_var)
+        
+        if self.pipeline_type == 'ml':
+            X_copy = self.inject_missing_values(X_copy, self.tau)
+            _, _, sensitive_attr_train = self.getIdxSensitive(X_copy, self.sensitive_var)
 
         param_ranges = [range(self.strategy_counts[step]) for step in self.pipeline_order]
         param_combinations = itertools.product(*param_ranges)
@@ -143,7 +147,9 @@ class PipelineExecutor:
         print("Running pipeline combinations...")
 
         for combo in param_combinations:
-            X, y, sens = X_copy.copy(), y_copy.copy(), sensitive_attr_train.copy()
+            if self.pipeline_type == 'ml':
+                X, y, sens = X_copy.copy(), y_copy.copy(), sensitive_attr_train.copy()
+            
             param_record = []
 
             for i, step in enumerate(self.pipeline_order):
@@ -210,10 +216,11 @@ class PipelineExecutor:
 
         X_test = self.X_test.copy()
         y_test = self.y_test.copy()
-        X_test = self.inject_missing_values(X_test, self.tau)
-        _, _, sensitive = self.getIdxSensitive(X_test, self.sensitive_var)
 
-        X, y, sens = X_test.copy(), y_test.copy(), sensitive.copy()
+        if self.pipeline_type== 'ml':
+            X_test = self.inject_missing_values(X_test, self.tau)
+            _, _, sensitive = self.getIdxSensitive(X_test, self.sensitive_var)
+            X, y, sens = X_test.copy(), y_test.copy(), sensitive.copy()
 
         for i, step in enumerate(self.pipeline_order):
             param_index = int(cur_par[i]) - 1
@@ -235,9 +242,166 @@ class PipelineExecutor:
                 X, y, sens = result
 
         raise ValueError("No output returned from final pipeline component.")
+                    
+    def run_pipeline_profile(self, file_name):
+        if self.execution_type == 'pass':
+            X_copy, y_copy = self.X_train.copy(), self.y_train.copy()
+        elif self.execution_type == 'fail':
+            X_copy, y_copy = self.X_test.copy(), self.y_test.copy()
+
+        if os.path.exists(file_name):
+            self.param_lst_df = pd.read_csv(file_name)[self.pipeline_order + [f'utility_{self.metric_type}']]
+            return
+        
+        if self.pipeline_type == 'ml':
+            X_copy = self.inject_missing_values(X_copy, self.tau)
+            _, _, sensitive_attr_train = self.getIdxSensitive(X_copy, self.sensitive_var)
+        
+        p = Profile()
+
+        param_ranges = [range(self.strategy_counts[step]) for step in self.pipeline_order]
+        param_combinations = itertools.product(*param_ranges)
+        numerical_columns = X_copy.select_dtypes(include=['int', 'float']).columns
+        param_lst = []
+        print("Running pipeline combinations...")
+        
+        for combo in param_combinations:
+            if self.pipeline_type == 'ml':
+                X, y, sens = X_copy.copy(), y_copy.copy(), sensitive_attr_train.copy()
+            
+            param_record = []
+            frac_data = []
+            self.frac_header = []
+            
+
+            for i, step in enumerate(self.pipeline_order):
+                param_index = combo[i]
+                module_name = f"pipeline_component.{step}_handler"
+                class_name = ''.join(w.capitalize() for w in step.split('_')) + "Handler"
+
+                try:
+                    handler_module = importlib.import_module(module_name)
+                    handler_class = getattr(handler_module, class_name)
+                except (ModuleNotFoundError, AttributeError) as e:
+                    raise ImportError(f"Error loading handler for '{step}': {e}")
+
+                handler = handler_class(strategy=param_index, config=self.shared_config)
+                result = handler.apply(X, y, sens)
+
+                method_name = f'get_outlier_bef_{step}_strat'
+                if hasattr(handler, method_name) and callable(getattr(handler, method_name)):
+                    method = getattr(handler, method_name)
+                    frac = method()
+                    frac_data.append(frac)
+                    self.frac_header.append(f'outlier_bef_{step}_strat')
+
+                method_name = f'get_{step}'
+                if hasattr(handler, method_name) and callable(getattr(handler, method_name)):
+                    method = getattr(handler, method_name)
+                    fraction_outlier = method()
+
+                if isinstance(result, float) or isinstance(result, int):
+                    utility = result
+                elif isinstance(result, tuple):
+                    X, y, sens = result
+                else:
+                    raise ValueError(f"Expected tuple output from {class_name}.apply")
+                param_record.append(param_index + 1)
+            
+            #param_lst.append(param_record)
+            #print(param_record + [utility])
+
+            self.headers, sens_data = handler.get_profile_metric()
+            prof_data = frac_data + sens_data
+            profile_gen,key_profile = p.populate_profiles(pd.concat([X, y], axis=1), numerical_columns, self.target_variable_name, fraction_outlier, self.metric_type)
+            param_lst.append(param_record + prof_data + profile_gen + [utility])
+            print(param_lst)
+
+        self.profile_param_lst_df = pd.DataFrame(param_lst, columns= self.pipeline_order + self.frac_header + self.headers +key_profile+[f'utility_{self.metric_type}'])
+        self.profile_param_lst_df.to_csv(file_name, index=False)
 
 
-    def run_pipeline_algo2(self, file_name, X_train, y_train,
+    '''def score_profile_parameter(self):
+        param_lst_df=self.profile_param_lst_df.copy()
+        key_profile = self.headers
+        for column in self.X_train:
+            key_profile.append('corr_'+column)
+        self.profile=key_profile+self.frac_header
+        #if self.h_sample_bool and self: #need to update according to logic
+        if(self.dataset_name=='housing'):
+            y = param_lst_df[f'utility_{self.metric_type}']                  
+            t = StandardScaler().fit(param_lst_df).transform(param_lst_df)
+            X = pd.DataFrame(data = t, columns = param_lst_df.columns)[self.profiles]
+        else :
+            y = param_lst_df[f'utility_{self.metric_type}']
+            X = param_lst_df.copy()[self.profiles]       
+                
+        if (self.h_sample_bool):
+            print(" ------ Sampling --------", self.h_sample)
+            random.seed(1000)
+            sample_idx = random.sample(list(range(len(X))), math.ceil(self.h_sample * len(X)))
+            X = X.iloc[sample_idx]
+            y = y.iloc[sample_idx]
+
+        reg = Regression()
+        model = reg.generate_regression(X, y)
+        coefs = model.coef_
+        print(coefs)
+        print(model.intercept_)
+                
+        self.profile_ranking = np.argsort(np.abs(coefs))[::-1]
+        self.profile_coefs = coefs
+        print(self.profile_coefs)
+
+        #ranking parameter 
+        self.ranking_param ={}
+        self.param_coeff  = {}
+        for index, elem in enumerate(self.profiles):
+                y = param_lst_df[elem]
+                X = param_lst_df.copy()[self.param_columns]
+                if self.h_sample_bool:
+                            X = X.iloc[sample_idx]
+                            y = y.iloc[sample_idx]
+                reg = Regression()
+                model = reg.generate_regression(X, y)
+                coefs = model.coef_
+                # print(model.intercept_)
+                self.ranking_param[elem] =  np.argsort(np.abs(coefs))[::-1]
+                print(self.ranking_param[elem])
+                        
+                self.param_coeff[elem] =  coefs
+                print(f'name : {elem} {self.param_coeff[elem]}')
+
+        for idx,profile_index in enumerate(self.profile_ranking):
+                print(self.profiles[profile_index])
+
+        return self.profile_coefs, self.profile_ranking, self.param_coeff, self.ranking_param'''
+
+
+
+
+
+        
+
+
+        
+
+
+
+
+
+
+            
+
+            
+
+                
+
+                
+
+
+        
+    '''def run_pipeline_algo2(self, file_name, X_train, y_train,
                      pipeline_order=['missing_value', 'normalization', 'outlier', 'model']):
         param_lst_df = None
         key_profile = []
@@ -316,8 +480,9 @@ class PipelineExecutor:
                                         outlier_detector = OutlierDetector(X_processed, strategy='lof', k=k,
                                                                            contamination=self.contamination_lof, verbose=False)
 
-                                    X_processed, y_processed, sensitive_processed, fraction_out = outlier_detector.transform(
+                                    X_processed, y_processed, sensitive_processed = outlier_detector.transform(
                                         y_processed, sensitive_processed)
+                                    fraction_out = outlier_detector.get_frac()
                                     od_param = [param3 + 1]
 
 
@@ -370,11 +535,12 @@ class PipelineExecutor:
                     param_lst_df = pd.DataFrame(param_lst, columns= param_column   + ['out_before_out_strat','out_before_norm_strat','class_imbalance_ratio']+key_profile+["fairness"])
             else:
                     param_lst_df = pd.DataFrame(param_lst, columns= param_column   + ['out_before_out_strat','out_before_norm_strat','profile_median'] + key_profile + ["fairness"])
-                               
+
             param_lst_df.to_csv(file_name, index=False)
 
 
         # Need to understand the logic of this part
+        #why not cov?
         self.param_columns = ["missing_value","normalization","outlier", "model"]
         if(self.dataset_name=='hmda'):
                 key_profile = ['class_imbalance_ratio']
@@ -442,7 +608,7 @@ class PipelineExecutor:
                 print(self.profiles[profile_index])
         print('33')
         
-        return self.profile_coefs, self.profile_ranking, self.param_coeff, self.ranking_param
+        return self.profile_coefs, self.profile_ranking, self.param_coeff, self.ranking_param'''
 
 
 
@@ -452,21 +618,21 @@ model_type = 'lr'
 pipeline_order = ['missing_value', 'normalization', 'outlier', 'model']
 
 
-filename_train = f'historical_data/historical_data_test_{model_type}_{metric_type}_{dataset_name}.csv'
+filename_train = f'historical_data/historical_data_test_demo_pro_{model_type}_{metric_type}_{dataset_name}.csv'
 executor = PipelineExecutor(
                 pipeline_type='ml',
                 dataset_name=dataset_name,
                 metric_type=metric_type,
                 pipeline_ord=pipeline_order,
-                execution_type='fail',
+                execution_type='pass',
             )
-executor.run_pipeline(filename_train)
+executor.run_pipeline_profile(filename_train)
 
-historical_data = pd.read_csv(filename_train)
+'''historical_data = pd.read_csv(filename_train)
 _, _ = executor.score_parameter(historical_data)
 
 
 cur_par=[1, 1, 1, 1]
 
 utility= executor.current_par_lookup(cur_par=cur_par)
-print('utility:', utility)
+print('utility:', utility)'''

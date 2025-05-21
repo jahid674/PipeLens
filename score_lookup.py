@@ -16,6 +16,7 @@ class ScoreLookup:
                 except Exception as e :
                         print(e)
                         import pdb;pdb.set_trace()
+                        
     def identify_param(self, rank_list, comb_size):
                 return list(itertools.combinations(rank_list, comb_size))
         
