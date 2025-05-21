@@ -12,7 +12,7 @@ class MetricEvaluator:
             return self.computeStatisticalParity(y_pred[priv_idx], y_pred[unpriv_idx])
 
         elif self.metric_type == 'f-1':
-            return f1_score(y_true, y_pred)
+            return 1 - f1_score(y_true, y_pred)
 
         elif self.metric_type == 'accuracy_score':
             return 1 - accuracy_score(y_true, y_pred)

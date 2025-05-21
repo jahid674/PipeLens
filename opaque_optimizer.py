@@ -34,21 +34,23 @@ class OpaqueOptimizer:
                                          dataset_name=self.dataset_name,
                                          metric_type=self.metric_type,
                                          pipeline_ord=self.pipeline_order)
-        pasing_hist_data = pd.read_csv(self.filename_train)
-        self.coefs, self.coef_rank = self.executor_pass.score_parameter(pasing_hist_data)
+        
+        self.pasing_hist_data = pd.read_csv(self.filename_train)
+        self.coefs, self.coef_rank = self.executor_pass.score_parameter(self.pasing_hist_data)
 
         self.score_lookup = ScoreLookup(pipeline_order, metric_type)
 
     def set_ranges(self):
         for strategy in self.pipeline_order:
-            self.ranges[strategy] = list(np.unique(self.historical_data_pd[strategy]))
+            self.ranges[strategy] = list(np.unique(self.pasing_hist_data[strategy]))
 
     def optimize(self, init_params, f_goal):
         self.rank_iter = 0
         self.rank_f = -1
         cur_params = init_params.copy()
         cur_params_opt = {strategy: selection for strategy, selection in zip(self.base_strategies, init_params[:len(self.base_strategies)])}
-        opt_f = self.score_lookup.utility_look_up(self.historical_data_pd, init_params)
+        #opt_f = self.score_lookup.utility_look_up(self.historical_data_pd, init_params)
+        opt_f = self.executor_pass.current_par_lookup(init_params)
 
         if self.pipeline_type == 'ml':
             self.set_ranges()
@@ -121,22 +123,13 @@ class OpaqueOptimizer:
     def f_lookup(self, cur_f, f_goal, cur_params_opt, cur_params, opt_f):
         found = False
         if self.pipeline_type == 'ml':
-            if self.metric_type != 'f-1':
-                if cur_f <= f_goal:
-                    self.rank_f = cur_f
-                    self.pass_ += 1
-                    found = True
-                elif cur_f < opt_f:
-                    opt_f = cur_f
-                    cur_params_opt = cur_params
-            elif self.metric_type == 'f-1':
-                if cur_f >= f_goal:
-                    self.rank_f = cur_f
-                    self.pass_ += 1
-                    found = True
-                elif cur_f > opt_f:
-                    opt_f = cur_f
-                    cur_params_opt = cur_params
+            if cur_f <= f_goal:
+                self.rank_f = cur_f
+                self.pass_ += 1
+                found = True
+            elif cur_f < opt_f:
+                opt_f = cur_f
+                cur_params_opt = cur_params
         return opt_f, cur_params_opt, found
 
     def write_quartiles(self, csv_writer, algorithm, metric, quartiles, f_goal, f_goals):
