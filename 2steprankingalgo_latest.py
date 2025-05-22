@@ -1,8 +1,6 @@
 import itertools
 # from modules.outlier_detection.outlier_detector import OutlierDetector
-from modules.missing_value.imputer import DataImputer
 from modules.Util.reader import Reader
-from modules.normalization.normalizer import DataNormalizer
 from modules.metric.metric import metric
 from sklearn.naive_bayes import GaussianNB
 from sklearn.model_selection import train_test_split

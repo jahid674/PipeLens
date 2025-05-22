@@ -1,12 +1,10 @@
-import os
-import csv
 import logging
 import pandas as pd
 import numpy as np
 from pipeline_execution import PipelineExecutor
-from LoadDataset import LoadDataset
 from score_lookup import ScoreLookup
-from gridsearch import GridSearch
+import itertools
+import operator
 
 
 class OpaqueOptimizer:
@@ -76,7 +74,7 @@ class OpaqueOptimizer:
     def optimistic_search(self, seen, cur_params_opt, f_goal, opt_f):
         for val in self.coef_rank:
             cur_strategy = self.base_strategies[val]
-            current_paramter_value = self.ranges[cur_strategy][-1] if self.coefs[val] < 0 else self.ranges[cur_strategy][0]
+            current_paramter_value = self.tau(cur_strategy, val)
             cur_params = cur_params_opt.copy()
             cur_params[cur_strategy] = current_paramter_value
             logging.info(f'Next param {cur_params}')
@@ -131,11 +129,35 @@ class OpaqueOptimizer:
                 opt_f = cur_f
                 cur_params_opt = cur_params
         return opt_f, cur_params_opt, found
+    
+    def identify_param(self, rank_list, comb_size):
+                return list(itertools.combinations(rank_list, comb_size))
+        
+    def score_values(self, historical_data, coefs, comb_size, comb):
+            i=0
+            coef_lst=[]
+            score = {}
+            while i<comb_size:
+                    coef_lst.append(coefs[comb[i]])
+                    i+=1
+                                        
+            for param in historical_data:
+                    result = [param[i] for i in list(comb)]
+                    score[tuple(param)] = sum([x*y for x,y in zip( coef_lst,result)])
+            sorted_params = sorted(score.items(), key=operator.itemgetter(1))
 
+            return sorted_params
+    def tau(self, cur_strategy, val):
+        return self.ranges[cur_strategy][-1] if self.coefs[val] < 0 else self.ranges[cur_strategy][0]
+    
+    #for both algorithm would be same
     def write_quartiles(self, csv_writer, algorithm, metric, quartiles, f_goal, f_goals):
-        if self.dataset_name in ['adult', 'hmda']:
+        if self.model_type != 'reg':
             base = round(1 - f_goal, 2)
         else:
             base = round(1 - (f_goal - min(f_goals)) / min(f_goals), 2)
         for i, q in enumerate(quartiles, 1):
             csv_writer.writerow([base, algorithm, f"{metric} q{i}", round(q, 5)])
+
+    
+         

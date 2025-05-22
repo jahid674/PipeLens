@@ -3,6 +3,8 @@ import pandas as pd
 import numpy as np
 import logging
 import random
+import math
+from sklearn.preprocessing import StandardScaler
 from regression import Regression
 from LoadDataset import LoadDataset
 from modules.profiling.profile import Profile
@@ -10,10 +12,10 @@ import importlib
 import itertools
 
 class PipelineExecutor:
-    def __init__(self, pipeline_type, dataset_name, metric_type, pipeline_ord, execution_type='pass', h_sample_bool=False, scalability_bool=False):
+    def __init__(self, alg_type, pipeline_type, dataset_name, metric_type, pipeline_ord, execution_type='pass', h_sample_bool=False, scalability_bool=False):
         
         self.pipeline_type = pipeline_type # 'ml' or 'em'
-
+        self.alg_type = alg_type # 'opaque' or 'glass'
         if self.pipeline_type == 'ml':
             self.dataset_name = dataset_name
             self.metric_type = metric_type
@@ -118,7 +120,7 @@ class PipelineExecutor:
             return X_modified
 
 
-    def run_pipeline(self, file_name):
+    def run_pipeline_opaque(self, file_name):
         if self.execution_type == 'pass':
             X_copy, y_copy = self.X_train.copy(), self.y_train.copy()
         elif self.execution_type == 'fail':
@@ -235,7 +237,7 @@ class PipelineExecutor:
 
         raise ValueError("No output returned from final pipeline component.")
                     
-    def run_pipeline_profile(self, file_name):
+    def run_pipeline_glass(self, file_name):
         if self.execution_type == 'pass':
             X_copy, y_copy = self.X_train.copy(), self.y_train.copy()
         elif self.execution_type == 'fail':
@@ -313,7 +315,7 @@ class PipelineExecutor:
         self.profile_param_lst_df.to_csv(file_name, index=False)
 
 
-    '''def score_profile_parameter(self):
+    def rank_profile_parameter(self):
         param_lst_df=self.profile_param_lst_df.copy()
         key_profile = self.headers
         for column in self.X_train:
@@ -367,7 +369,16 @@ class PipelineExecutor:
         for idx,profile_index in enumerate(self.profile_ranking):
                 print(self.profiles[profile_index])
 
-        return self.profile_coefs, self.profile_ranking, self.param_coeff, self.ranking_param'''
+        return self.profile_coefs, self.profile_ranking, self.param_coeff, self.ranking_param
+    
+    def run_pipeline(self, alg_type, file_name):
+        if alg_type == 'opaque':
+            self.run_pipeline_opaque(file_name)
+        else:
+            self.run_pipeline_glass(file_name)
+    
+    def get_profile(self):
+        return self.profile
 
 
 

@@ -15,18 +15,21 @@ config["log_file_path"] = config["log_file_path"].format(
     dataset_name=dataset_name,
     model_type=model_type,
     metric_type=metric_type
+    algortihm_type = algorithm_type
 )
 
 config["train_file"] = config["train_file_template"].format(
     dataset_name=dataset_name,
     model_type=model_type,
     metric_type=metric_type
+    algortihm_type = algorithm_type
 )
 
 config["test_file"] = config["test_file_template"].format(
     dataset_name=dataset_name,
     model_type=model_type,
     metric_type=metric_type
+    algortihm_type = algorithm_type
 )
 
 config["metric_file"] = config["metric_file_template"].format(

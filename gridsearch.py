@@ -1,6 +1,6 @@
 import random
-import pandas as pd
 from score_lookup import ScoreLookup
+from pipeline_execution import PipelineExecutor
 
 class GridSearch:
     def __init__(self, historical_data, pipeline_order, metric_type):
@@ -11,10 +11,14 @@ class GridSearch:
         self.score_lookup = ScoreLookup(pipeline_order, metric_type)
         self.gs_idistr = []
         self.gs_fdistr = []
+        self.executor_pass = PipelineExecutor(pipeline_type=self.pipeline_type,
+                                         dataset_name=self.dataset_name,
+                                         metric_type=self.metric_type,
+                                         pipeline_ord=self.pipeline_order)
 
     def grid_search(self, f_goal, seen):
-        self.gs_idistr.clear()
-        self.gs_fdistr.clear()
+        #self.gs_idistr.clear()
+        #self.gs_fdistr.clear()
         gs_iter = 0
         gs_f = 0
 
@@ -28,18 +32,12 @@ class GridSearch:
                 continue
 
             seen.add(param_tuple)
-            cur_f = self.score_lookup.utility_look_up(self.historical_data_pd, elem)
+            cur_f  = self.f_score_look_up2(self.historical_data_pd,list(cur_params.values()))
+            #cur_f = self.executor_pass.current_par_lookup(cur_params)
             gs_iter += 1
-
-            if self.metric_type != 'f-1':
-                if cur_f <= f_goal:
-                    gs_f = cur_f
-                    self.gs_fdistr.append(gs_f)
-                    self.gs_idistr.append(gs_iter)
-                    return gs_iter, gs_f
-            else:
-                if cur_f >= f_goal:
-                    gs_f = cur_f
-                    self.gs_fdistr.append(gs_f)
-                    self.gs_idistr.append(gs_iter)
-                    return gs_iter, gs_f
+            
+            if cur_f <= f_goal:
+                gs_f = cur_f
+                self.gs_fdistr.append(gs_f)
+                self.gs_idistr.append(gs_iter)
+                return gs_iter, gs_f

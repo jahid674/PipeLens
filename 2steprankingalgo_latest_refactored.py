@@ -61,75 +61,6 @@ from LoadDataset import LoadDataset
 from modules.profiling.profile import Profile
 
 
-knn_k_lst = [1, 5, 10, 20, 30]
-lof_k_lst = [1, 5, 10, 20, 30]
-len_knn = len(knn_k_lst)
-len_lof = len(lof_k_lst)
-norm_strategy = ['none', 'ss', 'rs', 'ma', 'mm'] # standard scaler, robust scaler, max absolute scaler, minmax scaler
-mv_strategy = ['drop', 'mean', 'median', 'most_frequent', 'knn']
-od_strategy = ['none', 'if', 'lof'] # local outlier factor, isolation forest
-model_selection = ['lr']#, 'rf' #, 'nb', 'reg']
-dataset_name = 'adult' # 'hmda', 'housing'
-modelType = 'lr' #'lr' 'reg'
-metric_type = 'sp' # rmse, accuracy_score, sp
-algo_type = '2step'
-from sklearn.ensemble import RandomForestClassifier
-logging.basicConfig(filename='logs/profile_'+algo_type+"_"+dataset_name+'_'+modelType+'_'+'metric_type'+'.log', filemode = 'w',level=logging.DEBUG, format='%(asctime)s - %(levelname)s - %(message)s')
-
-h_sample_bool = False
-h_sample = 0.005 # sample h_sample fraction of historical data
-
-scalability_bool = False
-if scalability_bool:
-        knn_k_lst = [1, 5, 10, 20, 30]
-        lof_k_lst = [1, 5, 10, 20, 30]
-        len_knn = len(knn_k_lst)
-        len_lof = len(lof_k_lst)
-        norm_strategy = ['none', 'ss', 'rs', 'ma', 'mm']
-        mv_strategy = ['drop', 'mean', 'median', 'most_frequent', 'knn']
-        od_strategy = ['none', 'if', 'lof']
-        model_selection = ['lr', 'rf', 'nb', 'reg']
-
-#column_names = ['Age','Workclass','fnlwgt','Education','Education_Num','Martial_Status','Occupation','Relationship','Race','Sex','Capital_Gain','Capital_Loss','Hours_per_week','Country','income']
-#categorical_cols = ['Age','Workclass', 'Education', 'Martial_Status', 'Relationship', 'Race', 'Sex','Hours_per_week','income']
-#from scipy.stats import pearsonr
-
-loader = LoadDataset(dataset_name)
-dataset, X_train, y_train, X_test, y_test = loader.load()
-
-if dataset_name == 'adult':
-        tau_train = 0.1 # fraction of missing values
-        tau_test = 0.1
-        contamination_train = 0.2
-        contamination_test = 0.2
-        contamination_train_lof = 'auto'
-        contamination_test_lof = 'auto'
-        target = 'income'
-        sensitive_variable='Sex'
-        numerical_columns = X_train.select_dtypes(include=['int', 'float']).columns
-        categorical_columns = X_train.select_dtypes(include=['object']).columns
-elif dataset_name == 'hmda':
-        tau_train = 0.2 # fraction of missing values
-        tau_test = 0.1
-        contamination_train = 0.3
-        contamination_test = 0.2
-        contamination_train_lof = 0.3
-        contamination_test_lof = 0.2
-        target = 'action_taken'
-        sensitive_variable='race'
-        numerical_columns = X_train.select_dtypes(include=['int', 'float']).columns
-        categorical_columns = X_train.select_dtypes(include=['object']).columns
-elif dataset_name == 'housing':
-        tau_train = 0.2 # fraction of missing values
-        tau_test = 0.1
-        contamination_train = 0.3
-        contamination_test = 0.2
-        contamination_train_lof = 0.3
-        contamination_test_lof = 0.2
-        target = 'SalePrice'
-        numerical_columns = X_train.select_dtypes(include=['int', 'float']).columns
-        categorical_columns = X_train.select_dtypes(include=['object']).columns
-
 profiler = Profile()
 #outlier_fraction = profiler.get_fraction_of_outlier(dataset[numerical_columns])
 '''results, keys = profiler.populate_profiles(
@@ -188,21 +119,8 @@ class base:
                 self.sublist_3 = [] 
                 self.column_name = ['normal','imputer','outlier_strategy' ]
                 self.profile_dist = {}
+                self.profile=[]
 
-      
-        def get_profile(self,profiles_df,elem,profile_index):
-                # profile_index = profile_index +len(self.param_columns)
-                column_names =['missing_value', 'normalization', 'outlier']
-                # return elem[-1]
-                # import pdb;pdb.set_trace()
-                try:
-                        return profiles_df.loc[(profiles_df[column_names[0]] == elem[0]) & (profiles_df[column_names[1]] == elem[1] ) 
-                                               & (profiles_df[column_names[2]] == elem[2])
-                                               
-                                               ].iloc[0][profile_index]
-                except Exception as e :
-                        print(e)
-                        # import pdb;pdb.set_trace()
 
         def optimize(self, init_params, f_goal):
                 logging.info(f'2step Starting Grasp search for utility score:{f_goal}')
@@ -379,53 +297,7 @@ class base:
                         if iter_size>len(self.historical_data):
                            print('Not able to find ')
                            break
-        
-        def f_score_look_up2(self,profiles_df,elem):
-                column_names =['missing_value', 'normalization', 'outlier', 'fairness']
-                # return elem[-1]
-                # import pdb;pdb.set_trace()
-                try:
-                        return profiles_df.loc[(profiles_df[column_names[0]] == elem[0]) & (profiles_df[column_names[1]] == elem[1] ) 
-                                               & (profiles_df[column_names[2]] == elem[2]) 
-                                             
-                                               
-                                               ].iloc[0]['fairness']
-                except Exception as e :
-                        print(e)
-                        import pdb;pdb.set_trace()
 
-        def grid_search(self, f_goal, iterations,seen):
-                self.gs_idistr = []
-                self.gs_fdistr = []
-                gs_iter = 0     
-                gs_f = 0
-                for i in range(iterations):
-                        gs_iter = 0
-                        gs_f = 0
-                        cur_order = self.historical_data
-                        random.shuffle(cur_order)
-                        for elem in cur_order:
-                                cur_params = {strategy: selection for strategy, selection in zip(self.base_strategies, elem[:len(self.base_strategies)])}
-
-
-                                if(tuple(cur_params.items())) in seen:
-                                        continue
-                                
-                                seen.add(tuple(cur_params.items()))
-                                cur_f = self.f_score_look_up2(self.historical_data_pd,elem)
-                                gs_iter += 1
-                                if metric_type=='sp' or metric_type=='mae' or metric_type=='rmse' or metric_type=='accuracy_score':
-                                        if cur_f < f_goal:
-                                                gs_f = cur_f
-                                                self.gs_fdistr.append(gs_f)
-                                                self.gs_idistr.append(gs_iter)
-                                                return gs_iter,gs_f
-                                elif metric_type=='f-1':
-                                        if cur_f >= f_goal:
-                                                self.gs_fdistr.append(gs_f)
-                                                self.gs_idistr.append(gs_iter)
-                                                return gs_iter,gs_f
-        
 
         def write_quartiles(self,csv_writer, algorithm, metric, quartiles):
                 if dataset in ['adult', 'hmda']:

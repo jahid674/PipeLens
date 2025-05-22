@@ -5,7 +5,9 @@ import csv
 import sys
 import logging
 from opaque_optimizer import OpaqueOptimizer
+from glassbox_optimizer import GlassBoxOptimizer
 from gridsearch import GridSearch
+from pipeline_execution import PipelineExecutor
 
 with open('config.json', 'r') as f:
     config = json.load(f)
@@ -16,6 +18,7 @@ model_type = config["model_type"]
 metric_type = config["metric_type"]
 pipeline_type = config["pipeline_type"]
 pipeline_order = config["pipeline_order"]
+
 f_goals = config["f_goals"][dataset_name]
 
 filename_train = config["paths"]["train_data"].format(
