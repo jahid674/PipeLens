@@ -24,12 +24,12 @@ class Imputer:
         missing_idx = df_updated[df_updated.isnull().any(axis=1)].index.tolist()
 
         df_updated = df_updated.drop(missing_idx)
-
+        df_updated.reset_index(drop=True, inplace=True)
         if y_train is not None:
             y_train_updated = y_train.copy()
             for idx in sorted(missing_idx, reverse=True):
                     del y_train_updated[idx]
-
+            y_train_updated.reset_index(drop=True, inplace=True)
         if sensitive_attr_train is not None:
             updated_sensitive_attr_train = sensitive_attr_train.drop(missing_idx)
             updated_sensitive_attr_train.reset_index(drop=True, inplace=True)

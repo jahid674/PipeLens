@@ -8,36 +8,31 @@ with open("config.json", "r") as file:
 dataset_name = config["dataset_name"]
 model_type = config["model_type"]
 metric_type = config["metric_type"]
-algortihm_type = config["algorithm_type"]
-
-
-config["log_file_path"] = config["log_file_path"].format(
-    dataset_name=dataset_name,
-    model_type=model_type,
-    metric_type=metric_type
-    algortihm_type = algorithm_type
-)
-
-config["train_file"] = config["train_file_template"].format(
-    dataset_name=dataset_name,
-    model_type=model_type,
-    metric_type=metric_type
-    algortihm_type = algorithm_type
-)
-
-config["test_file"] = config["test_file_template"].format(
-    dataset_name=dataset_name,
-    model_type=model_type,
-    metric_type=metric_type
-    algortihm_type = algorithm_type
-)
-
-config["metric_file"] = config["metric_file_template"].format(
-    dataset_name=dataset_name,
-    model_type=model_type,
-    metric_type=metric_type
-)
-
-# Optional: expose key configs as globals
-pipeline_order = config["pipeline_order"]
 pipeline_type = config["pipeline_type"]
+pipeline_order = config["pipeline_order"]
+
+config["log_file_path"] = config["paths"]["log_file"].format(
+    dataset_name=dataset_name,
+    model_type=model_type,
+    metric_type=metric_type
+)
+
+config["train_file"] = config["paths"]["train_data"].format(
+    dataset_name=dataset_name,
+    model_type=model_type,
+    metric_type=metric_type
+)
+
+config["test_file"] = config["paths"]["test_data"].format(
+    dataset_name=dataset_name,
+    model_type=model_type,
+    metric_type=metric_type
+)
+
+config["metric_file"] = config["paths"]["metric_output"].format(
+    dataset_name=dataset_name,
+    model_type=model_type,
+    metric_type=metric_type
+)
+
+

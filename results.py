@@ -35,8 +35,10 @@ logging.basicConfig(filename=log_path, filemode='w', level=logging.DEBUG)
 
 p = OpaqueOptimizer(dataset_name, model_type, metric_type, pipeline_type, pipeline_order,
                     filename_train, filename_test)
+#q = GlassBoxOptimizer(dataset_name, model_type, metric_type, pipeline_type, pipeline_order, filename_train, filename_test)
+
 historical_data = pd.read_csv(filename_test)
-grid = GridSearch(historical_data, pipeline_order, metric_type)
+grid = GridSearch(dataset_name, historical_data, pipeline_order, metric_type, pipeline_type)
 
 with open(metric_path, 'w') as f:
     csv_writer = csv.writer(f)

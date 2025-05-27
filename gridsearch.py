@@ -3,15 +3,16 @@ from score_lookup import ScoreLookup
 from pipeline_execution import PipelineExecutor
 
 class GridSearch:
-    def __init__(self, historical_data, pipeline_order, metric_type):
+    def __init__(self, dataset_name, historical_data, pipeline_order, metric_type, pipeline_type):
         self.historical_data_pd = historical_data
         self.pipeline_order = pipeline_order
         self.metric_type = metric_type
+        self.dataset_name=dataset_name
         self.historical_data = historical_data.values.tolist()
         self.score_lookup = ScoreLookup(pipeline_order, metric_type)
         self.gs_idistr = []
         self.gs_fdistr = []
-        self.executor_pass = PipelineExecutor(pipeline_type=self.pipeline_type,
+        self.executor_pass = PipelineExecutor(pipeline_type=pipeline_type,
                                          dataset_name=self.dataset_name,
                                          metric_type=self.metric_type,
                                          pipeline_ord=self.pipeline_order)
@@ -32,7 +33,7 @@ class GridSearch:
                 continue
 
             seen.add(param_tuple)
-            cur_f  = self.f_score_look_up2(self.historical_data_pd,list(cur_params.values()))
+            cur_f  = self.score_lookup.utility_look_up(self.historical_data_pd,list(cur_params.values()))
             #cur_f = self.executor_pass.current_par_lookup(cur_params)
             gs_iter += 1
             

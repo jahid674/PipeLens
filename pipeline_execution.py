@@ -12,10 +12,9 @@ import importlib
 import itertools
 
 class PipelineExecutor:
-    def __init__(self, alg_type, pipeline_type, dataset_name, metric_type, pipeline_ord, execution_type='pass', h_sample_bool=False, scalability_bool=False):
+    def __init__(self, pipeline_type, dataset_name, metric_type, pipeline_ord, execution_type='pass', h_sample_bool=False, scalability_bool=False):
         
         self.pipeline_type = pipeline_type # 'ml' or 'em'
-        self.alg_type = alg_type # 'opaque' or 'glass'
         if self.pipeline_type == 'ml':
             self.dataset_name = dataset_name
             self.metric_type = metric_type
@@ -26,7 +25,7 @@ class PipelineExecutor:
             self.mv_strategy = ['drop', 'mean', 'median', 'most_frequent', 'knn']
             self.norm_strategy = ['none', 'ss', 'rs', 'ma', 'mm']
             self.od_strategy = ['none', 'if', 'lof']
-            self.model_selection = ['lr'] # 
+            self.model_selection = ['lr'] # rf, 'reg' # 'nb'
             self.knn_k_lst = [1, 5, 10, 20, 30]
             self.lof_k_lst = [1, 5, 10, 20, 30]
             self.pipeline_order = pipeline_ord # always keep model at the end
@@ -301,28 +300,25 @@ class PipelineExecutor:
                 else:
                     raise ValueError(f"Expected tuple output from {class_name}.apply")
                 param_record.append(param_index + 1)
-            
-            #param_lst.append(param_record)
-            #print(param_record + [utility])
 
             self.headers, sens_data = handler.get_profile_metric()
             prof_data = frac_data + sens_data
             profile_gen,key_profile = p.populate_profiles(pd.concat([X, y], axis=1), numerical_columns, self.target_variable_name, fraction_outlier, self.metric_type)
             param_lst.append(param_record + prof_data + profile_gen + [utility])
-            print(param_lst)
+            #print(param_lst)
 
         self.profile_param_lst_df = pd.DataFrame(param_lst, columns= self.pipeline_order + self.frac_header + self.headers +key_profile+[f'utility_{self.metric_type}'])
         self.profile_param_lst_df.to_csv(file_name, index=False)
 
-
+    #this 
     def rank_profile_parameter(self):
         param_lst_df=self.profile_param_lst_df.copy()
         key_profile = self.headers
         for column in self.X_train:
             key_profile.append('corr_'+column)
         self.profile=key_profile+self.frac_header
-        #if self.h_sample_bool and self: #need to update according to logic
-        if(self.dataset_name=='housing'):
+        #if self.h_sample_bool and self: #need to update according to logic #From SHAP
+        if self.model_selection == 'reg':
             y = param_lst_df[f'utility_{self.metric_type}']                  
             t = StandardScaler().fit(param_lst_df).transform(param_lst_df)
             X = pd.DataFrame(data = t, columns = param_lst_df.columns)[self.profiles]
@@ -374,7 +370,7 @@ class PipelineExecutor:
     def run_pipeline(self, alg_type, file_name):
         if alg_type == 'opaque':
             self.run_pipeline_opaque(file_name)
-        else:
+        elif alg_type == 'glass':
             self.run_pipeline_glass(file_name)
     
     def get_profile(self):
@@ -383,25 +379,21 @@ class PipelineExecutor:
 
 
 
-dataset_name = 'adult'
+'''dataset_name = 'adult'
 metric_type = 'sp'
 model_type = 'lr'
 pipeline_order = ['missing_value', 'normalization', 'outlier', 'model']
 
 
-filename_train = f'historical_data/historical_data_test_profile_{model_type}_{metric_type}_{dataset_name}.csv'
+filename_train = f'historical_data/historical_data_train_{model_type}_{metric_type}_{dataset_name}.csv'
 executor = PipelineExecutor(
                 pipeline_type='ml',
                 dataset_name=dataset_name,
                 metric_type=metric_type,
                 pipeline_ord=pipeline_order,
-                execution_type='fail',
+                execution_type='pass',
             )
-executor.run_pipeline_profile(filename_train)
-
-'''historical_data = pd.read_csv(filename_train)
-_, _ = executor.score_parameter(historical_data)
-
+executor.run_pipeline_opaque(filename_train)
 
 cur_par=[1, 1, 1, 1]
 
