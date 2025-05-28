@@ -1,0 +1,76 @@
+Utility Goal,Method,Iteration,Value
+0.95,ranking,iterations q1,3.0
+0.95,ranking,iterations q2,4.0
+0.95,ranking,iterations q3,4.0
+0.95,ranking,iterations q4,6.0
+0.95,ranking,Fairness q1,0.04379
+0.95,ranking,Fairness q2,0.04379
+0.95,ranking,Fairness q3,0.04379
+0.95,ranking,Fairness q4,0.04409
+
+0.95,grid search,iterations q1,16.0
+0.95,grid search,iterations q2,29.0
+0.95,grid search,iterations q3,54.0
+0.95,grid search,iterations q4,168.0
+0.95,grid search,Fairness q1,0.04379
+0.95,grid search,Fairness q2,0.04379
+0.95,grid search,Fairness q3,0.04379
+0.95,grid search,Fairness q4,0.04409
+
+Utility Goal,Method,Iteration,Value
+0.94,ranking,iterations q1,3.0
+0.94,ranking,iterations q2,4.0
+0.94,ranking,iterations q3,4.0
+0.94,ranking,iterations q4,5.0
+0.94,ranking,Fairness q1,0.04379
+0.94,ranking,Fairness q2,0.04379
+0.94,ranking,Fairness q3,0.05066
+0.94,ranking,Fairness q4,0.0589
+
+0.94,grid search,iterations q1,3.0
+0.94,grid search,iterations q2,6.0
+0.94,grid search,iterations q3,12.5
+0.94,grid search,iterations q4,43.0
+0.94,grid search,Fairness q1,0.05066
+0.94,grid search,Fairness q2,0.05369
+0.94,grid search,Fairness q3,0.05702
+0.94,grid search,Fairness q4,0.0589
+
+Utility Goal,Method,Iteration,Value
+0.87,ranking,iterations q1,2.0
+0.87,ranking,iterations q2,3.0
+0.87,ranking,iterations q3,4.0
+0.87,ranking,iterations q4,4.0
+0.87,ranking,Fairness q1,0.04379
+0.87,ranking,Fairness q2,0.05066
+0.87,ranking,Fairness q3,0.06364
+0.87,ranking,Fairness q4,0.09299
+
+0.87,grid search,iterations q1,2.0
+0.87,grid search,iterations q2,4.0
+0.87,grid search,iterations q3,7.0
+0.87,grid search,iterations q4,24.0
+0.87,grid search,Fairness q1,0.05369
+0.87,grid search,Fairness q2,0.05781
+0.87,grid search,Fairness q3,0.06653
+0.87,grid search,Fairness q4,0.09299
+
+Utility Goal,Method,Iteration,Value
+0.84,ranking,iterations q1,1.0
+0.84,ranking,iterations q2,3.0
+0.84,ranking,iterations q3,4.0
+0.84,ranking,iterations q4,4.0
+0.84,ranking,Fairness q1,0.04409
+0.84,ranking,Fairness q2,0.05781
+0.84,ranking,Fairness q3,0.08002
+0.84,ranking,Fairness q4,0.15956
+
+0.84,grid search,iterations q1,1.0
+0.84,grid search,iterations q2,2.0
+0.84,grid search,iterations q3,4.0
+0.84,grid search,iterations q4,11.0
+0.84,grid search,Fairness q1,0.05781
+0.84,grid search,Fairness q2,0.07215
+0.84,grid search,Fairness q3,0.15475
+0.84,grid search,Fairness q4,0.15956
+

@@ -27,7 +27,7 @@ class ModelHandler:
 
         return evaluator.compute(y_true=y, y_pred=y_pred, priv_idx=priv_idx, unpriv_idx=unpriv_idx)
     
-    def get_profile_metric(self):
+    def get_profile_metric(self,y_train):
         y = self._y.reset_index(drop=True)
         sensitive = self._sensitive.reset_index(drop=True)
         y_pred = self._y_pred
@@ -47,7 +47,7 @@ class ModelHandler:
             ratio_sensitive_attr = round(len(concat_X_y[concat_X_y[self.sens_attr_name] == 1]) /
                                         len(concat_X_y[concat_X_y[self.sens_attr_name] == 0]), 5)
             cov = concat_X_y[self.sens_attr_name].cov(concat_X_y[self.target_variable_name])
-            class_imbalance_ratio = round((y == 1).sum() / len(y), 5) if y is not None else None
+            class_imbalance_ratio = round((y == 1).sum() / len(y_train), 5) if y is not None else None
 
             if self.metric_type == 'accuracy_score':
                 return ['class_imbalance_ratio'], [class_imbalance_ratio]

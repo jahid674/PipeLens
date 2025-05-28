@@ -8,6 +8,22 @@ class ScoreLookup:
         self.pipeline_order = pipeline_order
         self.metric_type = metric_type
 
+    '''def utility_look_up(self, profiles_df, elem):
+        try:
+            mask = True
+            for col, val in zip(self.pipeline_order, elem):
+                mask &= (profiles_df[col] == val)
+
+            result_row = profiles_df.loc[mask]
+            if not result_row.empty:
+                return round(result_row.iloc[0][f'utility_{self.metric_type}'], 5)
+            else:
+                return None
+            
+        except Exception as e:
+            print(f"[ERROR] utility_look_up failed: {e}")
+            return None'''
+        
     def utility_look_up(self,profiles_df,elem):
                 column_names = self.pipeline_order + [f'utility_{self.metric_type}']
                 try:
@@ -16,7 +32,9 @@ class ScoreLookup:
                 except Exception as e :
                         print(e)
                         import pdb;pdb.set_trace()
-                        
+
+
+
     def identify_param(self, rank_list, comb_size):
                 return list(itertools.combinations(rank_list, comb_size))
         

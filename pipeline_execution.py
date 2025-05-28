@@ -301,23 +301,33 @@ class PipelineExecutor:
                     raise ValueError(f"Expected tuple output from {class_name}.apply")
                 param_record.append(param_index + 1)
 
-            self.headers, sens_data = handler.get_profile_metric()
+            self.headers, sens_data = handler.get_profile_metric(self.y_train)
             prof_data = frac_data + sens_data
             profile_gen,key_profile = p.populate_profiles(pd.concat([X, y], axis=1), numerical_columns, self.target_variable_name, fraction_outlier, self.metric_type)
             param_lst.append(param_record + prof_data + profile_gen + [utility])
             #print(param_lst)
 
-        self.profile_param_lst_df = pd.DataFrame(param_lst, columns= self.pipeline_order + self.frac_header + self.headers +key_profile+[f'utility_{self.metric_type}'])
-        self.profile_param_lst_df.to_csv(file_name, index=False)
+        profile_param_lst_df = pd.DataFrame(param_lst, columns= self.pipeline_order + self.frac_header + self.headers +key_profile+[f'utility_{self.metric_type}'])
+        profile_param_lst_df.to_csv(file_name, index=False)
 
-    #this 
-    def rank_profile_parameter(self):
-        param_lst_df=self.profile_param_lst_df.copy()
-        key_profile = self.headers
-        for column in self.X_train:
-            key_profile.append('corr_'+column)
-        self.profile=key_profile+self.frac_header
+    
+    def get_header(self, file_name):
+        df = pd.read_csv(file_name)
+        known_cols = set(self.pipeline_order + [f'utility_{self.metric_type}'])
+        extra_cols = [
+            col for col in df.columns
+            if col not in known_cols and not col.startswith('ot_') and not col.startswith('cov')
+        ]
+
+        self.headers = extra_cols
+        return self.headers
+    
+
+
+    def rank_profile_parameter(self, file_name):
+        param_lst_df = pd.read_csv(file_name)
         #if self.h_sample_bool and self: #need to update according to logic #From SHAP
+        self.profiles = self.get_header(file_name)
         if self.model_selection == 'reg':
             y = param_lst_df[f'utility_{self.metric_type}']                  
             t = StandardScaler().fit(param_lst_df).transform(param_lst_df)
@@ -336,19 +346,20 @@ class PipelineExecutor:
         reg = Regression()
         model = reg.generate_regression(X, y)
         coefs = model.coef_
-        print(coefs)
-        print(model.intercept_)
+        #print(coefs)
+        #print(model.intercept_)
                 
         self.profile_ranking = np.argsort(np.abs(coefs))[::-1]
         self.profile_coefs = coefs
-        print(self.profile_coefs)
+        #print(self.profile_coefs)
 
         #ranking parameter 
+        param_columns=self.pipeline_order
         self.ranking_param ={}
         self.param_coeff  = {}
         for index, elem in enumerate(self.profiles):
                 y = param_lst_df[elem]
-                X = param_lst_df.copy()[self.param_columns]
+                X = param_lst_df.copy()[param_columns]
                 if self.h_sample_bool:
                             X = X.iloc[sample_idx]
                             y = y.iloc[sample_idx]
@@ -357,45 +368,53 @@ class PipelineExecutor:
                 coefs = model.coef_
                 # print(model.intercept_)
                 self.ranking_param[elem] =  np.argsort(np.abs(coefs))[::-1]
-                print(self.ranking_param[elem])
+                #print(self.ranking_param[elem])
                         
                 self.param_coeff[elem] =  coefs
-                print(f'name : {elem} {self.param_coeff[elem]}')
+                #print(f'name : {elem} {self.param_coeff[elem]}')
 
-        for idx,profile_index in enumerate(self.profile_ranking):
-                print(self.profiles[profile_index])
+        #for idx,profile_index in enumerate(self.profile_ranking):
+                #print(self.profiles[profile_index])
 
         return self.profile_coefs, self.profile_ranking, self.param_coeff, self.ranking_param
+    
+    def get_profile(self):
+        return self.profile
     
     def run_pipeline(self, alg_type, file_name):
         if alg_type == 'opaque':
             self.run_pipeline_opaque(file_name)
         elif alg_type == 'glass':
             self.run_pipeline_glass(file_name)
-    
-    def get_profile(self):
-        return self.profile
 
 
 
 
-'''dataset_name = 'adult'
+dataset_name = 'adult'
 metric_type = 'sp'
 model_type = 'lr'
-pipeline_order = ['missing_value', 'normalization', 'outlier', 'model']
+pipeline_order = ['missing_value', 'normalization', 'model']
 
 
-filename_train = f'historical_data/historical_data_train_{model_type}_{metric_type}_{dataset_name}.csv'
+filename_train = f'historical_data/opaque_alter_order_test_{model_type}_{metric_type}_{dataset_name}.csv'
 executor = PipelineExecutor(
                 pipeline_type='ml',
                 dataset_name=dataset_name,
                 metric_type=metric_type,
                 pipeline_ord=pipeline_order,
-                execution_type='pass',
+                execution_type='fail',
             )
 executor.run_pipeline_opaque(filename_train)
 
-cur_par=[1, 1, 1, 1]
+#print(executor.get_header(filename_train))
+#coefs_profile, profile_ranking, param_coeff, param_rank = executor.rank_profile_parameter(filename_train)
+#print(coefs_profile)
+#print(profile_ranking)
+#print(param_coeff)
+#print(param_rank['corr_Race'])'''
+
+
+'''cur_par=[1, 1, 1, 1]
 
 utility= executor.current_par_lookup(cur_par=cur_par)
 print('utility:', utility)'''

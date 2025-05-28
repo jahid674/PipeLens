@@ -17,12 +17,12 @@ class GridSearch:
                                          metric_type=self.metric_type,
                                          pipeline_ord=self.pipeline_order)
 
-    def grid_search(self, f_goal, seen):
+    def grid_search(self, f_goal):
         #self.gs_idistr.clear()
         #self.gs_fdistr.clear()
         gs_iter = 0
         gs_f = 0
-
+        seen = set()
         cur_order = self.historical_data.copy()
         random.shuffle(cur_order)
 

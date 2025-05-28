@@ -36,19 +36,23 @@ class GlassBoxOptimizer:
         )
 
         self.pasing_hist_data = pd.read_csv(self.filename_train)
-        self.coefs_profile, self.profile_ranking, self.param_coeff, self.param_rank = self.executor_pass.rank_profile_parameter()
-        self.profiles = self.executor_pass.get_profile()
+        self.coefs_profile, self.profile_ranking, self.param_coeff, self.param_rank = self.executor_pass.rank_profile_parameter(self.filename_train)
+        self.profiles = self.executor_pass.get_header(self.filename_train)
+        #print(self.profiles)
         self.score_lookup = ScoreLookup(pipeline_order, metric_type)
-
+    
     def set_ranges(self):
         for strategy in self.pipeline_order:
             self.ranges[strategy] = list(np.unique(self.pasing_hist_data[strategy]))
 
     def optimize(self, init_params, f_goal):
         self.rank_iter = 0
-        self.rank_f = -1
+        self.rank_f = 0
+        cur_params = init_params.copy()
         cur_params_opt = {strategy: selection for strategy, selection in zip(self.base_strategies, init_params)}
-        opt_f = self.executor_pass.current_par_lookup(cur_params_opt)
+        cur_param_check=cur_params[:len(self.base_strategies)]
+        opt_f = self.score_lookup.utility_look_up(self.historical_data_pd, init_params)
+        #opt_f = self.executor_pass.current_par_lookup(cur_param_check)
 
         if self.pipeline_type == 'ml':
             self.set_ranges()
@@ -94,7 +98,7 @@ class GlassBoxOptimizer:
                 if tuple(cur_params.items()) in seen:
                     continue
                 seen.add(tuple(cur_params.items()))
-                cur_f  = self.score_look_up.utility_look_up(self.historical_data_pd,list(cur_params.values()))
+                cur_f  = self.score_lookup.utility_look_up(self.historical_data_pd,list(cur_params.values()))
                 #cur_f = self.executor_pass.current_par_lookup(cur_params)
 
                 self.rank_iter += 1
@@ -133,7 +137,7 @@ class GlassBoxOptimizer:
                 continue
             seen.add(tuple(cur_params.items()))
 
-            cur_f  = self.score_look_up.utility_look_up(self.historical_data_pd,list(cur_params.values()))
+            cur_f  = self.score_lookup.utility_look_up(self.historical_data_pd,list(cur_params.values()))
             #cur_f = self.executor_pass.current_par_lookup(cur_params)
             self.rank_iter += 1
 
@@ -155,7 +159,7 @@ class GlassBoxOptimizer:
         
         return current_param_value
     
-    def rank_intervention_combination(self,profile_name, idx):
+    def rank_intervention_combination(self,profile_name):
         score_map = {}
         lst = []
         for row in self.historical_data:
@@ -175,3 +179,6 @@ class GlassBoxOptimizer:
             base = round(1 - (f_goal - min(f_goals)) / min(f_goals), 2)
         for i, q in enumerate(quartiles, 1):
             csv_writer.writerow([base, algorithm, f"{metric} q{i}", round(q, 5)])
+
+
+
