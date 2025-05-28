@@ -1,10 +1,8 @@
-# config.py
 import json
 
 with open("config.json", "r") as file:
     config = json.load(file)
 
-# Create formatted versions of templated strings
 dataset_name = config["dataset_name"]
 model_type = config["model_type"]
 metric_type = config["metric_type"]

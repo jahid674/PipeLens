@@ -18,8 +18,8 @@ class GridSearch:
                                          pipeline_ord=self.pipeline_order)
 
     def grid_search(self, f_goal):
-        #self.gs_idistr.clear()
-        #self.gs_fdistr.clear()
+        self.gs_idistr.clear()
+        self.gs_fdistr.clear()
         gs_iter = 0
         gs_f = 0
         seen = set()
