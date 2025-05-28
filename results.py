@@ -46,12 +46,13 @@ with open(metric_path, 'w') as f:
     for f_goal in utility_goals:
         rank_idistr, rank_fdistr, gs_idistr, gs_fdistr = [], [], [], []
         profile_itr = {}
-        gs_iter, gs_f = grid.grid_search(f_goal)
-        gs_idistr.append(gs_iter)
-        gs_fdistr.append(gs_f)
 
         for seed_ in historical_data.values.tolist():
             seen = set()
+            gs_iter, gs_f = grid.grid_search(f_goal)
+            gs_idistr.append(gs_iter)
+            gs_fdistr.append(gs_f)
+
             p.optimize(seed_, f_goal)
             rank_idistr.append(p.rank_iter)
             rank_fdistr.append(p.rank_f)
