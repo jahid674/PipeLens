@@ -6,10 +6,13 @@ import random
 import math
 from sklearn.preprocessing import StandardScaler
 from regression import Regression
+from modules.outlier_detection.outlier_detector import OutlierDetector
+from sklearn.linear_model import LogisticRegression
 from LoadDataset import LoadDataset
 from modules.profiling.profile import Profile
 import importlib
 import itertools
+from sklearn.metrics.pairwise import cosine_similarity
 
 class PipelineExecutor:
     def __init__(self, pipeline_type, dataset_name, metric_type, pipeline_ord, execution_type='pass', h_sample_bool=False, scalability_bool=False):
@@ -20,7 +23,7 @@ class PipelineExecutor:
             self.metric_type = metric_type
             self.h_sample_bool = h_sample_bool
             if self.h_sample_bool:
-                self.h_sample = 0.005
+                self.h_sample = 0.005 # make it as a paramater
             self.scalability_bool = scalability_bool
             self.mv_strategy = ['drop', 'mean', 'median', 'most_frequent', 'knn']
             self.norm_strategy = ['none', 'ss', 'rs', 'ma', 'mm']
@@ -117,6 +120,38 @@ class PipelineExecutor:
             elif self.dataset_name == 'housing':
                 X_modified.loc[mv_train, 'OverallQual'] = np.nan
             return X_modified
+        
+    def inject_outliers(self, X, frac, multiplier=5.0):
+        X_modified = X.copy()
+        idx_train = np.arange(len(X_modified))
+        outlier_indices = pd.DataFrame(idx_train).sample(frac=frac, replace=False, random_state=42).index
+
+        if self.pipeline_type == 'ml':
+            if self.dataset_name == 'hmda':
+                col = 'lien_status'
+            elif self.dataset_name == 'adult':
+                col = 'Education_Num'
+            elif self.dataset_name == 'housing':
+                col = 'OverallQual'
+            else:
+                return X_modified
+
+            # Fix: use pandas type check instead of numpy issubdtype
+            if not pd.api.types.is_numeric_dtype(X_modified[col]):
+                print(f"[WARNING] Column {col} is not numeric. Outlier injection skipped.")
+                return X_modified
+
+            Q1 = X_modified[col].quantile(0.25)
+            Q3 = X_modified[col].quantile(0.75)
+            IQR = Q3 - Q1
+            high_outlier = Q3 + multiplier * IQR
+            low_outlier = Q1 - multiplier * IQR
+
+            for i, idx in enumerate(outlier_indices):
+                X_modified.at[idx, col] = high_outlier if i % 2 == 0 else low_outlier
+
+        return X_modified
+
 
 
     def run_pipeline_opaque(self, file_name):
@@ -208,6 +243,7 @@ class PipelineExecutor:
             raise ValueError("Mismatch between cur_par and pipeline_order.")
 
         X_test = self.X_test.copy()
+        #X_test= self.inject_outliers(self.X_test.copy(), frac=.5, multiplier=3.0)
         y_test = self.y_test.copy()
 
         if self.pipeline_type== 'ml':
@@ -240,10 +276,11 @@ class PipelineExecutor:
         if self.execution_type == 'pass':
             X_copy, y_copy = self.X_train.copy(), self.y_train.copy()
         elif self.execution_type == 'fail':
-            X_copy, y_copy = self.X_test.copy(), self.y_test.copy()
+            _, y_copy = self.X_test.copy(), self.y_test.copy()
+            X_copy= self.inject_outliers(self.X_test.copy(), frac=.1, multiplier=5.0)
 
         if os.path.exists(file_name):
-            self.param_lst_df = pd.read_csv(file_name)[self.pipeline_order + [f'utility_{self.metric_type}']]
+            self.param_lst_df = pd.read_csv(file_name)
             return
         
         if self.pipeline_type == 'ml':
@@ -287,11 +324,16 @@ class PipelineExecutor:
                     frac = method()
                     frac_data.append(frac)
                     self.frac_header.append(f'outlier_bef_{step}_strat')
+                
 
                 method_name = f'get_{step}'
                 if hasattr(handler, method_name) and callable(getattr(handler, method_name)):
                     method = getattr(handler, method_name)
                     fraction_outlier = method()
+                else:
+                    detector = OutlierDetector(X)
+                    _, _, _ = detector.transform(y, sensitive_attr_train=None)
+                    fraction_outlier = detector.get_frac()
 
                 if isinstance(result, float) or isinstance(result, int):
                     utility = result
@@ -300,7 +342,7 @@ class PipelineExecutor:
                 else:
                     raise ValueError(f"Expected tuple output from {class_name}.apply")
                 param_record.append(param_index + 1)
-
+            print(param_record)
             self.headers, sens_data = handler.get_profile_metric(self.y_train)
             prof_data = frac_data + sens_data
             profile_gen,key_profile = p.populate_profiles(pd.concat([X, y], axis=1), numerical_columns, self.target_variable_name, fraction_outlier, self.metric_type)
@@ -308,6 +350,7 @@ class PipelineExecutor:
             #print(param_lst)
 
         profile_param_lst_df = pd.DataFrame(param_lst, columns= self.pipeline_order + self.frac_header + self.headers +key_profile+[f'utility_{self.metric_type}'])
+        profile_param_lst_df = profile_param_lst_df.loc[:, (profile_param_lst_df != 0).any(axis=0)]
         profile_param_lst_df.to_csv(file_name, index=False)
 
     
@@ -316,10 +359,11 @@ class PipelineExecutor:
         known_cols = set(self.pipeline_order + [f'utility_{self.metric_type}'])
         extra_cols = [
             col for col in df.columns
-            if col not in known_cols and not col.startswith('ot_') and not col.startswith('cov')
+            if col not in known_cols and not col.startswith('ot_') and not col.startswith('cov') and not col.startswith('outlier') and not col.startswith('insertion_pos')
         ]
 
         self.headers = extra_cols
+
         return self.headers
     
 
@@ -327,14 +371,14 @@ class PipelineExecutor:
     def rank_profile_parameter(self, file_name):
         param_lst_df = pd.read_csv(file_name)
         #if self.h_sample_bool and self: #need to update according to logic #From SHAP
-        self.profiles = self.get_header(file_name)
+        profiles = self.get_header(file_name)
         if self.model_selection == 'reg':
             y = param_lst_df[f'utility_{self.metric_type}']                  
             t = StandardScaler().fit(param_lst_df).transform(param_lst_df)
-            X = pd.DataFrame(data = t, columns = param_lst_df.columns)[self.profiles]
+            X = pd.DataFrame(data = t, columns = param_lst_df.columns)[profiles]
         else :
             y = param_lst_df[f'utility_{self.metric_type}']
-            X = param_lst_df.copy()[self.profiles]       
+            X = param_lst_df.copy()[profiles]       
                 
         if (self.h_sample_bool):
             print(" ------ Sampling --------", self.h_sample)
@@ -357,7 +401,7 @@ class PipelineExecutor:
         param_columns=self.pipeline_order
         self.ranking_param ={}
         self.param_coeff  = {}
-        for index, elem in enumerate(self.profiles):
+        for index, elem in enumerate(profiles):
                 y = param_lst_df[elem]
                 X = param_lst_df.copy()[param_columns]
                 if self.h_sample_bool:
@@ -378,6 +422,256 @@ class PipelineExecutor:
 
         return self.profile_coefs, self.profile_ranking, self.param_coeff, self.ranking_param
     
+
+
+
+    # Insertion of new component in the pipeline
+
+    def rank_profile_new_comp(self, file_name, new_comp):
+        param_lst_df = pd.read_csv(file_name)
+        profiles = self.get_header(file_name)
+        print("[INFO] Profiles (features):", profiles)
+
+        if self.model_selection == 'reg':
+            y = param_lst_df[new_comp]
+            t = StandardScaler().fit(param_lst_df).transform(param_lst_df)
+            X = pd.DataFrame(data=t, columns=param_lst_df.columns)[profiles]
+        else:
+            y = param_lst_df[new_comp]
+            X = param_lst_df.copy()[profiles]
+
+        if self.h_sample_bool:
+            print(" ------ Sampling --------", self.h_sample)
+            random.seed(1000)
+            sample_idx = random.sample(list(range(len(X))), math.ceil(self.h_sample * len(X)))
+            X = X.iloc[sample_idx]
+            y = y.iloc[sample_idx]
+
+        clf = LogisticRegression(multi_class='multinomial', solver='lbfgs', max_iter=1000)
+        clf.fit(X, y)
+
+        coef_matrix = np.abs(clf.coef_)
+        coef_df = pd.DataFrame(coef_matrix, columns=profiles)
+        #print("Coefficient Matrix:")
+        #print(coef_df)
+
+        avg_coefs = coef_df.mean(axis=0)
+        profile_ranking = avg_coefs.sort_values(ascending=False).index.tolist()
+        profile_coefs = avg_coefs.sort_values(ascending=False).values
+
+        #We could find the top K
+
+        print("[INFO] Ranked Profiles:", profile_ranking)
+        print("[INFO] Corresponding Average Coefficients:", profile_coefs)
+
+        return coef_df, profile_ranking
+
+
+    def profile_similarity_df(self, file_train, file_test, param, profile_cols):
+
+        df1 = pd.read_csv(file_train)
+        df2 = pd.read_csv(file_test)
+
+
+        param_dict = dict(zip(self.pipeline_order, param))
+
+
+        for col, val in param_dict.items():
+            if col in df1.columns:
+                df1 = df1[df1[col].astype(str) == str(val)]
+            if col in df2.columns:
+                df2 = df2[df2[col].astype(str) == str(val)]
+        if df1.empty or df2.empty:
+            print("Pipeline parameter not found in one or both datasets.")
+            return None
+        logging.basicConfig(filename='logs/similarity'+"_"+dataset_name+'_'+model_type+'_'+'metric_type'+'.log', filemode = 'w',level=logging.DEBUG, format='%(asctime)s - %(levelname)s - %(message)s')
+        
+        
+        v1 = df1[profile_cols].iloc[0].astype(float).values.reshape(1, -1)
+        
+        v2 = df2[profile_cols].iloc[0].astype(float).values.reshape(1, -1)
+        logging.info(f'profile for passing: {v2}')
+        logging.info(f'profile for failing: {v1}')
+        similarity = cosine_similarity(v1, v2)[0][0]
+        print("Cosine Similarity:", similarity)
+        return similarity
+
+    
+    def profile_similarity_row(self, file_train, row, param, profile_cols):
+        df1 = pd.read_csv(file_train)
+        df1['param_key'] = df1[df1.columns[:len(self.pipeline_order)-1]].astype(str).agg(','.join, axis=1)
+        key1 = ','.join(map(str, param[:-1]))
+        row1 = df1[df1['param_key'] == key1]
+
+        if row1.empty:
+            print("Pipeline parameter not found in dataset.")
+            return None
+        
+        v1 = row1[profile_cols].iloc[0].values.astype(float).reshape(1, -1)
+        v2 = row[profile_cols].values.astype(float).reshape(1, -1)
+
+        similarity = cosine_similarity(v1, v2)[0][0]
+        print("Cosine Similarity:", similarity)
+        return similarity
+
+    
+    def profile_similarity_all_rows(self, file_train, file_test, profile_cols, output_file):
+        df1 = pd.read_csv(file_train)
+        df2 = pd.read_csv(file_test)
+        df1['param_key'] = df1.iloc[:, :len(self.pipeline_order)-1].astype(str).agg(','.join, axis=1)
+        df2['param_key'] = df2.iloc[:, :len(self.pipeline_order)-1].astype(str).agg(','.join, axis=1)
+
+        similarities = []
+
+        for idx, row in df1.iterrows():
+            param = row.iloc[:len(self.pipeline_order)].astype(str).tolist()
+            
+            key1 = ','.join(param[:2])
+            key2 = ','.join(param[:2])
+            
+            row1 = df1[df1['param_key'] == key1]
+            row2 = df2[df2['param_key'] == key2]
+
+            if row1.empty or row2.empty:
+                print(f"Row {idx}: Pipeline parameter not found.")
+                similarities.append(None)
+                continue
+
+            v1 = row1[profile_cols].iloc[0].values.astype(float).reshape(1, -1)
+            v2 = row2[profile_cols].iloc[0].values.astype(float).reshape(1, -1)
+
+            similarity = cosine_similarity(v1, v2)[0][0]
+            similarities.append(1-similarity)
+
+        param_cols = df1.columns[:len(self.pipeline_order)].tolist()
+        df_similarity = df1[param_cols].copy()
+        df_similarity['dissimilarities'] = similarities
+        df_similarity.to_csv(output_file, index=False)
+        print(f"Results saved to {output_file}")
+
+    
+    def evaluate_with_component_insertion(self, cur_par, new_components):
+        #filename_training = pd.read_csv(file_name)
+        filename_training = f'historical_data/historical_data_train_profile_{model_type}_{metric_type}_{dataset_name}.csv'
+        
+        original_order = self.pipeline_order
+        insertion_positions = list(range(1, len(original_order)))
+        _, self.rank_profile=self.rank_profile_new_comp(filename_training, new_components)
+        best_result = None
+        best_utility = -float('inf')
+        best_insert_pos = None
+        logging.basicConfig(filename='logs/insertion'+"_"+dataset_name+'_'+model_type+'_'+'metric_type'+'.log', filemode = 'w',level=logging.DEBUG, format='%(asctime)s - %(levelname)s - %(message)s')
+        logging.info(f'original order: {original_order}')
+        logging.info(f'Initial Pipeline: {cur_par}')
+        cur_f=self.current_par_lookup(cur_par)
+        logging.info(f'Initial Utility: {cur_f}')
+        for comp in new_components:
+            logging.info(f'New component: {comp}')
+            comp_ranges = self.strategy_counts[comp]
+            for idx in range(comp_ranges):
+                for insert_pos in insertion_positions:
+                    new_order = original_order[:insert_pos] + [comp] + original_order[insert_pos:]
+                    new_cur_par = cur_par[:insert_pos] + [idx+1] + cur_par[insert_pos:]
+                    if len(new_cur_par) != len(new_order):
+                        raise ValueError("Parameter and pipeline length mismatch after insertion.")
+
+                    #X_test = self.X_test.copy()
+                    y_test = self.y_test.copy()
+                    X_test= self.inject_outliers(self.X_test, frac=.1, multiplier=3.0)
+                    
+
+                    if self.pipeline_type == 'ml':
+                        X_test = self.inject_missing_values(X_test, self.tau)
+                        _, _, sensitive = self.getIdxSensitive(X_test, self.sensitive_var)
+                        X, y, sens = X_test.copy(), y_test.copy(), sensitive.copy()
+
+                    param_record = []
+                    frac_data = []
+                    self.frac_header = []
+
+                    p = Profile()
+                    numerical_columns = X.select_dtypes(include=['int', 'float']).columns
+
+                    for i, step in enumerate(new_order):
+                        param_index = new_cur_par[i]-1
+                        module_name = f"pipeline_component.{step}_handler"
+                        class_name = ''.join(w.capitalize() for w in step.split('_')) + "Handler"
+
+                        try:
+                            handler_module = importlib.import_module(module_name)
+                            handler_class = getattr(handler_module, class_name)
+                        except (ModuleNotFoundError, AttributeError) as e:
+                            raise ImportError(f"Error loading handler for '{step}': {e}")
+
+                        handler = handler_class(strategy=param_index, config=self.shared_config)
+                        result = handler.apply(X, y, sens)
+
+                        method_name = f'get_outlier_bef_{step}_strat'
+                        if hasattr(handler, method_name) and callable(getattr(handler, method_name)):
+                            method = getattr(handler, method_name)
+                            frac = method()
+                            frac_data.append(frac)
+                            self.frac_header.append(f'outlier_bef_{step}_strat')
+
+                        method_name = f'get_{step}'
+                        if hasattr(handler, method_name) and callable(getattr(handler, method_name)):
+                            method = getattr(handler, method_name)
+                            fraction_outlier = method()
+
+                        if isinstance(result, float) or isinstance(result, int):
+                            utility = result
+                        elif isinstance(result, tuple):
+                            X, y, sens = result
+                        else:
+                            raise ValueError(f"Expected tuple output from {class_name}.apply")
+
+                        param_record.append(param_index + 1)
+                    print(param_record)
+                    self.headers, sens_data = handler.get_profile_metric(self.y_test)
+                    prof_data = frac_data + sens_data
+                    profile_gen, key_profile = p.populate_profiles(pd.concat([X, y], axis=1), numerical_columns, self.target_variable_name, fraction_outlier, self.metric_type)
+                    row = param_record + prof_data + profile_gen + [utility] + [insert_pos]
+                    
+                    profile_data = []
+                    profile_data.append(row)
+                    out_cols = original_order[:insert_pos] + new_components + original_order[insert_pos:]
+                    col_headers = out_cols + self.frac_header + self.headers + key_profile + [f'utility_{self.metric_type}', 'insertion_pos']
+                    df = pd.DataFrame(profile_data, columns=col_headers)
+                    file=f'historical_data/insertion/historical_data_test_profile_{model_type}_{metric_type}_{dataset_name}.csv'
+                    
+                    #profile similarity
+
+                    df.to_csv(file, index=False)
+                    filename_training = f'historical_data/historical_data_sim_profile_{model_type}_{metric_type}_{dataset_name}.csv'
+                    sim=self.profile_similarity_df(filename_training, file, cur_par, self.rank_profile)
+                    logging.info(f'New pipeline: {new_order} and new configuration: {new_cur_par}')
+                    logging.info(f'similarity is - {sim}, Utility is - {utility}')
+
+                    #evaluation
+
+                    if utility > best_utility:
+                        best_result = param_record
+                        best_utility = utility
+                        best_insert_pos = insert_pos
+
+        '''print("Best result:")
+        print("Best Insertion position:", best_insert_pos)
+        print("Passing Params:", best_result)
+        print("Utility:", best_utility)
+        out_cols = original_order[:best_insert_pos] + new_components + original_order[best_insert_pos:]
+        col_headers = out_cols + self.frac_header + self.headers + key_profile + [f'utility_{self.metric_type}', 'insertion_pos']
+        df = pd.DataFrame(profile_data, columns=col_headers)
+
+        #profile similarity
+
+        df.to_csv(file_name, index=False)
+        df1 = pd.read_csv(f'historical_data/historical_data_trainoooo_profile_{model_type}_{metric_type}_{dataset_name}.csv')
+        similarity= self.profile_similarity(df, df1, cur_par, self.rank_profile)
+        print(f"[INFO] Cosine Similarity with historical profile: {similarity}")'''
+
+
+        return #best_insert_pos, best_result, best_utility
+    
     def get_profile(self):
         return self.profile
     
@@ -386,7 +680,7 @@ class PipelineExecutor:
             self.run_pipeline_opaque(file_name)
         elif alg_type == 'glass':
             self.run_pipeline_glass(file_name)
-
+    
 
 
 
@@ -394,9 +688,17 @@ dataset_name = 'adult'
 metric_type = 'sp'
 model_type = 'lr'
 pipeline_order = ['missing_value', 'normalization', 'model']
+new_comp=['outlier']#, 'features_selection']
+cur_par=[6, 1, 1] #make sure it passes the threshold
+#new_comp_par=[1]
 
 
-filename_train = f'historical_data/opaque_alter_order_test_{model_type}_{metric_type}_{dataset_name}.csv'
+
+#filename_train = f'historical_data/historical_data_train_profile_{model_type}_{metric_type}_{dataset_name}.csv'
+filename_test = f'historical_data/historical_data_sim_test_profile_{model_type}_{metric_type}_{dataset_name}.csv'
+output = f'historical_data/similarity/cosine_similarity_alter_{model_type}_{metric_type}_{dataset_name}.csv'
+filename_train = f'historical_data/noise/historical_data_train_profile_{model_type}_{metric_type}_{dataset_name}.csv'
+
 executor = PipelineExecutor(
                 pipeline_type='ml',
                 dataset_name=dataset_name,
@@ -404,17 +706,17 @@ executor = PipelineExecutor(
                 pipeline_ord=pipeline_order,
                 execution_type='fail',
             )
-executor.run_pipeline_opaque(filename_train)
 
+#executor.run_pipeline_glass(filename_train) #chagne the function
+#_, rank_profile=executor.rank_profile_new_comp(filename_train, new_comp)
+#print('rank_profile:', rank_profile)
+
+
+#filename_train = f'historical_data/historical_data_sim_profile_{model_type}_{metric_type}_{dataset_name}.csv'
+#filename_test = f'historical_data/historical_data_sim_test_profile_{model_type}_{metric_type}_{dataset_name}.csv'
+#output = f'historical_data/similarity/cosine_similarity_alter_{model_type}_{metric_type}_{dataset_name}.csv'
 #print(executor.get_header(filename_train))
-#coefs_profile, profile_ranking, param_coeff, param_rank = executor.rank_profile_parameter(filename_train)
-#print(coefs_profile)
-#print(profile_ranking)
-#print(param_coeff)
-#print(param_rank['corr_Race'])'''
-
-
-'''cur_par=[1, 1, 1, 1]
-
-utility= executor.current_par_lookup(cur_par=cur_par)
-print('utility:', utility)'''
+executor.evaluate_with_component_insertion(cur_par, new_components=new_comp)
+#executor.profile_similarity_all_rows(filename_train, filename_test, rank_profile, output)
+#executor.profile_similarity(filename_train, filename_test, cur_par, rank_profile)
+#Change the cur_par_lookUp fucntion

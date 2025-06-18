@@ -74,10 +74,6 @@ class OutlierDetector:
             if outlier_sensitive_train is not None:
                 outlier_sensitive_train = sensitive_attr_train[mask]
                 outlier_sensitive_train.reset_index(drop=True, inplace=True)
-                
-        # it can be eliminated
-        priv_idx_train = [i for i, val in enumerate(outlier_sensitive_train) if val == 1]
-        unpriv_idx_train = [i for i, val in enumerate(outlier_sensitive_train) if val == 0]
 
         
 
