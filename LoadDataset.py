@@ -17,6 +17,8 @@ class LoadDataset:
     def get_sensitive_variable(self):
         if self.dataset_name == 'adult':
             return 'Sex'
+        elif self.dataset_name == 'housing':
+            return 'OverallQual'
         elif self.dataset_name == 'hmda':
             return 'race'
 
@@ -104,7 +106,7 @@ class LoadDataset:
         return self.dataset, self.X_train, self.y_train, self.X_test, self.y_test
 
 
-'''dataset='adult'
+dataset='housing'
 loader = LoadDataset(dataset)
 dataset, X_train, y_train, X_test, y_test = loader.load()
-print(dataset['train'].shape)'''
+print(X_train)

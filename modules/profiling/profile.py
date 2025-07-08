@@ -244,7 +244,7 @@ class Profile:
 
     
     def get_fraction_of_outlier(self,data):
-        svm_model = OneClassSVM(kernel='rbf')
+        svm_model = OneClassSVM(kernel='rbf', gamma='auto', nu=0.05)
         svm_model.fit(data)
         predicted_labels = svm_model.predict(data)
         n_outliers = (predicted_labels == -1).sum()

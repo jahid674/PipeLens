@@ -23,10 +23,14 @@ class OutlierHandler:
             detector = OutlierDetector(X, strategy='lof', k=k, contamination=self.contamination_lof, verbose=False)
         X_out, y_out, sens_out = detector.transform(y, sensitive)
         self.get_outlier_frac=detector.get_frac()
+        self.outlier_after_out_start=self.p.get_fraction_of_outlier(X_out)
         return X_out, y_out, sens_out
     
     def get_outlier_bef_outlier_strat(self):
         return self.outlier_before_out_start
+    
+    def get_outlier_after_outlier_strat(self):
+        return self.outlier_after_out_start
     
     def get_outlier(self):
         return self.get_outlier_frac
