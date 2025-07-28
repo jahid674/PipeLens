@@ -106,7 +106,30 @@ class LoadDataset:
         return self.dataset, self.X_train, self.y_train, self.X_test, self.y_test
 
 
-dataset='housing'
+        # frequency Encoding for categorical variables
+        '''elif self.dataset_name == 'adult':
+            train_file = "data/adult/adult_test.csv"
+            test_file = "data/adult/adult_train.csv"
+            train, test = Reader(train_file, test_file).load_data()
+
+            categorical_columns = train.select_dtypes(include=['object']).columns
+
+            for column in categorical_columns:
+                # Combine train and test for consistent frequency mapping
+                combined = pd.concat([train[column], test[column]])
+                freq = combined.value_counts(normalize=True)
+
+                # Map frequencies
+                train[column] = train[column].map(freq).fillna(0)
+                test[column] = test[column].map(freq).fillna(0)
+
+            self.y_train = train['income']
+            self.X_train = train.drop('income', axis=1)
+            self.y_test = test['income']
+            self.X_test = test.drop('income', axis=1)'''
+
+
+dataset='adult'
 loader = LoadDataset(dataset)
 dataset, X_train, y_train, X_test, y_test = loader.load()
-print(X_train)
+print(X_test.head())

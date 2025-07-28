@@ -33,6 +33,8 @@ class Imputer:
         if sensitive_attr_train is not None:
             updated_sensitive_attr_train = sensitive_attr_train.drop(missing_idx)
             updated_sensitive_attr_train.reset_index(drop=True, inplace=True)
+        else:
+            updated_sensitive_attr_train = None
 
 
         return df_updated, y_train_updated, updated_sensitive_attr_train

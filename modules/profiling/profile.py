@@ -244,12 +244,40 @@ class Profile:
 
     
     def get_fraction_of_outlier(self,data):
-        svm_model = OneClassSVM(kernel='rbf', gamma='auto', nu=0.05)
+        svm_model = OneClassSVM(kernel='rbf')#, gamma='auto', nu=0.05)
         svm_model.fit(data)
         predicted_labels = svm_model.predict(data)
         n_outliers = (predicted_labels == -1).sum()
         fraction_outliers = n_outliers / len(data)
         return fraction_outliers
+    
+    def get_fraction_of_outlier_per_column(self, column):
+        """
+        Calculate the fraction of outliers in a single numeric column using OneClassSVM.
+        Assumes column is a pandas Series.
+        """
+
+        # Ensure input is a numeric Series
+        if not pd.api.types.is_numeric_dtype(column):
+            print(f"[INFO] Column '{column.name}' is not numeric. Skipping.")
+            return None
+
+        col_data = column.dropna().values.reshape(-1, 1)
+
+        if len(col_data) == 0:
+            print(f"[WARNING] Column '{column.name}' has only NaNs.")
+            return 0.0
+
+        try:
+            svm = OneClassSVM(kernel='rbf')  # You can add gamma='auto', nu=0.05 if needed
+            svm.fit(col_data)
+            preds = svm.predict(col_data)
+            n_outliers = (preds == -1).sum()
+            fraction_outliers = n_outliers / len(col_data)
+            return fraction_outliers
+        except Exception as e:
+            print(f"[ERROR] SVM failed on column '{column.name}': {e}")
+            return None
 
     def populate_profiles(self, data_final, numerical_columns, target_column, outlier, metric_type):
         scaling_factor = 1
@@ -269,10 +297,16 @@ class Profile:
                     corr = self.categorical_numerical_correlation(data_final[column], data_final[target_column])
                 else:
                     corr = self.categorical_correlation(data_final[column], data_final[target_column])
+            
+            outlier_fraction = self.get_fraction_of_outlier_per_column(data_final[column])
+
 
             name = column
             tuple = ('corr_' + name,  'ot_' + name)
-            profile[tuple]= [column,round(corr*scaling_factor,5),round(outlier*scaling_factor,5)]
+            if outlier_fraction is not None:
+                profile[tuple] = [column, round(corr * scaling_factor, 5), round(outlier_fraction * scaling_factor, 5)]
+            else:
+                profile[tuple] = [column, round(corr * scaling_factor, 5), round(outlier * scaling_factor, 5)]
             #i+=1
 
         dd = []

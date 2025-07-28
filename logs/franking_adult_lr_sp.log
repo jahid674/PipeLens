@@ -1,14 +1,10 @@
-2025-07-02 10:25:15,564 - INFO - Ranked Profiles: ['corr_fnlwgt', 'corr_Education', 'corr_Hours_per_week', 'corr_Occupation', 'corr_Relationship', 'corr_Sex', 'corr_Workclass', 'corr_Capital_Loss', 'corr_Martial_Status', 'corr_Capital_Gain', 'corr_Race', 'corr_Education_Num', 'corr_Country', 'corr_Age', 'ratio_sensitive_attr', 'diff_sensitive_attr', 'class_imbalance_ratio']
-2025-07-02 10:25:15,565 - INFO - Corresponding Average Coefficients: [1.83652477e-02 1.26822966e-02 8.92151271e-03 7.54569680e-03
+2025-07-27 20:10:50,293 - INFO - Ranked Profiles: ['corr_fnlwgt', 'corr_Education', 'corr_Hours_per_week', 'corr_Occupation', 'corr_Relationship', 'corr_Sex', 'corr_Workclass', 'corr_Capital_Loss', 'corr_Martial_Status', 'corr_Capital_Gain', 'corr_Race', 'corr_Education_Num', 'corr_Country', 'corr_Age', 'ratio_sensitive_attr', 'diff_sensitive_attr', 'class_imbalance_ratio']
+2025-07-27 20:10:50,293 - INFO - Corresponding Average Coefficients: [1.83652477e-02 1.26822966e-02 8.92151271e-03 7.54569680e-03
  7.43569658e-03 6.65986654e-03 6.64702640e-03 5.73320418e-03
  5.23579069e-03 3.17921369e-03 2.54582619e-03 2.53455116e-03
  2.03089083e-03 8.38125842e-04 6.93737905e-05 5.14071528e-06
  8.16481218e-07]
-2025-07-02 10:25:15,709 - INFO - profile for passing: [[1.05269173e+05 4.42944119e+03 3.44649230e+05 4.03165787e+03
-  6.69862701e+03 1.51752998e+03 1.04563104e+03 1.51891350e+03
-  5.80390182e+03 6.92983800e+02 1.10794562e+05 2.56991608e+05
-  2.02321000e+00 1.96270000e-01 4.81600000e-01]]
-2025-07-02 10:25:15,709 - INFO - profile for failing: [[5.22794579e+04 2.11418863e+03 1.68382365e+05 1.96701390e+03
-  3.39124845e+03 7.29929870e+02 5.71818210e+02 7.69975120e+02
-  2.97001850e+03 3.31192450e+02 2.32602785e+05 1.25907027e+05
-  2.00332000e+00 1.90980000e-01 2.36230000e-01]]
+2025-07-27 20:10:50,293 - INFO - original order: ['missing_value', 'normalization', 'model']
+2025-07-27 20:10:50,293 - INFO - Initial Pipeline: [6, 1, 1]
+2025-07-27 20:11:18,460 - INFO - Initial Utility: 0.05780811434205889
+2025-07-27 20:11:18,460 - INFO - New component: deduplication

@@ -1,6 +1,6 @@
 # modules/metric/evaluator.py
 
-from sklearn.metrics import f1_score, accuracy_score, mean_absolute_error, mean_squared_error
+from sklearn.metrics import f1_score, accuracy_score, root_mean_squared_error, mean_absolute_error, mean_squared_error
 import numpy as np
 
 class MetricEvaluator:
@@ -21,7 +21,7 @@ class MetricEvaluator:
             return mean_absolute_error(y_true, y_pred)
 
         elif self.metric_type == 'rmse':
-            return np.sqrt(mean_squared_error(y_true, y_pred))
+            return np.sqrt(root_mean_squared_error(y_true, y_pred))
 
         else:
             raise ValueError(f"Unsupported metric type: {self.metric_type}")

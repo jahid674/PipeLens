@@ -9,7 +9,7 @@ class NormalizationHandler:
 
     def apply(self, X, y, sensitive):
         self.outlier_before_norm_start=self.p.get_fraction_of_outlier(X)
-        print("outlier before normalization:", self.outlier_before_norm_start)
+        #print("outlier before normalization:", self.outlier_before_norm_start)
         strat = self.norm_strategy[self.strategy]
         normalizer = Normalizer(X, strategy=strat, verbose=False)
         X_new = normalizer.transform()
