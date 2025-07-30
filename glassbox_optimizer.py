@@ -77,7 +77,7 @@ class GlassBoxOptimizer:
         if not found:
             self.fail += 1
 
-    def optimistic_search(self, seen, cur_params_opt, f_goal, opt_f):
+    '''def optimistic_search(self, seen, cur_params_opt, f_goal, opt_f):
         for profile_index in self.profile_ranking:
             logging.info(f'first loop profile = {self.profiles[profile_index]}')
             #need correction here
@@ -114,7 +114,67 @@ class GlassBoxOptimizer:
                 elif cur_f < opt_f:
                     opt_f = cur_f
                     cur_params_opt = cur_params.copy()
-        return False, opt_f, cur_params_opt
+        return False, opt_f, cur_params_opt'''
+    
+    def optimistic_search(self, seen, cur_param_check, f_goal, opt_f):
+        optimal_position=2
+        print("[INFO] Running optimistic search with combined interventions...")
+        ranked_interventions = self.executor_pass.evaluate_combined_intervention(list(cur_param_check.values()), new_components=['outlier', 'whitespace', 'punctuation', 'stopword'])
+
+        original_order = self.pipeline_order.copy()
+        for component, strategy, similarity, _ in ranked_interventions:
+            logging.info(f"[SEARCH] Trying intervention: {component} → {strategy}")
+
+            if component in original_order:
+                idx = original_order.index(component)
+                cur_params = cur_param_check.copy()
+                cur_params[idx] = strategy
+                intervened_order = original_order.copy()
+
+            else:
+                # New component → insert at optimal_position
+                if optimal_position > len(cur_param_check):
+                    logging.warning(f"Skipping {component}: optimal_position {optimal_position} out of range.")
+                    continue
+                intervened_order = original_order[:optimal_position] + [component] + original_order[optimal_position:]
+                cur_params = list(cur_param_check)
+                cur_params = cur_params[:optimal_position] + [strategy] + cur_params[optimal_position:]
+
+            if len(cur_params) != len(intervened_order):
+                logging.warning(f"[SKIP] Misaligned parameter length for {component}")
+                continue
+
+            if tuple(cur_params) in seen:
+                continue
+            seen.add(tuple(cur_params))
+
+            # Step 3: Temporarily update pipeline order
+            prev_order = self.pipeline_order
+            self.pipeline_order = intervened_order
+
+            try:
+                cur_f = self.current_par_lookup(cur_params)
+                self.rank_iter += 1
+                logging.info(f"[TRY] {component}={strategy}, Utility={cur_f:.4f}, Best={opt_f:.4f}")
+
+                if cur_f <= f_goal:
+                    logging.error("Target achieved")
+                    self.rank_f = cur_f
+                    self.pass_ += 1
+                    return True, cur_f, cur_params
+
+                elif cur_f < opt_f:
+                    opt_f = cur_f
+                    cur_param_check = cur_params.copy()
+
+            except Exception as e:
+                logging.error(f"[ERROR] Failed to evaluate {component}-{strategy}: {e}")
+
+            finally:
+                self.pipeline_order = prev_order  # Restore
+
+        return False, opt_f, cur_param_check
+
 
     def exhaustive_search(self, comb_size, seen, cur_params_opt, f_goal, opt_f):
         self.fail_with_fallback += 1
@@ -158,6 +218,13 @@ class GlassBoxOptimizer:
             current_param_value = self.ranges[cur_strategy][0] if self.param_coeff[prof_name][val] < 0 else self.ranges[cur_strategy][-1]
         
         return current_param_value
+    
+    def similarity_based_ranking(self, new_comp, cur_par):
+        combined_rank=self.executor_pass.evaluate_combined_intervention(new_comp, cur_par)
+
+        return combined_rank
+
+
     
     def rank_intervention_combination(self,profile_name):
         score_map = {}

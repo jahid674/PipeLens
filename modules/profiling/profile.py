@@ -7,6 +7,7 @@ import statistics
 from scipy.stats import pearsonr, chi2_contingency
 from scipy import stats
 from sklearn.svm import OneClassSVM
+from sklearn.ensemble import IsolationForest
 
 from modules.matching.perfectmatching import PerfectMatching
 from modules.matching.jaccardmatching import JaccardMatching
@@ -242,16 +243,37 @@ class Profile:
         return chi2
     
 
+    '''def get_fraction_of_outlier(self, data):
+        clf = IsolationForest(contamination='auto', random_state=42)
+        clf.fit(data)
+        labels = clf.predict(data)
+        return (labels == -1).sum() / len(data)'''
+
     
-    def get_fraction_of_outlier(self,data):
-        svm_model = OneClassSVM(kernel='rbf')#, gamma='auto', nu=0.05)
+    '''def get_fraction_of_outlier(self,data):
+        svm_model = OneClassSVM(kernel='rbf')#, gamma='auto', nu=0.05)  # You can adjust gamma and nu as needed
         svm_model.fit(data)
         predicted_labels = svm_model.predict(data)
         n_outliers = (predicted_labels == -1).sum()
         fraction_outliers = n_outliers / len(data)
-        return fraction_outliers
+        return fraction_outliers'''
     
-    def get_fraction_of_outlier_per_column(self, column):
+    def get_fraction_of_outlier(self, data):
+        from pandas.api.types import is_numeric_dtype
+
+        # Keep only continuous numerical columns (ignore binary/encoded categories)
+        numeric_data = data.loc[:, [is_numeric_dtype(data[col]) and data[col].nunique() > 10 for col in data.columns]]
+
+        Q1 = numeric_data.quantile(0.25)
+        Q3 = numeric_data.quantile(0.75)
+        IQR = Q3 - Q1
+
+        is_outlier = (numeric_data < (Q1 - 1.5 * IQR)) | (numeric_data > (Q3 + 1.5 * IQR))
+        outlier_rows = is_outlier.any(axis=1)
+        return outlier_rows.sum() / len(data)
+
+    
+    '''def get_fraction_of_outlier_per_column(self, column):
         """
         Calculate the fraction of outliers in a single numeric column using OneClassSVM.
         Assumes column is a pandas Series.
@@ -277,7 +299,7 @@ class Profile:
             return fraction_outliers
         except Exception as e:
             print(f"[ERROR] SVM failed on column '{column.name}': {e}")
-            return None
+            return None'''
 
     def populate_profiles(self, data_final, numerical_columns, target_column, outlier, metric_type):
         scaling_factor = 1
@@ -298,15 +320,13 @@ class Profile:
                 else:
                     corr = self.categorical_correlation(data_final[column], data_final[target_column])
             
-            outlier_fraction = self.get_fraction_of_outlier_per_column(data_final[column])
+            #outlier_fraction = self.get_fraction_of_outlier(data_final[column])
 
 
             name = column
             tuple = ('corr_' + name,  'ot_' + name)
-            if outlier_fraction is not None:
-                profile[tuple] = [column, round(corr * scaling_factor, 5), round(outlier_fraction * scaling_factor, 5)]
-            else:
-                profile[tuple] = [column, round(corr * scaling_factor, 5), round(outlier * scaling_factor, 5)]
+            profile[tuple] = [column, round(corr * scaling_factor, 5), round(outlier * scaling_factor, 5)]
+            #profile[tuple] = [column, round(corr * scaling_factor, 5), round(outlier * scaling_factor, 5)]
             #i+=1
 
         dd = []

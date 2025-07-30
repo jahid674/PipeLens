@@ -28,7 +28,7 @@ class ScoreLookup:
                 column_names = self.pipeline_order + [f'utility_{self.metric_type}']
                 try:
                         return round(profiles_df.loc[(profiles_df[column_names[0]] == elem[0]) & (profiles_df[column_names[1]] == elem[1] ) 
-                                               & (profiles_df[column_names[2]] == elem[2]) & (profiles_df[column_names[3]] == elem[3])].iloc[0][f'utility_{self.metric_type}'],5)
+                                               & (profiles_df[column_names[2]] == elem[2])].iloc[0][f'utility_{self.metric_type}'],5)
                 except Exception as e :
                         print(e)
                         import pdb;pdb.set_trace()

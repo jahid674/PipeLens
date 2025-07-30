@@ -132,4 +132,4 @@ class LoadDataset:
 dataset='adult'
 loader = LoadDataset(dataset)
 dataset, X_train, y_train, X_test, y_test = loader.load()
-print(X_test.head())
+print(X_train.shape[0]/X_test.shape[0])

@@ -34,9 +34,9 @@ log_path = config["paths"]["log_file"].format(
 logging.basicConfig(filename='logs/opaquebox'+"_"+dataset_name+'_'+model_type+'_'+'metric_type'+'.log', filemode = 'w',level=logging.DEBUG, format='%(asctime)s - %(levelname)s - %(message)s')
 
 
-p = OpaqueOptimizer(dataset_name, model_type, metric_type, pipeline_type, pipeline_order,
-                    filename_train, filename_test)
-#p = GlassBoxOptimizer(dataset_name, model_type, metric_type, pipeline_type, pipeline_order, filename_train, filename_test)
+#p = OpaqueOptimizer(dataset_name, model_type, metric_type, pipeline_type, pipeline_order,
+#                    filename_train, filename_test)
+p = GlassBoxOptimizer(dataset_name, model_type, metric_type, pipeline_type, pipeline_order, filename_train, filename_test)
 
 historical_data = pd.read_csv(filename_test)
 grid = GridSearch(dataset_name, historical_data, pipeline_order, metric_type, pipeline_type)
@@ -48,10 +48,11 @@ with open(metric_path, 'w') as f:
         profile_itr = {}
 
         for seed_ in historical_data.values.tolist():
+            print('seed',seed_)
             seen = set()
-            gs_iter, gs_f = grid.grid_search(f_goal)
-            gs_idistr.append(gs_iter)
-            gs_fdistr.append(gs_f)
+            #gs_iter, gs_f = grid.grid_search(f_goal)
+            #gs_idistr.append(gs_iter)
+            #gs_fdistr.append(gs_f)
 
             p.optimize(seed_, f_goal)
             rank_idistr.append(p.rank_iter)
@@ -59,13 +60,13 @@ with open(metric_path, 'w') as f:
 
         rank_iquartiles = np.percentile(rank_idistr, [25, 50, 75, 100], interpolation='midpoint')
         rank_fquartiles = np.percentile(rank_fdistr, [25, 50, 75, 100], interpolation='midpoint')
-        g_iquartiles = np.percentile(gs_idistr, [25, 50, 75, 100], interpolation='midpoint')
-        g_fquartiles = np.percentile(gs_fdistr, [25, 50, 75, 100], interpolation='midpoint')
+        #g_iquartiles = np.percentile(gs_idistr, [25, 50, 75, 100], interpolation='midpoint')
+        #g_fquartiles = np.percentile(gs_fdistr, [25, 50, 75, 100], interpolation='midpoint')
 
         csv_writer.writerow(["Utility Goal", "Method", "Iteration", "Value"])
         p.write_quartiles(csv_writer, "ranking", "iterations", rank_iquartiles, f_goal, utility_goals)
         p.write_quartiles(csv_writer, "ranking", "Fairness", rank_fquartiles, f_goal, utility_goals)
         csv_writer.writerow([])
-        p.write_quartiles(csv_writer, "grid search", "iterations", g_iquartiles, f_goal, utility_goals)
-        p.write_quartiles(csv_writer, "grid search", "Fairness", g_fquartiles, f_goal, utility_goals)
-        csv_writer.writerow([])
+        #p.write_quartiles(csv_writer, "grid search", "iterations", g_iquartiles, f_goal, utility_goals)
+        #p.write_quartiles(csv_writer, "grid search", "Fairness", g_fquartiles, f_goal, utility_goals)
+        #csv_writer.writerow([])

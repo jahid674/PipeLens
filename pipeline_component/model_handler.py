@@ -30,10 +30,10 @@ class ModelHandler:
 
         return evaluator.compute(y_true=y, y_pred=y_pred, priv_idx=priv_idx, unpriv_idx=unpriv_idx)
     
-    def get_profile_metric(self,y_train):
-        y = self._y.reset_index(drop=True)
+    def get_profile_metric(self,y_train, sensitive=None):
+        y = y_train.reset_index(drop=True)
         if self.metric_type == 'sp':
-            sensitive = self._sensitive.reset_index(drop=True)
+            sensitive = sensitive.reset_index(drop=True)
         else:
             sensitive = None
         y_pred = self._y_pred
