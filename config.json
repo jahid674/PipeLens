@@ -12,8 +12,8 @@
   },
   
   "paths": {
-    "train_data": "historical_data/historical_data_sim_profile_{model_type}_{metric_type}_{dataset_name}.csv",
-    "test_data": "historical_data/result_historical_data_train_profile_{model_type}_{metric_type}_{dataset_name}.csv",
+    "train_data": "historical_data/partial_pipeline/sim_historical_data_train_profile_{model_type}_{metric_type}_{dataset_name}.csv",
+    "test_data": "historical_data/noise/sim_historical_data_test_profile_{model_type}_{metric_type}_{dataset_name}.csv",
     "metric_output": "metric/metric_opaque_{model_type}_{metric_type}_{dataset_name}.csv",
     "log_file": "logs/opaquebox_{dataset_name}_lr_{metric_type}.log"
   }

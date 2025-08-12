@@ -16,8 +16,11 @@ class OutlierHandler:
             od_choice = self.od_strategy[self.strategy]
             if od_choice == 'none':
                 detector = OutlierDetector(X, strategy=od_choice)
+            if od_choice == 'iqr':
+                detector = OutlierDetector(X, strategy=od_choice)
             elif od_choice == 'if':
                 detector = OutlierDetector(X, strategy=od_choice, contamination=self.contamination, verbose=False)
+
         else:
             k = self.lof_k_list[self.strategy - (len(self.od_strategy) - 1)]
             detector = OutlierDetector(X, strategy='lof', k=k, contamination=self.contamination_lof, verbose=False)

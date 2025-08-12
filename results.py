@@ -39,7 +39,7 @@ logging.basicConfig(filename='logs/opaquebox'+"_"+dataset_name+'_'+model_type+'_
 p = GlassBoxOptimizer(dataset_name, model_type, metric_type, pipeline_type, pipeline_order, filename_train, filename_test)
 
 historical_data = pd.read_csv(filename_test)
-grid = GridSearch(dataset_name, historical_data, pipeline_order, metric_type, pipeline_type)
+#grid = GridSearch(dataset_name, historical_data, pipeline_order, metric_type, pipeline_type)
 
 with open(metric_path, 'w') as f:
     csv_writer = csv.writer(f)
@@ -48,7 +48,7 @@ with open(metric_path, 'w') as f:
         profile_itr = {}
 
         for seed_ in historical_data.values.tolist():
-            print('seed',seed_)
+            #print('seed',seed_)
             seen = set()
             #gs_iter, gs_f = grid.grid_search(f_goal)
             #gs_idistr.append(gs_iter)

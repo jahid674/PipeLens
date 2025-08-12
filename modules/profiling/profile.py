@@ -4,10 +4,17 @@ import random
 import pandas as pd
 import os
 import statistics
+from scipy.stats import f_oneway, pointbiserialr, chi2_contingency
 from scipy.stats import pearsonr, chi2_contingency
+from pandas.api.types import is_numeric_dtype
 from scipy import stats
 from sklearn.svm import OneClassSVM
 from sklearn.ensemble import IsolationForest
+import numpy as np
+from scipy.stats import f_oneway, pointbiserialr, pearsonr, chi2_contingency
+from pandas.api.types import is_numeric_dtype, is_categorical_dtype
+from collections import Counter
+
 
 from modules.matching.perfectmatching import PerfectMatching
 from modules.matching.jaccardmatching import JaccardMatching
@@ -237,43 +244,23 @@ class Profile:
         cross_tab=pd.crosstab(lst1,lst2)
         chi2, p, dof, ex=chi2_contingency(cross_tab)
         return chi2
+    
+    # replace with effect size
 
     def categorical_numerical_correlation(self, lst1, lst2):
         (chi2, p) = stats.f_oneway(lst1, lst2)
         return chi2
     
 
-    '''def get_fraction_of_outlier(self, data):
+    def get_fraction_of_outlier(self, data):
         clf = IsolationForest(contamination='auto', random_state=42)
         clf.fit(data)
         labels = clf.predict(data)
-        return (labels == -1).sum() / len(data)'''
+        return (labels == -1).sum() / len(data)
+
 
     
-    '''def get_fraction_of_outlier(self,data):
-        svm_model = OneClassSVM(kernel='rbf')#, gamma='auto', nu=0.05)  # You can adjust gamma and nu as needed
-        svm_model.fit(data)
-        predicted_labels = svm_model.predict(data)
-        n_outliers = (predicted_labels == -1).sum()
-        fraction_outliers = n_outliers / len(data)
-        return fraction_outliers'''
-    
-    def get_fraction_of_outlier(self, data):
-        from pandas.api.types import is_numeric_dtype
-
-        # Keep only continuous numerical columns (ignore binary/encoded categories)
-        numeric_data = data.loc[:, [is_numeric_dtype(data[col]) and data[col].nunique() > 10 for col in data.columns]]
-
-        Q1 = numeric_data.quantile(0.25)
-        Q3 = numeric_data.quantile(0.75)
-        IQR = Q3 - Q1
-
-        is_outlier = (numeric_data < (Q1 - 1.5 * IQR)) | (numeric_data > (Q3 + 1.5 * IQR))
-        outlier_rows = is_outlier.any(axis=1)
-        return outlier_rows.sum() / len(data)
-
-    
-    '''def get_fraction_of_outlier_per_column(self, column):
+    def get_fraction_of_outlier_per_column(self, column, outlier):
         """
         Calculate the fraction of outliers in a single numeric column using OneClassSVM.
         Assumes column is a pandas Series.
@@ -281,8 +268,8 @@ class Profile:
 
         # Ensure input is a numeric Series
         if not pd.api.types.is_numeric_dtype(column):
-            print(f"[INFO] Column '{column.name}' is not numeric. Skipping.")
-            return None
+            #print(f"[INFO] Column '{column.name}' is not numeric. Skipping.")
+            return outlier
 
         col_data = column.dropna().values.reshape(-1, 1)
 
@@ -291,15 +278,95 @@ class Profile:
             return 0.0
 
         try:
-            svm = OneClassSVM(kernel='rbf')  # You can add gamma='auto', nu=0.05 if needed
-            svm.fit(col_data)
-            preds = svm.predict(col_data)
-            n_outliers = (preds == -1).sum()
-            fraction_outliers = n_outliers / len(col_data)
-            return fraction_outliers
+            clf = IsolationForest(contamination='auto', random_state=42)
+            clf.fit(col_data)
+            labels = clf.predict(col_data)
+            fraction = (labels == -1).sum() / len(col_data)
+            return fraction
         except Exception as e:
-            print(f"[ERROR] SVM failed on column '{column.name}': {e}")
-            return None'''
+            print(f"[ERROR] IF failed on column '{column.name}': {e}")
+            return None
+
+
+    def feature_target_association(self, feature_col, target_col):
+        df = pd.DataFrame({'feature': feature_col, 'target': target_col}).dropna()
+        if is_numeric_dtype(df['target']) and df['target'].nunique() > 10:
+            if is_numeric_dtype(df['feature']):
+                score, _ = pearsonr(df['feature'], df['target'])
+                return 'pearson_corr', score
+            else:
+                groups = [group['target'].values for _, group in df.groupby('feature')]
+                f_stat, _ = f_oneway(*groups)
+                return f_stat
+
+        n_classes = df['target'].nunique()
+
+        if is_numeric_dtype(df['feature']):
+            if n_classes == 2:
+                y_encoded = pd.factorize(df['target'])[0]
+                score, _ = pointbiserialr(df['feature'], y_encoded)
+                return score
+            else:
+                groups = [group['feature'].values for _, group in df.groupby('target')]
+                f_stat, _ = f_oneway(*groups)
+                grand_mean = df['feature'].mean()
+                ss_between = sum(len(g) * (g.mean() - grand_mean) ** 2 for g in groups)
+                ss_total = ((df['feature'] - grand_mean) ** 2).sum()
+                eta_squared = ss_between / ss_total if ss_total > 0 else 0.0
+                return eta_squared
+        else:
+            cross_tab = pd.crosstab(df['feature'], df['target'])
+            chi2, _, _, _ = chi2_contingency(cross_tab)
+            return chi2
+    
+    '''def feature_variance(self, column):
+        if not pd.api.types.is_numeric_dtype(column):
+            return None
+        return column.var(skipna=True)
+
+    def feature_entropy(self, column, bins=10):
+        column = column.dropna()
+        if pd.api.types.is_numeric_dtype(column):
+            counts, _ = np.histogram(column, bins=bins)
+        else:
+            counts = np.array(list(Counter(column).values()))
+        probs = counts / counts.sum()
+        entropy = -np.sum([p * np.log2(p) for p in probs if p > 0])
+        return entropy
+
+    def populate_profiles(self, data_final, numerical_columns, target_column, outlier, metric_type):
+        profile = {}
+
+        for column in data_final.columns:
+            if column == target_column:
+                continue
+
+            if metric_type in ('rmse', 'mae'):
+                corr = self.correlation(data_final[column], data_final[target_column]) if column in numerical_columns \
+                    else self.categorical_numerical_correlation(data_final[column], data_final[target_column])
+            else:
+                corr = self.categorical_numerical_correlation(data_final[column], data_final[target_column]) if column in numerical_columns \
+                    else self.categorical_correlation(data_final[column], data_final[target_column])
+
+            outlier_fraction = self.get_fraction_of_outlier_per_column(data_final[column], outlier)
+            variance = self.feature_variance(data_final[column]) if column in numerical_columns else None
+            entropy = self.feature_entropy(data_final[column])
+
+            profile[(f'corr_{column}', f'ot_{column}', f'var_{column}', f'ent_{column}')] = [
+                    column,
+                    round(corr, 2),
+                    round(outlier_fraction, 2),
+                    round(variance, 2) if variance is not None else None,
+                    round(entropy, 2)
+                ]
+
+        values, keys = [], []
+        for key, val in profile.items():
+            keys.extend(key)
+            values.extend(val[1:])
+
+        return values, keys'''
+
 
     def populate_profiles(self, data_final, numerical_columns, target_column, outlier, metric_type):
         scaling_factor = 1
@@ -308,6 +375,7 @@ class Profile:
         for column in data_final.columns:
             if column == target_column:
                 continue
+            #corr = self.feature_target_association(data_final[column], data_final[target_column])
 
             if metric_type in ('rmse', 'mae'):
                 if column in numerical_columns:
@@ -320,12 +388,11 @@ class Profile:
                 else:
                     corr = self.categorical_correlation(data_final[column], data_final[target_column])
             
-            #outlier_fraction = self.get_fraction_of_outlier(data_final[column])
-
+            outlier_fraction = self.get_fraction_of_outlier_per_column(data_final[column], outlier)
 
             name = column
             tuple = ('corr_' + name,  'ot_' + name)
-            profile[tuple] = [column, round(corr * scaling_factor, 5), round(outlier * scaling_factor, 5)]
+            profile[tuple] = [column, round(corr * scaling_factor, 2), round(outlier_fraction * scaling_factor, 2)]
             #profile[tuple] = [column, round(corr * scaling_factor, 5), round(outlier * scaling_factor, 5)]
             #i+=1
 
@@ -339,6 +406,47 @@ class Profile:
             keys.append(val[1])
 
         return dd, keys
+    
+    '''def populate_profiles(self,data_final, numerical_columns, target, outlier, metric_type):
+        scaling_factor = 1
+        
+        profile = {}
+        i = 0
+
+        
+        for column in data_final.columns:
+
+            if(column==target):
+                continue
+            if(metric_type=='rmse' or metric_type=='mae'):
+                    if column in numerical_columns : 
+                            corr = self.correlation(data_final[column],data_final[target])
+                    else:
+                            corr = self.categorical_numerical_correlation(data_final[column],data_final[target])
+            else:
+                    if column in numerical_columns :
+                        corr = self.categorical_numerical_correlation(data_final[column],data_final[target])
+                    else:
+                        corr = self.categorical_correlation(data_final[column],data_final[target])
+                
+            # missing_value = self.missing(self.df[categorical_columns[i]])
+            #outlier  = self.outlier(self.df[categorical_columns[i]])
+            
+            name = column
+            tuple = ('corr_' + name,  'ot_' + name)
+            profile[tuple]= [column,round(corr*scaling_factor,5),round(outlier*scaling_factor,5)]
+            i+=1
+        dd = []
+        keys = []
+        for val in profile:
+            # import pdb;pdb.set_trace()
+            dd.append(profile[val][1])
+            dd.append(profile[val][2])
+            keys.append(val[0])
+            keys.append(val[1])
+        return dd,keys'''
+    
+
 
 '''
 data_final = pd.DataFrame({

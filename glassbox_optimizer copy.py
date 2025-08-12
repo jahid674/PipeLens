@@ -52,7 +52,6 @@ class GlassBoxOptimizer:
         cur_params_opt = {strategy: selection for strategy, selection in zip(self.base_strategies, init_params)}
         cur_param_check=cur_params[:len(self.base_strategies)]
         opt_f = self.score_lookup.utility_look_up(self.historical_data_pd, init_params)
-        logging.info(f'Evaluating {[int(v) for v in cur_params_opt.values()]}--Initial Utiltiy {opt_f}--Target Utility {f_goal}')
         #opt_f = self.executor_pass.current_par_lookup(cur_param_check)
 
         if self.pipeline_type == 'ml':
@@ -64,21 +63,21 @@ class GlassBoxOptimizer:
             self.rank_f = opt_f
             return
 
-        #seen.add(tuple(cur_params_opt.items()))
+        seen.add(tuple(cur_params_opt.items()))
         found = False
-        for iter_size in range(3+ 1): #Changed it
+        for iter_size in range(len(self.profile_ranking) + 1):
             if iter_size == 0:
                 logging.info(f'first loop iter_size = {iter_size}')
                 found, opt_f, cur_params_opt = self.optimistic_search(seen, cur_params_opt, f_goal, opt_f)
-            '''else:
+            else:
                 logging.info(f'second loop iter_size = {iter_size}')
-                found, opt_f, cur_params_opt = self.exhaustive_search(iter_size, seen, cur_params_opt, f_goal, opt_f)'''
+                found, opt_f, cur_params_opt = self.exhaustive_search(iter_size, seen, cur_params_opt, f_goal, opt_f)
             if found:
                 break
         if not found:
             self.fail += 1
 
-    '''def optimistic_search(self, seen, cur_params_opt, f_goal, opt_f):
+    def optimistic_search(self, seen, cur_params_opt, f_goal, opt_f):
         for profile_index in self.profile_ranking:
             logging.info(f'first loop profile = {self.profiles[profile_index]}')
             #need correction here
@@ -115,24 +114,21 @@ class GlassBoxOptimizer:
                 elif cur_f < opt_f:
                     opt_f = cur_f
                     cur_params_opt = cur_params.copy()
-        return False, opt_f, cur_params_opt'''
+        return False, opt_f, cur_params_opt
     
     def optimistic_search(self, seen, cur_params_opt, f_goal, opt_f):
         optimal_position=2
         print("[INFO] Running optimistic search with combined interventions...")
-        ranked_interventions = self.executor_pass.evaluate_combined_intervention([int(v) for v in cur_params_opt.values()], self.filename_train, new_components=['outlier', 'whitespace', 'punctuation', 'stopword'])
+        ranked_interventions = self.executor_pass.evaluate_combined_intervention(list(cur_params_opt.values()), new_components=['outlier', 'whitespace', 'punctuation', 'stopword'])
         original_order = self.pipeline_order.copy()
-        print('original order', original_order)
-        for component, strategy, similarity, uti in ranked_interventions:
+        for component, strategy, similarity, _ in ranked_interventions:
             logging.info(f"[SEARCH] Trying intervention: {component} → {strategy}")
 
             if component in original_order:
                 idx = original_order.index(component)
                 cur_params = cur_params_opt.copy()
-                cur_params[original_order[idx]] = strategy
+                cur_params[idx] = strategy
                 intervened_order = original_order.copy()
-                print('intervened order', intervened_order)
-                print('current_param',cur_params)
 
             else:
                 # New component → insert at optimal_position
@@ -140,9 +136,8 @@ class GlassBoxOptimizer:
                     logging.warning(f"Skipping {component}: optimal_position {optimal_position} out of range.")
                     continue
                 intervened_order = original_order[:optimal_position] + [component] + original_order[optimal_position:]
-                cur_params_items = list(cur_params_opt.items())
-                cur_params_items = cur_params_items[:optimal_position] + [(component, strategy)] + cur_params_items[optimal_position:]
-                cur_params = dict(cur_params_items)
+                cur_params = list(cur_params_opt)
+                cur_params = cur_params[:optimal_position] + [strategy] + cur_params[optimal_position:]
 
             if len(cur_params) != len(intervened_order):
                 logging.warning(f"[SKIP] Misaligned parameter length for {component}")
@@ -150,27 +145,32 @@ class GlassBoxOptimizer:
 
             if tuple(cur_params) in seen:
                 continue
-            #seen.add(tuple(cur_params))
+            seen.add(tuple(cur_params))
+
+            # Step 3: Temporarily update pipeline order
             prev_order = self.pipeline_order
+            self.pipeline_order = intervened_order
 
-            
-            cur_f = uti
-            self.rank_iter += 1
-            logging.info(f"[TRY] {component}={strategy},pipeline: {intervened_order}, Utility={cur_f:.4f}, Best={opt_f:.4f}")
+            try:
+                cur_f = self.current_par_lookup(cur_params)
+                self.rank_iter += 1
+                logging.info(f"[TRY] {component}={strategy}, Utility={cur_f:.4f}, Best={opt_f:.4f}")
 
-            if cur_f <= f_goal:
-                logging.info("✅ Target achieved 🎯")
-                self.rank_f = cur_f
-                self.pass_ += 1
-                return True, cur_f, cur_params
-            elif cur_f < opt_f:
-                opt_f = cur_f
-                print('cur_F',cur_f)
-                #cur_params_opt = cur_params.copy()
-                cur_params_opt = cur_params.copy()
-                original_order = intervened_order
-                seen.add(tuple(cur_params.items()))
+                if cur_f <= f_goal:
+                    logging.error("Target achieved")
+                    self.rank_f = cur_f
+                    self.pass_ += 1
+                    return True, cur_f, cur_params
 
+                elif cur_f < opt_f:
+                    opt_f = cur_f
+                    cur_params_opt = cur_params.copy()
+
+            except Exception as e:
+                logging.error(f"[ERROR] Failed to evaluate {component}-{strategy}: {e}")
+
+            finally:
+                self.pipeline_order = prev_order  # Restore
 
         return False, opt_f, cur_params_opt
 

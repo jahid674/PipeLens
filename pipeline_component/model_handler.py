@@ -1,6 +1,7 @@
 from modules.models.model import ModelTrainer
 from modules.models.metric import MetricEvaluator
 import pandas as pd
+from collections import Counter
 
 class ModelHandler:
     def __init__(self, strategy, config):
@@ -30,18 +31,24 @@ class ModelHandler:
 
         return evaluator.compute(y_true=y, y_pred=y_pred, priv_idx=priv_idx, unpriv_idx=unpriv_idx)
     
-    def get_profile_metric(self,y_train, sensitive=None):
+    def get_profile_metric(self, y_train, sensitive=None):
         y = y_train.reset_index(drop=True)
-        if self.metric_type == 'sp':
+        if self.metric_type == 'sp' or 'accuracy_score':
             sensitive = sensitive.reset_index(drop=True)
         else:
             sensitive = None
+
         y_pred = self._y_pred
-        if self.metric_type == 'sp':
+        if self.metric_type in ['sp', 'accuracy_score']:
             concat_X_y = pd.concat([sensitive, y], axis=1)
             concat_X_y.columns = [self.sens_attr_name, self.target_variable_name]
+            class_imbalance_ratio= None
+            target_counts = Counter(y_train)
+            majority_class = max(target_counts.values())
+            minority_class = min(target_counts.values())
 
         if self.metric_type in ['sp', 'accuracy_score']:
+            
             y_pred_priv = len(concat_X_y[(concat_X_y[self.sens_attr_name] == 1) &
                                         (concat_X_y[self.target_variable_name] == 1)]) / \
                         len(concat_X_y[concat_X_y[self.sens_attr_name] == 1])
@@ -54,7 +61,9 @@ class ModelHandler:
             ratio_sensitive_attr = round(len(concat_X_y[concat_X_y[self.sens_attr_name] == 1]) /
                                         len(concat_X_y[concat_X_y[self.sens_attr_name] == 0]), 5)
             cov = concat_X_y[self.sens_attr_name].cov(concat_X_y[self.target_variable_name])
-            class_imbalance_ratio = round((y == 1).sum() / len(y_train), 5) if y is not None else None
+            #class_imbalance_ratio = round((y == 1).sum() / len(y_train),5) if y is not None else None
+            class_imbalance_ratio= majority_class / minority_class
+
 
             if self.metric_type == 'accuracy_score':
                 return ['class_imbalance_ratio'], [class_imbalance_ratio]

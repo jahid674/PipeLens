@@ -28,6 +28,8 @@ class LoadDataset:
             test_file = "data/hmda/hmda_Calcasieu_X_test_1.csv"
             train, test = Reader(train_file, test_file).load_data()
 
+            
+
             self.y_train = train['action_taken']
             self.X_train = train.drop('action_taken', axis=1)
             self.y_test = test['action_taken']
@@ -38,10 +40,16 @@ class LoadDataset:
             test_file = "data/adult/adult_train.csv"
             train, test = Reader(train_file, test_file).load_data()
 
+            '''if 'fnlwgt' in train.columns:
+                train = train.drop('fnlwgt', axis=1)
+            if 'fnlwgt' in test.columns:
+                test = test.drop('fnlwgt', axis=1)'''
+
             categorical_columns = train.select_dtypes(include=['object']).columns
             for column in categorical_columns:
                 le = LabelEncoder()
                 column_unique = pd.unique(list(train[column]) + list(test[column]))
+                #print(f"Encoding column: {column} with unique values: {column_unique}")
                 le.fit(column_unique)
                 train[column] = le.transform(train[column])
                 test[column] = le.transform(test[column])
@@ -132,4 +140,4 @@ class LoadDataset:
 dataset='adult'
 loader = LoadDataset(dataset)
 dataset, X_train, y_train, X_test, y_test = loader.load()
-print(X_train.shape[0]/X_test.shape[0])
+print(y_train.head())

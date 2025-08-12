@@ -15,14 +15,16 @@ class OutlierDetector:
     """
 
     def __init__(self, dataset, strategy='none', k=None, contamination=0.2, verbose=False, exclude=None):
+        self.df1 = dataset.copy()
         self.df = dataset.copy()
+        #self.df = dataset[['Education_Num']]
         self.strategy = strategy.lower()
         self.contamination = contamination
         self.verbose = verbose
         self.exclude = exclude if isinstance(exclude, list) else [exclude] if exclude else []
         self.frac = None
 
-        if self.strategy not in ['none', 'if', 'lof']:
+        if self.strategy not in ['none', 'if', 'iqr', 'lof']:
             raise ValueError("Strategy must be one of 'none', 'if', or 'lof'.")
 
         if self.strategy == 'lof':
@@ -53,12 +55,29 @@ class OutlierDetector:
             lof = LocalOutlierFactor(n_neighbors=self.k, contamination=self.contamination)
             outlier_y_pred = lof.fit_predict(self.df)
 
+        elif self.strategy == 'iqr':
+            if self.verbose:
+                print(f"Applying IQR-based outlier detection.")
+            
+            numeric_df = self.df.select_dtypes(include=[np.number])
+            outlier_mask = np.ones(len(numeric_df), dtype=bool)
+
+            for col in numeric_df.columns:
+                Q1 = numeric_df[col].quantile(0.25)
+                Q3 = numeric_df[col].quantile(0.75)
+                IQR = Q3 - Q1
+                lower_bound = Q1 - 1.5 * IQR
+                upper_bound = Q3 + 1.5 * IQR
+                outlier_mask &= numeric_df[col].between(lower_bound, upper_bound)
+
+            # Re-map mask to full df size
+            outlier_y_pred = np.where(outlier_mask, 1, -1)
         else:
             raise ValueError("Invalid strategy selected.")
 
         mask = outlier_y_pred != -1
         self.frac = round((1 - sum(mask)/len(outlier_y_pred)) * 100, 4)
-        outlier_X_train = self.df.copy()
+        outlier_X_train = self.df1.copy()
         outlier_y_train = y_train.copy() if y_train is not None else None
         outlier_sensitive_train = sensitive_attr_train.copy() if sensitive_attr_train is not None else None
 
@@ -66,7 +85,7 @@ class OutlierDetector:
             print(f"Total samples: {len(self.df)}, Remaining after outlier removal: {sum(mask)}")
 
         if (sum(mask) > 0) and (sum(mask) < len(outlier_y_pred)):
-            outlier_X_train = outlier_X_train[mask]
+            outlier_X_train = self.df1[mask]
             outlier_X_train.reset_index(drop=True, inplace=True)
             if outlier_y_train is not None:
                 outlier_y_train = y_train[mask]

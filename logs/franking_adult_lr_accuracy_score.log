@@ -1,0 +1,7 @@
+2025-08-01 18:36:43,450 - INFO - New component: whitespace
+2025-08-01 18:36:44,855 - INFO - New pipeline: ['missing_value', 'normalization', 'whitespace', 'model'] and new configuration: [6, 1, 1, 1]
+2025-08-01 18:36:44,855 - INFO - New component: punctuation
+2025-08-01 18:36:46,124 - INFO - New pipeline: ['missing_value', 'normalization', 'punctuation', 'model'] and new configuration: [6, 1, 1, 1]
+2025-08-01 18:36:46,124 - INFO - New component: stopword
+2025-08-01 18:36:47,729 - INFO - New pipeline: ['missing_value', 'normalization', 'stopword', 'model'] and new configuration: [6, 1, 1, 1]
+2025-08-01 18:36:47,841 - INFO - first loop iter_size = 0
