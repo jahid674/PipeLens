@@ -45,18 +45,15 @@ class GlassBoxOptimizer:
         for strategy in self.pipeline_order:
             self.ranges[strategy] = list(np.unique(self.pasing_hist_data[strategy]))
 
-    def optimize(self, init_params, f_goal, new_components=None, max_depth=None, top_n_actions=120):
-
-        if new_components is None:
-            new_components = ['outlier', 'whitespace', 'punctuation', 'stopword']
-
+    def optimize(self, init_params, f_goal):
         self.rank_iter = 0
         self.rank_f = 0
+        cur_params = init_params.copy()
         cur_params_opt = {strategy: selection for strategy, selection in zip(self.base_strategies, init_params)}
-        cur_param_check = init_params[:len(self.base_strategies)]
-
+        cur_param_check=cur_params[:len(self.base_strategies)]
         opt_f = self.score_lookup.utility_look_up(self.historical_data_pd, init_params)
-        logging.info(f'Evaluating {[int(v) for v in cur_params_opt.values()]} -- Initial Utility {opt_f} -- Target Utility {f_goal}')
+        logging.info(f'Evaluating {[int(v) for v in cur_params_opt.values()]}--Initial Utiltiy {opt_f}--Target Utility {f_goal}')
+        #opt_f = self.executor_pass.current_par_lookup(cur_param_check)
 
         if self.pipeline_type == 'ml':
             self.set_ranges()
@@ -67,42 +64,19 @@ class GlassBoxOptimizer:
             self.rank_f = opt_f
             return
 
-        seen.add(tuple(cur_params_opt.items()))
-
-        max_iter_size = len(self.pipeline_order) + len(set(new_components))
-        if max_depth is None:
-            max_depth = max_iter_size
-        else:
-            max_depth = min(max_depth, max_iter_size)
-
+        #seen.add(tuple(cur_params_opt.items()))
         found = False
-
-        for k in range(1, max_depth + 1):
-            logging.info(f"[OPTIMIZE] Trying combo size k={k}")
-
-            if k == 1:
-                # single-intervention path (what you already do)
-                continue
-                #found, opt_f, cur_params_opt = self.optimistic_search(seen, cur_params_opt, f_goal, opt_f)
-            else:
-                # multi-intervention (concurrent) exhaustive path, guided by similarity ranking
-                found, opt_f, cur_params_opt = self.exhaustive_search_similarity_guided(
-                    iter_size=k,
-                    seen=seen,
-                    cur_params_opt=cur_params_opt,
-                    f_goal=f_goal,
-                    opt_f=opt_f,
-                    new_components=new_components,
-                    top_n_actions=top_n_actions,
-                    early_stop=True
-                )
-
+        for iter_size in range(3+ 1): #Changed it
+            if iter_size == 0:
+                logging.info(f'first loop iter_size = {iter_size}')
+                found, opt_f, cur_params_opt = self.optimistic_search(seen, cur_params_opt, f_goal, opt_f)
+            '''else:
+                logging.info(f'second loop iter_size = {iter_size}')
+                found, opt_f, cur_params_opt = self.exhaustive_search(iter_size, seen, cur_params_opt, f_goal, opt_f)'''
             if found:
                 break
-
         if not found:
             self.fail += 1
-
 
     '''def optimistic_search(self, seen, cur_params_opt, f_goal, opt_f):
         for profile_index in self.profile_ranking:
@@ -143,13 +117,13 @@ class GlassBoxOptimizer:
                     cur_params_opt = cur_params.copy()
         return False, opt_f, cur_params_opt'''
     
-    '''def optimistic_search(self, seen, cur_params_opt, f_goal, opt_f):
-        #optimal_position=2 # have to change
+    def optimistic_search(self, seen, cur_params_opt, f_goal, opt_f):
+        optimal_position=2
         print("[INFO] Running optimistic search with combined interventions...")
-        ranked_interventions = self.executor_pass.evaluate_interventions([int(v) for v in cur_params_opt.values()], self.filename_train, new_components=['outlier', 'whitespace', 'punctuation', 'stopword'])
+        ranked_interventions = self.executor_pass.evaluate_combined_intervention([int(v) for v in cur_params_opt.values()], self.filename_train, new_components=['outlier', 'whitespace', 'punctuation', 'stopword'])
         original_order = self.pipeline_order.copy()
         print('original order', original_order)
-        for component, strategy, similarity, uti, pos in ranked_interventions:
+        for component, strategy, similarity, uti in ranked_interventions:
             logging.info(f"[SEARCH] Trying intervention: {component} → {strategy}")
 
             if component in original_order:
@@ -162,12 +136,12 @@ class GlassBoxOptimizer:
 
             else:
                 # New component → insert at optimal_position
-                if pos > len(cur_params_opt):
-                    logging.warning(f"Skipping {component}: optimal_position {pos} out of range.")
+                if optimal_position > len(cur_params_opt):
+                    logging.warning(f"Skipping {component}: optimal_position {optimal_position} out of range.")
                     continue
-                intervened_order = original_order[:pos] + [component] + original_order[pos:]
+                intervened_order = original_order[:optimal_position] + [component] + original_order[optimal_position:]
                 cur_params_items = list(cur_params_opt.items())
-                cur_params_items = cur_params_items[:pos] + [(component, strategy)] + cur_params_items[pos:]
+                cur_params_items = cur_params_items[:optimal_position] + [(component, strategy)] + cur_params_items[optimal_position:]
                 cur_params = dict(cur_params_items)
 
             if len(cur_params) != len(intervened_order):
@@ -195,134 +169,46 @@ class GlassBoxOptimizer:
                 #cur_params_opt = cur_params.copy()
                 cur_params_opt = cur_params.copy()
                 original_order = intervened_order
-            elif cur_f > opt_f:
                 seen.add(tuple(cur_params.items()))
 
 
-        return False, opt_f, cur_params_opt'''
+        return False, opt_f, cur_params_opt
 
 
-    def exhaustive_search_similarity_guided(self,
-                                            iter_size,
-                                            seen,
-                                            cur_params_opt,
-                                            f_goal,
-                                            opt_f,
-                                            new_components=('outlier', 'whitespace', 'punctuation', 'stopword'),
-                                            top_n_actions=100,
-                                            early_stop=True,
-                                            use_fused=False):
-        
-        import itertools
-        import logging
-
-        original_order = self.pipeline_order[:]
-        baseline_vec = [int(cur_params_opt[s]) for s in original_order]
-
-        ranked = self.executor_pass.evaluate_interventions1(
-            [int(v) for v in cur_params_opt.values()],
-            self.filename_train,
-            new_components=list(new_components)
-        )
-
-        actions = []
-        base_set = set(original_order)
-        for comp, strat, sim, util, pos in ranked:
-            if comp in base_set:
-                actions.append(("change", comp, int(strat), None, float(sim)))
-            else:
-                actions.append(("insert", comp, int(strat), int(pos), float(sim)))
-
-        actions.sort(key=lambda a: a[4], reverse=True)
-        if top_n_actions is not None and top_n_actions > 0:
-            actions = actions[:top_n_actions]
-
-        if iter_size <= 0:
-            return False, opt_f, cur_params_opt
-        if iter_size > len(actions):
-            iter_size = len(actions)
-
-        def _conflict_free(combo):
-
-            seen_change = set()
-            seen_insert = set()
-
-            for kind, comp, strat, pos, sim in combo:
-                if kind == "change":
-                    if comp in seen_change:
-                        return False
-                    seen_change.add(comp)
-                    if comp not in base_set:
-                        return False
-                else:  # insert
-                    if comp in seen_insert:
-                        return False
-                    if comp in base_set:
-                        return False
-                    seen_insert.add(comp)
-            return True
-
-        def _apply_combo_concurrently(base_order, base_params_dict, combo):
+    def exhaustive_search(self, comb_size, seen, cur_params_opt, f_goal, opt_f):
+        self.fail_with_fallback += 1
+        for profile_index in self.profile_ranking:
+            profile_name = self.profiles[profile_index]
+            coeff=self.coefs_profile[profile_index]<0
             
-            changes = [(comp, strat) for (kind, comp, strat, pos, sim) in combo if kind == "change"]
-            inserts = [(comp, strat, pos, sim) for (kind, comp, strat, pos, sim) in combo if kind == "insert"]
-            inserts_sorted = sorted(inserts, key=lambda t: (t[2], -t[3]))
+            logging.info(f'profile = {profile_name}')
+            sorted_params, sorted_params_lst = self.rank_intervention_combination(self,profile_name, profile_index)
+            if (coeff):
+                sorted_params.reverse()
+                sorted_params_lst.reverse()
+            
+            cur_params = cur_params_opt.copy()
+            for id,val in enumerate(self.base_strategies):
+                cur_params[val] = sorted_params_lst[comb_size-1][1][id]
 
-            order = base_order[:]
-            params = base_params_dict.copy()
 
-            shift = 0
-            for comp, strat, pos, _sim in inserts_sorted:
-                ins_at = max(0, min(pos + shift, len(order)))
-                order = order[:ins_at] + [comp] + order[ins_at:]
-                # Insert its param at the same index
-                left = list(params.items())[:ins_at]
-                right = list(params.items())[ins_at:]
-                params = dict(left + [(comp, int(strat))] + right)
-                shift += 1
-
-            # Apply changes to whatever existing components are still in the order
-            for comp, strat in changes:
-                if comp in order:
-                    params[comp] = int(strat)
-
-            vec = [int(params[s]) for s in order]
-            return order, vec, params
-
-        #Try all size-k combinations, guided by similarity order
-        best_params_dict = cur_params_opt
-        best_val = opt_f
-        found = False
-
-        for combo in itertools.combinations(actions, iter_size):
-            if not _conflict_free(combo):
+            if tuple(cur_params.items()) in seen:
                 continue
+            seen.add(tuple(cur_params.items()))
 
-            eval_order, eval_vec, eval_params_dict = _apply_combo_concurrently(original_order, cur_params_opt, combo)
-            key = tuple((name, eval_params_dict[name]) for name in eval_order)
-            if key in seen:
-                continue
-            seen.add(key)
-            try:
-                cur_f = self.executor_pass.current_par_lookup(eval_order, eval_vec)
-            except Exception as e:
-                logging.warning(f"[SIM-GUIDED][k={iter_size}] Skipping combo due to eval error: {e}")
-                continue
-
+            cur_f  = self.score_lookup.utility_look_up(self.historical_data_pd,list(cur_params.values()))
+            #cur_f = self.executor_pass.current_par_lookup(cur_params)
             self.rank_iter += 1
-            logging.info(f"[SIM-GUIDED][k={iter_size}] combo={combo}, utility={cur_f:.6f}")
 
-            if early_stop and (cur_f <= f_goal):
+            if cur_f <= f_goal:
                 self.rank_f = cur_f
                 self.pass_ += 1
-                return True, cur_f, eval_params_dict
-
-            if cur_f < best_val:
-                best_val = cur_f
-                best_params_dict = eval_params_dict
-
-        return found, best_val, best_params_dict
-
+                return True, cur_f, cur_params
+            elif cur_f < opt_f:
+                opt_f = cur_f
+                cur_params_opt = cur_params.copy()
+                
+        return False, opt_f, cur_params_opt
     
     def rank_individual_intervention(self, cur_strategy, idx, prof_name, val):
         if self.coefs_profile[idx] > 0:

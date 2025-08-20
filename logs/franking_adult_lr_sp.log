@@ -1,0 +1,8 @@
+2025-08-20 00:00:55,246 - INFO - Intervention: component=missing_value, strategy=1, position=None, similarity=0.9389910152126594, utility=0.10197511050978508
+2025-08-20 00:00:56,498 - INFO - Intervention: component=missing_value, strategy=3, position=None, similarity=0.9390177096615808, utility=0.08442080073019106
+2025-08-20 00:00:57,733 - INFO - Intervention: component=missing_value, strategy=4, position=None, similarity=0.9390282474195825, utility=0.11611013885817309
+2025-08-20 00:00:59,031 - INFO - Intervention: component=missing_value, strategy=5, position=None, similarity=0.9390339537692348, utility=0.10310024403619764
+2025-08-20 00:01:00,386 - INFO - Intervention: component=missing_value, strategy=6, position=None, similarity=0.9390313957553136, utility=0.09796879387655356
+2025-08-20 00:01:01,679 - INFO - Intervention: component=missing_value, strategy=7, position=None, similarity=0.9390539605871043, utility=0.12086388046956195
+2025-08-20 00:01:02,911 - INFO - Intervention: component=missing_value, strategy=8, position=None, similarity=0.9390285364015167, utility=0.10937687890188397
+2025-08-20 00:01:04,034 - INFO - evaluate_interventions1_runtime_seconds=10.963062
