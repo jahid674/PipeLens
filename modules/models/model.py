@@ -1,6 +1,8 @@
 from sklearn.linear_model import LogisticRegression
 from sklearn.naive_bayes import GaussianNB
 from sklearn.ensemble import RandomForestClassifier
+from sklearn.tree import DecisionTreeClassifier
+from sklearn.svm import SVC
 from regression import Regression  # Custom regression module
 
 class ModelTrainer:
@@ -10,7 +12,7 @@ class ModelTrainer:
             model_type (str): One of ['lr', 'nb', 'rf', 'reg']
         """
         self.model_type = model_type.lower()
-        if self.model_type not in ['lr', 'nb', 'rf', 'reg']:
+        if self.model_type not in ['lr', 'nb', 'rf', 'reg', 'dt', 'svm']:
             raise ValueError("Invalid model type. Choose from 'lr', 'nb', 'rf', 'reg'.")
         self.model = None
 
@@ -22,6 +24,10 @@ class ModelTrainer:
             self.model = GaussianNB().fit(X, y)
         elif self.model_type == 'rf':
             self.model = RandomForestClassifier(random_state=0).fit(X, y)
+        elif self.model_type == 'dt':
+            self.model = DecisionTreeClassifier(random_state=0).fit(X, y)
+        elif self.model_type == 'svm':
+            self.model = SVC(random_state=0, kernel='rbf', probability=True).fit(X, y)
         elif self.model_type == 'reg':
             self.model = Regression().generate_regression(X, y)
         else:

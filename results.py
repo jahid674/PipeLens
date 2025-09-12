@@ -31,29 +31,42 @@ metric_path = config["paths"]["metric_output"].format(
 log_path = config["paths"]["log_file"].format(
     model_type=model_type, metric_type=metric_type, dataset_name=dataset_name)
 
-logging.basicConfig(filename='logs/opaquebox'+"_"+dataset_name+'_'+model_type+'_'+'metric_type'+'.log', filemode = 'w',level=logging.DEBUG, format='%(asctime)s - %(levelname)s - %(message)s')
+logging.basicConfig(filename='logs/_testing3_opaquebox'+"_"+dataset_name+'_'+model_type+'_'+metric_type+'.log', filemode = 'w',level=logging.DEBUG, format='%(asctime)s - %(levelname)s - %(message)s')
 
 
 #p = OpaqueOptimizer(dataset_name, model_type, metric_type, pipeline_type, pipeline_order,
 #                    filename_train, filename_test)
 p = GlassBoxOptimizer(dataset_name, model_type, metric_type, pipeline_type, pipeline_order, filename_train, filename_test)
 
-historical_data = pd.read_csv(filename_test)
+historical_data = pd.read_csv(filename_train)
 #grid = GridSearch(dataset_name, historical_data, pipeline_order, metric_type, pipeline_type)
+grid = GridSearch(
+    dataset_name,
+    historical_data=None,           # no historical table this time
+    pipeline_order=pipeline_order,
+    metric_type=metric_type,
+    pipeline_type=pipeline_type
+)
+
 
 with open(metric_path, 'w') as f:
     csv_writer = csv.writer(f)
     for f_goal in utility_goals:
         rank_idistr, rank_fdistr, gs_idistr, gs_fdistr = [], [], [], []
+        #p.utiliy_threshold = [f_goal]
         profile_itr = {}
+        '''gs_iter, gs_f = grid.grid_search(f_goal)
+        gs_iter, gs_f = grid.grid_search(
+            f_goal=f_goal,
+            new_components=['whitespace', 'punctuation', 'stopword', 'outlier','deduplication' 'tokenizer', 'spell_checker', 'special_character', 'unit_converter'],                   
+            max_configs=1000                          
+        )
+        gs_idistr.append(gs_iter)
+        gs_fdistr.append(gs_f)'''
 
-        for seed_ in historical_data.values.tolist():
+        for seed_ in [[2,1,1], [2,2,1], [2,3,1], [2,4,1], [2,5,1]]:#historical_data.values:
             #print('seed',seed_)
             seen = set()
-            #gs_iter, gs_f = grid.grid_search(f_goal)
-            #gs_idistr.append(gs_iter)
-            #gs_fdistr.append(gs_f)
-
             p.optimize(seed_, f_goal)
             rank_idistr.append(p.rank_iter)
             rank_fdistr.append(p.rank_f)
@@ -66,7 +79,7 @@ with open(metric_path, 'w') as f:
         csv_writer.writerow(["Utility Goal", "Method", "Iteration", "Value"])
         p.write_quartiles(csv_writer, "ranking", "iterations", rank_iquartiles, f_goal, utility_goals)
         p.write_quartiles(csv_writer, "ranking", "Fairness", rank_fquartiles, f_goal, utility_goals)
-        csv_writer.writerow([])
+        #csv_writer.writerow([])
         #p.write_quartiles(csv_writer, "grid search", "iterations", g_iquartiles, f_goal, utility_goals)
         #p.write_quartiles(csv_writer, "grid search", "Fairness", g_fquartiles, f_goal, utility_goals)
         #csv_writer.writerow([])

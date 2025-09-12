@@ -46,8 +46,9 @@ class ModelHandler:
             target_counts = Counter(y_train)
             majority_class = max(target_counts.values())
             minority_class = min(target_counts.values())
+            class_imbalance_ratio= majority_class / minority_class
 
-        if self.metric_type in ['sp', 'accuracy_score']:
+        if self.metric_type in ['sp']:
             
             y_pred_priv = len(concat_X_y[(concat_X_y[self.sens_attr_name] == 1) &
                                         (concat_X_y[self.target_variable_name] == 1)]) / \
@@ -61,16 +62,11 @@ class ModelHandler:
             ratio_sensitive_attr = round(len(concat_X_y[concat_X_y[self.sens_attr_name] == 1]) /
                                         len(concat_X_y[concat_X_y[self.sens_attr_name] == 0]), 5)
             cov = concat_X_y[self.sens_attr_name].cov(concat_X_y[self.target_variable_name])
-            #class_imbalance_ratio = round((y == 1).sum() / len(y_train),5) if y is not None else None
-            class_imbalance_ratio= majority_class / minority_class
-
-
-            if self.metric_type == 'accuracy_score':
-                return ['class_imbalance_ratio'], [class_imbalance_ratio]
-            else:
-                return ['diff_sensitive_attr', 'ratio_sensitive_attr', 'cov', 'class_imbalance_ratio'], \
+            return ['diff_sensitive_attr', 'ratio_sensitive_attr', 'cov', 'class_imbalance_ratio'], \
                     [diff_sensitive_attr, ratio_sensitive_attr, cov, class_imbalance_ratio]
-
+            #class_imbalance_ratio = round((y == 1).sum() / len(y_train),5) if y is not None else None
+        elif self.metric_type == 'accuracy_score':
+            return ['class_imbalance_ratio'], [class_imbalance_ratio]
         else:
             profile_median = y.median()
             return ['profile_median'], [profile_median]

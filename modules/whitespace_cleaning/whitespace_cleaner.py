@@ -22,5 +22,9 @@ class WhitespaceCleaner:
         if self.verbose:
             print(f"Stripping extra whitespace from column '{self.text_column}'...")
 
-        df[self.text_column] = df[self.text_column].str.replace(r'\s+', ' ', regex=True).str.strip()
+        if self.strategy == 'wc':
+            df[self.text_column] = df[self.text_column].str.replace(r'\s+', ' ', regex=True).str.strip()
+        elif self.strategy == 'none':
+            return df
+
         return df

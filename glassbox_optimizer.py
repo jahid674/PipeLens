@@ -6,6 +6,7 @@ import operator
 
 from pipeline_execution import PipelineExecutor
 from score_lookup import ScoreLookup
+np.random.seed(42)
 
 class GlassBoxOptimizer:
     def __init__(self, dataset_name, model_type, metric_type, pipeline_type, pipeline_order, filename_train, filename_test):
@@ -25,8 +26,8 @@ class GlassBoxOptimizer:
         self.ranges = {}
         self.base_strategies = pipeline_order
 
-        self.historical_data_pd = pd.read_csv(self.filename_test)
-        self.historical_data = self.historical_data_pd.values.tolist()
+        #self.historical_data_pd = pd.read_csv(self.filename_test)
+        #self.historical_data = self.historical_data_pd.values.tolist()
 
         self.executor_pass = PipelineExecutor(
             pipeline_type=self.pipeline_type,
@@ -48,14 +49,16 @@ class GlassBoxOptimizer:
     def optimize(self, init_params, f_goal, new_components=None, max_depth=None, top_n_actions=120):
 
         if new_components is None:
-            new_components = ['outlier', 'whitespace', 'punctuation', 'stopword']
+            new_components = ['outlier', 'whitespace', 'punctuation', 'stopword', 'deduplication']#, 'tokenizer', 'spell_checker', 'special_character', 'unit_converter', 'language_detector', 'language_translator', 'lowercase', 'binning', 'feature selection', 'fomat converter', 'image_cropper', 'image_resizer', 'image_rotator']
 
         self.rank_iter = 0
+        self.optimisitic_iter = 0
+        self.exhaustive_iter = 0
         self.rank_f = 0
         cur_params_opt = {strategy: selection for strategy, selection in zip(self.base_strategies, init_params)}
         cur_param_check = init_params[:len(self.base_strategies)]
 
-        opt_f = self.score_lookup.utility_look_up(self.historical_data_pd, init_params)
+        opt_f = self.executor_pass.current_par_lookup(self.base_strategies, cur_param_check)
         logging.info(f'Evaluating {[int(v) for v in cur_params_opt.values()]} -- Initial Utility {opt_f} -- Target Utility {f_goal}')
 
         if self.pipeline_type == 'ml':
@@ -67,7 +70,7 @@ class GlassBoxOptimizer:
             self.rank_f = opt_f
             return
 
-        seen.add(tuple(cur_params_opt.items()))
+        #seen.add(tuple(cur_params_opt.items()))
 
         max_iter_size = len(self.pipeline_order) + len(set(new_components))
         if max_depth is None:
@@ -77,15 +80,19 @@ class GlassBoxOptimizer:
 
         found = False
 
+        self.ranked_interventions = self.executor_pass.evaluate_interventions_pred_and_similarity(
+            [int(v) for v in cur_params_opt.values()],
+            self.filename_train,
+            new_components=list(new_components)
+        )
+
         for k in range(1, max_depth + 1):
             logging.info(f"[OPTIMIZE] Trying combo size k={k}")
 
             if k == 1:
-                # single-intervention path (what you already do)
-                continue
-                #found, opt_f, cur_params_opt = self.optimistic_search(seen, cur_params_opt, f_goal, opt_f)
+                ## single-intervention path
+                found, opt_f, cur_params_opt = self.optimistic_search(seen, cur_params_opt, f_goal, opt_f)
             else:
-                # multi-intervention (concurrent) exhaustive path, guided by similarity ranking
                 found, opt_f, cur_params_opt = self.exhaustive_search_similarity_guided(
                     iter_size=k,
                     seen=seen,
@@ -95,8 +102,10 @@ class GlassBoxOptimizer:
                     new_components=new_components,
                     top_n_actions=top_n_actions,
                     early_stop=True
-                )
+                    )
 
+            logging.info(f"Total iterations so far: {self.rank_iter}")
+            
             if found:
                 break
 
@@ -143,13 +152,13 @@ class GlassBoxOptimizer:
                     cur_params_opt = cur_params.copy()
         return False, opt_f, cur_params_opt'''
     
-    '''def optimistic_search(self, seen, cur_params_opt, f_goal, opt_f):
+    def optimistic_search(self, seen, cur_params_opt, f_goal, opt_f):
         #optimal_position=2 # have to change
-        print("[INFO] Running optimistic search with combined interventions...")
-        ranked_interventions = self.executor_pass.evaluate_interventions([int(v) for v in cur_params_opt.values()], self.filename_train, new_components=['outlier', 'whitespace', 'punctuation', 'stopword'])
+        logging.info("[INFO] Running optimistic search with combined interventions...")
+        #ranked_interventions = self.executor_pass.evaluate_interventions([int(v) for v in cur_params_opt.values()], self.filename_train, new_components=['outlier', 'whitespace', 'punctuation', 'stopword'])
         original_order = self.pipeline_order.copy()
         print('original order', original_order)
-        for component, strategy, similarity, uti, pos in ranked_interventions:
+        for component, strategy, similarity, uti, pos, _ in self.ranked_interventions:
             logging.info(f"[SEARCH] Trying intervention: {component} → {strategy}")
 
             if component in original_order:
@@ -161,7 +170,6 @@ class GlassBoxOptimizer:
                 print('current_param',cur_params)
 
             else:
-                # New component → insert at optimal_position
                 if pos > len(cur_params_opt):
                     logging.warning(f"Skipping {component}: optimal_position {pos} out of range.")
                     continue
@@ -174,32 +182,34 @@ class GlassBoxOptimizer:
                 logging.warning(f"[SKIP] Misaligned parameter length for {component}")
                 continue
 
-            if tuple(cur_params) in seen:
-                continue
+            #if tuple(cur_params) in seen:
+            #    continue
             #seen.add(tuple(cur_params))
             prev_order = self.pipeline_order
 
             
-            cur_f = uti
+            cur_f = self.executor_pass.current_par_lookup(intervened_order, [int(v) for v in cur_params.values()])
             self.rank_iter += 1
-            logging.info(f"[TRY] {component}={strategy},pipeline: {intervened_order}, Utility={cur_f:.4f}, Best={opt_f:.4f}")
+            self.optimisitic_iter += 1
+            logging.info(f"[TRY] {component}={strategy},pipeline: {cur_params}, Utility={cur_f:.4f}, Best={opt_f:.4f}")
 
             if cur_f <= f_goal:
                 logging.info("✅ Target achieved 🎯")
                 self.rank_f = cur_f
                 self.pass_ += 1
+                logging.info(f"required optimistic iterations: {self.optimisitic_iter}")
+                logging.info(f"passing pipeline: order={intervened_order}, vec={[int(v) for v in cur_params.values()]}")
                 return True, cur_f, cur_params
             elif cur_f < opt_f:
                 opt_f = cur_f
                 print('cur_F',cur_f)
-                #cur_params_opt = cur_params.copy()
                 cur_params_opt = cur_params.copy()
                 original_order = intervened_order
             elif cur_f > opt_f:
                 seen.add(tuple(cur_params.items()))
 
 
-        return False, opt_f, cur_params_opt'''
+        return False, opt_f, cur_params_opt
 
 
     def exhaustive_search_similarity_guided(self,
@@ -213,21 +223,14 @@ class GlassBoxOptimizer:
                                             early_stop=True,
                                             use_fused=False):
         
-        import itertools
-        import logging
-
+        logging.info("[INFO] Running optimistic search with combined interventions...")
         original_order = self.pipeline_order[:]
         baseline_vec = [int(cur_params_opt[s]) for s in original_order]
 
-        ranked = self.executor_pass.evaluate_interventions1(
-            [int(v) for v in cur_params_opt.values()],
-            self.filename_train,
-            new_components=list(new_components)
-        )
 
         actions = []
         base_set = set(original_order)
-        for comp, strat, sim, util, pos in ranked:
+        for comp, strat, sim, util, pos, _ in self.ranked_interventions:
             if comp in base_set:
                 actions.append(("change", comp, int(strat), None, float(sim)))
             else:
@@ -299,6 +302,9 @@ class GlassBoxOptimizer:
                 continue
 
             eval_order, eval_vec, eval_params_dict = _apply_combo_concurrently(original_order, cur_params_opt, combo)
+            print('eval_order', eval_order)
+            print('eval_vec', eval_vec)
+            print('original_order', original_order) 
             key = tuple((name, eval_params_dict[name]) for name in eval_order)
             if key in seen:
                 continue
@@ -310,16 +316,22 @@ class GlassBoxOptimizer:
                 continue
 
             self.rank_iter += 1
+            self.exhaustive_iter += 1
             logging.info(f"[SIM-GUIDED][k={iter_size}] combo={combo}, utility={cur_f:.6f}")
 
             if early_stop and (cur_f <= f_goal):
+                logging.info("✅ Target achieved 🎯")
+                logging.info(f"passing pipeline: order={eval_order}, vec={eval_vec}")
                 self.rank_f = cur_f
                 self.pass_ += 1
+                logging.info(f"required exhaustive iterations: {self.exhaustive_iter}")
                 return True, cur_f, eval_params_dict
 
             if cur_f < best_val:
-                best_val = cur_f
-                best_params_dict = eval_params_dict
+                #best_val = cur_f
+                print('cur_F',cur_f)
+                #cur_params_opt = eval_params_dict.copy()
+                #original_order = eval_order
 
         return found, best_val, best_params_dict
 

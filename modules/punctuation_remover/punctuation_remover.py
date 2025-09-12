@@ -21,6 +21,9 @@ class PunctuationRemover:
 
         if self.verbose:
             print(f"Removing punctuation from column '{self.text_column}'...")
+            
         if self.strategy == 'pr':
             df[self.text_column] = df[self.text_column].str.replace(r'[^\w\s]', '', regex=True)
+        elif self.strategy == 'none':
+            return df
         return df

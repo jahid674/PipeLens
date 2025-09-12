@@ -32,6 +32,8 @@ class Tokenizer:
             self.df[self.text_column] = self.df[self.text_column].astype(str).apply(self._tokenize_whitespace)
         elif self.strategy == 'nltk':
             self.df[self.text_column] = self.df[self.text_column].astype(str).apply(self._tokenize_nltk)
+        elif self.strategy == 'none':
+            return df
         else:
             warnings.warn(f"Unsupported tokenization method: {self.strategy}. Skipped.")
         return self.df

@@ -14,8 +14,11 @@ class SpecialCharRemover:
         if self.text_column is None or len(self.text_column) == 0:
             warnings.warn("No Text column. Skipping special char removal.")
             return df
-
-        df[self.text_column] = df[self.text_column].astype(str).apply(
-            lambda x: re.sub(r'[^\w\s]', '', x.encode('ascii', 'ignore').decode('ascii'))
-        )
+        
+        if self.strategy == 'sc':
+            df[self.text_column] = df[self.text_column].astype(str).apply(
+            lambda x: re.sub(r'[^\w\s]', '', x.encode('ascii', 'ignore').decode('ascii')))
+        elif self.strategy == 'none':
+            return df
+        
         return df

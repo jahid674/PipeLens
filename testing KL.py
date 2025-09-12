@@ -113,7 +113,13 @@ def inject_class_imbalance( X, y, target_col='target', minority_ratio=0.2):
     resampled_df = pd.concat([minority_sampled, majority_sampled])
     resampled_df = resampled_df.sample(frac=1, random_state=42).reset_index(drop=True)
 
-    return resampled_df
+    X_modified = resampled_df.drop(columns=[target_col])
+    y_modified = resampled_df[target_col]
+    
+    if isinstance(y, pd.DataFrame):
+        y_modified = pd.DataFrame(y_modified)
+
+    return X_modified, y_modified
 
 
 X_modified = inject_class_imbalance(X_test, y_test, target_col='income', minority_ratio=0.49)

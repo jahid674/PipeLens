@@ -1,352 +1,107 @@
-2025-08-20 00:22:51,540 - INFO - Evaluating [1, 1, 1] -- Initial Utility 0.07019 -- Target Utility 0.05
-2025-08-20 00:22:51,540 - INFO - [OPTIMIZE] Trying combo size k=1
-2025-08-20 00:22:51,540 - INFO - [OPTIMIZE] Trying combo size k=2
-2025-08-20 00:22:52,746 - INFO - Intervention: component=missing_value, strategy=2, position=None, similarity=0.9380200305408518, utility=0.07770663073662967
-2025-08-20 00:22:53,994 - INFO - Intervention: component=missing_value, strategy=3, position=None, similarity=0.9380381494123804, utility=0.11627444889450794
-2025-08-20 00:22:55,162 - INFO - Intervention: component=missing_value, strategy=4, position=None, similarity=0.9380181708560434, utility=0.11550190196537131
-2025-08-20 00:22:56,358 - INFO - Intervention: component=missing_value, strategy=5, position=None, similarity=0.9380294151234756, utility=0.12085953409411948
-2025-08-20 00:22:57,518 - INFO - Intervention: component=missing_value, strategy=6, position=None, similarity=0.9380119430874486, utility=0.08842837194576578
-2025-08-20 00:22:58,649 - INFO - Intervention: component=missing_value, strategy=7, position=None, similarity=0.9380271609267041, utility=0.1288428031053574
-2025-08-20 00:22:59,783 - INFO - Intervention: component=missing_value, strategy=8, position=None, similarity=0.9380281785467356, utility=0.11171092512601294
-2025-08-20 00:23:01,088 - INFO - Intervention: component=missing_value, strategy=9, position=None, similarity=0.9380252143613237, utility=0.09750773718746045
-2025-08-20 00:23:03,875 - INFO - Intervention: component=normalization, strategy=2, position=None, similarity=0.37999937915045084, utility=0.202311158596983
-2025-08-20 00:23:06,570 - INFO - Intervention: component=normalization, strategy=3, position=None, similarity=0.3307864938875087, utility=0.16603495884566058
-2025-08-20 00:23:09,283 - INFO - Intervention: component=normalization, strategy=4, position=None, similarity=0.6356847116962403, utility=0.2050210653044108
-2025-08-20 00:23:12,094 - INFO - Intervention: component=normalization, strategy=5, position=None, similarity=0.71252946761866, utility=0.20912035931728568
-2025-08-20 00:23:14,212 - INFO - Intervention: component=outlier, strategy=1, position=0, similarity=0.9380636470895359, utility=0.12054020350044137
-2025-08-20 00:23:16,637 - INFO - Intervention: component=outlier, strategy=1, position=1, similarity=0.9380751355164724, utility=0.12343923887209941
-2025-08-20 00:23:18,803 - INFO - Intervention: component=outlier, strategy=1, position=2, similarity=0.9378507238302849, utility=0.07487057129175503
-2025-08-20 00:23:20,572 - INFO - Intervention: component=outlier, strategy=2, position=0, similarity=0.9385763229828173, utility=0.09928219535652197
-2025-08-20 00:23:22,668 - INFO - Intervention: component=outlier, strategy=2, position=1, similarity=0.9344095520041666, utility=0.08238136479645868
-2025-08-20 00:23:24,723 - INFO - Intervention: component=outlier, strategy=2, position=2, similarity=0.9364920864029609, utility=0.11056273963029602
-2025-08-20 00:23:25,852 - INFO - Intervention: component=outlier, strategy=3, position=0, similarity=0.6988598403885281, utility=0.06189415404241923
-2025-08-20 00:23:27,638 - INFO - Intervention: component=outlier, strategy=3, position=1, similarity=0.6985753314765328, utility=0.050141722145183934
-2025-08-20 00:23:29,536 - INFO - Intervention: component=outlier, strategy=3, position=2, similarity=0.6996936393081888, utility=0.0774770541886177
-2025-08-20 00:23:31,197 - INFO - Intervention: component=outlier, strategy=4, position=0, similarity=0.9355583803921571, utility=0.07990911676002391
-2025-08-20 00:23:33,283 - INFO - Intervention: component=outlier, strategy=4, position=1, similarity=0.9363036134817126, utility=0.07638670619269156
-2025-08-20 00:23:35,424 - INFO - Intervention: component=outlier, strategy=4, position=2, similarity=0.9370034747963898, utility=0.06988024155712963
-2025-08-20 00:23:37,417 - INFO - Intervention: component=outlier, strategy=5, position=0, similarity=0.962797444055384, utility=0.056108543266516486
-2025-08-20 00:23:39,593 - INFO - Intervention: component=outlier, strategy=5, position=1, similarity=0.9609910213421805, utility=0.06134257614664001
-2025-08-20 00:23:41,747 - INFO - Intervention: component=outlier, strategy=5, position=2, similarity=0.9620696764239592, utility=0.052508616936878125
-2025-08-20 00:23:43,892 - INFO - Intervention: component=outlier, strategy=6, position=0, similarity=0.9550295424224314, utility=0.06042466865006145
-2025-08-20 00:23:46,083 - INFO - Intervention: component=outlier, strategy=6, position=1, similarity=0.9546980088582324, utility=0.06031480583373096
-2025-08-20 00:23:48,325 - INFO - Intervention: component=outlier, strategy=6, position=2, similarity=0.954120637478685, utility=0.0645089528623217
-2025-08-20 00:23:50,513 - INFO - Intervention: component=outlier, strategy=7, position=0, similarity=0.9420261477876797, utility=0.07310562123806233
-2025-08-20 00:23:52,870 - INFO - Intervention: component=outlier, strategy=7, position=1, similarity=0.9403938568537982, utility=0.06890531036922368
-2025-08-20 00:23:55,227 - INFO - Intervention: component=outlier, strategy=7, position=2, similarity=0.9406822409379688, utility=0.08219645087279764
-2025-08-20 00:23:57,423 - INFO - Intervention: component=outlier, strategy=8, position=0, similarity=0.9380893933393842, utility=0.10178984456563332
-2025-08-20 00:23:59,707 - INFO - Intervention: component=outlier, strategy=8, position=1, similarity=0.9380862782686928, utility=0.1076820228560921
-2025-08-20 00:24:01,965 - INFO - Intervention: component=outlier, strategy=8, position=2, similarity=0.937601106428316, utility=0.1223015949106549
-2025-08-20 00:24:04,015 - INFO - Intervention: component=whitespace, strategy=1, position=0, similarity=0.9381140347597082, utility=0.10182726256040406
-2025-08-20 00:24:05,953 - INFO - Intervention: component=whitespace, strategy=1, position=1, similarity=0.937995278575247, utility=0.07111060285891439
-2025-08-20 00:24:07,971 - INFO - Intervention: component=whitespace, strategy=1, position=2, similarity=0.9380580133596423, utility=0.11785931653514412
-2025-08-20 00:24:10,015 - INFO - Intervention: component=punctuation, strategy=1, position=0, similarity=0.9378346732122714, utility=0.09063885635081756
-2025-08-20 00:24:12,060 - INFO - Intervention: component=punctuation, strategy=1, position=1, similarity=0.9377611943749904, utility=0.12999376633818724
-2025-08-20 00:24:14,156 - INFO - Intervention: component=punctuation, strategy=1, position=2, similarity=0.9380866885560326, utility=0.10888643860207572
-2025-08-20 00:24:16,579 - INFO - Intervention: component=stopword, strategy=1, position=0, similarity=0.9378944737240608, utility=0.09152277873584769
-2025-08-20 00:24:18,736 - INFO - Intervention: component=stopword, strategy=1, position=1, similarity=0.9380298212501961, utility=0.13889200401980836
-2025-08-20 00:24:21,108 - INFO - Intervention: component=stopword, strategy=1, position=2, similarity=0.9380242894176364, utility=0.09421005425780632
-2025-08-20 00:24:21,108 - INFO - evaluate_interventions1_runtime_seconds=89.567056
-2025-08-20 00:24:22,621 - INFO - [SIM-GUIDED][k=2] combo=(('insert', 'outlier', 5, 0, 0.962797444055384), ('insert', 'whitespace', 1, 0, 0.9381140347597082)), utility=0.052968
-2025-08-20 00:24:24,000 - INFO - [SIM-GUIDED][k=2] combo=(('insert', 'outlier', 5, 0, 0.962797444055384), ('insert', 'punctuation', 1, 2, 0.9380866885560326)), utility=0.052968
-2025-08-20 00:24:24,656 - INFO - [SIM-GUIDED][k=2] combo=(('insert', 'outlier', 5, 0, 0.962797444055384), ('change', 'missing_value', 3, None, 0.9380381494123804)), utility=0.065885
-2025-08-20 00:24:26,255 - INFO - [SIM-GUIDED][k=2] combo=(('insert', 'outlier', 5, 0, 0.962797444055384), ('insert', 'stopword', 1, 1, 0.9380298212501961)), utility=0.052968
-2025-08-20 00:24:27,017 - INFO - [SIM-GUIDED][k=2] combo=(('insert', 'outlier', 5, 0, 0.962797444055384), ('change', 'missing_value', 5, None, 0.9380294151234756)), utility=0.065885
-2025-08-20 00:24:27,678 - INFO - [SIM-GUIDED][k=2] combo=(('insert', 'outlier', 5, 0, 0.962797444055384), ('change', 'missing_value', 8, None, 0.9380281785467356)), utility=0.065885
-2025-08-20 00:24:28,351 - INFO - [SIM-GUIDED][k=2] combo=(('insert', 'outlier', 5, 0, 0.962797444055384), ('change', 'missing_value', 7, None, 0.9380271609267041)), utility=0.065885
-2025-08-20 00:24:28,997 - INFO - [SIM-GUIDED][k=2] combo=(('insert', 'outlier', 5, 0, 0.962797444055384), ('change', 'missing_value', 9, None, 0.9380252143613237)), utility=0.065885
-2025-08-20 00:24:29,628 - INFO - [SIM-GUIDED][k=2] combo=(('insert', 'outlier', 5, 0, 0.962797444055384), ('change', 'missing_value', 2, None, 0.9380200305408518)), utility=0.065885
-2025-08-20 00:24:30,318 - INFO - [SIM-GUIDED][k=2] combo=(('insert', 'outlier', 5, 0, 0.962797444055384), ('change', 'missing_value', 4, None, 0.9380181708560434)), utility=0.056310
-2025-08-20 00:24:31,119 - INFO - [SIM-GUIDED][k=2] combo=(('insert', 'outlier', 5, 0, 0.962797444055384), ('change', 'missing_value', 6, None, 0.9380119430874486)), utility=0.065885
-2025-08-20 00:24:32,487 - INFO - [SIM-GUIDED][k=2] combo=(('insert', 'outlier', 5, 0, 0.962797444055384), ('change', 'normalization', 5, None, 0.71252946761866)), utility=0.179034
-2025-08-20 00:24:33,861 - INFO - [SIM-GUIDED][k=2] combo=(('insert', 'outlier', 5, 0, 0.962797444055384), ('change', 'normalization', 4, None, 0.6356847116962403)), utility=0.179585
-2025-08-20 00:24:35,261 - INFO - [SIM-GUIDED][k=2] combo=(('insert', 'outlier', 5, 0, 0.962797444055384), ('change', 'normalization', 2, None, 0.37999937915045084)), utility=0.176706
-2025-08-20 00:24:36,880 - INFO - [SIM-GUIDED][k=2] combo=(('insert', 'outlier', 5, 0, 0.962797444055384), ('change', 'normalization', 3, None, 0.3307864938875087)), utility=0.178271
-2025-08-20 00:24:38,357 - INFO - [SIM-GUIDED][k=2] combo=(('insert', 'outlier', 6, 0, 0.9550295424224314), ('insert', 'whitespace', 1, 0, 0.9381140347597082)), utility=0.055842
-2025-08-20 00:24:39,992 - INFO - [SIM-GUIDED][k=2] combo=(('insert', 'outlier', 6, 0, 0.9550295424224314), ('insert', 'punctuation', 1, 2, 0.9380866885560326)), utility=0.055842
-2025-08-20 00:24:40,663 - INFO - [SIM-GUIDED][k=2] combo=(('insert', 'outlier', 6, 0, 0.9550295424224314), ('change', 'missing_value', 3, None, 0.9380381494123804)), utility=0.053694
-2025-08-20 00:24:42,363 - INFO - [SIM-GUIDED][k=2] combo=(('insert', 'outlier', 6, 0, 0.9550295424224314), ('insert', 'stopword', 1, 1, 0.9380298212501961)), utility=0.055842
-2025-08-20 00:24:43,146 - INFO - [SIM-GUIDED][k=2] combo=(('insert', 'outlier', 6, 0, 0.9550295424224314), ('change', 'missing_value', 5, None, 0.9380294151234756)), utility=0.053694
-2025-08-20 00:24:43,831 - INFO - [SIM-GUIDED][k=2] combo=(('insert', 'outlier', 6, 0, 0.9550295424224314), ('change', 'missing_value', 8, None, 0.9380281785467356)), utility=0.053694
-2025-08-20 00:24:44,573 - INFO - [SIM-GUIDED][k=2] combo=(('insert', 'outlier', 6, 0, 0.9550295424224314), ('change', 'missing_value', 7, None, 0.9380271609267041)), utility=0.053694
-2025-08-20 00:24:45,251 - INFO - [SIM-GUIDED][k=2] combo=(('insert', 'outlier', 6, 0, 0.9550295424224314), ('change', 'missing_value', 9, None, 0.9380252143613237)), utility=0.053694
-2025-08-20 00:24:45,970 - INFO - [SIM-GUIDED][k=2] combo=(('insert', 'outlier', 6, 0, 0.9550295424224314), ('change', 'missing_value', 2, None, 0.9380200305408518)), utility=0.053694
-2025-08-20 00:24:46,634 - INFO - [SIM-GUIDED][k=2] combo=(('insert', 'outlier', 6, 0, 0.9550295424224314), ('change', 'missing_value', 4, None, 0.9380181708560434)), utility=0.054612
-2025-08-20 00:24:47,302 - INFO - [SIM-GUIDED][k=2] combo=(('insert', 'outlier', 6, 0, 0.9550295424224314), ('change', 'missing_value', 6, None, 0.9380119430874486)), utility=0.053694
-2025-08-20 00:24:48,877 - INFO - [SIM-GUIDED][k=2] combo=(('insert', 'outlier', 6, 0, 0.9550295424224314), ('change', 'normalization', 5, None, 0.71252946761866)), utility=0.174500
-2025-08-20 00:24:50,418 - INFO - [SIM-GUIDED][k=2] combo=(('insert', 'outlier', 6, 0, 0.9550295424224314), ('change', 'normalization', 4, None, 0.6356847116962403)), utility=0.173703
-2025-08-20 00:24:51,923 - INFO - [SIM-GUIDED][k=2] combo=(('insert', 'outlier', 6, 0, 0.9550295424224314), ('change', 'normalization', 2, None, 0.37999937915045084)), utility=0.171267
-2025-08-20 00:24:53,601 - INFO - [SIM-GUIDED][k=2] combo=(('insert', 'outlier', 6, 0, 0.9550295424224314), ('change', 'normalization', 3, None, 0.3307864938875087)), utility=0.172270
-2025-08-20 00:24:55,276 - INFO - [SIM-GUIDED][k=2] combo=(('insert', 'outlier', 7, 0, 0.9420261477876797), ('insert', 'whitespace', 1, 0, 0.9381140347597082)), utility=0.052091
-2025-08-20 00:24:56,795 - INFO - [SIM-GUIDED][k=2] combo=(('insert', 'outlier', 7, 0, 0.9420261477876797), ('insert', 'punctuation', 1, 2, 0.9380866885560326)), utility=0.052091
-2025-08-20 00:24:57,610 - INFO - [SIM-GUIDED][k=2] combo=(('insert', 'outlier', 7, 0, 0.9420261477876797), ('change', 'missing_value', 3, None, 0.9380381494123804)), utility=0.050658
-2025-08-20 00:24:59,238 - INFO - [SIM-GUIDED][k=2] combo=(('insert', 'outlier', 7, 0, 0.9420261477876797), ('insert', 'stopword', 1, 1, 0.9380298212501961)), utility=0.052091
-2025-08-20 00:24:59,968 - INFO - [SIM-GUIDED][k=2] combo=(('insert', 'outlier', 7, 0, 0.9420261477876797), ('change', 'missing_value', 5, None, 0.9380294151234756)), utility=0.050658
-2025-08-20 00:25:00,650 - INFO - [SIM-GUIDED][k=2] combo=(('insert', 'outlier', 7, 0, 0.9420261477876797), ('change', 'missing_value', 8, None, 0.9380281785467356)), utility=0.050658
-2025-08-20 00:25:01,444 - INFO - [SIM-GUIDED][k=2] combo=(('insert', 'outlier', 7, 0, 0.9420261477876797), ('change', 'missing_value', 7, None, 0.9380271609267041)), utility=0.050658
-2025-08-20 00:25:02,203 - INFO - [SIM-GUIDED][k=2] combo=(('insert', 'outlier', 7, 0, 0.9420261477876797), ('change', 'missing_value', 9, None, 0.9380252143613237)), utility=0.050658
-2025-08-20 00:25:02,928 - INFO - [SIM-GUIDED][k=2] combo=(('insert', 'outlier', 7, 0, 0.9420261477876797), ('change', 'missing_value', 2, None, 0.9380200305408518)), utility=0.050658
-2025-08-20 00:25:03,720 - INFO - [SIM-GUIDED][k=2] combo=(('insert', 'outlier', 7, 0, 0.9420261477876797), ('change', 'missing_value', 4, None, 0.9380181708560434)), utility=0.061633
-2025-08-20 00:25:04,497 - INFO - [SIM-GUIDED][k=2] combo=(('insert', 'outlier', 7, 0, 0.9420261477876797), ('change', 'missing_value', 6, None, 0.9380119430874486)), utility=0.050658
-2025-08-20 00:25:06,097 - INFO - [SIM-GUIDED][k=2] combo=(('insert', 'outlier', 7, 0, 0.9420261477876797), ('change', 'normalization', 5, None, 0.71252946761866)), utility=0.170362
-2025-08-20 00:25:07,672 - INFO - [SIM-GUIDED][k=2] combo=(('insert', 'outlier', 7, 0, 0.9420261477876797), ('change', 'normalization', 4, None, 0.6356847116962403)), utility=0.171060
-2025-08-20 00:25:09,172 - INFO - [SIM-GUIDED][k=2] combo=(('insert', 'outlier', 7, 0, 0.9420261477876797), ('change', 'normalization', 2, None, 0.37999937915045084)), utility=0.166403
-2025-08-20 00:25:10,773 - INFO - [SIM-GUIDED][k=2] combo=(('insert', 'outlier', 7, 0, 0.9420261477876797), ('change', 'normalization', 3, None, 0.3307864938875087)), utility=0.149242
-2025-08-20 00:25:12,023 - INFO - [SIM-GUIDED][k=2] combo=(('insert', 'outlier', 2, 0, 0.9385763229828173), ('insert', 'whitespace', 1, 0, 0.9381140347597082)), utility=0.092784
-2025-08-20 00:25:13,232 - INFO - [SIM-GUIDED][k=2] combo=(('insert', 'outlier', 2, 0, 0.9385763229828173), ('insert', 'punctuation', 1, 2, 0.9380866885560326)), utility=0.092784
-2025-08-20 00:25:13,879 - INFO - [SIM-GUIDED][k=2] combo=(('insert', 'outlier', 2, 0, 0.9385763229828173), ('change', 'missing_value', 3, None, 0.9380381494123804)), utility=0.080021
-2025-08-20 00:25:15,012 - INFO - [SIM-GUIDED][k=2] combo=(('insert', 'outlier', 2, 0, 0.9385763229828173), ('insert', 'stopword', 1, 1, 0.9380298212501961)), utility=0.092784
-2025-08-20 00:25:15,671 - INFO - [SIM-GUIDED][k=2] combo=(('insert', 'outlier', 2, 0, 0.9385763229828173), ('change', 'missing_value', 5, None, 0.9380294151234756)), utility=0.080021
-2025-08-20 00:25:16,265 - INFO - [SIM-GUIDED][k=2] combo=(('insert', 'outlier', 2, 0, 0.9385763229828173), ('change', 'missing_value', 8, None, 0.9380281785467356)), utility=0.080021
-2025-08-20 00:25:16,881 - INFO - [SIM-GUIDED][k=2] combo=(('insert', 'outlier', 2, 0, 0.9385763229828173), ('change', 'missing_value', 7, None, 0.9380271609267041)), utility=0.080021
-2025-08-20 00:25:17,786 - INFO - [SIM-GUIDED][k=2] combo=(('insert', 'outlier', 2, 0, 0.9385763229828173), ('change', 'missing_value', 9, None, 0.9380252143613237)), utility=0.080021
-2025-08-20 00:25:18,450 - INFO - [SIM-GUIDED][k=2] combo=(('insert', 'outlier', 2, 0, 0.9385763229828173), ('change', 'missing_value', 2, None, 0.9380200305408518)), utility=0.080021
-2025-08-20 00:25:19,153 - INFO - [SIM-GUIDED][k=2] combo=(('insert', 'outlier', 2, 0, 0.9385763229828173), ('change', 'missing_value', 4, None, 0.9380181708560434)), utility=0.080238
-2025-08-20 00:25:19,749 - INFO - [SIM-GUIDED][k=2] combo=(('insert', 'outlier', 2, 0, 0.9385763229828173), ('change', 'missing_value', 6, None, 0.9380119430874486)), utility=0.080021
-2025-08-20 00:25:20,810 - INFO - [SIM-GUIDED][k=2] combo=(('insert', 'outlier', 2, 0, 0.9385763229828173), ('change', 'normalization', 5, None, 0.71252946761866)), utility=0.181999
-2025-08-20 00:25:21,956 - INFO - [SIM-GUIDED][k=2] combo=(('insert', 'outlier', 2, 0, 0.9385763229828173), ('change', 'normalization', 4, None, 0.6356847116962403)), utility=0.182032
-2025-08-20 00:25:23,232 - INFO - [SIM-GUIDED][k=2] combo=(('insert', 'outlier', 2, 0, 0.9385763229828173), ('change', 'normalization', 2, None, 0.37999937915045084)), utility=0.183572
-2025-08-20 00:25:24,511 - INFO - [SIM-GUIDED][k=2] combo=(('insert', 'outlier', 2, 0, 0.9385763229828173), ('change', 'normalization', 3, None, 0.3307864938875087)), utility=0.179401
-2025-08-20 00:25:26,331 - INFO - [SIM-GUIDED][k=2] combo=(('insert', 'whitespace', 1, 0, 0.9381140347597082), ('insert', 'outlier', 8, 0, 0.9380893933393842)), utility=0.048601
-2025-08-20 00:25:26,333 - INFO - Evaluating [1, 2, 1] -- Initial Utility 0.12878 -- Target Utility 0.05
-2025-08-20 00:25:26,333 - INFO - [OPTIMIZE] Trying combo size k=1
-2025-08-20 00:25:26,333 - INFO - [OPTIMIZE] Trying combo size k=2
-2025-08-20 00:25:28,552 - INFO - Intervention: component=missing_value, strategy=2, position=None, similarity=0.9743360286429008, utility=0.1927140685781344
-2025-08-20 00:25:30,518 - INFO - Intervention: component=missing_value, strategy=3, position=None, similarity=0.9742174263860104, utility=0.19747092083077133
-2025-08-20 00:25:32,498 - INFO - Intervention: component=missing_value, strategy=4, position=None, similarity=0.9682784365094081, utility=0.20132590017909624
-2025-08-20 00:25:34,373 - INFO - Intervention: component=missing_value, strategy=5, position=None, similarity=0.9758042274800559, utility=0.20078903758890362
-2025-08-20 00:25:36,250 - INFO - Intervention: component=missing_value, strategy=6, position=None, similarity=0.9751034216358311, utility=0.19605038045699152
-2025-08-20 00:25:38,140 - INFO - Intervention: component=missing_value, strategy=7, position=None, similarity=0.9731834832894077, utility=0.1956426733958785
-2025-08-20 00:25:40,297 - INFO - Intervention: component=missing_value, strategy=8, position=None, similarity=0.9726778952300188, utility=0.19921377477167682
-2025-08-20 00:25:42,711 - INFO - Intervention: component=missing_value, strategy=9, position=None, similarity=0.974987319137489, utility=0.1857491297661522
-2025-08-20 00:25:45,204 - INFO - Intervention: component=normalization, strategy=1, position=None, similarity=0.2237455202710276, utility=0.13883223177780477
-2025-08-20 00:25:48,131 - INFO - Intervention: component=normalization, strategy=3, position=None, similarity=0.9500684972635146, utility=0.17333583089207166
-2025-08-20 00:25:50,891 - INFO - Intervention: component=normalization, strategy=4, position=None, similarity=0.5429580908071991, utility=0.19618791400631957
-2025-08-20 00:25:53,893 - INFO - Intervention: component=normalization, strategy=5, position=None, similarity=0.525389399946917, utility=0.20127948833064818
-2025-08-20 00:25:56,814 - INFO - Intervention: component=outlier, strategy=1, position=0, similarity=0.9778575027036821, utility=0.20064257609188374
-2025-08-20 00:25:59,669 - INFO - Intervention: component=outlier, strategy=1, position=1, similarity=0.9774978562258155, utility=0.20897286950628302
-2025-08-20 00:26:02,536 - INFO - Intervention: component=outlier, strategy=1, position=2, similarity=0.9794369513726843, utility=0.20164747551443457
-2025-08-20 00:26:04,954 - INFO - Intervention: component=outlier, strategy=2, position=0, similarity=0.9847767377819966, utility=0.20975869884289475
-2025-08-20 00:26:07,837 - INFO - Intervention: component=outlier, strategy=2, position=1, similarity=0.9789969042442421, utility=0.2064852582130661
-2025-08-20 00:26:10,661 - INFO - Intervention: component=outlier, strategy=2, position=2, similarity=0.6191669183565898, utility=0.20811663247742954
-2025-08-20 00:26:12,495 - INFO - Intervention: component=outlier, strategy=3, position=0, similarity=0.775187929881265, utility=0.14176058748763373
-2025-08-20 00:26:14,820 - INFO - Intervention: component=outlier, strategy=3, position=1, similarity=0.7817206514817403, utility=0.14376142456281688
-2025-08-20 00:26:16,999 - INFO - Intervention: component=outlier, strategy=3, position=2, similarity=0.4038806097992575, utility=0.14235629977128167
-2025-08-20 00:26:19,280 - INFO - Intervention: component=outlier, strategy=4, position=0, similarity=0.986546849742966, utility=0.20153546757498023
-2025-08-20 00:26:21,922 - INFO - Intervention: component=outlier, strategy=4, position=1, similarity=0.9865930573684567, utility=0.18664591372739534
-2025-08-20 00:26:26,617 - INFO - Intervention: component=outlier, strategy=4, position=2, similarity=0.9776859201335365, utility=0.21031014543807441
-2025-08-20 00:26:29,412 - INFO - Intervention: component=outlier, strategy=5, position=0, similarity=0.9979974300492234, utility=0.17988473431936813
-2025-08-20 00:26:32,411 - INFO - Intervention: component=outlier, strategy=5, position=1, similarity=0.9975907375600782, utility=0.17724053289094768
-2025-08-20 00:26:38,187 - INFO - Intervention: component=outlier, strategy=5, position=2, similarity=0.9780774696962681, utility=0.2095268019777261
-2025-08-20 00:26:40,975 - INFO - Intervention: component=outlier, strategy=6, position=0, similarity=0.9954796316411081, utility=0.17486224664972697
-2025-08-20 00:26:44,057 - INFO - Intervention: component=outlier, strategy=6, position=1, similarity=0.9944034045918241, utility=0.1781920478861801
-2025-08-20 00:26:50,565 - INFO - Intervention: component=outlier, strategy=6, position=2, similarity=0.9791373372091363, utility=0.2016076148039966
-2025-08-20 00:26:53,505 - INFO - Intervention: component=outlier, strategy=7, position=0, similarity=0.9863643591065296, utility=0.1875472988282429
-2025-08-20 00:26:57,256 - INFO - Intervention: component=outlier, strategy=7, position=1, similarity=0.9857869991811247, utility=0.18708327671083952
-2025-08-20 00:27:04,225 - INFO - Intervention: component=outlier, strategy=7, position=2, similarity=0.9723298602815289, utility=0.2049087567691805
-2025-08-20 00:27:07,349 - INFO - Intervention: component=outlier, strategy=8, position=0, similarity=0.9817828789569153, utility=0.1804164872313957
-2025-08-20 00:27:10,519 - INFO - Intervention: component=outlier, strategy=8, position=1, similarity=0.9827591961596823, utility=0.18259584102427448
-2025-08-20 00:27:18,393 - INFO - Intervention: component=outlier, strategy=8, position=2, similarity=0.9717252329254081, utility=0.2077741110308332
-2025-08-20 00:27:21,382 - INFO - Intervention: component=whitespace, strategy=1, position=0, similarity=0.9808513311942495, utility=0.20106844475770552
-2025-08-20 00:27:24,461 - INFO - Intervention: component=whitespace, strategy=1, position=1, similarity=0.9795959848893839, utility=0.20430987095257747
-2025-08-20 00:27:27,151 - INFO - Intervention: component=whitespace, strategy=1, position=2, similarity=0.9792347229325485, utility=0.1940720061331408
-2025-08-20 00:27:30,013 - INFO - Intervention: component=punctuation, strategy=1, position=0, similarity=0.9759614904775386, utility=0.19776688818245158
-2025-08-20 00:27:32,920 - INFO - Intervention: component=punctuation, strategy=1, position=1, similarity=0.9799951986458079, utility=0.18866986790060647
-2025-08-20 00:27:35,848 - INFO - Intervention: component=punctuation, strategy=1, position=2, similarity=0.977417990522507, utility=0.20186230060731367
-2025-08-20 00:27:38,711 - INFO - Intervention: component=stopword, strategy=1, position=0, similarity=0.9771878243828915, utility=0.19890926534163297
-2025-08-20 00:27:41,661 - INFO - Intervention: component=stopword, strategy=1, position=1, similarity=0.9790735581609556, utility=0.19653372821109147
-2025-08-20 00:27:44,350 - INFO - Intervention: component=stopword, strategy=1, position=2, similarity=0.9785607629711686, utility=0.20998236679360338
-2025-08-20 00:27:44,351 - INFO - evaluate_interventions1_runtime_seconds=138.016533
-2025-08-20 00:27:45,596 - INFO - [SIM-GUIDED][k=2] combo=(('insert', 'outlier', 5, 0, 0.9979974300492234), ('insert', 'whitespace', 1, 0, 0.9808513311942495)), utility=0.176706
-2025-08-20 00:27:46,918 - INFO - [SIM-GUIDED][k=2] combo=(('insert', 'outlier', 5, 0, 0.9979974300492234), ('insert', 'punctuation', 1, 1, 0.9799951986458079)), utility=0.176706
-2025-08-20 00:27:48,363 - INFO - [SIM-GUIDED][k=2] combo=(('insert', 'outlier', 5, 0, 0.9979974300492234), ('insert', 'stopword', 1, 1, 0.9790735581609556)), utility=0.176706
-2025-08-20 00:27:48,948 - INFO - [SIM-GUIDED][k=2] combo=(('insert', 'outlier', 5, 0, 0.9979974300492234), ('change', 'missing_value', 5, None, 0.9758042274800559)), utility=0.175066
-2025-08-20 00:27:49,519 - INFO - [SIM-GUIDED][k=2] combo=(('insert', 'outlier', 5, 0, 0.9979974300492234), ('change', 'missing_value', 6, None, 0.9751034216358311)), utility=0.175066
-2025-08-20 00:27:50,092 - INFO - [SIM-GUIDED][k=2] combo=(('insert', 'outlier', 5, 0, 0.9979974300492234), ('change', 'missing_value', 9, None, 0.974987319137489)), utility=0.175066
-2025-08-20 00:27:50,730 - INFO - [SIM-GUIDED][k=2] combo=(('insert', 'outlier', 5, 0, 0.9979974300492234), ('change', 'missing_value', 2, None, 0.9743360286429008)), utility=0.175066
-2025-08-20 00:27:51,320 - INFO - [SIM-GUIDED][k=2] combo=(('insert', 'outlier', 5, 0, 0.9979974300492234), ('change', 'missing_value', 3, None, 0.9742174263860104)), utility=0.175066
-2025-08-20 00:27:51,873 - INFO - [SIM-GUIDED][k=2] combo=(('insert', 'outlier', 5, 0, 0.9979974300492234), ('change', 'missing_value', 7, None, 0.9731834832894077)), utility=0.175066
-2025-08-20 00:27:52,420 - INFO - [SIM-GUIDED][k=2] combo=(('insert', 'outlier', 5, 0, 0.9979974300492234), ('change', 'missing_value', 8, None, 0.9726778952300188)), utility=0.175066
-2025-08-20 00:27:52,955 - INFO - [SIM-GUIDED][k=2] combo=(('insert', 'outlier', 5, 0, 0.9979974300492234), ('change', 'missing_value', 4, None, 0.9682784365094081)), utility=0.175144
-2025-08-20 00:27:54,412 - INFO - [SIM-GUIDED][k=2] combo=(('insert', 'outlier', 5, 0, 0.9979974300492234), ('change', 'normalization', 3, None, 0.9500684972635146)), utility=0.178271
-2025-08-20 00:27:55,834 - INFO - [SIM-GUIDED][k=2] combo=(('insert', 'outlier', 5, 0, 0.9979974300492234), ('change', 'normalization', 4, None, 0.5429580908071991)), utility=0.179585
-2025-08-20 00:27:57,280 - INFO - [SIM-GUIDED][k=2] combo=(('insert', 'outlier', 5, 0, 0.9979974300492234), ('change', 'normalization', 5, None, 0.525389399946917)), utility=0.179034
-2025-08-20 00:27:58,694 - INFO - [SIM-GUIDED][k=2] combo=(('insert', 'outlier', 5, 0, 0.9979974300492234), ('change', 'normalization', 1, None, 0.2237455202710276)), utility=0.052968
-2025-08-20 00:28:00,167 - INFO - [SIM-GUIDED][k=2] combo=(('insert', 'outlier', 6, 0, 0.9954796316411081), ('insert', 'whitespace', 1, 0, 0.9808513311942495)), utility=0.171267
-2025-08-20 00:28:01,581 - INFO - [SIM-GUIDED][k=2] combo=(('insert', 'outlier', 6, 0, 0.9954796316411081), ('insert', 'punctuation', 1, 1, 0.9799951986458079)), utility=0.171267
-2025-08-20 00:28:03,003 - INFO - [SIM-GUIDED][k=2] combo=(('insert', 'outlier', 6, 0, 0.9954796316411081), ('insert', 'stopword', 1, 1, 0.9790735581609556)), utility=0.171267
-2025-08-20 00:28:03,576 - INFO - [SIM-GUIDED][k=2] combo=(('insert', 'outlier', 6, 0, 0.9954796316411081), ('change', 'missing_value', 5, None, 0.9758042274800559)), utility=0.168496
-2025-08-20 00:28:04,155 - INFO - [SIM-GUIDED][k=2] combo=(('insert', 'outlier', 6, 0, 0.9954796316411081), ('change', 'missing_value', 6, None, 0.9751034216358311)), utility=0.168496
-2025-08-20 00:28:04,733 - INFO - [SIM-GUIDED][k=2] combo=(('insert', 'outlier', 6, 0, 0.9954796316411081), ('change', 'missing_value', 9, None, 0.974987319137489)), utility=0.168496
-2025-08-20 00:28:05,319 - INFO - [SIM-GUIDED][k=2] combo=(('insert', 'outlier', 6, 0, 0.9954796316411081), ('change', 'missing_value', 2, None, 0.9743360286429008)), utility=0.168496
-2025-08-20 00:28:05,905 - INFO - [SIM-GUIDED][k=2] combo=(('insert', 'outlier', 6, 0, 0.9954796316411081), ('change', 'missing_value', 3, None, 0.9742174263860104)), utility=0.168496
-2025-08-20 00:28:06,483 - INFO - [SIM-GUIDED][k=2] combo=(('insert', 'outlier', 6, 0, 0.9954796316411081), ('change', 'missing_value', 7, None, 0.9731834832894077)), utility=0.168496
-2025-08-20 00:28:07,063 - INFO - [SIM-GUIDED][k=2] combo=(('insert', 'outlier', 6, 0, 0.9954796316411081), ('change', 'missing_value', 8, None, 0.9726778952300188)), utility=0.168496
-2025-08-20 00:28:07,662 - INFO - [SIM-GUIDED][k=2] combo=(('insert', 'outlier', 6, 0, 0.9954796316411081), ('change', 'missing_value', 4, None, 0.9682784365094081)), utility=0.168913
-2025-08-20 00:28:09,280 - INFO - [SIM-GUIDED][k=2] combo=(('insert', 'outlier', 6, 0, 0.9954796316411081), ('change', 'normalization', 3, None, 0.9500684972635146)), utility=0.172270
-2025-08-20 00:28:10,917 - INFO - [SIM-GUIDED][k=2] combo=(('insert', 'outlier', 6, 0, 0.9954796316411081), ('change', 'normalization', 4, None, 0.5429580908071991)), utility=0.173703
-2025-08-20 00:28:12,348 - INFO - [SIM-GUIDED][k=2] combo=(('insert', 'outlier', 6, 0, 0.9954796316411081), ('change', 'normalization', 5, None, 0.525389399946917)), utility=0.174500
-2025-08-20 00:28:14,064 - INFO - [SIM-GUIDED][k=2] combo=(('insert', 'outlier', 6, 0, 0.9954796316411081), ('change', 'normalization', 1, None, 0.2237455202710276)), utility=0.055842
-2025-08-20 00:28:15,478 - INFO - [SIM-GUIDED][k=2] combo=(('insert', 'outlier', 4, 1, 0.9865930573684567), ('insert', 'whitespace', 1, 0, 0.9808513311942495)), utility=0.178928
-2025-08-20 00:28:16,941 - INFO - [SIM-GUIDED][k=2] combo=(('insert', 'outlier', 4, 1, 0.9865930573684567), ('insert', 'punctuation', 1, 1, 0.9799951986458079)), utility=0.178928
-2025-08-20 00:28:18,404 - INFO - [SIM-GUIDED][k=2] combo=(('insert', 'outlier', 4, 1, 0.9865930573684567), ('insert', 'stopword', 1, 1, 0.9790735581609556)), utility=0.178928
-2025-08-20 00:28:18,944 - INFO - [SIM-GUIDED][k=2] combo=(('insert', 'outlier', 4, 1, 0.9865930573684567), ('change', 'missing_value', 5, None, 0.9758042274800559)), utility=0.177128
-2025-08-20 00:28:19,468 - INFO - [SIM-GUIDED][k=2] combo=(('insert', 'outlier', 4, 1, 0.9865930573684567), ('change', 'missing_value', 6, None, 0.9751034216358311)), utility=0.177128
-2025-08-20 00:28:20,001 - INFO - [SIM-GUIDED][k=2] combo=(('insert', 'outlier', 4, 1, 0.9865930573684567), ('change', 'missing_value', 9, None, 0.974987319137489)), utility=0.177128
-2025-08-20 00:28:20,518 - INFO - [SIM-GUIDED][k=2] combo=(('insert', 'outlier', 4, 1, 0.9865930573684567), ('change', 'missing_value', 2, None, 0.9743360286429008)), utility=0.177128
-2025-08-20 00:28:21,040 - INFO - [SIM-GUIDED][k=2] combo=(('insert', 'outlier', 4, 1, 0.9865930573684567), ('change', 'missing_value', 3, None, 0.9742174263860104)), utility=0.177128
-2025-08-20 00:28:21,553 - INFO - [SIM-GUIDED][k=2] combo=(('insert', 'outlier', 4, 1, 0.9865930573684567), ('change', 'missing_value', 7, None, 0.9731834832894077)), utility=0.177128
-2025-08-20 00:28:22,093 - INFO - [SIM-GUIDED][k=2] combo=(('insert', 'outlier', 4, 1, 0.9865930573684567), ('change', 'missing_value', 8, None, 0.9726778952300188)), utility=0.177128
-2025-08-20 00:28:22,614 - INFO - [SIM-GUIDED][k=2] combo=(('insert', 'outlier', 4, 1, 0.9865930573684567), ('change', 'missing_value', 4, None, 0.9682784365094081)), utility=0.176426
-2025-08-20 00:28:24,164 - INFO - [SIM-GUIDED][k=2] combo=(('insert', 'outlier', 4, 1, 0.9865930573684567), ('change', 'normalization', 3, None, 0.9500684972635146)), utility=0.164019
-2025-08-20 00:28:25,668 - INFO - [SIM-GUIDED][k=2] combo=(('insert', 'outlier', 4, 1, 0.9865930573684567), ('change', 'normalization', 4, None, 0.5429580908071991)), utility=0.183598
-2025-08-20 00:28:27,141 - INFO - [SIM-GUIDED][k=2] combo=(('insert', 'outlier', 4, 1, 0.9865930573684567), ('change', 'normalization', 5, None, 0.525389399946917)), utility=0.183180
-2025-08-20 00:28:28,663 - INFO - [SIM-GUIDED][k=2] combo=(('insert', 'outlier', 4, 1, 0.9865930573684567), ('change', 'normalization', 1, None, 0.2237455202710276)), utility=0.055503
-2025-08-20 00:28:30,101 - INFO - [SIM-GUIDED][k=2] combo=(('insert', 'outlier', 7, 0, 0.9863643591065296), ('insert', 'whitespace', 1, 0, 0.9808513311942495)), utility=0.166403
-2025-08-20 00:28:31,543 - INFO - [SIM-GUIDED][k=2] combo=(('insert', 'outlier', 7, 0, 0.9863643591065296), ('insert', 'punctuation', 1, 1, 0.9799951986458079)), utility=0.166403
-2025-08-20 00:28:32,969 - INFO - [SIM-GUIDED][k=2] combo=(('insert', 'outlier', 7, 0, 0.9863643591065296), ('insert', 'stopword', 1, 1, 0.9790735581609556)), utility=0.166403
-2025-08-20 00:28:33,565 - INFO - [SIM-GUIDED][k=2] combo=(('insert', 'outlier', 7, 0, 0.9863643591065296), ('change', 'missing_value', 5, None, 0.9758042274800559)), utility=0.162828
-2025-08-20 00:28:34,246 - INFO - [SIM-GUIDED][k=2] combo=(('insert', 'outlier', 7, 0, 0.9863643591065296), ('change', 'missing_value', 6, None, 0.9751034216358311)), utility=0.162828
-2025-08-20 00:28:34,868 - INFO - [SIM-GUIDED][k=2] combo=(('insert', 'outlier', 7, 0, 0.9863643591065296), ('change', 'missing_value', 9, None, 0.974987319137489)), utility=0.162828
-2025-08-20 00:28:35,491 - INFO - [SIM-GUIDED][k=2] combo=(('insert', 'outlier', 7, 0, 0.9863643591065296), ('change', 'missing_value', 2, None, 0.9743360286429008)), utility=0.162828
-2025-08-20 00:28:36,110 - INFO - [SIM-GUIDED][k=2] combo=(('insert', 'outlier', 7, 0, 0.9863643591065296), ('change', 'missing_value', 3, None, 0.9742174263860104)), utility=0.162828
-2025-08-20 00:28:36,726 - INFO - [SIM-GUIDED][k=2] combo=(('insert', 'outlier', 7, 0, 0.9863643591065296), ('change', 'missing_value', 7, None, 0.9731834832894077)), utility=0.162828
-2025-08-20 00:28:37,328 - INFO - [SIM-GUIDED][k=2] combo=(('insert', 'outlier', 7, 0, 0.9863643591065296), ('change', 'missing_value', 8, None, 0.9726778952300188)), utility=0.162828
-2025-08-20 00:28:37,958 - INFO - [SIM-GUIDED][k=2] combo=(('insert', 'outlier', 7, 0, 0.9863643591065296), ('change', 'missing_value', 4, None, 0.9682784365094081)), utility=0.163836
-2025-08-20 00:28:39,624 - INFO - [SIM-GUIDED][k=2] combo=(('insert', 'outlier', 7, 0, 0.9863643591065296), ('change', 'normalization', 3, None, 0.9500684972635146)), utility=0.149242
-2025-08-20 00:28:41,163 - INFO - [SIM-GUIDED][k=2] combo=(('insert', 'outlier', 7, 0, 0.9863643591065296), ('change', 'normalization', 4, None, 0.5429580908071991)), utility=0.171060
-2025-08-20 00:28:42,619 - INFO - [SIM-GUIDED][k=2] combo=(('insert', 'outlier', 7, 0, 0.9863643591065296), ('change', 'normalization', 5, None, 0.525389399946917)), utility=0.170362
-2025-08-20 00:28:44,187 - INFO - [SIM-GUIDED][k=2] combo=(('insert', 'outlier', 7, 0, 0.9863643591065296), ('change', 'normalization', 1, None, 0.2237455202710276)), utility=0.052091
-2025-08-20 00:28:45,243 - INFO - [SIM-GUIDED][k=2] combo=(('insert', 'outlier', 2, 0, 0.9847767377819966), ('insert', 'whitespace', 1, 0, 0.9808513311942495)), utility=0.183572
-2025-08-20 00:28:46,356 - INFO - [SIM-GUIDED][k=2] combo=(('insert', 'outlier', 2, 0, 0.9847767377819966), ('insert', 'punctuation', 1, 1, 0.9799951986458079)), utility=0.183572
-2025-08-20 00:28:47,427 - INFO - [SIM-GUIDED][k=2] combo=(('insert', 'outlier', 2, 0, 0.9847767377819966), ('insert', 'stopword', 1, 1, 0.9790735581609556)), utility=0.183572
-2025-08-20 00:28:47,967 - INFO - [SIM-GUIDED][k=2] combo=(('insert', 'outlier', 2, 0, 0.9847767377819966), ('change', 'missing_value', 5, None, 0.9758042274800559)), utility=0.185033
-2025-08-20 00:28:48,485 - INFO - [SIM-GUIDED][k=2] combo=(('insert', 'outlier', 2, 0, 0.9847767377819966), ('change', 'missing_value', 6, None, 0.9751034216358311)), utility=0.185033
-2025-08-20 00:28:48,999 - INFO - [SIM-GUIDED][k=2] combo=(('insert', 'outlier', 2, 0, 0.9847767377819966), ('change', 'missing_value', 9, None, 0.974987319137489)), utility=0.185033
-2025-08-20 00:28:49,530 - INFO - [SIM-GUIDED][k=2] combo=(('insert', 'outlier', 2, 0, 0.9847767377819966), ('change', 'missing_value', 2, None, 0.9743360286429008)), utility=0.185033
-2025-08-20 00:28:50,054 - INFO - [SIM-GUIDED][k=2] combo=(('insert', 'outlier', 2, 0, 0.9847767377819966), ('change', 'missing_value', 3, None, 0.9742174263860104)), utility=0.185033
-2025-08-20 00:28:50,568 - INFO - [SIM-GUIDED][k=2] combo=(('insert', 'outlier', 2, 0, 0.9847767377819966), ('change', 'missing_value', 7, None, 0.9731834832894077)), utility=0.185033
-2025-08-20 00:28:51,081 - INFO - [SIM-GUIDED][k=2] combo=(('insert', 'outlier', 2, 0, 0.9847767377819966), ('change', 'missing_value', 8, None, 0.9726778952300188)), utility=0.185033
-2025-08-20 00:28:51,581 - INFO - [SIM-GUIDED][k=2] combo=(('insert', 'outlier', 2, 0, 0.9847767377819966), ('change', 'missing_value', 4, None, 0.9682784365094081)), utility=0.181661
-2025-08-20 00:28:52,713 - INFO - [SIM-GUIDED][k=2] combo=(('insert', 'outlier', 2, 0, 0.9847767377819966), ('change', 'normalization', 3, None, 0.9500684972635146)), utility=0.179401
-2025-08-20 00:28:53,782 - INFO - [SIM-GUIDED][k=2] combo=(('insert', 'outlier', 2, 0, 0.9847767377819966), ('change', 'normalization', 4, None, 0.5429580908071991)), utility=0.182032
-2025-08-20 00:28:54,849 - INFO - [SIM-GUIDED][k=2] combo=(('insert', 'outlier', 2, 0, 0.9847767377819966), ('change', 'normalization', 5, None, 0.525389399946917)), utility=0.181999
-2025-08-20 00:28:56,109 - INFO - [SIM-GUIDED][k=2] combo=(('insert', 'outlier', 2, 0, 0.9847767377819966), ('change', 'normalization', 1, None, 0.2237455202710276)), utility=0.092784
-2025-08-20 00:28:57,700 - INFO - [SIM-GUIDED][k=2] combo=(('insert', 'outlier', 8, 1, 0.9827591961596823), ('insert', 'whitespace', 1, 0, 0.9808513311942495)), utility=0.154977
-2025-08-20 00:28:59,238 - INFO - [SIM-GUIDED][k=2] combo=(('insert', 'outlier', 8, 1, 0.9827591961596823), ('insert', 'punctuation', 1, 1, 0.9799951986458079)), utility=0.154977
-2025-08-20 00:29:00,852 - INFO - [SIM-GUIDED][k=2] combo=(('insert', 'outlier', 8, 1, 0.9827591961596823), ('insert', 'stopword', 1, 1, 0.9790735581609556)), utility=0.154977
-2025-08-20 00:29:01,520 - INFO - [SIM-GUIDED][k=2] combo=(('insert', 'outlier', 8, 1, 0.9827591961596823), ('change', 'missing_value', 5, None, 0.9758042274800559)), utility=0.155874
-2025-08-20 00:29:02,262 - INFO - [SIM-GUIDED][k=2] combo=(('insert', 'outlier', 8, 1, 0.9827591961596823), ('change', 'missing_value', 6, None, 0.9751034216358311)), utility=0.155874
-2025-08-20 00:29:02,912 - INFO - [SIM-GUIDED][k=2] combo=(('insert', 'outlier', 8, 1, 0.9827591961596823), ('change', 'missing_value', 9, None, 0.974987319137489)), utility=0.155874
-2025-08-20 00:29:03,643 - INFO - [SIM-GUIDED][k=2] combo=(('insert', 'outlier', 8, 1, 0.9827591961596823), ('change', 'missing_value', 2, None, 0.9743360286429008)), utility=0.155874
-2025-08-20 00:29:04,353 - INFO - [SIM-GUIDED][k=2] combo=(('insert', 'outlier', 8, 1, 0.9827591961596823), ('change', 'missing_value', 3, None, 0.9742174263860104)), utility=0.155874
-2025-08-20 00:29:05,000 - INFO - [SIM-GUIDED][k=2] combo=(('insert', 'outlier', 8, 1, 0.9827591961596823), ('change', 'missing_value', 7, None, 0.9731834832894077)), utility=0.155874
-2025-08-20 00:29:05,654 - INFO - [SIM-GUIDED][k=2] combo=(('insert', 'outlier', 8, 1, 0.9827591961596823), ('change', 'missing_value', 8, None, 0.9726778952300188)), utility=0.155874
-2025-08-20 00:29:06,309 - INFO - [SIM-GUIDED][k=2] combo=(('insert', 'outlier', 8, 1, 0.9827591961596823), ('change', 'missing_value', 4, None, 0.9682784365094081)), utility=0.156330
-2025-08-20 00:29:08,089 - INFO - [SIM-GUIDED][k=2] combo=(('insert', 'outlier', 8, 1, 0.9827591961596823), ('change', 'normalization', 3, None, 0.9500684972635146)), utility=0.131452
-2025-08-20 00:29:09,755 - INFO - [SIM-GUIDED][k=2] combo=(('insert', 'outlier', 8, 1, 0.9827591961596823), ('change', 'normalization', 4, None, 0.5429580908071991)), utility=0.159956
-2025-08-20 00:29:11,608 - INFO - [SIM-GUIDED][k=2] combo=(('insert', 'outlier', 8, 1, 0.9827591961596823), ('change', 'normalization', 5, None, 0.525389399946917)), utility=0.159681
-2025-08-20 00:29:13,183 - INFO - [SIM-GUIDED][k=2] combo=(('insert', 'outlier', 8, 1, 0.9827591961596823), ('change', 'normalization', 1, None, 0.2237455202710276)), utility=0.050285
-2025-08-20 00:29:14,296 - INFO - [SIM-GUIDED][k=2] combo=(('insert', 'whitespace', 1, 0, 0.9808513311942495), ('insert', 'punctuation', 1, 1, 0.9799951986458079)), utility=0.176502
-2025-08-20 00:29:15,743 - INFO - [SIM-GUIDED][k=2] combo=(('insert', 'whitespace', 1, 0, 0.9808513311942495), ('insert', 'outlier', 1, 2, 0.9794369513726843)), utility=0.176502
-2025-08-20 00:29:16,959 - INFO - [SIM-GUIDED][k=2] combo=(('insert', 'whitespace', 1, 0, 0.9808513311942495), ('insert', 'stopword', 1, 1, 0.9790735581609556)), utility=0.176502
-2025-08-20 00:29:17,232 - INFO - [SIM-GUIDED][k=2] combo=(('insert', 'whitespace', 1, 0, 0.9808513311942495), ('change', 'missing_value', 5, None, 0.9758042274800559)), utility=0.173996
-2025-08-20 00:29:17,490 - INFO - [SIM-GUIDED][k=2] combo=(('insert', 'whitespace', 1, 0, 0.9808513311942495), ('change', 'missing_value', 6, None, 0.9751034216358311)), utility=0.173996
-2025-08-20 00:29:17,741 - INFO - [SIM-GUIDED][k=2] combo=(('insert', 'whitespace', 1, 0, 0.9808513311942495), ('change', 'missing_value', 9, None, 0.974987319137489)), utility=0.173996
-2025-08-20 00:29:18,063 - INFO - [SIM-GUIDED][k=2] combo=(('insert', 'whitespace', 1, 0, 0.9808513311942495), ('change', 'missing_value', 2, None, 0.9743360286429008)), utility=0.173996
-2025-08-20 00:29:18,355 - INFO - [SIM-GUIDED][k=2] combo=(('insert', 'whitespace', 1, 0, 0.9808513311942495), ('change', 'missing_value', 3, None, 0.9742174263860104)), utility=0.173996
-2025-08-20 00:29:18,614 - INFO - [SIM-GUIDED][k=2] combo=(('insert', 'whitespace', 1, 0, 0.9808513311942495), ('change', 'missing_value', 7, None, 0.9731834832894077)), utility=0.173996
-2025-08-20 00:29:18,870 - INFO - [SIM-GUIDED][k=2] combo=(('insert', 'whitespace', 1, 0, 0.9808513311942495), ('change', 'missing_value', 8, None, 0.9726778952300188)), utility=0.173996
-2025-08-20 00:29:19,162 - INFO - [SIM-GUIDED][k=2] combo=(('insert', 'whitespace', 1, 0, 0.9808513311942495), ('change', 'missing_value', 4, None, 0.9682784365094081)), utility=0.174484
-2025-08-20 00:29:20,495 - INFO - [SIM-GUIDED][k=2] combo=(('insert', 'whitespace', 1, 0, 0.9808513311942495), ('change', 'normalization', 3, None, 0.9500684972635146)), utility=0.154846
-2025-08-20 00:29:21,850 - INFO - [SIM-GUIDED][k=2] combo=(('insert', 'whitespace', 1, 0, 0.9808513311942495), ('insert', 'outlier', 3, 1, 0.7817206514817403)), utility=0.141798
-2025-08-20 00:29:23,098 - INFO - [SIM-GUIDED][k=2] combo=(('insert', 'whitespace', 1, 0, 0.9808513311942495), ('change', 'normalization', 4, None, 0.5429580908071991)), utility=0.179497
-2025-08-20 00:29:24,347 - INFO - [SIM-GUIDED][k=2] combo=(('insert', 'whitespace', 1, 0, 0.9808513311942495), ('change', 'normalization', 5, None, 0.525389399946917)), utility=0.179599
-2025-08-20 00:29:25,639 - INFO - [SIM-GUIDED][k=2] combo=(('insert', 'whitespace', 1, 0, 0.9808513311942495), ('change', 'normalization', 1, None, 0.2237455202710276)), utility=0.058901
-2025-08-20 00:29:27,038 - INFO - [SIM-GUIDED][k=2] combo=(('insert', 'punctuation', 1, 1, 0.9799951986458079), ('insert', 'outlier', 1, 2, 0.9794369513726843)), utility=0.176502
-2025-08-20 00:29:28,213 - INFO - [SIM-GUIDED][k=2] combo=(('insert', 'punctuation', 1, 1, 0.9799951986458079), ('insert', 'stopword', 1, 1, 0.9790735581609556)), utility=0.176502
-2025-08-20 00:29:28,473 - INFO - [SIM-GUIDED][k=2] combo=(('insert', 'punctuation', 1, 1, 0.9799951986458079), ('change', 'missing_value', 5, None, 0.9758042274800559)), utility=0.173996
-2025-08-20 00:29:28,759 - INFO - [SIM-GUIDED][k=2] combo=(('insert', 'punctuation', 1, 1, 0.9799951986458079), ('change', 'missing_value', 6, None, 0.9751034216358311)), utility=0.173996
-2025-08-20 00:29:29,040 - INFO - [SIM-GUIDED][k=2] combo=(('insert', 'punctuation', 1, 1, 0.9799951986458079), ('change', 'missing_value', 9, None, 0.974987319137489)), utility=0.173996
-2025-08-20 00:29:29,306 - INFO - [SIM-GUIDED][k=2] combo=(('insert', 'punctuation', 1, 1, 0.9799951986458079), ('change', 'missing_value', 2, None, 0.9743360286429008)), utility=0.173996
-2025-08-20 00:29:29,591 - INFO - [SIM-GUIDED][k=2] combo=(('insert', 'punctuation', 1, 1, 0.9799951986458079), ('change', 'missing_value', 3, None, 0.9742174263860104)), utility=0.173996
-2025-08-20 00:29:29,862 - INFO - [SIM-GUIDED][k=2] combo=(('insert', 'punctuation', 1, 1, 0.9799951986458079), ('change', 'missing_value', 7, None, 0.9731834832894077)), utility=0.173996
-2025-08-20 00:29:30,114 - INFO - [SIM-GUIDED][k=2] combo=(('insert', 'punctuation', 1, 1, 0.9799951986458079), ('change', 'missing_value', 8, None, 0.9726778952300188)), utility=0.173996
-2025-08-20 00:29:30,368 - INFO - [SIM-GUIDED][k=2] combo=(('insert', 'punctuation', 1, 1, 0.9799951986458079), ('change', 'missing_value', 4, None, 0.9682784365094081)), utility=0.174484
-2025-08-20 00:29:31,618 - INFO - [SIM-GUIDED][k=2] combo=(('insert', 'punctuation', 1, 1, 0.9799951986458079), ('change', 'normalization', 3, None, 0.9500684972635146)), utility=0.154846
-2025-08-20 00:29:32,872 - INFO - [SIM-GUIDED][k=2] combo=(('insert', 'punctuation', 1, 1, 0.9799951986458079), ('insert', 'outlier', 3, 1, 0.7817206514817403)), utility=0.141798
-2025-08-20 00:29:34,138 - INFO - [SIM-GUIDED][k=2] combo=(('insert', 'punctuation', 1, 1, 0.9799951986458079), ('change', 'normalization', 4, None, 0.5429580908071991)), utility=0.179497
-2025-08-20 00:29:35,401 - INFO - [SIM-GUIDED][k=2] combo=(('insert', 'punctuation', 1, 1, 0.9799951986458079), ('change', 'normalization', 5, None, 0.525389399946917)), utility=0.179599
-2025-08-20 00:29:36,865 - INFO - [SIM-GUIDED][k=2] combo=(('insert', 'punctuation', 1, 1, 0.9799951986458079), ('change', 'normalization', 1, None, 0.2237455202710276)), utility=0.058901
-2025-08-20 00:29:38,342 - INFO - [SIM-GUIDED][k=2] combo=(('insert', 'outlier', 1, 2, 0.9794369513726843), ('insert', 'stopword', 1, 1, 0.9790735581609556)), utility=0.176502
-2025-08-20 00:29:38,764 - INFO - [SIM-GUIDED][k=2] combo=(('insert', 'outlier', 1, 2, 0.9794369513726843), ('change', 'missing_value', 5, None, 0.9758042274800559)), utility=0.173996
-2025-08-20 00:29:39,229 - INFO - [SIM-GUIDED][k=2] combo=(('insert', 'outlier', 1, 2, 0.9794369513726843), ('change', 'missing_value', 6, None, 0.9751034216358311)), utility=0.173996
-2025-08-20 00:29:39,660 - INFO - [SIM-GUIDED][k=2] combo=(('insert', 'outlier', 1, 2, 0.9794369513726843), ('change', 'missing_value', 9, None, 0.974987319137489)), utility=0.173996
-2025-08-20 00:29:40,078 - INFO - [SIM-GUIDED][k=2] combo=(('insert', 'outlier', 1, 2, 0.9794369513726843), ('change', 'missing_value', 2, None, 0.9743360286429008)), utility=0.173996
-2025-08-20 00:29:40,489 - INFO - [SIM-GUIDED][k=2] combo=(('insert', 'outlier', 1, 2, 0.9794369513726843), ('change', 'missing_value', 3, None, 0.9742174263860104)), utility=0.173996
-2025-08-20 00:29:40,905 - INFO - [SIM-GUIDED][k=2] combo=(('insert', 'outlier', 1, 2, 0.9794369513726843), ('change', 'missing_value', 7, None, 0.9731834832894077)), utility=0.173996
-2025-08-20 00:29:41,321 - INFO - [SIM-GUIDED][k=2] combo=(('insert', 'outlier', 1, 2, 0.9794369513726843), ('change', 'missing_value', 8, None, 0.9726778952300188)), utility=0.173996
-2025-08-20 00:29:41,782 - INFO - [SIM-GUIDED][k=2] combo=(('insert', 'outlier', 1, 2, 0.9794369513726843), ('change', 'missing_value', 4, None, 0.9682784365094081)), utility=0.174484
-2025-08-20 00:29:43,296 - INFO - [SIM-GUIDED][k=2] combo=(('insert', 'outlier', 1, 2, 0.9794369513726843), ('change', 'normalization', 3, None, 0.9500684972635146)), utility=0.154846
-2025-08-20 00:29:44,728 - INFO - [SIM-GUIDED][k=2] combo=(('insert', 'outlier', 1, 2, 0.9794369513726843), ('change', 'normalization', 4, None, 0.5429580908071991)), utility=0.179497
-2025-08-20 00:29:46,142 - INFO - [SIM-GUIDED][k=2] combo=(('insert', 'outlier', 1, 2, 0.9794369513726843), ('change', 'normalization', 5, None, 0.525389399946917)), utility=0.179599
-2025-08-20 00:29:47,620 - INFO - [SIM-GUIDED][k=2] combo=(('insert', 'outlier', 1, 2, 0.9794369513726843), ('change', 'normalization', 1, None, 0.2237455202710276)), utility=0.058901
-2025-08-20 00:29:47,896 - INFO - [SIM-GUIDED][k=2] combo=(('insert', 'stopword', 1, 1, 0.9790735581609556), ('change', 'missing_value', 5, None, 0.9758042274800559)), utility=0.173996
-2025-08-20 00:29:48,172 - INFO - [SIM-GUIDED][k=2] combo=(('insert', 'stopword', 1, 1, 0.9790735581609556), ('change', 'missing_value', 6, None, 0.9751034216358311)), utility=0.173996
-2025-08-20 00:29:48,425 - INFO - [SIM-GUIDED][k=2] combo=(('insert', 'stopword', 1, 1, 0.9790735581609556), ('change', 'missing_value', 9, None, 0.974987319137489)), utility=0.173996
-2025-08-20 00:29:48,700 - INFO - [SIM-GUIDED][k=2] combo=(('insert', 'stopword', 1, 1, 0.9790735581609556), ('change', 'missing_value', 2, None, 0.9743360286429008)), utility=0.173996
-2025-08-20 00:29:48,958 - INFO - [SIM-GUIDED][k=2] combo=(('insert', 'stopword', 1, 1, 0.9790735581609556), ('change', 'missing_value', 3, None, 0.9742174263860104)), utility=0.173996
-2025-08-20 00:29:49,301 - INFO - [SIM-GUIDED][k=2] combo=(('insert', 'stopword', 1, 1, 0.9790735581609556), ('change', 'missing_value', 7, None, 0.9731834832894077)), utility=0.173996
-2025-08-20 00:29:49,579 - INFO - [SIM-GUIDED][k=2] combo=(('insert', 'stopword', 1, 1, 0.9790735581609556), ('change', 'missing_value', 8, None, 0.9726778952300188)), utility=0.173996
-2025-08-20 00:29:49,857 - INFO - [SIM-GUIDED][k=2] combo=(('insert', 'stopword', 1, 1, 0.9790735581609556), ('change', 'missing_value', 4, None, 0.9682784365094081)), utility=0.174484
-2025-08-20 00:29:51,099 - INFO - [SIM-GUIDED][k=2] combo=(('insert', 'stopword', 1, 1, 0.9790735581609556), ('change', 'normalization', 3, None, 0.9500684972635146)), utility=0.154846
-2025-08-20 00:29:52,339 - INFO - [SIM-GUIDED][k=2] combo=(('insert', 'stopword', 1, 1, 0.9790735581609556), ('insert', 'outlier', 3, 1, 0.7817206514817403)), utility=0.141798
-2025-08-20 00:29:53,590 - INFO - [SIM-GUIDED][k=2] combo=(('insert', 'stopword', 1, 1, 0.9790735581609556), ('change', 'normalization', 4, None, 0.5429580908071991)), utility=0.179497
-2025-08-20 00:29:54,851 - INFO - [SIM-GUIDED][k=2] combo=(('insert', 'stopword', 1, 1, 0.9790735581609556), ('change', 'normalization', 5, None, 0.525389399946917)), utility=0.179599
-2025-08-20 00:29:56,166 - INFO - [SIM-GUIDED][k=2] combo=(('insert', 'stopword', 1, 1, 0.9790735581609556), ('change', 'normalization', 1, None, 0.2237455202710276)), utility=0.058901
-2025-08-20 00:29:56,538 - INFO - [SIM-GUIDED][k=2] combo=(('change', 'missing_value', 5, None, 0.9758042274800559), ('change', 'normalization', 3, None, 0.9500684972635146)), utility=0.155487
-2025-08-20 00:29:56,911 - INFO - [SIM-GUIDED][k=2] combo=(('change', 'missing_value', 5, None, 0.9758042274800559), ('insert', 'outlier', 3, 1, 0.7817206514817403)), utility=0.136450
-2025-08-20 00:29:57,210 - INFO - [SIM-GUIDED][k=2] combo=(('change', 'missing_value', 5, None, 0.9758042274800559), ('change', 'normalization', 4, None, 0.5429580908071991)), utility=0.177826
-2025-08-20 00:29:57,489 - INFO - [SIM-GUIDED][k=2] combo=(('change', 'missing_value', 5, None, 0.9758042274800559), ('change', 'normalization', 5, None, 0.525389399946917)), utility=0.178743
-2025-08-20 00:29:57,922 - INFO - [SIM-GUIDED][k=2] combo=(('change', 'missing_value', 5, None, 0.9758042274800559), ('change', 'normalization', 1, None, 0.2237455202710276)), utility=0.057808
-2025-08-20 00:29:58,320 - INFO - [SIM-GUIDED][k=2] combo=(('change', 'missing_value', 6, None, 0.9751034216358311), ('change', 'normalization', 3, None, 0.9500684972635146)), utility=0.155487
-2025-08-20 00:29:58,698 - INFO - [SIM-GUIDED][k=2] combo=(('change', 'missing_value', 6, None, 0.9751034216358311), ('insert', 'outlier', 3, 1, 0.7817206514817403)), utility=0.136450
-2025-08-20 00:29:59,001 - INFO - [SIM-GUIDED][k=2] combo=(('change', 'missing_value', 6, None, 0.9751034216358311), ('change', 'normalization', 4, None, 0.5429580908071991)), utility=0.177826
-2025-08-20 00:29:59,299 - INFO - [SIM-GUIDED][k=2] combo=(('change', 'missing_value', 6, None, 0.9751034216358311), ('change', 'normalization', 5, None, 0.525389399946917)), utility=0.178743
-2025-08-20 00:29:59,665 - INFO - [SIM-GUIDED][k=2] combo=(('change', 'missing_value', 6, None, 0.9751034216358311), ('change', 'normalization', 1, None, 0.2237455202710276)), utility=0.057808
-2025-08-20 00:30:00,072 - INFO - [SIM-GUIDED][k=2] combo=(('change', 'missing_value', 9, None, 0.974987319137489), ('change', 'normalization', 3, None, 0.9500684972635146)), utility=0.155487
-2025-08-20 00:30:00,450 - INFO - [SIM-GUIDED][k=2] combo=(('change', 'missing_value', 9, None, 0.974987319137489), ('insert', 'outlier', 3, 1, 0.7817206514817403)), utility=0.136450
-2025-08-20 00:30:00,744 - INFO - [SIM-GUIDED][k=2] combo=(('change', 'missing_value', 9, None, 0.974987319137489), ('change', 'normalization', 4, None, 0.5429580908071991)), utility=0.177826
-2025-08-20 00:30:01,057 - INFO - [SIM-GUIDED][k=2] combo=(('change', 'missing_value', 9, None, 0.974987319137489), ('change', 'normalization', 5, None, 0.525389399946917)), utility=0.178743
-2025-08-20 00:30:01,414 - INFO - [SIM-GUIDED][k=2] combo=(('change', 'missing_value', 9, None, 0.974987319137489), ('change', 'normalization', 1, None, 0.2237455202710276)), utility=0.057808
-2025-08-20 00:30:01,805 - INFO - [SIM-GUIDED][k=2] combo=(('change', 'missing_value', 2, None, 0.9743360286429008), ('change', 'normalization', 3, None, 0.9500684972635146)), utility=0.155487
-2025-08-20 00:30:02,178 - INFO - [SIM-GUIDED][k=2] combo=(('change', 'missing_value', 2, None, 0.9743360286429008), ('insert', 'outlier', 3, 1, 0.7817206514817403)), utility=0.136450
-2025-08-20 00:30:02,465 - INFO - [SIM-GUIDED][k=2] combo=(('change', 'missing_value', 2, None, 0.9743360286429008), ('change', 'normalization', 4, None, 0.5429580908071991)), utility=0.177826
-2025-08-20 00:30:02,767 - INFO - [SIM-GUIDED][k=2] combo=(('change', 'missing_value', 2, None, 0.9743360286429008), ('change', 'normalization', 5, None, 0.525389399946917)), utility=0.178743
-2025-08-20 00:30:03,125 - INFO - [SIM-GUIDED][k=2] combo=(('change', 'missing_value', 2, None, 0.9743360286429008), ('change', 'normalization', 1, None, 0.2237455202710276)), utility=0.057808
-2025-08-20 00:30:03,533 - INFO - [SIM-GUIDED][k=2] combo=(('change', 'missing_value', 3, None, 0.9742174263860104), ('change', 'normalization', 3, None, 0.9500684972635146)), utility=0.155487
-2025-08-20 00:30:03,909 - INFO - [SIM-GUIDED][k=2] combo=(('change', 'missing_value', 3, None, 0.9742174263860104), ('insert', 'outlier', 3, 1, 0.7817206514817403)), utility=0.136450
-2025-08-20 00:30:04,212 - INFO - [SIM-GUIDED][k=2] combo=(('change', 'missing_value', 3, None, 0.9742174263860104), ('change', 'normalization', 4, None, 0.5429580908071991)), utility=0.177826
-2025-08-20 00:30:04,473 - INFO - [SIM-GUIDED][k=2] combo=(('change', 'missing_value', 3, None, 0.9742174263860104), ('change', 'normalization', 5, None, 0.525389399946917)), utility=0.178743
-2025-08-20 00:30:04,826 - INFO - [SIM-GUIDED][k=2] combo=(('change', 'missing_value', 3, None, 0.9742174263860104), ('change', 'normalization', 1, None, 0.2237455202710276)), utility=0.057808
-2025-08-20 00:30:05,283 - INFO - [SIM-GUIDED][k=2] combo=(('change', 'missing_value', 7, None, 0.9731834832894077), ('change', 'normalization', 3, None, 0.9500684972635146)), utility=0.155487
-2025-08-20 00:30:05,654 - INFO - [SIM-GUIDED][k=2] combo=(('change', 'missing_value', 7, None, 0.9731834832894077), ('insert', 'outlier', 3, 1, 0.7817206514817403)), utility=0.136450
-2025-08-20 00:30:05,945 - INFO - [SIM-GUIDED][k=2] combo=(('change', 'missing_value', 7, None, 0.9731834832894077), ('change', 'normalization', 4, None, 0.5429580908071991)), utility=0.177826
-2025-08-20 00:30:06,237 - INFO - [SIM-GUIDED][k=2] combo=(('change', 'missing_value', 7, None, 0.9731834832894077), ('change', 'normalization', 5, None, 0.525389399946917)), utility=0.178743
-2025-08-20 00:30:06,598 - INFO - [SIM-GUIDED][k=2] combo=(('change', 'missing_value', 7, None, 0.9731834832894077), ('change', 'normalization', 1, None, 0.2237455202710276)), utility=0.057808
-2025-08-20 00:30:06,994 - INFO - [SIM-GUIDED][k=2] combo=(('change', 'missing_value', 8, None, 0.9726778952300188), ('change', 'normalization', 3, None, 0.9500684972635146)), utility=0.155487
-2025-08-20 00:30:07,353 - INFO - [SIM-GUIDED][k=2] combo=(('change', 'missing_value', 8, None, 0.9726778952300188), ('insert', 'outlier', 3, 1, 0.7817206514817403)), utility=0.136450
-2025-08-20 00:30:07,687 - INFO - [SIM-GUIDED][k=2] combo=(('change', 'missing_value', 8, None, 0.9726778952300188), ('change', 'normalization', 4, None, 0.5429580908071991)), utility=0.177826
-2025-08-20 00:30:07,975 - INFO - [SIM-GUIDED][k=2] combo=(('change', 'missing_value', 8, None, 0.9726778952300188), ('change', 'normalization', 5, None, 0.525389399946917)), utility=0.178743
-2025-08-20 00:30:08,370 - INFO - [SIM-GUIDED][k=2] combo=(('change', 'missing_value', 8, None, 0.9726778952300188), ('change', 'normalization', 1, None, 0.2237455202710276)), utility=0.057808
-2025-08-20 00:30:08,819 - INFO - [SIM-GUIDED][k=2] combo=(('change', 'missing_value', 4, None, 0.9682784365094081), ('change', 'normalization', 3, None, 0.9500684972635146)), utility=0.180471
-2025-08-20 00:30:09,229 - INFO - [SIM-GUIDED][k=2] combo=(('change', 'missing_value', 4, None, 0.9682784365094081), ('insert', 'outlier', 3, 1, 0.7817206514817403)), utility=0.137612
-2025-08-20 00:30:09,545 - INFO - [SIM-GUIDED][k=2] combo=(('change', 'missing_value', 4, None, 0.9682784365094081), ('change', 'normalization', 4, None, 0.5429580908071991)), utility=0.176846
-2025-08-20 00:30:09,869 - INFO - [SIM-GUIDED][k=2] combo=(('change', 'missing_value', 4, None, 0.9682784365094081), ('change', 'normalization', 5, None, 0.525389399946917)), utility=0.176981
-2025-08-20 00:30:10,295 - INFO - [SIM-GUIDED][k=2] combo=(('change', 'missing_value', 4, None, 0.9682784365094081), ('change', 'normalization', 1, None, 0.2237455202710276)), utility=0.070168
-2025-08-20 00:30:11,655 - INFO - [SIM-GUIDED][k=2] combo=(('change', 'normalization', 3, None, 0.9500684972635146), ('insert', 'outlier', 3, 1, 0.7817206514817403)), utility=0.141449
-2025-08-20 00:30:13,034 - INFO - [SIM-GUIDED][k=2] combo=(('insert', 'outlier', 3, 1, 0.7817206514817403), ('change', 'normalization', 4, None, 0.5429580908071991)), utility=0.139193
-2025-08-20 00:30:14,373 - INFO - [SIM-GUIDED][k=2] combo=(('insert', 'outlier', 3, 1, 0.7817206514817403), ('change', 'normalization', 5, None, 0.525389399946917)), utility=0.140149
-2025-08-20 00:30:15,684 - INFO - [SIM-GUIDED][k=2] combo=(('insert', 'outlier', 3, 1, 0.7817206514817403), ('change', 'normalization', 1, None, 0.2237455202710276)), utility=0.051925
-2025-08-20 00:30:15,684 - INFO - [OPTIMIZE] Trying combo size k=3
-2025-08-20 00:30:16,011 - INFO - evaluate_interventions1_runtime_seconds=0.326032
+2025-08-20 15:03:03,274 - INFO - Evaluating [2, 1, 1] -- Initial Utility 0.09777350526231014 -- Target Utility 0.05
+2025-08-20 15:03:05,667 - INFO - Intervention: component=missing_value, strategy=1, similarity=0.9392200478006487, utility=0.12017635597496978
+2025-08-20 15:03:06,840 - INFO - Intervention: component=missing_value, strategy=3, similarity=0.9390257192990358, utility=0.1107717671382484
+2025-08-20 15:03:07,984 - INFO - Intervention: component=missing_value, strategy=4, similarity=0.9390355296355707, utility=0.12638377728149555
+2025-08-20 15:03:09,144 - INFO - Intervention: component=missing_value, strategy=5, similarity=0.9390482057311911, utility=0.0993935954027279
+2025-08-20 15:03:10,333 - INFO - Intervention: component=missing_value, strategy=6, similarity=0.9390373550011841, utility=0.09948734075540858
+2025-08-20 15:03:11,516 - INFO - Intervention: component=missing_value, strategy=7, similarity=0.9390305241368259, utility=0.12421199574055208
+2025-08-20 15:03:12,671 - INFO - Intervention: component=missing_value, strategy=8, similarity=0.9390452135906542, utility=0.11445595949859874
+2025-08-20 15:03:13,824 - INFO - Intervention: component=missing_value, strategy=9, similarity=0.9390387417029201, utility=0.11187638567349432
+2025-08-20 15:03:15,698 - INFO - Intervention: component=normalization, strategy=2, similarity=0.38233037876886933, utility=0.1855826039305722
+2025-08-20 15:03:17,664 - INFO - Intervention: component=normalization, strategy=3, similarity=0.34671198196016256, utility=0.1635702150561002
+2025-08-20 15:03:19,557 - INFO - Intervention: component=normalization, strategy=4, similarity=0.6396640341219774, utility=0.19976866203649848
+2025-08-20 15:03:21,488 - INFO - Intervention: component=normalization, strategy=5, similarity=0.7145571152478992, utility=0.19484856503562537
+2025-08-20 15:03:22,808 - INFO - Intervention: component=outlier, strategy=1, similarity=0.9390432258156906, utility=0.10252281527520865
+2025-08-20 15:03:24,118 - INFO - Intervention: component=outlier, strategy=1, similarity=0.9390589504269842, utility=0.09157046049847813
+2025-08-20 15:03:25,704 - INFO - Intervention: component=outlier, strategy=1, similarity=0.9389929654317797, utility=0.10689850744615076
+2025-08-20 15:03:27,694 - INFO - Intervention: component=outlier, strategy=2, similarity=0.9412995691176984, utility=0.10777666624085402
+2025-08-20 15:03:29,122 - INFO - Intervention: component=outlier, strategy=2, similarity=0.9388255587746562, utility=0.09408429574270004
+2025-08-20 15:03:30,546 - INFO - Intervention: component=outlier, strategy=2, similarity=0.9408496698707273, utility=0.08789577950541454
+2025-08-20 15:03:31,611 - INFO - Intervention: component=outlier, strategy=3, similarity=0.697872110103257, utility=0.03597589907943449
+2025-08-20 15:03:32,564 - INFO - Intervention: component=outlier, strategy=3, similarity=0.6983133530948243, utility=0.03710006280057237
+2025-08-20 15:03:33,599 - INFO - Intervention: component=outlier, strategy=3, similarity=0.6975201310403888, utility=0.04493143306157059
+2025-08-20 15:03:34,916 - INFO - Intervention: component=outlier, strategy=4, similarity=0.9369974318168109, utility=0.09022843219088966
+2025-08-20 15:03:36,222 - INFO - Intervention: component=outlier, strategy=4, similarity=0.9370401519275914, utility=0.08489859128912297
+2025-08-20 15:03:37,530 - INFO - Intervention: component=outlier, strategy=4, similarity=0.9370463705021582, utility=0.08260974246423625
+2025-08-20 15:03:38,910 - INFO - Intervention: component=outlier, strategy=5, similarity=0.9632002095565504, utility=0.06273655098571891
+2025-08-20 15:03:40,314 - INFO - Intervention: component=outlier, strategy=5, similarity=0.9641514043491726, utility=0.06300218697882623
+2025-08-20 15:03:41,722 - INFO - Intervention: component=outlier, strategy=5, similarity=0.9653462216130503, utility=0.0655983004200837
+2025-08-20 15:03:43,173 - INFO - Intervention: component=outlier, strategy=6, similarity=0.9560508237723563, utility=0.06600357176201688
+2025-08-20 15:03:44,597 - INFO - Intervention: component=outlier, strategy=6, similarity=0.9572908594627411, utility=0.052914988194262415
+2025-08-20 15:03:46,065 - INFO - Intervention: component=outlier, strategy=6, similarity=0.955947811612475, utility=0.05987021381505498
+2025-08-20 15:03:47,589 - INFO - Intervention: component=outlier, strategy=7, similarity=0.9428376015741406, utility=0.0999816882763
+2025-08-20 15:03:49,178 - INFO - Intervention: component=outlier, strategy=7, similarity=0.9434318225748619, utility=0.0787285752925542
+2025-08-20 15:03:50,881 - INFO - Intervention: component=outlier, strategy=7, similarity=0.9424747016289458, utility=0.0832905778496423
+2025-08-20 15:03:52,409 - INFO - Intervention: component=outlier, strategy=8, similarity=0.939153161036009, utility=0.11775736528848138
+2025-08-20 15:03:53,978 - INFO - Intervention: component=outlier, strategy=8, similarity=0.9392180967125088, utility=0.07608097626954255
+2025-08-20 15:03:55,560 - INFO - Intervention: component=outlier, strategy=8, similarity=0.9391957595216431, utility=0.11003394718775517
+2025-08-20 15:03:56,812 - INFO - Intervention: component=whitespace, strategy=1, similarity=0.9390093801762865, utility=0.07708659045169494
+2025-08-20 15:03:58,020 - INFO - Intervention: component=whitespace, strategy=1, similarity=0.9390225253007671, utility=0.12073694073972754
+2025-08-20 15:03:59,258 - INFO - Intervention: component=whitespace, strategy=1, similarity=0.9390484873075032, utility=0.08994397862946851
+2025-08-20 15:04:00,508 - INFO - Intervention: component=punctuation, strategy=1, similarity=0.9390299937963706, utility=0.11425001800336886
+2025-08-20 15:04:01,733 - INFO - Intervention: component=punctuation, strategy=1, similarity=0.9390597532468207, utility=0.12355761056731705
+2025-08-20 15:04:02,903 - INFO - Intervention: component=punctuation, strategy=1, similarity=0.9390375287417142, utility=0.09932000530087358
+2025-08-20 15:04:04,420 - INFO - Intervention: component=stopword, strategy=1, similarity=0.9390244913753031, utility=0.10192514604034544
+2025-08-20 15:04:05,643 - INFO - Intervention: component=stopword, strategy=1, similarity=0.9390593558438557, utility=0.12103918427907479
+2025-08-20 15:04:06,926 - INFO - Intervention: component=stopword, strategy=1, similarity=0.9390847890240396, utility=0.10894778085575019
+2025-08-20 15:04:06,926 - INFO - [OPTIMIZE] Trying combo size k=1
+2025-08-20 15:04:06,926 - INFO - [INFO] Running optimistic search with combined interventions...
+2025-08-20 15:04:07,547 - INFO - [SIM-GUIDED][k=1] combo=(('insert', 'outlier', 5, 2, 0.9653462216130503),), utility=0.049742
+2025-08-20 15:04:07,548 - INFO - ✅ Target achieved 🎯
+2025-08-20 15:04:07,548 - INFO - passing pipeline: order=['missing_value', 'normalization', 'outlier', 'model'], vec=[2, 1, 5, 1]
+2025-08-20 15:04:07,548 - INFO - required exhaustive iterations: 1
+2025-08-20 15:04:07,548 - INFO - Total iterations so far: 1
+2025-08-20 15:04:07,953 - INFO - Evaluating [2, 1, 1] -- Initial Utility 0.11133632721900576 -- Target Utility 0.06
+2025-08-20 15:04:10,141 - INFO - Intervention: component=missing_value, strategy=1, similarity=0.938618158065294, utility=0.07361983620615
+2025-08-20 15:04:11,448 - INFO - Intervention: component=missing_value, strategy=3, similarity=0.9390561354899783, utility=0.09165052755197221
+2025-08-20 15:04:12,587 - INFO - Intervention: component=missing_value, strategy=4, similarity=0.9390709620232195, utility=0.12313596953787379
+2025-08-20 15:04:13,787 - INFO - Intervention: component=missing_value, strategy=5, similarity=0.9390320015553058, utility=0.11624798713813761
+2025-08-20 15:04:14,978 - INFO - Intervention: component=missing_value, strategy=6, similarity=0.9390277909384, utility=0.09341166183665042
+2025-08-20 15:04:16,327 - INFO - Intervention: component=missing_value, strategy=7, similarity=0.9390483057176661, utility=0.1081996503298345
+2025-08-20 15:04:17,535 - INFO - Intervention: component=missing_value, strategy=8, similarity=0.9390261141945029, utility=0.10509804272487061
+2025-08-20 15:04:18,847 - INFO - Intervention: component=missing_value, strategy=9, similarity=0.9390320269121623, utility=0.1289174584953104
+2025-08-20 15:04:20,713 - INFO - Intervention: component=normalization, strategy=2, similarity=0.37690312910802815, utility=0.19788608490857484
+2025-08-20 15:04:22,930 - INFO - Intervention: component=normalization, strategy=3, similarity=0.3455910273400314, utility=0.15599154246472727
+2025-08-20 15:04:24,991 - INFO - Intervention: component=normalization, strategy=4, similarity=0.6464786258864214, utility=0.19530109941992932
+2025-08-20 15:04:26,941 - INFO - Intervention: component=normalization, strategy=5, similarity=0.7226413685248325, utility=0.184029626940369
+2025-08-20 15:04:28,241 - INFO - Intervention: component=outlier, strategy=1, similarity=0.9390200051747128, utility=0.16125363955678904
+2025-08-20 15:04:29,576 - INFO - Intervention: component=outlier, strategy=1, similarity=0.9390436161982956, utility=0.08807205438253132
+2025-08-20 15:04:30,948 - INFO - Intervention: component=outlier, strategy=1, similarity=0.9390587337920122, utility=0.11815400060423142
+2025-08-20 15:04:32,255 - INFO - Intervention: component=outlier, strategy=2, similarity=0.9382367847844455, utility=0.12549542860703372
+2025-08-20 15:04:33,605 - INFO - Intervention: component=outlier, strategy=2, similarity=0.9397516766235652, utility=0.103170277512831
+2025-08-20 15:04:34,987 - INFO - Intervention: component=outlier, strategy=2, similarity=0.9400097002895348, utility=0.10338425115132646
+2025-08-20 15:04:36,083 - INFO - Intervention: component=outlier, strategy=3, similarity=0.6978003897860432, utility=0.07101350398212898
+2025-08-20 15:04:37,137 - INFO - Intervention: component=outlier, strategy=3, similarity=0.6979149714922251, utility=0.0636027059413178
+2025-08-20 15:04:38,156 - INFO - Intervention: component=outlier, strategy=3, similarity=0.6971869346405142, utility=0.04091518170025965
+2025-08-20 15:04:39,417 - INFO - Intervention: component=outlier, strategy=4, similarity=0.9366533071473355, utility=0.10959854661114782
+2025-08-20 15:04:40,798 - INFO - Intervention: component=outlier, strategy=4, similarity=0.9376341906609735, utility=0.06488990944987258
+2025-08-20 15:04:42,125 - INFO - Intervention: component=outlier, strategy=4, similarity=0.9365465924021792, utility=0.09018365052263358
+2025-08-20 15:04:43,530 - INFO - Intervention: component=outlier, strategy=5, similarity=0.9621108100045904, utility=0.05313458451759944
+2025-08-20 15:04:45,269 - INFO - Intervention: component=outlier, strategy=5, similarity=0.9620528052349709, utility=0.05458781332335545
+2025-08-20 15:04:46,768 - INFO - Intervention: component=outlier, strategy=5, similarity=0.9632570576609318, utility=0.05644615746119501
+2025-08-20 15:04:48,350 - INFO - Intervention: component=outlier, strategy=6, similarity=0.9573648625005776, utility=0.05904940039395478
+2025-08-20 15:04:49,801 - INFO - Intervention: component=outlier, strategy=6, similarity=0.9551801140330413, utility=0.05731575385309529
+2025-08-20 15:04:51,279 - INFO - Intervention: component=outlier, strategy=6, similarity=0.9568567397511772, utility=0.060046995303429065
+2025-08-20 15:04:52,857 - INFO - Intervention: component=outlier, strategy=7, similarity=0.9429731872350934, utility=0.07477294961733252
+2025-08-20 15:04:54,427 - INFO - Intervention: component=outlier, strategy=7, similarity=0.9433229513216881, utility=0.07639561820643705
+2025-08-20 15:04:55,930 - INFO - Intervention: component=outlier, strategy=7, similarity=0.9432003295449436, utility=0.08822846331325976
+2025-08-20 15:04:57,491 - INFO - Intervention: component=outlier, strategy=8, similarity=0.939202192047635, utility=0.12446686737659812
+2025-08-20 15:04:59,002 - INFO - Intervention: component=outlier, strategy=8, similarity=0.9391704255362374, utility=0.1223591642890631
+2025-08-20 15:05:00,598 - INFO - Intervention: component=outlier, strategy=8, similarity=0.9391967316073293, utility=0.09772435510093329
+2025-08-20 15:05:01,727 - INFO - Intervention: component=whitespace, strategy=1, similarity=0.9390630908460076, utility=0.11436737014031549
+2025-08-20 15:05:02,881 - INFO - Intervention: component=whitespace, strategy=1, similarity=0.939017440588301, utility=0.1020915866528776
+2025-08-20 15:05:04,047 - INFO - Intervention: component=whitespace, strategy=1, similarity=0.9390237477734211, utility=0.11431295522423676
+2025-08-20 15:05:05,296 - INFO - Intervention: component=punctuation, strategy=1, similarity=0.9390375845398958, utility=0.12259599630643309
+2025-08-20 15:05:06,503 - INFO - Intervention: component=punctuation, strategy=1, similarity=0.9390755280101273, utility=0.1198947239689396
+2025-08-20 15:05:07,669 - INFO - Intervention: component=punctuation, strategy=1, similarity=0.9390452440176993, utility=0.11678263392908506
+2025-08-20 15:05:08,905 - INFO - Intervention: component=stopword, strategy=1, similarity=0.9390659073442376, utility=0.11878584428129911
+2025-08-20 15:05:10,080 - INFO - Intervention: component=stopword, strategy=1, similarity=0.939023612609551, utility=0.10253781453163757
+2025-08-20 15:05:11,229 - INFO - Intervention: component=stopword, strategy=1, similarity=0.9390706296145425, utility=0.1127140003996961
+2025-08-20 15:05:11,230 - INFO - [OPTIMIZE] Trying combo size k=1
+2025-08-20 15:05:11,230 - INFO - [INFO] Running optimistic search with combined interventions...
+2025-08-20 15:05:11,859 - INFO - [SIM-GUIDED][k=1] combo=(('insert', 'outlier', 5, 2, 0.9632570576609318),), utility=0.064379
+2025-08-20 15:05:12,531 - INFO - [SIM-GUIDED][k=1] combo=(('insert', 'outlier', 5, 0, 0.9621108100045904),), utility=0.054879
+2025-08-20 15:05:12,531 - INFO - ✅ Target achieved 🎯
+2025-08-20 15:05:12,531 - INFO - passing pipeline: order=['outlier', 'missing_value', 'normalization', 'model'], vec=[5, 2, 1, 1]
+2025-08-20 15:05:12,531 - INFO - required exhaustive iterations: 2
+2025-08-20 15:05:12,531 - INFO - Total iterations so far: 2

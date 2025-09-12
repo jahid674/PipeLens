@@ -1,0 +1,9 @@
+2025-08-26 15:37:59,961 - INFO - Evaluating [2, 1, 1] -- Initial Utility 0.09777350526231014 -- Target Utility 0.05
+2025-08-26 15:39:22,712 - INFO - [OPTIMIZE] Trying combo size k=1
+2025-08-26 15:39:22,712 - INFO - [INFO] Running optimistic search with combined interventions...
+2025-08-26 15:39:22,712 - INFO - [SEARCH] Trying intervention: outlier → 5
+2025-08-26 15:39:23,489 - INFO - [TRY] outlier=5,pipeline: {'missing_value': 2, 'normalization': 1, 'outlier': 5, 'model': 1}, Utility=0.0497, Best=0.0978
+2025-08-26 15:39:23,489 - INFO - ✅ Target achieved 🎯
+2025-08-26 15:39:23,489 - INFO - required optimistic iterations: 1
+2025-08-26 15:39:23,489 - INFO - passing pipeline: order=['missing_value', 'normalization', 'outlier', 'model'], vec=[2, 1, 5, 1]
+2025-08-26 15:39:23,489 - INFO - Total iterations so far: 1

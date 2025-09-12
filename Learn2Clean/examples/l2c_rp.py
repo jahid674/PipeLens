@@ -1,3 +1,7 @@
+import sys
+import os
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+
 import pandas as pd
 import learn2clean.loading.reader as rd 
 import learn2clean.normalization.normalizer as nl 
@@ -13,6 +17,9 @@ from sklearn.metrics import mean_squared_error,root_mean_squared_error
 from sklearn.preprocessing import LabelEncoder
 import sys
 import csv
+
+
+
 
 class Reader():
 
@@ -48,14 +55,14 @@ if data == 'hmda':
 
     metric_path  = '../../metric/metric_l2c_lr_'+metric_type+'_'+data+'.csv'
 elif data == 'housing':
-    d2 = pd.DataFrame(pd.read_csv('../datasets/house/housing_test.csv'))
+    d2 = pd.DataFrame(pd.read_csv('data/house/housing_test.csv'))
     dataset = {
          'train': d2,
          'test':d2,
          'target':d2['SalePrice']
          }
 
-    metric_path = '../../metric/metric_l2c_reg_'+metric_type+'_'+data+'.csv'
+    metric_path = 'metric/metric_l2c_reg_'+metric_type+'_'+data+'.csv'
 
     selected_features = ['OverallQual', 'GarageFinish', 'GarageArea', 'YearBuilt', 'TotalBsmtSF', '1stFlrSF', 'YearRemodAdd', 'GrLivArea', 'GarageCars', 'FullBath', 'Fireplaces', 'BsmtQual', 'KitchenQual', 'ExterQual', 'TotRmsAbvGrd']
     print("These features have been selected as the KBest for passing data in our case.")

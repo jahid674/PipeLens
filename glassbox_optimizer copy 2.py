@@ -64,7 +64,7 @@ class GlassBoxOptimizer:
             self.rank_f = opt_f
             return
 
-        #seen.add(tuple(cur_params_opt.items()))
+        seen.add(tuple(cur_params_opt.items()))
         found = False
         for iter_size in range(3+ 1): #Changed it
             if iter_size == 0:
@@ -118,12 +118,12 @@ class GlassBoxOptimizer:
         return False, opt_f, cur_params_opt'''
     
     def optimistic_search(self, seen, cur_params_opt, f_goal, opt_f):
-        optimal_position=2
+        #optimal_position=2 # have to change
         print("[INFO] Running optimistic search with combined interventions...")
-        ranked_interventions = self.executor_pass.evaluate_combined_intervention([int(v) for v in cur_params_opt.values()], self.filename_train, new_components=['outlier', 'whitespace', 'punctuation', 'stopword'])
+        #ranked_interventions = self.executor_pass.evaluate_interventions([int(v) for v in cur_params_opt.values()], self.filename_train, new_components=['outlier', 'whitespace', 'punctuation', 'stopword'])
         original_order = self.pipeline_order.copy()
         print('original order', original_order)
-        for component, strategy, similarity, uti in ranked_interventions:
+        for component, strategy, similarity, uti, pos in ranked_interventions:
             logging.info(f"[SEARCH] Trying intervention: {component} → {strategy}")
 
             if component in original_order:
@@ -136,12 +136,12 @@ class GlassBoxOptimizer:
 
             else:
                 # New component → insert at optimal_position
-                if optimal_position > len(cur_params_opt):
-                    logging.warning(f"Skipping {component}: optimal_position {optimal_position} out of range.")
+                if pos > len(cur_params_opt):
+                    logging.warning(f"Skipping {component}: optimal_position {pos} out of range.")
                     continue
-                intervened_order = original_order[:optimal_position] + [component] + original_order[optimal_position:]
+                intervened_order = original_order[:pos] + [component] + original_order[pos:]
                 cur_params_items = list(cur_params_opt.items())
-                cur_params_items = cur_params_items[:optimal_position] + [(component, strategy)] + cur_params_items[optimal_position:]
+                cur_params_items = cur_params_items[:pos] + [(component, strategy)] + cur_params_items[pos:]
                 cur_params = dict(cur_params_items)
 
             if len(cur_params) != len(intervened_order):
@@ -169,6 +169,7 @@ class GlassBoxOptimizer:
                 #cur_params_opt = cur_params.copy()
                 cur_params_opt = cur_params.copy()
                 original_order = intervened_order
+            elif cur_f > opt_f:
                 seen.add(tuple(cur_params.items()))
 
 

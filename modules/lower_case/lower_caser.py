@@ -2,10 +2,11 @@ import pandas as pd
 import warnings
 
 class Lowercaser:
-    def __init__(self, dataset, text_column=None, verbose=False):
+    def __init__(self, dataset, strategy='lc', text_column=None, verbose=False):
         self.dataset = dataset.copy()
         self.text_column = text_column
         self.verbose = verbose
+        self.strategy = strategy.lower()
 
     def transform(self):
         df = self.dataset.copy()
@@ -20,5 +21,9 @@ class Lowercaser:
         if self.verbose:
             print(f"Lowercasing column '{self.text_column}'...")
 
-        df[self.text_column] = df[self.text_column].str.lower()
+        if self.strategy == 'lc':
+            df[self.text_column] = df[self.text_column].str.lower()
+        elif self.strategy == 'none':
+            return df
+        
         return df

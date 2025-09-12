@@ -3,7 +3,7 @@ import pandas as pd
 import numpy as np
 import pandas as pd
 from sklearn.preprocessing import LabelEncoder
-#np.random.seed(42)
+np.random.seed(42)
 
 
 class NoiseInjector:
@@ -20,11 +20,10 @@ class NoiseInjector:
         if self.pipeline_type == 'ml':
             if self.dataset_name == 'hmda':
                 col = 'lien_status'
+                #col = X.select_dtypes(include=['int', 'float']).columns[0]
             elif self.dataset_name == 'adult':
                 #col = 'Education_Num'
                 col = X.select_dtypes(include=['int', 'float']).columns[0]
-
-                #col = 'Education_Num'
                 sens_col = 'Sex'
 
                 # Filter rows where Sex == 0 and income == 1

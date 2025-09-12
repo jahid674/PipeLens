@@ -25,17 +25,14 @@ class Imputer:
 
         df_updated = df_updated.drop(missing_idx)
         df_updated.reset_index(drop=True, inplace=True)
-        if y_train is not None:
-            y_train_updated = y_train.copy()
-            for idx in sorted(missing_idx, reverse=True):
-                    del y_train_updated[idx]
-            y_train_updated.reset_index(drop=True, inplace=True)
-        if sensitive_attr_train is not None:
-            updated_sensitive_attr_train = sensitive_attr_train.drop(missing_idx)
-            updated_sensitive_attr_train.reset_index(drop=True, inplace=True)
-        else:
-            updated_sensitive_attr_train = None
 
+        y_train_updated = None
+        if y_train is not None:
+            y_train_updated = y_train.drop(missing_idx).reset_index(drop=True)
+
+        updated_sensitive_attr_train = None
+        if sensitive_attr_train is not None:
+            updated_sensitive_attr_train = sensitive_attr_train.drop(missing_idx).reset_index(drop=True)
 
         return df_updated, y_train_updated, updated_sensitive_attr_train
 
@@ -44,7 +41,7 @@ class Imputer:
         numeric_cols = df_updated.select_dtypes(include=['number']).columns
         for col in numeric_cols:
             mean_val = df_updated[col].mean()
-            df[col] = df_updated[col].fillna(mean_val)
+            df_updated[col] = df_updated[col].fillna(mean_val)
         return df_updated
     
     def median_imputer(self, df):
@@ -65,18 +62,20 @@ class Imputer:
         return df_updated
 
     def knn_imputer(self, df):
+        if self.k is None or int(self.k) not in {1, 5, 10, 15, 20, 30}:
+            raise ValueError(f"k must be one of {{1,5,10,15,20,30}} for 'knn' (got {self.k})")
+
         df_updated = df.copy()
         numeric_data = df_updated.select_dtypes(include=['number'])
 
         if numeric_data.isnull().sum().sum() > 0:
-            imputer = KNNImputer(n_neighbors=self.k)
+            imputer = KNNImputer(n_neighbors=int(self.k))
             imputed_array = imputer.fit_transform(numeric_data)
             numeric_imputed = pd.DataFrame(imputed_array, columns=numeric_data.columns, index=numeric_data.index)
-
             non_numeric = df_updated.select_dtypes(exclude=['number'])
+            # Reassemble in original column order
             df_updated = pd.concat([numeric_imputed, non_numeric], axis=1)
-            df_updated = df_updated[df_updated.columns]
-
+            df_updated = df_updated[df.columns]
         return df_updated
 
     def transform(self, y_train=None, sensitive_attr_train=None):
@@ -84,13 +83,14 @@ class Imputer:
         if self.verbose:
             print("----- Starting Missing Value Imputation -----")
 
-        df = self.dataset.copy()
+        # Accept either a DataFrame or dict({'train','test'}) – here we handle DataFrame case
+        df = self.dataset.copy() if isinstance(self.dataset, pd.DataFrame) else self.dataset['train'].copy()
 
         excluded_cols = df[self.exclude] if self.exclude else pd.DataFrame()
         df = df.drop(columns=self.exclude, errors='ignore')
 
         if self.verbose:
-            print("Missing values before imputation:", df.isnull().sum().sum())
+            print("Missing values before imputation:", int(df.isnull().sum().sum()))
 
         if self.strategy == 'drop':
             df, y_train, sensitive_attr_train = self.drop_missing(df, y_train, sensitive_attr_train)
@@ -107,11 +107,22 @@ class Imputer:
 
         if not excluded_cols.empty:
             df = pd.concat([df.reset_index(drop=True), excluded_cols.reset_index(drop=True)], axis=1)
-            df = df[self.dataset.columns]
+            # restore original column order if we started with a DataFrame
+            if isinstance(self.dataset, pd.DataFrame):
+                df = df[self.dataset.columns]
+
+        # Final sanitation pass: replace inf with NaN then fill any stragglers (rare)
+        df = df.replace([np.inf, -np.inf], np.nan)
+
+        if self.strategy != 'drop':
+            # for numeric cols only; categorical should already be imputed via mode in most_frequent
+            num_cols = df.select_dtypes(include=['number']).columns
+            if df[num_cols].isnull().any().any():
+                df[num_cols] = df[num_cols].fillna(df[num_cols].mean())
 
         if self.verbose:
-            print("Missing values after imputation:", df.isnull().sum().sum())
-            print(f"\nImputation completed in {time.time() - start_time:.2f} seconds.\n")
+            print("Missing values after imputation:", int(df.isnull().sum().sum()))
+            print(f"Imputation completed in {time.time() - start_time:.2f} seconds.")
 
         if self.strategy == 'drop':
             return df, y_train, sensitive_attr_train

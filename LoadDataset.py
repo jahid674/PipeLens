@@ -25,7 +25,7 @@ class LoadDataset:
     def load(self):
         if self.dataset_name == 'hmda':
             train_file = "data/hmda/hmda_Orleans_X_train_1.csv"
-            test_file = "data/hmda/hmda_Calcasieu_X_test_1.csv"
+            test_file = "data/hmda/hmda_Orleans_X_test_1.csv"
             train, test = Reader(train_file, test_file).load_data()
 
             
@@ -140,4 +140,4 @@ class LoadDataset:
 dataset='adult'
 loader = LoadDataset(dataset)
 dataset, X_train, y_train, X_test, y_test = loader.load()
-print(y_train.head())
+print(y_train)

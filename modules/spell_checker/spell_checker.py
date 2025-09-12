@@ -27,10 +27,15 @@ class SpellChecker:
             print("---------->> Started Spell Checking <<-----------")
 
         df = self.dataset.copy()
-        for col in self.text_column:
+        if self.strategy == 'sc':
+            for col in self.text_column:
+                if self.verbose:
+                    print(f"Spell checking column: {col}")
+                df[col] = df[col].astype(str).apply(self._correct_spelling)
+        elif self.strategy == 'none':
             if self.verbose:
-                print(f"Spell checking column: {col}")
-            df[col] = df[col].astype(str).apply(self._correct_spelling)
+                print("No spell checking applied (strategy='NONE').")
+            return df
 
         if self.verbose:
             print("---------->> Spell Checking Completed <<-----------")

@@ -18,8 +18,11 @@ class StopwordRemover:
         if self.text_column is None or len(self.text_column) == 0:
             warnings.warn("No Text column. Skipping punctuation removal.")
             return df
-
-        df[self.text_column] = df[self.text_column].apply(
-            lambda x: ' '.join([word for word in str(x).split() if word.lower() not in self.stop_words])
-        )
+        
+        if self.strategy == 'sw':
+            df[self.text_column] = df[self.text_column].apply(
+            lambda x: ' '.join([word for word in str(x).split() if word.lower() not in self.stop_words]))
+        elif self.strategy == 'none':
+            return df
+        
         return df
