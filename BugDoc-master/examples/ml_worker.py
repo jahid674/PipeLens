@@ -41,11 +41,10 @@ sender = context.socket(zmq.PUSH)
 sender.connect("tcp://{0}:{1}".format(host, send))
 
 dataset = 'housing'
-allrunsdata = 'historical_data_test_profile_reg_rmse_housing.csv'
+allrunsdata = 'historical_data_test_profile_lr_sp_adult.csv'
 historical_data = pd.read_csv(allrunsdata)
-threshold = 170
+threshold = 0.16
 
-# Process tasks forever
 while True:
     data = receiver.recv_string()
     fields = data.split("|")

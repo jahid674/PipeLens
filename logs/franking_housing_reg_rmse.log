@@ -1,9 +1,0 @@
-2025-07-10 00:28:40,764 - INFO - Ranked Profiles: ['ot_ExterQual', 'ot_FullBath', 'ot_Fireplaces', 'ot_GarageCars', 'ot_KitchenQual', 'ot_BsmtQual', 'ot_TotRmsAbvGrd', 'ot_OverallQual', 'ot_GarageFinish', 'corr_YearBuilt', 'corr_GarageFinish', 'corr_TotalBsmtSF', 'corr_YearRemodAdd', 'corr_FullBath', 'corr_Fireplaces', 'corr_1stFlrSF', 'corr_GarageArea', 'corr_BsmtQual', 'corr_GrLivArea', 'corr_GarageCars', 'corr_OverallQual', 'ot_YearRemodAdd', 'corr_KitchenQual', 'ot_GarageArea', 'corr_TotRmsAbvGrd', 'ot_YearBuilt', 'corr_ExterQual', 'ot_TotalBsmtSF', 'ot_GrLivArea', 'ot_1stFlrSF', 'profile_median']
-2025-07-10 00:28:40,764 - INFO - Corresponding Average Coefficients: [1.80769934e+00 1.53260634e+00 1.47651911e+00 1.31930658e+00
- 1.04838982e+00 9.73821219e-01 9.24432941e-01 5.92133008e-01
- 4.65502478e-01 3.31446856e-01 2.46307776e-01 2.40556118e-01
- 2.09264697e-01 2.02310969e-01 1.97899160e-01 1.93356048e-01
- 1.75351137e-01 1.59445989e-01 1.55180942e-01 1.54496155e-01
- 1.19627320e-01 1.17389562e-01 1.00257933e-01 9.26709795e-02
- 8.11609195e-02 7.27732636e-02 7.18712061e-02 5.24738355e-02
- 4.80950333e-02 3.12458839e-02 1.02662850e-05]

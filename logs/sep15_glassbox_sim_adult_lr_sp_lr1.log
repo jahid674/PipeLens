@@ -1,0 +1,53 @@
+2025-09-16 00:04:10,232 - INFO - Evaluating [2, 1, 1] -- Initial Utility 0.09777350526231014 -- Target Utility 0.05
+2025-09-16 00:08:18,649 - INFO - [RL] Selected ranking method: arm=1 (wS=0.0, wU=1.0)
+2025-09-16 00:08:18,649 - INFO - [OPTIMIZE] Trying combo size k=1
+2025-09-16 00:08:18,649 - INFO - [INFO] Running optimistic search with combined interventions...
+2025-09-16 00:08:18,649 - INFO - [SEARCH] Trying intervention: outlier → 3
+2025-09-16 00:08:19,073 - INFO - [TRY] outlier=3, pipeline: {'missing_value': 2, 'normalization': 1, 'outlier': 3, 'model': 1}, Utility=0.0612, Best=0.0978
+2025-09-16 00:08:19,073 - INFO - [SEARCH] Trying intervention: outlier → 5
+2025-09-16 00:08:19,797 - INFO - [TRY] outlier=5, pipeline: {'missing_value': 2, 'normalization': 1, 'outlier': 5, 'model': 1}, Utility=0.0564, Best=0.0612
+2025-09-16 00:08:19,797 - INFO - [SEARCH] Trying intervention: outlier → 6
+2025-09-16 00:08:20,474 - INFO - [TRY] outlier=6, pipeline: {'missing_value': 2, 'normalization': 1, 'outlier': 6, 'model': 1}, Utility=0.0630, Best=0.0564
+2025-09-16 00:08:20,474 - INFO - [SEARCH] Trying intervention: stopword → 2
+2025-09-16 00:08:21,143 - INFO - [TRY] stopword=2, pipeline: {'missing_value': 2, 'stopword': 2, 'normalization': 1, 'outlier': 5, 'model': 1}, Utility=0.0646, Best=0.0564
+2025-09-16 00:08:21,143 - INFO - [SEARCH] Trying intervention: whitespace → 1
+2025-09-16 00:08:21,836 - INFO - [TRY] whitespace=1, pipeline: {'missing_value': 2, 'normalization': 1, 'whitespace': 1, 'outlier': 5, 'model': 1}, Utility=0.0551, Best=0.0564
+2025-09-16 00:08:21,836 - INFO - [SEARCH] Trying intervention: missing_value → 7
+2025-09-16 00:08:22,515 - INFO - [TRY] missing_value=7, pipeline: {'missing_value': 7, 'normalization': 1, 'whitespace': 1, 'outlier': 5, 'model': 1}, Utility=0.0664, Best=0.0551
+2025-09-16 00:08:22,515 - INFO - [SEARCH] Trying intervention: stopword → 1
+2025-09-16 00:08:23,204 - INFO - [TRY] stopword=1, pipeline: {'missing_value': 2, 'normalization': 1, 'stopword': 1, 'whitespace': 1, 'outlier': 5, 'model': 1}, Utility=0.0664, Best=0.0551
+2025-09-16 00:08:23,204 - INFO - [SEARCH] Trying intervention: punctuation → 2
+2025-09-16 00:08:23,894 - INFO - [TRY] punctuation=2, pipeline: {'missing_value': 2, 'punctuation': 2, 'normalization': 1, 'whitespace': 1, 'outlier': 5, 'model': 1}, Utility=0.0611, Best=0.0551
+2025-09-16 00:08:23,894 - INFO - [SEARCH] Trying intervention: whitespace → 2
+2025-09-16 00:08:24,569 - INFO - [TRY] whitespace=2, pipeline: {'missing_value': 2, 'normalization': 1, 'whitespace': 2, 'outlier': 5, 'model': 1}, Utility=0.0559, Best=0.0551
+2025-09-16 00:08:24,569 - INFO - [SEARCH] Trying intervention: outlier → 1
+2025-09-16 00:08:25,130 - INFO - [TRY] outlier=1, pipeline: {'missing_value': 2, 'normalization': 1, 'whitespace': 1, 'outlier': 1, 'model': 1}, Utility=0.1328, Best=0.0551
+2025-09-16 00:08:25,131 - INFO - [SEARCH] Trying intervention: missing_value → 5
+2025-09-16 00:08:25,855 - INFO - [TRY] missing_value=5, pipeline: {'missing_value': 5, 'normalization': 1, 'whitespace': 1, 'outlier': 5, 'model': 1}, Utility=0.0613, Best=0.0551
+2025-09-16 00:08:25,855 - INFO - [SEARCH] Trying intervention: punctuation → 1
+2025-09-16 00:08:26,518 - INFO - [TRY] punctuation=1, pipeline: {'missing_value': 2, 'punctuation': 1, 'normalization': 1, 'whitespace': 1, 'outlier': 5, 'model': 1}, Utility=0.0594, Best=0.0551
+2025-09-16 00:08:26,518 - INFO - [SEARCH] Trying intervention: missing_value → 6
+2025-09-16 00:08:27,187 - INFO - [TRY] missing_value=6, pipeline: {'missing_value': 6, 'normalization': 1, 'whitespace': 1, 'outlier': 5, 'model': 1}, Utility=0.0537, Best=0.0551
+2025-09-16 00:08:27,187 - INFO - [SEARCH] Trying intervention: missing_value → 3
+2025-09-16 00:08:27,907 - INFO - [TRY] missing_value=3, pipeline: {'missing_value': 3, 'normalization': 1, 'whitespace': 1, 'outlier': 5, 'model': 1}, Utility=0.0466, Best=0.0537
+2025-09-16 00:08:27,907 - INFO - ✅ Target achieved 🎯
+2025-09-16 00:08:27,907 - INFO - required optimistic iterations: 14
+2025-09-16 00:08:27,908 - INFO - passing pipeline: order=['missing_value', 'normalization', 'whitespace', 'outlier', 'model'], vec=[3, 1, 1, 5, 1]
+2025-09-16 00:08:27,908 - INFO - Total iterations so far: 40
+2025-09-16 00:08:28,187 - INFO - Evaluating [2, 2, 1] -- Initial Utility 0.19660641823295977 -- Target Utility 0.05
+2025-09-16 00:15:56,881 - INFO - [RL] Selected ranking method: arm=0 (wS=1.0, wU=0.0)
+2025-09-16 00:15:56,881 - INFO - [OPTIMIZE] Trying combo size k=1
+2025-09-16 00:15:56,881 - INFO - [INFO] Running optimistic search with combined interventions...
+2025-09-16 00:15:56,882 - INFO - [SEARCH] Trying intervention: normalization → 4
+2025-09-16 00:15:57,111 - INFO - [TRY] normalization=4, pipeline: {'missing_value': 2, 'normalization': 4, 'model': 1}, Utility=0.1977, Best=0.1966
+2025-09-16 00:15:57,111 - INFO - [SEARCH] Trying intervention: normalization → 5
+2025-09-16 00:15:57,501 - INFO - [TRY] normalization=5, pipeline: {'missing_value': 2, 'normalization': 5, 'model': 1}, Utility=0.2008, Best=0.1966
+2025-09-16 00:15:57,501 - INFO - [SEARCH] Trying intervention: normalization → 1
+2025-09-16 00:15:57,890 - INFO - [TRY] normalization=1, pipeline: {'missing_value': 2, 'normalization': 1, 'model': 1}, Utility=0.1026, Best=0.1966
+2025-09-16 00:15:57,890 - INFO - [SEARCH] Trying intervention: deduplication → 2
+2025-09-16 00:15:58,247 - INFO - [TRY] deduplication=2, pipeline: {'missing_value': 2, 'deduplication': 2, 'normalization': 1, 'model': 1}, Utility=-0.0003, Best=0.1026
+2025-09-16 00:15:58,247 - INFO - ✅ Target achieved 🎯
+2025-09-16 00:15:58,247 - INFO - required optimistic iterations: 4
+2025-09-16 00:15:58,247 - INFO - passing pipeline: order=['missing_value', 'deduplication', 'normalization', 'model'], vec=[2, 2, 1, 1]
+2025-09-16 00:15:58,247 - INFO - Total iterations so far: 31
+2025-09-16 00:15:58,620 - INFO - Evaluating [2, 3, 1] -- Initial Utility 0.1717893388523779 -- Target Utility 0.05

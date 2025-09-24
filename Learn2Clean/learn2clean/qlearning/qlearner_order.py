@@ -53,11 +53,8 @@ class Qlearner():
         self.threshold = threshold
         self.f_goal = f_goal
 
-        # NEW: allow random block order
         self.randomize_blocks = randomize_blocks
-        self._rng = None  # set in learn2clean for reproducibility
-
-        # cached after matrix init
+        self._rng = None  
         self._blocks = None
         self._goals = None
         self._actions = None
@@ -91,8 +88,6 @@ class Qlearner():
     # -------- Build blocks (unordered) -------- #
     def _build_blocks(self, check_missing):
         blocks = []
-
-        # (0) Imputation – only if there are missing values
         if check_missing:
             blocks.append([
                 ("DROP",   Imputer, {}),
@@ -105,57 +100,40 @@ class Qlearner():
                 ("KNN_20", Imputer, {}),
                 ("KNN_30", Imputer, {}),
             ])
-
-        # (1) Deduplication
         blocks.append([
             ("none_dedup", Deduplicator, {}),
             ("first",      Deduplicator, {}),
         ])
 
-        # (2) Lowercasing
         blocks.append([
             ("NONE_lowercase", Lowercaser, {}),
             ("LC",             Lowercaser, {}),
         ])
-
-        # (3) Translation
         blocks.append([
             ("NONE_translate", LanguageTranslator, {}),
             ("GT",             LanguageTranslator, {}),
         ])
-
-        # (4) Punctuation removal
         blocks.append([
             ("NONE_punct", PunctuationRemover, {}),
             ("PR",         PunctuationRemover, {}),
         ])
-
-        # (5) Stopword removal
         blocks.append([
             ("NONE_stopword", StopwordRemover, {}),
             ("SW",            StopwordRemover, {}),
         ])
-
-        # (6) Spell checking
         blocks.append([
             ("NONE_spell", SpellChecker, {}),
             ("SC",         SpellChecker, {}),
         ])
-
-        # (7) Tokenization
         blocks.append([
             ("NONE_tokenize", Tokenizer, {}),
             ("WS",            Tokenizer, {}),
             ("NLTK",          Tokenizer, {}),
         ])
-
-        # (8) Unit conversion
         blocks.append([
             ("NONE_convert", UnitConverter, {}),
             ("UC",           UnitConverter, {}),
         ])
-
-        # (9) Normalization
         blocks.append([
             ("NONE_normalization", Normalizer, {}),
             ("SS",                 Normalizer, {}),
@@ -163,8 +141,6 @@ class Qlearner():
             ("MA",                 Normalizer, {}),
             ("MM",                 Normalizer, {}),
         ])
-
-        # (10) Outliers
         blocks.append([
             ("NONE_outlier", Outlier_detector, {}),
             ("IF",           Outlier_detector, {}),
@@ -222,14 +198,9 @@ class Qlearner():
     def Initialization_Reward_Matrix(self, dataset):
         check_missing = dataset['train'].copy().isnull().sum().sum() > 0
         blocks, goals = self._build_blocks(check_missing)
-
-        # NEW: randomize the order of preprocessing blocks (goals stay last)
         if self.randomize_blocks:
-            # Shuffle blocks in-place using the seeded RNG from learn2clean
             if self._rng is None:
-                self._rng = np.random.RandomState()  # fallback
-            # We keep relative order inside each block (its internal strategies),
-            # but randomize the order of the blocks themselves.
+                self._rng = np.random.RandomState()
             idx = np.arange(len(blocks))
             self._rng.shuffle(idx)
             blocks = [blocks[i] for i in idx]

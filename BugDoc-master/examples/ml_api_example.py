@@ -19,7 +19,7 @@ def f_score_look_up2(
     profiles_df: pd.DataFrame,
     configuration: Dict[str, Any],
     threshold: float,
-    metric_col: str = "fairness",
+    metric_col: str = "fariness",
 ) -> bool:
     if profiles_df is None or profiles_df.empty:
         logging.warning("[f_score_look_up2] Empty profiles DF.")
@@ -64,7 +64,7 @@ def execute_pipeline(
     configuration: Dict[str, Any],
     historical_data: pd.DataFrame,
     threshold: float,
-    metric_col: str = "utility_rmse",
+    metric_col: str = "fairness",
 ) -> bool:
     """
     Given a config dict like:

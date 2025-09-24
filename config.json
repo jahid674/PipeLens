@@ -1,12 +1,12 @@
 {
-  "dataset_name": "housing",
-  "model_type": "reg",
-  "metric_type": "rmse",
+  "dataset_name": "adult",
+  "model_type": "lr",
+  "metric_type": "sp",
   "pipeline_type": "ml",
   "pipeline_order": ["missing_value", "normalization", "model"],
 
   "f_goals": {
-    "adult": [0.17],
+    "adult": [0.06],
     "hmda": [0.074, 0.08, 0.09],
     "housing": [162, 170, 180, 185]
   },

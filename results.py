@@ -6,6 +6,7 @@ import sys
 import time
 import logging
 from opaque_optimizer import OpaqueOptimizer
+#from RL_glassbox import GlassBoxOptimizer
 from glassbox_optimizer import GlassBoxOptimizer
 from gridsearch import GridSearch
 from pipeline_execution import PipelineExecutor
@@ -31,7 +32,7 @@ metric_path = config["paths"]["metric_output"].format(
 log_path = config["paths"]["log_file"].format(
     model_type=model_type, metric_type=metric_type, dataset_name=dataset_name)
 
-logging.basicConfig(filename='logs/_testing3_opaquebox'+"_"+dataset_name+'_'+model_type+'_'+metric_type+'.log', filemode = 'w',level=logging.DEBUG, format='%(asctime)s - %(levelname)s - %(message)s')
+logging.basicConfig(filename='logs/11sep15_glassbox_sim'+"_"+dataset_name+'_'+model_type+'_'+metric_type+'.log', filemode = 'w',level=logging.DEBUG, format='%(asctime)s - %(levelname)s - %(message)s')
 
 
 #p = OpaqueOptimizer(dataset_name, model_type, metric_type, pipeline_type, pipeline_order,

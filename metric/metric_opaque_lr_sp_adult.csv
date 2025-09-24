@@ -1,0 +1,9 @@
+Utility Goal,Method,Iteration,Value
+0.94,ranking,iterations q1,6.0
+0.94,ranking,iterations q2,8.0
+0.94,ranking,iterations q3,21.0
+0.94,ranking,iterations q4,24.0
+0.94,ranking,Fairness q1,0.05245
+0.94,ranking,Fairness q2,0.05482
+0.94,ranking,Fairness q3,0.0569
+0.94,ranking,Fairness q4,0.05884

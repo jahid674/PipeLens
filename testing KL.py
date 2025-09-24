@@ -3,54 +3,73 @@ import pandas as pd
 from scipy.stats import entropy
 from LoadDataset import LoadDataset
 
-dataset='adult'
-loader = LoadDataset(dataset)
-dataset, X_train, y_train, X_test, y_test = loader.load()
 
 import numpy as np
 import pandas as pd
 from scipy.stats import entropy
 
+dataset='adult'
+loader = LoadDataset(dataset)
+dataset, X_train, y_train, X_test, y_test = loader.load()
+print(f"Training data shape: {X_train.shape[0]/X_test.shape[0]}")
+
+#file_train='historical_data/partial_pipeline/sim_historical_data_train_profile_lr_sp_adult.csv'
+#ile_test='historical_data/noise/class_sim_historical_data_test_profile_lr_sp_adult.csv'
+
+#data1= pd.read_csv(file_train)
+#data2= pd.read_csv(file_test)
+
+#print(f"Training data shape: {data1.shape}")
+#print(f"Test data shape: {data2.shape}")
+
+import numpy as np
+from scipy.stats import entropy
+
 def kl_divergence(df_p, df_q, bins=50, epsilon=1e-10):
-    kl_results = {}
     total_kl = 0.0
 
+    # Same split logic as before
     continuous_cols = df_p.select_dtypes(include=[np.number]).columns
     categorical_cols = df_p.select_dtypes(exclude=[np.number]).columns
 
+    # ---- Continuous ----
     for col in continuous_cols:
         if col not in df_q.columns:
             continue
-        p_hist, bin_edges = np.histogram(df_p[col].dropna(), bins=bins, density=True)
-        q_hist, _ = np.histogram(df_q[col].dropna(), bins=bin_edges, density=True)
+        p = df_p[col].dropna().to_numpy()
+        q = df_q[col].dropna().to_numpy()
+        if p.size == 0 or q.size == 0:
+            continue  # keep total behavior; just skip empty
 
-        p_hist += epsilon
-        q_hist += epsilon
+        # Keep your original binning approach (edges from P)
+        p_hist, bin_edges = np.histogram(p, bins=bins, density=False)
+        q_hist, _         = np.histogram(q, bins=bin_edges, density=False)
+
+        # Smooth + renormalize (same as your code)
+        p_hist = p_hist.astype(float) + epsilon
+        q_hist = q_hist.astype(float) + epsilon
         p_hist /= p_hist.sum()
         q_hist /= q_hist.sum()
 
-        kl_val = entropy(p_hist, q_hist)
-        kl_results[col] = kl_val
-        total_kl += kl_val
+        total_kl += entropy(p_hist, q_hist)
 
+    # ---- Categorical ----
     for col in categorical_cols:
         if col not in df_q.columns:
             continue
-        p_counts = df_p[col].value_counts(normalize=True)
-        q_counts = df_q[col].value_counts(normalize=True)
+        # Keep your original approach (proportions) and re-normalize after epsilon
+        p_counts = df_p[col].value_counts(normalize=True, dropna=False)
+        q_counts = df_q[col].value_counts(normalize=True, dropna=False)
 
         all_categories = p_counts.index.union(q_counts.index)
-        p_probs = p_counts.reindex(all_categories, fill_value=epsilon)
-        q_probs = q_counts.reindex(all_categories, fill_value=epsilon)
+        p_probs = p_counts.reindex(all_categories, fill_value=0.0).astype(float) + epsilon
+        q_probs = q_counts.reindex(all_categories, fill_value=0.0).astype(float) + epsilon
 
         p_probs /= p_probs.sum()
         q_probs /= q_probs.sum()
 
-        kl_val = entropy(p_probs, q_probs)
-        kl_results[col] = kl_val
-        total_kl += kl_val
+        total_kl += entropy(p_probs, q_probs)
 
-    kl_results['total_kl'] = total_kl
     return total_kl
 
 
@@ -122,8 +141,8 @@ def inject_class_imbalance( X, y, target_col='target', minority_ratio=0.2):
     return X_modified, y_modified
 
 
-X_modified = inject_class_imbalance(X_test, y_test, target_col='income', minority_ratio=0.49)
-X_test.head()
+#X_modified = inject_class_imbalance(X_test, y_test, target_col='income', minority_ratio=0.49)
+#X_test.head()
 
-#kl_div= kl_divergence(X_train, X_modified)
-#print(f"KL Divergence between training and test datasets: {kl_div}")
+kl_div= kl_divergence(X_train, X_test, bins=10, epsilon=1e-10)
+print(f"KL Divergence between training and test datasets: {kl_div}")

@@ -1,28 +1,26 @@
-{"missing_value": "2", "normalization": "2", "outlier": "4", "result": "False"}
-{"missing_value": "1", "normalization": "1", "outlier": "1", "result": "False"}
-{"missing_value": "1", "normalization": "2", "outlier": "2", "result": "True"}
-{"missing_value": "1", "normalization": "3", "outlier": "3", "result": "False"}
-{"missing_value": "1", "normalization": "4", "outlier": "4", "result": "False"}
-{"missing_value": "1", "normalization": "5", "outlier": "5", "result": "False"}
-{"missing_value": "1", "normalization": "1", "outlier": "6", "result": "True"}
-{"missing_value": "1", "normalization": "1", "outlier": "7", "result": "True"}
-{"missing_value": "2", "normalization": "1", "outlier": "1", "result": "False"}
-{"missing_value": "2", "normalization": "2", "outlier": "2", "result": "True"}
-{"missing_value": "2", "normalization": "3", "outlier": "3", "result": "False"}
-{"missing_value": "2", "normalization": "4", "outlier": "4", "result": "False"}
-{"missing_value": "2", "normalization": "5", "outlier": "5", "result": "False"}
-{"missing_value": "2", "normalization": "2", "outlier": "6", "result": "True"}
-{"missing_value": "2", "normalization": "2", "outlier": "7", "result": "True"}
-{"missing_value": "3", "normalization": "1", "outlier": "1", "result": "False"}
-{"missing_value": "3", "normalization": "2", "outlier": "2", "result": "True"}
-{"missing_value": "3", "normalization": "3", "outlier": "3", "result": "False"}
-{"missing_value": "3", "normalization": "4", "outlier": "4", "result": "False"}
-{"missing_value": "3", "normalization": "5", "outlier": "5", "result": "False"}
-{"missing_value": "3", "normalization": "3", "outlier": "6", "result": "True"}
-{"missing_value": "2", "normalization": "2", "outlier": "1", "result": "False"}
-{"missing_value": "3", "normalization": "2", "outlier": "1", "result": "False"}
-{"missing_value": "3", "normalization": "3", "outlier": "1", "result": "False"}
-{"missing_value": "2", "normalization": "3", "outlier": "1", "result": "False"}
-{"missing_value": "2", "normalization": "2", "outlier": "1", "result": "False"}
-{"missing_value": "2", "normalization": "2", "outlier": "1", "result": "False"}
-{"missing_value": "2", "normalization": "2", "outlier": "1", "result": "False"}
+{"missing_value": "6", "normalization": "2", "punctuation": "1", "outlier": "1", "stopword": "2", "whitespace": "1", "tokenizer": "3", "punctuation.1": "1", "result": "False"}
+{"missing_value": "1", "normalization": "1", "punctuation": "1", "outlier": "1", "stopword": "1", "whitespace": "1", "tokenizer": "1", "punctuation.1": "1", "result": "False"}
+{"missing_value": "1", "normalization": "1", "punctuation": "2", "outlier": "2", "stopword": "1", "whitespace": "2", "tokenizer": "1", "punctuation.1": "2", "result": "False"}
+{"missing_value": "1", "normalization": "2", "punctuation": "1", "outlier": "3", "stopword": "2", "whitespace": "1", "tokenizer": "2", "punctuation.1": "1", "result": "True"}
+{"missing_value": "1", "normalization": "2", "punctuation": "2", "outlier": "4", "stopword": "2", "whitespace": "2", "tokenizer": "2", "punctuation.1": "2", "result": "False"}
+{"missing_value": "1", "normalization": "3", "punctuation": "1", "outlier": "5", "stopword": "1", "whitespace": "1", "tokenizer": "3", "punctuation.1": "1", "result": "False"}
+{"missing_value": "1", "normalization": "3", "punctuation": "2", "outlier": "6", "stopword": "2", "whitespace": "2", "tokenizer": "3", "punctuation.1": "2", "result": "False"}
+{"missing_value": "1", "normalization": "4", "punctuation": "1", "outlier": "7", "stopword": "1", "whitespace": "1", "tokenizer": "1", "punctuation.1": "1", "result": "False"}
+{"missing_value": "1", "normalization": "4", "punctuation": "2", "outlier": "8", "stopword": "2", "whitespace": "2", "tokenizer": "2", "punctuation.1": "2", "result": "False"}
+{"missing_value": "2", "normalization": "5", "punctuation": "1", "outlier": "1", "stopword": "1", "whitespace": "1", "tokenizer": "1", "punctuation.1": "1", "result": "False"}
+{"missing_value": "2", "normalization": "5", "punctuation": "2", "outlier": "2", "stopword": "2", "whitespace": "2", "tokenizer": "2", "punctuation.1": "2", "result": "False"}
+{"missing_value": "2", "normalization": "1", "punctuation": "2", "outlier": "3", "stopword": "2", "whitespace": "1", "tokenizer": "3", "punctuation.1": "1", "result": "False"}
+{"missing_value": "2", "normalization": "2", "punctuation": "1", "outlier": "4", "stopword": "1", "whitespace": "2", "tokenizer": "1", "punctuation.1": "2", "result": "False"}
+{"missing_value": "2", "normalization": "3", "punctuation": "2", "outlier": "5", "stopword": "2", "whitespace": "2", "tokenizer": "1", "punctuation.1": "2", "result": "False"}
+{"missing_value": "2", "normalization": "4", "punctuation": "1", "outlier": "6", "stopword": "1", "whitespace": "1", "tokenizer": "3", "punctuation.1": "1", "result": "False"}
+{"missing_value": "2", "normalization": "1", "punctuation": "2", "outlier": "7", "stopword": "2", "whitespace": "2", "tokenizer": "2", "punctuation.1": "2", "result": "False"}
+{"missing_value": "2", "normalization": "1", "punctuation": "1", "outlier": "8", "stopword": "1", "whitespace": "1", "tokenizer": "1", "punctuation.1": "1", "result": "False"}
+{"missing_value": "3", "normalization": "1", "punctuation": "1", "outlier": "1", "stopword": "1", "whitespace": "1", "tokenizer": "1", "punctuation.1": "1", "result": "False"}
+{"missing_value": "3", "normalization": "2", "punctuation": "2", "outlier": "2", "stopword": "2", "whitespace": "2", "tokenizer": "2", "punctuation.1": "2", "result": "True"}
+{"missing_value": "3", "normalization": "2", "punctuation": "1", "outlier": "1", "stopword": "1", "whitespace": "1", "tokenizer": "1", "punctuation.1": "1", "result": "False"}
+{"missing_value": "3", "normalization": "2", "punctuation": "2", "outlier": "1", "stopword": "1", "whitespace": "1", "tokenizer": "1", "punctuation.1": "1", "result": "False"}
+{"missing_value": "3", "normalization": "2", "punctuation": "2", "outlier": "2", "stopword": "1", "whitespace": "1", "tokenizer": "1", "punctuation.1": "1", "result": "True"}
+{"missing_value": "3", "normalization": "2", "punctuation": "2", "outlier": "1", "stopword": "2", "whitespace": "1", "tokenizer": "1", "punctuation.1": "1", "result": "False"}
+{"missing_value": "3", "normalization": "2", "punctuation": "2", "outlier": "1", "stopword": "2", "whitespace": "2", "tokenizer": "1", "punctuation.1": "1", "result": "False"}
+{"missing_value": "3", "normalization": "2", "punctuation": "2", "outlier": "1", "stopword": "2", "whitespace": "2", "tokenizer": "2", "punctuation.1": "1", "result": "False"}
+{"missing_value": "3", "normalization": "2", "punctuation": "2", "outlier": "1", "stopword": "2", "whitespace": "2", "tokenizer": "2", "punctuation.1": "2", "result": "False"}

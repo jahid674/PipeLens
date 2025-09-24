@@ -5,6 +5,7 @@ import warnings
 import time
 import pandas as pd
 pd.options.mode.chained_assignment = None
+import nltk
 
 
 class Tokenizer():

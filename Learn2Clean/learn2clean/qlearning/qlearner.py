@@ -58,7 +58,7 @@ class Qlearner():
     f_goal : float, success threshold (accuracy >= f_goal for LR; MSE <= f_goal for MARS)
     """
 
-    # ------------------ Init & params ------------------ #
+
     def __init__(self, dataset, goal, target_goal, target_prepare,
                  verbose=False, file_name=None, threshold=None, f_goal=0.8):
 

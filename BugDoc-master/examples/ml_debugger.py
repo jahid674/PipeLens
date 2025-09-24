@@ -69,17 +69,17 @@ parameter_space = {
 # the parameter space. The Algorithm will generate new pipeline instances and exchange messages with the *Worker*
 # script to execute and evaluate the instances. This process will be blocked if no *Worker* is running.
 
-iter=100
+iter=10
 dataset = 'housing'
-allrunsdata = 'historical_data_test_profile_reg_rmse_housing.csv'
+allrunsdata = 'historical_data_test_profile_lr_sp_adult.csv'
 historical_data = pd.read_csv(allrunsdata)
-threshold = 170
+threshold = 0.16
 
 iter_dist = []
 parameters = list(parameter_space.keys())
 
 # for i in range(len(historical_data)):
-for i in range(45,46):
+for i in range(1,len(historical_data)):
     row = historical_data.iloc[i]
     result = row['fairness'] <= threshold
     if result:
@@ -102,7 +102,8 @@ for i in range(45,46):
             debugger = StackedShortcut(max_iter=i)
             shutil.copy(filename, new_filename)
             root, _iter, _ = debugger.run(new_filename, parameter_space, outputs=["results"])
-            # print(i, root, _iter)
+            
+            print(i, root, _iter)
             if len(root) > 0:
                 # print("Root cause: ", root)
                 # print("Found root cause in iterations: ", _iter)

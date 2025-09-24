@@ -1,49 +1,84 @@
+"""
+Worker script
+===========================
+Receives pipeline configurations from BugDoc, executes/evaluates them,
+and returns the result back to BugDoc.
+"""
+
 import ast
+import os
 import sys
 import traceback
 import zmq
 import pandas as pd
 from bugdoc.utils.utils import record_pipeline_run
 
+# Your pipeline API (keep signature compatible)
 from ml_api_example import execute_pipeline
 
-# ------------------ CONFIG ------------------ #
-HOST = "localhost"
-RECEIVE_PORT = "5557"
-SEND_PORT = "5558"
+# -----------------------------
+# Config (env-overridable)
+# -----------------------------
+HOST = os.getenv("BUGDOC_HOST", "localhost")
+PORT_RECV = os.getenv("BUGDOC_PORT_RECV", "5557")
+PORT_SEND = os.getenv("BUGDOC_PORT_SEND", "5558")
 
-DATASET = "housing"  # tag only
-CSV_PATH = 'bugdoc_test_sim_historical_data_test_profile_reg_rmse_housing.csv'
-THRESHOLD = 170.0     # target metric bound (fairness / rmse-like) — lower is better
-METRIC_COL = "utility_rmse"  # column in CSV holding the metric being thresholded
+DATASET = os.getenv("BUGDOC_DATASET", "housing")
+HISTORY_FILE = os.getenv("BUGDOC_HISTORY_FILE", "bugdoc_test_sim_historical_data_test_profile_lr_rmse_housing.csv")
 
-# ------------------------------------------- #
+# Metric & decision rule
+#   METRIC_COL: the numeric column used to decide pass/fail (e.g., 'utility_rmse', 'fairness', etc.)
+#   THRESHOLD: numeric cutoff
+#   BETTER_IS_LOWER: '1' if lower is better (RMSE), '0' if higher is better (e.g., F1)
+METRIC_COL = os.getenv("BUGDOC_METRIC_COL", "fairness")
+THRESHOLD = float(os.getenv("BUGDOC_THRESHOLD", "150"))
+BETTER_IS_LOWER = os.getenv("BUGDOC_BETTER_IS_LOWER", "1") == "1"
 
+# -----------------------------
+# ZMQ sockets
+# -----------------------------
 context = zmq.Context()
 
 receiver = context.socket(zmq.PULL)
-receiver.connect(f"tcp://{HOST}:{RECEIVE_PORT}")
+receiver.connect(f"tcp://{HOST}:{PORT_RECV}")
 
 sender = context.socket(zmq.PUSH)
-sender.connect(f"tcp://{HOST}:{SEND_PORT}")
+sender.connect(f"tcp://{HOST}:{PORT_SEND}")
 
-historical_data = pd.read_csv(CSV_PATH)
+# -----------------------------
+# Load historical data
+# -----------------------------
+historical_data = pd.read_csv(HISTORY_FILE)
 
-# Process tasks forever
+# -----------------------------
+# Helper: evaluate a result row against the rule
+# (Kept here if your execute_pipeline uses historical lookups but not the rule)
+# -----------------------------
+def decide_pass(metric_value: float) -> bool:
+    if pd.isna(metric_value):
+        return False
+    return (metric_value <= THRESHOLD) if BETTER_IS_LOWER else (metric_value >= THRESHOLD)
+
+# -----------------------------
+# Main loop
+# -----------------------------
 while True:
     data = receiver.recv_string()
     fields = data.split("|")
     filename = fields[0]
-    values = ast.literal_eval(fields[1])
-    parameters = ast.literal_eval(fields[2])
+    values = ast.literal_eval(fields[1])      # list of parameter values (strings/ints)
+    parameters = ast.literal_eval(fields[2])  # list of parameter names (strings)
 
     try:
         configuration = {parameters[i]: values[i] for i in range(len(parameters))}
-        result = execute_pipeline(configuration, historical_data, THRESHOLD, metric_col=METRIC_COL)
+        # Keep the same API call you already use; it can look into `historical_data`,
+        # and you can update it later to also take (METRIC_COL, THRESHOLD, BETTER_IS_LOWER) if you want.
+        result = execute_pipeline(configuration, historical_data, THRESHOLD)
     except Exception:
         traceback.print_exc(file=sys.stdout)
         result = False
 
+    # Record and send back
     record_pipeline_run(filename, values, parameters, result)
     values.append(result)
     sender.send_string(str(values))

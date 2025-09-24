@@ -1,120 +1,128 @@
-#!/usr/bin/env python3
-# coding: utf-8
 """
 Debugger script
 ===========================
-
-Defines the parameter space (aligned to the Learn2Clean-style blocks),
-writes a failing "current pipeline" JSON, then runs a BugDoc algorithm
-(StackedShortcut by default) to search for root causes.
+Entry point to define parameter space & invoke BugDoc algorithms to debug the pipeline.
+Now generalized to new/mutable pipeline configurations.
 """
 
-import json
-import os
-import shutil
-
-import pandas as pd
 from bugdoc.algos.stacked_shortcut import StackedShortcut
-# You can also import:
+# Optional alternatives:
 # from bugdoc.algos.shortcut import Shortcut
 # from bugdoc.algos.debugging_decision_trees import DebuggingDecisionTrees
 
-# ------------------ CONFIG ------------------ #
-FILENAME = "ml_pipeline.json"          # where we write the failing instance
-TMP_FILENAME = "ml_pipeline_tmp.json"  # BugDoc copies/reads
-CSV_PATH = "historical_data/noise/bugdoc_test_sim_historical_data_test_profile_reg_rmse_housing.csv"
-DATASET_TAG = "housing"
-THRESHOLD = 170.0
-MAX_ITER_SCAN = 100       # progressively increase until root is found
-ROW_START = 0             # you can change which rows of historical_data to probe
-ROW_STOP = 1              # exclusive end (default: just the first row)
-# ------------------------------------------- #
+import os
+import json
+import shutil
+import pandas as pd
 
-# ---------------------------------------------------------------------
-# Parameter space aligned with your new Learn2Clean blocks
-# (Codes are strings "1", "2", ... so they match integer-coded CSV columns)
-# ---------------------------------------------------------------------
-parameter_space = {
-    # Imputation (9)
-    "imputation": ["1", "2", "3", "4", "5", "6", "7", "8", "9"],  # DROP, MEAN, MEDIAN, MF, KNN_1..KNN_30
-    # Deduplication (2)
-    "dedup": ["1", "2"],  # NONE, FIRST
-    # Lowercasing (2)
-    "lowercase": ["1", "2"],  # NONE, LC
-    # Translation (2)
-    "translate": ["1", "2"],  # NONE, GT
-    # Punctuation (2)
-    "punct": ["1", "2"],  # NONE, PR
-    # Stopword (2)
-    "stopword": ["1", "2"],  # NONE, SW
-    # Spell check (2)
-    "spell": ["1", "2"],  # NONE, SC
-    # Tokenization (3)
-    "tokenize": ["1", "2", "3"],  # NONE, WS, NLTK
-    # Unit conversion (2)
-    "unitconvert": ["1", "2"],  # NONE, UC
-    # Normalization (5)
-    "normalize": ["1", "2", "3", "4", "5"],  # NONE, SS, RS, MA, MM
-    # Outliers (7)
-    "outlier": ["1", "2", "3", "4", "5", "6", "7"],  # NONE, IF, LOF_1..LOF_30
-}
+# If you have any helper lookups (kept for compatibility)
+# from ml_api_example import f_score_look_up2  # not strictly needed here
 
-# If your CSV uses different column names for the parameters above,
-# rename either the keys here or the CSV columns so they match exactly.
+# -----------------------------
+# Config (env-overridable)
+# -----------------------------
+FILENAME = os.getenv("BUGDOC_ENTRY_FILE", "ml_pipeline.json")
+TMP_FILENAME = os.getenv("BUGDOC_ENTRY_FILE_TMP", "ml_pipeline_tmp.json")
 
-# ---------------------------------------------------------------------
-# Main Debugging Loop
-# ---------------------------------------------------------------------
-def main():
-    historical_data = pd.read_csv(CSV_PATH)
-    iters_found = []
+DATASET = os.getenv("BUGDOC_DATASET", "housing")
+HISTORY_FILE = os.getenv("BUGDOC_HISTORY_FILE", "bugdoc_test_sim_historical_data_test_profile_lr_rmse_housing.csv")
 
-    rows = historical_data.iloc[ROW_START:ROW_STOP]
+# Debugging iterations
+MAX_OUTER_ITER = int(os.getenv("BUGDOC_MAX_OUTER_ITER", "100"))
 
-    for _, row in rows.iterrows():
-        # Evaluate whether row already meets the threshold.
-        # We assume the CSV has:
-        #   - one column per parameter in parameter_space (int-coded),
-        #   - a metric column "fairness" (or change THRESHOLD/METRIC in worker/API).
-        metric_val = float(row.get("fairness", float("inf")))
-        meets = metric_val <= THRESHOLD
+# Metric decision rule
+METRIC_COL = os.getenv("BUGDOC_METRIC_COL", "fairness")   # e.g., 'utility_rmse', 'fairness'
+THRESHOLD = float(os.getenv("BUGDOC_THRESHOLD", "150"))
+BETTER_IS_LOWER = os.getenv("BUGDOC_BETTER_IS_LOWER", "1") == "1"
 
-        if meets:
-            iters_found.append(1)
-            continue
+# -----------------------------
+# Load historical data
+# -----------------------------
+historical_data = pd.read_csv(HISTORY_FILE)
 
-        # Build a failing configuration dict using this row (stringify values)
-        run = {}
-        for p in parameter_space.keys():
-            if p in row:
-                v = int(row[p]) if pd.notna(row[p]) else 1
-            else:
-                # default to the first option if column absent
-                v = 1
-            run[p] = str(v)
-        run["result"] = str(False)  # explicitly mark as a failing run input
+# -----------------------------
+# Infer parameter space automatically
+# - All columns except METRIC_COL are treated as parameters
+# - Values are the unique observed values (cast to str for BugDoc)
+# -----------------------------
+def infer_parameter_space(df: pd.DataFrame, metric_col: str):
+    param_cols = [c for c in df.columns if c != metric_col]
+    space = {}
+    for col in param_cols:
+        # Use unique observed values, keep stable ordering
+        uniq = pd.unique(df[col].dropna())
+        # Normalize numeric-like values to ints if possible, then to strings (BugDoc expects strings)
+        def _coerce(v):
+            try:
+                iv = int(v)
+                if float(v) == float(iv):
+                    return str(iv)
+            except Exception:
+                pass
+            return str(v)
+        values = sorted({_coerce(v) for v in uniq})
+        space[col] = values
+    return space, param_cols
 
-        # Write the failing pipeline instance
-        with open(FILENAME, "w") as f:
-            json.dump(run, f)
-            f.write("\n")
+parameter_space, parameters = infer_parameter_space(historical_data, METRIC_COL)
 
-        # Progressively increase max_iter until a root cause is found or limit reached
-        found_iter = 0
-        for i in range(1, int(MAX_ITER_SCAN) + 1):
-            debugger = StackedShortcut(max_iter=i)
-            shutil.copy(FILENAME, TMP_FILENAME)
-            root, _iter, _ = debugger.run(TMP_FILENAME, parameter_space, outputs=["results"])
-            if len(root) > 0:
-                iters_found.append(_iter)
-                found_iter = _iter
-                break
+# -----------------------------
+# Decision rule for a row
+# -----------------------------
+def row_passes(row) -> bool:
+    m = row[METRIC_COL]
+    if pd.isna(m):
+        return False
+    return (m <= THRESHOLD) if BETTER_IS_LOWER else (m >= THRESHOLD)
 
-        if found_iter == 0:
-            iters_found.append(int(MAX_ITER_SCAN))
+# -----------------------------
+# Debug loop:
+# For each historical row that FAILS the metric rule,
+#  - write an entry file with its parameter settings
+#  - run StackedShortcut with increasing max_iter until a root is found or limit reached
+# Collect how many iterations were needed (iter_dist).
+# -----------------------------
+iter_dist = []
 
-    print("iter_dist is:", iters_found)
+# Start at 1 to mimic your previous loop style (skip header row semantics if any)
+for idx in [1, 2000, 3000, 4000, 5000, 6000, 7000, 8000, 9000,10000, 12000, 14000, 16000]:#len(historical_data)):
+    row = historical_data.iloc[idx]
 
+    if row_passes(row):
+        iter_dist.append(1)  # trivial: already satisfies threshold
+        continue
 
-if __name__ == "__main__":
-    main()
+    # Build the run config with all parameters (strings) + result=False
+    run = {p: str(int(row[p])) if pd.api.types.is_numeric_dtype(historical_data[p]) else str(row[p])
+           for p in parameters}
+    run["result"] = "False"
+
+    with open(FILENAME, "w") as f:
+        json.dump(run, f)
+        f.write("\n")
+
+    found_iter = 0
+    # Try progressively larger max_iter (often faster than one huge max_iter)
+    for i in range(1, MAX_OUTER_ITER):
+        debugger = StackedShortcut(max_iter=i)
+        shutil.copy(FILENAME, TMP_FILENAME)
+        root, _iter, _ = debugger.run(TMP_FILENAME, parameter_space, outputs=["results"])
+
+        print(i, root, _iter)
+        if len(root) > 0:
+            iter_dist.append(_iter)
+            found_iter = _iter
+            break
+
+    if found_iter == 0:
+        iter_dist.append(MAX_OUTER_ITER)
+
+print("iter_dist is: ", iter_dist)
+
+# ------------------------------------------------------------------
+# If you want a one-shot run instead of progressive search, uncomment:
+# debugger = StackedShortcut(max_iter=MAX_OUTER_ITER)
+# result = debugger.run(FILENAME, parameter_space, outputs=["results"])
+# root, iters, _ = result
+# print("Root Cause:", root)
+# ------------------------------------------------------------------
