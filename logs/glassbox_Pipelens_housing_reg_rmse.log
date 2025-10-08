@@ -1,0 +1,1820 @@
+2025-10-03 01:04:00,647 - INFO - Evaluating [1, 1, 1] -- Initial Utility 189.32386132044957 -- Target Utility 162
+2025-10-03 01:05:59,616 - INFO - [OPTIMIZE] Trying combo size k=1
+2025-10-03 01:05:59,617 - INFO - [INFO] Running optimistic search with combined interventions...
+2025-10-03 01:05:59,617 - INFO - [SEARCH] Trying intervention: outlier → 8
+2025-10-03 01:06:00,016 - INFO - [TRY] outlier=8,pipeline: {'missing_value': 1.0, 'outlier': 8, 'normalization': 1.0, 'model': 1.0}, Utility=158.4669, Best=189.3239
+2025-10-03 01:06:00,016 - INFO - ✅ Target achieved 🎯
+2025-10-03 01:06:00,016 - INFO - required optimistic iterations: 1
+2025-10-03 01:06:00,016 - INFO - passing pipeline: order=['missing_value', 'outlier', 'normalization', 'model'], vec=[1, 8, 1, 1]
+2025-10-03 01:06:00,016 - INFO - Total iterations so far: 1
+2025-10-03 01:06:00,017 - INFO - pipeline[1. 1. 1.]
+2025-10-03 01:06:00,316 - INFO - Evaluating [1, 2, 1] -- Initial Utility 189.3238613204496 -- Target Utility 162
+2025-10-03 01:08:08,300 - INFO - [OPTIMIZE] Trying combo size k=1
+2025-10-03 01:08:08,301 - INFO - [INFO] Running optimistic search with combined interventions...
+2025-10-03 01:08:08,301 - INFO - [SEARCH] Trying intervention: outlier → 8
+2025-10-03 01:08:08,706 - INFO - [TRY] outlier=8,pipeline: {'missing_value': 1.0, 'outlier': 8, 'normalization': 2.0, 'model': 1.0}, Utility=158.4669, Best=189.3239
+2025-10-03 01:08:08,706 - INFO - ✅ Target achieved 🎯
+2025-10-03 01:08:08,706 - INFO - required optimistic iterations: 1
+2025-10-03 01:08:08,706 - INFO - passing pipeline: order=['missing_value', 'outlier', 'normalization', 'model'], vec=[1, 8, 2, 1]
+2025-10-03 01:08:08,706 - INFO - Total iterations so far: 1
+2025-10-03 01:08:08,706 - INFO - pipeline[1. 2. 1.]
+2025-10-03 01:08:08,861 - INFO - Evaluating [1, 3, 1] -- Initial Utility 189.3238613204496 -- Target Utility 162
+2025-10-03 01:10:15,624 - INFO - [OPTIMIZE] Trying combo size k=1
+2025-10-03 01:10:15,628 - INFO - [INFO] Running optimistic search with combined interventions...
+2025-10-03 01:10:15,628 - INFO - [SEARCH] Trying intervention: outlier → 8
+2025-10-03 01:10:15,991 - INFO - [TRY] outlier=8,pipeline: {'missing_value': 1.0, 'outlier': 8, 'normalization': 3.0, 'model': 1.0}, Utility=158.4669, Best=189.3239
+2025-10-03 01:10:15,991 - INFO - ✅ Target achieved 🎯
+2025-10-03 01:10:15,991 - INFO - required optimistic iterations: 1
+2025-10-03 01:10:15,991 - INFO - passing pipeline: order=['missing_value', 'outlier', 'normalization', 'model'], vec=[1, 8, 3, 1]
+2025-10-03 01:10:15,991 - INFO - Total iterations so far: 1
+2025-10-03 01:10:15,992 - INFO - pipeline[1. 3. 1.]
+2025-10-03 01:10:16,213 - INFO - Evaluating [1, 4, 1] -- Initial Utility 189.3238613204496 -- Target Utility 162
+2025-10-03 01:12:14,275 - INFO - [OPTIMIZE] Trying combo size k=1
+2025-10-03 01:12:14,275 - INFO - [INFO] Running optimistic search with combined interventions...
+2025-10-03 01:12:14,275 - INFO - [SEARCH] Trying intervention: outlier → 8
+2025-10-03 01:12:14,660 - INFO - [TRY] outlier=8,pipeline: {'missing_value': 1.0, 'outlier': 8, 'normalization': 4.0, 'model': 1.0}, Utility=158.4669, Best=189.3239
+2025-10-03 01:12:14,660 - INFO - ✅ Target achieved 🎯
+2025-10-03 01:12:14,660 - INFO - required optimistic iterations: 1
+2025-10-03 01:12:14,660 - INFO - passing pipeline: order=['missing_value', 'outlier', 'normalization', 'model'], vec=[1, 8, 4, 1]
+2025-10-03 01:12:14,660 - INFO - Total iterations so far: 1
+2025-10-03 01:12:14,660 - INFO - pipeline[1. 4. 1.]
+2025-10-03 01:12:14,835 - INFO - Evaluating [1, 5, 1] -- Initial Utility 189.3238613204496 -- Target Utility 162
+2025-10-03 01:14:11,396 - INFO - [OPTIMIZE] Trying combo size k=1
+2025-10-03 01:14:11,396 - INFO - [INFO] Running optimistic search with combined interventions...
+2025-10-03 01:14:11,396 - INFO - [SEARCH] Trying intervention: outlier → 8
+2025-10-03 01:14:11,762 - INFO - [TRY] outlier=8,pipeline: {'missing_value': 1.0, 'outlier': 8, 'normalization': 5.0, 'model': 1.0}, Utility=158.4669, Best=189.3239
+2025-10-03 01:14:11,762 - INFO - ✅ Target achieved 🎯
+2025-10-03 01:14:11,762 - INFO - required optimistic iterations: 1
+2025-10-03 01:14:11,762 - INFO - passing pipeline: order=['missing_value', 'outlier', 'normalization', 'model'], vec=[1, 8, 5, 1]
+2025-10-03 01:14:11,762 - INFO - Total iterations so far: 1
+2025-10-03 01:14:11,762 - INFO - pipeline[1. 5. 1.]
+2025-10-03 01:14:11,929 - INFO - Evaluating [2, 1, 1] -- Initial Utility 187.11086793920893 -- Target Utility 162
+2025-10-03 01:15:50,647 - INFO - [OPTIMIZE] Trying combo size k=1
+2025-10-03 01:15:50,647 - INFO - [INFO] Running optimistic search with combined interventions...
+2025-10-03 01:15:50,647 - INFO - [SEARCH] Trying intervention: outlier → 6
+2025-10-03 01:15:51,019 - INFO - [TRY] outlier=6,pipeline: {'missing_value': 2.0, 'outlier': 6, 'normalization': 1.0, 'model': 1.0}, Utility=158.3248, Best=187.1109
+2025-10-03 01:15:51,019 - INFO - ✅ Target achieved 🎯
+2025-10-03 01:15:51,019 - INFO - required optimistic iterations: 1
+2025-10-03 01:15:51,019 - INFO - passing pipeline: order=['missing_value', 'outlier', 'normalization', 'model'], vec=[2, 6, 1, 1]
+2025-10-03 01:15:51,019 - INFO - Total iterations so far: 1
+2025-10-03 01:15:51,020 - INFO - pipeline[2. 1. 1.]
+2025-10-03 01:15:51,206 - INFO - Evaluating [2, 2, 1] -- Initial Utility 187.1108679392089 -- Target Utility 162
+2025-10-03 01:17:53,239 - INFO - [OPTIMIZE] Trying combo size k=1
+2025-10-03 01:17:53,240 - INFO - [INFO] Running optimistic search with combined interventions...
+2025-10-03 01:17:53,240 - INFO - [SEARCH] Trying intervention: outlier → 6
+2025-10-03 01:17:53,635 - INFO - [TRY] outlier=6,pipeline: {'missing_value': 2.0, 'outlier': 6, 'normalization': 2.0, 'model': 1.0}, Utility=158.3248, Best=187.1109
+2025-10-03 01:17:53,635 - INFO - ✅ Target achieved 🎯
+2025-10-03 01:17:53,635 - INFO - required optimistic iterations: 1
+2025-10-03 01:17:53,635 - INFO - passing pipeline: order=['missing_value', 'outlier', 'normalization', 'model'], vec=[2, 6, 2, 1]
+2025-10-03 01:17:53,635 - INFO - Total iterations so far: 1
+2025-10-03 01:17:53,635 - INFO - pipeline[2. 2. 1.]
+2025-10-03 01:17:53,776 - INFO - Evaluating [2, 3, 1] -- Initial Utility 187.1108679392089 -- Target Utility 162
+2025-10-03 01:20:07,763 - INFO - [OPTIMIZE] Trying combo size k=1
+2025-10-03 01:20:07,764 - INFO - [INFO] Running optimistic search with combined interventions...
+2025-10-03 01:20:07,764 - INFO - [SEARCH] Trying intervention: outlier → 6
+2025-10-03 01:20:08,137 - INFO - [TRY] outlier=6,pipeline: {'missing_value': 2.0, 'outlier': 6, 'normalization': 3.0, 'model': 1.0}, Utility=158.3248, Best=187.1109
+2025-10-03 01:20:08,137 - INFO - ✅ Target achieved 🎯
+2025-10-03 01:20:08,137 - INFO - required optimistic iterations: 1
+2025-10-03 01:20:08,137 - INFO - passing pipeline: order=['missing_value', 'outlier', 'normalization', 'model'], vec=[2, 6, 3, 1]
+2025-10-03 01:20:08,137 - INFO - Total iterations so far: 1
+2025-10-03 01:20:08,137 - INFO - pipeline[2. 3. 1.]
+2025-10-03 01:20:08,440 - INFO - Evaluating [2, 4, 1] -- Initial Utility 187.11086793920893 -- Target Utility 162
+2025-10-03 01:22:12,058 - INFO - [OPTIMIZE] Trying combo size k=1
+2025-10-03 01:22:12,060 - INFO - [INFO] Running optimistic search with combined interventions...
+2025-10-03 01:22:12,060 - INFO - [SEARCH] Trying intervention: outlier → 6
+2025-10-03 01:22:12,492 - INFO - [TRY] outlier=6,pipeline: {'missing_value': 2.0, 'outlier': 6, 'normalization': 4.0, 'model': 1.0}, Utility=158.3248, Best=187.1109
+2025-10-03 01:22:12,492 - INFO - ✅ Target achieved 🎯
+2025-10-03 01:22:12,492 - INFO - required optimistic iterations: 1
+2025-10-03 01:22:12,492 - INFO - passing pipeline: order=['missing_value', 'outlier', 'normalization', 'model'], vec=[2, 6, 4, 1]
+2025-10-03 01:22:12,492 - INFO - Total iterations so far: 1
+2025-10-03 01:22:12,493 - INFO - pipeline[2. 4. 1.]
+2025-10-03 01:22:12,682 - INFO - Evaluating [2, 5, 1] -- Initial Utility 187.1108679392089 -- Target Utility 162
+2025-10-03 01:24:15,755 - INFO - [OPTIMIZE] Trying combo size k=1
+2025-10-03 01:24:15,755 - INFO - [INFO] Running optimistic search with combined interventions...
+2025-10-03 01:24:15,755 - INFO - [SEARCH] Trying intervention: outlier → 6
+2025-10-03 01:24:16,116 - INFO - [TRY] outlier=6,pipeline: {'missing_value': 2.0, 'outlier': 6, 'normalization': 5.0, 'model': 1.0}, Utility=158.3248, Best=187.1109
+2025-10-03 01:24:16,116 - INFO - ✅ Target achieved 🎯
+2025-10-03 01:24:16,116 - INFO - required optimistic iterations: 1
+2025-10-03 01:24:16,116 - INFO - passing pipeline: order=['missing_value', 'outlier', 'normalization', 'model'], vec=[2, 6, 5, 1]
+2025-10-03 01:24:16,116 - INFO - Total iterations so far: 1
+2025-10-03 01:24:16,116 - INFO - pipeline[2. 5. 1.]
+2025-10-03 01:24:16,327 - INFO - Evaluating [3, 1, 1] -- Initial Utility 187.09748014350498 -- Target Utility 162
+2025-10-03 01:25:59,000 - INFO - [OPTIMIZE] Trying combo size k=1
+2025-10-03 01:25:59,001 - INFO - [INFO] Running optimistic search with combined interventions...
+2025-10-03 01:25:59,001 - INFO - [SEARCH] Trying intervention: outlier → 6
+2025-10-03 01:25:59,449 - INFO - [TRY] outlier=6,pipeline: {'missing_value': 3.0, 'outlier': 6, 'normalization': 1.0, 'model': 1.0}, Utility=158.3693, Best=187.0975
+2025-10-03 01:25:59,449 - INFO - ✅ Target achieved 🎯
+2025-10-03 01:25:59,449 - INFO - required optimistic iterations: 1
+2025-10-03 01:25:59,449 - INFO - passing pipeline: order=['missing_value', 'outlier', 'normalization', 'model'], vec=[3, 6, 1, 1]
+2025-10-03 01:25:59,449 - INFO - Total iterations so far: 1
+2025-10-03 01:25:59,449 - INFO - pipeline[3. 1. 1.]
+2025-10-03 01:25:59,759 - INFO - Evaluating [3, 2, 1] -- Initial Utility 187.09748014350498 -- Target Utility 162
+2025-10-03 01:28:05,400 - INFO - [OPTIMIZE] Trying combo size k=1
+2025-10-03 01:28:05,400 - INFO - [INFO] Running optimistic search with combined interventions...
+2025-10-03 01:28:05,400 - INFO - [SEARCH] Trying intervention: outlier → 6
+2025-10-03 01:28:05,756 - INFO - [TRY] outlier=6,pipeline: {'missing_value': 3.0, 'outlier': 6, 'normalization': 2.0, 'model': 1.0}, Utility=158.3693, Best=187.0975
+2025-10-03 01:28:05,756 - INFO - ✅ Target achieved 🎯
+2025-10-03 01:28:05,756 - INFO - required optimistic iterations: 1
+2025-10-03 01:28:05,756 - INFO - passing pipeline: order=['missing_value', 'outlier', 'normalization', 'model'], vec=[3, 6, 2, 1]
+2025-10-03 01:28:05,756 - INFO - Total iterations so far: 1
+2025-10-03 01:28:05,756 - INFO - pipeline[3. 2. 1.]
+2025-10-03 01:28:05,967 - INFO - Evaluating [3, 3, 1] -- Initial Utility 187.09748014350498 -- Target Utility 162
+2025-10-03 01:30:13,399 - INFO - [OPTIMIZE] Trying combo size k=1
+2025-10-03 01:30:13,399 - INFO - [INFO] Running optimistic search with combined interventions...
+2025-10-03 01:30:13,400 - INFO - [SEARCH] Trying intervention: outlier → 6
+2025-10-03 01:30:13,770 - INFO - [TRY] outlier=6,pipeline: {'missing_value': 3.0, 'outlier': 6, 'normalization': 3.0, 'model': 1.0}, Utility=158.3693, Best=187.0975
+2025-10-03 01:30:13,770 - INFO - ✅ Target achieved 🎯
+2025-10-03 01:30:13,770 - INFO - required optimistic iterations: 1
+2025-10-03 01:30:13,770 - INFO - passing pipeline: order=['missing_value', 'outlier', 'normalization', 'model'], vec=[3, 6, 3, 1]
+2025-10-03 01:30:13,770 - INFO - Total iterations so far: 1
+2025-10-03 01:30:13,771 - INFO - pipeline[3. 3. 1.]
+2025-10-03 01:30:14,004 - INFO - Evaluating [3, 4, 1] -- Initial Utility 187.09748014350498 -- Target Utility 162
+2025-10-03 01:32:13,462 - INFO - [OPTIMIZE] Trying combo size k=1
+2025-10-03 01:32:13,462 - INFO - [INFO] Running optimistic search with combined interventions...
+2025-10-03 01:32:13,462 - INFO - [SEARCH] Trying intervention: outlier → 6
+2025-10-03 01:32:13,940 - INFO - [TRY] outlier=6,pipeline: {'missing_value': 3.0, 'outlier': 6, 'normalization': 4.0, 'model': 1.0}, Utility=158.3693, Best=187.0975
+2025-10-03 01:32:13,940 - INFO - ✅ Target achieved 🎯
+2025-10-03 01:32:13,940 - INFO - required optimistic iterations: 1
+2025-10-03 01:32:13,940 - INFO - passing pipeline: order=['missing_value', 'outlier', 'normalization', 'model'], vec=[3, 6, 4, 1]
+2025-10-03 01:32:13,940 - INFO - Total iterations so far: 1
+2025-10-03 01:32:13,940 - INFO - pipeline[3. 4. 1.]
+2025-10-03 01:32:14,191 - INFO - Evaluating [3, 5, 1] -- Initial Utility 187.09748014350498 -- Target Utility 162
+2025-10-03 01:34:23,417 - INFO - [OPTIMIZE] Trying combo size k=1
+2025-10-03 01:34:23,418 - INFO - [INFO] Running optimistic search with combined interventions...
+2025-10-03 01:34:23,418 - INFO - [SEARCH] Trying intervention: outlier → 6
+2025-10-03 01:34:23,759 - INFO - [TRY] outlier=6,pipeline: {'missing_value': 3.0, 'outlier': 6, 'normalization': 5.0, 'model': 1.0}, Utility=158.3693, Best=187.0975
+2025-10-03 01:34:23,759 - INFO - ✅ Target achieved 🎯
+2025-10-03 01:34:23,759 - INFO - required optimistic iterations: 1
+2025-10-03 01:34:23,759 - INFO - passing pipeline: order=['missing_value', 'outlier', 'normalization', 'model'], vec=[3, 6, 5, 1]
+2025-10-03 01:34:23,759 - INFO - Total iterations so far: 1
+2025-10-03 01:34:23,759 - INFO - pipeline[3. 5. 1.]
+2025-10-03 01:34:23,979 - INFO - Evaluating [4, 1, 1] -- Initial Utility 187.44380692213028 -- Target Utility 162
+2025-10-03 01:36:03,452 - INFO - [OPTIMIZE] Trying combo size k=1
+2025-10-03 01:36:03,453 - INFO - [INFO] Running optimistic search with combined interventions...
+2025-10-03 01:36:03,453 - INFO - [SEARCH] Trying intervention: outlier → 6
+2025-10-03 01:36:03,877 - INFO - [TRY] outlier=6,pipeline: {'missing_value': 4.0, 'outlier': 6, 'normalization': 1.0, 'model': 1.0}, Utility=158.7840, Best=187.4438
+2025-10-03 01:36:03,877 - INFO - ✅ Target achieved 🎯
+2025-10-03 01:36:03,877 - INFO - required optimistic iterations: 1
+2025-10-03 01:36:03,877 - INFO - passing pipeline: order=['missing_value', 'outlier', 'normalization', 'model'], vec=[4, 6, 1, 1]
+2025-10-03 01:36:03,877 - INFO - Total iterations so far: 1
+2025-10-03 01:36:03,877 - INFO - pipeline[4. 1. 1.]
+2025-10-03 01:36:04,140 - INFO - Evaluating [4, 2, 1] -- Initial Utility 187.44380692213028 -- Target Utility 162
+2025-10-03 01:38:07,705 - INFO - [OPTIMIZE] Trying combo size k=1
+2025-10-03 01:38:07,706 - INFO - [INFO] Running optimistic search with combined interventions...
+2025-10-03 01:38:07,706 - INFO - [SEARCH] Trying intervention: outlier → 8
+2025-10-03 01:38:08,108 - INFO - [TRY] outlier=8,pipeline: {'missing_value': 4.0, 'normalization': 2.0, 'outlier': 8, 'model': 1.0}, Utility=164.8724, Best=187.4438
+2025-10-03 01:38:08,108 - INFO - [SEARCH] Trying intervention: outlier → 6
+2025-10-03 01:38:08,431 - INFO - [TRY] outlier=6,pipeline: {'missing_value': 4.0, 'normalization': 2.0, 'outlier': 6, 'model': 1.0}, Utility=166.2194, Best=164.8724
+2025-10-03 01:38:08,431 - INFO - [SEARCH] Trying intervention: outlier → 7
+2025-10-03 01:38:08,814 - INFO - [TRY] outlier=7,pipeline: {'missing_value': 4.0, 'normalization': 2.0, 'outlier': 7, 'model': 1.0}, Utility=166.3765, Best=164.8724
+2025-10-03 01:38:08,814 - INFO - [SEARCH] Trying intervention: deduplication → 2
+2025-10-03 01:38:09,353 - INFO - [TRY] deduplication=2,pipeline: {'missing_value': 4.0, 'deduplication': 2, 'normalization': 2.0, 'outlier': 8, 'model': 1.0}, Utility=277.2258, Best=164.8724
+2025-10-03 01:38:09,353 - INFO - [SEARCH] Trying intervention: normalization → 1
+2025-10-03 01:38:09,854 - INFO - [TRY] normalization=1,pipeline: {'missing_value': 4.0, 'normalization': 1, 'outlier': 8, 'model': 1.0}, Utility=162.2020, Best=164.8724
+2025-10-03 01:38:09,854 - INFO - [SEARCH] Trying intervention: normalization → 4
+2025-10-03 01:38:10,264 - INFO - [TRY] normalization=4,pipeline: {'missing_value': 4.0, 'normalization': 4, 'outlier': 8, 'model': 1.0}, Utility=191.2300, Best=162.2020
+2025-10-03 01:38:10,264 - INFO - [SEARCH] Trying intervention: normalization → 5
+2025-10-03 01:38:10,702 - INFO - [TRY] normalization=5,pipeline: {'missing_value': 4.0, 'normalization': 5, 'outlier': 8, 'model': 1.0}, Utility=173.1345, Best=162.2020
+2025-10-03 01:38:10,702 - INFO - [SEARCH] Trying intervention: normalization → 3
+2025-10-03 01:38:11,153 - INFO - [TRY] normalization=3,pipeline: {'missing_value': 4.0, 'normalization': 3, 'outlier': 8, 'model': 1.0}, Utility=168.1424, Best=162.2020
+2025-10-03 01:38:11,153 - INFO - [SEARCH] Trying intervention: missing_value → 9
+2025-10-03 01:38:11,770 - INFO - [TRY] missing_value=9,pipeline: {'missing_value': 9, 'normalization': 1, 'outlier': 8, 'model': 1.0}, Utility=162.1433, Best=162.2020
+2025-10-03 01:38:11,770 - INFO - [SEARCH] Trying intervention: missing_value → 8
+2025-10-03 01:38:12,372 - INFO - [TRY] missing_value=8,pipeline: {'missing_value': 8, 'normalization': 1, 'outlier': 8, 'model': 1.0}, Utility=162.0905, Best=162.1433
+2025-10-03 01:38:12,372 - INFO - [SEARCH] Trying intervention: missing_value → 6
+2025-10-03 01:38:13,067 - INFO - [TRY] missing_value=6,pipeline: {'missing_value': 6, 'normalization': 1, 'outlier': 8, 'model': 1.0}, Utility=161.7376, Best=162.0905
+2025-10-03 01:38:13,067 - INFO - ✅ Target achieved 🎯
+2025-10-03 01:38:13,067 - INFO - required optimistic iterations: 11
+2025-10-03 01:38:13,067 - INFO - passing pipeline: order=['missing_value', 'normalization', 'outlier', 'model'], vec=[6, 1, 8, 1]
+2025-10-03 01:38:13,067 - INFO - Total iterations so far: 11
+2025-10-03 01:38:13,067 - INFO - pipeline[4. 2. 1.]
+2025-10-03 01:38:13,297 - INFO - Evaluating [4, 3, 1] -- Initial Utility 187.44380692213028 -- Target Utility 162
+2025-10-03 01:40:19,505 - INFO - [OPTIMIZE] Trying combo size k=1
+2025-10-03 01:40:19,505 - INFO - [INFO] Running optimistic search with combined interventions...
+2025-10-03 01:40:19,505 - INFO - [SEARCH] Trying intervention: outlier → 6
+2025-10-03 01:40:19,899 - INFO - [TRY] outlier=6,pipeline: {'missing_value': 4.0, 'outlier': 6, 'normalization': 3.0, 'model': 1.0}, Utility=158.7840, Best=187.4438
+2025-10-03 01:40:19,899 - INFO - ✅ Target achieved 🎯
+2025-10-03 01:40:19,899 - INFO - required optimistic iterations: 1
+2025-10-03 01:40:19,899 - INFO - passing pipeline: order=['missing_value', 'outlier', 'normalization', 'model'], vec=[4, 6, 3, 1]
+2025-10-03 01:40:19,899 - INFO - Total iterations so far: 1
+2025-10-03 01:40:19,899 - INFO - pipeline[4. 3. 1.]
+2025-10-03 01:40:20,070 - INFO - Evaluating [4, 4, 1] -- Initial Utility 187.4438069221303 -- Target Utility 162
+2025-10-03 01:42:23,757 - INFO - [OPTIMIZE] Trying combo size k=1
+2025-10-03 01:42:23,758 - INFO - [INFO] Running optimistic search with combined interventions...
+2025-10-03 01:42:23,758 - INFO - [SEARCH] Trying intervention: outlier → 6
+2025-10-03 01:42:24,058 - INFO - [TRY] outlier=6,pipeline: {'missing_value': 4.0, 'outlier': 6, 'normalization': 4.0, 'model': 1.0}, Utility=158.7840, Best=187.4438
+2025-10-03 01:42:24,058 - INFO - ✅ Target achieved 🎯
+2025-10-03 01:42:24,058 - INFO - required optimistic iterations: 1
+2025-10-03 01:42:24,058 - INFO - passing pipeline: order=['missing_value', 'outlier', 'normalization', 'model'], vec=[4, 6, 4, 1]
+2025-10-03 01:42:24,058 - INFO - Total iterations so far: 1
+2025-10-03 01:42:24,059 - INFO - pipeline[4. 4. 1.]
+2025-10-03 01:42:24,299 - INFO - Evaluating [4, 5, 1] -- Initial Utility 187.4438069221303 -- Target Utility 162
+2025-10-03 01:44:26,570 - INFO - [OPTIMIZE] Trying combo size k=1
+2025-10-03 01:44:26,572 - INFO - [INFO] Running optimistic search with combined interventions...
+2025-10-03 01:44:26,572 - INFO - [SEARCH] Trying intervention: outlier → 6
+2025-10-03 01:44:26,914 - INFO - [TRY] outlier=6,pipeline: {'missing_value': 4.0, 'outlier': 6, 'normalization': 5.0, 'model': 1.0}, Utility=158.7840, Best=187.4438
+2025-10-03 01:44:26,914 - INFO - ✅ Target achieved 🎯
+2025-10-03 01:44:26,914 - INFO - required optimistic iterations: 1
+2025-10-03 01:44:26,914 - INFO - passing pipeline: order=['missing_value', 'outlier', 'normalization', 'model'], vec=[4, 6, 5, 1]
+2025-10-03 01:44:26,914 - INFO - Total iterations so far: 1
+2025-10-03 01:44:26,915 - INFO - pipeline[4. 5. 1.]
+2025-10-03 01:44:27,332 - INFO - Evaluating [5, 1, 1] -- Initial Utility 186.98202072458875 -- Target Utility 162
+2025-10-03 01:46:14,834 - INFO - [OPTIMIZE] Trying combo size k=1
+2025-10-03 01:46:14,835 - INFO - [INFO] Running optimistic search with combined interventions...
+2025-10-03 01:46:14,835 - INFO - [SEARCH] Trying intervention: outlier → 6
+2025-10-03 01:46:15,465 - INFO - [TRY] outlier=6,pipeline: {'missing_value': 5.0, 'outlier': 6, 'normalization': 1.0, 'model': 1.0}, Utility=157.3719, Best=186.9820
+2025-10-03 01:46:15,465 - INFO - ✅ Target achieved 🎯
+2025-10-03 01:46:15,465 - INFO - required optimistic iterations: 1
+2025-10-03 01:46:15,465 - INFO - passing pipeline: order=['missing_value', 'outlier', 'normalization', 'model'], vec=[5, 6, 1, 1]
+2025-10-03 01:46:15,465 - INFO - Total iterations so far: 1
+2025-10-03 01:46:15,465 - INFO - pipeline[5. 1. 1.]
+2025-10-03 01:46:16,047 - INFO - Evaluating [5, 2, 1] -- Initial Utility 186.98202072458875 -- Target Utility 162
+2025-10-03 01:48:34,809 - INFO - [OPTIMIZE] Trying combo size k=1
+2025-10-03 01:48:34,810 - INFO - [INFO] Running optimistic search with combined interventions...
+2025-10-03 01:48:34,810 - INFO - [SEARCH] Trying intervention: outlier → 6
+2025-10-03 01:48:35,422 - INFO - [TRY] outlier=6,pipeline: {'missing_value': 5.0, 'outlier': 6, 'normalization': 2.0, 'model': 1.0}, Utility=157.3719, Best=186.9820
+2025-10-03 01:48:35,422 - INFO - ✅ Target achieved 🎯
+2025-10-03 01:48:35,422 - INFO - required optimistic iterations: 1
+2025-10-03 01:48:35,422 - INFO - passing pipeline: order=['missing_value', 'outlier', 'normalization', 'model'], vec=[5, 6, 2, 1]
+2025-10-03 01:48:35,422 - INFO - Total iterations so far: 1
+2025-10-03 01:48:35,422 - INFO - pipeline[5. 2. 1.]
+2025-10-03 01:48:35,833 - INFO - Evaluating [5, 3, 1] -- Initial Utility 186.98202072458875 -- Target Utility 162
+2025-10-03 01:50:45,723 - INFO - [OPTIMIZE] Trying combo size k=1
+2025-10-03 01:50:45,724 - INFO - [INFO] Running optimistic search with combined interventions...
+2025-10-03 01:50:45,724 - INFO - [SEARCH] Trying intervention: outlier → 6
+2025-10-03 01:50:46,337 - INFO - [TRY] outlier=6,pipeline: {'missing_value': 5.0, 'outlier': 6, 'normalization': 3.0, 'model': 1.0}, Utility=157.3719, Best=186.9820
+2025-10-03 01:50:46,338 - INFO - ✅ Target achieved 🎯
+2025-10-03 01:50:46,338 - INFO - required optimistic iterations: 1
+2025-10-03 01:50:46,338 - INFO - passing pipeline: order=['missing_value', 'outlier', 'normalization', 'model'], vec=[5, 6, 3, 1]
+2025-10-03 01:50:46,338 - INFO - Total iterations so far: 1
+2025-10-03 01:50:46,338 - INFO - pipeline[5. 3. 1.]
+2025-10-03 01:50:46,845 - INFO - Evaluating [5, 4, 1] -- Initial Utility 186.98202072458875 -- Target Utility 162
+2025-10-03 01:52:57,503 - INFO - [OPTIMIZE] Trying combo size k=1
+2025-10-03 01:52:57,505 - INFO - [INFO] Running optimistic search with combined interventions...
+2025-10-03 01:52:57,505 - INFO - [SEARCH] Trying intervention: outlier → 6
+2025-10-03 01:52:58,182 - INFO - [TRY] outlier=6,pipeline: {'missing_value': 5.0, 'outlier': 6, 'normalization': 4.0, 'model': 1.0}, Utility=157.3719, Best=186.9820
+2025-10-03 01:52:58,182 - INFO - ✅ Target achieved 🎯
+2025-10-03 01:52:58,182 - INFO - required optimistic iterations: 1
+2025-10-03 01:52:58,182 - INFO - passing pipeline: order=['missing_value', 'outlier', 'normalization', 'model'], vec=[5, 6, 4, 1]
+2025-10-03 01:52:58,182 - INFO - Total iterations so far: 1
+2025-10-03 01:52:58,182 - INFO - pipeline[5. 4. 1.]
+2025-10-03 01:52:58,703 - INFO - Evaluating [5, 5, 1] -- Initial Utility 186.98202072458875 -- Target Utility 162
+2025-10-03 01:55:13,213 - INFO - [OPTIMIZE] Trying combo size k=1
+2025-10-03 01:55:13,214 - INFO - [INFO] Running optimistic search with combined interventions...
+2025-10-03 01:55:13,214 - INFO - [SEARCH] Trying intervention: outlier → 6
+2025-10-03 01:55:13,838 - INFO - [TRY] outlier=6,pipeline: {'missing_value': 5.0, 'outlier': 6, 'normalization': 5.0, 'model': 1.0}, Utility=157.3719, Best=186.9820
+2025-10-03 01:55:13,838 - INFO - ✅ Target achieved 🎯
+2025-10-03 01:55:13,838 - INFO - required optimistic iterations: 1
+2025-10-03 01:55:13,838 - INFO - passing pipeline: order=['missing_value', 'outlier', 'normalization', 'model'], vec=[5, 6, 5, 1]
+2025-10-03 01:55:13,838 - INFO - Total iterations so far: 1
+2025-10-03 01:55:13,838 - INFO - pipeline[5. 5. 1.]
+2025-10-03 01:55:14,337 - INFO - Evaluating [6, 1, 1] -- Initial Utility 186.96623739130024 -- Target Utility 162
+2025-10-03 01:57:03,333 - INFO - [OPTIMIZE] Trying combo size k=1
+2025-10-03 01:57:03,334 - INFO - [INFO] Running optimistic search with combined interventions...
+2025-10-03 01:57:03,334 - INFO - [SEARCH] Trying intervention: outlier → 6
+2025-10-03 01:57:03,932 - INFO - [TRY] outlier=6,pipeline: {'missing_value': 6.0, 'outlier': 6, 'normalization': 1.0, 'model': 1.0}, Utility=157.4023, Best=186.9662
+2025-10-03 01:57:03,932 - INFO - ✅ Target achieved 🎯
+2025-10-03 01:57:03,932 - INFO - required optimistic iterations: 1
+2025-10-03 01:57:03,932 - INFO - passing pipeline: order=['missing_value', 'outlier', 'normalization', 'model'], vec=[6, 6, 1, 1]
+2025-10-03 01:57:03,932 - INFO - Total iterations so far: 1
+2025-10-03 01:57:03,932 - INFO - pipeline[6. 1. 1.]
+2025-10-03 01:57:04,375 - INFO - Evaluating [6, 2, 1] -- Initial Utility 186.96623739130027 -- Target Utility 162
+2025-10-03 01:59:19,259 - INFO - [OPTIMIZE] Trying combo size k=1
+2025-10-03 01:59:19,261 - INFO - [INFO] Running optimistic search with combined interventions...
+2025-10-03 01:59:19,261 - INFO - [SEARCH] Trying intervention: outlier → 6
+2025-10-03 01:59:20,082 - INFO - [TRY] outlier=6,pipeline: {'missing_value': 6.0, 'outlier': 6, 'normalization': 2.0, 'model': 1.0}, Utility=157.4023, Best=186.9662
+2025-10-03 01:59:20,082 - INFO - ✅ Target achieved 🎯
+2025-10-03 01:59:20,082 - INFO - required optimistic iterations: 1
+2025-10-03 01:59:20,082 - INFO - passing pipeline: order=['missing_value', 'outlier', 'normalization', 'model'], vec=[6, 6, 2, 1]
+2025-10-03 01:59:20,082 - INFO - Total iterations so far: 1
+2025-10-03 01:59:20,082 - INFO - pipeline[6. 2. 1.]
+2025-10-03 01:59:20,737 - INFO - Evaluating [6, 3, 1] -- Initial Utility 186.96623739130027 -- Target Utility 162
+2025-10-03 02:01:44,793 - INFO - [OPTIMIZE] Trying combo size k=1
+2025-10-03 02:01:44,794 - INFO - [INFO] Running optimistic search with combined interventions...
+2025-10-03 02:01:44,794 - INFO - [SEARCH] Trying intervention: outlier → 6
+2025-10-03 02:01:45,479 - INFO - [TRY] outlier=6,pipeline: {'missing_value': 6.0, 'outlier': 6, 'normalization': 3.0, 'model': 1.0}, Utility=157.4023, Best=186.9662
+2025-10-03 02:01:45,479 - INFO - ✅ Target achieved 🎯
+2025-10-03 02:01:45,479 - INFO - required optimistic iterations: 1
+2025-10-03 02:01:45,479 - INFO - passing pipeline: order=['missing_value', 'outlier', 'normalization', 'model'], vec=[6, 6, 3, 1]
+2025-10-03 02:01:45,479 - INFO - Total iterations so far: 1
+2025-10-03 02:01:45,480 - INFO - pipeline[6. 3. 1.]
+2025-10-03 02:01:46,068 - INFO - Evaluating [6, 4, 1] -- Initial Utility 186.96623739130027 -- Target Utility 162
+2025-10-03 02:04:02,815 - INFO - [OPTIMIZE] Trying combo size k=1
+2025-10-03 02:04:02,816 - INFO - [INFO] Running optimistic search with combined interventions...
+2025-10-03 02:04:02,816 - INFO - [SEARCH] Trying intervention: outlier → 6
+2025-10-03 02:04:03,449 - INFO - [TRY] outlier=6,pipeline: {'missing_value': 6.0, 'outlier': 6, 'normalization': 4.0, 'model': 1.0}, Utility=157.4023, Best=186.9662
+2025-10-03 02:04:03,449 - INFO - ✅ Target achieved 🎯
+2025-10-03 02:04:03,449 - INFO - required optimistic iterations: 1
+2025-10-03 02:04:03,449 - INFO - passing pipeline: order=['missing_value', 'outlier', 'normalization', 'model'], vec=[6, 6, 4, 1]
+2025-10-03 02:04:03,449 - INFO - Total iterations so far: 1
+2025-10-03 02:04:03,450 - INFO - pipeline[6. 4. 1.]
+2025-10-03 02:04:03,950 - INFO - Evaluating [6, 5, 1] -- Initial Utility 186.96623739130027 -- Target Utility 162
+2025-10-03 02:06:20,532 - INFO - [OPTIMIZE] Trying combo size k=1
+2025-10-03 02:06:20,532 - INFO - [INFO] Running optimistic search with combined interventions...
+2025-10-03 02:06:20,532 - INFO - [SEARCH] Trying intervention: outlier → 6
+2025-10-03 02:06:21,128 - INFO - [TRY] outlier=6,pipeline: {'missing_value': 6.0, 'outlier': 6, 'normalization': 5.0, 'model': 1.0}, Utility=157.4023, Best=186.9662
+2025-10-03 02:06:21,128 - INFO - ✅ Target achieved 🎯
+2025-10-03 02:06:21,128 - INFO - required optimistic iterations: 1
+2025-10-03 02:06:21,128 - INFO - passing pipeline: order=['missing_value', 'outlier', 'normalization', 'model'], vec=[6, 6, 5, 1]
+2025-10-03 02:06:21,128 - INFO - Total iterations so far: 1
+2025-10-03 02:06:21,128 - INFO - pipeline[6. 5. 1.]
+2025-10-03 02:06:21,580 - INFO - Evaluating [7, 1, 1] -- Initial Utility 186.97780992695317 -- Target Utility 162
+2025-10-03 02:08:15,851 - INFO - [OPTIMIZE] Trying combo size k=1
+2025-10-03 02:08:15,852 - INFO - [INFO] Running optimistic search with combined interventions...
+2025-10-03 02:08:15,852 - INFO - [SEARCH] Trying intervention: outlier → 6
+2025-10-03 02:08:16,840 - INFO - [TRY] outlier=6,pipeline: {'missing_value': 7.0, 'outlier': 6, 'normalization': 1.0, 'model': 1.0}, Utility=157.4434, Best=186.9778
+2025-10-03 02:08:16,840 - INFO - ✅ Target achieved 🎯
+2025-10-03 02:08:16,840 - INFO - required optimistic iterations: 1
+2025-10-03 02:08:16,840 - INFO - passing pipeline: order=['missing_value', 'outlier', 'normalization', 'model'], vec=[7, 6, 1, 1]
+2025-10-03 02:08:16,840 - INFO - Total iterations so far: 1
+2025-10-03 02:08:16,840 - INFO - pipeline[7. 1. 1.]
+2025-10-03 02:08:17,302 - INFO - Evaluating [7, 2, 1] -- Initial Utility 186.9778099269532 -- Target Utility 162
+2025-10-03 02:10:35,747 - INFO - [OPTIMIZE] Trying combo size k=1
+2025-10-03 02:10:35,747 - INFO - [INFO] Running optimistic search with combined interventions...
+2025-10-03 02:10:35,747 - INFO - [SEARCH] Trying intervention: outlier → 6
+2025-10-03 02:10:36,505 - INFO - [TRY] outlier=6,pipeline: {'missing_value': 7.0, 'outlier': 6, 'normalization': 2.0, 'model': 1.0}, Utility=157.4434, Best=186.9778
+2025-10-03 02:10:36,505 - INFO - ✅ Target achieved 🎯
+2025-10-03 02:10:36,505 - INFO - required optimistic iterations: 1
+2025-10-03 02:10:36,505 - INFO - passing pipeline: order=['missing_value', 'outlier', 'normalization', 'model'], vec=[7, 6, 2, 1]
+2025-10-03 02:10:36,505 - INFO - Total iterations so far: 1
+2025-10-03 02:10:36,506 - INFO - pipeline[7. 2. 1.]
+2025-10-03 02:10:36,976 - INFO - Evaluating [7, 3, 1] -- Initial Utility 186.9778099269532 -- Target Utility 162
+2025-10-03 02:12:55,474 - INFO - [OPTIMIZE] Trying combo size k=1
+2025-10-03 02:12:55,475 - INFO - [INFO] Running optimistic search with combined interventions...
+2025-10-03 02:12:55,475 - INFO - [SEARCH] Trying intervention: outlier → 6
+2025-10-03 02:12:56,046 - INFO - [TRY] outlier=6,pipeline: {'missing_value': 7.0, 'outlier': 6, 'normalization': 3.0, 'model': 1.0}, Utility=157.4434, Best=186.9778
+2025-10-03 02:12:56,047 - INFO - ✅ Target achieved 🎯
+2025-10-03 02:12:56,047 - INFO - required optimistic iterations: 1
+2025-10-03 02:12:56,047 - INFO - passing pipeline: order=['missing_value', 'outlier', 'normalization', 'model'], vec=[7, 6, 3, 1]
+2025-10-03 02:12:56,047 - INFO - Total iterations so far: 1
+2025-10-03 02:12:56,047 - INFO - pipeline[7. 3. 1.]
+2025-10-03 02:12:56,457 - INFO - Evaluating [7, 4, 1] -- Initial Utility 186.97780992695317 -- Target Utility 162
+2025-10-03 02:15:10,667 - INFO - [OPTIMIZE] Trying combo size k=1
+2025-10-03 02:15:10,668 - INFO - [INFO] Running optimistic search with combined interventions...
+2025-10-03 02:15:10,669 - INFO - [SEARCH] Trying intervention: outlier → 6
+2025-10-03 02:15:11,315 - INFO - [TRY] outlier=6,pipeline: {'missing_value': 7.0, 'outlier': 6, 'normalization': 4.0, 'model': 1.0}, Utility=157.4434, Best=186.9778
+2025-10-03 02:15:11,315 - INFO - ✅ Target achieved 🎯
+2025-10-03 02:15:11,315 - INFO - required optimistic iterations: 1
+2025-10-03 02:15:11,315 - INFO - passing pipeline: order=['missing_value', 'outlier', 'normalization', 'model'], vec=[7, 6, 4, 1]
+2025-10-03 02:15:11,315 - INFO - Total iterations so far: 1
+2025-10-03 02:15:11,315 - INFO - pipeline[7. 4. 1.]
+2025-10-03 02:15:11,942 - INFO - Evaluating [7, 5, 1] -- Initial Utility 186.9778099269532 -- Target Utility 162
+2025-10-03 02:17:38,016 - INFO - [OPTIMIZE] Trying combo size k=1
+2025-10-03 02:17:38,017 - INFO - [INFO] Running optimistic search with combined interventions...
+2025-10-03 02:17:38,017 - INFO - [SEARCH] Trying intervention: outlier → 6
+2025-10-03 02:17:38,828 - INFO - [TRY] outlier=6,pipeline: {'missing_value': 7.0, 'outlier': 6, 'normalization': 5.0, 'model': 1.0}, Utility=157.4434, Best=186.9778
+2025-10-03 02:17:38,829 - INFO - ✅ Target achieved 🎯
+2025-10-03 02:17:38,829 - INFO - required optimistic iterations: 1
+2025-10-03 02:17:38,829 - INFO - passing pipeline: order=['missing_value', 'outlier', 'normalization', 'model'], vec=[7, 6, 5, 1]
+2025-10-03 02:17:38,829 - INFO - Total iterations so far: 1
+2025-10-03 02:17:38,829 - INFO - pipeline[7. 5. 1.]
+2025-10-03 02:17:39,187 - INFO - Evaluating [8, 1, 1] -- Initial Utility 187.06781374489447 -- Target Utility 162
+2025-10-03 02:19:32,189 - INFO - [OPTIMIZE] Trying combo size k=1
+2025-10-03 02:19:32,190 - INFO - [INFO] Running optimistic search with combined interventions...
+2025-10-03 02:19:32,190 - INFO - [SEARCH] Trying intervention: outlier → 6
+2025-10-03 02:19:32,912 - INFO - [TRY] outlier=6,pipeline: {'missing_value': 8.0, 'outlier': 6, 'normalization': 1.0, 'model': 1.0}, Utility=157.7094, Best=187.0678
+2025-10-03 02:19:32,912 - INFO - ✅ Target achieved 🎯
+2025-10-03 02:19:32,912 - INFO - required optimistic iterations: 1
+2025-10-03 02:19:32,912 - INFO - passing pipeline: order=['missing_value', 'outlier', 'normalization', 'model'], vec=[8, 6, 1, 1]
+2025-10-03 02:19:32,912 - INFO - Total iterations so far: 1
+2025-10-03 02:19:32,912 - INFO - pipeline[8. 1. 1.]
+2025-10-03 02:19:33,368 - INFO - Evaluating [8, 2, 1] -- Initial Utility 187.06781374489447 -- Target Utility 162
+2025-10-03 02:21:50,525 - INFO - [OPTIMIZE] Trying combo size k=1
+2025-10-03 02:21:50,527 - INFO - [INFO] Running optimistic search with combined interventions...
+2025-10-03 02:21:50,527 - INFO - [SEARCH] Trying intervention: outlier → 6
+2025-10-03 02:21:51,185 - INFO - [TRY] outlier=6,pipeline: {'missing_value': 8.0, 'outlier': 6, 'normalization': 2.0, 'model': 1.0}, Utility=157.7094, Best=187.0678
+2025-10-03 02:21:51,185 - INFO - ✅ Target achieved 🎯
+2025-10-03 02:21:51,186 - INFO - required optimistic iterations: 1
+2025-10-03 02:21:51,186 - INFO - passing pipeline: order=['missing_value', 'outlier', 'normalization', 'model'], vec=[8, 6, 2, 1]
+2025-10-03 02:21:51,186 - INFO - Total iterations so far: 1
+2025-10-03 02:21:51,186 - INFO - pipeline[8. 2. 1.]
+2025-10-03 02:21:51,799 - INFO - Evaluating [8, 3, 1] -- Initial Utility 187.06781374489447 -- Target Utility 162
+2025-10-03 02:24:11,020 - INFO - [OPTIMIZE] Trying combo size k=1
+2025-10-03 02:24:11,020 - INFO - [INFO] Running optimistic search with combined interventions...
+2025-10-03 02:24:11,020 - INFO - [SEARCH] Trying intervention: outlier → 6
+2025-10-03 02:24:11,689 - INFO - [TRY] outlier=6,pipeline: {'missing_value': 8.0, 'outlier': 6, 'normalization': 3.0, 'model': 1.0}, Utility=157.7094, Best=187.0678
+2025-10-03 02:24:11,689 - INFO - ✅ Target achieved 🎯
+2025-10-03 02:24:11,689 - INFO - required optimistic iterations: 1
+2025-10-03 02:24:11,689 - INFO - passing pipeline: order=['missing_value', 'outlier', 'normalization', 'model'], vec=[8, 6, 3, 1]
+2025-10-03 02:24:11,689 - INFO - Total iterations so far: 1
+2025-10-03 02:24:11,689 - INFO - pipeline[8. 3. 1.]
+2025-10-03 02:24:12,210 - INFO - Evaluating [8, 4, 1] -- Initial Utility 187.06781374489447 -- Target Utility 162
+2025-10-03 02:26:32,845 - INFO - [OPTIMIZE] Trying combo size k=1
+2025-10-03 02:26:32,846 - INFO - [INFO] Running optimistic search with combined interventions...
+2025-10-03 02:26:32,846 - INFO - [SEARCH] Trying intervention: outlier → 6
+2025-10-03 02:26:33,419 - INFO - [TRY] outlier=6,pipeline: {'missing_value': 8.0, 'outlier': 6, 'normalization': 4.0, 'model': 1.0}, Utility=157.7094, Best=187.0678
+2025-10-03 02:26:33,419 - INFO - ✅ Target achieved 🎯
+2025-10-03 02:26:33,419 - INFO - required optimistic iterations: 1
+2025-10-03 02:26:33,419 - INFO - passing pipeline: order=['missing_value', 'outlier', 'normalization', 'model'], vec=[8, 6, 4, 1]
+2025-10-03 02:26:33,419 - INFO - Total iterations so far: 1
+2025-10-03 02:26:33,419 - INFO - pipeline[8. 4. 1.]
+2025-10-03 02:26:33,861 - INFO - Evaluating [8, 5, 1] -- Initial Utility 187.0678137448945 -- Target Utility 162
+2025-10-03 02:28:48,543 - INFO - [OPTIMIZE] Trying combo size k=1
+2025-10-03 02:28:48,544 - INFO - [INFO] Running optimistic search with combined interventions...
+2025-10-03 02:28:48,544 - INFO - [SEARCH] Trying intervention: outlier → 6
+2025-10-03 02:28:49,146 - INFO - [TRY] outlier=6,pipeline: {'missing_value': 8.0, 'outlier': 6, 'normalization': 5.0, 'model': 1.0}, Utility=157.7094, Best=187.0678
+2025-10-03 02:28:49,146 - INFO - ✅ Target achieved 🎯
+2025-10-03 02:28:49,146 - INFO - required optimistic iterations: 1
+2025-10-03 02:28:49,146 - INFO - passing pipeline: order=['missing_value', 'outlier', 'normalization', 'model'], vec=[8, 6, 5, 1]
+2025-10-03 02:28:49,146 - INFO - Total iterations so far: 1
+2025-10-03 02:28:49,146 - INFO - pipeline[8. 5. 1.]
+2025-10-03 02:28:49,623 - INFO - Evaluating [9, 1, 1] -- Initial Utility 187.10024966872945 -- Target Utility 162
+2025-10-03 02:30:55,115 - INFO - [OPTIMIZE] Trying combo size k=1
+2025-10-03 02:30:55,115 - INFO - [INFO] Running optimistic search with combined interventions...
+2025-10-03 02:30:55,115 - INFO - [SEARCH] Trying intervention: outlier → 6
+2025-10-03 02:30:55,731 - INFO - [TRY] outlier=6,pipeline: {'missing_value': 9.0, 'outlier': 6, 'normalization': 1.0, 'model': 1.0}, Utility=157.7699, Best=187.1002
+2025-10-03 02:30:55,731 - INFO - ✅ Target achieved 🎯
+2025-10-03 02:30:55,731 - INFO - required optimistic iterations: 1
+2025-10-03 02:30:55,731 - INFO - passing pipeline: order=['missing_value', 'outlier', 'normalization', 'model'], vec=[9, 6, 1, 1]
+2025-10-03 02:30:55,731 - INFO - Total iterations so far: 1
+2025-10-03 02:30:55,731 - INFO - pipeline[9. 1. 1.]
+2025-10-03 02:30:56,168 - INFO - Evaluating [9, 2, 1] -- Initial Utility 187.10024966872945 -- Target Utility 162
+2025-10-03 02:33:15,099 - INFO - [OPTIMIZE] Trying combo size k=1
+2025-10-03 02:33:15,100 - INFO - [INFO] Running optimistic search with combined interventions...
+2025-10-03 02:33:15,100 - INFO - [SEARCH] Trying intervention: outlier → 6
+2025-10-03 02:33:15,769 - INFO - [TRY] outlier=6,pipeline: {'missing_value': 9.0, 'outlier': 6, 'normalization': 2.0, 'model': 1.0}, Utility=157.7699, Best=187.1002
+2025-10-03 02:33:15,769 - INFO - ✅ Target achieved 🎯
+2025-10-03 02:33:15,769 - INFO - required optimistic iterations: 1
+2025-10-03 02:33:15,769 - INFO - passing pipeline: order=['missing_value', 'outlier', 'normalization', 'model'], vec=[9, 6, 2, 1]
+2025-10-03 02:33:15,769 - INFO - Total iterations so far: 1
+2025-10-03 02:33:15,769 - INFO - pipeline[9. 2. 1.]
+2025-10-03 02:33:16,352 - INFO - Evaluating [9, 3, 1] -- Initial Utility 187.10024966872945 -- Target Utility 162
+2025-10-03 02:35:32,322 - INFO - [OPTIMIZE] Trying combo size k=1
+2025-10-03 02:35:32,323 - INFO - [INFO] Running optimistic search with combined interventions...
+2025-10-03 02:35:32,323 - INFO - [SEARCH] Trying intervention: outlier → 6
+2025-10-03 02:35:33,009 - INFO - [TRY] outlier=6,pipeline: {'missing_value': 9.0, 'outlier': 6, 'normalization': 3.0, 'model': 1.0}, Utility=157.7699, Best=187.1002
+2025-10-03 02:35:33,009 - INFO - ✅ Target achieved 🎯
+2025-10-03 02:35:33,009 - INFO - required optimistic iterations: 1
+2025-10-03 02:35:33,009 - INFO - passing pipeline: order=['missing_value', 'outlier', 'normalization', 'model'], vec=[9, 6, 3, 1]
+2025-10-03 02:35:33,009 - INFO - Total iterations so far: 1
+2025-10-03 02:35:33,009 - INFO - pipeline[9. 3. 1.]
+2025-10-03 02:35:33,394 - INFO - Evaluating [9, 4, 1] -- Initial Utility 187.10024966872948 -- Target Utility 162
+2025-10-03 02:37:50,510 - INFO - [OPTIMIZE] Trying combo size k=1
+2025-10-03 02:37:50,511 - INFO - [INFO] Running optimistic search with combined interventions...
+2025-10-03 02:37:50,511 - INFO - [SEARCH] Trying intervention: outlier → 6
+2025-10-03 02:37:51,077 - INFO - [TRY] outlier=6,pipeline: {'missing_value': 9.0, 'outlier': 6, 'normalization': 4.0, 'model': 1.0}, Utility=157.7699, Best=187.1002
+2025-10-03 02:37:51,077 - INFO - ✅ Target achieved 🎯
+2025-10-03 02:37:51,077 - INFO - required optimistic iterations: 1
+2025-10-03 02:37:51,077 - INFO - passing pipeline: order=['missing_value', 'outlier', 'normalization', 'model'], vec=[9, 6, 4, 1]
+2025-10-03 02:37:51,077 - INFO - Total iterations so far: 1
+2025-10-03 02:37:51,078 - INFO - pipeline[9. 4. 1.]
+2025-10-03 02:37:51,572 - INFO - Evaluating [9, 5, 1] -- Initial Utility 187.10024966872945 -- Target Utility 162
+2025-10-03 02:40:10,036 - INFO - [OPTIMIZE] Trying combo size k=1
+2025-10-03 02:40:10,038 - INFO - [INFO] Running optimistic search with combined interventions...
+2025-10-03 02:40:10,038 - INFO - [SEARCH] Trying intervention: outlier → 6
+2025-10-03 02:40:10,671 - INFO - [TRY] outlier=6,pipeline: {'missing_value': 9.0, 'outlier': 6, 'normalization': 5.0, 'model': 1.0}, Utility=157.7699, Best=187.1002
+2025-10-03 02:40:10,671 - INFO - ✅ Target achieved 🎯
+2025-10-03 02:40:10,671 - INFO - required optimistic iterations: 1
+2025-10-03 02:40:10,671 - INFO - passing pipeline: order=['missing_value', 'outlier', 'normalization', 'model'], vec=[9, 6, 5, 1]
+2025-10-03 02:40:10,671 - INFO - Total iterations so far: 1
+2025-10-03 02:40:10,671 - INFO - pipeline[9. 5. 1.]
+2025-10-03 02:40:10,866 - INFO - Evaluating [1, 1, 1] -- Initial Utility 189.32386132044957 -- Target Utility 170
+2025-10-03 02:41:50,446 - INFO - [OPTIMIZE] Trying combo size k=1
+2025-10-03 02:41:50,448 - INFO - [INFO] Running optimistic search with combined interventions...
+2025-10-03 02:41:50,448 - INFO - [SEARCH] Trying intervention: outlier → 8
+2025-10-03 02:41:50,762 - INFO - [TRY] outlier=8,pipeline: {'missing_value': 1.0, 'outlier': 8, 'normalization': 1.0, 'model': 1.0}, Utility=158.4669, Best=189.3239
+2025-10-03 02:41:50,762 - INFO - ✅ Target achieved 🎯
+2025-10-03 02:41:50,762 - INFO - required optimistic iterations: 1
+2025-10-03 02:41:50,762 - INFO - passing pipeline: order=['missing_value', 'outlier', 'normalization', 'model'], vec=[1, 8, 1, 1]
+2025-10-03 02:41:50,762 - INFO - Total iterations so far: 1
+2025-10-03 02:41:50,763 - INFO - pipeline[1. 1. 1.]
+2025-10-03 02:41:50,944 - INFO - Evaluating [1, 2, 1] -- Initial Utility 189.3238613204496 -- Target Utility 170
+2025-10-03 02:43:48,861 - INFO - [OPTIMIZE] Trying combo size k=1
+2025-10-03 02:43:48,862 - INFO - [INFO] Running optimistic search with combined interventions...
+2025-10-03 02:43:48,862 - INFO - [SEARCH] Trying intervention: outlier → 8
+2025-10-03 02:43:49,242 - INFO - [TRY] outlier=8,pipeline: {'missing_value': 1.0, 'outlier': 8, 'normalization': 2.0, 'model': 1.0}, Utility=158.4669, Best=189.3239
+2025-10-03 02:43:49,242 - INFO - ✅ Target achieved 🎯
+2025-10-03 02:43:49,242 - INFO - required optimistic iterations: 1
+2025-10-03 02:43:49,242 - INFO - passing pipeline: order=['missing_value', 'outlier', 'normalization', 'model'], vec=[1, 8, 2, 1]
+2025-10-03 02:43:49,242 - INFO - Total iterations so far: 1
+2025-10-03 02:43:49,242 - INFO - pipeline[1. 2. 1.]
+2025-10-03 02:43:49,409 - INFO - Evaluating [1, 3, 1] -- Initial Utility 189.3238613204496 -- Target Utility 170
+2025-10-03 02:46:03,567 - INFO - [OPTIMIZE] Trying combo size k=1
+2025-10-03 02:46:03,568 - INFO - [INFO] Running optimistic search with combined interventions...
+2025-10-03 02:46:03,568 - INFO - [SEARCH] Trying intervention: outlier → 8
+2025-10-03 02:46:03,940 - INFO - [TRY] outlier=8,pipeline: {'missing_value': 1.0, 'outlier': 8, 'normalization': 3.0, 'model': 1.0}, Utility=158.4669, Best=189.3239
+2025-10-03 02:46:03,940 - INFO - ✅ Target achieved 🎯
+2025-10-03 02:46:03,940 - INFO - required optimistic iterations: 1
+2025-10-03 02:46:03,940 - INFO - passing pipeline: order=['missing_value', 'outlier', 'normalization', 'model'], vec=[1, 8, 3, 1]
+2025-10-03 02:46:03,940 - INFO - Total iterations so far: 1
+2025-10-03 02:46:03,940 - INFO - pipeline[1. 3. 1.]
+2025-10-03 02:46:04,267 - INFO - Evaluating [1, 4, 1] -- Initial Utility 189.3238613204496 -- Target Utility 170
+2025-10-03 02:48:08,639 - INFO - [OPTIMIZE] Trying combo size k=1
+2025-10-03 02:48:08,640 - INFO - [INFO] Running optimistic search with combined interventions...
+2025-10-03 02:48:08,640 - INFO - [SEARCH] Trying intervention: outlier → 8
+2025-10-03 02:48:08,968 - INFO - [TRY] outlier=8,pipeline: {'missing_value': 1.0, 'outlier': 8, 'normalization': 4.0, 'model': 1.0}, Utility=158.4669, Best=189.3239
+2025-10-03 02:48:08,968 - INFO - ✅ Target achieved 🎯
+2025-10-03 02:48:08,968 - INFO - required optimistic iterations: 1
+2025-10-03 02:48:08,968 - INFO - passing pipeline: order=['missing_value', 'outlier', 'normalization', 'model'], vec=[1, 8, 4, 1]
+2025-10-03 02:48:08,968 - INFO - Total iterations so far: 1
+2025-10-03 02:48:08,969 - INFO - pipeline[1. 4. 1.]
+2025-10-03 02:48:09,190 - INFO - Evaluating [1, 5, 1] -- Initial Utility 189.3238613204496 -- Target Utility 170
+2025-10-03 02:50:13,472 - INFO - [OPTIMIZE] Trying combo size k=1
+2025-10-03 02:50:13,486 - INFO - [INFO] Running optimistic search with combined interventions...
+2025-10-03 02:50:13,486 - INFO - [SEARCH] Trying intervention: outlier → 8
+2025-10-03 02:50:13,876 - INFO - [TRY] outlier=8,pipeline: {'missing_value': 1.0, 'outlier': 8, 'normalization': 5.0, 'model': 1.0}, Utility=158.4669, Best=189.3239
+2025-10-03 02:50:13,876 - INFO - ✅ Target achieved 🎯
+2025-10-03 02:50:13,876 - INFO - required optimistic iterations: 1
+2025-10-03 02:50:13,876 - INFO - passing pipeline: order=['missing_value', 'outlier', 'normalization', 'model'], vec=[1, 8, 5, 1]
+2025-10-03 02:50:13,877 - INFO - Total iterations so far: 1
+2025-10-03 02:50:13,877 - INFO - pipeline[1. 5. 1.]
+2025-10-03 02:50:14,106 - INFO - Evaluating [2, 1, 1] -- Initial Utility 187.11086793920893 -- Target Utility 170
+2025-10-03 02:51:57,960 - INFO - [OPTIMIZE] Trying combo size k=1
+2025-10-03 02:51:57,961 - INFO - [INFO] Running optimistic search with combined interventions...
+2025-10-03 02:51:57,961 - INFO - [SEARCH] Trying intervention: outlier → 6
+2025-10-03 02:51:58,402 - INFO - [TRY] outlier=6,pipeline: {'missing_value': 2.0, 'outlier': 6, 'normalization': 1.0, 'model': 1.0}, Utility=158.3248, Best=187.1109
+2025-10-03 02:51:58,402 - INFO - ✅ Target achieved 🎯
+2025-10-03 02:51:58,402 - INFO - required optimistic iterations: 1
+2025-10-03 02:51:58,402 - INFO - passing pipeline: order=['missing_value', 'outlier', 'normalization', 'model'], vec=[2, 6, 1, 1]
+2025-10-03 02:51:58,402 - INFO - Total iterations so far: 1
+2025-10-03 02:51:58,402 - INFO - pipeline[2. 1. 1.]
+2025-10-03 02:51:58,602 - INFO - Evaluating [2, 2, 1] -- Initial Utility 187.1108679392089 -- Target Utility 170
+2025-10-03 02:54:08,180 - INFO - [OPTIMIZE] Trying combo size k=1
+2025-10-03 02:54:08,181 - INFO - [INFO] Running optimistic search with combined interventions...
+2025-10-03 02:54:08,181 - INFO - [SEARCH] Trying intervention: outlier → 6
+2025-10-03 02:54:08,619 - INFO - [TRY] outlier=6,pipeline: {'missing_value': 2.0, 'outlier': 6, 'normalization': 2.0, 'model': 1.0}, Utility=158.3248, Best=187.1109
+2025-10-03 02:54:08,620 - INFO - ✅ Target achieved 🎯
+2025-10-03 02:54:08,620 - INFO - required optimistic iterations: 1
+2025-10-03 02:54:08,620 - INFO - passing pipeline: order=['missing_value', 'outlier', 'normalization', 'model'], vec=[2, 6, 2, 1]
+2025-10-03 02:54:08,620 - INFO - Total iterations so far: 1
+2025-10-03 02:54:08,620 - INFO - pipeline[2. 2. 1.]
+2025-10-03 02:54:08,815 - INFO - Evaluating [2, 3, 1] -- Initial Utility 187.1108679392089 -- Target Utility 170
+2025-10-03 02:56:19,026 - INFO - [OPTIMIZE] Trying combo size k=1
+2025-10-03 02:56:19,027 - INFO - [INFO] Running optimistic search with combined interventions...
+2025-10-03 02:56:19,027 - INFO - [SEARCH] Trying intervention: outlier → 6
+2025-10-03 02:56:19,363 - INFO - [TRY] outlier=6,pipeline: {'missing_value': 2.0, 'outlier': 6, 'normalization': 3.0, 'model': 1.0}, Utility=158.3248, Best=187.1109
+2025-10-03 02:56:19,363 - INFO - ✅ Target achieved 🎯
+2025-10-03 02:56:19,363 - INFO - required optimistic iterations: 1
+2025-10-03 02:56:19,367 - INFO - passing pipeline: order=['missing_value', 'outlier', 'normalization', 'model'], vec=[2, 6, 3, 1]
+2025-10-03 02:56:19,367 - INFO - Total iterations so far: 1
+2025-10-03 02:56:19,367 - INFO - pipeline[2. 3. 1.]
+2025-10-03 02:56:19,617 - INFO - Evaluating [2, 4, 1] -- Initial Utility 187.11086793920893 -- Target Utility 170
+2025-10-03 02:58:27,620 - INFO - [OPTIMIZE] Trying combo size k=1
+2025-10-03 02:58:27,621 - INFO - [INFO] Running optimistic search with combined interventions...
+2025-10-03 02:58:27,621 - INFO - [SEARCH] Trying intervention: outlier → 6
+2025-10-03 02:58:28,069 - INFO - [TRY] outlier=6,pipeline: {'missing_value': 2.0, 'outlier': 6, 'normalization': 4.0, 'model': 1.0}, Utility=158.3248, Best=187.1109
+2025-10-03 02:58:28,069 - INFO - ✅ Target achieved 🎯
+2025-10-03 02:58:28,069 - INFO - required optimistic iterations: 1
+2025-10-03 02:58:28,069 - INFO - passing pipeline: order=['missing_value', 'outlier', 'normalization', 'model'], vec=[2, 6, 4, 1]
+2025-10-03 02:58:28,069 - INFO - Total iterations so far: 1
+2025-10-03 02:58:28,069 - INFO - pipeline[2. 4. 1.]
+2025-10-03 02:58:28,489 - INFO - Evaluating [2, 5, 1] -- Initial Utility 187.1108679392089 -- Target Utility 170
+2025-10-03 03:00:51,500 - INFO - [OPTIMIZE] Trying combo size k=1
+2025-10-03 03:00:51,501 - INFO - [INFO] Running optimistic search with combined interventions...
+2025-10-03 03:00:51,501 - INFO - [SEARCH] Trying intervention: outlier → 6
+2025-10-03 03:00:51,864 - INFO - [TRY] outlier=6,pipeline: {'missing_value': 2.0, 'outlier': 6, 'normalization': 5.0, 'model': 1.0}, Utility=158.3248, Best=187.1109
+2025-10-03 03:00:51,864 - INFO - ✅ Target achieved 🎯
+2025-10-03 03:00:51,864 - INFO - required optimistic iterations: 1
+2025-10-03 03:00:51,864 - INFO - passing pipeline: order=['missing_value', 'outlier', 'normalization', 'model'], vec=[2, 6, 5, 1]
+2025-10-03 03:00:51,864 - INFO - Total iterations so far: 1
+2025-10-03 03:00:51,864 - INFO - pipeline[2. 5. 1.]
+2025-10-03 03:00:52,036 - INFO - Evaluating [3, 1, 1] -- Initial Utility 187.09748014350498 -- Target Utility 170
+2025-10-03 03:02:36,212 - INFO - [OPTIMIZE] Trying combo size k=1
+2025-10-03 03:02:36,213 - INFO - [INFO] Running optimistic search with combined interventions...
+2025-10-03 03:02:36,213 - INFO - [SEARCH] Trying intervention: outlier → 6
+2025-10-03 03:02:36,602 - INFO - [TRY] outlier=6,pipeline: {'missing_value': 3.0, 'outlier': 6, 'normalization': 1.0, 'model': 1.0}, Utility=158.3693, Best=187.0975
+2025-10-03 03:02:36,602 - INFO - ✅ Target achieved 🎯
+2025-10-03 03:02:36,602 - INFO - required optimistic iterations: 1
+2025-10-03 03:02:36,602 - INFO - passing pipeline: order=['missing_value', 'outlier', 'normalization', 'model'], vec=[3, 6, 1, 1]
+2025-10-03 03:02:36,603 - INFO - Total iterations so far: 1
+2025-10-03 03:02:36,603 - INFO - pipeline[3. 1. 1.]
+2025-10-03 03:02:36,834 - INFO - Evaluating [3, 2, 1] -- Initial Utility 187.09748014350498 -- Target Utility 170
+2025-10-03 03:04:44,448 - INFO - [OPTIMIZE] Trying combo size k=1
+2025-10-03 03:04:44,449 - INFO - [INFO] Running optimistic search with combined interventions...
+2025-10-03 03:04:44,450 - INFO - [SEARCH] Trying intervention: outlier → 6
+2025-10-03 03:04:44,952 - INFO - [TRY] outlier=6,pipeline: {'missing_value': 3.0, 'outlier': 6, 'normalization': 2.0, 'model': 1.0}, Utility=158.3693, Best=187.0975
+2025-10-03 03:04:44,953 - INFO - ✅ Target achieved 🎯
+2025-10-03 03:04:44,953 - INFO - required optimistic iterations: 1
+2025-10-03 03:04:44,953 - INFO - passing pipeline: order=['missing_value', 'outlier', 'normalization', 'model'], vec=[3, 6, 2, 1]
+2025-10-03 03:04:44,953 - INFO - Total iterations so far: 1
+2025-10-03 03:04:44,953 - INFO - pipeline[3. 2. 1.]
+2025-10-03 03:04:45,311 - INFO - Evaluating [3, 3, 1] -- Initial Utility 187.09748014350498 -- Target Utility 170
+2025-10-03 03:06:53,757 - INFO - [OPTIMIZE] Trying combo size k=1
+2025-10-03 03:06:53,758 - INFO - [INFO] Running optimistic search with combined interventions...
+2025-10-03 03:06:53,758 - INFO - [SEARCH] Trying intervention: outlier → 6
+2025-10-03 03:06:54,110 - INFO - [TRY] outlier=6,pipeline: {'missing_value': 3.0, 'outlier': 6, 'normalization': 3.0, 'model': 1.0}, Utility=158.3693, Best=187.0975
+2025-10-03 03:06:54,112 - INFO - ✅ Target achieved 🎯
+2025-10-03 03:06:54,113 - INFO - required optimistic iterations: 1
+2025-10-03 03:06:54,113 - INFO - passing pipeline: order=['missing_value', 'outlier', 'normalization', 'model'], vec=[3, 6, 3, 1]
+2025-10-03 03:06:54,113 - INFO - Total iterations so far: 1
+2025-10-03 03:06:54,113 - INFO - pipeline[3. 3. 1.]
+2025-10-03 03:06:54,386 - INFO - Evaluating [3, 4, 1] -- Initial Utility 187.09748014350498 -- Target Utility 170
+2025-10-03 03:09:03,647 - INFO - [OPTIMIZE] Trying combo size k=1
+2025-10-03 03:09:03,649 - INFO - [INFO] Running optimistic search with combined interventions...
+2025-10-03 03:09:03,649 - INFO - [SEARCH] Trying intervention: outlier → 6
+2025-10-03 03:09:04,041 - INFO - [TRY] outlier=6,pipeline: {'missing_value': 3.0, 'outlier': 6, 'normalization': 4.0, 'model': 1.0}, Utility=158.3693, Best=187.0975
+2025-10-03 03:09:04,041 - INFO - ✅ Target achieved 🎯
+2025-10-03 03:09:04,041 - INFO - required optimistic iterations: 1
+2025-10-03 03:09:04,041 - INFO - passing pipeline: order=['missing_value', 'outlier', 'normalization', 'model'], vec=[3, 6, 4, 1]
+2025-10-03 03:09:04,042 - INFO - Total iterations so far: 1
+2025-10-03 03:09:04,042 - INFO - pipeline[3. 4. 1.]
+2025-10-03 03:09:04,282 - INFO - Evaluating [3, 5, 1] -- Initial Utility 187.09748014350498 -- Target Utility 170
+2025-10-03 03:11:10,740 - INFO - [OPTIMIZE] Trying combo size k=1
+2025-10-03 03:11:10,741 - INFO - [INFO] Running optimistic search with combined interventions...
+2025-10-03 03:11:10,741 - INFO - [SEARCH] Trying intervention: outlier → 6
+2025-10-03 03:11:11,119 - INFO - [TRY] outlier=6,pipeline: {'missing_value': 3.0, 'outlier': 6, 'normalization': 5.0, 'model': 1.0}, Utility=158.3693, Best=187.0975
+2025-10-03 03:11:11,119 - INFO - ✅ Target achieved 🎯
+2025-10-03 03:11:11,119 - INFO - required optimistic iterations: 1
+2025-10-03 03:11:11,119 - INFO - passing pipeline: order=['missing_value', 'outlier', 'normalization', 'model'], vec=[3, 6, 5, 1]
+2025-10-03 03:11:11,120 - INFO - Total iterations so far: 1
+2025-10-03 03:11:11,120 - INFO - pipeline[3. 5. 1.]
+2025-10-03 03:11:11,627 - INFO - Evaluating [4, 1, 1] -- Initial Utility 187.44380692213028 -- Target Utility 170
+2025-10-03 03:12:56,667 - INFO - [OPTIMIZE] Trying combo size k=1
+2025-10-03 03:12:56,668 - INFO - [INFO] Running optimistic search with combined interventions...
+2025-10-03 03:12:56,668 - INFO - [SEARCH] Trying intervention: outlier → 6
+2025-10-03 03:12:57,047 - INFO - [TRY] outlier=6,pipeline: {'missing_value': 4.0, 'outlier': 6, 'normalization': 1.0, 'model': 1.0}, Utility=158.7840, Best=187.4438
+2025-10-03 03:12:57,047 - INFO - ✅ Target achieved 🎯
+2025-10-03 03:12:57,047 - INFO - required optimistic iterations: 1
+2025-10-03 03:12:57,047 - INFO - passing pipeline: order=['missing_value', 'outlier', 'normalization', 'model'], vec=[4, 6, 1, 1]
+2025-10-03 03:12:57,047 - INFO - Total iterations so far: 1
+2025-10-03 03:12:57,048 - INFO - pipeline[4. 1. 1.]
+2025-10-03 03:12:57,295 - INFO - Evaluating [4, 2, 1] -- Initial Utility 187.44380692213028 -- Target Utility 170
+2025-10-03 03:15:12,417 - INFO - [OPTIMIZE] Trying combo size k=1
+2025-10-03 03:15:12,417 - INFO - [INFO] Running optimistic search with combined interventions...
+2025-10-03 03:15:12,417 - INFO - [SEARCH] Trying intervention: outlier → 8
+2025-10-03 03:15:12,787 - INFO - [TRY] outlier=8,pipeline: {'missing_value': 4.0, 'normalization': 2.0, 'outlier': 8, 'model': 1.0}, Utility=164.8724, Best=187.4438
+2025-10-03 03:15:12,787 - INFO - ✅ Target achieved 🎯
+2025-10-03 03:15:12,788 - INFO - required optimistic iterations: 1
+2025-10-03 03:15:12,788 - INFO - passing pipeline: order=['missing_value', 'normalization', 'outlier', 'model'], vec=[4, 2, 8, 1]
+2025-10-03 03:15:12,788 - INFO - Total iterations so far: 1
+2025-10-03 03:15:12,788 - INFO - pipeline[4. 2. 1.]
+2025-10-03 03:15:13,084 - INFO - Evaluating [4, 3, 1] -- Initial Utility 187.44380692213028 -- Target Utility 170
+2025-10-03 03:17:23,812 - INFO - [OPTIMIZE] Trying combo size k=1
+2025-10-03 03:17:23,812 - INFO - [INFO] Running optimistic search with combined interventions...
+2025-10-03 03:17:23,813 - INFO - [SEARCH] Trying intervention: outlier → 6
+2025-10-03 03:17:24,128 - INFO - [TRY] outlier=6,pipeline: {'missing_value': 4.0, 'outlier': 6, 'normalization': 3.0, 'model': 1.0}, Utility=158.7840, Best=187.4438
+2025-10-03 03:17:24,128 - INFO - ✅ Target achieved 🎯
+2025-10-03 03:17:24,128 - INFO - required optimistic iterations: 1
+2025-10-03 03:17:24,128 - INFO - passing pipeline: order=['missing_value', 'outlier', 'normalization', 'model'], vec=[4, 6, 3, 1]
+2025-10-03 03:17:24,128 - INFO - Total iterations so far: 1
+2025-10-03 03:17:24,129 - INFO - pipeline[4. 3. 1.]
+2025-10-03 03:17:24,349 - INFO - Evaluating [4, 4, 1] -- Initial Utility 187.4438069221303 -- Target Utility 170
+2025-10-03 03:19:31,684 - INFO - [OPTIMIZE] Trying combo size k=1
+2025-10-03 03:19:31,686 - INFO - [INFO] Running optimistic search with combined interventions...
+2025-10-03 03:19:31,686 - INFO - [SEARCH] Trying intervention: outlier → 6
+2025-10-03 03:19:32,145 - INFO - [TRY] outlier=6,pipeline: {'missing_value': 4.0, 'outlier': 6, 'normalization': 4.0, 'model': 1.0}, Utility=158.7840, Best=187.4438
+2025-10-03 03:19:32,145 - INFO - ✅ Target achieved 🎯
+2025-10-03 03:19:32,145 - INFO - required optimistic iterations: 1
+2025-10-03 03:19:32,145 - INFO - passing pipeline: order=['missing_value', 'outlier', 'normalization', 'model'], vec=[4, 6, 4, 1]
+2025-10-03 03:19:32,145 - INFO - Total iterations so far: 1
+2025-10-03 03:19:32,145 - INFO - pipeline[4. 4. 1.]
+2025-10-03 03:19:32,417 - INFO - Evaluating [4, 5, 1] -- Initial Utility 187.4438069221303 -- Target Utility 170
+2025-10-03 03:21:38,507 - INFO - [OPTIMIZE] Trying combo size k=1
+2025-10-03 03:21:38,508 - INFO - [INFO] Running optimistic search with combined interventions...
+2025-10-03 03:21:38,508 - INFO - [SEARCH] Trying intervention: outlier → 6
+2025-10-03 03:21:38,887 - INFO - [TRY] outlier=6,pipeline: {'missing_value': 4.0, 'outlier': 6, 'normalization': 5.0, 'model': 1.0}, Utility=158.7840, Best=187.4438
+2025-10-03 03:21:38,887 - INFO - ✅ Target achieved 🎯
+2025-10-03 03:21:38,887 - INFO - required optimistic iterations: 1
+2025-10-03 03:21:38,887 - INFO - passing pipeline: order=['missing_value', 'outlier', 'normalization', 'model'], vec=[4, 6, 5, 1]
+2025-10-03 03:21:38,887 - INFO - Total iterations so far: 1
+2025-10-03 03:21:38,887 - INFO - pipeline[4. 5. 1.]
+2025-10-03 03:21:39,312 - INFO - Evaluating [5, 1, 1] -- Initial Utility 186.98202072458875 -- Target Utility 170
+2025-10-03 03:23:34,179 - INFO - [OPTIMIZE] Trying combo size k=1
+2025-10-03 03:23:34,180 - INFO - [INFO] Running optimistic search with combined interventions...
+2025-10-03 03:23:34,180 - INFO - [SEARCH] Trying intervention: outlier → 6
+2025-10-03 03:23:34,745 - INFO - [TRY] outlier=6,pipeline: {'missing_value': 5.0, 'outlier': 6, 'normalization': 1.0, 'model': 1.0}, Utility=157.3719, Best=186.9820
+2025-10-03 03:23:34,745 - INFO - ✅ Target achieved 🎯
+2025-10-03 03:23:34,745 - INFO - required optimistic iterations: 1
+2025-10-03 03:23:34,745 - INFO - passing pipeline: order=['missing_value', 'outlier', 'normalization', 'model'], vec=[5, 6, 1, 1]
+2025-10-03 03:23:34,745 - INFO - Total iterations so far: 1
+2025-10-03 03:23:34,745 - INFO - pipeline[5. 1. 1.]
+2025-10-03 03:23:35,222 - INFO - Evaluating [5, 2, 1] -- Initial Utility 186.98202072458875 -- Target Utility 170
+2025-10-03 03:25:50,749 - INFO - [OPTIMIZE] Trying combo size k=1
+2025-10-03 03:25:50,750 - INFO - [INFO] Running optimistic search with combined interventions...
+2025-10-03 03:25:50,750 - INFO - [SEARCH] Trying intervention: outlier → 6
+2025-10-03 03:25:51,416 - INFO - [TRY] outlier=6,pipeline: {'missing_value': 5.0, 'outlier': 6, 'normalization': 2.0, 'model': 1.0}, Utility=157.3719, Best=186.9820
+2025-10-03 03:25:51,416 - INFO - ✅ Target achieved 🎯
+2025-10-03 03:25:51,416 - INFO - required optimistic iterations: 1
+2025-10-03 03:25:51,416 - INFO - passing pipeline: order=['missing_value', 'outlier', 'normalization', 'model'], vec=[5, 6, 2, 1]
+2025-10-03 03:25:51,416 - INFO - Total iterations so far: 1
+2025-10-03 03:25:51,416 - INFO - pipeline[5. 2. 1.]
+2025-10-03 03:25:51,929 - INFO - Evaluating [5, 3, 1] -- Initial Utility 186.98202072458875 -- Target Utility 170
+2025-10-03 03:28:15,979 - INFO - [OPTIMIZE] Trying combo size k=1
+2025-10-03 03:28:15,981 - INFO - [INFO] Running optimistic search with combined interventions...
+2025-10-03 03:28:15,981 - INFO - [SEARCH] Trying intervention: outlier → 6
+2025-10-03 03:28:16,745 - INFO - [TRY] outlier=6,pipeline: {'missing_value': 5.0, 'outlier': 6, 'normalization': 3.0, 'model': 1.0}, Utility=157.3719, Best=186.9820
+2025-10-03 03:28:16,745 - INFO - ✅ Target achieved 🎯
+2025-10-03 03:28:16,745 - INFO - required optimistic iterations: 1
+2025-10-03 03:28:16,745 - INFO - passing pipeline: order=['missing_value', 'outlier', 'normalization', 'model'], vec=[5, 6, 3, 1]
+2025-10-03 03:28:16,745 - INFO - Total iterations so far: 1
+2025-10-03 03:28:16,746 - INFO - pipeline[5. 3. 1.]
+2025-10-03 03:28:17,236 - INFO - Evaluating [5, 4, 1] -- Initial Utility 186.98202072458875 -- Target Utility 170
+2025-10-03 03:30:38,014 - INFO - [OPTIMIZE] Trying combo size k=1
+2025-10-03 03:30:38,014 - INFO - [INFO] Running optimistic search with combined interventions...
+2025-10-03 03:30:38,014 - INFO - [SEARCH] Trying intervention: outlier → 6
+2025-10-03 03:30:38,819 - INFO - [TRY] outlier=6,pipeline: {'missing_value': 5.0, 'outlier': 6, 'normalization': 4.0, 'model': 1.0}, Utility=157.3719, Best=186.9820
+2025-10-03 03:30:38,819 - INFO - ✅ Target achieved 🎯
+2025-10-03 03:30:38,819 - INFO - required optimistic iterations: 1
+2025-10-03 03:30:38,819 - INFO - passing pipeline: order=['missing_value', 'outlier', 'normalization', 'model'], vec=[5, 6, 4, 1]
+2025-10-03 03:30:38,819 - INFO - Total iterations so far: 1
+2025-10-03 03:30:38,819 - INFO - pipeline[5. 4. 1.]
+2025-10-03 03:30:39,158 - INFO - Evaluating [5, 5, 1] -- Initial Utility 186.98202072458875 -- Target Utility 170
+2025-10-03 03:32:57,428 - INFO - [OPTIMIZE] Trying combo size k=1
+2025-10-03 03:32:57,429 - INFO - [INFO] Running optimistic search with combined interventions...
+2025-10-03 03:32:57,429 - INFO - [SEARCH] Trying intervention: outlier → 6
+2025-10-03 03:32:58,251 - INFO - [TRY] outlier=6,pipeline: {'missing_value': 5.0, 'outlier': 6, 'normalization': 5.0, 'model': 1.0}, Utility=157.3719, Best=186.9820
+2025-10-03 03:32:58,251 - INFO - ✅ Target achieved 🎯
+2025-10-03 03:32:58,251 - INFO - required optimistic iterations: 1
+2025-10-03 03:32:58,251 - INFO - passing pipeline: order=['missing_value', 'outlier', 'normalization', 'model'], vec=[5, 6, 5, 1]
+2025-10-03 03:32:58,251 - INFO - Total iterations so far: 1
+2025-10-03 03:32:58,252 - INFO - pipeline[5. 5. 1.]
+2025-10-03 03:32:58,772 - INFO - Evaluating [6, 1, 1] -- Initial Utility 186.96623739130024 -- Target Utility 170
+2025-10-03 03:34:55,409 - INFO - [OPTIMIZE] Trying combo size k=1
+2025-10-03 03:34:55,412 - INFO - [INFO] Running optimistic search with combined interventions...
+2025-10-03 03:34:55,412 - INFO - [SEARCH] Trying intervention: outlier → 6
+2025-10-03 03:34:56,174 - INFO - [TRY] outlier=6,pipeline: {'missing_value': 6.0, 'outlier': 6, 'normalization': 1.0, 'model': 1.0}, Utility=157.4023, Best=186.9662
+2025-10-03 03:34:56,174 - INFO - ✅ Target achieved 🎯
+2025-10-03 03:34:56,174 - INFO - required optimistic iterations: 1
+2025-10-03 03:34:56,174 - INFO - passing pipeline: order=['missing_value', 'outlier', 'normalization', 'model'], vec=[6, 6, 1, 1]
+2025-10-03 03:34:56,174 - INFO - Total iterations so far: 1
+2025-10-03 03:34:56,175 - INFO - pipeline[6. 1. 1.]
+2025-10-03 03:34:56,673 - INFO - Evaluating [6, 2, 1] -- Initial Utility 186.96623739130027 -- Target Utility 170
+2025-10-03 03:37:13,444 - INFO - [OPTIMIZE] Trying combo size k=1
+2025-10-03 03:37:13,445 - INFO - [INFO] Running optimistic search with combined interventions...
+2025-10-03 03:37:13,445 - INFO - [SEARCH] Trying intervention: outlier → 6
+2025-10-03 03:37:14,119 - INFO - [TRY] outlier=6,pipeline: {'missing_value': 6.0, 'outlier': 6, 'normalization': 2.0, 'model': 1.0}, Utility=157.4023, Best=186.9662
+2025-10-03 03:37:14,119 - INFO - ✅ Target achieved 🎯
+2025-10-03 03:37:14,119 - INFO - required optimistic iterations: 1
+2025-10-03 03:37:14,119 - INFO - passing pipeline: order=['missing_value', 'outlier', 'normalization', 'model'], vec=[6, 6, 2, 1]
+2025-10-03 03:37:14,119 - INFO - Total iterations so far: 1
+2025-10-03 03:37:14,120 - INFO - pipeline[6. 2. 1.]
+2025-10-03 03:37:14,662 - INFO - Evaluating [6, 3, 1] -- Initial Utility 186.96623739130027 -- Target Utility 170
+2025-10-03 03:39:29,636 - INFO - [OPTIMIZE] Trying combo size k=1
+2025-10-03 03:39:29,637 - INFO - [INFO] Running optimistic search with combined interventions...
+2025-10-03 03:39:29,637 - INFO - [SEARCH] Trying intervention: outlier → 6
+2025-10-03 03:39:30,557 - INFO - [TRY] outlier=6,pipeline: {'missing_value': 6.0, 'outlier': 6, 'normalization': 3.0, 'model': 1.0}, Utility=157.4023, Best=186.9662
+2025-10-03 03:39:30,557 - INFO - ✅ Target achieved 🎯
+2025-10-03 03:39:30,557 - INFO - required optimistic iterations: 1
+2025-10-03 03:39:30,557 - INFO - passing pipeline: order=['missing_value', 'outlier', 'normalization', 'model'], vec=[6, 6, 3, 1]
+2025-10-03 03:39:30,557 - INFO - Total iterations so far: 1
+2025-10-03 03:39:30,557 - INFO - pipeline[6. 3. 1.]
+2025-10-03 03:39:31,149 - INFO - Evaluating [6, 4, 1] -- Initial Utility 186.96623739130027 -- Target Utility 170
+2025-10-03 03:41:49,610 - INFO - [OPTIMIZE] Trying combo size k=1
+2025-10-03 03:41:49,611 - INFO - [INFO] Running optimistic search with combined interventions...
+2025-10-03 03:41:49,611 - INFO - [SEARCH] Trying intervention: outlier → 6
+2025-10-03 03:41:50,282 - INFO - [TRY] outlier=6,pipeline: {'missing_value': 6.0, 'outlier': 6, 'normalization': 4.0, 'model': 1.0}, Utility=157.4023, Best=186.9662
+2025-10-03 03:41:50,282 - INFO - ✅ Target achieved 🎯
+2025-10-03 03:41:50,282 - INFO - required optimistic iterations: 1
+2025-10-03 03:41:50,282 - INFO - passing pipeline: order=['missing_value', 'outlier', 'normalization', 'model'], vec=[6, 6, 4, 1]
+2025-10-03 03:41:50,282 - INFO - Total iterations so far: 1
+2025-10-03 03:41:50,282 - INFO - pipeline[6. 4. 1.]
+2025-10-03 03:41:50,715 - INFO - Evaluating [6, 5, 1] -- Initial Utility 186.96623739130027 -- Target Utility 170
+2025-10-03 03:44:20,426 - INFO - [OPTIMIZE] Trying combo size k=1
+2025-10-03 03:44:20,426 - INFO - [INFO] Running optimistic search with combined interventions...
+2025-10-03 03:44:20,426 - INFO - [SEARCH] Trying intervention: outlier → 6
+2025-10-03 03:44:21,073 - INFO - [TRY] outlier=6,pipeline: {'missing_value': 6.0, 'outlier': 6, 'normalization': 5.0, 'model': 1.0}, Utility=157.4023, Best=186.9662
+2025-10-03 03:44:21,073 - INFO - ✅ Target achieved 🎯
+2025-10-03 03:44:21,073 - INFO - required optimistic iterations: 1
+2025-10-03 03:44:21,073 - INFO - passing pipeline: order=['missing_value', 'outlier', 'normalization', 'model'], vec=[6, 6, 5, 1]
+2025-10-03 03:44:21,073 - INFO - Total iterations so far: 1
+2025-10-03 03:44:21,073 - INFO - pipeline[6. 5. 1.]
+2025-10-03 03:44:21,557 - INFO - Evaluating [7, 1, 1] -- Initial Utility 186.97780992695317 -- Target Utility 170
+2025-10-03 03:46:15,212 - INFO - [OPTIMIZE] Trying combo size k=1
+2025-10-03 03:46:15,213 - INFO - [INFO] Running optimistic search with combined interventions...
+2025-10-03 03:46:15,213 - INFO - [SEARCH] Trying intervention: outlier → 6
+2025-10-03 03:46:15,758 - INFO - [TRY] outlier=6,pipeline: {'missing_value': 7.0, 'outlier': 6, 'normalization': 1.0, 'model': 1.0}, Utility=157.4434, Best=186.9778
+2025-10-03 03:46:15,758 - INFO - ✅ Target achieved 🎯
+2025-10-03 03:46:15,758 - INFO - required optimistic iterations: 1
+2025-10-03 03:46:15,758 - INFO - passing pipeline: order=['missing_value', 'outlier', 'normalization', 'model'], vec=[7, 6, 1, 1]
+2025-10-03 03:46:15,758 - INFO - Total iterations so far: 1
+2025-10-03 03:46:15,758 - INFO - pipeline[7. 1. 1.]
+2025-10-03 03:46:16,199 - INFO - Evaluating [7, 2, 1] -- Initial Utility 186.9778099269532 -- Target Utility 170
+2025-10-03 03:48:34,616 - INFO - [OPTIMIZE] Trying combo size k=1
+2025-10-03 03:48:34,617 - INFO - [INFO] Running optimistic search with combined interventions...
+2025-10-03 03:48:34,617 - INFO - [SEARCH] Trying intervention: outlier → 6
+2025-10-03 03:48:35,392 - INFO - [TRY] outlier=6,pipeline: {'missing_value': 7.0, 'outlier': 6, 'normalization': 2.0, 'model': 1.0}, Utility=157.4434, Best=186.9778
+2025-10-03 03:48:35,392 - INFO - ✅ Target achieved 🎯
+2025-10-03 03:48:35,392 - INFO - required optimistic iterations: 1
+2025-10-03 03:48:35,392 - INFO - passing pipeline: order=['missing_value', 'outlier', 'normalization', 'model'], vec=[7, 6, 2, 1]
+2025-10-03 03:48:35,392 - INFO - Total iterations so far: 1
+2025-10-03 03:48:35,392 - INFO - pipeline[7. 2. 1.]
+2025-10-03 03:48:35,878 - INFO - Evaluating [7, 3, 1] -- Initial Utility 186.9778099269532 -- Target Utility 170
+2025-10-03 03:50:53,425 - INFO - [OPTIMIZE] Trying combo size k=1
+2025-10-03 03:50:53,426 - INFO - [INFO] Running optimistic search with combined interventions...
+2025-10-03 03:50:53,426 - INFO - [SEARCH] Trying intervention: outlier → 6
+2025-10-03 03:50:54,224 - INFO - [TRY] outlier=6,pipeline: {'missing_value': 7.0, 'outlier': 6, 'normalization': 3.0, 'model': 1.0}, Utility=157.4434, Best=186.9778
+2025-10-03 03:50:54,224 - INFO - ✅ Target achieved 🎯
+2025-10-03 03:50:54,225 - INFO - required optimistic iterations: 1
+2025-10-03 03:50:54,225 - INFO - passing pipeline: order=['missing_value', 'outlier', 'normalization', 'model'], vec=[7, 6, 3, 1]
+2025-10-03 03:50:54,225 - INFO - Total iterations so far: 1
+2025-10-03 03:50:54,225 - INFO - pipeline[7. 3. 1.]
+2025-10-03 03:50:54,695 - INFO - Evaluating [7, 4, 1] -- Initial Utility 186.97780992695317 -- Target Utility 170
+2025-10-03 03:53:12,945 - INFO - [OPTIMIZE] Trying combo size k=1
+2025-10-03 03:53:12,946 - INFO - [INFO] Running optimistic search with combined interventions...
+2025-10-03 03:53:12,946 - INFO - [SEARCH] Trying intervention: outlier → 6
+2025-10-03 03:53:13,428 - INFO - [TRY] outlier=6,pipeline: {'missing_value': 7.0, 'outlier': 6, 'normalization': 4.0, 'model': 1.0}, Utility=157.4434, Best=186.9778
+2025-10-03 03:53:13,428 - INFO - ✅ Target achieved 🎯
+2025-10-03 03:53:13,429 - INFO - required optimistic iterations: 1
+2025-10-03 03:53:13,429 - INFO - passing pipeline: order=['missing_value', 'outlier', 'normalization', 'model'], vec=[7, 6, 4, 1]
+2025-10-03 03:53:13,429 - INFO - Total iterations so far: 1
+2025-10-03 03:53:13,429 - INFO - pipeline[7. 4. 1.]
+2025-10-03 03:53:13,914 - INFO - Evaluating [7, 5, 1] -- Initial Utility 186.9778099269532 -- Target Utility 170
+2025-10-03 03:55:29,840 - INFO - [OPTIMIZE] Trying combo size k=1
+2025-10-03 03:55:29,840 - INFO - [INFO] Running optimistic search with combined interventions...
+2025-10-03 03:55:29,840 - INFO - [SEARCH] Trying intervention: outlier → 6
+2025-10-03 03:55:30,436 - INFO - [TRY] outlier=6,pipeline: {'missing_value': 7.0, 'outlier': 6, 'normalization': 5.0, 'model': 1.0}, Utility=157.4434, Best=186.9778
+2025-10-03 03:55:30,436 - INFO - ✅ Target achieved 🎯
+2025-10-03 03:55:30,436 - INFO - required optimistic iterations: 1
+2025-10-03 03:55:30,436 - INFO - passing pipeline: order=['missing_value', 'outlier', 'normalization', 'model'], vec=[7, 6, 5, 1]
+2025-10-03 03:55:30,436 - INFO - Total iterations so far: 1
+2025-10-03 03:55:30,437 - INFO - pipeline[7. 5. 1.]
+2025-10-03 03:55:30,909 - INFO - Evaluating [8, 1, 1] -- Initial Utility 187.06781374489447 -- Target Utility 170
+2025-10-03 03:57:30,230 - INFO - [OPTIMIZE] Trying combo size k=1
+2025-10-03 03:57:30,230 - INFO - [INFO] Running optimistic search with combined interventions...
+2025-10-03 03:57:30,230 - INFO - [SEARCH] Trying intervention: outlier → 6
+2025-10-03 03:57:30,989 - INFO - [TRY] outlier=6,pipeline: {'missing_value': 8.0, 'outlier': 6, 'normalization': 1.0, 'model': 1.0}, Utility=157.7094, Best=187.0678
+2025-10-03 03:57:30,989 - INFO - ✅ Target achieved 🎯
+2025-10-03 03:57:30,989 - INFO - required optimistic iterations: 1
+2025-10-03 03:57:30,989 - INFO - passing pipeline: order=['missing_value', 'outlier', 'normalization', 'model'], vec=[8, 6, 1, 1]
+2025-10-03 03:57:30,989 - INFO - Total iterations so far: 1
+2025-10-03 03:57:30,989 - INFO - pipeline[8. 1. 1.]
+2025-10-03 03:57:31,553 - INFO - Evaluating [8, 2, 1] -- Initial Utility 187.06781374489447 -- Target Utility 170
+2025-10-03 03:59:54,492 - INFO - [OPTIMIZE] Trying combo size k=1
+2025-10-03 03:59:54,493 - INFO - [INFO] Running optimistic search with combined interventions...
+2025-10-03 03:59:54,493 - INFO - [SEARCH] Trying intervention: outlier → 6
+2025-10-03 03:59:55,046 - INFO - [TRY] outlier=6,pipeline: {'missing_value': 8.0, 'outlier': 6, 'normalization': 2.0, 'model': 1.0}, Utility=157.7094, Best=187.0678
+2025-10-03 03:59:55,047 - INFO - ✅ Target achieved 🎯
+2025-10-03 03:59:55,047 - INFO - required optimistic iterations: 1
+2025-10-03 03:59:55,047 - INFO - passing pipeline: order=['missing_value', 'outlier', 'normalization', 'model'], vec=[8, 6, 2, 1]
+2025-10-03 03:59:55,047 - INFO - Total iterations so far: 1
+2025-10-03 03:59:55,047 - INFO - pipeline[8. 2. 1.]
+2025-10-03 03:59:55,525 - INFO - Evaluating [8, 3, 1] -- Initial Utility 187.06781374489447 -- Target Utility 170
+2025-10-03 04:02:14,868 - INFO - [OPTIMIZE] Trying combo size k=1
+2025-10-03 04:02:14,870 - INFO - [INFO] Running optimistic search with combined interventions...
+2025-10-03 04:02:14,870 - INFO - [SEARCH] Trying intervention: outlier → 6
+2025-10-03 04:02:15,487 - INFO - [TRY] outlier=6,pipeline: {'missing_value': 8.0, 'outlier': 6, 'normalization': 3.0, 'model': 1.0}, Utility=157.7094, Best=187.0678
+2025-10-03 04:02:15,487 - INFO - ✅ Target achieved 🎯
+2025-10-03 04:02:15,487 - INFO - required optimistic iterations: 1
+2025-10-03 04:02:15,487 - INFO - passing pipeline: order=['missing_value', 'outlier', 'normalization', 'model'], vec=[8, 6, 3, 1]
+2025-10-03 04:02:15,487 - INFO - Total iterations so far: 1
+2025-10-03 04:02:15,488 - INFO - pipeline[8. 3. 1.]
+2025-10-03 04:02:16,099 - INFO - Evaluating [8, 4, 1] -- Initial Utility 187.06781374489447 -- Target Utility 170
+2025-10-03 04:04:34,265 - INFO - [OPTIMIZE] Trying combo size k=1
+2025-10-03 04:04:34,266 - INFO - [INFO] Running optimistic search with combined interventions...
+2025-10-03 04:04:34,267 - INFO - [SEARCH] Trying intervention: outlier → 6
+2025-10-03 04:04:34,898 - INFO - [TRY] outlier=6,pipeline: {'missing_value': 8.0, 'outlier': 6, 'normalization': 4.0, 'model': 1.0}, Utility=157.7094, Best=187.0678
+2025-10-03 04:04:34,898 - INFO - ✅ Target achieved 🎯
+2025-10-03 04:04:34,898 - INFO - required optimistic iterations: 1
+2025-10-03 04:04:34,898 - INFO - passing pipeline: order=['missing_value', 'outlier', 'normalization', 'model'], vec=[8, 6, 4, 1]
+2025-10-03 04:04:34,898 - INFO - Total iterations so far: 1
+2025-10-03 04:04:34,898 - INFO - pipeline[8. 4. 1.]
+2025-10-03 04:04:35,245 - INFO - Evaluating [8, 5, 1] -- Initial Utility 187.0678137448945 -- Target Utility 170
+2025-10-03 04:06:52,111 - INFO - [OPTIMIZE] Trying combo size k=1
+2025-10-03 04:06:52,111 - INFO - [INFO] Running optimistic search with combined interventions...
+2025-10-03 04:06:52,111 - INFO - [SEARCH] Trying intervention: outlier → 6
+2025-10-03 04:06:52,880 - INFO - [TRY] outlier=6,pipeline: {'missing_value': 8.0, 'outlier': 6, 'normalization': 5.0, 'model': 1.0}, Utility=157.7094, Best=187.0678
+2025-10-03 04:06:52,880 - INFO - ✅ Target achieved 🎯
+2025-10-03 04:06:52,880 - INFO - required optimistic iterations: 1
+2025-10-03 04:06:52,880 - INFO - passing pipeline: order=['missing_value', 'outlier', 'normalization', 'model'], vec=[8, 6, 5, 1]
+2025-10-03 04:06:52,881 - INFO - Total iterations so far: 1
+2025-10-03 04:06:52,881 - INFO - pipeline[8. 5. 1.]
+2025-10-03 04:06:53,362 - INFO - Evaluating [9, 1, 1] -- Initial Utility 187.10024966872945 -- Target Utility 170
+2025-10-03 04:08:43,820 - INFO - [OPTIMIZE] Trying combo size k=1
+2025-10-03 04:08:43,821 - INFO - [INFO] Running optimistic search with combined interventions...
+2025-10-03 04:08:43,821 - INFO - [SEARCH] Trying intervention: outlier → 6
+2025-10-03 04:08:44,466 - INFO - [TRY] outlier=6,pipeline: {'missing_value': 9.0, 'outlier': 6, 'normalization': 1.0, 'model': 1.0}, Utility=157.7699, Best=187.1002
+2025-10-03 04:08:44,466 - INFO - ✅ Target achieved 🎯
+2025-10-03 04:08:44,466 - INFO - required optimistic iterations: 1
+2025-10-03 04:08:44,466 - INFO - passing pipeline: order=['missing_value', 'outlier', 'normalization', 'model'], vec=[9, 6, 1, 1]
+2025-10-03 04:08:44,466 - INFO - Total iterations so far: 1
+2025-10-03 04:08:44,466 - INFO - pipeline[9. 1. 1.]
+2025-10-03 04:08:44,896 - INFO - Evaluating [9, 2, 1] -- Initial Utility 187.10024966872945 -- Target Utility 170
+2025-10-03 04:11:02,953 - INFO - [OPTIMIZE] Trying combo size k=1
+2025-10-03 04:11:02,954 - INFO - [INFO] Running optimistic search with combined interventions...
+2025-10-03 04:11:02,954 - INFO - [SEARCH] Trying intervention: outlier → 6
+2025-10-03 04:11:03,611 - INFO - [TRY] outlier=6,pipeline: {'missing_value': 9.0, 'outlier': 6, 'normalization': 2.0, 'model': 1.0}, Utility=157.7699, Best=187.1002
+2025-10-03 04:11:03,611 - INFO - ✅ Target achieved 🎯
+2025-10-03 04:11:03,611 - INFO - required optimistic iterations: 1
+2025-10-03 04:11:03,611 - INFO - passing pipeline: order=['missing_value', 'outlier', 'normalization', 'model'], vec=[9, 6, 2, 1]
+2025-10-03 04:11:03,611 - INFO - Total iterations so far: 1
+2025-10-03 04:11:03,611 - INFO - pipeline[9. 2. 1.]
+2025-10-03 04:11:04,152 - INFO - Evaluating [9, 3, 1] -- Initial Utility 187.10024966872945 -- Target Utility 170
+2025-10-03 04:13:31,592 - INFO - [OPTIMIZE] Trying combo size k=1
+2025-10-03 04:13:31,592 - INFO - [INFO] Running optimistic search with combined interventions...
+2025-10-03 04:13:31,593 - INFO - [SEARCH] Trying intervention: outlier → 6
+2025-10-03 04:13:32,332 - INFO - [TRY] outlier=6,pipeline: {'missing_value': 9.0, 'outlier': 6, 'normalization': 3.0, 'model': 1.0}, Utility=157.7699, Best=187.1002
+2025-10-03 04:13:32,332 - INFO - ✅ Target achieved 🎯
+2025-10-03 04:13:32,332 - INFO - required optimistic iterations: 1
+2025-10-03 04:13:32,332 - INFO - passing pipeline: order=['missing_value', 'outlier', 'normalization', 'model'], vec=[9, 6, 3, 1]
+2025-10-03 04:13:32,332 - INFO - Total iterations so far: 1
+2025-10-03 04:13:32,332 - INFO - pipeline[9. 3. 1.]
+2025-10-03 04:13:32,841 - INFO - Evaluating [9, 4, 1] -- Initial Utility 187.10024966872948 -- Target Utility 170
+2025-10-03 04:15:51,005 - INFO - [OPTIMIZE] Trying combo size k=1
+2025-10-03 04:15:51,005 - INFO - [INFO] Running optimistic search with combined interventions...
+2025-10-03 04:15:51,005 - INFO - [SEARCH] Trying intervention: outlier → 6
+2025-10-03 04:15:51,605 - INFO - [TRY] outlier=6,pipeline: {'missing_value': 9.0, 'outlier': 6, 'normalization': 4.0, 'model': 1.0}, Utility=157.7699, Best=187.1002
+2025-10-03 04:15:51,605 - INFO - ✅ Target achieved 🎯
+2025-10-03 04:15:51,605 - INFO - required optimistic iterations: 1
+2025-10-03 04:15:51,605 - INFO - passing pipeline: order=['missing_value', 'outlier', 'normalization', 'model'], vec=[9, 6, 4, 1]
+2025-10-03 04:15:51,605 - INFO - Total iterations so far: 1
+2025-10-03 04:15:51,605 - INFO - pipeline[9. 4. 1.]
+2025-10-03 04:15:52,078 - INFO - Evaluating [9, 5, 1] -- Initial Utility 187.10024966872945 -- Target Utility 170
+2025-10-03 04:18:11,373 - INFO - [OPTIMIZE] Trying combo size k=1
+2025-10-03 04:18:11,373 - INFO - [INFO] Running optimistic search with combined interventions...
+2025-10-03 04:18:11,373 - INFO - [SEARCH] Trying intervention: outlier → 6
+2025-10-03 04:18:12,061 - INFO - [TRY] outlier=6,pipeline: {'missing_value': 9.0, 'outlier': 6, 'normalization': 5.0, 'model': 1.0}, Utility=157.7699, Best=187.1002
+2025-10-03 04:18:12,061 - INFO - ✅ Target achieved 🎯
+2025-10-03 04:18:12,061 - INFO - required optimistic iterations: 1
+2025-10-03 04:18:12,061 - INFO - passing pipeline: order=['missing_value', 'outlier', 'normalization', 'model'], vec=[9, 6, 5, 1]
+2025-10-03 04:18:12,061 - INFO - Total iterations so far: 1
+2025-10-03 04:18:12,062 - INFO - pipeline[9. 5. 1.]
+2025-10-03 04:18:12,288 - INFO - Evaluating [1, 1, 1] -- Initial Utility 189.32386132044957 -- Target Utility 180
+2025-10-03 04:19:51,761 - INFO - [OPTIMIZE] Trying combo size k=1
+2025-10-03 04:19:51,762 - INFO - [INFO] Running optimistic search with combined interventions...
+2025-10-03 04:19:51,762 - INFO - [SEARCH] Trying intervention: outlier → 8
+2025-10-03 04:19:52,202 - INFO - [TRY] outlier=8,pipeline: {'missing_value': 1.0, 'outlier': 8, 'normalization': 1.0, 'model': 1.0}, Utility=158.4669, Best=189.3239
+2025-10-03 04:19:52,202 - INFO - ✅ Target achieved 🎯
+2025-10-03 04:19:52,202 - INFO - required optimistic iterations: 1
+2025-10-03 04:19:52,202 - INFO - passing pipeline: order=['missing_value', 'outlier', 'normalization', 'model'], vec=[1, 8, 1, 1]
+2025-10-03 04:19:52,202 - INFO - Total iterations so far: 1
+2025-10-03 04:19:52,203 - INFO - pipeline[1. 1. 1.]
+2025-10-03 04:19:52,433 - INFO - Evaluating [1, 2, 1] -- Initial Utility 189.3238613204496 -- Target Utility 180
+2025-10-03 04:21:55,656 - INFO - [OPTIMIZE] Trying combo size k=1
+2025-10-03 04:21:55,656 - INFO - [INFO] Running optimistic search with combined interventions...
+2025-10-03 04:21:55,657 - INFO - [SEARCH] Trying intervention: outlier → 8
+2025-10-03 04:21:56,131 - INFO - [TRY] outlier=8,pipeline: {'missing_value': 1.0, 'outlier': 8, 'normalization': 2.0, 'model': 1.0}, Utility=158.4669, Best=189.3239
+2025-10-03 04:21:56,131 - INFO - ✅ Target achieved 🎯
+2025-10-03 04:21:56,131 - INFO - required optimistic iterations: 1
+2025-10-03 04:21:56,131 - INFO - passing pipeline: order=['missing_value', 'outlier', 'normalization', 'model'], vec=[1, 8, 2, 1]
+2025-10-03 04:21:56,131 - INFO - Total iterations so far: 1
+2025-10-03 04:21:56,131 - INFO - pipeline[1. 2. 1.]
+2025-10-03 04:21:56,301 - INFO - Evaluating [1, 3, 1] -- Initial Utility 189.3238613204496 -- Target Utility 180
+2025-10-03 04:23:57,023 - INFO - [OPTIMIZE] Trying combo size k=1
+2025-10-03 04:23:57,024 - INFO - [INFO] Running optimistic search with combined interventions...
+2025-10-03 04:23:57,024 - INFO - [SEARCH] Trying intervention: outlier → 8
+2025-10-03 04:23:57,355 - INFO - [TRY] outlier=8,pipeline: {'missing_value': 1.0, 'outlier': 8, 'normalization': 3.0, 'model': 1.0}, Utility=158.4669, Best=189.3239
+2025-10-03 04:23:57,355 - INFO - ✅ Target achieved 🎯
+2025-10-03 04:23:57,355 - INFO - required optimistic iterations: 1
+2025-10-03 04:23:57,355 - INFO - passing pipeline: order=['missing_value', 'outlier', 'normalization', 'model'], vec=[1, 8, 3, 1]
+2025-10-03 04:23:57,355 - INFO - Total iterations so far: 1
+2025-10-03 04:23:57,355 - INFO - pipeline[1. 3. 1.]
+2025-10-03 04:23:57,508 - INFO - Evaluating [1, 4, 1] -- Initial Utility 189.3238613204496 -- Target Utility 180
+2025-10-03 04:26:12,895 - INFO - [OPTIMIZE] Trying combo size k=1
+2025-10-03 04:26:12,896 - INFO - [INFO] Running optimistic search with combined interventions...
+2025-10-03 04:26:12,896 - INFO - [SEARCH] Trying intervention: outlier → 8
+2025-10-03 04:26:13,323 - INFO - [TRY] outlier=8,pipeline: {'missing_value': 1.0, 'outlier': 8, 'normalization': 4.0, 'model': 1.0}, Utility=158.4669, Best=189.3239
+2025-10-03 04:26:13,323 - INFO - ✅ Target achieved 🎯
+2025-10-03 04:26:13,323 - INFO - required optimistic iterations: 1
+2025-10-03 04:26:13,323 - INFO - passing pipeline: order=['missing_value', 'outlier', 'normalization', 'model'], vec=[1, 8, 4, 1]
+2025-10-03 04:26:13,323 - INFO - Total iterations so far: 1
+2025-10-03 04:26:13,323 - INFO - pipeline[1. 4. 1.]
+2025-10-03 04:26:13,488 - INFO - Evaluating [1, 5, 1] -- Initial Utility 189.3238613204496 -- Target Utility 180
+2025-10-03 04:28:19,868 - INFO - [OPTIMIZE] Trying combo size k=1
+2025-10-03 04:28:19,870 - INFO - [INFO] Running optimistic search with combined interventions...
+2025-10-03 04:28:19,870 - INFO - [SEARCH] Trying intervention: outlier → 8
+2025-10-03 04:28:20,250 - INFO - [TRY] outlier=8,pipeline: {'missing_value': 1.0, 'outlier': 8, 'normalization': 5.0, 'model': 1.0}, Utility=158.4669, Best=189.3239
+2025-10-03 04:28:20,250 - INFO - ✅ Target achieved 🎯
+2025-10-03 04:28:20,250 - INFO - required optimistic iterations: 1
+2025-10-03 04:28:20,250 - INFO - passing pipeline: order=['missing_value', 'outlier', 'normalization', 'model'], vec=[1, 8, 5, 1]
+2025-10-03 04:28:20,250 - INFO - Total iterations so far: 1
+2025-10-03 04:28:20,250 - INFO - pipeline[1. 5. 1.]
+2025-10-03 04:28:20,575 - INFO - Evaluating [2, 1, 1] -- Initial Utility 187.11086793920893 -- Target Utility 180
+2025-10-03 04:30:09,469 - INFO - [OPTIMIZE] Trying combo size k=1
+2025-10-03 04:30:09,469 - INFO - [INFO] Running optimistic search with combined interventions...
+2025-10-03 04:30:09,469 - INFO - [SEARCH] Trying intervention: outlier → 6
+2025-10-03 04:30:09,964 - INFO - [TRY] outlier=6,pipeline: {'missing_value': 2.0, 'outlier': 6, 'normalization': 1.0, 'model': 1.0}, Utility=158.3248, Best=187.1109
+2025-10-03 04:30:09,964 - INFO - ✅ Target achieved 🎯
+2025-10-03 04:30:09,964 - INFO - required optimistic iterations: 1
+2025-10-03 04:30:09,964 - INFO - passing pipeline: order=['missing_value', 'outlier', 'normalization', 'model'], vec=[2, 6, 1, 1]
+2025-10-03 04:30:09,964 - INFO - Total iterations so far: 1
+2025-10-03 04:30:09,964 - INFO - pipeline[2. 1. 1.]
+2025-10-03 04:30:10,258 - INFO - Evaluating [2, 2, 1] -- Initial Utility 187.1108679392089 -- Target Utility 180
+2025-10-03 04:32:18,026 - INFO - [OPTIMIZE] Trying combo size k=1
+2025-10-03 04:32:18,028 - INFO - [INFO] Running optimistic search with combined interventions...
+2025-10-03 04:32:18,029 - INFO - [SEARCH] Trying intervention: outlier → 6
+2025-10-03 04:32:18,409 - INFO - [TRY] outlier=6,pipeline: {'missing_value': 2.0, 'outlier': 6, 'normalization': 2.0, 'model': 1.0}, Utility=158.3248, Best=187.1109
+2025-10-03 04:32:18,409 - INFO - ✅ Target achieved 🎯
+2025-10-03 04:32:18,409 - INFO - required optimistic iterations: 1
+2025-10-03 04:32:18,409 - INFO - passing pipeline: order=['missing_value', 'outlier', 'normalization', 'model'], vec=[2, 6, 2, 1]
+2025-10-03 04:32:18,409 - INFO - Total iterations so far: 1
+2025-10-03 04:32:18,409 - INFO - pipeline[2. 2. 1.]
+2025-10-03 04:32:18,595 - INFO - Evaluating [2, 3, 1] -- Initial Utility 187.1108679392089 -- Target Utility 180
+2025-10-03 04:34:28,084 - INFO - [OPTIMIZE] Trying combo size k=1
+2025-10-03 04:34:28,085 - INFO - [INFO] Running optimistic search with combined interventions...
+2025-10-03 04:34:28,085 - INFO - [SEARCH] Trying intervention: outlier → 6
+2025-10-03 04:34:28,427 - INFO - [TRY] outlier=6,pipeline: {'missing_value': 2.0, 'outlier': 6, 'normalization': 3.0, 'model': 1.0}, Utility=158.3248, Best=187.1109
+2025-10-03 04:34:28,427 - INFO - ✅ Target achieved 🎯
+2025-10-03 04:34:28,427 - INFO - required optimistic iterations: 1
+2025-10-03 04:34:28,427 - INFO - passing pipeline: order=['missing_value', 'outlier', 'normalization', 'model'], vec=[2, 6, 3, 1]
+2025-10-03 04:34:28,427 - INFO - Total iterations so far: 1
+2025-10-03 04:34:28,427 - INFO - pipeline[2. 3. 1.]
+2025-10-03 04:34:28,756 - INFO - Evaluating [2, 4, 1] -- Initial Utility 187.11086793920893 -- Target Utility 180
+2025-10-03 04:36:37,247 - INFO - [OPTIMIZE] Trying combo size k=1
+2025-10-03 04:36:37,248 - INFO - [INFO] Running optimistic search with combined interventions...
+2025-10-03 04:36:37,248 - INFO - [SEARCH] Trying intervention: outlier → 6
+2025-10-03 04:36:37,626 - INFO - [TRY] outlier=6,pipeline: {'missing_value': 2.0, 'outlier': 6, 'normalization': 4.0, 'model': 1.0}, Utility=158.3248, Best=187.1109
+2025-10-03 04:36:37,626 - INFO - ✅ Target achieved 🎯
+2025-10-03 04:36:37,626 - INFO - required optimistic iterations: 1
+2025-10-03 04:36:37,626 - INFO - passing pipeline: order=['missing_value', 'outlier', 'normalization', 'model'], vec=[2, 6, 4, 1]
+2025-10-03 04:36:37,626 - INFO - Total iterations so far: 1
+2025-10-03 04:36:37,626 - INFO - pipeline[2. 4. 1.]
+2025-10-03 04:36:37,859 - INFO - Evaluating [2, 5, 1] -- Initial Utility 187.1108679392089 -- Target Utility 180
+2025-10-03 04:38:44,188 - INFO - [OPTIMIZE] Trying combo size k=1
+2025-10-03 04:38:44,189 - INFO - [INFO] Running optimistic search with combined interventions...
+2025-10-03 04:38:44,190 - INFO - [SEARCH] Trying intervention: outlier → 6
+2025-10-03 04:38:44,607 - INFO - [TRY] outlier=6,pipeline: {'missing_value': 2.0, 'outlier': 6, 'normalization': 5.0, 'model': 1.0}, Utility=158.3248, Best=187.1109
+2025-10-03 04:38:44,607 - INFO - ✅ Target achieved 🎯
+2025-10-03 04:38:44,607 - INFO - required optimistic iterations: 1
+2025-10-03 04:38:44,607 - INFO - passing pipeline: order=['missing_value', 'outlier', 'normalization', 'model'], vec=[2, 6, 5, 1]
+2025-10-03 04:38:44,607 - INFO - Total iterations so far: 1
+2025-10-03 04:38:44,608 - INFO - pipeline[2. 5. 1.]
+2025-10-03 04:38:44,791 - INFO - Evaluating [3, 1, 1] -- Initial Utility 187.09748014350498 -- Target Utility 180
+2025-10-03 04:40:39,666 - INFO - [OPTIMIZE] Trying combo size k=1
+2025-10-03 04:40:39,667 - INFO - [INFO] Running optimistic search with combined interventions...
+2025-10-03 04:40:39,667 - INFO - [SEARCH] Trying intervention: outlier → 6
+2025-10-03 04:40:40,121 - INFO - [TRY] outlier=6,pipeline: {'missing_value': 3.0, 'outlier': 6, 'normalization': 1.0, 'model': 1.0}, Utility=158.3693, Best=187.0975
+2025-10-03 04:40:40,121 - INFO - ✅ Target achieved 🎯
+2025-10-03 04:40:40,121 - INFO - required optimistic iterations: 1
+2025-10-03 04:40:40,121 - INFO - passing pipeline: order=['missing_value', 'outlier', 'normalization', 'model'], vec=[3, 6, 1, 1]
+2025-10-03 04:40:40,121 - INFO - Total iterations so far: 1
+2025-10-03 04:40:40,121 - INFO - pipeline[3. 1. 1.]
+2025-10-03 04:40:40,317 - INFO - Evaluating [3, 2, 1] -- Initial Utility 187.09748014350498 -- Target Utility 180
+2025-10-03 04:42:47,317 - INFO - [OPTIMIZE] Trying combo size k=1
+2025-10-03 04:42:47,318 - INFO - [INFO] Running optimistic search with combined interventions...
+2025-10-03 04:42:47,318 - INFO - [SEARCH] Trying intervention: outlier → 6
+2025-10-03 04:42:47,763 - INFO - [TRY] outlier=6,pipeline: {'missing_value': 3.0, 'outlier': 6, 'normalization': 2.0, 'model': 1.0}, Utility=158.3693, Best=187.0975
+2025-10-03 04:42:47,763 - INFO - ✅ Target achieved 🎯
+2025-10-03 04:42:47,763 - INFO - required optimistic iterations: 1
+2025-10-03 04:42:47,763 - INFO - passing pipeline: order=['missing_value', 'outlier', 'normalization', 'model'], vec=[3, 6, 2, 1]
+2025-10-03 04:42:47,763 - INFO - Total iterations so far: 1
+2025-10-03 04:42:47,763 - INFO - pipeline[3. 2. 1.]
+2025-10-03 04:42:48,228 - INFO - Evaluating [3, 3, 1] -- Initial Utility 187.09748014350498 -- Target Utility 180
+2025-10-03 04:45:00,725 - INFO - [OPTIMIZE] Trying combo size k=1
+2025-10-03 04:45:00,726 - INFO - [INFO] Running optimistic search with combined interventions...
+2025-10-03 04:45:00,726 - INFO - [SEARCH] Trying intervention: outlier → 6
+2025-10-03 04:45:01,126 - INFO - [TRY] outlier=6,pipeline: {'missing_value': 3.0, 'outlier': 6, 'normalization': 3.0, 'model': 1.0}, Utility=158.3693, Best=187.0975
+2025-10-03 04:45:01,127 - INFO - ✅ Target achieved 🎯
+2025-10-03 04:45:01,127 - INFO - required optimistic iterations: 1
+2025-10-03 04:45:01,127 - INFO - passing pipeline: order=['missing_value', 'outlier', 'normalization', 'model'], vec=[3, 6, 3, 1]
+2025-10-03 04:45:01,127 - INFO - Total iterations so far: 1
+2025-10-03 04:45:01,127 - INFO - pipeline[3. 3. 1.]
+2025-10-03 04:45:01,339 - INFO - Evaluating [3, 4, 1] -- Initial Utility 187.09748014350498 -- Target Utility 180
+2025-10-03 04:47:09,580 - INFO - [OPTIMIZE] Trying combo size k=1
+2025-10-03 04:47:09,580 - INFO - [INFO] Running optimistic search with combined interventions...
+2025-10-03 04:47:09,580 - INFO - [SEARCH] Trying intervention: outlier → 6
+2025-10-03 04:47:10,078 - INFO - [TRY] outlier=6,pipeline: {'missing_value': 3.0, 'outlier': 6, 'normalization': 4.0, 'model': 1.0}, Utility=158.3693, Best=187.0975
+2025-10-03 04:47:10,078 - INFO - ✅ Target achieved 🎯
+2025-10-03 04:47:10,078 - INFO - required optimistic iterations: 1
+2025-10-03 04:47:10,078 - INFO - passing pipeline: order=['missing_value', 'outlier', 'normalization', 'model'], vec=[3, 6, 4, 1]
+2025-10-03 04:47:10,078 - INFO - Total iterations so far: 1
+2025-10-03 04:47:10,079 - INFO - pipeline[3. 4. 1.]
+2025-10-03 04:47:10,283 - INFO - Evaluating [3, 5, 1] -- Initial Utility 187.09748014350498 -- Target Utility 180
+2025-10-03 04:49:17,676 - INFO - [OPTIMIZE] Trying combo size k=1
+2025-10-03 04:49:17,677 - INFO - [INFO] Running optimistic search with combined interventions...
+2025-10-03 04:49:17,677 - INFO - [SEARCH] Trying intervention: outlier → 6
+2025-10-03 04:49:18,078 - INFO - [TRY] outlier=6,pipeline: {'missing_value': 3.0, 'outlier': 6, 'normalization': 5.0, 'model': 1.0}, Utility=158.3693, Best=187.0975
+2025-10-03 04:49:18,078 - INFO - ✅ Target achieved 🎯
+2025-10-03 04:49:18,078 - INFO - required optimistic iterations: 1
+2025-10-03 04:49:18,078 - INFO - passing pipeline: order=['missing_value', 'outlier', 'normalization', 'model'], vec=[3, 6, 5, 1]
+2025-10-03 04:49:18,078 - INFO - Total iterations so far: 1
+2025-10-03 04:49:18,078 - INFO - pipeline[3. 5. 1.]
+2025-10-03 04:49:18,326 - INFO - Evaluating [4, 1, 1] -- Initial Utility 187.44380692213028 -- Target Utility 180
+2025-10-03 04:51:01,135 - INFO - [OPTIMIZE] Trying combo size k=1
+2025-10-03 04:51:01,135 - INFO - [INFO] Running optimistic search with combined interventions...
+2025-10-03 04:51:01,135 - INFO - [SEARCH] Trying intervention: outlier → 6
+2025-10-03 04:51:01,502 - INFO - [TRY] outlier=6,pipeline: {'missing_value': 4.0, 'outlier': 6, 'normalization': 1.0, 'model': 1.0}, Utility=158.7840, Best=187.4438
+2025-10-03 04:51:01,502 - INFO - ✅ Target achieved 🎯
+2025-10-03 04:51:01,502 - INFO - required optimistic iterations: 1
+2025-10-03 04:51:01,502 - INFO - passing pipeline: order=['missing_value', 'outlier', 'normalization', 'model'], vec=[4, 6, 1, 1]
+2025-10-03 04:51:01,503 - INFO - Total iterations so far: 1
+2025-10-03 04:51:01,503 - INFO - pipeline[4. 1. 1.]
+2025-10-03 04:51:01,762 - INFO - Evaluating [4, 2, 1] -- Initial Utility 187.44380692213028 -- Target Utility 180
+2025-10-03 04:53:05,332 - INFO - [OPTIMIZE] Trying combo size k=1
+2025-10-03 04:53:05,333 - INFO - [INFO] Running optimistic search with combined interventions...
+2025-10-03 04:53:05,333 - INFO - [SEARCH] Trying intervention: outlier → 8
+2025-10-03 04:53:05,742 - INFO - [TRY] outlier=8,pipeline: {'missing_value': 4.0, 'normalization': 2.0, 'outlier': 8, 'model': 1.0}, Utility=164.8724, Best=187.4438
+2025-10-03 04:53:05,742 - INFO - ✅ Target achieved 🎯
+2025-10-03 04:53:05,742 - INFO - required optimistic iterations: 1
+2025-10-03 04:53:05,742 - INFO - passing pipeline: order=['missing_value', 'normalization', 'outlier', 'model'], vec=[4, 2, 8, 1]
+2025-10-03 04:53:05,742 - INFO - Total iterations so far: 1
+2025-10-03 04:53:05,742 - INFO - pipeline[4. 2. 1.]
+2025-10-03 04:53:06,057 - INFO - Evaluating [4, 3, 1] -- Initial Utility 187.44380692213028 -- Target Utility 180
+2025-10-03 04:55:27,991 - INFO - [OPTIMIZE] Trying combo size k=1
+2025-10-03 04:55:27,993 - INFO - [INFO] Running optimistic search with combined interventions...
+2025-10-03 04:55:27,994 - INFO - [SEARCH] Trying intervention: outlier → 6
+2025-10-03 04:55:28,406 - INFO - [TRY] outlier=6,pipeline: {'missing_value': 4.0, 'outlier': 6, 'normalization': 3.0, 'model': 1.0}, Utility=158.7840, Best=187.4438
+2025-10-03 04:55:28,406 - INFO - ✅ Target achieved 🎯
+2025-10-03 04:55:28,406 - INFO - required optimistic iterations: 1
+2025-10-03 04:55:28,406 - INFO - passing pipeline: order=['missing_value', 'outlier', 'normalization', 'model'], vec=[4, 6, 3, 1]
+2025-10-03 04:55:28,406 - INFO - Total iterations so far: 1
+2025-10-03 04:55:28,406 - INFO - pipeline[4. 3. 1.]
+2025-10-03 04:55:28,649 - INFO - Evaluating [4, 4, 1] -- Initial Utility 187.4438069221303 -- Target Utility 180
+2025-10-03 04:57:38,133 - INFO - [OPTIMIZE] Trying combo size k=1
+2025-10-03 04:57:38,134 - INFO - [INFO] Running optimistic search with combined interventions...
+2025-10-03 04:57:38,134 - INFO - [SEARCH] Trying intervention: outlier → 6
+2025-10-03 04:57:38,620 - INFO - [TRY] outlier=6,pipeline: {'missing_value': 4.0, 'outlier': 6, 'normalization': 4.0, 'model': 1.0}, Utility=158.7840, Best=187.4438
+2025-10-03 04:57:38,620 - INFO - ✅ Target achieved 🎯
+2025-10-03 04:57:38,620 - INFO - required optimistic iterations: 1
+2025-10-03 04:57:38,620 - INFO - passing pipeline: order=['missing_value', 'outlier', 'normalization', 'model'], vec=[4, 6, 4, 1]
+2025-10-03 04:57:38,621 - INFO - Total iterations so far: 1
+2025-10-03 04:57:38,621 - INFO - pipeline[4. 4. 1.]
+2025-10-03 04:57:38,848 - INFO - Evaluating [4, 5, 1] -- Initial Utility 187.4438069221303 -- Target Utility 180
+2025-10-03 04:59:54,454 - INFO - [OPTIMIZE] Trying combo size k=1
+2025-10-03 04:59:54,455 - INFO - [INFO] Running optimistic search with combined interventions...
+2025-10-03 04:59:54,455 - INFO - [SEARCH] Trying intervention: outlier → 6
+2025-10-03 04:59:54,865 - INFO - [TRY] outlier=6,pipeline: {'missing_value': 4.0, 'outlier': 6, 'normalization': 5.0, 'model': 1.0}, Utility=158.7840, Best=187.4438
+2025-10-03 04:59:54,865 - INFO - ✅ Target achieved 🎯
+2025-10-03 04:59:54,865 - INFO - required optimistic iterations: 1
+2025-10-03 04:59:54,865 - INFO - passing pipeline: order=['missing_value', 'outlier', 'normalization', 'model'], vec=[4, 6, 5, 1]
+2025-10-03 04:59:54,865 - INFO - Total iterations so far: 1
+2025-10-03 04:59:54,865 - INFO - pipeline[4. 5. 1.]
+2025-10-03 04:59:55,318 - INFO - Evaluating [5, 1, 1] -- Initial Utility 186.98202072458875 -- Target Utility 180
+2025-10-03 05:01:50,487 - INFO - [OPTIMIZE] Trying combo size k=1
+2025-10-03 05:01:50,487 - INFO - [INFO] Running optimistic search with combined interventions...
+2025-10-03 05:01:50,487 - INFO - [SEARCH] Trying intervention: outlier → 6
+2025-10-03 05:01:51,176 - INFO - [TRY] outlier=6,pipeline: {'missing_value': 5.0, 'outlier': 6, 'normalization': 1.0, 'model': 1.0}, Utility=157.3719, Best=186.9820
+2025-10-03 05:01:51,176 - INFO - ✅ Target achieved 🎯
+2025-10-03 05:01:51,176 - INFO - required optimistic iterations: 1
+2025-10-03 05:01:51,176 - INFO - passing pipeline: order=['missing_value', 'outlier', 'normalization', 'model'], vec=[5, 6, 1, 1]
+2025-10-03 05:01:51,176 - INFO - Total iterations so far: 1
+2025-10-03 05:01:51,176 - INFO - pipeline[5. 1. 1.]
+2025-10-03 05:01:51,634 - INFO - Evaluating [5, 2, 1] -- Initial Utility 186.98202072458875 -- Target Utility 180
+2025-10-03 05:04:12,266 - INFO - [OPTIMIZE] Trying combo size k=1
+2025-10-03 05:04:12,267 - INFO - [INFO] Running optimistic search with combined interventions...
+2025-10-03 05:04:12,267 - INFO - [SEARCH] Trying intervention: outlier → 6
+2025-10-03 05:04:12,959 - INFO - [TRY] outlier=6,pipeline: {'missing_value': 5.0, 'outlier': 6, 'normalization': 2.0, 'model': 1.0}, Utility=157.3719, Best=186.9820
+2025-10-03 05:04:12,959 - INFO - ✅ Target achieved 🎯
+2025-10-03 05:04:12,959 - INFO - required optimistic iterations: 1
+2025-10-03 05:04:12,959 - INFO - passing pipeline: order=['missing_value', 'outlier', 'normalization', 'model'], vec=[5, 6, 2, 1]
+2025-10-03 05:04:12,959 - INFO - Total iterations so far: 1
+2025-10-03 05:04:12,959 - INFO - pipeline[5. 2. 1.]
+2025-10-03 05:04:13,406 - INFO - Evaluating [5, 3, 1] -- Initial Utility 186.98202072458875 -- Target Utility 180
+2025-10-03 05:06:28,747 - INFO - [OPTIMIZE] Trying combo size k=1
+2025-10-03 05:06:28,748 - INFO - [INFO] Running optimistic search with combined interventions...
+2025-10-03 05:06:28,748 - INFO - [SEARCH] Trying intervention: outlier → 6
+2025-10-03 05:06:29,380 - INFO - [TRY] outlier=6,pipeline: {'missing_value': 5.0, 'outlier': 6, 'normalization': 3.0, 'model': 1.0}, Utility=157.3719, Best=186.9820
+2025-10-03 05:06:29,381 - INFO - ✅ Target achieved 🎯
+2025-10-03 05:06:29,381 - INFO - required optimistic iterations: 1
+2025-10-03 05:06:29,381 - INFO - passing pipeline: order=['missing_value', 'outlier', 'normalization', 'model'], vec=[5, 6, 3, 1]
+2025-10-03 05:06:29,381 - INFO - Total iterations so far: 1
+2025-10-03 05:06:29,381 - INFO - pipeline[5. 3. 1.]
+2025-10-03 05:06:30,489 - INFO - Evaluating [5, 4, 1] -- Initial Utility 186.98202072458875 -- Target Utility 180
+2025-10-03 05:08:49,062 - INFO - [OPTIMIZE] Trying combo size k=1
+2025-10-03 05:08:49,063 - INFO - [INFO] Running optimistic search with combined interventions...
+2025-10-03 05:08:49,063 - INFO - [SEARCH] Trying intervention: outlier → 6
+2025-10-03 05:08:49,693 - INFO - [TRY] outlier=6,pipeline: {'missing_value': 5.0, 'outlier': 6, 'normalization': 4.0, 'model': 1.0}, Utility=157.3719, Best=186.9820
+2025-10-03 05:08:49,693 - INFO - ✅ Target achieved 🎯
+2025-10-03 05:08:49,693 - INFO - required optimistic iterations: 1
+2025-10-03 05:08:49,693 - INFO - passing pipeline: order=['missing_value', 'outlier', 'normalization', 'model'], vec=[5, 6, 4, 1]
+2025-10-03 05:08:49,693 - INFO - Total iterations so far: 1
+2025-10-03 05:08:49,693 - INFO - pipeline[5. 4. 1.]
+2025-10-03 05:08:50,391 - INFO - Evaluating [5, 5, 1] -- Initial Utility 186.98202072458875 -- Target Utility 180
+2025-10-03 05:11:15,389 - INFO - [OPTIMIZE] Trying combo size k=1
+2025-10-03 05:11:15,389 - INFO - [INFO] Running optimistic search with combined interventions...
+2025-10-03 05:11:15,389 - INFO - [SEARCH] Trying intervention: outlier → 6
+2025-10-03 05:11:16,307 - INFO - [TRY] outlier=6,pipeline: {'missing_value': 5.0, 'outlier': 6, 'normalization': 5.0, 'model': 1.0}, Utility=157.3719, Best=186.9820
+2025-10-03 05:11:16,308 - INFO - ✅ Target achieved 🎯
+2025-10-03 05:11:16,308 - INFO - required optimistic iterations: 1
+2025-10-03 05:11:16,308 - INFO - passing pipeline: order=['missing_value', 'outlier', 'normalization', 'model'], vec=[5, 6, 5, 1]
+2025-10-03 05:11:16,308 - INFO - Total iterations so far: 1
+2025-10-03 05:11:16,308 - INFO - pipeline[5. 5. 1.]
+2025-10-03 05:11:16,857 - INFO - Evaluating [6, 1, 1] -- Initial Utility 186.96623739130024 -- Target Utility 180
+2025-10-03 05:13:07,501 - INFO - [OPTIMIZE] Trying combo size k=1
+2025-10-03 05:13:07,502 - INFO - [INFO] Running optimistic search with combined interventions...
+2025-10-03 05:13:07,502 - INFO - [SEARCH] Trying intervention: outlier → 6
+2025-10-03 05:13:08,134 - INFO - [TRY] outlier=6,pipeline: {'missing_value': 6.0, 'outlier': 6, 'normalization': 1.0, 'model': 1.0}, Utility=157.4023, Best=186.9662
+2025-10-03 05:13:08,134 - INFO - ✅ Target achieved 🎯
+2025-10-03 05:13:08,134 - INFO - required optimistic iterations: 1
+2025-10-03 05:13:08,134 - INFO - passing pipeline: order=['missing_value', 'outlier', 'normalization', 'model'], vec=[6, 6, 1, 1]
+2025-10-03 05:13:08,134 - INFO - Total iterations so far: 1
+2025-10-03 05:13:08,134 - INFO - pipeline[6. 1. 1.]
+2025-10-03 05:13:08,556 - INFO - Evaluating [6, 2, 1] -- Initial Utility 186.96623739130027 -- Target Utility 180
+2025-10-03 05:15:27,090 - INFO - [OPTIMIZE] Trying combo size k=1
+2025-10-03 05:15:27,091 - INFO - [INFO] Running optimistic search with combined interventions...
+2025-10-03 05:15:27,091 - INFO - [SEARCH] Trying intervention: outlier → 6
+2025-10-03 05:15:27,710 - INFO - [TRY] outlier=6,pipeline: {'missing_value': 6.0, 'outlier': 6, 'normalization': 2.0, 'model': 1.0}, Utility=157.4023, Best=186.9662
+2025-10-03 05:15:27,710 - INFO - ✅ Target achieved 🎯
+2025-10-03 05:15:27,711 - INFO - required optimistic iterations: 1
+2025-10-03 05:15:27,711 - INFO - passing pipeline: order=['missing_value', 'outlier', 'normalization', 'model'], vec=[6, 6, 2, 1]
+2025-10-03 05:15:27,711 - INFO - Total iterations so far: 1
+2025-10-03 05:15:27,711 - INFO - pipeline[6. 2. 1.]
+2025-10-03 05:15:28,131 - INFO - Evaluating [6, 3, 1] -- Initial Utility 186.96623739130027 -- Target Utility 180
+2025-10-03 05:17:52,167 - INFO - [OPTIMIZE] Trying combo size k=1
+2025-10-03 05:17:52,167 - INFO - [INFO] Running optimistic search with combined interventions...
+2025-10-03 05:17:52,167 - INFO - [SEARCH] Trying intervention: outlier → 6
+2025-10-03 05:17:52,948 - INFO - [TRY] outlier=6,pipeline: {'missing_value': 6.0, 'outlier': 6, 'normalization': 3.0, 'model': 1.0}, Utility=157.4023, Best=186.9662
+2025-10-03 05:17:52,948 - INFO - ✅ Target achieved 🎯
+2025-10-03 05:17:52,948 - INFO - required optimistic iterations: 1
+2025-10-03 05:17:52,948 - INFO - passing pipeline: order=['missing_value', 'outlier', 'normalization', 'model'], vec=[6, 6, 3, 1]
+2025-10-03 05:17:52,948 - INFO - Total iterations so far: 1
+2025-10-03 05:17:52,949 - INFO - pipeline[6. 3. 1.]
+2025-10-03 05:17:53,449 - INFO - Evaluating [6, 4, 1] -- Initial Utility 186.96623739130027 -- Target Utility 180
+2025-10-03 05:20:11,137 - INFO - [OPTIMIZE] Trying combo size k=1
+2025-10-03 05:20:11,139 - INFO - [INFO] Running optimistic search with combined interventions...
+2025-10-03 05:20:11,139 - INFO - [SEARCH] Trying intervention: outlier → 6
+2025-10-03 05:20:11,837 - INFO - [TRY] outlier=6,pipeline: {'missing_value': 6.0, 'outlier': 6, 'normalization': 4.0, 'model': 1.0}, Utility=157.4023, Best=186.9662
+2025-10-03 05:20:11,837 - INFO - ✅ Target achieved 🎯
+2025-10-03 05:20:11,837 - INFO - required optimistic iterations: 1
+2025-10-03 05:20:11,837 - INFO - passing pipeline: order=['missing_value', 'outlier', 'normalization', 'model'], vec=[6, 6, 4, 1]
+2025-10-03 05:20:11,837 - INFO - Total iterations so far: 1
+2025-10-03 05:20:11,837 - INFO - pipeline[6. 4. 1.]
+2025-10-03 05:20:12,299 - INFO - Evaluating [6, 5, 1] -- Initial Utility 186.96623739130027 -- Target Utility 180
+2025-10-03 05:22:27,002 - INFO - [OPTIMIZE] Trying combo size k=1
+2025-10-03 05:22:27,003 - INFO - [INFO] Running optimistic search with combined interventions...
+2025-10-03 05:22:27,003 - INFO - [SEARCH] Trying intervention: outlier → 6
+2025-10-03 05:22:27,597 - INFO - [TRY] outlier=6,pipeline: {'missing_value': 6.0, 'outlier': 6, 'normalization': 5.0, 'model': 1.0}, Utility=157.4023, Best=186.9662
+2025-10-03 05:22:27,598 - INFO - ✅ Target achieved 🎯
+2025-10-03 05:22:27,598 - INFO - required optimistic iterations: 1
+2025-10-03 05:22:27,598 - INFO - passing pipeline: order=['missing_value', 'outlier', 'normalization', 'model'], vec=[6, 6, 5, 1]
+2025-10-03 05:22:27,598 - INFO - Total iterations so far: 1
+2025-10-03 05:22:27,598 - INFO - pipeline[6. 5. 1.]
+2025-10-03 05:22:28,000 - INFO - Evaluating [7, 1, 1] -- Initial Utility 186.97780992695317 -- Target Utility 180
+2025-10-03 05:24:18,815 - INFO - [OPTIMIZE] Trying combo size k=1
+2025-10-03 05:24:18,816 - INFO - [INFO] Running optimistic search with combined interventions...
+2025-10-03 05:24:18,816 - INFO - [SEARCH] Trying intervention: outlier → 6
+2025-10-03 05:24:19,475 - INFO - [TRY] outlier=6,pipeline: {'missing_value': 7.0, 'outlier': 6, 'normalization': 1.0, 'model': 1.0}, Utility=157.4434, Best=186.9778
+2025-10-03 05:24:19,475 - INFO - ✅ Target achieved 🎯
+2025-10-03 05:24:19,475 - INFO - required optimistic iterations: 1
+2025-10-03 05:24:19,475 - INFO - passing pipeline: order=['missing_value', 'outlier', 'normalization', 'model'], vec=[7, 6, 1, 1]
+2025-10-03 05:24:19,475 - INFO - Total iterations so far: 1
+2025-10-03 05:24:19,475 - INFO - pipeline[7. 1. 1.]
+2025-10-03 05:24:19,981 - INFO - Evaluating [7, 2, 1] -- Initial Utility 186.9778099269532 -- Target Utility 180
+2025-10-03 05:26:29,709 - INFO - [OPTIMIZE] Trying combo size k=1
+2025-10-03 05:26:29,709 - INFO - [INFO] Running optimistic search with combined interventions...
+2025-10-03 05:26:29,709 - INFO - [SEARCH] Trying intervention: outlier → 6
+2025-10-03 05:26:30,579 - INFO - [TRY] outlier=6,pipeline: {'missing_value': 7.0, 'outlier': 6, 'normalization': 2.0, 'model': 1.0}, Utility=157.4434, Best=186.9778
+2025-10-03 05:26:30,579 - INFO - ✅ Target achieved 🎯
+2025-10-03 05:26:30,579 - INFO - required optimistic iterations: 1
+2025-10-03 05:26:30,579 - INFO - passing pipeline: order=['missing_value', 'outlier', 'normalization', 'model'], vec=[7, 6, 2, 1]
+2025-10-03 05:26:30,579 - INFO - Total iterations so far: 1
+2025-10-03 05:26:30,579 - INFO - pipeline[7. 2. 1.]
+2025-10-03 05:26:30,937 - INFO - Evaluating [7, 3, 1] -- Initial Utility 186.9778099269532 -- Target Utility 180
+2025-10-03 05:27:59,067 - INFO - [OPTIMIZE] Trying combo size k=1
+2025-10-03 05:27:59,067 - INFO - [INFO] Running optimistic search with combined interventions...
+2025-10-03 05:27:59,067 - INFO - [SEARCH] Trying intervention: outlier → 6
+2025-10-03 05:27:59,598 - INFO - [TRY] outlier=6,pipeline: {'missing_value': 7.0, 'outlier': 6, 'normalization': 3.0, 'model': 1.0}, Utility=157.4434, Best=186.9778
+2025-10-03 05:27:59,598 - INFO - ✅ Target achieved 🎯
+2025-10-03 05:27:59,598 - INFO - required optimistic iterations: 1
+2025-10-03 05:27:59,598 - INFO - passing pipeline: order=['missing_value', 'outlier', 'normalization', 'model'], vec=[7, 6, 3, 1]
+2025-10-03 05:27:59,598 - INFO - Total iterations so far: 1
+2025-10-03 05:27:59,598 - INFO - pipeline[7. 3. 1.]
+2025-10-03 05:28:00,003 - INFO - Evaluating [7, 4, 1] -- Initial Utility 186.97780992695317 -- Target Utility 180
+2025-10-03 05:29:28,478 - INFO - [OPTIMIZE] Trying combo size k=1
+2025-10-03 05:29:28,479 - INFO - [INFO] Running optimistic search with combined interventions...
+2025-10-03 05:29:28,479 - INFO - [SEARCH] Trying intervention: outlier → 6
+2025-10-03 05:29:28,988 - INFO - [TRY] outlier=6,pipeline: {'missing_value': 7.0, 'outlier': 6, 'normalization': 4.0, 'model': 1.0}, Utility=157.4434, Best=186.9778
+2025-10-03 05:29:28,988 - INFO - ✅ Target achieved 🎯
+2025-10-03 05:29:28,988 - INFO - required optimistic iterations: 1
+2025-10-03 05:29:28,988 - INFO - passing pipeline: order=['missing_value', 'outlier', 'normalization', 'model'], vec=[7, 6, 4, 1]
+2025-10-03 05:29:28,989 - INFO - Total iterations so far: 1
+2025-10-03 05:29:28,989 - INFO - pipeline[7. 4. 1.]
+2025-10-03 05:29:29,410 - INFO - Evaluating [7, 5, 1] -- Initial Utility 186.9778099269532 -- Target Utility 180
+2025-10-03 05:30:57,629 - INFO - [OPTIMIZE] Trying combo size k=1
+2025-10-03 05:30:57,629 - INFO - [INFO] Running optimistic search with combined interventions...
+2025-10-03 05:30:57,630 - INFO - [SEARCH] Trying intervention: outlier → 6
+2025-10-03 05:30:58,128 - INFO - [TRY] outlier=6,pipeline: {'missing_value': 7.0, 'outlier': 6, 'normalization': 5.0, 'model': 1.0}, Utility=157.4434, Best=186.9778
+2025-10-03 05:30:58,128 - INFO - ✅ Target achieved 🎯
+2025-10-03 05:30:58,128 - INFO - required optimistic iterations: 1
+2025-10-03 05:30:58,128 - INFO - passing pipeline: order=['missing_value', 'outlier', 'normalization', 'model'], vec=[7, 6, 5, 1]
+2025-10-03 05:30:58,128 - INFO - Total iterations so far: 1
+2025-10-03 05:30:58,128 - INFO - pipeline[7. 5. 1.]
+2025-10-03 05:30:58,705 - INFO - Evaluating [8, 1, 1] -- Initial Utility 187.06781374489447 -- Target Utility 180
+2025-10-03 05:32:12,045 - INFO - [OPTIMIZE] Trying combo size k=1
+2025-10-03 05:32:12,046 - INFO - [INFO] Running optimistic search with combined interventions...
+2025-10-03 05:32:12,046 - INFO - [SEARCH] Trying intervention: outlier → 6
+2025-10-03 05:32:12,663 - INFO - [TRY] outlier=6,pipeline: {'missing_value': 8.0, 'outlier': 6, 'normalization': 1.0, 'model': 1.0}, Utility=157.7094, Best=187.0678
+2025-10-03 05:32:12,663 - INFO - ✅ Target achieved 🎯
+2025-10-03 05:32:12,663 - INFO - required optimistic iterations: 1
+2025-10-03 05:32:12,663 - INFO - passing pipeline: order=['missing_value', 'outlier', 'normalization', 'model'], vec=[8, 6, 1, 1]
+2025-10-03 05:32:12,663 - INFO - Total iterations so far: 1
+2025-10-03 05:32:12,663 - INFO - pipeline[8. 1. 1.]
+2025-10-03 05:32:13,025 - INFO - Evaluating [8, 2, 1] -- Initial Utility 187.06781374489447 -- Target Utility 180
+2025-10-03 05:33:41,576 - INFO - [OPTIMIZE] Trying combo size k=1
+2025-10-03 05:33:41,576 - INFO - [INFO] Running optimistic search with combined interventions...
+2025-10-03 05:33:41,576 - INFO - [SEARCH] Trying intervention: outlier → 6
+2025-10-03 05:33:42,062 - INFO - [TRY] outlier=6,pipeline: {'missing_value': 8.0, 'outlier': 6, 'normalization': 2.0, 'model': 1.0}, Utility=157.7094, Best=187.0678
+2025-10-03 05:33:42,063 - INFO - ✅ Target achieved 🎯
+2025-10-03 05:33:42,063 - INFO - required optimistic iterations: 1
+2025-10-03 05:33:42,063 - INFO - passing pipeline: order=['missing_value', 'outlier', 'normalization', 'model'], vec=[8, 6, 2, 1]
+2025-10-03 05:33:42,063 - INFO - Total iterations so far: 1
+2025-10-03 05:33:42,063 - INFO - pipeline[8. 2. 1.]
+2025-10-03 05:33:42,369 - INFO - Evaluating [8, 3, 1] -- Initial Utility 187.06781374489447 -- Target Utility 180
+2025-10-03 05:35:09,577 - INFO - [OPTIMIZE] Trying combo size k=1
+2025-10-03 05:35:09,578 - INFO - [INFO] Running optimistic search with combined interventions...
+2025-10-03 05:35:09,578 - INFO - [SEARCH] Trying intervention: outlier → 6
+2025-10-03 05:35:10,143 - INFO - [TRY] outlier=6,pipeline: {'missing_value': 8.0, 'outlier': 6, 'normalization': 3.0, 'model': 1.0}, Utility=157.7094, Best=187.0678
+2025-10-03 05:35:10,143 - INFO - ✅ Target achieved 🎯
+2025-10-03 05:35:10,143 - INFO - required optimistic iterations: 1
+2025-10-03 05:35:10,143 - INFO - passing pipeline: order=['missing_value', 'outlier', 'normalization', 'model'], vec=[8, 6, 3, 1]
+2025-10-03 05:35:10,143 - INFO - Total iterations so far: 1
+2025-10-03 05:35:10,144 - INFO - pipeline[8. 3. 1.]
+2025-10-03 05:35:10,475 - INFO - Evaluating [8, 4, 1] -- Initial Utility 187.06781374489447 -- Target Utility 180
+2025-10-03 05:36:40,078 - INFO - [OPTIMIZE] Trying combo size k=1
+2025-10-03 05:36:40,078 - INFO - [INFO] Running optimistic search with combined interventions...
+2025-10-03 05:36:40,078 - INFO - [SEARCH] Trying intervention: outlier → 6
+2025-10-03 05:36:40,569 - INFO - [TRY] outlier=6,pipeline: {'missing_value': 8.0, 'outlier': 6, 'normalization': 4.0, 'model': 1.0}, Utility=157.7094, Best=187.0678
+2025-10-03 05:36:40,570 - INFO - ✅ Target achieved 🎯
+2025-10-03 05:36:40,570 - INFO - required optimistic iterations: 1
+2025-10-03 05:36:40,570 - INFO - passing pipeline: order=['missing_value', 'outlier', 'normalization', 'model'], vec=[8, 6, 4, 1]
+2025-10-03 05:36:40,570 - INFO - Total iterations so far: 1
+2025-10-03 05:36:40,570 - INFO - pipeline[8. 4. 1.]
+2025-10-03 05:36:40,950 - INFO - Evaluating [8, 5, 1] -- Initial Utility 187.0678137448945 -- Target Utility 180
+2025-10-03 05:38:09,983 - INFO - [OPTIMIZE] Trying combo size k=1
+2025-10-03 05:38:09,984 - INFO - [INFO] Running optimistic search with combined interventions...
+2025-10-03 05:38:09,984 - INFO - [SEARCH] Trying intervention: outlier → 6
+2025-10-03 05:38:10,481 - INFO - [TRY] outlier=6,pipeline: {'missing_value': 8.0, 'outlier': 6, 'normalization': 5.0, 'model': 1.0}, Utility=157.7094, Best=187.0678
+2025-10-03 05:38:10,481 - INFO - ✅ Target achieved 🎯
+2025-10-03 05:38:10,481 - INFO - required optimistic iterations: 1
+2025-10-03 05:38:10,481 - INFO - passing pipeline: order=['missing_value', 'outlier', 'normalization', 'model'], vec=[8, 6, 5, 1]
+2025-10-03 05:38:10,481 - INFO - Total iterations so far: 1
+2025-10-03 05:38:10,482 - INFO - pipeline[8. 5. 1.]
+2025-10-03 05:38:10,779 - INFO - Evaluating [9, 1, 1] -- Initial Utility 187.10024966872945 -- Target Utility 180
+2025-10-03 05:39:24,926 - INFO - [OPTIMIZE] Trying combo size k=1
+2025-10-03 05:39:24,927 - INFO - [INFO] Running optimistic search with combined interventions...
+2025-10-03 05:39:24,927 - INFO - [SEARCH] Trying intervention: outlier → 6
+2025-10-03 05:39:25,402 - INFO - [TRY] outlier=6,pipeline: {'missing_value': 9.0, 'outlier': 6, 'normalization': 1.0, 'model': 1.0}, Utility=157.7699, Best=187.1002
+2025-10-03 05:39:25,402 - INFO - ✅ Target achieved 🎯
+2025-10-03 05:39:25,402 - INFO - required optimistic iterations: 1
+2025-10-03 05:39:25,402 - INFO - passing pipeline: order=['missing_value', 'outlier', 'normalization', 'model'], vec=[9, 6, 1, 1]
+2025-10-03 05:39:25,402 - INFO - Total iterations so far: 1
+2025-10-03 05:39:25,402 - INFO - pipeline[9. 1. 1.]
+2025-10-03 05:39:25,910 - INFO - Evaluating [9, 2, 1] -- Initial Utility 187.10024966872945 -- Target Utility 180
+2025-10-03 05:40:56,184 - INFO - [OPTIMIZE] Trying combo size k=1
+2025-10-03 05:40:56,184 - INFO - [INFO] Running optimistic search with combined interventions...
+2025-10-03 05:40:56,184 - INFO - [SEARCH] Trying intervention: outlier → 6
+2025-10-03 05:40:56,622 - INFO - [TRY] outlier=6,pipeline: {'missing_value': 9.0, 'outlier': 6, 'normalization': 2.0, 'model': 1.0}, Utility=157.7699, Best=187.1002
+2025-10-03 05:40:56,622 - INFO - ✅ Target achieved 🎯
+2025-10-03 05:40:56,622 - INFO - required optimistic iterations: 1
+2025-10-03 05:40:56,622 - INFO - passing pipeline: order=['missing_value', 'outlier', 'normalization', 'model'], vec=[9, 6, 2, 1]
+2025-10-03 05:40:56,622 - INFO - Total iterations so far: 1
+2025-10-03 05:40:56,622 - INFO - pipeline[9. 2. 1.]
+2025-10-03 05:40:57,023 - INFO - Evaluating [9, 3, 1] -- Initial Utility 187.10024966872945 -- Target Utility 180
+2025-10-03 05:42:27,005 - INFO - [OPTIMIZE] Trying combo size k=1
+2025-10-03 05:42:27,006 - INFO - [INFO] Running optimistic search with combined interventions...
+2025-10-03 05:42:27,006 - INFO - [SEARCH] Trying intervention: outlier → 6
+2025-10-03 05:42:27,690 - INFO - [TRY] outlier=6,pipeline: {'missing_value': 9.0, 'outlier': 6, 'normalization': 3.0, 'model': 1.0}, Utility=157.7699, Best=187.1002
+2025-10-03 05:42:27,691 - INFO - ✅ Target achieved 🎯
+2025-10-03 05:42:27,691 - INFO - required optimistic iterations: 1
+2025-10-03 05:42:27,691 - INFO - passing pipeline: order=['missing_value', 'outlier', 'normalization', 'model'], vec=[9, 6, 3, 1]
+2025-10-03 05:42:27,691 - INFO - Total iterations so far: 1
+2025-10-03 05:42:27,691 - INFO - pipeline[9. 3. 1.]
+2025-10-03 05:42:28,108 - INFO - Evaluating [9, 4, 1] -- Initial Utility 187.10024966872948 -- Target Utility 180
+2025-10-03 05:43:58,723 - INFO - [OPTIMIZE] Trying combo size k=1
+2025-10-03 05:43:58,724 - INFO - [INFO] Running optimistic search with combined interventions...
+2025-10-03 05:43:58,724 - INFO - [SEARCH] Trying intervention: outlier → 6
+2025-10-03 05:43:59,224 - INFO - [TRY] outlier=6,pipeline: {'missing_value': 9.0, 'outlier': 6, 'normalization': 4.0, 'model': 1.0}, Utility=157.7699, Best=187.1002
+2025-10-03 05:43:59,224 - INFO - ✅ Target achieved 🎯
+2025-10-03 05:43:59,224 - INFO - required optimistic iterations: 1
+2025-10-03 05:43:59,224 - INFO - passing pipeline: order=['missing_value', 'outlier', 'normalization', 'model'], vec=[9, 6, 4, 1]
+2025-10-03 05:43:59,224 - INFO - Total iterations so far: 1
+2025-10-03 05:43:59,224 - INFO - pipeline[9. 4. 1.]
+2025-10-03 05:43:59,543 - INFO - Evaluating [9, 5, 1] -- Initial Utility 187.10024966872945 -- Target Utility 180
+2025-10-03 05:45:27,889 - INFO - [OPTIMIZE] Trying combo size k=1
+2025-10-03 05:45:27,890 - INFO - [INFO] Running optimistic search with combined interventions...
+2025-10-03 05:45:27,890 - INFO - [SEARCH] Trying intervention: outlier → 6
+2025-10-03 05:45:28,364 - INFO - [TRY] outlier=6,pipeline: {'missing_value': 9.0, 'outlier': 6, 'normalization': 5.0, 'model': 1.0}, Utility=157.7699, Best=187.1002
+2025-10-03 05:45:28,376 - INFO - ✅ Target achieved 🎯
+2025-10-03 05:45:28,376 - INFO - required optimistic iterations: 1
+2025-10-03 05:45:28,376 - INFO - passing pipeline: order=['missing_value', 'outlier', 'normalization', 'model'], vec=[9, 6, 5, 1]
+2025-10-03 05:45:28,376 - INFO - Total iterations so far: 1
+2025-10-03 05:45:28,376 - INFO - pipeline[9. 5. 1.]
+2025-10-03 05:45:28,489 - INFO - Evaluating [1, 1, 1] -- Initial Utility 189.32386132044957 -- Target Utility 185
+2025-10-03 05:46:29,022 - INFO - [OPTIMIZE] Trying combo size k=1
+2025-10-03 05:46:29,022 - INFO - [INFO] Running optimistic search with combined interventions...
+2025-10-03 05:46:29,022 - INFO - [SEARCH] Trying intervention: outlier → 8
+2025-10-03 05:46:29,240 - INFO - [TRY] outlier=8,pipeline: {'missing_value': 1.0, 'outlier': 8, 'normalization': 1.0, 'model': 1.0}, Utility=158.4669, Best=189.3239
+2025-10-03 05:46:29,240 - INFO - ✅ Target achieved 🎯
+2025-10-03 05:46:29,240 - INFO - required optimistic iterations: 1
+2025-10-03 05:46:29,240 - INFO - passing pipeline: order=['missing_value', 'outlier', 'normalization', 'model'], vec=[1, 8, 1, 1]
+2025-10-03 05:46:29,240 - INFO - Total iterations so far: 1
+2025-10-03 05:46:29,240 - INFO - pipeline[1. 1. 1.]
+2025-10-03 05:46:29,356 - INFO - Evaluating [1, 2, 1] -- Initial Utility 189.3238613204496 -- Target Utility 185
+2025-10-03 05:47:45,288 - INFO - [OPTIMIZE] Trying combo size k=1
+2025-10-03 05:47:45,288 - INFO - [INFO] Running optimistic search with combined interventions...
+2025-10-03 05:47:45,289 - INFO - [SEARCH] Trying intervention: outlier → 8
+2025-10-03 05:47:45,514 - INFO - [TRY] outlier=8,pipeline: {'missing_value': 1.0, 'outlier': 8, 'normalization': 2.0, 'model': 1.0}, Utility=158.4669, Best=189.3239
+2025-10-03 05:47:45,514 - INFO - ✅ Target achieved 🎯
+2025-10-03 05:47:45,514 - INFO - required optimistic iterations: 1
+2025-10-03 05:47:45,514 - INFO - passing pipeline: order=['missing_value', 'outlier', 'normalization', 'model'], vec=[1, 8, 2, 1]
+2025-10-03 05:47:45,514 - INFO - Total iterations so far: 1
+2025-10-03 05:47:45,514 - INFO - pipeline[1. 2. 1.]
+2025-10-03 05:47:45,662 - INFO - Evaluating [1, 3, 1] -- Initial Utility 189.3238613204496 -- Target Utility 185
+2025-10-03 05:49:00,780 - INFO - [OPTIMIZE] Trying combo size k=1
+2025-10-03 05:49:00,780 - INFO - [INFO] Running optimistic search with combined interventions...
+2025-10-03 05:49:00,780 - INFO - [SEARCH] Trying intervention: outlier → 8
+2025-10-03 05:49:00,983 - INFO - [TRY] outlier=8,pipeline: {'missing_value': 1.0, 'outlier': 8, 'normalization': 3.0, 'model': 1.0}, Utility=158.4669, Best=189.3239
+2025-10-03 05:49:00,983 - INFO - ✅ Target achieved 🎯
+2025-10-03 05:49:00,983 - INFO - required optimistic iterations: 1
+2025-10-03 05:49:00,983 - INFO - passing pipeline: order=['missing_value', 'outlier', 'normalization', 'model'], vec=[1, 8, 3, 1]
+2025-10-03 05:49:00,983 - INFO - Total iterations so far: 1
+2025-10-03 05:49:00,983 - INFO - pipeline[1. 3. 1.]
+2025-10-03 05:49:01,094 - INFO - Evaluating [1, 4, 1] -- Initial Utility 189.3238613204496 -- Target Utility 185
+2025-10-03 05:50:15,811 - INFO - [OPTIMIZE] Trying combo size k=1
+2025-10-03 05:50:15,811 - INFO - [INFO] Running optimistic search with combined interventions...
+2025-10-03 05:50:15,811 - INFO - [SEARCH] Trying intervention: outlier → 8
+2025-10-03 05:50:16,052 - INFO - [TRY] outlier=8,pipeline: {'missing_value': 1.0, 'outlier': 8, 'normalization': 4.0, 'model': 1.0}, Utility=158.4669, Best=189.3239
+2025-10-03 05:50:16,053 - INFO - ✅ Target achieved 🎯
+2025-10-03 05:50:16,053 - INFO - required optimistic iterations: 1
+2025-10-03 05:50:16,053 - INFO - passing pipeline: order=['missing_value', 'outlier', 'normalization', 'model'], vec=[1, 8, 4, 1]
+2025-10-03 05:50:16,053 - INFO - Total iterations so far: 1
+2025-10-03 05:50:16,053 - INFO - pipeline[1. 4. 1.]
+2025-10-03 05:50:16,173 - INFO - Evaluating [1, 5, 1] -- Initial Utility 189.3238613204496 -- Target Utility 185
+2025-10-03 05:51:29,753 - INFO - [OPTIMIZE] Trying combo size k=1
+2025-10-03 05:51:29,754 - INFO - [INFO] Running optimistic search with combined interventions...
+2025-10-03 05:51:29,754 - INFO - [SEARCH] Trying intervention: outlier → 8
+2025-10-03 05:51:29,988 - INFO - [TRY] outlier=8,pipeline: {'missing_value': 1.0, 'outlier': 8, 'normalization': 5.0, 'model': 1.0}, Utility=158.4669, Best=189.3239
+2025-10-03 05:51:29,988 - INFO - ✅ Target achieved 🎯
+2025-10-03 05:51:29,989 - INFO - required optimistic iterations: 1
+2025-10-03 05:51:29,989 - INFO - passing pipeline: order=['missing_value', 'outlier', 'normalization', 'model'], vec=[1, 8, 5, 1]
+2025-10-03 05:51:29,989 - INFO - Total iterations so far: 1
+2025-10-03 05:51:29,989 - INFO - pipeline[1. 5. 1.]
+2025-10-03 05:51:30,143 - INFO - Evaluating [2, 1, 1] -- Initial Utility 187.11086793920893 -- Target Utility 185
+2025-10-03 05:52:35,849 - INFO - [OPTIMIZE] Trying combo size k=1
+2025-10-03 05:52:35,850 - INFO - [INFO] Running optimistic search with combined interventions...
+2025-10-03 05:52:35,850 - INFO - [SEARCH] Trying intervention: outlier → 6
+2025-10-03 05:52:36,104 - INFO - [TRY] outlier=6,pipeline: {'missing_value': 2.0, 'outlier': 6, 'normalization': 1.0, 'model': 1.0}, Utility=158.3248, Best=187.1109
+2025-10-03 05:52:36,104 - INFO - ✅ Target achieved 🎯
+2025-10-03 05:52:36,104 - INFO - required optimistic iterations: 1
+2025-10-03 05:52:36,104 - INFO - passing pipeline: order=['missing_value', 'outlier', 'normalization', 'model'], vec=[2, 6, 1, 1]
+2025-10-03 05:52:36,104 - INFO - Total iterations so far: 1
+2025-10-03 05:52:36,104 - INFO - pipeline[2. 1. 1.]
+2025-10-03 05:52:36,335 - INFO - Evaluating [2, 2, 1] -- Initial Utility 187.1108679392089 -- Target Utility 185
+2025-10-03 05:53:56,885 - INFO - [OPTIMIZE] Trying combo size k=1
+2025-10-03 05:53:56,885 - INFO - [INFO] Running optimistic search with combined interventions...
+2025-10-03 05:53:56,885 - INFO - [SEARCH] Trying intervention: outlier → 6
+2025-10-03 05:53:57,134 - INFO - [TRY] outlier=6,pipeline: {'missing_value': 2.0, 'outlier': 6, 'normalization': 2.0, 'model': 1.0}, Utility=158.3248, Best=187.1109
+2025-10-03 05:53:57,134 - INFO - ✅ Target achieved 🎯
+2025-10-03 05:53:57,134 - INFO - required optimistic iterations: 1
+2025-10-03 05:53:57,134 - INFO - passing pipeline: order=['missing_value', 'outlier', 'normalization', 'model'], vec=[2, 6, 2, 1]
+2025-10-03 05:53:57,134 - INFO - Total iterations so far: 1
+2025-10-03 05:53:57,135 - INFO - pipeline[2. 2. 1.]
+2025-10-03 05:53:57,420 - INFO - Evaluating [2, 3, 1] -- Initial Utility 187.1108679392089 -- Target Utility 185
+2025-10-03 05:55:20,634 - INFO - [OPTIMIZE] Trying combo size k=1
+2025-10-03 05:55:20,635 - INFO - [INFO] Running optimistic search with combined interventions...
+2025-10-03 05:55:20,635 - INFO - [SEARCH] Trying intervention: outlier → 6
+2025-10-03 05:55:20,857 - INFO - [TRY] outlier=6,pipeline: {'missing_value': 2.0, 'outlier': 6, 'normalization': 3.0, 'model': 1.0}, Utility=158.3248, Best=187.1109
+2025-10-03 05:55:20,857 - INFO - ✅ Target achieved 🎯
+2025-10-03 05:55:20,857 - INFO - required optimistic iterations: 1
+2025-10-03 05:55:20,857 - INFO - passing pipeline: order=['missing_value', 'outlier', 'normalization', 'model'], vec=[2, 6, 3, 1]
+2025-10-03 05:55:20,857 - INFO - Total iterations so far: 1
+2025-10-03 05:55:20,857 - INFO - pipeline[2. 3. 1.]
+2025-10-03 05:55:21,026 - INFO - Evaluating [2, 4, 1] -- Initial Utility 187.11086793920893 -- Target Utility 185
+2025-10-03 05:56:42,157 - INFO - [OPTIMIZE] Trying combo size k=1
+2025-10-03 05:56:42,158 - INFO - [INFO] Running optimistic search with combined interventions...
+2025-10-03 05:56:42,158 - INFO - [SEARCH] Trying intervention: outlier → 6
+2025-10-03 05:56:42,393 - INFO - [TRY] outlier=6,pipeline: {'missing_value': 2.0, 'outlier': 6, 'normalization': 4.0, 'model': 1.0}, Utility=158.3248, Best=187.1109
+2025-10-03 05:56:42,393 - INFO - ✅ Target achieved 🎯
+2025-10-03 05:56:42,393 - INFO - required optimistic iterations: 1
+2025-10-03 05:56:42,393 - INFO - passing pipeline: order=['missing_value', 'outlier', 'normalization', 'model'], vec=[2, 6, 4, 1]
+2025-10-03 05:56:42,393 - INFO - Total iterations so far: 1
+2025-10-03 05:56:42,393 - INFO - pipeline[2. 4. 1.]
+2025-10-03 05:56:42,585 - INFO - Evaluating [2, 5, 1] -- Initial Utility 187.1108679392089 -- Target Utility 185
+2025-10-03 05:58:03,855 - INFO - [OPTIMIZE] Trying combo size k=1
+2025-10-03 05:58:03,855 - INFO - [INFO] Running optimistic search with combined interventions...
+2025-10-03 05:58:03,855 - INFO - [SEARCH] Trying intervention: outlier → 6
+2025-10-03 05:58:04,095 - INFO - [TRY] outlier=6,pipeline: {'missing_value': 2.0, 'outlier': 6, 'normalization': 5.0, 'model': 1.0}, Utility=158.3248, Best=187.1109
+2025-10-03 05:58:04,095 - INFO - ✅ Target achieved 🎯
+2025-10-03 05:58:04,095 - INFO - required optimistic iterations: 1
+2025-10-03 05:58:04,095 - INFO - passing pipeline: order=['missing_value', 'outlier', 'normalization', 'model'], vec=[2, 6, 5, 1]
+2025-10-03 05:58:04,096 - INFO - Total iterations so far: 1
+2025-10-03 05:58:04,096 - INFO - pipeline[2. 5. 1.]
+2025-10-03 05:58:04,240 - INFO - Evaluating [3, 1, 1] -- Initial Utility 187.09748014350498 -- Target Utility 185
+2025-10-03 05:59:09,885 - INFO - [OPTIMIZE] Trying combo size k=1
+2025-10-03 05:59:09,886 - INFO - [INFO] Running optimistic search with combined interventions...
+2025-10-03 05:59:09,886 - INFO - [SEARCH] Trying intervention: outlier → 6
+2025-10-03 05:59:10,157 - INFO - [TRY] outlier=6,pipeline: {'missing_value': 3.0, 'outlier': 6, 'normalization': 1.0, 'model': 1.0}, Utility=158.3693, Best=187.0975
+2025-10-03 05:59:10,157 - INFO - ✅ Target achieved 🎯
+2025-10-03 05:59:10,158 - INFO - required optimistic iterations: 1
+2025-10-03 05:59:10,158 - INFO - passing pipeline: order=['missing_value', 'outlier', 'normalization', 'model'], vec=[3, 6, 1, 1]
+2025-10-03 05:59:10,158 - INFO - Total iterations so far: 1
+2025-10-03 05:59:10,158 - INFO - pipeline[3. 1. 1.]
+2025-10-03 05:59:10,303 - INFO - Evaluating [3, 2, 1] -- Initial Utility 187.09748014350498 -- Target Utility 185
+2025-10-03 06:00:30,559 - INFO - [OPTIMIZE] Trying combo size k=1
+2025-10-03 06:00:30,559 - INFO - [INFO] Running optimistic search with combined interventions...
+2025-10-03 06:00:30,559 - INFO - [SEARCH] Trying intervention: outlier → 6
+2025-10-03 06:00:30,820 - INFO - [TRY] outlier=6,pipeline: {'missing_value': 3.0, 'outlier': 6, 'normalization': 2.0, 'model': 1.0}, Utility=158.3693, Best=187.0975
+2025-10-03 06:00:30,820 - INFO - ✅ Target achieved 🎯
+2025-10-03 06:00:30,820 - INFO - required optimistic iterations: 1
+2025-10-03 06:00:30,820 - INFO - passing pipeline: order=['missing_value', 'outlier', 'normalization', 'model'], vec=[3, 6, 2, 1]
+2025-10-03 06:00:30,820 - INFO - Total iterations so far: 1
+2025-10-03 06:00:30,820 - INFO - pipeline[3. 2. 1.]
+2025-10-03 06:00:30,971 - INFO - Evaluating [3, 3, 1] -- Initial Utility 187.09748014350498 -- Target Utility 185
+2025-10-03 06:01:51,068 - INFO - [OPTIMIZE] Trying combo size k=1
+2025-10-03 06:01:51,068 - INFO - [INFO] Running optimistic search with combined interventions...
+2025-10-03 06:01:51,068 - INFO - [SEARCH] Trying intervention: outlier → 6
+2025-10-03 06:01:51,317 - INFO - [TRY] outlier=6,pipeline: {'missing_value': 3.0, 'outlier': 6, 'normalization': 3.0, 'model': 1.0}, Utility=158.3693, Best=187.0975
+2025-10-03 06:01:51,317 - INFO - ✅ Target achieved 🎯
+2025-10-03 06:01:51,317 - INFO - required optimistic iterations: 1
+2025-10-03 06:01:51,317 - INFO - passing pipeline: order=['missing_value', 'outlier', 'normalization', 'model'], vec=[3, 6, 3, 1]
+2025-10-03 06:01:51,317 - INFO - Total iterations so far: 1
+2025-10-03 06:01:51,317 - INFO - pipeline[3. 3. 1.]
+2025-10-03 06:01:51,540 - INFO - Evaluating [3, 4, 1] -- Initial Utility 187.09748014350498 -- Target Utility 185
+2025-10-03 06:03:12,199 - INFO - [OPTIMIZE] Trying combo size k=1
+2025-10-03 06:03:12,200 - INFO - [INFO] Running optimistic search with combined interventions...
+2025-10-03 06:03:12,200 - INFO - [SEARCH] Trying intervention: outlier → 6
+2025-10-03 06:03:12,425 - INFO - [TRY] outlier=6,pipeline: {'missing_value': 3.0, 'outlier': 6, 'normalization': 4.0, 'model': 1.0}, Utility=158.3693, Best=187.0975
+2025-10-03 06:03:12,425 - INFO - ✅ Target achieved 🎯
+2025-10-03 06:03:12,425 - INFO - required optimistic iterations: 1
+2025-10-03 06:03:12,425 - INFO - passing pipeline: order=['missing_value', 'outlier', 'normalization', 'model'], vec=[3, 6, 4, 1]
+2025-10-03 06:03:12,425 - INFO - Total iterations so far: 1
+2025-10-03 06:03:12,425 - INFO - pipeline[3. 4. 1.]
+2025-10-03 06:03:12,572 - INFO - Evaluating [3, 5, 1] -- Initial Utility 187.09748014350498 -- Target Utility 185
+2025-10-03 06:04:33,035 - INFO - [OPTIMIZE] Trying combo size k=1
+2025-10-03 06:04:33,035 - INFO - [INFO] Running optimistic search with combined interventions...
+2025-10-03 06:04:33,035 - INFO - [SEARCH] Trying intervention: outlier → 6
+2025-10-03 06:04:33,261 - INFO - [TRY] outlier=6,pipeline: {'missing_value': 3.0, 'outlier': 6, 'normalization': 5.0, 'model': 1.0}, Utility=158.3693, Best=187.0975
+2025-10-03 06:04:33,261 - INFO - ✅ Target achieved 🎯
+2025-10-03 06:04:33,261 - INFO - required optimistic iterations: 1
+2025-10-03 06:04:33,261 - INFO - passing pipeline: order=['missing_value', 'outlier', 'normalization', 'model'], vec=[3, 6, 5, 1]
+2025-10-03 06:04:33,261 - INFO - Total iterations so far: 1
+2025-10-03 06:04:33,261 - INFO - pipeline[3. 5. 1.]
+2025-10-03 06:04:33,384 - INFO - Evaluating [4, 1, 1] -- Initial Utility 187.44380692213028 -- Target Utility 185
+2025-10-03 06:05:39,020 - INFO - [OPTIMIZE] Trying combo size k=1
+2025-10-03 06:05:39,022 - INFO - [INFO] Running optimistic search with combined interventions...
+2025-10-03 06:05:39,022 - INFO - [SEARCH] Trying intervention: outlier → 6
+2025-10-03 06:05:39,248 - INFO - [TRY] outlier=6,pipeline: {'missing_value': 4.0, 'outlier': 6, 'normalization': 1.0, 'model': 1.0}, Utility=158.7840, Best=187.4438
+2025-10-03 06:05:39,248 - INFO - ✅ Target achieved 🎯
+2025-10-03 06:05:39,248 - INFO - required optimistic iterations: 1
+2025-10-03 06:05:39,248 - INFO - passing pipeline: order=['missing_value', 'outlier', 'normalization', 'model'], vec=[4, 6, 1, 1]
+2025-10-03 06:05:39,248 - INFO - Total iterations so far: 1
+2025-10-03 06:05:39,248 - INFO - pipeline[4. 1. 1.]
+2025-10-03 06:05:39,484 - INFO - Evaluating [4, 2, 1] -- Initial Utility 187.44380692213028 -- Target Utility 185
+2025-10-03 06:07:00,742 - INFO - [OPTIMIZE] Trying combo size k=1
+2025-10-03 06:07:00,743 - INFO - [INFO] Running optimistic search with combined interventions...
+2025-10-03 06:07:00,743 - INFO - [SEARCH] Trying intervention: outlier → 8
+2025-10-03 06:07:00,986 - INFO - [TRY] outlier=8,pipeline: {'missing_value': 4.0, 'normalization': 2.0, 'outlier': 8, 'model': 1.0}, Utility=164.8724, Best=187.4438
+2025-10-03 06:07:00,986 - INFO - ✅ Target achieved 🎯
+2025-10-03 06:07:00,986 - INFO - required optimistic iterations: 1
+2025-10-03 06:07:00,986 - INFO - passing pipeline: order=['missing_value', 'normalization', 'outlier', 'model'], vec=[4, 2, 8, 1]
+2025-10-03 06:07:00,986 - INFO - Total iterations so far: 1
+2025-10-03 06:07:00,986 - INFO - pipeline[4. 2. 1.]
+2025-10-03 06:07:01,138 - INFO - Evaluating [4, 3, 1] -- Initial Utility 187.44380692213028 -- Target Utility 185
+2025-10-03 06:08:23,173 - INFO - [OPTIMIZE] Trying combo size k=1
+2025-10-03 06:08:23,174 - INFO - [INFO] Running optimistic search with combined interventions...
+2025-10-03 06:08:23,174 - INFO - [SEARCH] Trying intervention: outlier → 6
+2025-10-03 06:08:23,400 - INFO - [TRY] outlier=6,pipeline: {'missing_value': 4.0, 'outlier': 6, 'normalization': 3.0, 'model': 1.0}, Utility=158.7840, Best=187.4438
+2025-10-03 06:08:23,400 - INFO - ✅ Target achieved 🎯
+2025-10-03 06:08:23,400 - INFO - required optimistic iterations: 1
+2025-10-03 06:08:23,400 - INFO - passing pipeline: order=['missing_value', 'outlier', 'normalization', 'model'], vec=[4, 6, 3, 1]
+2025-10-03 06:08:23,400 - INFO - Total iterations so far: 1
+2025-10-03 06:08:23,400 - INFO - pipeline[4. 3. 1.]
+2025-10-03 06:08:23,531 - INFO - Evaluating [4, 4, 1] -- Initial Utility 187.4438069221303 -- Target Utility 185
+2025-10-03 06:09:46,695 - INFO - [OPTIMIZE] Trying combo size k=1
+2025-10-03 06:09:46,695 - INFO - [INFO] Running optimistic search with combined interventions...
+2025-10-03 06:09:46,696 - INFO - [SEARCH] Trying intervention: outlier → 6
+2025-10-03 06:09:46,944 - INFO - [TRY] outlier=6,pipeline: {'missing_value': 4.0, 'outlier': 6, 'normalization': 4.0, 'model': 1.0}, Utility=158.7840, Best=187.4438
+2025-10-03 06:09:46,944 - INFO - ✅ Target achieved 🎯
+2025-10-03 06:09:46,944 - INFO - required optimistic iterations: 1
+2025-10-03 06:09:46,944 - INFO - passing pipeline: order=['missing_value', 'outlier', 'normalization', 'model'], vec=[4, 6, 4, 1]
+2025-10-03 06:09:46,944 - INFO - Total iterations so far: 1
+2025-10-03 06:09:46,944 - INFO - pipeline[4. 4. 1.]
+2025-10-03 06:09:47,094 - INFO - Evaluating [4, 5, 1] -- Initial Utility 187.4438069221303 -- Target Utility 185
+2025-10-03 06:11:07,517 - INFO - [OPTIMIZE] Trying combo size k=1
+2025-10-03 06:11:07,518 - INFO - [INFO] Running optimistic search with combined interventions...
+2025-10-03 06:11:07,518 - INFO - [SEARCH] Trying intervention: outlier → 6
+2025-10-03 06:11:07,747 - INFO - [TRY] outlier=6,pipeline: {'missing_value': 4.0, 'outlier': 6, 'normalization': 5.0, 'model': 1.0}, Utility=158.7840, Best=187.4438
+2025-10-03 06:11:07,748 - INFO - ✅ Target achieved 🎯
+2025-10-03 06:11:07,748 - INFO - required optimistic iterations: 1
+2025-10-03 06:11:07,748 - INFO - passing pipeline: order=['missing_value', 'outlier', 'normalization', 'model'], vec=[4, 6, 5, 1]
+2025-10-03 06:11:07,748 - INFO - Total iterations so far: 1
+2025-10-03 06:11:07,748 - INFO - pipeline[4. 5. 1.]
+2025-10-03 06:11:08,136 - INFO - Evaluating [5, 1, 1] -- Initial Utility 186.98202072458875 -- Target Utility 185
+2025-10-03 06:12:24,363 - INFO - [OPTIMIZE] Trying combo size k=1
+2025-10-03 06:12:24,363 - INFO - [INFO] Running optimistic search with combined interventions...
+2025-10-03 06:12:24,363 - INFO - [SEARCH] Trying intervention: outlier → 6
+2025-10-03 06:12:25,159 - INFO - [TRY] outlier=6,pipeline: {'missing_value': 5.0, 'outlier': 6, 'normalization': 1.0, 'model': 1.0}, Utility=157.3719, Best=186.9820
+2025-10-03 06:12:25,159 - INFO - ✅ Target achieved 🎯
+2025-10-03 06:12:25,159 - INFO - required optimistic iterations: 1
+2025-10-03 06:12:25,159 - INFO - passing pipeline: order=['missing_value', 'outlier', 'normalization', 'model'], vec=[5, 6, 1, 1]
+2025-10-03 06:12:25,159 - INFO - Total iterations so far: 1
+2025-10-03 06:12:25,159 - INFO - pipeline[5. 1. 1.]
+2025-10-03 06:12:25,565 - INFO - Evaluating [5, 2, 1] -- Initial Utility 186.98202072458875 -- Target Utility 185
+2025-10-03 06:13:56,141 - INFO - [OPTIMIZE] Trying combo size k=1
+2025-10-03 06:13:56,142 - INFO - [INFO] Running optimistic search with combined interventions...
+2025-10-03 06:13:56,142 - INFO - [SEARCH] Trying intervention: outlier → 6
+2025-10-03 06:13:56,634 - INFO - [TRY] outlier=6,pipeline: {'missing_value': 5.0, 'outlier': 6, 'normalization': 2.0, 'model': 1.0}, Utility=157.3719, Best=186.9820
+2025-10-03 06:13:56,634 - INFO - ✅ Target achieved 🎯
+2025-10-03 06:13:56,634 - INFO - required optimistic iterations: 1
+2025-10-03 06:13:56,634 - INFO - passing pipeline: order=['missing_value', 'outlier', 'normalization', 'model'], vec=[5, 6, 2, 1]
+2025-10-03 06:13:56,634 - INFO - Total iterations so far: 1
+2025-10-03 06:13:56,634 - INFO - pipeline[5. 2. 1.]
+2025-10-03 06:13:57,060 - INFO - Evaluating [5, 3, 1] -- Initial Utility 186.98202072458875 -- Target Utility 185
+2025-10-03 06:15:25,801 - INFO - [OPTIMIZE] Trying combo size k=1
+2025-10-03 06:15:25,801 - INFO - [INFO] Running optimistic search with combined interventions...
+2025-10-03 06:15:25,801 - INFO - [SEARCH] Trying intervention: outlier → 6
+2025-10-03 06:15:26,331 - INFO - [TRY] outlier=6,pipeline: {'missing_value': 5.0, 'outlier': 6, 'normalization': 3.0, 'model': 1.0}, Utility=157.3719, Best=186.9820
+2025-10-03 06:15:26,331 - INFO - ✅ Target achieved 🎯
+2025-10-03 06:15:26,331 - INFO - required optimistic iterations: 1
+2025-10-03 06:15:26,331 - INFO - passing pipeline: order=['missing_value', 'outlier', 'normalization', 'model'], vec=[5, 6, 3, 1]
+2025-10-03 06:15:26,331 - INFO - Total iterations so far: 1
+2025-10-03 06:15:26,331 - INFO - pipeline[5. 3. 1.]
+2025-10-03 06:15:26,639 - INFO - Evaluating [5, 4, 1] -- Initial Utility 186.98202072458875 -- Target Utility 185
+2025-10-03 06:16:55,748 - INFO - [OPTIMIZE] Trying combo size k=1
+2025-10-03 06:16:55,749 - INFO - [INFO] Running optimistic search with combined interventions...
+2025-10-03 06:16:55,749 - INFO - [SEARCH] Trying intervention: outlier → 6
+2025-10-03 06:16:56,261 - INFO - [TRY] outlier=6,pipeline: {'missing_value': 5.0, 'outlier': 6, 'normalization': 4.0, 'model': 1.0}, Utility=157.3719, Best=186.9820
+2025-10-03 06:16:56,261 - INFO - ✅ Target achieved 🎯
+2025-10-03 06:16:56,261 - INFO - required optimistic iterations: 1
+2025-10-03 06:16:56,261 - INFO - passing pipeline: order=['missing_value', 'outlier', 'normalization', 'model'], vec=[5, 6, 4, 1]
+2025-10-03 06:16:56,261 - INFO - Total iterations so far: 1
+2025-10-03 06:16:56,261 - INFO - pipeline[5. 4. 1.]
+2025-10-03 06:16:56,619 - INFO - Evaluating [5, 5, 1] -- Initial Utility 186.98202072458875 -- Target Utility 185
+2025-10-03 06:18:25,711 - INFO - [OPTIMIZE] Trying combo size k=1
+2025-10-03 06:18:25,711 - INFO - [INFO] Running optimistic search with combined interventions...
+2025-10-03 06:18:25,711 - INFO - [SEARCH] Trying intervention: outlier → 6
+2025-10-03 06:18:26,213 - INFO - [TRY] outlier=6,pipeline: {'missing_value': 5.0, 'outlier': 6, 'normalization': 5.0, 'model': 1.0}, Utility=157.3719, Best=186.9820
+2025-10-03 06:18:26,213 - INFO - ✅ Target achieved 🎯
+2025-10-03 06:18:26,213 - INFO - required optimistic iterations: 1
+2025-10-03 06:18:26,213 - INFO - passing pipeline: order=['missing_value', 'outlier', 'normalization', 'model'], vec=[5, 6, 5, 1]
+2025-10-03 06:18:26,213 - INFO - Total iterations so far: 1
+2025-10-03 06:18:26,213 - INFO - pipeline[5. 5. 1.]
+2025-10-03 06:18:26,522 - INFO - Evaluating [6, 1, 1] -- Initial Utility 186.96623739130024 -- Target Utility 185
+2025-10-03 06:19:41,335 - INFO - [OPTIMIZE] Trying combo size k=1
+2025-10-03 06:19:41,335 - INFO - [INFO] Running optimistic search with combined interventions...
+2025-10-03 06:19:41,335 - INFO - [SEARCH] Trying intervention: outlier → 6
+2025-10-03 06:19:41,962 - INFO - [TRY] outlier=6,pipeline: {'missing_value': 6.0, 'outlier': 6, 'normalization': 1.0, 'model': 1.0}, Utility=157.4023, Best=186.9662
+2025-10-03 06:19:41,962 - INFO - ✅ Target achieved 🎯
+2025-10-03 06:19:41,962 - INFO - required optimistic iterations: 1
+2025-10-03 06:19:41,962 - INFO - passing pipeline: order=['missing_value', 'outlier', 'normalization', 'model'], vec=[6, 6, 1, 1]
+2025-10-03 06:19:41,962 - INFO - Total iterations so far: 1
+2025-10-03 06:19:41,962 - INFO - pipeline[6. 1. 1.]
+2025-10-03 06:19:42,273 - INFO - Evaluating [6, 2, 1] -- Initial Utility 186.96623739130027 -- Target Utility 185
+2025-10-03 06:21:11,870 - INFO - [OPTIMIZE] Trying combo size k=1
+2025-10-03 06:21:11,870 - INFO - [INFO] Running optimistic search with combined interventions...
+2025-10-03 06:21:11,870 - INFO - [SEARCH] Trying intervention: outlier → 6
+2025-10-03 06:21:12,408 - INFO - [TRY] outlier=6,pipeline: {'missing_value': 6.0, 'outlier': 6, 'normalization': 2.0, 'model': 1.0}, Utility=157.4023, Best=186.9662
+2025-10-03 06:21:12,409 - INFO - ✅ Target achieved 🎯
+2025-10-03 06:21:12,409 - INFO - required optimistic iterations: 1
+2025-10-03 06:21:12,409 - INFO - passing pipeline: order=['missing_value', 'outlier', 'normalization', 'model'], vec=[6, 6, 2, 1]
+2025-10-03 06:21:12,409 - INFO - Total iterations so far: 1
+2025-10-03 06:21:12,409 - INFO - pipeline[6. 2. 1.]
+2025-10-03 06:21:12,717 - INFO - Evaluating [6, 3, 1] -- Initial Utility 186.96623739130027 -- Target Utility 185
+2025-10-03 06:22:41,815 - INFO - [OPTIMIZE] Trying combo size k=1
+2025-10-03 06:22:41,815 - INFO - [INFO] Running optimistic search with combined interventions...
+2025-10-03 06:22:41,815 - INFO - [SEARCH] Trying intervention: outlier → 6
+2025-10-03 06:22:42,272 - INFO - [TRY] outlier=6,pipeline: {'missing_value': 6.0, 'outlier': 6, 'normalization': 3.0, 'model': 1.0}, Utility=157.4023, Best=186.9662
+2025-10-03 06:22:42,273 - INFO - ✅ Target achieved 🎯
+2025-10-03 06:22:42,273 - INFO - required optimistic iterations: 1
+2025-10-03 06:22:42,273 - INFO - passing pipeline: order=['missing_value', 'outlier', 'normalization', 'model'], vec=[6, 6, 3, 1]
+2025-10-03 06:22:42,273 - INFO - Total iterations so far: 1
+2025-10-03 06:22:42,273 - INFO - pipeline[6. 3. 1.]
+2025-10-03 06:22:42,625 - INFO - Evaluating [6, 4, 1] -- Initial Utility 186.96623739130027 -- Target Utility 185
+2025-10-03 06:24:11,882 - INFO - [OPTIMIZE] Trying combo size k=1
+2025-10-03 06:24:11,883 - INFO - [INFO] Running optimistic search with combined interventions...
+2025-10-03 06:24:11,883 - INFO - [SEARCH] Trying intervention: outlier → 6
+2025-10-03 06:24:12,358 - INFO - [TRY] outlier=6,pipeline: {'missing_value': 6.0, 'outlier': 6, 'normalization': 4.0, 'model': 1.0}, Utility=157.4023, Best=186.9662
+2025-10-03 06:24:12,358 - INFO - ✅ Target achieved 🎯
+2025-10-03 06:24:12,358 - INFO - required optimistic iterations: 1
+2025-10-03 06:24:12,358 - INFO - passing pipeline: order=['missing_value', 'outlier', 'normalization', 'model'], vec=[6, 6, 4, 1]
+2025-10-03 06:24:12,358 - INFO - Total iterations so far: 1
+2025-10-03 06:24:12,358 - INFO - pipeline[6. 4. 1.]
+2025-10-03 06:24:12,738 - INFO - Evaluating [6, 5, 1] -- Initial Utility 186.96623739130027 -- Target Utility 185
+2025-10-03 06:25:44,379 - INFO - [OPTIMIZE] Trying combo size k=1
+2025-10-03 06:25:44,379 - INFO - [INFO] Running optimistic search with combined interventions...
+2025-10-03 06:25:44,379 - INFO - [SEARCH] Trying intervention: outlier → 6
+2025-10-03 06:25:44,827 - INFO - [TRY] outlier=6,pipeline: {'missing_value': 6.0, 'outlier': 6, 'normalization': 5.0, 'model': 1.0}, Utility=157.4023, Best=186.9662
+2025-10-03 06:25:44,827 - INFO - ✅ Target achieved 🎯
+2025-10-03 06:25:44,827 - INFO - required optimistic iterations: 1
+2025-10-03 06:25:44,827 - INFO - passing pipeline: order=['missing_value', 'outlier', 'normalization', 'model'], vec=[6, 6, 5, 1]
+2025-10-03 06:25:44,827 - INFO - Total iterations so far: 1
+2025-10-03 06:25:44,827 - INFO - pipeline[6. 5. 1.]
+2025-10-03 06:25:45,332 - INFO - Evaluating [7, 1, 1] -- Initial Utility 186.97780992695317 -- Target Utility 185
+2025-10-03 06:27:00,267 - INFO - [OPTIMIZE] Trying combo size k=1
+2025-10-03 06:27:00,268 - INFO - [INFO] Running optimistic search with combined interventions...
+2025-10-03 06:27:00,268 - INFO - [SEARCH] Trying intervention: outlier → 6
+2025-10-03 06:27:00,841 - INFO - [TRY] outlier=6,pipeline: {'missing_value': 7.0, 'outlier': 6, 'normalization': 1.0, 'model': 1.0}, Utility=157.4434, Best=186.9778
+2025-10-03 06:27:00,841 - INFO - ✅ Target achieved 🎯
+2025-10-03 06:27:00,841 - INFO - required optimistic iterations: 1
+2025-10-03 06:27:00,841 - INFO - passing pipeline: order=['missing_value', 'outlier', 'normalization', 'model'], vec=[7, 6, 1, 1]
+2025-10-03 06:27:00,841 - INFO - Total iterations so far: 1
+2025-10-03 06:27:00,841 - INFO - pipeline[7. 1. 1.]
+2025-10-03 06:27:01,295 - INFO - Evaluating [7, 2, 1] -- Initial Utility 186.9778099269532 -- Target Utility 185
+2025-10-03 06:28:30,559 - INFO - [OPTIMIZE] Trying combo size k=1
+2025-10-03 06:28:30,559 - INFO - [INFO] Running optimistic search with combined interventions...
+2025-10-03 06:28:30,559 - INFO - [SEARCH] Trying intervention: outlier → 6
+2025-10-03 06:28:31,179 - INFO - [TRY] outlier=6,pipeline: {'missing_value': 7.0, 'outlier': 6, 'normalization': 2.0, 'model': 1.0}, Utility=157.4434, Best=186.9778
+2025-10-03 06:28:31,179 - INFO - ✅ Target achieved 🎯
+2025-10-03 06:28:31,179 - INFO - required optimistic iterations: 1
+2025-10-03 06:28:31,179 - INFO - passing pipeline: order=['missing_value', 'outlier', 'normalization', 'model'], vec=[7, 6, 2, 1]
+2025-10-03 06:28:31,179 - INFO - Total iterations so far: 1
+2025-10-03 06:28:31,180 - INFO - pipeline[7. 2. 1.]
+2025-10-03 06:28:31,507 - INFO - Evaluating [7, 3, 1] -- Initial Utility 186.9778099269532 -- Target Utility 185
+2025-10-03 06:29:59,984 - INFO - [OPTIMIZE] Trying combo size k=1
+2025-10-03 06:29:59,985 - INFO - [INFO] Running optimistic search with combined interventions...
+2025-10-03 06:29:59,985 - INFO - [SEARCH] Trying intervention: outlier → 6
+2025-10-03 06:30:00,569 - INFO - [TRY] outlier=6,pipeline: {'missing_value': 7.0, 'outlier': 6, 'normalization': 3.0, 'model': 1.0}, Utility=157.4434, Best=186.9778
+2025-10-03 06:30:00,569 - INFO - ✅ Target achieved 🎯
+2025-10-03 06:30:00,569 - INFO - required optimistic iterations: 1
+2025-10-03 06:30:00,569 - INFO - passing pipeline: order=['missing_value', 'outlier', 'normalization', 'model'], vec=[7, 6, 3, 1]
+2025-10-03 06:30:00,569 - INFO - Total iterations so far: 1
+2025-10-03 06:30:00,569 - INFO - pipeline[7. 3. 1.]
+2025-10-03 06:30:01,002 - INFO - Evaluating [7, 4, 1] -- Initial Utility 186.97780992695317 -- Target Utility 185
+2025-10-03 06:31:30,359 - INFO - [OPTIMIZE] Trying combo size k=1
+2025-10-03 06:31:30,360 - INFO - [INFO] Running optimistic search with combined interventions...
+2025-10-03 06:31:30,360 - INFO - [SEARCH] Trying intervention: outlier → 6
+2025-10-03 06:31:30,954 - INFO - [TRY] outlier=6,pipeline: {'missing_value': 7.0, 'outlier': 6, 'normalization': 4.0, 'model': 1.0}, Utility=157.4434, Best=186.9778
+2025-10-03 06:31:30,955 - INFO - ✅ Target achieved 🎯
+2025-10-03 06:31:30,955 - INFO - required optimistic iterations: 1
+2025-10-03 06:31:30,955 - INFO - passing pipeline: order=['missing_value', 'outlier', 'normalization', 'model'], vec=[7, 6, 4, 1]
+2025-10-03 06:31:30,955 - INFO - Total iterations so far: 1
+2025-10-03 06:31:30,955 - INFO - pipeline[7. 4. 1.]
+2025-10-03 06:31:31,493 - INFO - Evaluating [7, 5, 1] -- Initial Utility 186.9778099269532 -- Target Utility 185
+2025-10-03 06:33:02,041 - INFO - [OPTIMIZE] Trying combo size k=1
+2025-10-03 06:33:02,041 - INFO - [INFO] Running optimistic search with combined interventions...
+2025-10-03 06:33:02,041 - INFO - [SEARCH] Trying intervention: outlier → 6
+2025-10-03 06:33:02,711 - INFO - [TRY] outlier=6,pipeline: {'missing_value': 7.0, 'outlier': 6, 'normalization': 5.0, 'model': 1.0}, Utility=157.4434, Best=186.9778
+2025-10-03 06:33:02,712 - INFO - ✅ Target achieved 🎯
+2025-10-03 06:33:02,712 - INFO - required optimistic iterations: 1
+2025-10-03 06:33:02,712 - INFO - passing pipeline: order=['missing_value', 'outlier', 'normalization', 'model'], vec=[7, 6, 5, 1]
+2025-10-03 06:33:02,712 - INFO - Total iterations so far: 1
+2025-10-03 06:33:02,712 - INFO - pipeline[7. 5. 1.]
+2025-10-03 06:33:03,089 - INFO - Evaluating [8, 1, 1] -- Initial Utility 187.06781374489447 -- Target Utility 185
+2025-10-03 06:34:17,898 - INFO - [OPTIMIZE] Trying combo size k=1
+2025-10-03 06:34:17,898 - INFO - [INFO] Running optimistic search with combined interventions...
+2025-10-03 06:34:17,898 - INFO - [SEARCH] Trying intervention: outlier → 6
+2025-10-03 06:34:18,320 - INFO - [TRY] outlier=6,pipeline: {'missing_value': 8.0, 'outlier': 6, 'normalization': 1.0, 'model': 1.0}, Utility=157.7094, Best=187.0678
+2025-10-03 06:34:18,320 - INFO - ✅ Target achieved 🎯
+2025-10-03 06:34:18,320 - INFO - required optimistic iterations: 1
+2025-10-03 06:34:18,320 - INFO - passing pipeline: order=['missing_value', 'outlier', 'normalization', 'model'], vec=[8, 6, 1, 1]
+2025-10-03 06:34:18,320 - INFO - Total iterations so far: 1
+2025-10-03 06:34:18,320 - INFO - pipeline[8. 1. 1.]
+2025-10-03 06:34:18,878 - INFO - Evaluating [8, 2, 1] -- Initial Utility 187.06781374489447 -- Target Utility 185
+2025-10-03 06:35:48,751 - INFO - [OPTIMIZE] Trying combo size k=1
+2025-10-03 06:35:48,752 - INFO - [INFO] Running optimistic search with combined interventions...
+2025-10-03 06:35:48,752 - INFO - [SEARCH] Trying intervention: outlier → 6
+2025-10-03 06:35:49,314 - INFO - [TRY] outlier=6,pipeline: {'missing_value': 8.0, 'outlier': 6, 'normalization': 2.0, 'model': 1.0}, Utility=157.7094, Best=187.0678
+2025-10-03 06:35:49,314 - INFO - ✅ Target achieved 🎯
+2025-10-03 06:35:49,314 - INFO - required optimistic iterations: 1
+2025-10-03 06:35:49,314 - INFO - passing pipeline: order=['missing_value', 'outlier', 'normalization', 'model'], vec=[8, 6, 2, 1]
+2025-10-03 06:35:49,314 - INFO - Total iterations so far: 1
+2025-10-03 06:35:49,314 - INFO - pipeline[8. 2. 1.]
+2025-10-03 06:35:49,843 - INFO - Evaluating [8, 3, 1] -- Initial Utility 187.06781374489447 -- Target Utility 185
+2025-10-03 06:37:20,271 - INFO - [OPTIMIZE] Trying combo size k=1
+2025-10-03 06:37:20,272 - INFO - [INFO] Running optimistic search with combined interventions...
+2025-10-03 06:37:20,272 - INFO - [SEARCH] Trying intervention: outlier → 6
+2025-10-03 06:37:20,722 - INFO - [TRY] outlier=6,pipeline: {'missing_value': 8.0, 'outlier': 6, 'normalization': 3.0, 'model': 1.0}, Utility=157.7094, Best=187.0678
+2025-10-03 06:37:20,722 - INFO - ✅ Target achieved 🎯
+2025-10-03 06:37:20,722 - INFO - required optimistic iterations: 1
+2025-10-03 06:37:20,722 - INFO - passing pipeline: order=['missing_value', 'outlier', 'normalization', 'model'], vec=[8, 6, 3, 1]
+2025-10-03 06:37:20,722 - INFO - Total iterations so far: 1
+2025-10-03 06:37:20,722 - INFO - pipeline[8. 3. 1.]
+2025-10-03 06:37:21,253 - INFO - Evaluating [8, 4, 1] -- Initial Utility 187.06781374489447 -- Target Utility 185
+2025-10-03 06:38:51,795 - INFO - [OPTIMIZE] Trying combo size k=1
+2025-10-03 06:38:51,795 - INFO - [INFO] Running optimistic search with combined interventions...
+2025-10-03 06:38:51,795 - INFO - [SEARCH] Trying intervention: outlier → 6
+2025-10-03 06:38:52,282 - INFO - [TRY] outlier=6,pipeline: {'missing_value': 8.0, 'outlier': 6, 'normalization': 4.0, 'model': 1.0}, Utility=157.7094, Best=187.0678
+2025-10-03 06:38:52,299 - INFO - ✅ Target achieved 🎯
+2025-10-03 06:38:52,299 - INFO - required optimistic iterations: 1
+2025-10-03 06:38:52,299 - INFO - passing pipeline: order=['missing_value', 'outlier', 'normalization', 'model'], vec=[8, 6, 4, 1]
+2025-10-03 06:38:52,299 - INFO - Total iterations so far: 1
+2025-10-03 06:38:52,299 - INFO - pipeline[8. 4. 1.]
+2025-10-03 06:38:52,618 - INFO - Evaluating [8, 5, 1] -- Initial Utility 187.0678137448945 -- Target Utility 185
+2025-10-03 06:40:23,814 - INFO - [OPTIMIZE] Trying combo size k=1
+2025-10-03 06:40:23,814 - INFO - [INFO] Running optimistic search with combined interventions...
+2025-10-03 06:40:23,814 - INFO - [SEARCH] Trying intervention: outlier → 6
+2025-10-03 06:40:24,348 - INFO - [TRY] outlier=6,pipeline: {'missing_value': 8.0, 'outlier': 6, 'normalization': 5.0, 'model': 1.0}, Utility=157.7094, Best=187.0678
+2025-10-03 06:40:24,348 - INFO - ✅ Target achieved 🎯
+2025-10-03 06:40:24,348 - INFO - required optimistic iterations: 1
+2025-10-03 06:40:24,348 - INFO - passing pipeline: order=['missing_value', 'outlier', 'normalization', 'model'], vec=[8, 6, 5, 1]
+2025-10-03 06:40:24,348 - INFO - Total iterations so far: 1
+2025-10-03 06:40:24,348 - INFO - pipeline[8. 5. 1.]
+2025-10-03 06:40:24,884 - INFO - Evaluating [9, 1, 1] -- Initial Utility 187.10024966872945 -- Target Utility 185
+2025-10-03 06:41:40,938 - INFO - [OPTIMIZE] Trying combo size k=1
+2025-10-03 06:41:40,939 - INFO - [INFO] Running optimistic search with combined interventions...
+2025-10-03 06:41:40,939 - INFO - [SEARCH] Trying intervention: outlier → 6
+2025-10-03 06:41:41,371 - INFO - [TRY] outlier=6,pipeline: {'missing_value': 9.0, 'outlier': 6, 'normalization': 1.0, 'model': 1.0}, Utility=157.7699, Best=187.1002
+2025-10-03 06:41:41,371 - INFO - ✅ Target achieved 🎯
+2025-10-03 06:41:41,371 - INFO - required optimistic iterations: 1
+2025-10-03 06:41:41,371 - INFO - passing pipeline: order=['missing_value', 'outlier', 'normalization', 'model'], vec=[9, 6, 1, 1]
+2025-10-03 06:41:41,371 - INFO - Total iterations so far: 1
+2025-10-03 06:41:41,371 - INFO - pipeline[9. 1. 1.]
+2025-10-03 06:41:41,753 - INFO - Evaluating [9, 2, 1] -- Initial Utility 187.10024966872945 -- Target Utility 185
+2025-10-03 06:43:12,365 - INFO - [OPTIMIZE] Trying combo size k=1
+2025-10-03 06:43:12,366 - INFO - [INFO] Running optimistic search with combined interventions...
+2025-10-03 06:43:12,366 - INFO - [SEARCH] Trying intervention: outlier → 6
+2025-10-03 06:43:12,822 - INFO - [TRY] outlier=6,pipeline: {'missing_value': 9.0, 'outlier': 6, 'normalization': 2.0, 'model': 1.0}, Utility=157.7699, Best=187.1002
+2025-10-03 06:43:12,822 - INFO - ✅ Target achieved 🎯
+2025-10-03 06:43:12,822 - INFO - required optimistic iterations: 1
+2025-10-03 06:43:12,822 - INFO - passing pipeline: order=['missing_value', 'outlier', 'normalization', 'model'], vec=[9, 6, 2, 1]
+2025-10-03 06:43:12,822 - INFO - Total iterations so far: 1
+2025-10-03 06:43:12,822 - INFO - pipeline[9. 2. 1.]
+2025-10-03 06:43:13,215 - INFO - Evaluating [9, 3, 1] -- Initial Utility 187.10024966872945 -- Target Utility 185
+2025-10-03 06:44:43,621 - INFO - [OPTIMIZE] Trying combo size k=1
+2025-10-03 06:44:43,621 - INFO - [INFO] Running optimistic search with combined interventions...
+2025-10-03 06:44:43,621 - INFO - [SEARCH] Trying intervention: outlier → 6
+2025-10-03 06:44:44,227 - INFO - [TRY] outlier=6,pipeline: {'missing_value': 9.0, 'outlier': 6, 'normalization': 3.0, 'model': 1.0}, Utility=157.7699, Best=187.1002
+2025-10-03 06:44:44,227 - INFO - ✅ Target achieved 🎯
+2025-10-03 06:44:44,227 - INFO - required optimistic iterations: 1
+2025-10-03 06:44:44,227 - INFO - passing pipeline: order=['missing_value', 'outlier', 'normalization', 'model'], vec=[9, 6, 3, 1]
+2025-10-03 06:44:44,227 - INFO - Total iterations so far: 1
+2025-10-03 06:44:44,227 - INFO - pipeline[9. 3. 1.]
+2025-10-03 06:44:44,603 - INFO - Evaluating [9, 4, 1] -- Initial Utility 187.10024966872948 -- Target Utility 185
+2025-10-03 06:46:14,827 - INFO - [OPTIMIZE] Trying combo size k=1
+2025-10-03 06:46:14,828 - INFO - [INFO] Running optimistic search with combined interventions...
+2025-10-03 06:46:14,828 - INFO - [SEARCH] Trying intervention: outlier → 6
+2025-10-03 06:46:15,344 - INFO - [TRY] outlier=6,pipeline: {'missing_value': 9.0, 'outlier': 6, 'normalization': 4.0, 'model': 1.0}, Utility=157.7699, Best=187.1002
+2025-10-03 06:46:15,344 - INFO - ✅ Target achieved 🎯
+2025-10-03 06:46:15,344 - INFO - required optimistic iterations: 1
+2025-10-03 06:46:15,344 - INFO - passing pipeline: order=['missing_value', 'outlier', 'normalization', 'model'], vec=[9, 6, 4, 1]
+2025-10-03 06:46:15,344 - INFO - Total iterations so far: 1
+2025-10-03 06:46:15,344 - INFO - pipeline[9. 4. 1.]
+2025-10-03 06:46:15,674 - INFO - Evaluating [9, 5, 1] -- Initial Utility 187.10024966872945 -- Target Utility 185
+2025-10-03 06:47:45,617 - INFO - [OPTIMIZE] Trying combo size k=1
+2025-10-03 06:47:45,617 - INFO - [INFO] Running optimistic search with combined interventions...
+2025-10-03 06:47:45,617 - INFO - [SEARCH] Trying intervention: outlier → 6
+2025-10-03 06:47:46,115 - INFO - [TRY] outlier=6,pipeline: {'missing_value': 9.0, 'outlier': 6, 'normalization': 5.0, 'model': 1.0}, Utility=157.7699, Best=187.1002
+2025-10-03 06:47:46,115 - INFO - ✅ Target achieved 🎯
+2025-10-03 06:47:46,115 - INFO - required optimistic iterations: 1
+2025-10-03 06:47:46,116 - INFO - passing pipeline: order=['missing_value', 'outlier', 'normalization', 'model'], vec=[9, 6, 5, 1]
+2025-10-03 06:47:46,116 - INFO - Total iterations so far: 1
+2025-10-03 06:47:46,116 - INFO - pipeline[9. 5. 1.]

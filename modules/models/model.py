@@ -17,7 +17,12 @@ class ModelTrainer:
         self.model = None
 
     def train(self, X, y):
-        
+        # Drop rows with any NaN in X, then align y using the same row indices
+        if hasattr(X, "dropna") and hasattr(y, "__len__"):
+            kept_idx = X.dropna().index
+            X = X.loc[kept_idx].reset_index(drop=True)
+            y = y.loc[kept_idx].reset_index(drop=True) if hasattr(y, "loc") else y[kept_idx]
+
         if self.model_type == 'lr':
             self.model = LogisticRegression(random_state=0).fit(X, y)
         elif self.model_type == 'nb':

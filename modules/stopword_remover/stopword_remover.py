@@ -21,7 +21,8 @@ class StopwordRemover:
         
         if self.strategy == 'sw':
             df[self.text_column] = df[self.text_column].apply(
-            lambda x: ' '.join([word for word in str(x).split() if word.lower() not in self.stop_words]))
+                lambda x: ' '.join([word for word in str(x).split() if word.lower() not in self.stop_words])
+            )
         elif self.strategy == 'none':
             return df
         

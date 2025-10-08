@@ -5,11 +5,12 @@ import itertools
 import operator
 
 from pipeline_execution import PipelineExecutor
-from score_lookup import ScoreLookup
+from rank_method_selector import GaussianTSSelector
+#from score_lookup import ScoreLookup
 np.random.seed(42)
 
 class GlassBoxOptimizer:
-    def __init__(self, dataset_name, model_type, metric_type, pipeline_type, pipeline_order, filename_train, filename_test):
+    def __init__(self, dataset_name, model_type, metric_type, pipeline_type, pipeline_order, filename_train, filename_test, new_components):
         self.dataset_name = dataset_name
         self.model_type = model_type
         self.metric_type = metric_type
@@ -17,6 +18,7 @@ class GlassBoxOptimizer:
         self.pipeline_order = pipeline_order
         self.filename_train = filename_train
         self.filename_test = filename_test
+        self.new_components = new_components
 
         self.fail = 0
         self.pass_ = 0
@@ -33,23 +35,23 @@ class GlassBoxOptimizer:
             pipeline_type=self.pipeline_type,
             dataset_name=self.dataset_name,
             metric_type=self.metric_type,
-            pipeline_ord=self.pipeline_order
+            pipeline_ord=self.pipeline_order,
+            execution_type='fail'
         )
 
         self.pasing_hist_data = pd.read_csv(self.filename_train)
         #self.coefs_profile, self.profile_ranking, self.param_coeff, self.param_rank = self.executor_pass.rank_profile_parameter(self.filename_train)
         self.profiles = self.executor_pass.get_header(self.filename_train)
         #print(self.profiles)
-        self.score_lookup = ScoreLookup(pipeline_order, metric_type)
+        #self.score_lookup = ScoreLookup(pipeline_order, metric_type)
     
     def set_ranges(self):
         for strategy in self.pipeline_order:
             self.ranges[strategy] = list(np.unique(self.pasing_hist_data[strategy]))
 
-    def optimize(self, init_params, f_goal, new_components=None, max_depth=None, top_n_actions=120):
+    def optimize(self, init_params, f_goal, max_depth=None, top_n_actions=120):
 
-        if new_components is None:
-            new_components = ['outlier', 'whitespace', 'punctuation', 'stopword', 'deduplication']#, 'tokenizer', 'spell_checker', 'special_character', 'unit_converter', 'language_detector', 'language_translator', 'lowercase', 'binning', 'feature selection', 'fomat converter', 'image_cropper', 'image_resizer', 'image_rotator']
+        new_components = self.new_components
 
         self.rank_iter = 0
         self.optimisitic_iter = 0
@@ -59,7 +61,7 @@ class GlassBoxOptimizer:
         cur_param_check = init_params[:len(self.base_strategies)]
 
         opt_f = self.executor_pass.current_par_lookup(self.base_strategies, cur_param_check)
-        logging.info(f'Evaluating {[int(v) for v in cur_params_opt.values()]} -- Initial Utility {opt_f} -- Target Utility {f_goal}')
+        logging.info(f'Evaluating {[int(v) for v in cur_params_opt.values()]} -- Initial Utility {opt_f} -- Target Utility {f_goal:.2f}')
 
         if self.pipeline_type == 'ml':
             self.set_ranges()
@@ -85,6 +87,7 @@ class GlassBoxOptimizer:
             self.filename_train,
             new_components=list(new_components)
         )
+        #logging.info(f"Ranked interventions: {self.ranked_interventions}")
 
         for k in range(1, max_depth + 1):
             logging.info(f"[OPTIMIZE] Trying combo size k={k}")
@@ -153,11 +156,9 @@ class GlassBoxOptimizer:
         return False, opt_f, cur_params_opt'''
     
     def optimistic_search(self, seen, cur_params_opt, f_goal, opt_f):
-        #optimal_position=2 # have to change
         logging.info("[INFO] Running optimistic search with combined interventions...")
         #ranked_interventions = self.executor_pass.evaluate_interventions([int(v) for v in cur_params_opt.values()], self.filename_train, new_components=['outlier', 'whitespace', 'punctuation', 'stopword'])
         original_order = self.pipeline_order.copy()
-        print('original order', original_order)
         for component, strategy, similarity, uti, pos, _ in self.ranked_interventions:
             logging.info(f"[SEARCH] Trying intervention: {component} → {strategy}")
 
@@ -168,7 +169,6 @@ class GlassBoxOptimizer:
                 intervened_order = original_order.copy()
                 print('intervened order', intervened_order)
                 print('current_param',cur_params)
-
             else:
                 if pos > len(cur_params_opt):
                     logging.warning(f"Skipping {component}: optimal_position {pos} out of range.")
@@ -187,8 +187,8 @@ class GlassBoxOptimizer:
             #seen.add(tuple(cur_params))
             prev_order = self.pipeline_order
 
-            
             cur_f = self.executor_pass.current_par_lookup(intervened_order, [int(v) for v in cur_params.values()])
+            logging.info(f'current utility {cur_f}')
             self.rank_iter += 1
             self.optimisitic_iter += 1
             logging.info(f"[TRY] {component}={strategy},pipeline: {cur_params}, Utility={cur_f:.4f}, Best={opt_f:.4f}")
@@ -218,7 +218,7 @@ class GlassBoxOptimizer:
                                             cur_params_opt,
                                             f_goal,
                                             opt_f,
-                                            new_components=('outlier', 'whitespace', 'punctuation', 'stopword'),
+                                            new_components,
                                             top_n_actions=100,
                                             early_stop=True,
                                             use_fused=False):

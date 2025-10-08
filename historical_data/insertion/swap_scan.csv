@@ -1,0 +1,5 @@
+kind,swap_idx,i,j,comp_i,comp_j,order,vec,utility
+baseline,0,,,,,"['missing_value', 'normalization', 'model']","[2, 2, 1]",0.19626582432206102
+swap,1,0.0,1.0,missing_value,normalization,"['normalization', 'missing_value', 'model']","[2, 2, 1]",0.19626582432206133
+swap,2,0.0,2.0,missing_value,model,"['model', 'normalization', 'missing_value']","[1, 2, 2]",0.1962658243220583
+swap,3,1.0,2.0,normalization,model,"['missing_value', 'model', 'normalization']","[2, 1, 2]",0.19626582432205164

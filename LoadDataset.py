@@ -137,7 +137,13 @@ class LoadDataset:
             self.X_test = test.drop('income', axis=1)'''
 
 
-dataset='adult'
+'''dataset='adult'
 loader = LoadDataset(dataset)
 dataset, X_train, y_train, X_test, y_test = loader.load()
-print(y_train)
+x_dedup=X_test.drop_duplicates().reset_index(drop=True)
+y_test=y_test.reset_index(drop=True)
+y_test=y_test.loc[x_dedup.index].reset_index(drop=True)
+
+print(f"Training data shape: {X_test.shape[0]}")
+print(f"Dedup ratio: {x_dedup.shape[0]}")
+print(f"Test data shape: {y_test.shape[0]}")'''

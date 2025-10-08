@@ -15,15 +15,12 @@ class PunctuationRemover:
             warnings.warn("No Text column. Skipping punctuation removal.")
             return df
 
-        '''if not pd.api.types.is_string_dtype(df[self.text_column]):
-            warnings.warn(f"Column '{self.text_column}' is not a string type. Punctuation removal skipped.")
-            return df'''
-
         if self.verbose:
-            print(f"Removing punctuation from column '{self.text_column}'...")
-            
+            print(f"Removing punctuation from column(s) '{list(self.text_column)}'...")
+
         if self.strategy == 'pr':
-            df[self.text_column] = df[self.text_column].str.replace(r'[^\w\s]', '', regex=True)
+            df[self.text_column] = df[self.text_column].replace(r'[^\w\s]', '', regex=True)
         elif self.strategy == 'none':
             return df
+
         return df

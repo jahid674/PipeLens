@@ -1,20 +1,21 @@
 {
-  "dataset_name": "adult",
+  "dataset_name": "hmda",
   "model_type": "lr",
-  "metric_type": "sp",
+  "metric_type": "accuracy_score",
   "pipeline_type": "ml",
   "pipeline_order": ["missing_value", "normalization", "model"],
+  "new_components": ["outlier", "whitespace", "punctuation", "stopword", "deduplication"],
+  "method": "PipeLens",
 
   "f_goals": {
-    "adult": [0.06],
-    "hmda": [0.074, 0.08, 0.09],
+    "adult": [0.05, 0.06, 0.13, 0.16],
+    "hmda": [0.062, 0.07, 0.75, 0.08],
     "housing": [162, 170, 180, 185]
   },
   
   "paths": {
     "train_data": "historical_data/partial_pipeline/sim_historical_data_train_profile_{model_type}_{metric_type}_{dataset_name}.csv",
     "test_data": "historical_data/noise/sim_historical_data_test_profile_{model_type}_{metric_type}_{dataset_name}.csv",
-    "metric_output": "metric/metric_opaque_{model_type}_{metric_type}_{dataset_name}.csv",
-    "log_file": "logs/test_opaquebox_{dataset_name}_lr_{metric_type}.log"
+    "metric_output": "metric/{method}_Glass_{model_type}_{metric_type}_{dataset_name}.csv"
   }
 }

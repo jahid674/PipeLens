@@ -14,6 +14,7 @@ import os
 import json
 import shutil
 import pandas as pd
+import numpy as np
 
 # If you have any helper lookups (kept for compatibility)
 # from ml_api_example import f_score_look_up2  # not strictly needed here
@@ -25,14 +26,14 @@ FILENAME = os.getenv("BUGDOC_ENTRY_FILE", "ml_pipeline.json")
 TMP_FILENAME = os.getenv("BUGDOC_ENTRY_FILE_TMP", "ml_pipeline_tmp.json")
 
 DATASET = os.getenv("BUGDOC_DATASET", "housing")
-HISTORY_FILE = os.getenv("BUGDOC_HISTORY_FILE", "bugdoc_test_sim_historical_data_test_profile_lr_rmse_housing.csv")
+HISTORY_FILE = os.getenv("BUGDOC_HISTORY_FILE", "Bugdoc_test_lr_sp_adult.csv")
 
 # Debugging iterations
 MAX_OUTER_ITER = int(os.getenv("BUGDOC_MAX_OUTER_ITER", "100"))
 
 # Metric decision rule
 METRIC_COL = os.getenv("BUGDOC_METRIC_COL", "fairness")   # e.g., 'utility_rmse', 'fairness'
-THRESHOLD = float(os.getenv("BUGDOC_THRESHOLD", "150"))
+THRESHOLD = float(os.getenv("BUGDOC_THRESHOLD", "0.06"))
 BETTER_IS_LOWER = os.getenv("BUGDOC_BETTER_IS_LOWER", "1") == "1"
 
 # -----------------------------
@@ -75,17 +76,25 @@ def row_passes(row) -> bool:
         return False
     return (m <= THRESHOLD) if BETTER_IS_LOWER else (m >= THRESHOLD)
 
-# -----------------------------
-# Debug loop:
-# For each historical row that FAILS the metric rule,
-#  - write an entry file with its parameter settings
-#  - run StackedShortcut with increasing max_iter until a root is found or limit reached
-# Collect how many iterations were needed (iter_dist).
-# -----------------------------
+
+SEED = int(os.getenv("BUGDOC_SAMPLE_SEED", "42"))
+rng = np.random.default_rng(SEED)
+mask = ( (historical_data['outlier'] == 1) &
+    (historical_data['whitespace'] == 1) &
+    (historical_data['punctuation'] == 1) &
+    (historical_data['stopword'] == 1) &
+(historical_data['unit_converter'] == 1))
+row_indices = np.flatnonzero(mask)
+
+'''row_indices = rng.choice(len(historical_data),
+                         size=min(100, len(historical_data)),
+                         replace=False)'''
+
+
 iter_dist = []
 
 # Start at 1 to mimic your previous loop style (skip header row semantics if any)
-for idx in [1, 2000, 3000, 4000, 5000, 6000, 7000, 8000, 9000,10000, 12000, 14000, 16000]:#len(historical_data)):
+for idx in row_indices:
     row = historical_data.iloc[idx]
 
     if row_passes(row):

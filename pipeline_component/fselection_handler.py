@@ -11,7 +11,7 @@ class FselectionHandler:
             - 'mutual_info_top_k': (int or None) number of features or None to select 80%
         """
         self.strategy = strategy
-        self.fs_strategy = config['fs_strategy']
+        self.fs_strategy = config['fselection_stategy']
         self.threshold = config.get('variance_threshold', 0.01)
         self.top_k = config.get('mutual_info_top_k', None)
         self.selected_features = None

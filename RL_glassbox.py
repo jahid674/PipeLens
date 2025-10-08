@@ -30,7 +30,7 @@ class GlassBoxOptimizer:
     # How many optimize() calls to use for learning the best action before freezing
     PILOT_LEARN_CALLS = 8
 
-    def __init__(self, dataset_name, model_type, metric_type, pipeline_type, pipeline_order, filename_train, filename_test):
+    def __init__(self, dataset_name, model_type, metric_type, pipeline_type, pipeline_order, filename_train, filename_test, new_components):
         self.dataset_name = dataset_name
         self.model_type = model_type
         self.metric_type = metric_type
@@ -38,6 +38,7 @@ class GlassBoxOptimizer:
         self.pipeline_order = pipeline_order
         self.filename_train = filename_train
         self.filename_test = filename_test
+        self.new_components = new_components
 
         self.fail = 0
         self.pass_ = 0
@@ -87,6 +88,7 @@ class GlassBoxOptimizer:
         return 0.0, 1.0
 
     def _build_ranked_candidates(self, cur_params_opt, new_components, wS, wU):
+        new_components=self.new_components
         return self.executor_pass.evaluate_interventions_pred_and_similarity(
             [int(v) for v in cur_params_opt.values()],
             self.filename_train,
@@ -139,6 +141,7 @@ class GlassBoxOptimizer:
         - Return k = #evaluations until pass.
         - If we reach the end without passing, return k = (#evaluations attempted) + 1 as penalty.
         """
+        new_components=self.new_components
         wS, wU = self._action_to_weights(action_name)
         ranked = self._build_ranked_candidates(cur_params_opt, new_components, wS, wU)
 
@@ -163,6 +166,7 @@ class GlassBoxOptimizer:
         Returns chosen (wS, wU) for THIS call. If frozen, skips pilot and returns the frozen choice.
         """
         # If we already chose after N pilots, just return it
+        new_components=self.new_components
         if self._chosen_weights is not None:
             # For transparency on this call, expose pilot_* based on frozen choice
             if self._chosen_weights == (1.0, 0.0):
@@ -219,8 +223,7 @@ class GlassBoxOptimizer:
         new_components: optional list of modules allowed for insertion (with strategy ranges present in executor).
         """
 
-        if new_components is None:
-            new_components = ['outlier', 'whitespace', 'punctuation', 'stopword', 'deduplication']
+        new_components=self.new_components
 
         # Reset per-call counters
         self.rank_iter = 0
@@ -346,10 +349,11 @@ class GlassBoxOptimizer:
                                             cur_params_opt,
                                             f_goal,
                                             opt_f,
-                                            new_components=('outlier', 'whitespace', 'punctuation', 'stopword'),
+                                            new_components,
                                             top_n_actions=100,
                                             early_stop=True,
                                             use_fused=False):
+        new_components=self.new_components
         
         logging.info("[INFO] Running optimistic search with combined interventions...]")
         original_order = self.pipeline_order[:]

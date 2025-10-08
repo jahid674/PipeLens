@@ -40,6 +40,7 @@ class GaussianTSSelector:
         self.prior_var = prior_var
         self.noise_var = noise_var  # observation noise
         self.arms = [ArmStats() for _ in range(self.K)]
+        self.epsion = 0.1
 
     def _sample_posterior_mean(self, arm_idx: int):
         stats = self.arms[arm_idx]

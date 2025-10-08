@@ -1,6 +1,6 @@
 import pandas as pd
 
-path = "BugDoc-master/examples/bugdoc_test_sim_historical_data_test_profile_lr_rmse_housing.csv"
+path = "BugDoc-master/examples/Bugdoc_test_lr_sp_adult.csv"
 data = pd.read_csv(path)
 
 if 'model' in data.columns:

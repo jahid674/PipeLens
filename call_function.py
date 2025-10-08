@@ -9,7 +9,7 @@ from modules.profiling.profile import Profile
 from pipeline_execution import PipelineExecutor
 from opaque_optimizer import OpaqueOptimizer
 from glassbox_optimizer import GlassBoxOptimizer
-from gridsearch import GridSearch
+from gridsearch_typical import GridSearch
 from modules.profiling.profile import Profile
 from pipeline_component import *
 

@@ -38,15 +38,17 @@ class Normalizer:
             print("---------->> Started Normalization <<-----------")
 
         df = self.dataset.copy()
+
+        # --- NEW: drop rows with any missing values first (all columns) ---
+
         excluded_cols = df[self.exclude] if self.exclude else pd.DataFrame()
         df = df.drop(columns=self.exclude, errors='ignore')
 
         scaler = self._select_scaler()
 
         if scaler is not None:
-
             df_scaled = scaler.fit(df).transform(df)
-            df = pd.DataFrame(df_scaled, columns=df.columns)#, index=df.index)
+            df = pd.DataFrame(df_scaled, columns=df.columns)
             if self.verbose:
                 print(f"Normalization applied with strategy: {self.strategy}.")
         else:
@@ -62,13 +64,3 @@ class Normalizer:
             print(f"Normalization done -- time: {time.time() - start_time:.2f} seconds\n")
 
         return df
-
-'''X_train = pd.DataFrame({
-    'age': [25, 35, 45, 55, 65],
-    'income': [50000, 60000, 70000, 80000, 90000],
-})
-
-normalizer = Normalizer(dataset=X_train, strategy='mm', verbose=False)
-X_normalized = normalizer.transform()
-
-print(X_normalized)'''

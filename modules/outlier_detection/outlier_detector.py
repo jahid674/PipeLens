@@ -17,7 +17,6 @@ class OutlierDetector:
     def __init__(self, dataset, strategy='none', k=None, contamination=0.2, verbose=False, exclude=None):
         self.df1 = dataset.copy()
         self.df = dataset.copy()
-        #self.df = dataset[['Education_Num']]
         self.strategy = strategy.lower()
         self.contamination = contamination
         self.verbose = verbose
@@ -34,6 +33,17 @@ class OutlierDetector:
         start_time = time.time()
         if self.verbose:
             print("---------->> Starting Outlier Detection <<-----------")
+        na_mask = self.df1.notna().all(axis=1)
+        if self.verbose:
+            print(f"Dropping rows with missing values: removed {len(self.df1) - int(na_mask.sum())} rows.")
+
+        self.df1 = self.df1.loc[na_mask].reset_index(drop=True)
+        self.df = self.df.loc[na_mask].reset_index(drop=True)
+
+        if y_train is not None:
+            y_train = y_train.loc[na_mask].reset_index(drop=True)
+        if sensitive_attr_train is not None:
+            sensitive_attr_train = sensitive_attr_train.loc[na_mask].reset_index(drop=True)
 
         excluded_cols = self.df[self.exclude] if self.exclude else pd.DataFrame()
         self.df = self.df.drop(columns=self.exclude, errors='ignore')
@@ -58,10 +68,8 @@ class OutlierDetector:
         elif self.strategy == 'iqr':
             if self.verbose:
                 print(f"Applying IQR-based outlier detection.")
-            
             numeric_df = self.df.select_dtypes(include=[np.number])
             outlier_mask = np.ones(len(numeric_df), dtype=bool)
-
             for col in numeric_df.columns:
                 Q1 = numeric_df[col].quantile(0.25)
                 Q3 = numeric_df[col].quantile(0.75)
@@ -69,14 +77,13 @@ class OutlierDetector:
                 lower_bound = Q1 - 1.5 * IQR
                 upper_bound = Q3 + 1.5 * IQR
                 outlier_mask &= numeric_df[col].between(lower_bound, upper_bound)
-
-            # Re-map mask to full df size
             outlier_y_pred = np.where(outlier_mask, 1, -1)
         else:
             raise ValueError("Invalid strategy selected.")
 
         mask = outlier_y_pred != -1
         self.frac = round((1 - sum(mask)/len(outlier_y_pred)) * 100, 4)
+
         outlier_X_train = self.df1.copy()
         outlier_y_train = y_train.copy() if y_train is not None else None
         outlier_sensitive_train = sensitive_attr_train.copy() if sensitive_attr_train is not None else None
@@ -94,12 +101,10 @@ class OutlierDetector:
                 outlier_sensitive_train = sensitive_attr_train[mask]
                 outlier_sensitive_train.reset_index(drop=True, inplace=True)
 
-        
-
         if not excluded_cols.empty:
             excluded_cols = excluded_cols.iloc[mask].reset_index(drop=True)
             outlier_X_train = pd.concat([outlier_X_train, excluded_cols], axis=1)
-            outlier_X_train = outlier_X_train[self.dataset.columns]
+            outlier_X_train = outlier_X_train[self.df1.columns]
 
         if self.verbose:
             print(f"Outlier detection completed in {time.time() - start_time:.2f} seconds.\n")
@@ -110,6 +115,7 @@ class OutlierDetector:
         if self.frac is None:
             raise ValueError("Fraction of outliers not calculated. Please run transform() first.")
         return self.frac
+
 
 
 '''X_train = pd.DataFrame({

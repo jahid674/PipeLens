@@ -1,0 +1,4 @@
+2025-10-06 00:38:16,643 - INFO - pipeline[1. 1. 1.]
+2025-10-06 00:38:16,643 - INFO - [GridSearch] Start. Target utility = 162.000000
+2025-10-06 00:38:16,643 - INFO - [GridSearch] Building full search space (power set over base+new)...
+2025-10-06 00:38:33,057 - INFO - [GridSearch] Built 2854075 candidates.

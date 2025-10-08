@@ -1,0 +1,40 @@
+
+0.95,grid search,iterations q1,22.0
+0.95,grid search,iterations q2,45.0
+0.95,grid search,iterations q3,84.0
+0.95,grid search,iterations q4,261.0
+0.95,grid search,Fairness q1,0.04176
+0.95,grid search,Fairness q2,0.04406
+0.95,grid search,Fairness q3,0.04691
+0.95,grid search,Fairness q4,0.04919
+
+
+0.94,grid search,iterations q1,7.0
+0.94,grid search,iterations q2,15.0
+0.94,grid search,iterations q3,29.0
+0.94,grid search,iterations q4,103.0
+0.94,grid search,Fairness q1,0.04501
+0.94,grid search,Fairness q2,0.05086
+0.94,grid search,Fairness q3,0.05644
+0.94,grid search,Fairness q4,0.05995
+
+
+0.87,grid search,iterations q1,2.0
+0.87,grid search,iterations q2,3.0
+0.87,grid search,iterations q3,5.0
+0.87,grid search,iterations q4,14.0
+0.87,grid search,Fairness q1,0.06055
+0.87,grid search,Fairness q2,0.08824
+0.87,grid search,Fairness q3,0.1073
+0.87,grid search,Fairness q4,0.12407
+
+
+0.84,grid search,iterations q1,1.0
+0.84,grid search,iterations q2,2.0
+0.84,grid search,iterations q3,3.0
+0.84,grid search,iterations q4,8.0
+0.84,grid search,Fairness q1,0.07898
+0.84,grid search,Fairness q2,0.10767
+0.84,grid search,Fairness q3,0.13862
+0.84,grid search,Fairness q4,0.15611
+

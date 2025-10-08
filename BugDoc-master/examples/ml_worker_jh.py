@@ -24,19 +24,16 @@ PORT_RECV = os.getenv("BUGDOC_PORT_RECV", "5557")
 PORT_SEND = os.getenv("BUGDOC_PORT_SEND", "5558")
 
 DATASET = os.getenv("BUGDOC_DATASET", "housing")
-HISTORY_FILE = os.getenv("BUGDOC_HISTORY_FILE", "bugdoc_test_sim_historical_data_test_profile_lr_rmse_housing.csv")
+HISTORY_FILE = os.getenv("BUGDOC_HISTORY_FILE", "Bugdoc_test_lr_sp_adult.csv")
 
 # Metric & decision rule
 #   METRIC_COL: the numeric column used to decide pass/fail (e.g., 'utility_rmse', 'fairness', etc.)
 #   THRESHOLD: numeric cutoff
 #   BETTER_IS_LOWER: '1' if lower is better (RMSE), '0' if higher is better (e.g., F1)
 METRIC_COL = os.getenv("BUGDOC_METRIC_COL", "fairness")
-THRESHOLD = float(os.getenv("BUGDOC_THRESHOLD", "150"))
+THRESHOLD = float(os.getenv("BUGDOC_THRESHOLD", "0.06"))
 BETTER_IS_LOWER = os.getenv("BUGDOC_BETTER_IS_LOWER", "1") == "1"
 
-# -----------------------------
-# ZMQ sockets
-# -----------------------------
 context = zmq.Context()
 
 receiver = context.socket(zmq.PULL)

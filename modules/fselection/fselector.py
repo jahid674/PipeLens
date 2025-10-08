@@ -30,9 +30,18 @@ class FeatureSelector:
         if self.verbose:
             print("---------->> Starting Feature Selection <<-----------")
 
-        # Store excluded columns separately
-        excluded_cols = self.dataset[self.exclude] if self.exclude else pd.DataFrame()
-        df = self.dataset.drop(columns=self.exclude, errors='ignore')
+        # --- NEW: drop rows with any missing values first (all columns) ---
+        before_na = len(self.dataset)
+        na_mask = self.dataset.notna().all(axis=1)
+        df_all = self.dataset.loc[na_mask].reset_index(drop=True)
+        if y_train is not None:
+            y_train = y_train.loc[na_mask].reset_index(drop=True)
+        if self.verbose:
+            print(f"Dropped {before_na - len(df_all)} rows with missing values.")
+
+        # Store excluded columns separately (from NA-filtered df)
+        excluded_cols = df_all[self.exclude] if self.exclude else pd.DataFrame()
+        df = df_all.drop(columns=self.exclude, errors='ignore')
 
         if self.strategy == 'none':
             if self.verbose:
@@ -73,32 +82,3 @@ class FeatureSelector:
             print(f"Feature selection completed in {time.time() - start_time:.2f} seconds.\n")
 
         return selected_df
-
-
-'''import pandas as pd
-import numpy as np
-from sklearn.datasets import make_classification
-from sklearn.preprocessing import StandardScaler
-
-X, y = make_classification(n_samples=100, n_features=10, random_state=42)
-feature_names = [f"feature_{i}" for i in range(X.shape[1])]
-df = pd.DataFrame(X, columns=feature_names)
-df["user_id"] = np.random.randint(1000, 9999, size=len(df))
-scaler = StandardScaler()
-df_scaled = df.copy()
-df_scaled[feature_names] = scaler.fit_transform(df[feature_names])
-print(" Initial features:", df_scaled.columns.tolist())
-
-selector = FeatureSelector(
-    dataset=df_scaled,
-    strategy='mutual_info',
-    top_k=None,                
-    verbose=True,
-    exclude=['user_id']        
-)
-
-X_selected = selector.transform(y_train=y)
-
-print("\nFinal selected columns:")
-print(X_selected.columns.tolist())
-print("\nShape of selected X:", X_selected.shape)'''

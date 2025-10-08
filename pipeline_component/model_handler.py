@@ -13,6 +13,11 @@ class ModelHandler:
 
     def apply(self, X, y, sensitive):
         trainer = ModelTrainer(self.model_selection[self.model_index])
+        if hasattr(X, "dropna") and hasattr(y, "__len__"):
+            kept_idx = X.dropna().index
+            X = X.loc[kept_idx].reset_index(drop=True)
+            y = y.loc[kept_idx].reset_index(drop=True) if hasattr(y, "loc") else y[kept_idx]
+            sensitive=sensitive.loc[kept_idx].reset_index(drop=True)
         model = trainer.train(X, y)
         y_pred = model.predict(X)
         if self.metric_type == 'sp':
