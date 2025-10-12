@@ -23,7 +23,7 @@ import pandas as pd
 # ------------------------------
 # Here we load the function that executes and evaluates a pipeline instance.
 # Please replace with your own API
-from ml_api_example import execute_pipeline
+from ml_api_example_jh import execute_pipeline
 
 
 host = 'localhost'
@@ -40,10 +40,10 @@ receiver.connect("tcp://{0}:{1}".format(host, receive))
 sender = context.socket(zmq.PUSH)
 sender.connect("tcp://{0}:{1}".format(host, send))
 
-dataset = 'housing'
-allrunsdata = 'historical_data_test_profile_lr_sp_adult.csv'
+dataset = 'adult'
+allrunsdata = 'Bugdoc_test_lr_sp_adult.csv'
 historical_data = pd.read_csv(allrunsdata)
-threshold = 0.16
+threshold = 0.06
 
 while True:
     data = receiver.recv_string()

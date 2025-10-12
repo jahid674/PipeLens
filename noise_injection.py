@@ -1,7 +1,7 @@
 import numpy as np
 import pandas as pd
 from sklearn.preprocessing import LabelEncoder  # (unused here but kept)
-np.random.seed(42)  # For reproducibility
+np.random.seed(42) 
 
 class NoiseInjector:
     def __init__(self, pipeline_type, dataset_name, target_variable_name=None, seed: int = 42):
@@ -49,7 +49,8 @@ class NoiseInjector:
                     return X_modified
 
             elif self.dataset_name == 'housing':
-                col = X.select_dtypes(include=['int', 'float']).columns[0]
+                col='OverallQual'
+                #col = X.select_dtypes(include=['int', 'float']).columns[0]
             else:
                 return X_modified
 

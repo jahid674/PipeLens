@@ -56,7 +56,7 @@ with open(metric_path, 'w') as f:
         #p.utiliy_threshold = f_goal
         profile_itr = {}
 
-        for seed_ in historical_data.values:
+        for seed_ in [[2,2,1]]:#historical_data.values:
             #print('seed',seed_)
             #seen = set()
             p.optimize(seed_, f_goal)

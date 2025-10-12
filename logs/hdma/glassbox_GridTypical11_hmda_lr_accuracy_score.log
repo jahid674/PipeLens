@@ -1,0 +1,1254 @@
+2025-10-11 21:28:39,589 - INFO - [GridSearch] Start (random). Target utility = 0.14
+2025-10-11 21:28:40,239 - DEBUG - [GridSearch] iter=1 | order=['outlier', 'stopword', 'missing_value', 'deduplication', 'punctuation', 'normalization', 'whitespace', 'model'] | vec=[2, 2, 8, 1, 2, 4, 2, 1] | utility=0.17
+2025-10-11 21:28:40,383 - DEBUG - [GridSearch] iter=2 | order=['whitespace', 'deduplication', 'outlier', 'normalization', 'stopword', 'model'] | vec=[1, 1, 8, 3, 2, 1] | utility=0.16
+2025-10-11 21:28:40,526 - DEBUG - [GridSearch] iter=3 | order=['outlier', 'whitespace', 'missing_value', 'punctuation', 'normalization', 'deduplication', 'model'] | vec=[6, 2, 6, 1, 5, 1, 1] | utility=0.15
+2025-10-11 21:28:40,606 - DEBUG - [GridSearch] iter=4 | order=['missing_value', 'deduplication', 'punctuation', 'outlier', 'whitespace', 'model'] | vec=[4, 1, 2, 3, 1, 1] | utility=0.16
+2025-10-11 21:28:40,685 - DEBUG - [GridSearch] iter=5 | order=['deduplication', 'punctuation', 'stopword', 'outlier', 'model'] | vec=[1, 2, 2, 6, 1] | utility=0.13
+2025-10-11 21:28:40,685 - INFO - [GridSearch] 🎯 Achieved at iter=5, utility=0.13
+2025-10-11 21:28:40,685 - INFO - [GridSearch] Start (random). Target utility = 0.14
+2025-10-11 21:28:40,693 - DEBUG - [GridSearch] iter=1 | order=['missing_value', 'model'] | vec=[9, 1] | utility=0.16
+2025-10-11 21:28:40,804 - DEBUG - [GridSearch] iter=2 | order=['stopword', 'whitespace', 'outlier', 'model'] | vec=[2, 2, 2, 1] | utility=0.16
+2025-10-11 21:28:40,876 - DEBUG - [GridSearch] iter=3 | order=['normalization', 'punctuation', 'whitespace', 'model'] | vec=[2, 2, 2, 1] | utility=0.16
+2025-10-11 21:28:40,887 - DEBUG - [GridSearch] iter=4 | order=['punctuation', 'missing_value', 'whitespace', 'model'] | vec=[2, 8, 2, 1] | utility=0.16
+2025-10-11 21:28:40,958 - DEBUG - [GridSearch] iter=5 | order=['normalization', 'model'] | vec=[2, 1] | utility=0.16
+2025-10-11 21:28:41,034 - DEBUG - [GridSearch] iter=6 | order=['stopword', 'normalization', 'deduplication', 'missing_value', 'punctuation', 'whitespace', 'model'] | vec=[2, 3, 1, 6, 2, 2, 1] | utility=0.16
+2025-10-11 21:28:41,176 - DEBUG - [GridSearch] iter=7 | order=['normalization', 'whitespace', 'missing_value', 'outlier', 'model'] | vec=[2, 1, 5, 5, 1] | utility=0.14
+2025-10-11 21:28:41,176 - INFO - [GridSearch] 🎯 Achieved at iter=7, utility=0.14
+2025-10-11 21:28:41,176 - INFO - [GridSearch] Start (random). Target utility = 0.14
+2025-10-11 21:28:41,183 - DEBUG - [GridSearch] iter=1 | order=['model'] | vec=[1] | utility=0.16
+2025-10-11 21:28:41,334 - DEBUG - [GridSearch] iter=2 | order=['stopword', 'normalization', 'whitespace', 'outlier', 'punctuation', 'model'] | vec=[1, 2, 2, 3, 1, 1] | utility=0.16
+2025-10-11 21:28:41,497 - DEBUG - [GridSearch] iter=3 | order=['stopword', 'outlier', 'deduplication', 'whitespace', 'punctuation', 'normalization', 'model'] | vec=[1, 6, 1, 1, 1, 3, 1] | utility=0.13
+2025-10-11 21:28:41,497 - INFO - [GridSearch] 🎯 Achieved at iter=3, utility=0.13
+2025-10-11 21:28:41,497 - INFO - [GridSearch] Start (random). Target utility = 0.14
+2025-10-11 21:28:41,645 - DEBUG - [GridSearch] iter=1 | order=['outlier', 'normalization', 'punctuation', 'whitespace', 'stopword', 'missing_value', 'model'] | vec=[8, 3, 1, 2, 2, 7, 1] | utility=0.16
+2025-10-11 21:28:41,789 - DEBUG - [GridSearch] iter=2 | order=['outlier', 'deduplication', 'normalization', 'stopword', 'whitespace', 'punctuation', 'missing_value', 'model'] | vec=[3, 1, 5, 1, 2, 1, 1, 1] | utility=0.18
+2025-10-11 21:28:41,862 - DEBUG - [GridSearch] iter=3 | order=['normalization', 'deduplication', 'model'] | vec=[5, 1, 1] | utility=0.17
+2025-10-11 21:28:41,938 - DEBUG - [GridSearch] iter=4 | order=['stopword', 'punctuation', 'whitespace', 'deduplication', 'outlier', 'model'] | vec=[2, 2, 1, 1, 1, 1] | utility=0.16
+2025-10-11 21:28:41,946 - DEBUG - [GridSearch] iter=5 | order=['stopword', 'whitespace', 'model'] | vec=[2, 1, 1] | utility=0.16
+2025-10-11 21:28:42,089 - DEBUG - [GridSearch] iter=6 | order=['punctuation', 'missing_value', 'whitespace', 'outlier', 'deduplication', 'normalization', 'stopword', 'model'] | vec=[2, 6, 2, 4, 1, 3, 2, 1] | utility=0.15
+2025-10-11 21:28:42,098 - DEBUG - [GridSearch] iter=7 | order=['deduplication', 'stopword', 'model'] | vec=[1, 2, 1] | utility=0.16
+2025-10-11 21:28:42,191 - DEBUG - [GridSearch] iter=8 | order=['stopword', 'normalization', 'deduplication', 'missing_value', 'punctuation', 'model'] | vec=[1, 2, 1, 6, 2, 1] | utility=0.16
+2025-10-11 21:28:42,208 - DEBUG - [GridSearch] iter=9 | order=['whitespace', 'model'] | vec=[1, 1] | utility=0.16
+2025-10-11 21:28:42,221 - DEBUG - [GridSearch] iter=10 | order=['model'] | vec=[1] | utility=0.16
+2025-10-11 21:28:42,311 - DEBUG - [GridSearch] iter=11 | order=['outlier', 'model'] | vec=[3, 1] | utility=0.16
+2025-10-11 21:28:42,478 - DEBUG - [GridSearch] iter=12 | order=['normalization', 'punctuation', 'stopword', 'whitespace', 'deduplication', 'model'] | vec=[2, 2, 2, 2, 1, 1] | utility=0.16
+2025-10-11 21:28:42,566 - DEBUG - [GridSearch] iter=13 | order=['punctuation', 'outlier', 'model'] | vec=[2, 8, 1] | utility=0.16
+2025-10-11 21:28:42,709 - DEBUG - [GridSearch] iter=14 | order=['deduplication', 'stopword', 'whitespace', 'punctuation', 'outlier', 'missing_value', 'model'] | vec=[1, 1, 1, 1, 8, 7, 1] | utility=0.16
+2025-10-11 21:28:42,970 - DEBUG - [GridSearch] iter=15 | order=['outlier', 'deduplication', 'stopword', 'punctuation', 'normalization', 'whitespace', 'missing_value', 'model'] | vec=[5, 1, 2, 1, 4, 2, 2, 1] | utility=0.16
+2025-10-11 21:28:43,229 - DEBUG - [GridSearch] iter=16 | order=['deduplication', 'punctuation', 'missing_value', 'normalization', 'outlier', 'whitespace', 'model'] | vec=[1, 1, 7, 4, 6, 2, 1] | utility=0.17
+2025-10-11 21:28:43,468 - DEBUG - [GridSearch] iter=17 | order=['stopword', 'punctuation', 'normalization', 'whitespace', 'model'] | vec=[2, 1, 3, 2, 1] | utility=0.16
+2025-10-11 21:28:43,824 - DEBUG - [GridSearch] iter=18 | order=['missing_value', 'deduplication', 'whitespace', 'punctuation', 'stopword', 'normalization', 'model'] | vec=[2, 1, 1, 1, 1, 4, 1] | utility=0.17
+2025-10-11 21:28:43,848 - DEBUG - [GridSearch] iter=19 | order=['whitespace', 'model'] | vec=[2, 1] | utility=0.16
+2025-10-11 21:28:44,147 - DEBUG - [GridSearch] iter=20 | order=['normalization', 'missing_value', 'stopword', 'outlier', 'whitespace', 'deduplication', 'model'] | vec=[3, 4, 1, 1, 1, 1, 1] | utility=0.16
+2025-10-11 21:28:44,258 - DEBUG - [GridSearch] iter=21 | order=['outlier', 'model'] | vec=[7, 1] | utility=0.15
+2025-10-11 21:28:44,342 - DEBUG - [GridSearch] iter=22 | order=['punctuation', 'deduplication', 'outlier', 'model'] | vec=[2, 1, 4, 1] | utility=0.14
+2025-10-11 21:28:44,342 - INFO - [GridSearch] 🎯 Achieved at iter=22, utility=0.14
+2025-10-11 21:28:44,342 - INFO - [GridSearch] Start (random). Target utility = 0.14
+2025-10-11 21:28:44,354 - DEBUG - [GridSearch] iter=1 | order=['whitespace', 'missing_value', 'model'] | vec=[2, 7, 1] | utility=0.16
+2025-10-11 21:28:44,446 - DEBUG - [GridSearch] iter=2 | order=['deduplication', 'punctuation', 'whitespace', 'stopword', 'outlier', 'missing_value', 'model'] | vec=[1, 2, 2, 2, 3, 5, 1] | utility=0.16
+2025-10-11 21:28:44,603 - DEBUG - [GridSearch] iter=3 | order=['missing_value', 'deduplication', 'normalization', 'stopword', 'punctuation', 'whitespace', 'outlier', 'model'] | vec=[9, 1, 3, 1, 2, 2, 3, 1] | utility=0.17
+2025-10-11 21:28:44,750 - DEBUG - [GridSearch] iter=4 | order=['outlier', 'whitespace', 'missing_value', 'normalization', 'model'] | vec=[7, 1, 7, 1, 1] | utility=0.15
+2025-10-11 21:28:44,762 - DEBUG - [GridSearch] iter=5 | order=['missing_value', 'stopword', 'punctuation', 'model'] | vec=[2, 1, 2, 1] | utility=0.16
+2025-10-11 21:28:44,771 - DEBUG - [GridSearch] iter=6 | order=['punctuation', 'model'] | vec=[1, 1] | utility=0.16
+2025-10-11 21:28:44,780 - DEBUG - [GridSearch] iter=7 | order=['stopword', 'punctuation', 'model'] | vec=[1, 1, 1] | utility=0.16
+2025-10-11 21:28:44,929 - DEBUG - [GridSearch] iter=8 | order=['normalization', 'punctuation', 'outlier', 'model'] | vec=[2, 2, 3, 1] | utility=0.16
+2025-10-11 21:28:45,078 - DEBUG - [GridSearch] iter=9 | order=['normalization', 'outlier', 'punctuation', 'deduplication', 'stopword', 'model'] | vec=[4, 6, 2, 1, 2, 1] | utility=0.17
+2025-10-11 21:28:45,159 - DEBUG - [GridSearch] iter=10 | order=['stopword', 'whitespace', 'outlier', 'missing_value', 'model'] | vec=[1, 1, 1, 3, 1] | utility=0.16
+2025-10-11 21:28:45,237 - DEBUG - [GridSearch] iter=11 | order=['whitespace', 'punctuation', 'missing_value', 'deduplication', 'normalization', 'model'] | vec=[1, 2, 7, 1, 1, 1] | utility=0.16
+2025-10-11 21:28:45,394 - DEBUG - [GridSearch] iter=12 | order=['missing_value', 'whitespace', 'outlier', 'stopword', 'deduplication', 'punctuation', 'normalization', 'model'] | vec=[2, 1, 1, 2, 1, 2, 5, 1] | utility=0.17
+2025-10-11 21:28:45,548 - DEBUG - [GridSearch] iter=13 | order=['normalization', 'punctuation', 'whitespace', 'stopword', 'missing_value', 'outlier', 'model'] | vec=[5, 1, 1, 1, 2, 6, 1] | utility=0.16
+2025-10-11 21:28:45,632 - DEBUG - [GridSearch] iter=14 | order=['deduplication', 'outlier', 'punctuation', 'whitespace', 'stopword', 'model'] | vec=[1, 4, 1, 1, 1, 1] | utility=0.14
+2025-10-11 21:28:45,632 - INFO - [GridSearch] 🎯 Achieved at iter=14, utility=0.14
+2025-10-11 21:28:45,633 - INFO - [GridSearch] Start (random). Target utility = 0.14
+2025-10-11 21:28:45,643 - DEBUG - [GridSearch] iter=1 | order=['stopword', 'missing_value', 'model'] | vec=[1, 9, 1] | utility=0.16
+2025-10-11 21:28:45,727 - DEBUG - [GridSearch] iter=2 | order=['deduplication', 'missing_value', 'outlier', 'stopword', 'model'] | vec=[1, 3, 8, 1, 1] | utility=0.16
+2025-10-11 21:28:45,806 - DEBUG - [GridSearch] iter=3 | order=['punctuation', 'stopword', 'normalization', 'deduplication', 'model'] | vec=[2, 1, 5, 1, 1] | utility=0.17
+2025-10-11 21:28:46,002 - DEBUG - [GridSearch] iter=4 | order=['normalization', 'deduplication', 'outlier', 'stopword', 'model'] | vec=[5, 1, 2, 1, 1] | utility=0.17
+2025-10-11 21:28:46,155 - DEBUG - [GridSearch] iter=5 | order=['deduplication', 'missing_value', 'whitespace', 'outlier', 'stopword', 'punctuation', 'normalization', 'model'] | vec=[1, 9, 2, 7, 2, 2, 4, 1] | utility=0.14
+2025-10-11 21:28:46,155 - INFO - [GridSearch] 🎯 Achieved at iter=5, utility=0.14
+2025-10-11 21:28:46,155 - INFO - [GridSearch] Start (random). Target utility = 0.14
+2025-10-11 21:28:46,249 - DEBUG - [GridSearch] iter=1 | order=['punctuation', 'stopword', 'deduplication', 'normalization', 'missing_value', 'model'] | vec=[1, 2, 1, 2, 4, 1] | utility=0.16
+2025-10-11 21:28:46,256 - DEBUG - [GridSearch] iter=2 | order=['model'] | vec=[1] | utility=0.16
+2025-10-11 21:28:46,408 - DEBUG - [GridSearch] iter=3 | order=['normalization', 'deduplication', 'whitespace', 'outlier', 'stopword', 'missing_value', 'punctuation', 'model'] | vec=[1, 1, 1, 6, 1, 2, 1, 1] | utility=0.13
+2025-10-11 21:28:46,408 - INFO - [GridSearch] 🎯 Achieved at iter=3, utility=0.13
+2025-10-11 21:28:46,408 - INFO - [GridSearch] Start (random). Target utility = 0.14
+2025-10-11 21:28:46,551 - DEBUG - [GridSearch] iter=1 | order=['stopword', 'outlier', 'deduplication', 'normalization', 'missing_value', 'model'] | vec=[1, 1, 1, 5, 7, 1] | utility=0.17
+2025-10-11 21:28:46,626 - DEBUG - [GridSearch] iter=2 | order=['outlier', 'deduplication', 'model'] | vec=[1, 1, 1] | utility=0.16
+2025-10-11 21:28:46,705 - DEBUG - [GridSearch] iter=3 | order=['punctuation', 'stopword', 'whitespace', 'deduplication', 'missing_value', 'normalization', 'model'] | vec=[2, 1, 2, 1, 4, 2, 1] | utility=0.16
+2025-10-11 21:28:46,782 - DEBUG - [GridSearch] iter=4 | order=['missing_value', 'normalization', 'deduplication', 'model'] | vec=[3, 4, 1, 1] | utility=0.17
+2025-10-11 21:28:46,865 - DEBUG - [GridSearch] iter=5 | order=['deduplication', 'missing_value', 'outlier', 'stopword', 'punctuation', 'model'] | vec=[1, 9, 3, 2, 2, 1] | utility=0.16
+2025-10-11 21:28:47,009 - DEBUG - [GridSearch] iter=6 | order=['whitespace', 'stopword', 'deduplication', 'missing_value', 'outlier', 'normalization', 'punctuation', 'model'] | vec=[1, 1, 1, 4, 1, 5, 1, 1] | utility=0.17
+2025-10-11 21:28:47,151 - DEBUG - [GridSearch] iter=7 | order=['punctuation', 'normalization', 'outlier', 'model'] | vec=[2, 2, 8, 1] | utility=0.16
+2025-10-11 21:28:47,159 - DEBUG - [GridSearch] iter=8 | order=['stopword', 'model'] | vec=[2, 1] | utility=0.16
+2025-10-11 21:28:47,168 - DEBUG - [GridSearch] iter=9 | order=['stopword', 'punctuation', 'model'] | vec=[2, 1, 1] | utility=0.16
+2025-10-11 21:28:47,242 - DEBUG - [GridSearch] iter=10 | order=['deduplication', 'normalization', 'punctuation', 'model'] | vec=[1, 4, 1, 1] | utility=0.17
+2025-10-11 21:28:47,391 - DEBUG - [GridSearch] iter=11 | order=['outlier', 'missing_value', 'deduplication', 'punctuation', 'stopword', 'normalization', 'whitespace', 'model'] | vec=[3, 3, 1, 2, 1, 1, 2, 1] | utility=0.16
+2025-10-11 21:28:47,469 - DEBUG - [GridSearch] iter=12 | order=['outlier', 'whitespace', 'model'] | vec=[7, 2, 1] | utility=0.15
+2025-10-11 21:28:47,614 - DEBUG - [GridSearch] iter=13 | order=['outlier', 'whitespace', 'normalization', 'missing_value', 'stopword', 'model'] | vec=[3, 2, 4, 9, 1, 1] | utility=0.18
+2025-10-11 21:28:47,694 - DEBUG - [GridSearch] iter=14 | order=['punctuation', 'missing_value', 'deduplication', 'outlier', 'stopword', 'whitespace', 'model'] | vec=[1, 5, 1, 4, 1, 2, 1] | utility=0.14
+2025-10-11 21:28:47,694 - INFO - [GridSearch] 🎯 Achieved at iter=14, utility=0.14
+2025-10-11 21:28:47,694 - INFO - [GridSearch] Start (random). Target utility = 0.14
+2025-10-11 21:28:47,779 - DEBUG - [GridSearch] iter=1 | order=['outlier', 'deduplication', 'missing_value', 'stopword', 'whitespace', 'model'] | vec=[3, 1, 3, 2, 2, 1] | utility=0.16
+2025-10-11 21:28:47,798 - DEBUG - [GridSearch] iter=2 | order=['punctuation', 'model'] | vec=[2, 1] | utility=0.16
+2025-10-11 21:28:48,059 - DEBUG - [GridSearch] iter=3 | order=['whitespace', 'deduplication', 'missing_value', 'normalization', 'stopword', 'punctuation', 'outlier', 'model'] | vec=[1, 1, 7, 5, 2, 2, 6, 1] | utility=0.16
+2025-10-11 21:28:48,074 - DEBUG - [GridSearch] iter=4 | order=['missing_value', 'model'] | vec=[2, 1] | utility=0.16
+2025-10-11 21:28:48,103 - DEBUG - [GridSearch] iter=5 | order=['stopword', 'missing_value', 'punctuation', 'deduplication', 'model'] | vec=[2, 3, 1, 1, 1] | utility=0.16
+2025-10-11 21:28:48,323 - DEBUG - [GridSearch] iter=6 | order=['outlier', 'deduplication', 'whitespace', 'punctuation', 'normalization', 'model'] | vec=[3, 1, 1, 2, 4, 1] | utility=0.18
+2025-10-11 21:28:48,466 - DEBUG - [GridSearch] iter=7 | order=['punctuation', 'normalization', 'deduplication', 'outlier', 'missing_value', 'stopword', 'model'] | vec=[1, 1, 1, 1, 5, 2, 1] | utility=0.16
+2025-10-11 21:28:48,546 - DEBUG - [GridSearch] iter=8 | order=['stopword', 'missing_value', 'whitespace', 'outlier', 'model'] | vec=[1, 4, 2, 3, 1] | utility=0.16
+2025-10-11 21:28:48,624 - DEBUG - [GridSearch] iter=9 | order=['outlier', 'stopword', 'missing_value', 'model'] | vec=[3, 1, 6, 1] | utility=0.16
+2025-10-11 21:28:48,631 - DEBUG - [GridSearch] iter=10 | order=['model'] | vec=[1] | utility=0.16
+2025-10-11 21:28:48,913 - DEBUG - [GridSearch] iter=11 | order=['normalization', 'stopword', 'whitespace', 'deduplication', 'missing_value', 'outlier', 'model'] | vec=[1, 2, 2, 1, 9, 2, 1] | utility=0.16
+2025-10-11 21:28:49,040 - DEBUG - [GridSearch] iter=12 | order=['stopword', 'outlier', 'whitespace', 'missing_value', 'deduplication', 'punctuation', 'model'] | vec=[1, 7, 1, 4, 1, 1, 1] | utility=0.15
+2025-10-11 21:28:49,163 - DEBUG - [GridSearch] iter=13 | order=['punctuation', 'normalization', 'whitespace', 'stopword', 'missing_value', 'deduplication', 'model'] | vec=[1, 5, 2, 1, 7, 1, 1] | utility=0.17
+2025-10-11 21:28:49,315 - DEBUG - [GridSearch] iter=14 | order=['whitespace', 'punctuation', 'stopword', 'missing_value', 'normalization', 'deduplication', 'outlier', 'model'] | vec=[1, 2, 1, 2, 4, 1, 5, 1] | utility=0.17
+2025-10-11 21:28:49,395 - DEBUG - [GridSearch] iter=15 | order=['punctuation', 'whitespace', 'deduplication', 'outlier', 'missing_value', 'model'] | vec=[2, 2, 1, 7, 6, 1] | utility=0.15
+2025-10-11 21:28:49,471 - DEBUG - [GridSearch] iter=16 | order=['whitespace', 'deduplication', 'stopword', 'normalization', 'punctuation', 'model'] | vec=[2, 1, 2, 1, 2, 1] | utility=0.16
+2025-10-11 21:28:49,479 - DEBUG - [GridSearch] iter=17 | order=['deduplication', 'model'] | vec=[1, 1] | utility=0.16
+2025-10-11 21:28:49,560 - DEBUG - [GridSearch] iter=18 | order=['whitespace', 'punctuation', 'outlier', 'deduplication', 'missing_value', 'stopword', 'model'] | vec=[2, 2, 8, 1, 9, 1, 1] | utility=0.16
+2025-10-11 21:28:49,633 - DEBUG - [GridSearch] iter=19 | order=['deduplication', 'normalization', 'model'] | vec=[1, 5, 1] | utility=0.17
+2025-10-11 21:28:49,705 - DEBUG - [GridSearch] iter=20 | order=['punctuation', 'normalization', 'model'] | vec=[2, 5, 1] | utility=0.17
+2025-10-11 21:28:49,973 - DEBUG - [GridSearch] iter=21 | order=['stopword', 'normalization', 'whitespace', 'missing_value', 'outlier', 'punctuation', 'deduplication', 'model'] | vec=[2, 5, 1, 3, 5, 1, 1, 1] | utility=0.15
+2025-10-11 21:28:50,108 - DEBUG - [GridSearch] iter=22 | order=['whitespace', 'normalization', 'punctuation', 'model'] | vec=[1, 4, 2, 1] | utility=0.17
+2025-10-11 21:28:50,121 - DEBUG - [GridSearch] iter=23 | order=['punctuation', 'deduplication', 'stopword', 'model'] | vec=[2, 1, 1, 1] | utility=0.16
+2025-10-11 21:28:50,238 - DEBUG - [GridSearch] iter=24 | order=['deduplication', 'punctuation', 'outlier', 'model'] | vec=[1, 2, 1, 1] | utility=0.16
+2025-10-11 21:28:50,411 - DEBUG - [GridSearch] iter=25 | order=['deduplication', 'punctuation', 'whitespace', 'outlier', 'normalization', 'missing_value', 'model'] | vec=[1, 2, 1, 8, 4, 1, 1] | utility=0.15
+2025-10-11 21:28:50,419 - DEBUG - [GridSearch] iter=26 | order=['deduplication', 'whitespace', 'model'] | vec=[1, 1, 1] | utility=0.16
+2025-10-11 21:28:50,495 - DEBUG - [GridSearch] iter=27 | order=['normalization', 'stopword', 'missing_value', 'punctuation', 'deduplication', 'model'] | vec=[5, 2, 7, 1, 1, 1] | utility=0.17
+2025-10-11 21:28:50,504 - DEBUG - [GridSearch] iter=28 | order=['punctuation', 'deduplication', 'model'] | vec=[1, 1, 1] | utility=0.16
+2025-10-11 21:28:50,706 - DEBUG - [GridSearch] iter=29 | order=['punctuation', 'missing_value', 'deduplication', 'outlier', 'stopword', 'whitespace', 'normalization', 'model'] | vec=[2, 6, 1, 7, 2, 1, 2, 1] | utility=0.15
+2025-10-11 21:28:50,724 - DEBUG - [GridSearch] iter=30 | order=['punctuation', 'missing_value', 'model'] | vec=[2, 2, 1] | utility=0.16
+2025-10-11 21:28:50,736 - DEBUG - [GridSearch] iter=31 | order=['stopword', 'model'] | vec=[1, 1] | utility=0.16
+2025-10-11 21:28:50,744 - DEBUG - [GridSearch] iter=32 | order=['stopword', 'whitespace', 'model'] | vec=[2, 1, 1] | utility=0.16
+2025-10-11 21:28:51,056 - DEBUG - [GridSearch] iter=33 | order=['whitespace', 'normalization', 'missing_value', 'stopword', 'deduplication', 'punctuation', 'outlier', 'model'] | vec=[1, 5, 6, 1, 1, 2, 2, 1] | utility=0.17
+2025-10-11 21:28:51,179 - DEBUG - [GridSearch] iter=34 | order=['stopword', 'missing_value', 'whitespace', 'outlier', 'model'] | vec=[2, 2, 2, 3, 1] | utility=0.16
+2025-10-11 21:28:51,447 - DEBUG - [GridSearch] iter=35 | order=['deduplication', 'punctuation', 'normalization', 'whitespace', 'stopword', 'missing_value', 'outlier', 'model'] | vec=[1, 2, 2, 2, 1, 7, 4, 1] | utility=0.15
+2025-10-11 21:28:51,463 - DEBUG - [GridSearch] iter=36 | order=['whitespace', 'deduplication', 'stopword', 'missing_value', 'model'] | vec=[1, 1, 1, 3, 1] | utility=0.16
+2025-10-11 21:28:51,585 - DEBUG - [GridSearch] iter=37 | order=['stopword', 'punctuation', 'normalization', 'model'] | vec=[1, 2, 3, 1] | utility=0.16
+2025-10-11 21:28:51,608 - DEBUG - [GridSearch] iter=38 | order=['deduplication', 'missing_value', 'whitespace', 'punctuation', 'stopword', 'model'] | vec=[1, 7, 1, 1, 1, 1] | utility=0.16
+2025-10-11 21:28:51,733 - DEBUG - [GridSearch] iter=39 | order=['outlier', 'model'] | vec=[2, 1] | utility=0.16
+2025-10-11 21:28:51,951 - DEBUG - [GridSearch] iter=40 | order=['outlier', 'deduplication', 'stopword', 'normalization', 'whitespace', 'missing_value', 'model'] | vec=[7, 1, 1, 3, 1, 5, 1] | utility=0.15
+2025-10-11 21:28:52,032 - DEBUG - [GridSearch] iter=41 | order=['punctuation', 'missing_value', 'normalization', 'whitespace', 'deduplication', 'stopword', 'model'] | vec=[1, 5, 2, 1, 1, 2, 1] | utility=0.16
+2025-10-11 21:28:52,183 - DEBUG - [GridSearch] iter=42 | order=['outlier', 'missing_value', 'whitespace', 'punctuation', 'deduplication', 'normalization', 'stopword', 'model'] | vec=[1, 5, 2, 1, 1, 4, 2, 1] | utility=0.17
+2025-10-11 21:28:52,455 - DEBUG - [GridSearch] iter=43 | order=['outlier', 'normalization', 'stopword', 'model'] | vec=[8, 4, 1, 1] | utility=0.15
+2025-10-11 21:28:52,564 - DEBUG - [GridSearch] iter=44 | order=['punctuation', 'outlier', 'stopword', 'model'] | vec=[2, 3, 1, 1] | utility=0.16
+2025-10-11 21:28:52,641 - DEBUG - [GridSearch] iter=45 | order=['deduplication', 'missing_value', 'normalization', 'model'] | vec=[1, 8, 3, 1] | utility=0.16
+2025-10-11 21:28:52,718 - DEBUG - [GridSearch] iter=46 | order=['punctuation', 'deduplication', 'normalization', 'whitespace', 'model'] | vec=[2, 1, 3, 2, 1] | utility=0.16
+2025-10-11 21:28:52,869 - DEBUG - [GridSearch] iter=47 | order=['punctuation', 'normalization', 'deduplication', 'outlier', 'missing_value', 'stopword', 'whitespace', 'model'] | vec=[1, 1, 1, 5, 4, 1, 1, 1] | utility=0.16
+2025-10-11 21:28:52,947 - DEBUG - [GridSearch] iter=48 | order=['outlier', 'deduplication', 'model'] | vec=[4, 1, 1] | utility=0.14
+2025-10-11 21:28:52,947 - INFO - [GridSearch] 🎯 Achieved at iter=48, utility=0.14
+2025-10-11 21:28:52,947 - INFO - [GridSearch] Start (random). Target utility = 0.14
+2025-10-11 21:28:52,958 - DEBUG - [GridSearch] iter=1 | order=['missing_value', 'punctuation', 'model'] | vec=[3, 1, 1] | utility=0.16
+2025-10-11 21:28:53,103 - DEBUG - [GridSearch] iter=2 | order=['missing_value', 'outlier', 'deduplication', 'normalization', 'whitespace', 'stopword', 'model'] | vec=[7, 4, 1, 3, 2, 2, 1] | utility=0.15
+2025-10-11 21:28:53,113 - DEBUG - [GridSearch] iter=3 | order=['whitespace', 'missing_value', 'model'] | vec=[2, 2, 1] | utility=0.16
+2025-10-11 21:28:53,292 - DEBUG - [GridSearch] iter=4 | order=['normalization', 'punctuation', 'outlier', 'model'] | vec=[3, 1, 2, 1] | utility=0.16
+2025-10-11 21:28:53,438 - DEBUG - [GridSearch] iter=5 | order=['punctuation', 'deduplication', 'normalization', 'missing_value', 'outlier', 'stopword', 'whitespace', 'model'] | vec=[1, 1, 3, 9, 1, 2, 2, 1] | utility=0.16
+2025-10-11 21:28:53,512 - DEBUG - [GridSearch] iter=6 | order=['normalization', 'stopword', 'model'] | vec=[2, 1, 1] | utility=0.16
+2025-10-11 21:28:53,661 - DEBUG - [GridSearch] iter=7 | order=['stopword', 'punctuation', 'whitespace', 'missing_value', 'outlier', 'deduplication', 'normalization', 'model'] | vec=[1, 1, 2, 7, 8, 1, 3, 1] | utility=0.16
+2025-10-11 21:28:53,671 - DEBUG - [GridSearch] iter=8 | order=['deduplication', 'whitespace', 'stopword', 'model'] | vec=[1, 2, 1, 1] | utility=0.16
+2025-10-11 21:28:53,678 - DEBUG - [GridSearch] iter=9 | order=['model'] | vec=[1] | utility=0.16
+2025-10-11 21:28:53,823 - DEBUG - [GridSearch] iter=10 | order=['normalization', 'whitespace', 'outlier', 'deduplication', 'model'] | vec=[1, 1, 4, 1, 1] | utility=0.14
+2025-10-11 21:28:53,823 - INFO - [GridSearch] 🎯 Achieved at iter=10, utility=0.14
+2025-10-11 21:28:53,823 - INFO - [GridSearch] Start (random). Target utility = 0.14
+2025-10-11 21:28:53,835 - DEBUG - [GridSearch] iter=1 | order=['whitespace', 'deduplication', 'missing_value', 'punctuation', 'stopword', 'model'] | vec=[1, 1, 5, 1, 1, 1] | utility=0.16
+2025-10-11 21:28:53,981 - DEBUG - [GridSearch] iter=2 | order=['normalization', 'punctuation', 'whitespace', 'outlier', 'model'] | vec=[4, 2, 1, 8, 1] | utility=0.17
+2025-10-11 21:28:53,992 - DEBUG - [GridSearch] iter=3 | order=['deduplication', 'stopword', 'whitespace', 'punctuation', 'model'] | vec=[1, 2, 1, 1, 1] | utility=0.16
+2025-10-11 21:28:54,070 - DEBUG - [GridSearch] iter=4 | order=['stopword', 'outlier', 'punctuation', 'model'] | vec=[2, 4, 1, 1] | utility=0.14
+2025-10-11 21:28:54,070 - INFO - [GridSearch] 🎯 Achieved at iter=4, utility=0.14
+2025-10-11 21:28:54,070 - INFO - [GridSearch] Start (random). Target utility = 0.14
+2025-10-11 21:28:54,250 - DEBUG - [GridSearch] iter=1 | order=['outlier', 'punctuation', 'missing_value', 'stopword', 'normalization', 'whitespace', 'model'] | vec=[2, 2, 1, 2, 2, 2, 1] | utility=0.16
+2025-10-11 21:28:54,361 - DEBUG - [GridSearch] iter=2 | order=['deduplication', 'outlier', 'model'] | vec=[1, 2, 1] | utility=0.16
+2025-10-11 21:28:54,505 - DEBUG - [GridSearch] iter=3 | order=['missing_value', 'punctuation', 'outlier', 'stopword', 'deduplication', 'whitespace', 'normalization', 'model'] | vec=[6, 1, 8, 1, 1, 1, 2, 1] | utility=0.16
+2025-10-11 21:28:54,650 - DEBUG - [GridSearch] iter=4 | order=['outlier', 'normalization', 'deduplication', 'model'] | vec=[3, 3, 1, 1] | utility=0.17
+2025-10-11 21:28:54,749 - DEBUG - [GridSearch] iter=5 | order=['outlier', 'missing_value', 'model'] | vec=[3, 1, 1] | utility=0.16
+2025-10-11 21:28:54,756 - DEBUG - [GridSearch] iter=6 | order=['model'] | vec=[1] | utility=0.16
+2025-10-11 21:28:54,902 - DEBUG - [GridSearch] iter=7 | order=['normalization', 'missing_value', 'punctuation', 'outlier', 'stopword', 'whitespace', 'deduplication', 'model'] | vec=[1, 3, 1, 8, 1, 2, 1, 1] | utility=0.16
+2025-10-11 21:28:54,977 - DEBUG - [GridSearch] iter=8 | order=['whitespace', 'outlier', 'model'] | vec=[1, 4, 1] | utility=0.14
+2025-10-11 21:28:54,978 - INFO - [GridSearch] 🎯 Achieved at iter=8, utility=0.14
+2025-10-11 21:28:54,978 - INFO - [GridSearch] Start (random). Target utility = 0.14
+2025-10-11 21:28:54,987 - DEBUG - [GridSearch] iter=1 | order=['punctuation', 'whitespace', 'model'] | vec=[1, 2, 1] | utility=0.16
+2025-10-11 21:28:55,061 - DEBUG - [GridSearch] iter=2 | order=['whitespace', 'stopword', 'outlier', 'model'] | vec=[2, 2, 1, 1] | utility=0.16
+2025-10-11 21:28:55,072 - DEBUG - [GridSearch] iter=3 | order=['deduplication', 'missing_value', 'stopword', 'punctuation', 'model'] | vec=[1, 6, 2, 1, 1] | utility=0.16
+2025-10-11 21:28:55,082 - DEBUG - [GridSearch] iter=4 | order=['missing_value', 'deduplication', 'stopword', 'model'] | vec=[8, 1, 2, 1] | utility=0.16
+2025-10-11 21:28:55,092 - DEBUG - [GridSearch] iter=5 | order=['whitespace', 'stopword', 'deduplication', 'model'] | vec=[2, 1, 1, 1] | utility=0.16
+2025-10-11 21:28:55,230 - DEBUG - [GridSearch] iter=6 | order=['outlier', 'normalization', 'model'] | vec=[7, 4, 1] | utility=0.14
+2025-10-11 21:28:55,230 - INFO - [GridSearch] 🎯 Achieved at iter=6, utility=0.14
+2025-10-11 21:28:55,230 - INFO - [GridSearch] Start (random). Target utility = 0.14
+2025-10-11 21:28:55,307 - DEBUG - [GridSearch] iter=1 | order=['whitespace', 'punctuation', 'deduplication', 'outlier', 'model'] | vec=[1, 1, 1, 4, 1] | utility=0.14
+2025-10-11 21:28:55,307 - INFO - [GridSearch] 🎯 Achieved at iter=1, utility=0.14
+2025-10-11 21:28:55,307 - INFO - [GridSearch] Start (random). Target utility = 0.14
+2025-10-11 21:28:55,316 - DEBUG - [GridSearch] iter=1 | order=['missing_value', 'model'] | vec=[1, 1] | utility=0.16
+2025-10-11 21:28:55,327 - DEBUG - [GridSearch] iter=2 | order=['missing_value', 'stopword', 'deduplication', 'model'] | vec=[3, 2, 1, 1] | utility=0.16
+2025-10-11 21:28:55,502 - DEBUG - [GridSearch] iter=3 | order=['stopword', 'outlier', 'deduplication', 'whitespace', 'normalization', 'punctuation', 'model'] | vec=[1, 2, 1, 2, 4, 2, 1] | utility=0.17
+2025-10-11 21:28:55,511 - DEBUG - [GridSearch] iter=4 | order=['punctuation', 'missing_value', 'model'] | vec=[1, 8, 1] | utility=0.16
+2025-10-11 21:28:55,650 - DEBUG - [GridSearch] iter=5 | order=['outlier', 'punctuation', 'deduplication', 'normalization', 'whitespace', 'stopword', 'model'] | vec=[1, 1, 1, 2, 2, 2, 1] | utility=0.16
+2025-10-11 21:28:55,657 - DEBUG - [GridSearch] iter=6 | order=['model'] | vec=[1] | utility=0.16
+2025-10-11 21:28:55,732 - DEBUG - [GridSearch] iter=7 | order=['outlier', 'missing_value', 'stopword', 'model'] | vec=[1, 7, 2, 1] | utility=0.16
+2025-10-11 21:28:55,806 - DEBUG - [GridSearch] iter=8 | order=['deduplication', 'normalization', 'punctuation', 'missing_value', 'model'] | vec=[1, 2, 2, 6, 1] | utility=0.16
+2025-10-11 21:28:55,948 - DEBUG - [GridSearch] iter=9 | order=['outlier', 'stopword', 'missing_value', 'normalization', 'deduplication', 'model'] | vec=[3, 1, 7, 4, 1, 1] | utility=0.18
+2025-10-11 21:28:56,022 - DEBUG - [GridSearch] iter=10 | order=['punctuation', 'stopword', 'normalization', 'model'] | vec=[2, 1, 3, 1] | utility=0.16
+2025-10-11 21:28:56,031 - DEBUG - [GridSearch] iter=11 | order=['missing_value', 'stopword', 'model'] | vec=[6, 1, 1] | utility=0.16
+2025-10-11 21:28:56,174 - DEBUG - [GridSearch] iter=12 | order=['punctuation', 'whitespace', 'outlier', 'deduplication', 'normalization', 'missing_value', 'model'] | vec=[2, 1, 5, 1, 3, 3, 1] | utility=0.16
+2025-10-11 21:28:56,183 - DEBUG - [GridSearch] iter=13 | order=['deduplication', 'punctuation', 'model'] | vec=[1, 1, 1] | utility=0.16
+2025-10-11 21:28:56,191 - DEBUG - [GridSearch] iter=14 | order=['missing_value', 'model'] | vec=[4, 1] | utility=0.16
+2025-10-11 21:28:56,200 - DEBUG - [GridSearch] iter=15 | order=['deduplication', 'punctuation', 'whitespace', 'model'] | vec=[1, 2, 1, 1] | utility=0.16
+2025-10-11 21:28:56,342 - DEBUG - [GridSearch] iter=16 | order=['outlier', 'stopword', 'whitespace', 'deduplication', 'normalization', 'punctuation', 'missing_value', 'model'] | vec=[4, 2, 1, 1, 2, 1, 4, 1] | utility=0.15
+2025-10-11 21:28:56,482 - DEBUG - [GridSearch] iter=17 | order=['deduplication', 'outlier', 'normalization', 'stopword', 'model'] | vec=[1, 5, 2, 1, 1] | utility=0.16
+2025-10-11 21:28:56,562 - DEBUG - [GridSearch] iter=18 | order=['deduplication', 'whitespace', 'punctuation', 'missing_value', 'outlier', 'model'] | vec=[1, 1, 1, 2, 6, 1] | utility=0.13
+2025-10-11 21:28:56,562 - INFO - [GridSearch] 🎯 Achieved at iter=18, utility=0.13
+2025-10-11 21:28:56,562 - INFO - [GridSearch] Start (random). Target utility = 0.14
+2025-10-11 21:28:56,639 - DEBUG - [GridSearch] iter=1 | order=['punctuation', 'stopword', 'deduplication', 'normalization', 'whitespace', 'missing_value', 'model'] | vec=[1, 1, 1, 1, 2, 6, 1] | utility=0.16
+2025-10-11 21:28:56,649 - DEBUG - [GridSearch] iter=2 | order=['missing_value', 'punctuation', 'model'] | vec=[9, 1, 1] | utility=0.16
+2025-10-11 21:28:56,791 - DEBUG - [GridSearch] iter=3 | order=['normalization', 'missing_value', 'outlier', 'punctuation', 'stopword', 'model'] | vec=[3, 4, 6, 1, 1, 1] | utility=0.16
+2025-10-11 21:28:56,933 - DEBUG - [GridSearch] iter=4 | order=['punctuation', 'stopword', 'whitespace', 'outlier', 'normalization', 'model'] | vec=[2, 1, 2, 5, 1, 1] | utility=0.16
+2025-10-11 21:28:57,075 - DEBUG - [GridSearch] iter=5 | order=['whitespace', 'stopword', 'punctuation', 'deduplication', 'missing_value', 'normalization', 'outlier', 'model'] | vec=[1, 1, 1, 1, 7, 4, 5, 1] | utility=0.17
+2025-10-11 21:28:57,218 - DEBUG - [GridSearch] iter=6 | order=['whitespace', 'deduplication', 'outlier', 'missing_value', 'stopword', 'normalization', 'model'] | vec=[2, 1, 4, 8, 1, 1, 1] | utility=0.14
+2025-10-11 21:28:57,218 - INFO - [GridSearch] 🎯 Achieved at iter=6, utility=0.14
+2025-10-11 21:28:57,218 - INFO - [GridSearch] Start (random). Target utility = 0.14
+2025-10-11 21:28:57,332 - DEBUG - [GridSearch] iter=1 | order=['whitespace', 'normalization', 'stopword', 'punctuation', 'deduplication', 'missing_value', 'model'] | vec=[2, 3, 2, 2, 1, 8, 1] | utility=0.16
+2025-10-11 21:28:57,583 - DEBUG - [GridSearch] iter=2 | order=['punctuation', 'normalization', 'deduplication', 'missing_value', 'outlier', 'stopword', 'whitespace', 'model'] | vec=[1, 4, 1, 3, 5, 1, 2, 1] | utility=0.17
+2025-10-11 21:28:57,594 - DEBUG - [GridSearch] iter=3 | order=['model'] | vec=[1] | utility=0.16
+2025-10-11 21:28:57,820 - DEBUG - [GridSearch] iter=4 | order=['normalization', 'whitespace', 'stopword', 'deduplication', 'missing_value', 'outlier', 'punctuation', 'model'] | vec=[3, 2, 2, 1, 3, 7, 2, 1] | utility=0.16
+2025-10-11 21:28:58,053 - DEBUG - [GridSearch] iter=5 | order=['stopword', 'outlier', 'whitespace', 'deduplication', 'punctuation', 'normalization', 'missing_value', 'model'] | vec=[1, 6, 2, 1, 1, 3, 3, 1] | utility=0.13
+2025-10-11 21:28:58,053 - INFO - [GridSearch] 🎯 Achieved at iter=5, utility=0.13
+2025-10-11 21:28:58,053 - INFO - [GridSearch] Start (random). Target utility = 0.14
+2025-10-11 21:28:58,173 - DEBUG - [GridSearch] iter=1 | order=['missing_value', 'normalization', 'model'] | vec=[9, 5, 1] | utility=0.17
+2025-10-11 21:28:58,295 - DEBUG - [GridSearch] iter=2 | order=['normalization', 'stopword', 'whitespace', 'model'] | vec=[5, 1, 1, 1] | utility=0.17
+2025-10-11 21:28:58,304 - DEBUG - [GridSearch] iter=3 | order=['missing_value', 'deduplication', 'model'] | vec=[9, 1, 1] | utility=0.16
+2025-10-11 21:28:58,315 - DEBUG - [GridSearch] iter=4 | order=['punctuation', 'whitespace', 'stopword', 'deduplication', 'model'] | vec=[2, 1, 2, 1, 1] | utility=0.16
+2025-10-11 21:28:58,388 - DEBUG - [GridSearch] iter=5 | order=['normalization', 'model'] | vec=[2, 1] | utility=0.16
+2025-10-11 21:28:58,468 - DEBUG - [GridSearch] iter=6 | order=['outlier', 'whitespace', 'punctuation', 'deduplication', 'missing_value', 'model'] | vec=[7, 1, 2, 1, 2, 1] | utility=0.15
+2025-10-11 21:28:58,546 - DEBUG - [GridSearch] iter=7 | order=['whitespace', 'deduplication', 'punctuation', 'outlier', 'model'] | vec=[1, 1, 1, 7, 1] | utility=0.15
+2025-10-11 21:28:58,660 - DEBUG - [GridSearch] iter=8 | order=['whitespace', 'punctuation', 'missing_value', 'stopword', 'outlier', 'model'] | vec=[1, 2, 8, 2, 2, 1] | utility=0.16
+2025-10-11 21:28:58,735 - DEBUG - [GridSearch] iter=9 | order=['stopword', 'outlier', 'deduplication', 'model'] | vec=[2, 1, 1, 1] | utility=0.16
+2025-10-11 21:28:58,742 - DEBUG - [GridSearch] iter=10 | order=['model'] | vec=[1] | utility=0.16
+2025-10-11 21:28:58,751 - DEBUG - [GridSearch] iter=11 | order=['missing_value', 'whitespace', 'model'] | vec=[6, 1, 1] | utility=0.16
+2025-10-11 21:28:58,897 - DEBUG - [GridSearch] iter=12 | order=['punctuation', 'whitespace', 'outlier', 'missing_value', 'normalization', 'stopword', 'model'] | vec=[1, 1, 8, 2, 1, 1, 1] | utility=0.16
+2025-10-11 21:28:59,040 - DEBUG - [GridSearch] iter=13 | order=['outlier', 'missing_value', 'stopword', 'deduplication', 'punctuation', 'whitespace', 'normalization', 'model'] | vec=[6, 1, 2, 1, 2, 2, 5, 1] | utility=0.15
+2025-10-11 21:28:59,047 - DEBUG - [GridSearch] iter=14 | order=['punctuation', 'model'] | vec=[1, 1] | utility=0.16
+2025-10-11 21:28:59,188 - DEBUG - [GridSearch] iter=15 | order=['missing_value', 'whitespace', 'normalization', 'outlier', 'deduplication', 'model'] | vec=[3, 1, 4, 1, 1, 1] | utility=0.17
+2025-10-11 21:28:59,267 - DEBUG - [GridSearch] iter=16 | order=['punctuation', 'whitespace', 'missing_value', 'outlier', 'deduplication', 'stopword', 'model'] | vec=[1, 2, 7, 5, 1, 2, 1] | utility=0.16
+2025-10-11 21:28:59,275 - DEBUG - [GridSearch] iter=17 | order=['missing_value', 'model'] | vec=[5, 1] | utility=0.16
+2025-10-11 21:28:59,348 - DEBUG - [GridSearch] iter=18 | order=['punctuation', 'normalization', 'missing_value', 'model'] | vec=[2, 2, 9, 1] | utility=0.16
+2025-10-11 21:28:59,492 - DEBUG - [GridSearch] iter=19 | order=['stopword', 'punctuation', 'missing_value', 'outlier', 'deduplication', 'whitespace', 'normalization', 'model'] | vec=[1, 1, 9, 3, 1, 1, 5, 1] | utility=0.18
+2025-10-11 21:28:59,572 - DEBUG - [GridSearch] iter=20 | order=['whitespace', 'stopword', 'outlier', 'model'] | vec=[2, 2, 7, 1] | utility=0.15
+2025-10-11 21:28:59,685 - DEBUG - [GridSearch] iter=21 | order=['outlier', 'whitespace', 'model'] | vec=[2, 2, 1] | utility=0.16
+2025-10-11 21:28:59,831 - DEBUG - [GridSearch] iter=22 | order=['punctuation', 'outlier', 'missing_value', 'whitespace', 'deduplication', 'stopword', 'normalization', 'model'] | vec=[2, 7, 5, 2, 1, 1, 3, 1] | utility=0.15
+2025-10-11 21:28:59,914 - DEBUG - [GridSearch] iter=23 | order=['whitespace', 'punctuation', 'outlier', 'missing_value', 'stopword', 'deduplication', 'model'] | vec=[2, 1, 6, 9, 1, 1, 1] | utility=0.13
+2025-10-11 21:28:59,914 - INFO - [GridSearch] 🎯 Achieved at iter=23, utility=0.13
+2025-10-11 21:28:59,914 - INFO - [GridSearch] Start (random). Target utility = 0.14
+2025-10-11 21:29:00,062 - DEBUG - [GridSearch] iter=1 | order=['missing_value', 'whitespace', 'stopword', 'normalization', 'outlier', 'deduplication', 'punctuation', 'model'] | vec=[4, 1, 1, 4, 4, 1, 2, 1] | utility=0.16
+2025-10-11 21:29:00,143 - DEBUG - [GridSearch] iter=2 | order=['missing_value', 'deduplication', 'punctuation', 'outlier', 'stopword', 'model'] | vec=[5, 1, 2, 7, 1, 1] | utility=0.15
+2025-10-11 21:29:00,222 - DEBUG - [GridSearch] iter=3 | order=['stopword', 'outlier', 'deduplication', 'punctuation', 'model'] | vec=[1, 5, 1, 1, 1] | utility=0.16
+2025-10-11 21:29:00,301 - DEBUG - [GridSearch] iter=4 | order=['missing_value', 'normalization', 'deduplication', 'stopword', 'punctuation', 'whitespace', 'model'] | vec=[3, 3, 1, 1, 1, 1, 1] | utility=0.16
+2025-10-11 21:29:00,376 - DEBUG - [GridSearch] iter=5 | order=['deduplication', 'normalization', 'stopword', 'model'] | vec=[1, 5, 2, 1] | utility=0.17
+2025-10-11 21:29:00,451 - DEBUG - [GridSearch] iter=6 | order=['outlier', 'deduplication', 'model'] | vec=[4, 1, 1] | utility=0.14
+2025-10-11 21:29:00,451 - INFO - [GridSearch] 🎯 Achieved at iter=6, utility=0.14
+2025-10-11 21:29:00,451 - INFO - [GridSearch] Start (random). Target utility = 0.14
+2025-10-11 21:29:00,598 - DEBUG - [GridSearch] iter=1 | order=['deduplication', 'outlier', 'missing_value', 'normalization', 'stopword', 'punctuation', 'whitespace', 'model'] | vec=[1, 6, 8, 3, 2, 2, 1, 1] | utility=0.13
+2025-10-11 21:29:00,598 - INFO - [GridSearch] 🎯 Achieved at iter=1, utility=0.13
+2025-10-11 21:29:00,598 - INFO - [GridSearch] Start (random). Target utility = 0.14
+2025-10-11 21:29:00,866 - DEBUG - [GridSearch] iter=1 | order=['outlier', 'whitespace', 'missing_value', 'punctuation', 'normalization', 'deduplication', 'model'] | vec=[2, 2, 8, 2, 2, 1, 1] | utility=0.16
+2025-10-11 21:29:00,886 - DEBUG - [GridSearch] iter=2 | order=['stopword', 'model'] | vec=[1, 1] | utility=0.16
+2025-10-11 21:29:01,132 - DEBUG - [GridSearch] iter=3 | order=['deduplication', 'outlier', 'whitespace', 'normalization', 'missing_value', 'punctuation', 'model'] | vec=[1, 3, 2, 4, 2, 2, 1] | utility=0.18
+2025-10-11 21:29:01,152 - DEBUG - [GridSearch] iter=4 | order=['punctuation', 'model'] | vec=[2, 1] | utility=0.16
+2025-10-11 21:29:01,164 - DEBUG - [GridSearch] iter=5 | order=['model'] | vec=[1] | utility=0.16
+2025-10-11 21:29:01,409 - DEBUG - [GridSearch] iter=6 | order=['stopword', 'outlier', 'normalization', 'whitespace', 'punctuation', 'missing_value', 'deduplication', 'model'] | vec=[2, 4, 3, 2, 1, 4, 1, 1] | utility=0.15
+2025-10-11 21:29:01,667 - DEBUG - [GridSearch] iter=7 | order=['deduplication', 'missing_value', 'stopword', 'outlier', 'punctuation', 'whitespace', 'normalization', 'model'] | vec=[1, 7, 1, 2, 1, 1, 5, 1] | utility=0.17
+2025-10-11 21:29:01,751 - DEBUG - [GridSearch] iter=8 | order=['missing_value', 'deduplication', 'outlier', 'whitespace', 'model'] | vec=[1, 1, 3, 2, 1] | utility=0.16
+2025-10-11 21:29:01,900 - DEBUG - [GridSearch] iter=9 | order=['stopword', 'punctuation', 'normalization', 'deduplication', 'outlier', 'model'] | vec=[2, 1, 5, 1, 4, 1] | utility=0.16
+2025-10-11 21:29:01,980 - DEBUG - [GridSearch] iter=10 | order=['outlier', 'whitespace', 'missing_value', 'stopword', 'punctuation', 'deduplication', 'model'] | vec=[1, 2, 7, 1, 2, 1, 1] | utility=0.16
+2025-10-11 21:29:02,125 - DEBUG - [GridSearch] iter=11 | order=['normalization', 'punctuation', 'whitespace', 'stopword', 'outlier', 'model'] | vec=[4, 1, 1, 1, 6, 1] | utility=0.17
+2025-10-11 21:29:02,301 - DEBUG - [GridSearch] iter=12 | order=['outlier', 'punctuation', 'missing_value', 'deduplication', 'stopword', 'whitespace', 'normalization', 'model'] | vec=[8, 1, 1, 1, 2, 1, 3, 1] | utility=0.16
+2025-10-11 21:29:02,564 - DEBUG - [GridSearch] iter=13 | order=['missing_value', 'punctuation', 'normalization', 'whitespace', 'outlier', 'stopword', 'model'] | vec=[5, 1, 4, 1, 8, 2, 1] | utility=0.17
+2025-10-11 21:29:02,805 - DEBUG - [GridSearch] iter=14 | order=['normalization', 'deduplication', 'outlier', 'model'] | vec=[1, 1, 1, 1] | utility=0.16
+2025-10-11 21:29:03,060 - DEBUG - [GridSearch] iter=15 | order=['stopword', 'outlier', 'missing_value', 'deduplication', 'punctuation', 'normalization', 'whitespace', 'model'] | vec=[2, 6, 5, 1, 1, 3, 2, 1] | utility=0.13
+2025-10-11 21:29:03,060 - INFO - [GridSearch] 🎯 Achieved at iter=15, utility=0.13
+2025-10-11 21:29:03,060 - INFO - [GridSearch] Start (random). Target utility = 0.14
+2025-10-11 21:29:03,198 - DEBUG - [GridSearch] iter=1 | order=['missing_value', 'whitespace', 'punctuation', 'outlier', 'deduplication', 'model'] | vec=[6, 1, 2, 1, 1, 1] | utility=0.16
+2025-10-11 21:29:03,417 - DEBUG - [GridSearch] iter=2 | order=['punctuation', 'normalization', 'missing_value', 'whitespace', 'deduplication', 'stopword', 'outlier', 'model'] | vec=[2, 4, 1, 2, 1, 1, 6, 1] | utility=0.17
+2025-10-11 21:29:03,494 - DEBUG - [GridSearch] iter=3 | order=['outlier', 'missing_value', 'stopword', 'model'] | vec=[7, 9, 1, 1] | utility=0.15
+2025-10-11 21:29:03,502 - DEBUG - [GridSearch] iter=4 | order=['punctuation', 'model'] | vec=[1, 1] | utility=0.16
+2025-10-11 21:29:03,509 - DEBUG - [GridSearch] iter=5 | order=['deduplication', 'model'] | vec=[1, 1] | utility=0.16
+2025-10-11 21:29:03,517 - DEBUG - [GridSearch] iter=6 | order=['model'] | vec=[1] | utility=0.16
+2025-10-11 21:29:03,694 - DEBUG - [GridSearch] iter=7 | order=['missing_value', 'normalization', 'outlier', 'deduplication', 'whitespace', 'stopword', 'model'] | vec=[4, 3, 2, 1, 2, 2, 1] | utility=0.16
+2025-10-11 21:29:03,703 - DEBUG - [GridSearch] iter=8 | order=['deduplication', 'whitespace', 'model'] | vec=[1, 2, 1] | utility=0.16
+2025-10-11 21:29:03,777 - DEBUG - [GridSearch] iter=9 | order=['deduplication', 'stopword', 'normalization', 'punctuation', 'model'] | vec=[1, 2, 3, 1, 1] | utility=0.16
+2025-10-11 21:29:03,785 - DEBUG - [GridSearch] iter=10 | order=['missing_value', 'model'] | vec=[5, 1] | utility=0.16
+2025-10-11 21:29:03,863 - DEBUG - [GridSearch] iter=11 | order=['punctuation', 'whitespace', 'deduplication', 'stopword', 'normalization', 'missing_value', 'model'] | vec=[1, 1, 1, 2, 3, 9, 1] | utility=0.16
+2025-10-11 21:29:03,872 - DEBUG - [GridSearch] iter=12 | order=['whitespace', 'missing_value', 'model'] | vec=[2, 7, 1] | utility=0.16
+2025-10-11 21:29:03,950 - DEBUG - [GridSearch] iter=13 | order=['missing_value', 'normalization', 'stopword', 'punctuation', 'model'] | vec=[8, 4, 1, 1, 1] | utility=0.17
+2025-10-11 21:29:04,039 - DEBUG - [GridSearch] iter=14 | order=['stopword', 'deduplication', 'whitespace', 'normalization', 'punctuation', 'model'] | vec=[1, 1, 1, 3, 2, 1] | utility=0.16
+2025-10-11 21:29:04,048 - DEBUG - [GridSearch] iter=15 | order=['stopword', 'model'] | vec=[2, 1] | utility=0.16
+2025-10-11 21:29:04,055 - DEBUG - [GridSearch] iter=16 | order=['whitespace', 'model'] | vec=[2, 1] | utility=0.16
+2025-10-11 21:29:04,261 - DEBUG - [GridSearch] iter=17 | order=['normalization', 'punctuation', 'outlier', 'deduplication', 'model'] | vec=[1, 1, 5, 1, 1] | utility=0.16
+2025-10-11 21:29:04,482 - DEBUG - [GridSearch] iter=18 | order=['missing_value', 'stopword', 'outlier', 'whitespace', 'normalization', 'deduplication', 'model'] | vec=[9, 2, 6, 1, 1, 1, 1] | utility=0.13
+2025-10-11 21:29:04,482 - INFO - [GridSearch] 🎯 Achieved at iter=18, utility=0.13
+2025-10-11 21:29:04,482 - INFO - [GridSearch] Start (random). Target utility = 0.14
+2025-10-11 21:29:04,616 - DEBUG - [GridSearch] iter=1 | order=['punctuation', 'stopword', 'missing_value', 'outlier', 'deduplication', 'model'] | vec=[1, 1, 9, 6, 1, 1] | utility=0.13
+2025-10-11 21:29:04,616 - INFO - [GridSearch] 🎯 Achieved at iter=1, utility=0.13
+2025-10-11 21:29:04,616 - INFO - [GridSearch] Start (random). Target utility = 0.14
+2025-10-11 21:29:04,875 - DEBUG - [GridSearch] iter=1 | order=['normalization', 'whitespace', 'outlier', 'punctuation', 'deduplication', 'stopword', 'missing_value', 'model'] | vec=[2, 1, 3, 2, 1, 1, 2, 1] | utility=0.16
+2025-10-11 21:29:04,887 - DEBUG - [GridSearch] iter=2 | order=['model'] | vec=[1] | utility=0.16
+2025-10-11 21:29:05,043 - DEBUG - [GridSearch] iter=3 | order=['deduplication', 'stopword', 'punctuation', 'outlier', 'missing_value', 'model'] | vec=[1, 1, 2, 3, 2, 1] | utility=0.16
+2025-10-11 21:29:05,182 - DEBUG - [GridSearch] iter=4 | order=['normalization', 'missing_value', 'model'] | vec=[2, 3, 1] | utility=0.16
+2025-10-11 21:29:05,313 - DEBUG - [GridSearch] iter=5 | order=['punctuation', 'stopword', 'outlier', 'missing_value', 'model'] | vec=[1, 1, 2, 8, 1] | utility=0.16
+2025-10-11 21:29:05,323 - DEBUG - [GridSearch] iter=6 | order=['stopword', 'deduplication', 'punctuation', 'model'] | vec=[1, 1, 1, 1] | utility=0.16
+2025-10-11 21:29:05,405 - DEBUG - [GridSearch] iter=7 | order=['missing_value', 'whitespace', 'punctuation', 'deduplication', 'outlier', 'stopword', 'model'] | vec=[3, 2, 1, 1, 7, 2, 1] | utility=0.15
+2025-10-11 21:29:05,413 - DEBUG - [GridSearch] iter=8 | order=['stopword', 'model'] | vec=[2, 1] | utility=0.16
+2025-10-11 21:29:05,488 - DEBUG - [GridSearch] iter=9 | order=['normalization', 'punctuation', 'deduplication', 'model'] | vec=[1, 2, 1, 1] | utility=0.16
+2025-10-11 21:29:05,498 - DEBUG - [GridSearch] iter=10 | order=['missing_value', 'stopword', 'deduplication', 'model'] | vec=[5, 2, 1, 1] | utility=0.16
+2025-10-11 21:29:05,711 - DEBUG - [GridSearch] iter=11 | order=['missing_value', 'whitespace', 'normalization', 'outlier', 'punctuation', 'deduplication', 'model'] | vec=[8, 2, 5, 6, 2, 1, 1] | utility=0.16
+2025-10-11 21:29:05,738 - DEBUG - [GridSearch] iter=12 | order=['missing_value', 'deduplication', 'whitespace', 'model'] | vec=[5, 1, 2, 1] | utility=0.16
+2025-10-11 21:29:05,953 - DEBUG - [GridSearch] iter=13 | order=['normalization', 'outlier', 'punctuation', 'deduplication', 'model'] | vec=[3, 7, 1, 1, 1] | utility=0.16
+2025-10-11 21:29:05,978 - DEBUG - [GridSearch] iter=14 | order=['missing_value', 'model'] | vec=[2, 1] | utility=0.16
+2025-10-11 21:29:06,251 - DEBUG - [GridSearch] iter=15 | order=['stopword', 'outlier', 'whitespace', 'normalization', 'punctuation', 'missing_value', 'deduplication', 'model'] | vec=[2, 3, 2, 4, 1, 3, 1, 1] | utility=0.18
+2025-10-11 21:29:06,483 - DEBUG - [GridSearch] iter=16 | order=['whitespace', 'normalization', 'stopword', 'outlier', 'model'] | vec=[2, 2, 1, 3, 1] | utility=0.16
+2025-10-11 21:29:06,721 - DEBUG - [GridSearch] iter=17 | order=['whitespace', 'punctuation', 'stopword', 'deduplication', 'normalization', 'missing_value', 'outlier', 'model'] | vec=[1, 2, 2, 1, 2, 8, 6, 1] | utility=0.15
+2025-10-11 21:29:06,731 - DEBUG - [GridSearch] iter=18 | order=['missing_value', 'whitespace', 'deduplication', 'model'] | vec=[7, 1, 1, 1] | utility=0.16
+2025-10-11 21:29:06,809 - DEBUG - [GridSearch] iter=19 | order=['outlier', 'punctuation', 'deduplication', 'missing_value', 'model'] | vec=[5, 1, 1, 6, 1] | utility=0.16
+2025-10-11 21:29:06,884 - DEBUG - [GridSearch] iter=20 | order=['outlier', 'deduplication', 'whitespace', 'model'] | vec=[4, 1, 1, 1] | utility=0.14
+2025-10-11 21:29:06,884 - INFO - [GridSearch] 🎯 Achieved at iter=20, utility=0.14
+2025-10-11 21:29:06,884 - INFO - [GridSearch] Start (random). Target utility = 0.14
+2025-10-11 21:29:07,031 - DEBUG - [GridSearch] iter=1 | order=['missing_value', 'whitespace', 'outlier', 'normalization', 'stopword', 'punctuation', 'model'] | vec=[2, 2, 3, 1, 2, 1, 1] | utility=0.16
+2025-10-11 21:29:07,125 - DEBUG - [GridSearch] iter=2 | order=['whitespace', 'normalization', 'punctuation', 'missing_value', 'model'] | vec=[1, 3, 2, 5, 1] | utility=0.16
+2025-10-11 21:29:07,323 - DEBUG - [GridSearch] iter=3 | order=['outlier', 'punctuation', 'model'] | vec=[3, 1, 1] | utility=0.16
+2025-10-11 21:29:07,602 - DEBUG - [GridSearch] iter=4 | order=['normalization', 'outlier', 'model'] | vec=[1, 1, 1] | utility=0.16
+2025-10-11 21:29:07,860 - DEBUG - [GridSearch] iter=5 | order=['stopword', 'normalization', 'punctuation', 'missing_value', 'outlier', 'deduplication', 'whitespace', 'model'] | vec=[2, 3, 1, 1, 7, 1, 2, 1] | utility=0.16
+2025-10-11 21:29:08,118 - DEBUG - [GridSearch] iter=6 | order=['whitespace', 'outlier', 'deduplication', 'normalization', 'punctuation', 'missing_value', 'stopword', 'model'] | vec=[1, 7, 1, 4, 1, 5, 1, 1] | utility=0.14
+2025-10-11 21:29:08,118 - INFO - [GridSearch] 🎯 Achieved at iter=6, utility=0.14
+2025-10-11 21:29:08,118 - INFO - [GridSearch] Start (random). Target utility = 0.14
+2025-10-11 21:29:08,343 - DEBUG - [GridSearch] iter=1 | order=['missing_value', 'deduplication', 'punctuation', 'normalization', 'outlier', 'stopword', 'whitespace', 'model'] | vec=[5, 1, 2, 4, 3, 1, 2, 1] | utility=0.18
+2025-10-11 21:29:08,421 - DEBUG - [GridSearch] iter=2 | order=['whitespace', 'punctuation', 'normalization', 'model'] | vec=[2, 2, 1, 1] | utility=0.16
+2025-10-11 21:29:08,503 - DEBUG - [GridSearch] iter=3 | order=['punctuation', 'missing_value', 'stopword', 'deduplication', 'outlier', 'whitespace', 'model'] | vec=[1, 6, 1, 1, 4, 2, 1] | utility=0.14
+2025-10-11 21:29:08,503 - INFO - [GridSearch] 🎯 Achieved at iter=3, utility=0.14
+2025-10-11 21:29:08,503 - INFO - [GridSearch] Start (random). Target utility = 0.14
+2025-10-11 21:29:08,511 - DEBUG - [GridSearch] iter=1 | order=['deduplication', 'model'] | vec=[1, 1] | utility=0.16
+2025-10-11 21:29:08,519 - DEBUG - [GridSearch] iter=2 | order=['model'] | vec=[1] | utility=0.16
+2025-10-11 21:29:08,638 - DEBUG - [GridSearch] iter=3 | order=['punctuation', 'deduplication', 'outlier', 'stopword', 'missing_value', 'whitespace', 'model'] | vec=[1, 1, 2, 1, 7, 1, 1] | utility=0.16
+2025-10-11 21:29:08,709 - DEBUG - [GridSearch] iter=4 | order=['normalization', 'model'] | vec=[2, 1] | utility=0.16
+2025-10-11 21:29:08,718 - DEBUG - [GridSearch] iter=5 | order=['punctuation', 'deduplication', 'model'] | vec=[2, 1, 1] | utility=0.16
+2025-10-11 21:29:08,859 - DEBUG - [GridSearch] iter=6 | order=['stopword', 'punctuation', 'normalization', 'missing_value', 'outlier', 'whitespace', 'model'] | vec=[2, 2, 1, 4, 1, 2, 1] | utility=0.16
+2025-10-11 21:29:09,088 - DEBUG - [GridSearch] iter=7 | order=['punctuation', 'outlier', 'deduplication', 'missing_value', 'model'] | vec=[1, 2, 1, 6, 1] | utility=0.16
+2025-10-11 21:29:09,339 - DEBUG - [GridSearch] iter=8 | order=['deduplication', 'outlier', 'stopword', 'whitespace', 'punctuation', 'missing_value', 'normalization', 'model'] | vec=[1, 7, 1, 1, 2, 7, 4, 1] | utility=0.14
+2025-10-11 21:29:09,339 - INFO - [GridSearch] 🎯 Achieved at iter=8, utility=0.14
+2025-10-11 21:29:09,339 - INFO - [GridSearch] Start (random). Target utility = 0.14
+2025-10-11 21:29:09,364 - DEBUG - [GridSearch] iter=1 | order=['deduplication', 'whitespace', 'punctuation', 'model'] | vec=[1, 1, 1, 1] | utility=0.16
+2025-10-11 21:29:09,382 - DEBUG - [GridSearch] iter=2 | order=['stopword', 'model'] | vec=[2, 1] | utility=0.16
+2025-10-11 21:29:09,671 - DEBUG - [GridSearch] iter=3 | order=['deduplication', 'stopword', 'outlier', 'punctuation', 'whitespace', 'normalization', 'missing_value', 'model'] | vec=[1, 1, 1, 2, 2, 4, 9, 1] | utility=0.17
+2025-10-11 21:29:09,804 - DEBUG - [GridSearch] iter=4 | order=['normalization', 'stopword', 'deduplication', 'punctuation', 'model'] | vec=[5, 1, 1, 2, 1] | utility=0.17
+2025-10-11 21:29:10,071 - DEBUG - [GridSearch] iter=5 | order=['outlier', 'stopword', 'normalization', 'model'] | vec=[2, 1, 5, 1] | utility=0.17
+2025-10-11 21:29:10,184 - DEBUG - [GridSearch] iter=6 | order=['missing_value', 'stopword', 'normalization', 'punctuation', 'model'] | vec=[3, 2, 3, 2, 1] | utility=0.16
+2025-10-11 21:29:10,262 - DEBUG - [GridSearch] iter=7 | order=['deduplication', 'outlier', 'punctuation', 'model'] | vec=[1, 6, 2, 1] | utility=0.13
+2025-10-11 21:29:10,262 - INFO - [GridSearch] 🎯 Achieved at iter=7, utility=0.13
+2025-10-11 21:29:10,262 - INFO - [GridSearch] Start (random). Target utility = 0.14
+2025-10-11 21:29:10,272 - DEBUG - [GridSearch] iter=1 | order=['missing_value', 'stopword', 'model'] | vec=[8, 2, 1] | utility=0.16
+2025-10-11 21:29:10,280 - DEBUG - [GridSearch] iter=2 | order=['punctuation', 'model'] | vec=[1, 1] | utility=0.16
+2025-10-11 21:29:10,290 - DEBUG - [GridSearch] iter=3 | order=['stopword', 'punctuation', 'missing_value', 'model'] | vec=[2, 2, 1, 1] | utility=0.16
+2025-10-11 21:29:10,467 - DEBUG - [GridSearch] iter=4 | order=['normalization', 'deduplication', 'stopword', 'outlier', 'missing_value', 'model'] | vec=[5, 1, 1, 2, 1, 1] | utility=0.17
+2025-10-11 21:29:10,478 - DEBUG - [GridSearch] iter=5 | order=['whitespace', 'punctuation', 'missing_value', 'model'] | vec=[1, 1, 3, 1] | utility=0.16
+2025-10-11 21:29:10,774 - DEBUG - [GridSearch] iter=6 | order=['outlier', 'deduplication', 'missing_value', 'stopword', 'whitespace', 'punctuation', 'normalization', 'model'] | vec=[3, 1, 7, 2, 2, 2, 4, 1] | utility=0.18
+2025-10-11 21:29:10,942 - DEBUG - [GridSearch] iter=7 | order=['outlier', 'normalization', 'stopword', 'model'] | vec=[5, 1, 2, 1] | utility=0.16
+2025-10-11 21:29:11,087 - DEBUG - [GridSearch] iter=8 | order=['normalization', 'outlier', 'missing_value', 'deduplication', 'punctuation', 'whitespace', 'stopword', 'model'] | vec=[4, 7, 7, 1, 2, 1, 2, 1] | utility=0.16
+2025-10-11 21:29:11,158 - DEBUG - [GridSearch] iter=9 | order=['normalization', 'model'] | vec=[3, 1] | utility=0.16
+2025-10-11 21:29:11,302 - DEBUG - [GridSearch] iter=10 | order=['stopword', 'whitespace', 'punctuation', 'outlier', 'normalization', 'deduplication', 'missing_value', 'model'] | vec=[2, 1, 2, 3, 5, 1, 4, 1] | utility=0.18
+2025-10-11 21:29:11,313 - DEBUG - [GridSearch] iter=11 | order=['deduplication', 'missing_value', 'stopword', 'model'] | vec=[1, 8, 2, 1] | utility=0.16
+2025-10-11 21:29:11,321 - DEBUG - [GridSearch] iter=12 | order=['whitespace', 'model'] | vec=[1, 1] | utility=0.16
+2025-10-11 21:29:11,329 - DEBUG - [GridSearch] iter=13 | order=['missing_value', 'model'] | vec=[6, 1] | utility=0.16
+2025-10-11 21:29:11,406 - DEBUG - [GridSearch] iter=14 | order=['outlier', 'deduplication', 'punctuation', 'stopword', 'model'] | vec=[7, 1, 1, 2, 1] | utility=0.15
+2025-10-11 21:29:11,415 - DEBUG - [GridSearch] iter=15 | order=['missing_value', 'deduplication', 'model'] | vec=[1, 1, 1] | utility=0.16
+2025-10-11 21:29:11,423 - DEBUG - [GridSearch] iter=16 | order=['stopword', 'model'] | vec=[1, 1] | utility=0.16
+2025-10-11 21:29:11,599 - DEBUG - [GridSearch] iter=17 | order=['missing_value', 'stopword', 'punctuation', 'deduplication', 'outlier', 'normalization', 'whitespace', 'model'] | vec=[7, 1, 1, 1, 2, 4, 1, 1] | utility=0.17
+2025-10-11 21:29:11,676 - DEBUG - [GridSearch] iter=18 | order=['missing_value', 'deduplication', 'outlier', 'whitespace', 'model'] | vec=[8, 1, 5, 1, 1] | utility=0.16
+2025-10-11 21:29:11,750 - DEBUG - [GridSearch] iter=19 | order=['punctuation', 'normalization', 'whitespace', 'model'] | vec=[2, 5, 1, 1] | utility=0.17
+2025-10-11 21:29:11,826 - DEBUG - [GridSearch] iter=20 | order=['outlier', 'whitespace', 'missing_value', 'model'] | vec=[4, 2, 8, 1] | utility=0.14
+2025-10-11 21:29:11,826 - INFO - [GridSearch] 🎯 Achieved at iter=20, utility=0.14
+2025-10-11 21:29:11,826 - INFO - [GridSearch] Start (random). Target utility = 0.14
+2025-10-11 21:29:11,834 - DEBUG - [GridSearch] iter=1 | order=['deduplication', 'model'] | vec=[1, 1] | utility=0.16
+2025-10-11 21:29:11,922 - DEBUG - [GridSearch] iter=2 | order=['normalization', 'model'] | vec=[4, 1] | utility=0.17
+2025-10-11 21:29:12,065 - DEBUG - [GridSearch] iter=3 | order=['punctuation', 'normalization', 'outlier', 'stopword', 'missing_value', 'deduplication', 'model'] | vec=[1, 1, 7, 2, 7, 1, 1] | utility=0.15
+2025-10-11 21:29:12,142 - DEBUG - [GridSearch] iter=4 | order=['whitespace', 'missing_value', 'punctuation', 'deduplication', 'normalization', 'stopword', 'model'] | vec=[1, 2, 1, 1, 2, 2, 1] | utility=0.16
+2025-10-11 21:29:12,219 - DEBUG - [GridSearch] iter=5 | order=['normalization', 'deduplication', 'punctuation', 'missing_value', 'whitespace', 'stopword', 'model'] | vec=[1, 1, 2, 1, 1, 1, 1] | utility=0.16
+2025-10-11 21:29:12,226 - DEBUG - [GridSearch] iter=6 | order=['model'] | vec=[1] | utility=0.16
+2025-10-11 21:29:12,302 - DEBUG - [GridSearch] iter=7 | order=['punctuation', 'normalization', 'missing_value', 'deduplication', 'stopword', 'whitespace', 'model'] | vec=[2, 4, 5, 1, 2, 1, 1] | utility=0.17
+2025-10-11 21:29:12,379 - DEBUG - [GridSearch] iter=8 | order=['stopword', 'whitespace', 'normalization', 'punctuation', 'missing_value', 'deduplication', 'model'] | vec=[1, 1, 5, 1, 4, 1, 1] | utility=0.17
+2025-10-11 21:29:12,522 - DEBUG - [GridSearch] iter=9 | order=['whitespace', 'stopword', 'missing_value', 'deduplication', 'outlier', 'normalization', 'model'] | vec=[1, 1, 3, 1, 7, 1, 1] | utility=0.15
+2025-10-11 21:29:12,600 - DEBUG - [GridSearch] iter=10 | order=['missing_value', 'outlier', 'deduplication', 'whitespace', 'model'] | vec=[4, 6, 1, 1, 1] | utility=0.13
+2025-10-11 21:29:12,601 - INFO - [GridSearch] 🎯 Achieved at iter=10, utility=0.13
+2025-10-11 21:29:12,601 - INFO - [GridSearch] Start (random). Target utility = 0.14
+2025-10-11 21:29:12,608 - DEBUG - [GridSearch] iter=1 | order=['model'] | vec=[1] | utility=0.16
+2025-10-11 21:29:12,684 - DEBUG - [GridSearch] iter=2 | order=['punctuation', 'normalization', 'whitespace', 'deduplication', 'missing_value', 'model'] | vec=[2, 3, 2, 1, 7, 1] | utility=0.16
+2025-10-11 21:29:12,861 - DEBUG - [GridSearch] iter=3 | order=['deduplication', 'normalization', 'outlier', 'stopword', 'punctuation', 'missing_value', 'model'] | vec=[1, 4, 2, 1, 2, 3, 1] | utility=0.17
+2025-10-11 21:29:12,870 - DEBUG - [GridSearch] iter=4 | order=['whitespace', 'deduplication', 'punctuation', 'model'] | vec=[2, 1, 2, 1] | utility=0.16
+2025-10-11 21:29:12,879 - DEBUG - [GridSearch] iter=5 | order=['whitespace', 'deduplication', 'model'] | vec=[1, 1, 1] | utility=0.16
+2025-10-11 21:29:13,025 - DEBUG - [GridSearch] iter=6 | order=['stopword', 'whitespace', 'missing_value', 'normalization', 'punctuation', 'outlier', 'model'] | vec=[2, 1, 2, 5, 2, 3, 1] | utility=0.18
+2025-10-11 21:29:13,137 - DEBUG - [GridSearch] iter=7 | order=['stopword', 'outlier', 'deduplication', 'whitespace', 'model'] | vec=[1, 2, 1, 2, 1] | utility=0.16
+2025-10-11 21:29:13,279 - DEBUG - [GridSearch] iter=8 | order=['stopword', 'missing_value', 'outlier', 'deduplication', 'normalization', 'model'] | vec=[2, 6, 3, 1, 5, 1] | utility=0.18
+2025-10-11 21:29:13,287 - DEBUG - [GridSearch] iter=9 | order=['stopword', 'deduplication', 'model'] | vec=[1, 1, 1] | utility=0.16
+2025-10-11 21:29:13,364 - DEBUG - [GridSearch] iter=10 | order=['deduplication', 'whitespace', 'normalization', 'stopword', 'missing_value', 'punctuation', 'model'] | vec=[1, 1, 5, 1, 4, 2, 1] | utility=0.17
+2025-10-11 21:29:13,371 - DEBUG - [GridSearch] iter=11 | order=['deduplication', 'model'] | vec=[1, 1] | utility=0.16
+2025-10-11 21:29:13,380 - DEBUG - [GridSearch] iter=12 | order=['missing_value', 'model'] | vec=[4, 1] | utility=0.16
+2025-10-11 21:29:13,520 - DEBUG - [GridSearch] iter=13 | order=['whitespace', 'normalization', 'stopword', 'outlier', 'model'] | vec=[2, 5, 1, 4, 1] | utility=0.16
+2025-10-11 21:29:13,663 - DEBUG - [GridSearch] iter=14 | order=['missing_value', 'punctuation', 'deduplication', 'outlier', 'whitespace', 'stopword', 'normalization', 'model'] | vec=[5, 1, 1, 5, 2, 2, 2, 1] | utility=0.16
+2025-10-11 21:29:13,739 - DEBUG - [GridSearch] iter=15 | order=['outlier', 'whitespace', 'model'] | vec=[8, 2, 1] | utility=0.16
+2025-10-11 21:29:13,884 - DEBUG - [GridSearch] iter=16 | order=['whitespace', 'normalization', 'punctuation', 'stopword', 'outlier', 'missing_value', 'deduplication', 'model'] | vec=[2, 4, 1, 2, 7, 1, 1, 1] | utility=0.16
+2025-10-11 21:29:14,024 - DEBUG - [GridSearch] iter=17 | order=['deduplication', 'outlier', 'normalization', 'whitespace', 'model'] | vec=[1, 5, 1, 1, 1] | utility=0.16
+2025-10-11 21:29:14,161 - DEBUG - [GridSearch] iter=18 | order=['stopword', 'normalization', 'outlier', 'model'] | vec=[2, 2, 1, 1] | utility=0.16
+2025-10-11 21:29:14,237 - DEBUG - [GridSearch] iter=19 | order=['whitespace', 'deduplication', 'punctuation', 'missing_value', 'stopword', 'outlier', 'model'] | vec=[1, 1, 1, 3, 2, 1, 1] | utility=0.16
+2025-10-11 21:29:14,309 - DEBUG - [GridSearch] iter=20 | order=['whitespace', 'normalization', 'model'] | vec=[1, 2, 1] | utility=0.16
+2025-10-11 21:29:14,452 - DEBUG - [GridSearch] iter=21 | order=['outlier', 'punctuation', 'stopword', 'whitespace', 'normalization', 'deduplication', 'missing_value', 'model'] | vec=[8, 2, 1, 1, 2, 1, 3, 1] | utility=0.16
+2025-10-11 21:29:14,596 - DEBUG - [GridSearch] iter=22 | order=['whitespace', 'punctuation', 'deduplication', 'outlier', 'normalization', 'missing_value', 'stopword', 'model'] | vec=[1, 2, 1, 5, 3, 4, 2, 1] | utility=0.16
+2025-10-11 21:29:14,672 - DEBUG - [GridSearch] iter=23 | order=['whitespace', 'stopword', 'outlier', 'model'] | vec=[2, 1, 4, 1] | utility=0.14
+2025-10-11 21:29:14,672 - INFO - [GridSearch] 🎯 Achieved at iter=23, utility=0.14
+2025-10-11 21:29:14,672 - INFO - [GridSearch] Start (random). Target utility = 0.14
+2025-10-11 21:29:14,683 - DEBUG - [GridSearch] iter=1 | order=['punctuation', 'deduplication', 'whitespace', 'missing_value', 'model'] | vec=[1, 1, 2, 9, 1] | utility=0.16
+2025-10-11 21:29:14,754 - DEBUG - [GridSearch] iter=2 | order=['normalization', 'model'] | vec=[2, 1] | utility=0.16
+2025-10-11 21:29:14,827 - DEBUG - [GridSearch] iter=3 | order=['outlier', 'model'] | vec=[4, 1] | utility=0.14
+2025-10-11 21:29:14,827 - INFO - [GridSearch] 🎯 Achieved at iter=3, utility=0.14
+2025-10-11 21:29:14,827 - INFO - [GridSearch] Start (random). Target utility = 0.14
+2025-10-11 21:29:14,906 - DEBUG - [GridSearch] iter=1 | order=['normalization', 'stopword', 'whitespace', 'model'] | vec=[1, 1, 2, 1] | utility=0.16
+2025-10-11 21:29:14,917 - DEBUG - [GridSearch] iter=2 | order=['model'] | vec=[1] | utility=0.16
+2025-10-11 21:29:15,125 - DEBUG - [GridSearch] iter=3 | order=['stopword', 'normalization', 'missing_value', 'whitespace', 'deduplication', 'outlier', 'punctuation', 'model'] | vec=[1, 5, 5, 2, 1, 7, 1, 1] | utility=0.15
+2025-10-11 21:29:15,135 - DEBUG - [GridSearch] iter=4 | order=['deduplication', 'model'] | vec=[1, 1] | utility=0.16
+2025-10-11 21:29:15,321 - DEBUG - [GridSearch] iter=5 | order=['punctuation', 'normalization', 'outlier', 'whitespace', 'stopword', 'model'] | vec=[1, 5, 4, 1, 2, 1] | utility=0.16
+2025-10-11 21:29:15,460 - DEBUG - [GridSearch] iter=6 | order=['normalization', 'outlier', 'model'] | vec=[3, 4, 1] | utility=0.15
+2025-10-11 21:29:15,470 - DEBUG - [GridSearch] iter=7 | order=['whitespace', 'missing_value', 'model'] | vec=[1, 5, 1] | utility=0.16
+2025-10-11 21:29:15,611 - DEBUG - [GridSearch] iter=8 | order=['stopword', 'deduplication', 'missing_value', 'whitespace', 'punctuation', 'outlier', 'normalization', 'model'] | vec=[2, 1, 2, 2, 2, 1, 3, 1] | utility=0.16
+2025-10-11 21:29:15,619 - DEBUG - [GridSearch] iter=9 | order=['missing_value', 'model'] | vec=[4, 1] | utility=0.16
+2025-10-11 21:29:15,797 - DEBUG - [GridSearch] iter=10 | order=['deduplication', 'punctuation', 'normalization', 'whitespace', 'stopword', 'missing_value', 'outlier', 'model'] | vec=[1, 2, 4, 2, 1, 8, 2, 1] | utility=0.17
+2025-10-11 21:29:15,807 - DEBUG - [GridSearch] iter=11 | order=['deduplication', 'missing_value', 'model'] | vec=[1, 3, 1] | utility=0.16
+2025-10-11 21:29:15,882 - DEBUG - [GridSearch] iter=12 | order=['outlier', 'model'] | vec=[8, 1] | utility=0.16
+2025-10-11 21:29:15,889 - DEBUG - [GridSearch] iter=13 | order=['punctuation', 'model'] | vec=[1, 1] | utility=0.16
+2025-10-11 21:29:15,961 - DEBUG - [GridSearch] iter=14 | order=['normalization', 'model'] | vec=[3, 1] | utility=0.16
+2025-10-11 21:29:16,074 - DEBUG - [GridSearch] iter=15 | order=['outlier', 'punctuation', 'deduplication', 'missing_value', 'model'] | vec=[2, 1, 1, 2, 1] | utility=0.16
+2025-10-11 21:29:16,214 - DEBUG - [GridSearch] iter=16 | order=['outlier', 'stopword', 'normalization', 'deduplication', 'missing_value', 'whitespace', 'model'] | vec=[4, 2, 2, 1, 8, 1, 1] | utility=0.15
+2025-10-11 21:29:16,224 - DEBUG - [GridSearch] iter=17 | order=['deduplication', 'stopword', 'model'] | vec=[1, 2, 1] | utility=0.16
+2025-10-11 21:29:16,299 - DEBUG - [GridSearch] iter=18 | order=['normalization', 'deduplication', 'whitespace', 'punctuation', 'missing_value', 'model'] | vec=[3, 1, 1, 2, 9, 1] | utility=0.16
+2025-10-11 21:29:16,370 - DEBUG - [GridSearch] iter=19 | order=['normalization', 'model'] | vec=[2, 1] | utility=0.16
+2025-10-11 21:29:16,377 - DEBUG - [GridSearch] iter=20 | order=['stopword', 'model'] | vec=[2, 1] | utility=0.16
+2025-10-11 21:29:16,452 - DEBUG - [GridSearch] iter=21 | order=['normalization', 'missing_value', 'deduplication', 'model'] | vec=[1, 2, 1, 1] | utility=0.16
+2025-10-11 21:29:16,528 - DEBUG - [GridSearch] iter=22 | order=['normalization', 'deduplication', 'stopword', 'whitespace', 'missing_value', 'punctuation', 'model'] | vec=[3, 1, 1, 1, 1, 2, 1] | utility=0.16
+2025-10-11 21:29:16,536 - DEBUG - [GridSearch] iter=23 | order=['punctuation', 'model'] | vec=[2, 1] | utility=0.16
+2025-10-11 21:29:16,611 - DEBUG - [GridSearch] iter=24 | order=['missing_value', 'normalization', 'deduplication', 'stopword', 'whitespace', 'model'] | vec=[4, 2, 1, 1, 1, 1] | utility=0.16
+2025-10-11 21:29:16,757 - DEBUG - [GridSearch] iter=25 | order=['whitespace', 'deduplication', 'punctuation', 'normalization', 'outlier', 'missing_value', 'stopword', 'model'] | vec=[2, 1, 2, 2, 8, 4, 1, 1] | utility=0.16
+2025-10-11 21:29:16,903 - DEBUG - [GridSearch] iter=26 | order=['missing_value', 'stopword', 'normalization', 'deduplication', 'punctuation', 'outlier', 'whitespace', 'model'] | vec=[9, 1, 3, 1, 2, 3, 2, 1] | utility=0.17
+2025-10-11 21:29:16,980 - DEBUG - [GridSearch] iter=27 | order=['deduplication', 'stopword', 'missing_value', 'outlier', 'punctuation', 'model'] | vec=[1, 2, 6, 1, 2, 1] | utility=0.16
+2025-10-11 21:29:16,988 - DEBUG - [GridSearch] iter=28 | order=['whitespace', 'deduplication', 'model'] | vec=[2, 1, 1] | utility=0.16
+2025-10-11 21:29:17,129 - DEBUG - [GridSearch] iter=29 | order=['outlier', 'stopword', 'normalization', 'punctuation', 'missing_value', 'whitespace', 'model'] | vec=[5, 1, 4, 2, 6, 1, 1] | utility=0.16
+2025-10-11 21:29:17,138 - DEBUG - [GridSearch] iter=30 | order=['stopword', 'model'] | vec=[1, 1] | utility=0.16
+2025-10-11 21:29:17,148 - DEBUG - [GridSearch] iter=31 | order=['missing_value', 'deduplication', 'punctuation', 'model'] | vec=[8, 1, 1, 1] | utility=0.16
+2025-10-11 21:29:17,219 - DEBUG - [GridSearch] iter=32 | order=['normalization', 'model'] | vec=[5, 1] | utility=0.17
+2025-10-11 21:29:17,296 - DEBUG - [GridSearch] iter=33 | order=['whitespace', 'outlier', 'deduplication', 'model'] | vec=[2, 6, 1, 1] | utility=0.13
+2025-10-11 21:29:17,296 - INFO - [GridSearch] 🎯 Achieved at iter=33, utility=0.13
+2025-10-11 21:29:17,296 - INFO - [GridSearch] Start (random). Target utility = 0.14
+2025-10-11 21:29:17,305 - DEBUG - [GridSearch] iter=1 | order=['punctuation', 'missing_value', 'model'] | vec=[1, 5, 1] | utility=0.16
+2025-10-11 21:29:17,314 - DEBUG - [GridSearch] iter=2 | order=['punctuation', 'stopword', 'model'] | vec=[2, 2, 1] | utility=0.16
+2025-10-11 21:29:17,321 - DEBUG - [GridSearch] iter=3 | order=['model'] | vec=[1] | utility=0.16
+2025-10-11 21:29:17,394 - DEBUG - [GridSearch] iter=4 | order=['normalization', 'stopword', 'model'] | vec=[1, 2, 1] | utility=0.16
+2025-10-11 21:29:17,537 - DEBUG - [GridSearch] iter=5 | order=['outlier', 'stopword', 'deduplication', 'punctuation', 'normalization', 'whitespace', 'missing_value', 'model'] | vec=[1, 1, 1, 2, 5, 1, 5, 1] | utility=0.17
+2025-10-11 21:29:17,712 - DEBUG - [GridSearch] iter=6 | order=['outlier', 'stopword', 'punctuation', 'normalization', 'missing_value', 'whitespace', 'deduplication', 'model'] | vec=[2, 1, 2, 2, 8, 1, 1, 1] | utility=0.16
+2025-10-11 21:29:17,786 - DEBUG - [GridSearch] iter=7 | order=['stopword', 'deduplication', 'normalization', 'model'] | vec=[2, 1, 5, 1] | utility=0.17
+2025-10-11 21:29:17,928 - DEBUG - [GridSearch] iter=8 | order=['missing_value', 'whitespace', 'outlier', 'normalization', 'stopword', 'punctuation', 'model'] | vec=[8, 1, 8, 5, 1, 1, 1] | utility=0.15
+2025-10-11 21:29:17,936 - DEBUG - [GridSearch] iter=9 | order=['missing_value', 'model'] | vec=[8, 1] | utility=0.16
+2025-10-11 21:29:18,016 - DEBUG - [GridSearch] iter=10 | order=['punctuation', 'missing_value', 'outlier', 'stopword', 'model'] | vec=[2, 2, 8, 2, 1] | utility=0.16
+2025-10-11 21:29:18,023 - DEBUG - [GridSearch] iter=11 | order=['punctuation', 'model'] | vec=[2, 1] | utility=0.16
+2025-10-11 21:29:18,199 - DEBUG - [GridSearch] iter=12 | order=['stopword', 'missing_value', 'outlier', 'whitespace', 'normalization', 'model'] | vec=[2, 2, 2, 1, 5, 1] | utility=0.17
+2025-10-11 21:29:18,277 - DEBUG - [GridSearch] iter=13 | order=['deduplication', 'missing_value', 'outlier', 'whitespace', 'model'] | vec=[1, 1, 6, 1, 1] | utility=0.13
+2025-10-11 21:29:18,277 - INFO - [GridSearch] 🎯 Achieved at iter=13, utility=0.13
+2025-10-11 21:29:18,277 - INFO - [GridSearch] Start (random). Target utility = 0.14
+2025-10-11 21:29:18,356 - DEBUG - [GridSearch] iter=1 | order=['stopword', 'whitespace', 'missing_value', 'punctuation', 'deduplication', 'outlier', 'model'] | vec=[1, 1, 5, 1, 1, 5, 1] | utility=0.16
+2025-10-11 21:29:18,501 - DEBUG - [GridSearch] iter=2 | order=['stopword', 'whitespace', 'missing_value', 'outlier', 'deduplication', 'normalization', 'punctuation', 'model'] | vec=[2, 2, 4, 3, 1, 3, 2, 1] | utility=0.17
+2025-10-11 21:29:18,643 - DEBUG - [GridSearch] iter=3 | order=['outlier', 'stopword', 'deduplication', 'whitespace', 'normalization', 'missing_value', 'model'] | vec=[5, 2, 1, 2, 3, 8, 1] | utility=0.16
+2025-10-11 21:29:18,753 - DEBUG - [GridSearch] iter=4 | order=['outlier', 'whitespace', 'deduplication', 'model'] | vec=[2, 1, 1, 1] | utility=0.16
+2025-10-11 21:29:18,827 - DEBUG - [GridSearch] iter=5 | order=['normalization', 'whitespace', 'missing_value', 'model'] | vec=[5, 2, 1, 1] | utility=0.17
+2025-10-11 21:29:18,835 - DEBUG - [GridSearch] iter=6 | order=['whitespace', 'model'] | vec=[1, 1] | utility=0.16
+2025-10-11 21:29:18,843 - DEBUG - [GridSearch] iter=7 | order=['stopword', 'model'] | vec=[2, 1] | utility=0.16
+2025-10-11 21:29:19,040 - DEBUG - [GridSearch] iter=8 | order=['missing_value', 'outlier', 'normalization', 'model'] | vec=[7, 7, 4, 1] | utility=0.14
+2025-10-11 21:29:19,040 - INFO - [GridSearch] 🎯 Achieved at iter=8, utility=0.14
+2025-10-11 21:29:19,040 - INFO - [GridSearch] Start (random). Target utility = 0.14
+2025-10-11 21:29:19,186 - DEBUG - [GridSearch] iter=1 | order=['outlier', 'stopword', 'whitespace', 'missing_value', 'punctuation', 'normalization', 'model'] | vec=[3, 1, 1, 5, 2, 5, 1] | utility=0.18
+2025-10-11 21:29:19,324 - DEBUG - [GridSearch] iter=2 | order=['outlier', 'normalization', 'model'] | vec=[6, 4, 1] | utility=0.15
+2025-10-11 21:29:19,331 - DEBUG - [GridSearch] iter=3 | order=['model'] | vec=[1] | utility=0.16
+2025-10-11 21:29:19,473 - DEBUG - [GridSearch] iter=4 | order=['outlier', 'normalization', 'deduplication', 'stopword', 'punctuation', 'missing_value', 'whitespace', 'model'] | vec=[4, 2, 1, 2, 2, 5, 1, 1] | utility=0.15
+2025-10-11 21:29:19,651 - DEBUG - [GridSearch] iter=5 | order=['normalization', 'punctuation', 'outlier', 'missing_value', 'stopword', 'whitespace', 'model'] | vec=[3, 1, 2, 6, 2, 1, 1] | utility=0.16
+2025-10-11 21:29:19,728 - DEBUG - [GridSearch] iter=6 | order=['deduplication', 'missing_value', 'stopword', 'whitespace', 'punctuation', 'normalization', 'model'] | vec=[1, 5, 1, 2, 1, 3, 1] | utility=0.16
+2025-10-11 21:29:19,819 - DEBUG - [GridSearch] iter=7 | order=['whitespace', 'normalization', 'model'] | vec=[2, 1, 1] | utility=0.16
+2025-10-11 21:29:19,893 - DEBUG - [GridSearch] iter=8 | order=['whitespace', 'missing_value', 'deduplication', 'normalization', 'model'] | vec=[1, 8, 1, 5, 1] | utility=0.17
+2025-10-11 21:29:19,904 - DEBUG - [GridSearch] iter=9 | order=['punctuation', 'whitespace', 'missing_value', 'model'] | vec=[2, 2, 6, 1] | utility=0.16
+2025-10-11 21:29:20,028 - DEBUG - [GridSearch] iter=10 | order=['stopword', 'whitespace', 'missing_value', 'deduplication', 'punctuation', 'outlier', 'model'] | vec=[1, 1, 5, 1, 2, 7, 1] | utility=0.15
+2025-10-11 21:29:20,218 - DEBUG - [GridSearch] iter=11 | order=['normalization', 'deduplication', 'whitespace', 'outlier', 'model'] | vec=[2, 1, 1, 5, 1] | utility=0.14
+2025-10-11 21:29:20,218 - INFO - [GridSearch] 🎯 Achieved at iter=11, utility=0.14
+2025-10-11 21:29:20,218 - INFO - [GridSearch] Start (random). Target utility = 0.14
+2025-10-11 21:29:20,308 - DEBUG - [GridSearch] iter=1 | order=['punctuation', 'missing_value', 'normalization', 'model'] | vec=[1, 1, 1, 1] | utility=0.16
+2025-10-11 21:29:20,414 - DEBUG - [GridSearch] iter=2 | order=['deduplication', 'stopword', 'punctuation', 'missing_value', 'outlier', 'model'] | vec=[1, 1, 2, 7, 3, 1] | utility=0.16
+2025-10-11 21:29:20,424 - DEBUG - [GridSearch] iter=3 | order=['stopword', 'model'] | vec=[1, 1] | utility=0.16
+2025-10-11 21:29:20,436 - DEBUG - [GridSearch] iter=4 | order=['missing_value', 'whitespace', 'model'] | vec=[7, 2, 1] | utility=0.16
+2025-10-11 21:29:20,557 - DEBUG - [GridSearch] iter=5 | order=['normalization', 'missing_value', 'punctuation', 'stopword', 'model'] | vec=[5, 9, 2, 1, 1] | utility=0.17
+2025-10-11 21:29:20,763 - DEBUG - [GridSearch] iter=6 | order=['outlier', 'normalization', 'model'] | vec=[6, 1, 1] | utility=0.13
+2025-10-11 21:29:20,763 - INFO - [GridSearch] 🎯 Achieved at iter=6, utility=0.13
+2025-10-11 21:29:20,763 - INFO - [GridSearch] Start (random). Target utility = 0.14
+2025-10-11 21:29:20,996 - DEBUG - [GridSearch] iter=1 | order=['normalization', 'punctuation', 'missing_value', 'stopword', 'outlier', 'model'] | vec=[1, 1, 4, 1, 2, 1] | utility=0.16
+2025-10-11 21:29:21,071 - DEBUG - [GridSearch] iter=2 | order=['normalization', 'deduplication', 'missing_value', 'stopword', 'model'] | vec=[5, 1, 4, 1, 1] | utility=0.17
+2025-10-11 21:29:21,081 - DEBUG - [GridSearch] iter=3 | order=['stopword', 'missing_value', 'model'] | vec=[2, 9, 1] | utility=0.16
+2025-10-11 21:29:21,223 - DEBUG - [GridSearch] iter=4 | order=['whitespace', 'punctuation', 'stopword', 'deduplication', 'normalization', 'outlier', 'missing_value', 'model'] | vec=[2, 1, 2, 1, 4, 1, 9, 1] | utility=0.17
+2025-10-11 21:29:21,400 - DEBUG - [GridSearch] iter=5 | order=['outlier', 'stopword', 'normalization', 'missing_value', 'whitespace', 'punctuation', 'deduplication', 'model'] | vec=[2, 1, 3, 1, 1, 2, 1, 1] | utility=0.16
+2025-10-11 21:29:21,408 - DEBUG - [GridSearch] iter=6 | order=['deduplication', 'model'] | vec=[1, 1] | utility=0.16
+2025-10-11 21:29:21,418 - DEBUG - [GridSearch] iter=7 | order=['stopword', 'deduplication', 'whitespace', 'punctuation', 'model'] | vec=[2, 1, 2, 1, 1] | utility=0.16
+2025-10-11 21:29:21,429 - DEBUG - [GridSearch] iter=8 | order=['stopword', 'deduplication', 'punctuation', 'missing_value', 'model'] | vec=[2, 1, 2, 9, 1] | utility=0.16
+2025-10-11 21:29:21,510 - DEBUG - [GridSearch] iter=9 | order=['punctuation', 'whitespace', 'missing_value', 'outlier', 'deduplication', 'stopword', 'model'] | vec=[2, 1, 6, 8, 1, 1, 1] | utility=0.16
+2025-10-11 21:29:21,635 - DEBUG - [GridSearch] iter=10 | order=['deduplication', 'outlier', 'model'] | vec=[1, 7, 1] | utility=0.15
+2025-10-11 21:29:21,759 - DEBUG - [GridSearch] iter=11 | order=['normalization', 'deduplication', 'stopword', 'punctuation', 'model'] | vec=[4, 1, 2, 1, 1] | utility=0.17
+2025-10-11 21:29:21,783 - DEBUG - [GridSearch] iter=12 | order=['missing_value', 'deduplication', 'model'] | vec=[7, 1, 1] | utility=0.16
+2025-10-11 21:29:22,013 - DEBUG - [GridSearch] iter=13 | order=['outlier', 'missing_value', 'normalization', 'stopword', 'model'] | vec=[5, 5, 4, 2, 1] | utility=0.16
+2025-10-11 21:29:22,025 - DEBUG - [GridSearch] iter=14 | order=['missing_value', 'stopword', 'punctuation', 'model'] | vec=[3, 2, 2, 1] | utility=0.16
+2025-10-11 21:29:22,033 - DEBUG - [GridSearch] iter=15 | order=['model'] | vec=[1] | utility=0.16
+2025-10-11 21:29:22,149 - DEBUG - [GridSearch] iter=16 | order=['stopword', 'punctuation', 'outlier', 'model'] | vec=[2, 2, 7, 1] | utility=0.15
+2025-10-11 21:29:22,270 - DEBUG - [GridSearch] iter=17 | order=['missing_value', 'normalization', 'deduplication', 'model'] | vec=[8, 4, 1, 1] | utility=0.17
+2025-10-11 21:29:22,487 - DEBUG - [GridSearch] iter=18 | order=['outlier', 'whitespace', 'deduplication', 'normalization', 'stopword', 'missing_value', 'model'] | vec=[6, 2, 1, 2, 2, 4, 1] | utility=0.13
+2025-10-11 21:29:22,487 - INFO - [GridSearch] 🎯 Achieved at iter=18, utility=0.13
+2025-10-11 21:29:22,487 - INFO - [GridSearch] Start (random). Target utility = 0.14
+2025-10-11 21:29:22,562 - DEBUG - [GridSearch] iter=1 | order=['outlier', 'model'] | vec=[4, 1] | utility=0.14
+2025-10-11 21:29:22,562 - INFO - [GridSearch] 🎯 Achieved at iter=1, utility=0.14
+2025-10-11 21:29:22,562 - INFO - [GridSearch] Start (random). Target utility = 0.14
+2025-10-11 21:29:22,709 - DEBUG - [GridSearch] iter=1 | order=['normalization', 'stopword', 'punctuation', 'whitespace', 'outlier', 'missing_value', 'deduplication', 'model'] | vec=[1, 1, 2, 1, 7, 7, 1, 1] | utility=0.15
+2025-10-11 21:29:22,785 - DEBUG - [GridSearch] iter=2 | order=['stopword', 'punctuation', 'normalization', 'missing_value', 'model'] | vec=[2, 2, 1, 4, 1] | utility=0.16
+2025-10-11 21:29:22,861 - DEBUG - [GridSearch] iter=3 | order=['stopword', 'punctuation', 'normalization', 'deduplication', 'missing_value', 'whitespace', 'model'] | vec=[2, 1, 5, 1, 6, 1, 1] | utility=0.17
+2025-10-11 21:29:23,007 - DEBUG - [GridSearch] iter=4 | order=['deduplication', 'punctuation', 'normalization', 'whitespace', 'outlier', 'stopword', 'missing_value', 'model'] | vec=[1, 2, 5, 1, 3, 2, 4, 1] | utility=0.18
+2025-10-11 21:29:23,150 - DEBUG - [GridSearch] iter=5 | order=['stopword', 'missing_value', 'deduplication', 'whitespace', 'punctuation', 'outlier', 'normalization', 'model'] | vec=[2, 1, 1, 2, 1, 8, 2, 1] | utility=0.16
+2025-10-11 21:29:23,158 - DEBUG - [GridSearch] iter=6 | order=['punctuation', 'model'] | vec=[2, 1] | utility=0.16
+2025-10-11 21:29:23,302 - DEBUG - [GridSearch] iter=7 | order=['deduplication', 'stopword', 'missing_value', 'whitespace', 'outlier', 'normalization', 'punctuation', 'model'] | vec=[1, 1, 1, 1, 8, 3, 1, 1] | utility=0.16
+2025-10-11 21:29:23,378 - DEBUG - [GridSearch] iter=8 | order=['deduplication', 'punctuation', 'missing_value', 'whitespace', 'stopword', 'outlier', 'model'] | vec=[1, 2, 7, 1, 1, 1, 1] | utility=0.16
+2025-10-11 21:29:23,454 - DEBUG - [GridSearch] iter=9 | order=['missing_value', 'stopword', 'whitespace', 'punctuation', 'normalization', 'deduplication', 'model'] | vec=[9, 1, 2, 2, 2, 1, 1] | utility=0.16
+2025-10-11 21:29:23,596 - DEBUG - [GridSearch] iter=10 | order=['normalization', 'outlier', 'stopword', 'whitespace', 'punctuation', 'model'] | vec=[5, 3, 1, 1, 2, 1] | utility=0.18
+2025-10-11 21:29:23,742 - DEBUG - [GridSearch] iter=11 | order=['whitespace', 'missing_value', 'normalization', 'punctuation', 'stopword', 'outlier', 'deduplication', 'model'] | vec=[2, 1, 1, 1, 2, 8, 1, 1] | utility=0.16
+2025-10-11 21:29:23,749 - DEBUG - [GridSearch] iter=12 | order=['model'] | vec=[1] | utility=0.16
+2025-10-11 21:29:23,925 - DEBUG - [GridSearch] iter=13 | order=['normalization', 'outlier', 'stopword', 'missing_value', 'punctuation', 'model'] | vec=[4, 2, 1, 8, 2, 1] | utility=0.17
+2025-10-11 21:29:23,933 - DEBUG - [GridSearch] iter=14 | order=['deduplication', 'model'] | vec=[1, 1] | utility=0.16
+2025-10-11 21:29:24,075 - DEBUG - [GridSearch] iter=15 | order=['missing_value', 'normalization', 'outlier', 'stopword', 'deduplication', 'model'] | vec=[5, 1, 5, 2, 1, 1] | utility=0.16
+2025-10-11 21:29:24,155 - DEBUG - [GridSearch] iter=16 | order=['whitespace', 'outlier', 'missing_value', 'stopword', 'deduplication', 'punctuation', 'model'] | vec=[2, 7, 9, 2, 1, 2, 1] | utility=0.15
+2025-10-11 21:29:24,295 - DEBUG - [GridSearch] iter=17 | order=['whitespace', 'stopword', 'normalization', 'outlier', 'model'] | vec=[1, 1, 4, 4, 1] | utility=0.16
+2025-10-11 21:29:24,369 - DEBUG - [GridSearch] iter=18 | order=['normalization', 'deduplication', 'stopword', 'model'] | vec=[1, 1, 2, 1] | utility=0.16
+2025-10-11 21:29:24,511 - DEBUG - [GridSearch] iter=19 | order=['stopword', 'deduplication', 'outlier', 'punctuation', 'normalization', 'missing_value', 'model'] | vec=[1, 1, 1, 2, 1, 8, 1] | utility=0.16
+2025-10-11 21:29:24,520 - DEBUG - [GridSearch] iter=20 | order=['punctuation', 'deduplication', 'model'] | vec=[2, 1, 1] | utility=0.16
+2025-10-11 21:29:24,662 - DEBUG - [GridSearch] iter=21 | order=['punctuation', 'normalization', 'stopword', 'outlier', 'missing_value', 'whitespace', 'model'] | vec=[1, 3, 1, 1, 8, 2, 1] | utility=0.16
+2025-10-11 21:29:24,806 - DEBUG - [GridSearch] iter=22 | order=['punctuation', 'outlier', 'deduplication', 'whitespace', 'missing_value', 'stopword', 'normalization', 'model'] | vec=[1, 8, 1, 1, 3, 2, 2, 1] | utility=0.16
+2025-10-11 21:29:24,878 - DEBUG - [GridSearch] iter=23 | order=['punctuation', 'normalization', 'model'] | vec=[1, 2, 1] | utility=0.16
+2025-10-11 21:29:24,952 - DEBUG - [GridSearch] iter=24 | order=['missing_value', 'normalization', 'stopword', 'model'] | vec=[1, 1, 1, 1] | utility=0.16
+2025-10-11 21:29:25,025 - DEBUG - [GridSearch] iter=25 | order=['deduplication', 'normalization', 'whitespace', 'model'] | vec=[1, 3, 2, 1] | utility=0.16
+2025-10-11 21:29:25,167 - DEBUG - [GridSearch] iter=26 | order=['whitespace', 'missing_value', 'deduplication', 'outlier', 'punctuation', 'normalization', 'stopword', 'model'] | vec=[1, 5, 1, 1, 1, 5, 2, 1] | utility=0.17
+2025-10-11 21:29:25,308 - DEBUG - [GridSearch] iter=27 | order=['outlier', 'normalization', 'missing_value', 'deduplication', 'punctuation', 'model'] | vec=[3, 5, 9, 1, 2, 1] | utility=0.18
+2025-10-11 21:29:25,471 - DEBUG - [GridSearch] iter=28 | order=['deduplication', 'outlier', 'normalization', 'missing_value', 'whitespace', 'model'] | vec=[1, 6, 4, 6, 2, 1] | utility=0.15
+2025-10-11 21:29:25,594 - DEBUG - [GridSearch] iter=29 | order=['deduplication', 'normalization', 'model'] | vec=[1, 1, 1] | utility=0.16
+2025-10-11 21:29:25,868 - DEBUG - [GridSearch] iter=30 | order=['stopword', 'missing_value', 'whitespace', 'outlier', 'deduplication', 'normalization', 'model'] | vec=[2, 8, 2, 2, 1, 5, 1] | utility=0.17
+2025-10-11 21:29:26,047 - DEBUG - [GridSearch] iter=31 | order=['normalization', 'whitespace', 'punctuation', 'missing_value', 'outlier', 'model'] | vec=[2, 1, 2, 3, 8, 1] | utility=0.16
+2025-10-11 21:29:26,118 - DEBUG - [GridSearch] iter=32 | order=['normalization', 'model'] | vec=[2, 1] | utility=0.16
+2025-10-11 21:29:26,262 - DEBUG - [GridSearch] iter=33 | order=['stopword', 'deduplication', 'outlier', 'punctuation', 'normalization', 'whitespace', 'missing_value', 'model'] | vec=[2, 1, 6, 1, 3, 1, 1, 1] | utility=0.13
+2025-10-11 21:29:26,262 - INFO - [GridSearch] 🎯 Achieved at iter=33, utility=0.13
+2025-10-11 21:29:26,262 - INFO - [GridSearch] Start (random). Target utility = 0.14
+2025-10-11 21:29:26,340 - DEBUG - [GridSearch] iter=1 | order=['outlier', 'punctuation', 'missing_value', 'model'] | vec=[8, 1, 3, 1] | utility=0.16
+2025-10-11 21:29:26,348 - DEBUG - [GridSearch] iter=2 | order=['stopword', 'model'] | vec=[1, 1] | utility=0.16
+2025-10-11 21:29:26,478 - DEBUG - [GridSearch] iter=3 | order=['deduplication', 'stopword', 'whitespace', 'normalization', 'punctuation', 'model'] | vec=[1, 2, 2, 1, 1, 1] | utility=0.16
+2025-10-11 21:29:26,553 - DEBUG - [GridSearch] iter=4 | order=['stopword', 'whitespace', 'normalization', 'model'] | vec=[1, 2, 4, 1] | utility=0.17
+2025-10-11 21:29:26,696 - DEBUG - [GridSearch] iter=5 | order=['stopword', 'missing_value', 'deduplication', 'punctuation', 'normalization', 'outlier', 'model'] | vec=[2, 2, 1, 1, 5, 5, 1] | utility=0.15
+2025-10-11 21:29:26,775 - DEBUG - [GridSearch] iter=6 | order=['outlier', 'whitespace', 'deduplication', 'punctuation', 'stopword', 'missing_value', 'model'] | vec=[5, 2, 1, 2, 1, 7, 1] | utility=0.16
+2025-10-11 21:29:26,861 - DEBUG - [GridSearch] iter=7 | order=['missing_value', 'deduplication', 'punctuation', 'outlier', 'stopword', 'whitespace', 'model'] | vec=[6, 1, 2, 1, 2, 1, 1] | utility=0.16
+2025-10-11 21:29:26,939 - DEBUG - [GridSearch] iter=8 | order=['normalization', 'missing_value', 'stopword', 'whitespace', 'punctuation', 'deduplication', 'model'] | vec=[1, 9, 1, 2, 1, 1, 1] | utility=0.16
+2025-10-11 21:29:26,946 - DEBUG - [GridSearch] iter=9 | order=['model'] | vec=[1] | utility=0.16
+2025-10-11 21:29:26,957 - DEBUG - [GridSearch] iter=10 | order=['deduplication', 'missing_value', 'stopword', 'whitespace', 'model'] | vec=[1, 3, 2, 1, 1] | utility=0.16
+2025-10-11 21:29:27,034 - DEBUG - [GridSearch] iter=11 | order=['missing_value', 'outlier', 'deduplication', 'model'] | vec=[8, 3, 1, 1] | utility=0.16
+2025-10-11 21:29:27,043 - DEBUG - [GridSearch] iter=12 | order=['missing_value', 'stopword', 'model'] | vec=[4, 2, 1] | utility=0.16
+2025-10-11 21:29:27,189 - DEBUG - [GridSearch] iter=13 | order=['whitespace', 'missing_value', 'outlier', 'normalization', 'stopword', 'model'] | vec=[1, 2, 4, 4, 2, 1] | utility=0.16
+2025-10-11 21:29:27,266 - DEBUG - [GridSearch] iter=14 | order=['normalization', 'missing_value', 'whitespace', 'punctuation', 'model'] | vec=[1, 9, 1, 2, 1] | utility=0.16
+2025-10-11 21:29:27,273 - DEBUG - [GridSearch] iter=15 | order=['punctuation', 'model'] | vec=[2, 1] | utility=0.16
+2025-10-11 21:29:27,353 - DEBUG - [GridSearch] iter=16 | order=['whitespace', 'punctuation', 'deduplication', 'missing_value', 'outlier', 'model'] | vec=[1, 2, 1, 4, 8, 1] | utility=0.16
+2025-10-11 21:29:27,497 - DEBUG - [GridSearch] iter=17 | order=['stopword', 'deduplication', 'punctuation', 'normalization', 'outlier', 'whitespace', 'model'] | vec=[2, 1, 2, 3, 7, 1, 1] | utility=0.16
+2025-10-11 21:29:27,575 - DEBUG - [GridSearch] iter=18 | order=['stopword', 'whitespace', 'outlier', 'missing_value', 'deduplication', 'model'] | vec=[2, 2, 5, 1, 1, 1] | utility=0.16
+2025-10-11 21:29:27,733 - DEBUG - [GridSearch] iter=19 | order=['normalization', 'whitespace', 'deduplication', 'stopword', 'missing_value', 'outlier', 'model'] | vec=[3, 2, 1, 2, 2, 3, 1] | utility=0.17
+2025-10-11 21:29:27,819 - DEBUG - [GridSearch] iter=20 | order=['outlier', 'whitespace', 'model'] | vec=[6, 1, 1] | utility=0.13
+2025-10-11 21:29:27,819 - INFO - [GridSearch] 🎯 Achieved at iter=20, utility=0.13
+2025-10-11 21:29:27,819 - INFO - [GridSearch] Start (random). Target utility = 0.14
+2025-10-11 21:29:27,931 - DEBUG - [GridSearch] iter=1 | order=['outlier', 'model'] | vec=[2, 1] | utility=0.16
+2025-10-11 21:29:28,076 - DEBUG - [GridSearch] iter=2 | order=['normalization', 'punctuation', 'missing_value', 'outlier', 'deduplication', 'model'] | vec=[4, 1, 2, 4, 1, 1] | utility=0.16
+2025-10-11 21:29:28,164 - DEBUG - [GridSearch] iter=3 | order=['punctuation', 'stopword', 'deduplication', 'outlier', 'whitespace', 'model'] | vec=[2, 1, 1, 4, 1, 1] | utility=0.14
+2025-10-11 21:29:28,165 - INFO - [GridSearch] 🎯 Achieved at iter=3, utility=0.14
+2025-10-11 21:29:28,165 - INFO - [GridSearch] Start (random). Target utility = 0.14
+2025-10-11 21:29:28,298 - DEBUG - [GridSearch] iter=1 | order=['outlier', 'deduplication', 'whitespace', 'missing_value', 'model'] | vec=[1, 1, 2, 2, 1] | utility=0.16
+2025-10-11 21:29:28,309 - DEBUG - [GridSearch] iter=2 | order=['missing_value', 'whitespace', 'stopword', 'punctuation', 'model'] | vec=[1, 1, 1, 2, 1] | utility=0.16
+2025-10-11 21:29:28,320 - DEBUG - [GridSearch] iter=3 | order=['missing_value', 'punctuation', 'deduplication', 'model'] | vec=[2, 1, 1, 1] | utility=0.16
+2025-10-11 21:29:28,328 - DEBUG - [GridSearch] iter=4 | order=['stopword', 'model'] | vec=[1, 1] | utility=0.16
+2025-10-11 21:29:28,402 - DEBUG - [GridSearch] iter=5 | order=['outlier', 'model'] | vec=[5, 1] | utility=0.16
+2025-10-11 21:29:28,476 - DEBUG - [GridSearch] iter=6 | order=['deduplication', 'punctuation', 'outlier', 'model'] | vec=[1, 2, 1, 1] | utility=0.16
+2025-10-11 21:29:28,554 - DEBUG - [GridSearch] iter=7 | order=['normalization', 'missing_value', 'stopword', 'punctuation', 'deduplication', 'model'] | vec=[1, 2, 1, 2, 1, 1] | utility=0.16
+2025-10-11 21:29:28,561 - DEBUG - [GridSearch] iter=8 | order=['model'] | vec=[1] | utility=0.16
+2025-10-11 21:29:28,643 - DEBUG - [GridSearch] iter=9 | order=['outlier', 'punctuation', 'stopword', 'whitespace', 'deduplication', 'missing_value', 'model'] | vec=[3, 2, 2, 1, 1, 6, 1] | utility=0.16
+2025-10-11 21:29:28,723 - DEBUG - [GridSearch] iter=10 | order=['whitespace', 'deduplication', 'punctuation', 'outlier', 'missing_value', 'model'] | vec=[1, 1, 1, 7, 7, 1] | utility=0.15
+2025-10-11 21:29:28,799 - DEBUG - [GridSearch] iter=11 | order=['deduplication', 'stopword', 'normalization', 'whitespace', 'model'] | vec=[1, 2, 5, 2, 1] | utility=0.17
+2025-10-11 21:29:28,810 - DEBUG - [GridSearch] iter=12 | order=['punctuation', 'whitespace', 'missing_value', 'model'] | vec=[1, 2, 2, 1] | utility=0.16
+2025-10-11 21:29:28,988 - DEBUG - [GridSearch] iter=13 | order=['deduplication', 'punctuation', 'normalization', 'stopword', 'missing_value', 'outlier', 'whitespace', 'model'] | vec=[1, 1, 2, 2, 1, 2, 2, 1] | utility=0.16
+2025-10-11 21:29:29,062 - DEBUG - [GridSearch] iter=14 | order=['whitespace', 'stopword', 'normalization', 'model'] | vec=[1, 2, 2, 1] | utility=0.16
+2025-10-11 21:29:29,142 - DEBUG - [GridSearch] iter=15 | order=['missing_value', 'deduplication', 'outlier', 'stopword', 'model'] | vec=[2, 1, 6, 2, 1] | utility=0.13
+2025-10-11 21:29:29,142 - INFO - [GridSearch] 🎯 Achieved at iter=15, utility=0.13
+2025-10-11 21:29:29,142 - INFO - [GridSearch] Start (random). Target utility = 0.14
+2025-10-11 21:29:29,283 - DEBUG - [GridSearch] iter=1 | order=['deduplication', 'outlier', 'normalization', 'whitespace', 'model'] | vec=[1, 8, 4, 2, 1] | utility=0.15
+2025-10-11 21:29:29,500 - DEBUG - [GridSearch] iter=2 | order=['normalization', 'outlier', 'whitespace', 'punctuation', 'model'] | vec=[3, 1, 1, 1, 1] | utility=0.16
+2025-10-11 21:29:29,747 - DEBUG - [GridSearch] iter=3 | order=['outlier', 'deduplication', 'whitespace', 'stopword', 'normalization', 'missing_value', 'punctuation', 'model'] | vec=[1, 1, 2, 2, 3, 9, 2, 1] | utility=0.16
+2025-10-11 21:29:29,767 - DEBUG - [GridSearch] iter=4 | order=['whitespace', 'missing_value', 'deduplication', 'punctuation', 'model'] | vec=[2, 8, 1, 2, 1] | utility=0.16
+2025-10-11 21:29:29,943 - DEBUG - [GridSearch] iter=5 | order=['deduplication', 'punctuation', 'whitespace', 'outlier', 'model'] | vec=[1, 1, 1, 2, 1] | utility=0.16
+2025-10-11 21:29:30,022 - DEBUG - [GridSearch] iter=6 | order=['missing_value', 'punctuation', 'stopword', 'outlier', 'deduplication', 'model'] | vec=[7, 2, 1, 7, 1, 1] | utility=0.15
+2025-10-11 21:29:30,167 - DEBUG - [GridSearch] iter=7 | order=['punctuation', 'stopword', 'outlier', 'deduplication', 'missing_value', 'normalization', 'model'] | vec=[1, 1, 3, 1, 1, 5, 1] | utility=0.18
+2025-10-11 21:29:30,173 - DEBUG - [GridSearch] iter=8 | order=['model'] | vec=[1] | utility=0.16
+2025-10-11 21:29:30,316 - DEBUG - [GridSearch] iter=9 | order=['whitespace', 'punctuation', 'missing_value', 'normalization', 'outlier', 'deduplication', 'model'] | vec=[1, 1, 1, 3, 6, 1, 1] | utility=0.16
+2025-10-11 21:29:30,432 - DEBUG - [GridSearch] iter=10 | order=['punctuation', 'outlier', 'model'] | vec=[2, 5, 1] | utility=0.16
+2025-10-11 21:29:30,497 - DEBUG - [GridSearch] iter=11 | order=['deduplication', 'model'] | vec=[1, 1] | utility=0.16
+2025-10-11 21:29:30,703 - DEBUG - [GridSearch] iter=12 | order=['missing_value', 'stopword', 'outlier', 'normalization', 'model'] | vec=[5, 1, 5, 3, 1] | utility=0.16
+2025-10-11 21:29:30,848 - DEBUG - [GridSearch] iter=13 | order=['stopword', 'missing_value', 'outlier', 'deduplication', 'model'] | vec=[2, 7, 2, 1, 1] | utility=0.16
+2025-10-11 21:29:30,923 - DEBUG - [GridSearch] iter=14 | order=['whitespace', 'deduplication', 'normalization', 'model'] | vec=[1, 1, 1, 1] | utility=0.16
+2025-10-11 21:29:30,931 - DEBUG - [GridSearch] iter=15 | order=['whitespace', 'model'] | vec=[2, 1] | utility=0.16
+2025-10-11 21:29:31,003 - DEBUG - [GridSearch] iter=16 | order=['stopword', 'outlier', 'model'] | vec=[2, 1, 1] | utility=0.16
+2025-10-11 21:29:31,011 - DEBUG - [GridSearch] iter=17 | order=['missing_value', 'model'] | vec=[1, 1] | utility=0.16
+2025-10-11 21:29:31,154 - DEBUG - [GridSearch] iter=18 | order=['punctuation', 'normalization', 'outlier', 'missing_value', 'stopword', 'model'] | vec=[2, 2, 7, 6, 2, 1] | utility=0.14
+2025-10-11 21:29:31,154 - INFO - [GridSearch] 🎯 Achieved at iter=18, utility=0.14
+2025-10-11 21:29:31,154 - INFO - [GridSearch] Start (random). Target utility = 0.14
+2025-10-11 21:29:31,295 - DEBUG - [GridSearch] iter=1 | order=['whitespace', 'normalization', 'stopword', 'outlier', 'model'] | vec=[2, 4, 2, 7, 1] | utility=0.16
+2025-10-11 21:29:31,545 - DEBUG - [GridSearch] iter=2 | order=['stopword', 'whitespace', 'outlier', 'punctuation', 'missing_value', 'normalization', 'model'] | vec=[1, 2, 7, 2, 3, 2, 1] | utility=0.15
+2025-10-11 21:29:31,699 - DEBUG - [GridSearch] iter=3 | order=['normalization', 'deduplication', 'missing_value', 'stopword', 'whitespace', 'model'] | vec=[4, 1, 1, 1, 2, 1] | utility=0.17
+2025-10-11 21:29:31,943 - DEBUG - [GridSearch] iter=4 | order=['stopword', 'normalization', 'outlier', 'missing_value', 'deduplication', 'punctuation', 'whitespace', 'model'] | vec=[1, 5, 2, 8, 1, 2, 1, 1] | utility=0.17
+2025-10-11 21:29:31,951 - DEBUG - [GridSearch] iter=5 | order=['deduplication', 'model'] | vec=[1, 1] | utility=0.16
+2025-10-11 21:29:32,092 - DEBUG - [GridSearch] iter=6 | order=['whitespace', 'deduplication', 'normalization', 'missing_value', 'outlier', 'model'] | vec=[1, 1, 5, 7, 5, 1] | utility=0.15
+2025-10-11 21:29:32,099 - DEBUG - [GridSearch] iter=7 | order=['whitespace', 'model'] | vec=[2, 1] | utility=0.16
+2025-10-11 21:29:32,372 - DEBUG - [GridSearch] iter=8 | order=['punctuation', 'normalization', 'missing_value', 'outlier', 'whitespace', 'stopword', 'deduplication', 'model'] | vec=[2, 5, 2, 1, 1, 2, 1, 1] | utility=0.17
+2025-10-11 21:29:32,381 - DEBUG - [GridSearch] iter=9 | order=['model'] | vec=[1] | utility=0.16
+2025-10-11 21:29:32,629 - DEBUG - [GridSearch] iter=10 | order=['whitespace', 'punctuation', 'deduplication', 'normalization', 'outlier', 'stopword', 'model'] | vec=[2, 2, 1, 3, 8, 1, 1] | utility=0.14
+2025-10-11 21:29:32,629 - INFO - [GridSearch] 🎯 Achieved at iter=10, utility=0.14
+2025-10-11 21:29:32,629 - INFO - [GridSearch] Start (random). Target utility = 0.15
+2025-10-11 21:29:32,639 - DEBUG - [GridSearch] iter=1 | order=['model'] | vec=[1] | utility=0.16
+2025-10-11 21:29:32,760 - DEBUG - [GridSearch] iter=2 | order=['stopword', 'missing_value', 'outlier', 'punctuation', 'model'] | vec=[2, 6, 5, 1, 1] | utility=0.16
+2025-10-11 21:29:32,877 - DEBUG - [GridSearch] iter=3 | order=['normalization', 'missing_value', 'punctuation', 'model'] | vec=[4, 1, 1, 1] | utility=0.17
+2025-10-11 21:29:32,890 - DEBUG - [GridSearch] iter=4 | order=['stopword', 'model'] | vec=[1, 1] | utility=0.16
+2025-10-11 21:29:32,902 - DEBUG - [GridSearch] iter=5 | order=['punctuation', 'model'] | vec=[2, 1] | utility=0.16
+2025-10-11 21:29:33,023 - DEBUG - [GridSearch] iter=6 | order=['missing_value', 'stopword', 'deduplication', 'punctuation', 'outlier', 'model'] | vec=[3, 1, 1, 1, 5, 1] | utility=0.16
+2025-10-11 21:29:33,096 - DEBUG - [GridSearch] iter=7 | order=['normalization', 'punctuation', 'whitespace', 'model'] | vec=[4, 1, 2, 1] | utility=0.17
+2025-10-11 21:29:33,238 - DEBUG - [GridSearch] iter=8 | order=['normalization', 'deduplication', 'whitespace', 'outlier', 'missing_value', 'model'] | vec=[1, 1, 2, 4, 5, 1] | utility=0.14
+2025-10-11 21:29:33,238 - INFO - [GridSearch] 🎯 Achieved at iter=8, utility=0.14
+2025-10-11 21:29:33,238 - INFO - [GridSearch] Start (random). Target utility = 0.15
+2025-10-11 21:29:33,315 - DEBUG - [GridSearch] iter=1 | order=['deduplication', 'whitespace', 'normalization', 'missing_value', 'model'] | vec=[1, 2, 4, 5, 1] | utility=0.17
+2025-10-11 21:29:33,459 - DEBUG - [GridSearch] iter=2 | order=['outlier', 'punctuation', 'whitespace', 'missing_value', 'normalization', 'stopword', 'model'] | vec=[7, 1, 2, 5, 3, 1, 1] | utility=0.15
+2025-10-11 21:29:33,459 - INFO - [GridSearch] 🎯 Achieved at iter=2, utility=0.15
+2025-10-11 21:29:33,459 - INFO - [GridSearch] Start (random). Target utility = 0.15
+2025-10-11 21:29:33,467 - DEBUG - [GridSearch] iter=1 | order=['deduplication', 'model'] | vec=[1, 1] | utility=0.16
+2025-10-11 21:29:33,689 - DEBUG - [GridSearch] iter=2 | order=['deduplication', 'whitespace', 'outlier', 'normalization', 'missing_value', 'stopword', 'model'] | vec=[1, 2, 1, 2, 7, 1, 1] | utility=0.16
+2025-10-11 21:29:33,699 - DEBUG - [GridSearch] iter=3 | order=['model'] | vec=[1] | utility=0.16
+2025-10-11 21:29:33,826 - DEBUG - [GridSearch] iter=4 | order=['stopword', 'whitespace', 'punctuation', 'outlier', 'missing_value', 'deduplication', 'model'] | vec=[2, 2, 2, 8, 7, 1, 1] | utility=0.16
+2025-10-11 21:29:33,978 - DEBUG - [GridSearch] iter=5 | order=['outlier', 'punctuation', 'missing_value', 'deduplication', 'normalization', 'whitespace', 'stopword', 'model'] | vec=[8, 1, 6, 1, 5, 1, 1, 1] | utility=0.15
+2025-10-11 21:29:33,978 - INFO - [GridSearch] 🎯 Achieved at iter=5, utility=0.15
+2025-10-11 21:29:33,978 - INFO - [GridSearch] Start (random). Target utility = 0.15
+2025-10-11 21:29:33,985 - DEBUG - [GridSearch] iter=1 | order=['model'] | vec=[1] | utility=0.16
+2025-10-11 21:29:33,996 - DEBUG - [GridSearch] iter=2 | order=['deduplication', 'missing_value', 'whitespace', 'stopword', 'model'] | vec=[1, 9, 1, 2, 1] | utility=0.16
+2025-10-11 21:29:34,070 - DEBUG - [GridSearch] iter=3 | order=['normalization', 'punctuation', 'missing_value', 'whitespace', 'model'] | vec=[5, 1, 1, 1, 1] | utility=0.17
+2025-10-11 21:29:34,246 - DEBUG - [GridSearch] iter=4 | order=['deduplication', 'whitespace', 'missing_value', 'outlier', 'punctuation', 'normalization', 'model'] | vec=[1, 2, 8, 2, 2, 3, 1] | utility=0.16
+2025-10-11 21:29:34,321 - DEBUG - [GridSearch] iter=5 | order=['whitespace', 'normalization', 'stopword', 'punctuation', 'deduplication', 'model'] | vec=[1, 1, 1, 1, 1, 1] | utility=0.16
+2025-10-11 21:29:34,329 - DEBUG - [GridSearch] iter=6 | order=['missing_value', 'model'] | vec=[5, 1] | utility=0.16
+2025-10-11 21:29:34,336 - DEBUG - [GridSearch] iter=7 | order=['deduplication', 'model'] | vec=[1, 1] | utility=0.16
+2025-10-11 21:29:34,413 - DEBUG - [GridSearch] iter=8 | order=['outlier', 'deduplication', 'whitespace', 'stopword', 'model'] | vec=[7, 1, 1, 2, 1] | utility=0.15
+2025-10-11 21:29:34,413 - INFO - [GridSearch] 🎯 Achieved at iter=8, utility=0.15
+2025-10-11 21:29:34,413 - INFO - [GridSearch] Start (random). Target utility = 0.15
+2025-10-11 21:29:34,488 - DEBUG - [GridSearch] iter=1 | order=['whitespace', 'normalization', 'deduplication', 'missing_value', 'model'] | vec=[1, 5, 1, 4, 1] | utility=0.17
+2025-10-11 21:29:34,626 - DEBUG - [GridSearch] iter=2 | order=['punctuation', 'outlier', 'deduplication', 'normalization', 'whitespace', 'model'] | vec=[2, 1, 1, 2, 2, 1] | utility=0.16
+2025-10-11 21:29:34,699 - DEBUG - [GridSearch] iter=3 | order=['stopword', 'whitespace', 'punctuation', 'normalization', 'model'] | vec=[2, 2, 2, 5, 1] | utility=0.17
+2025-10-11 21:29:34,706 - DEBUG - [GridSearch] iter=4 | order=['model'] | vec=[1] | utility=0.16
+2025-10-11 21:29:34,849 - DEBUG - [GridSearch] iter=5 | order=['outlier', 'stopword', 'whitespace', 'missing_value', 'punctuation', 'normalization', 'model'] | vec=[8, 2, 2, 2, 2, 1, 1] | utility=0.16
+2025-10-11 21:29:34,856 - DEBUG - [GridSearch] iter=6 | order=['whitespace', 'model'] | vec=[1, 1] | utility=0.16
+2025-10-11 21:29:35,001 - DEBUG - [GridSearch] iter=7 | order=['stopword', 'whitespace', 'missing_value', 'normalization', 'deduplication', 'punctuation', 'outlier', 'model'] | vec=[1, 2, 5, 1, 1, 2, 6, 1] | utility=0.13
+2025-10-11 21:29:35,003 - INFO - [GridSearch] 🎯 Achieved at iter=7, utility=0.13
+2025-10-11 21:29:35,003 - INFO - [GridSearch] Start (random). Target utility = 0.15
+2025-10-11 21:29:35,145 - DEBUG - [GridSearch] iter=1 | order=['outlier', 'stopword', 'deduplication', 'normalization', 'whitespace', 'missing_value', 'model'] | vec=[6, 2, 1, 3, 2, 5, 1] | utility=0.13
+2025-10-11 21:29:35,145 - INFO - [GridSearch] 🎯 Achieved at iter=1, utility=0.13
+2025-10-11 21:29:35,145 - INFO - [GridSearch] Start (random). Target utility = 0.15
+2025-10-11 21:29:35,288 - DEBUG - [GridSearch] iter=1 | order=['missing_value', 'outlier', 'deduplication', 'stopword', 'punctuation', 'whitespace', 'normalization', 'model'] | vec=[7, 7, 1, 2, 1, 2, 5, 1] | utility=0.14
+2025-10-11 21:29:35,288 - INFO - [GridSearch] 🎯 Achieved at iter=1, utility=0.14
+2025-10-11 21:29:35,288 - INFO - [GridSearch] Start (random). Target utility = 0.15
+2025-10-11 21:29:35,297 - DEBUG - [GridSearch] iter=1 | order=['missing_value', 'model'] | vec=[4, 1] | utility=0.16
+2025-10-11 21:29:35,436 - DEBUG - [GridSearch] iter=2 | order=['normalization', 'missing_value', 'outlier', 'deduplication', 'model'] | vec=[4, 5, 4, 1, 1] | utility=0.16
+2025-10-11 21:29:35,580 - DEBUG - [GridSearch] iter=3 | order=['punctuation', 'whitespace', 'missing_value', 'normalization', 'stopword', 'outlier', 'model'] | vec=[1, 2, 4, 3, 2, 8, 1] | utility=0.14
+2025-10-11 21:29:35,580 - INFO - [GridSearch] 🎯 Achieved at iter=3, utility=0.14
+2025-10-11 21:29:35,580 - INFO - [GridSearch] Start (random). Target utility = 0.15
+2025-10-11 21:29:35,657 - DEBUG - [GridSearch] iter=1 | order=['deduplication', 'outlier', 'punctuation', 'model'] | vec=[1, 6, 2, 1] | utility=0.13
+2025-10-11 21:29:35,657 - INFO - [GridSearch] 🎯 Achieved at iter=1, utility=0.13
+2025-10-11 21:29:35,657 - INFO - [GridSearch] Start (random). Target utility = 0.15
+2025-10-11 21:29:35,729 - DEBUG - [GridSearch] iter=1 | order=['deduplication', 'punctuation', 'normalization', 'model'] | vec=[1, 2, 2, 1] | utility=0.16
+2025-10-11 21:29:35,801 - DEBUG - [GridSearch] iter=2 | order=['stopword', 'normalization', 'model'] | vec=[1, 2, 1] | utility=0.16
+2025-10-11 21:29:35,874 - DEBUG - [GridSearch] iter=3 | order=['stopword', 'normalization', 'whitespace', 'missing_value', 'model'] | vec=[2, 2, 2, 9, 1] | utility=0.16
+2025-10-11 21:29:35,951 - DEBUG - [GridSearch] iter=4 | order=['punctuation', 'outlier', 'whitespace', 'stopword', 'model'] | vec=[2, 8, 1, 2, 1] | utility=0.16
+2025-10-11 21:29:35,959 - DEBUG - [GridSearch] iter=5 | order=['missing_value', 'model'] | vec=[8, 1] | utility=0.16
+2025-10-11 21:29:36,101 - DEBUG - [GridSearch] iter=6 | order=['whitespace', 'missing_value', 'stopword', 'outlier', 'normalization', 'punctuation', 'model'] | vec=[2, 1, 1, 3, 5, 1, 1] | utility=0.18
+2025-10-11 21:29:36,109 - DEBUG - [GridSearch] iter=7 | order=['stopword', 'deduplication', 'model'] | vec=[1, 1, 1] | utility=0.16
+2025-10-11 21:29:36,185 - DEBUG - [GridSearch] iter=8 | order=['outlier', 'missing_value', 'model'] | vec=[8, 4, 1] | utility=0.16
+2025-10-11 21:29:36,359 - DEBUG - [GridSearch] iter=9 | order=['punctuation', 'normalization', 'outlier', 'whitespace', 'stopword', 'model'] | vec=[1, 4, 2, 1, 2, 1] | utility=0.17
+2025-10-11 21:29:36,536 - DEBUG - [GridSearch] iter=10 | order=['stopword', 'deduplication', 'normalization', 'whitespace', 'missing_value', 'outlier', 'model'] | vec=[1, 1, 1, 1, 9, 2, 1] | utility=0.16
+2025-10-11 21:29:36,543 - DEBUG - [GridSearch] iter=11 | order=['model'] | vec=[1] | utility=0.16
+2025-10-11 21:29:36,551 - DEBUG - [GridSearch] iter=12 | order=['whitespace', 'punctuation', 'model'] | vec=[1, 1, 1] | utility=0.16
+2025-10-11 21:29:36,626 - DEBUG - [GridSearch] iter=13 | order=['whitespace', 'deduplication', 'missing_value', 'punctuation', 'stopword', 'normalization', 'model'] | vec=[1, 1, 6, 2, 2, 3, 1] | utility=0.16
+2025-10-11 21:29:36,636 - DEBUG - [GridSearch] iter=14 | order=['stopword', 'punctuation', 'whitespace', 'model'] | vec=[1, 2, 1, 1] | utility=0.16
+2025-10-11 21:29:36,777 - DEBUG - [GridSearch] iter=15 | order=['punctuation', 'whitespace', 'normalization', 'stopword', 'outlier', 'missing_value', 'deduplication', 'model'] | vec=[2, 1, 5, 2, 1, 6, 1, 1] | utility=0.17
+2025-10-11 21:29:36,848 - DEBUG - [GridSearch] iter=16 | order=['normalization', 'whitespace', 'model'] | vec=[3, 1, 1] | utility=0.16
+2025-10-11 21:29:36,857 - DEBUG - [GridSearch] iter=17 | order=['whitespace', 'stopword', 'model'] | vec=[1, 2, 1] | utility=0.16
+2025-10-11 21:29:36,864 - DEBUG - [GridSearch] iter=18 | order=['punctuation', 'model'] | vec=[1, 1] | utility=0.16
+2025-10-11 21:29:36,871 - DEBUG - [GridSearch] iter=19 | order=['punctuation', 'model'] | vec=[2, 1] | utility=0.16
+2025-10-11 21:29:37,008 - DEBUG - [GridSearch] iter=20 | order=['outlier', 'normalization', 'deduplication', 'model'] | vec=[1, 3, 1, 1] | utility=0.16
+2025-10-11 21:29:37,151 - DEBUG - [GridSearch] iter=21 | order=['punctuation', 'deduplication', 'normalization', 'missing_value', 'outlier', 'model'] | vec=[2, 1, 1, 1, 7, 1] | utility=0.15
+2025-10-11 21:29:37,151 - INFO - [GridSearch] 🎯 Achieved at iter=21, utility=0.15
+2025-10-11 21:29:37,151 - INFO - [GridSearch] Start (random). Target utility = 0.15
+2025-10-11 21:29:37,159 - DEBUG - [GridSearch] iter=1 | order=['whitespace', 'model'] | vec=[1, 1] | utility=0.16
+2025-10-11 21:29:37,170 - DEBUG - [GridSearch] iter=2 | order=['punctuation', 'stopword', 'whitespace', 'missing_value', 'deduplication', 'model'] | vec=[2, 2, 2, 6, 1, 1] | utility=0.16
+2025-10-11 21:29:37,242 - DEBUG - [GridSearch] iter=3 | order=['normalization', 'missing_value', 'model'] | vec=[5, 4, 1] | utility=0.17
+2025-10-11 21:29:37,317 - DEBUG - [GridSearch] iter=4 | order=['whitespace', 'outlier', 'model'] | vec=[2, 6, 1] | utility=0.13
+2025-10-11 21:29:37,317 - INFO - [GridSearch] 🎯 Achieved at iter=4, utility=0.13
+2025-10-11 21:29:37,317 - INFO - [GridSearch] Start (random). Target utility = 0.15
+2025-10-11 21:29:37,392 - DEBUG - [GridSearch] iter=1 | order=['outlier', 'model'] | vec=[8, 1] | utility=0.16
+2025-10-11 21:29:37,400 - DEBUG - [GridSearch] iter=2 | order=['punctuation', 'model'] | vec=[1, 1] | utility=0.16
+2025-10-11 21:29:37,539 - DEBUG - [GridSearch] iter=3 | order=['outlier', 'normalization', 'model'] | vec=[8, 3, 1] | utility=0.16
+2025-10-11 21:29:37,681 - DEBUG - [GridSearch] iter=4 | order=['whitespace', 'outlier', 'deduplication', 'stopword', 'missing_value', 'normalization', 'punctuation', 'model'] | vec=[2, 3, 1, 2, 9, 3, 2, 1] | utility=0.17
+2025-10-11 21:29:37,761 - DEBUG - [GridSearch] iter=5 | order=['normalization', 'deduplication', 'missing_value', 'punctuation', 'stopword', 'model'] | vec=[5, 1, 2, 2, 2, 1] | utility=0.17
+2025-10-11 21:29:37,768 - DEBUG - [GridSearch] iter=6 | order=['model'] | vec=[1] | utility=0.16
+2025-10-11 21:29:37,908 - DEBUG - [GridSearch] iter=7 | order=['whitespace', 'deduplication', 'punctuation', 'normalization', 'outlier', 'model'] | vec=[2, 1, 2, 3, 7, 1] | utility=0.16
+2025-10-11 21:29:38,049 - DEBUG - [GridSearch] iter=8 | order=['missing_value', 'outlier', 'deduplication', 'whitespace', 'punctuation', 'normalization', 'stopword', 'model'] | vec=[9, 6, 1, 2, 1, 2, 1, 1] | utility=0.13
+2025-10-11 21:29:38,049 - INFO - [GridSearch] 🎯 Achieved at iter=8, utility=0.13
+2025-10-11 21:29:38,049 - INFO - [GridSearch] Start (random). Target utility = 0.15
+2025-10-11 21:29:38,123 - DEBUG - [GridSearch] iter=1 | order=['stopword', 'deduplication', 'whitespace', 'normalization', 'model'] | vec=[1, 1, 2, 5, 1] | utility=0.17
+2025-10-11 21:29:38,309 - DEBUG - [GridSearch] iter=2 | order=['deduplication', 'normalization', 'outlier', 'stopword', 'punctuation', 'whitespace', 'model'] | vec=[1, 5, 2, 1, 1, 1, 1] | utility=0.17
+2025-10-11 21:29:38,439 - DEBUG - [GridSearch] iter=3 | order=['deduplication', 'outlier', 'stopword', 'missing_value', 'model'] | vec=[1, 1, 1, 7, 1] | utility=0.16
+2025-10-11 21:29:38,520 - DEBUG - [GridSearch] iter=4 | order=['deduplication', 'outlier', 'stopword', 'whitespace', 'model'] | vec=[1, 6, 1, 1, 1] | utility=0.13
+2025-10-11 21:29:38,520 - INFO - [GridSearch] 🎯 Achieved at iter=4, utility=0.13
+2025-10-11 21:29:38,520 - INFO - [GridSearch] Start (random). Target utility = 0.15
+2025-10-11 21:29:38,636 - DEBUG - [GridSearch] iter=1 | order=['missing_value', 'whitespace', 'normalization', 'model'] | vec=[2, 1, 5, 1] | utility=0.17
+2025-10-11 21:29:38,648 - DEBUG - [GridSearch] iter=2 | order=['punctuation', 'whitespace', 'model'] | vec=[2, 2, 1] | utility=0.16
+2025-10-11 21:29:38,669 - DEBUG - [GridSearch] iter=3 | order=['model'] | vec=[1] | utility=0.16
+2025-10-11 21:29:38,788 - DEBUG - [GridSearch] iter=4 | order=['punctuation', 'stopword', 'outlier', 'missing_value', 'model'] | vec=[1, 2, 6, 6, 1] | utility=0.13
+2025-10-11 21:29:38,788 - INFO - [GridSearch] 🎯 Achieved at iter=4, utility=0.13
+2025-10-11 21:29:38,788 - INFO - [GridSearch] Start (random). Target utility = 0.15
+2025-10-11 21:29:38,804 - DEBUG - [GridSearch] iter=1 | order=['deduplication', 'stopword', 'model'] | vec=[1, 2, 1] | utility=0.16
+2025-10-11 21:29:38,922 - DEBUG - [GridSearch] iter=2 | order=['normalization', 'whitespace', 'punctuation', 'missing_value', 'deduplication', 'stopword', 'model'] | vec=[2, 2, 1, 6, 1, 1, 1] | utility=0.16
+2025-10-11 21:29:39,143 - DEBUG - [GridSearch] iter=3 | order=['deduplication', 'outlier', 'whitespace', 'punctuation', 'missing_value', 'normalization', 'model'] | vec=[1, 4, 2, 2, 5, 4, 1] | utility=0.16
+2025-10-11 21:29:39,154 - DEBUG - [GridSearch] iter=4 | order=['missing_value', 'model'] | vec=[7, 1] | utility=0.16
+2025-10-11 21:29:39,162 - DEBUG - [GridSearch] iter=5 | order=['deduplication', 'model'] | vec=[1, 1] | utility=0.16
+2025-10-11 21:29:39,282 - DEBUG - [GridSearch] iter=6 | order=['punctuation', 'missing_value', 'outlier', 'whitespace', 'model'] | vec=[1, 2, 1, 1, 1] | utility=0.16
+2025-10-11 21:29:39,405 - DEBUG - [GridSearch] iter=7 | order=['stopword', 'outlier', 'model'] | vec=[2, 7, 1] | utility=0.15
+2025-10-11 21:29:39,405 - INFO - [GridSearch] 🎯 Achieved at iter=7, utility=0.15
+2025-10-11 21:29:39,405 - INFO - [GridSearch] Start (random). Target utility = 0.15
+2025-10-11 21:29:39,571 - DEBUG - [GridSearch] iter=1 | order=['punctuation', 'normalization', 'missing_value', 'whitespace', 'deduplication', 'outlier', 'model'] | vec=[1, 3, 2, 1, 1, 1, 1] | utility=0.16
+2025-10-11 21:29:39,712 - DEBUG - [GridSearch] iter=2 | order=['normalization', 'deduplication', 'outlier', 'whitespace', 'model'] | vec=[4, 1, 4, 2, 1] | utility=0.16
+2025-10-11 21:29:39,719 - DEBUG - [GridSearch] iter=3 | order=['punctuation', 'model'] | vec=[2, 1] | utility=0.16
+2025-10-11 21:29:39,859 - DEBUG - [GridSearch] iter=4 | order=['normalization', 'outlier', 'model'] | vec=[3, 7, 1] | utility=0.16
+2025-10-11 21:29:39,933 - DEBUG - [GridSearch] iter=5 | order=['normalization', 'whitespace', 'stopword', 'deduplication', 'model'] | vec=[5, 2, 2, 1, 1] | utility=0.17
+2025-10-11 21:29:39,940 - DEBUG - [GridSearch] iter=6 | order=['model'] | vec=[1] | utility=0.16
+2025-10-11 21:29:39,948 - DEBUG - [GridSearch] iter=7 | order=['stopword', 'missing_value', 'model'] | vec=[1, 5, 1] | utility=0.16
+2025-10-11 21:29:40,027 - DEBUG - [GridSearch] iter=8 | order=['whitespace', 'stopword', 'outlier', 'missing_value', 'punctuation', 'deduplication', 'model'] | vec=[2, 2, 7, 9, 1, 1, 1] | utility=0.15
+2025-10-11 21:29:40,027 - INFO - [GridSearch] 🎯 Achieved at iter=8, utility=0.15
+2025-10-11 21:29:40,027 - INFO - [GridSearch] Start (random). Target utility = 0.15
+2025-10-11 21:29:40,034 - DEBUG - [GridSearch] iter=1 | order=['model'] | vec=[1] | utility=0.16
+2025-10-11 21:29:40,043 - DEBUG - [GridSearch] iter=2 | order=['stopword', 'punctuation', 'deduplication', 'whitespace', 'model'] | vec=[1, 1, 1, 1, 1] | utility=0.16
+2025-10-11 21:29:40,217 - DEBUG - [GridSearch] iter=3 | order=['punctuation', 'normalization', 'outlier', 'model'] | vec=[2, 1, 2, 1] | utility=0.16
+2025-10-11 21:29:40,225 - DEBUG - [GridSearch] iter=4 | order=['punctuation', 'model'] | vec=[2, 1] | utility=0.16
+2025-10-11 21:29:40,301 - DEBUG - [GridSearch] iter=5 | order=['outlier', 'missing_value', 'model'] | vec=[3, 2, 1] | utility=0.16
+2025-10-11 21:29:40,372 - DEBUG - [GridSearch] iter=6 | order=['normalization', 'model'] | vec=[4, 1] | utility=0.17
+2025-10-11 21:29:40,448 - DEBUG - [GridSearch] iter=7 | order=['normalization', 'missing_value', 'whitespace', 'punctuation', 'stopword', 'deduplication', 'model'] | vec=[3, 8, 1, 1, 1, 1, 1] | utility=0.16
+2025-10-11 21:29:40,589 - DEBUG - [GridSearch] iter=8 | order=['punctuation', 'stopword', 'whitespace', 'normalization', 'missing_value', 'outlier', 'deduplication', 'model'] | vec=[2, 2, 1, 4, 4, 1, 1, 1] | utility=0.17
+2025-10-11 21:29:40,663 - DEBUG - [GridSearch] iter=9 | order=['normalization', 'deduplication', 'stopword', 'missing_value', 'model'] | vec=[5, 1, 2, 7, 1] | utility=0.17
+2025-10-11 21:29:40,738 - DEBUG - [GridSearch] iter=10 | order=['missing_value', 'punctuation', 'deduplication', 'whitespace', 'outlier', 'model'] | vec=[3, 2, 1, 2, 1, 1] | utility=0.16
+2025-10-11 21:29:40,811 - DEBUG - [GridSearch] iter=11 | order=['stopword', 'outlier', 'model'] | vec=[2, 1, 1] | utility=0.16
+2025-10-11 21:29:40,956 - DEBUG - [GridSearch] iter=12 | order=['normalization', 'whitespace', 'punctuation', 'deduplication', 'stopword', 'missing_value', 'outlier', 'model'] | vec=[5, 1, 1, 1, 2, 3, 3, 1] | utility=0.18
+2025-10-11 21:29:41,098 - DEBUG - [GridSearch] iter=13 | order=['normalization', 'whitespace', 'punctuation', 'missing_value', 'deduplication', 'outlier', 'stopword', 'model'] | vec=[2, 1, 1, 7, 1, 5, 2, 1] | utility=0.14
+2025-10-11 21:29:41,098 - INFO - [GridSearch] 🎯 Achieved at iter=13, utility=0.14
+2025-10-11 21:29:41,098 - INFO - [GridSearch] Start (random). Target utility = 0.15
+2025-10-11 21:29:41,177 - DEBUG - [GridSearch] iter=1 | order=['outlier', 'stopword', 'deduplication', 'whitespace', 'punctuation', 'missing_value', 'model'] | vec=[5, 1, 1, 1, 2, 7, 1] | utility=0.16
+2025-10-11 21:29:41,188 - DEBUG - [GridSearch] iter=2 | order=['whitespace', 'stopword', 'punctuation', 'missing_value', 'model'] | vec=[1, 2, 1, 3, 1] | utility=0.16
+2025-10-11 21:29:41,267 - DEBUG - [GridSearch] iter=3 | order=['outlier', 'stopword', 'whitespace', 'missing_value', 'model'] | vec=[8, 2, 2, 3, 1] | utility=0.16
+2025-10-11 21:29:41,343 - DEBUG - [GridSearch] iter=4 | order=['punctuation', 'whitespace', 'stopword', 'deduplication', 'outlier', 'missing_value', 'model'] | vec=[1, 2, 2, 1, 1, 4, 1] | utility=0.16
+2025-10-11 21:29:41,516 - DEBUG - [GridSearch] iter=5 | order=['missing_value', 'outlier', 'punctuation', 'deduplication', 'normalization', 'whitespace', 'model'] | vec=[5, 2, 2, 1, 2, 2, 1] | utility=0.16
+2025-10-11 21:29:41,525 - DEBUG - [GridSearch] iter=6 | order=['stopword', 'missing_value', 'model'] | vec=[2, 8, 1] | utility=0.16
+2025-10-11 21:29:41,666 - DEBUG - [GridSearch] iter=7 | order=['outlier', 'normalization', 'missing_value', 'stopword', 'whitespace', 'punctuation', 'model'] | vec=[6, 3, 4, 1, 2, 2, 1] | utility=0.13
+2025-10-11 21:29:41,666 - INFO - [GridSearch] 🎯 Achieved at iter=7, utility=0.13
+2025-10-11 21:29:41,666 - INFO - [GridSearch] Start (random). Target utility = 0.15
+2025-10-11 21:29:41,742 - DEBUG - [GridSearch] iter=1 | order=['punctuation', 'stopword', 'normalization', 'missing_value', 'deduplication', 'model'] | vec=[1, 1, 3, 1, 1, 1] | utility=0.16
+2025-10-11 21:29:41,884 - DEBUG - [GridSearch] iter=2 | order=['punctuation', 'whitespace', 'missing_value', 'outlier', 'deduplication', 'normalization', 'model'] | vec=[2, 2, 3, 4, 1, 3, 1] | utility=0.15
+2025-10-11 21:29:41,884 - INFO - [GridSearch] 🎯 Achieved at iter=2, utility=0.15
+2025-10-11 21:29:41,884 - INFO - [GridSearch] Start (random). Target utility = 0.15
+2025-10-11 21:29:42,091 - DEBUG - [GridSearch] iter=1 | order=['whitespace', 'outlier', 'deduplication', 'normalization', 'missing_value', 'model'] | vec=[1, 3, 1, 4, 8, 1] | utility=0.18
+2025-10-11 21:29:42,099 - DEBUG - [GridSearch] iter=2 | order=['whitespace', 'model'] | vec=[2, 1] | utility=0.16
+2025-10-11 21:29:42,422 - DEBUG - [GridSearch] iter=3 | order=['deduplication', 'whitespace', 'normalization', 'missing_value', 'punctuation', 'outlier', 'stopword', 'model'] | vec=[1, 1, 5, 4, 1, 8, 2, 1] | utility=0.17
+2025-10-11 21:29:42,435 - DEBUG - [GridSearch] iter=4 | order=['stopword', 'whitespace', 'model'] | vec=[1, 1, 1] | utility=0.16
+2025-10-11 21:29:42,443 - DEBUG - [GridSearch] iter=5 | order=['model'] | vec=[1] | utility=0.16
+2025-10-11 21:29:42,572 - DEBUG - [GridSearch] iter=6 | order=['deduplication', 'missing_value', 'outlier', 'whitespace', 'model'] | vec=[1, 8, 6, 1, 1] | utility=0.13
+2025-10-11 21:29:42,572 - INFO - [GridSearch] 🎯 Achieved at iter=6, utility=0.13
+2025-10-11 21:29:42,572 - INFO - [GridSearch] Start (random). Target utility = 0.15
+2025-10-11 21:29:42,661 - DEBUG - [GridSearch] iter=1 | order=['outlier', 'model'] | vec=[6, 1] | utility=0.13
+2025-10-11 21:29:42,662 - INFO - [GridSearch] 🎯 Achieved at iter=1, utility=0.13
+2025-10-11 21:29:42,662 - INFO - [GridSearch] Start (random). Target utility = 0.15
+2025-10-11 21:29:42,806 - DEBUG - [GridSearch] iter=1 | order=['missing_value', 'punctuation', 'stopword', 'whitespace', 'outlier', 'normalization', 'model'] | vec=[1, 2, 1, 2, 8, 1, 1] | utility=0.16
+2025-10-11 21:29:42,817 - DEBUG - [GridSearch] iter=2 | order=['whitespace', 'punctuation', 'stopword', 'deduplication', 'model'] | vec=[1, 1, 1, 1, 1] | utility=0.16
+2025-10-11 21:29:42,958 - DEBUG - [GridSearch] iter=3 | order=['normalization', 'stopword', 'outlier', 'model'] | vec=[3, 1, 8, 1] | utility=0.14
+2025-10-11 21:29:42,958 - INFO - [GridSearch] 🎯 Achieved at iter=3, utility=0.14
+2025-10-11 21:29:42,958 - INFO - [GridSearch] Start (random). Target utility = 0.15
+2025-10-11 21:29:42,967 - DEBUG - [GridSearch] iter=1 | order=['punctuation', 'stopword', 'model'] | vec=[2, 1, 1] | utility=0.16
+2025-10-11 21:29:42,973 - DEBUG - [GridSearch] iter=2 | order=['model'] | vec=[1] | utility=0.16
+2025-10-11 21:29:43,115 - DEBUG - [GridSearch] iter=3 | order=['outlier', 'missing_value', 'deduplication', 'normalization', 'punctuation', 'stopword', 'model'] | vec=[7, 1, 1, 4, 2, 2, 1] | utility=0.14
+2025-10-11 21:29:43,115 - INFO - [GridSearch] 🎯 Achieved at iter=3, utility=0.14
+2025-10-11 21:29:43,115 - INFO - [GridSearch] Start (random). Target utility = 0.15
+2025-10-11 21:29:43,123 - DEBUG - [GridSearch] iter=1 | order=['deduplication', 'model'] | vec=[1, 1] | utility=0.16
+2025-10-11 21:29:43,202 - DEBUG - [GridSearch] iter=2 | order=['missing_value', 'outlier', 'punctuation', 'model'] | vec=[2, 3, 2, 1] | utility=0.16
+2025-10-11 21:29:43,340 - DEBUG - [GridSearch] iter=3 | order=['whitespace', 'punctuation', 'deduplication', 'outlier', 'model'] | vec=[1, 1, 1, 2, 1] | utility=0.16
+2025-10-11 21:29:43,483 - DEBUG - [GridSearch] iter=4 | order=['punctuation', 'outlier', 'whitespace', 'stopword', 'missing_value', 'model'] | vec=[1, 6, 2, 2, 7, 1] | utility=0.13
+2025-10-11 21:29:43,483 - INFO - [GridSearch] 🎯 Achieved at iter=4, utility=0.13
+2025-10-11 21:29:43,483 - INFO - [GridSearch] Start (random). Target utility = 0.15
+2025-10-11 21:29:43,609 - DEBUG - [GridSearch] iter=1 | order=['stopword', 'punctuation', 'deduplication', 'normalization', 'model'] | vec=[1, 2, 1, 4, 1] | utility=0.17
+2025-10-11 21:29:43,727 - DEBUG - [GridSearch] iter=2 | order=['missing_value', 'punctuation', 'normalization', 'stopword', 'whitespace', 'deduplication', 'model'] | vec=[5, 2, 1, 2, 2, 1, 1] | utility=0.16
+2025-10-11 21:29:43,939 - DEBUG - [GridSearch] iter=3 | order=['normalization', 'deduplication', 'outlier', 'punctuation', 'model'] | vec=[3, 1, 7, 1, 1] | utility=0.16
+2025-10-11 21:29:43,947 - DEBUG - [GridSearch] iter=4 | order=['model'] | vec=[1] | utility=0.16
+2025-10-11 21:29:44,203 - DEBUG - [GridSearch] iter=5 | order=['outlier', 'punctuation', 'normalization', 'whitespace', 'deduplication', 'stopword', 'model'] | vec=[8, 1, 3, 1, 1, 2, 1] | utility=0.16
+2025-10-11 21:29:44,391 - DEBUG - [GridSearch] iter=6 | order=['whitespace', 'stopword', 'normalization', 'missing_value', 'punctuation', 'outlier', 'deduplication', 'model'] | vec=[2, 2, 3, 3, 1, 7, 1, 1] | utility=0.16
+2025-10-11 21:29:44,400 - DEBUG - [GridSearch] iter=7 | order=['deduplication', 'whitespace', 'model'] | vec=[1, 1, 1] | utility=0.16
+2025-10-11 21:29:44,476 - DEBUG - [GridSearch] iter=8 | order=['stopword', 'whitespace', 'deduplication', 'normalization', 'missing_value', 'punctuation', 'model'] | vec=[2, 1, 1, 5, 4, 1, 1] | utility=0.17
+2025-10-11 21:29:44,619 - DEBUG - [GridSearch] iter=9 | order=['stopword', 'outlier', 'normalization', 'punctuation', 'whitespace', 'missing_value', 'deduplication', 'model'] | vec=[1, 3, 3, 1, 1, 1, 1, 1] | utility=0.17
+2025-10-11 21:29:44,627 - DEBUG - [GridSearch] iter=10 | order=['missing_value', 'model'] | vec=[9, 1] | utility=0.16
+2025-10-11 21:29:44,701 - DEBUG - [GridSearch] iter=11 | order=['outlier', 'model'] | vec=[5, 1] | utility=0.16
+2025-10-11 21:29:44,842 - DEBUG - [GridSearch] iter=12 | order=['missing_value', 'outlier', 'punctuation', 'deduplication', 'normalization', 'whitespace', 'stopword', 'model'] | vec=[1, 1, 1, 1, 5, 1, 1, 1] | utility=0.17
+2025-10-11 21:29:44,916 - DEBUG - [GridSearch] iter=13 | order=['whitespace', 'stopword', 'normalization', 'deduplication', 'model'] | vec=[1, 2, 4, 1, 1] | utility=0.17
+2025-10-11 21:29:45,108 - DEBUG - [GridSearch] iter=14 | order=['stopword', 'whitespace', 'punctuation', 'normalization', 'outlier', 'missing_value', 'model'] | vec=[2, 2, 2, 5, 7, 9, 1] | utility=0.15
+2025-10-11 21:29:45,108 - INFO - [GridSearch] 🎯 Achieved at iter=14, utility=0.15
+2025-10-11 21:29:45,108 - INFO - [GridSearch] Start (random). Target utility = 0.15
+2025-10-11 21:29:45,228 - DEBUG - [GridSearch] iter=1 | order=['missing_value', 'stopword', 'normalization', 'deduplication', 'punctuation', 'model'] | vec=[7, 1, 2, 1, 2, 1] | utility=0.16
+2025-10-11 21:29:45,243 - DEBUG - [GridSearch] iter=2 | order=['model'] | vec=[1] | utility=0.16
+2025-10-11 21:29:45,362 - DEBUG - [GridSearch] iter=3 | order=['stopword', 'outlier', 'deduplication', 'whitespace', 'model'] | vec=[2, 3, 1, 2, 1] | utility=0.16
+2025-10-11 21:29:45,584 - DEBUG - [GridSearch] iter=4 | order=['punctuation', 'missing_value', 'stopword', 'normalization', 'whitespace', 'outlier', 'model'] | vec=[2, 5, 1, 2, 1, 8, 1] | utility=0.16
+2025-10-11 21:29:45,803 - DEBUG - [GridSearch] iter=5 | order=['missing_value', 'whitespace', 'outlier', 'normalization', 'punctuation', 'model'] | vec=[6, 2, 7, 3, 2, 1] | utility=0.15
+2025-10-11 21:29:45,803 - INFO - [GridSearch] 🎯 Achieved at iter=5, utility=0.15
+2025-10-11 21:29:45,803 - INFO - [GridSearch] Start (random). Target utility = 0.15
+2025-10-11 21:29:46,034 - DEBUG - [GridSearch] iter=1 | order=['normalization', 'punctuation', 'deduplication', 'whitespace', 'outlier', 'stopword', 'missing_value', 'model'] | vec=[3, 2, 1, 2, 6, 2, 8, 1] | utility=0.16
+2025-10-11 21:29:46,041 - DEBUG - [GridSearch] iter=2 | order=['whitespace', 'model'] | vec=[2, 1] | utility=0.16
+2025-10-11 21:29:46,189 - DEBUG - [GridSearch] iter=3 | order=['missing_value', 'normalization', 'outlier', 'deduplication', 'whitespace', 'stopword', 'punctuation', 'model'] | vec=[6, 5, 8, 1, 2, 1, 1, 1] | utility=0.17
+2025-10-11 21:29:46,331 - DEBUG - [GridSearch] iter=4 | order=['whitespace', 'stopword', 'outlier', 'normalization', 'missing_value', 'deduplication', 'model'] | vec=[1, 1, 4, 4, 3, 1, 1] | utility=0.16
+2025-10-11 21:29:46,577 - DEBUG - [GridSearch] iter=5 | order=['punctuation', 'whitespace', 'normalization', 'stopword', 'outlier', 'deduplication', 'missing_value', 'model'] | vec=[2, 2, 2, 1, 4, 1, 2, 1] | utility=0.15
+2025-10-11 21:29:46,577 - INFO - [GridSearch] 🎯 Achieved at iter=5, utility=0.15
+2025-10-11 21:29:46,577 - INFO - [GridSearch] Start (random). Target utility = 0.15
+2025-10-11 21:29:46,801 - DEBUG - [GridSearch] iter=1 | order=['punctuation', 'whitespace', 'normalization', 'outlier', 'missing_value', 'stopword', 'deduplication', 'model'] | vec=[2, 2, 1, 5, 5, 1, 1, 1] | utility=0.16
+2025-10-11 21:29:47,065 - DEBUG - [GridSearch] iter=2 | order=['missing_value', 'outlier', 'stopword', 'punctuation', 'whitespace', 'normalization', 'model'] | vec=[5, 2, 2, 1, 2, 4, 1] | utility=0.17
+2025-10-11 21:29:47,182 - DEBUG - [GridSearch] iter=3 | order=['stopword', 'normalization', 'punctuation', 'model'] | vec=[2, 5, 2, 1] | utility=0.17
+2025-10-11 21:29:47,291 - DEBUG - [GridSearch] iter=4 | order=['whitespace', 'punctuation', 'deduplication', 'missing_value', 'stopword', 'outlier', 'model'] | vec=[1, 2, 1, 3, 1, 8, 1] | utility=0.16
+2025-10-11 21:29:47,300 - DEBUG - [GridSearch] iter=5 | order=['whitespace', 'missing_value', 'model'] | vec=[1, 4, 1] | utility=0.16
+2025-10-11 21:29:47,309 - DEBUG - [GridSearch] iter=6 | order=['missing_value', 'whitespace', 'model'] | vec=[4, 1, 1] | utility=0.16
+2025-10-11 21:29:47,385 - DEBUG - [GridSearch] iter=7 | order=['missing_value', 'normalization', 'deduplication', 'whitespace', 'punctuation', 'stopword', 'model'] | vec=[1, 1, 1, 2, 1, 2, 1] | utility=0.16
+2025-10-11 21:29:47,392 - DEBUG - [GridSearch] iter=8 | order=['model'] | vec=[1] | utility=0.16
+2025-10-11 21:29:47,538 - DEBUG - [GridSearch] iter=9 | order=['missing_value', 'deduplication', 'outlier', 'stopword', 'whitespace', 'normalization', 'punctuation', 'model'] | vec=[7, 1, 4, 2, 1, 5, 1, 1] | utility=0.15
+2025-10-11 21:29:47,538 - INFO - [GridSearch] 🎯 Achieved at iter=9, utility=0.15
+2025-10-11 21:29:47,538 - INFO - [GridSearch] Start (random). Target utility = 0.15
+2025-10-11 21:29:47,648 - DEBUG - [GridSearch] iter=1 | order=['outlier', 'stopword', 'model'] | vec=[2, 2, 1] | utility=0.16
+2025-10-11 21:29:47,657 - DEBUG - [GridSearch] iter=2 | order=['whitespace', 'stopword', 'model'] | vec=[2, 1, 1] | utility=0.16
+2025-10-11 21:29:47,666 - DEBUG - [GridSearch] iter=3 | order=['missing_value', 'deduplication', 'model'] | vec=[1, 1, 1] | utility=0.16
+2025-10-11 21:29:47,833 - DEBUG - [GridSearch] iter=4 | order=['stopword', 'deduplication', 'normalization', 'outlier', 'model'] | vec=[1, 1, 3, 3, 1] | utility=0.17
+2025-10-11 21:29:48,069 - DEBUG - [GridSearch] iter=5 | order=['stopword', 'normalization', 'whitespace', 'punctuation', 'outlier', 'deduplication', 'missing_value', 'model'] | vec=[2, 1, 2, 2, 3, 1, 8, 1] | utility=0.16
+2025-10-11 21:29:48,208 - DEBUG - [GridSearch] iter=6 | order=['normalization', 'outlier', 'deduplication', 'punctuation', 'model'] | vec=[4, 1, 1, 2, 1] | utility=0.17
+2025-10-11 21:29:48,216 - DEBUG - [GridSearch] iter=7 | order=['deduplication', 'model'] | vec=[1, 1] | utility=0.16
+2025-10-11 21:29:48,289 - DEBUG - [GridSearch] iter=8 | order=['punctuation', 'normalization', 'model'] | vec=[1, 5, 1] | utility=0.17
+2025-10-11 21:29:48,429 - DEBUG - [GridSearch] iter=9 | order=['deduplication', 'outlier', 'normalization', 'stopword', 'model'] | vec=[1, 4, 4, 2, 1] | utility=0.16
+2025-10-11 21:29:48,436 - DEBUG - [GridSearch] iter=10 | order=['model'] | vec=[1] | utility=0.16
+2025-10-11 21:29:48,623 - DEBUG - [GridSearch] iter=11 | order=['normalization', 'deduplication', 'missing_value', 'outlier', 'model'] | vec=[2, 1, 3, 7, 1] | utility=0.14
+2025-10-11 21:29:48,623 - INFO - [GridSearch] 🎯 Achieved at iter=11, utility=0.14
+2025-10-11 21:29:48,623 - INFO - [GridSearch] Start (random). Target utility = 0.15
+2025-10-11 21:29:48,797 - DEBUG - [GridSearch] iter=1 | order=['punctuation', 'normalization', 'outlier', 'deduplication', 'whitespace', 'model'] | vec=[2, 5, 2, 1, 2, 1] | utility=0.17
+2025-10-11 21:29:48,874 - DEBUG - [GridSearch] iter=2 | order=['outlier', 'stopword', 'missing_value', 'model'] | vec=[3, 2, 5, 1] | utility=0.16
+2025-10-11 21:29:48,948 - DEBUG - [GridSearch] iter=3 | order=['outlier', 'missing_value', 'stopword', 'whitespace', 'model'] | vec=[1, 7, 2, 1, 1] | utility=0.16
+2025-10-11 21:29:49,091 - DEBUG - [GridSearch] iter=4 | order=['deduplication', 'stopword', 'whitespace', 'outlier', 'punctuation', 'normalization', 'missing_value', 'model'] | vec=[1, 1, 2, 8, 2, 1, 8, 1] | utility=0.16
+2025-10-11 21:29:49,099 - DEBUG - [GridSearch] iter=5 | order=['missing_value', 'model'] | vec=[9, 1] | utility=0.16
+2025-10-11 21:29:49,108 - DEBUG - [GridSearch] iter=6 | order=['missing_value', 'stopword', 'model'] | vec=[2, 2, 1] | utility=0.16
+2025-10-11 21:29:49,252 - DEBUG - [GridSearch] iter=7 | order=['stopword', 'normalization', 'whitespace', 'punctuation', 'deduplication', 'outlier', 'missing_value', 'model'] | vec=[2, 1, 1, 1, 1, 6, 4, 1] | utility=0.13
+2025-10-11 21:29:49,252 - INFO - [GridSearch] 🎯 Achieved at iter=7, utility=0.13
+2025-10-11 21:29:49,253 - INFO - [GridSearch] Start (random). Target utility = 0.15
+2025-10-11 21:29:49,259 - DEBUG - [GridSearch] iter=1 | order=['model'] | vec=[1] | utility=0.16
+2025-10-11 21:29:49,267 - DEBUG - [GridSearch] iter=2 | order=['whitespace', 'model'] | vec=[1, 1] | utility=0.16
+2025-10-11 21:29:49,407 - DEBUG - [GridSearch] iter=3 | order=['punctuation', 'outlier', 'deduplication', 'normalization', 'whitespace', 'stopword', 'missing_value', 'model'] | vec=[2, 1, 1, 3, 2, 2, 7, 1] | utility=0.16
+2025-10-11 21:29:49,416 - DEBUG - [GridSearch] iter=4 | order=['punctuation', 'missing_value', 'model'] | vec=[2, 4, 1] | utility=0.16
+2025-10-11 21:29:49,493 - DEBUG - [GridSearch] iter=5 | order=['stopword', 'missing_value', 'outlier', 'deduplication', 'model'] | vec=[1, 8, 7, 1, 1] | utility=0.15
+2025-10-11 21:29:49,493 - INFO - [GridSearch] 🎯 Achieved at iter=5, utility=0.15
+2025-10-11 21:29:49,493 - INFO - [GridSearch] Start (random). Target utility = 0.15
+2025-10-11 21:29:49,503 - DEBUG - [GridSearch] iter=1 | order=['missing_value', 'punctuation', 'model'] | vec=[7, 2, 1] | utility=0.16
+2025-10-11 21:29:49,647 - DEBUG - [GridSearch] iter=2 | order=['normalization', 'stopword', 'punctuation', 'missing_value', 'deduplication', 'outlier', 'whitespace', 'model'] | vec=[1, 2, 2, 6, 1, 7, 2, 1] | utility=0.15
+2025-10-11 21:29:49,647 - INFO - [GridSearch] 🎯 Achieved at iter=2, utility=0.15
+2025-10-11 21:29:49,647 - INFO - [GridSearch] Start (random). Target utility = 0.15
+2025-10-11 21:29:49,789 - DEBUG - [GridSearch] iter=1 | order=['outlier', 'missing_value', 'stopword', 'whitespace', 'normalization', 'punctuation', 'deduplication', 'model'] | vec=[5, 3, 2, 1, 5, 1, 1, 1] | utility=0.16
+2025-10-11 21:29:49,866 - DEBUG - [GridSearch] iter=2 | order=['whitespace', 'outlier', 'deduplication', 'missing_value', 'model'] | vec=[1, 7, 1, 9, 1] | utility=0.15
+2025-10-11 21:29:49,866 - INFO - [GridSearch] 🎯 Achieved at iter=2, utility=0.15
+2025-10-11 21:29:49,866 - INFO - [GridSearch] Start (random). Target utility = 0.15
+2025-10-11 21:29:49,873 - DEBUG - [GridSearch] iter=1 | order=['model'] | vec=[1] | utility=0.16
+2025-10-11 21:29:49,947 - DEBUG - [GridSearch] iter=2 | order=['punctuation', 'missing_value', 'outlier', 'model'] | vec=[2, 3, 1, 1] | utility=0.16
+2025-10-11 21:29:50,086 - DEBUG - [GridSearch] iter=3 | order=['punctuation', 'outlier', 'normalization', 'whitespace', 'missing_value', 'model'] | vec=[2, 4, 5, 2, 9, 1] | utility=0.15
+2025-10-11 21:29:50,086 - INFO - [GridSearch] 🎯 Achieved at iter=3, utility=0.15
+2025-10-11 21:29:50,086 - INFO - [GridSearch] Start (random). Target utility = 0.15
+2025-10-11 21:29:50,224 - DEBUG - [GridSearch] iter=1 | order=['missing_value', 'outlier', 'normalization', 'model'] | vec=[1, 1, 4, 1] | utility=0.17
+2025-10-11 21:29:50,364 - DEBUG - [GridSearch] iter=2 | order=['outlier', 'missing_value', 'normalization', 'punctuation', 'whitespace', 'model'] | vec=[6, 6, 4, 1, 2, 1] | utility=0.15
+2025-10-11 21:29:50,364 - INFO - [GridSearch] 🎯 Achieved at iter=2, utility=0.15
+2025-10-11 21:29:50,364 - INFO - [GridSearch] Start (random). Target utility = 0.15
+2025-10-11 21:29:50,436 - DEBUG - [GridSearch] iter=1 | order=['stopword', 'normalization', 'model'] | vec=[2, 4, 1] | utility=0.17
+2025-10-11 21:29:50,445 - DEBUG - [GridSearch] iter=2 | order=['missing_value', 'punctuation', 'model'] | vec=[6, 1, 1] | utility=0.16
+2025-10-11 21:29:50,523 - DEBUG - [GridSearch] iter=3 | order=['missing_value', 'normalization', 'model'] | vec=[5, 1, 1] | utility=0.16
+2025-10-11 21:29:50,543 - DEBUG - [GridSearch] iter=4 | order=['deduplication', 'model'] | vec=[1, 1] | utility=0.16
+2025-10-11 21:29:50,557 - DEBUG - [GridSearch] iter=5 | order=['whitespace', 'missing_value', 'deduplication', 'model'] | vec=[1, 7, 1, 1] | utility=0.16
+2025-10-11 21:29:50,568 - DEBUG - [GridSearch] iter=6 | order=['model'] | vec=[1] | utility=0.16
+2025-10-11 21:29:50,592 - DEBUG - [GridSearch] iter=7 | order=['deduplication', 'missing_value', 'stopword', 'punctuation', 'model'] | vec=[1, 4, 1, 2, 1] | utility=0.16
+2025-10-11 21:29:50,704 - DEBUG - [GridSearch] iter=8 | order=['whitespace', 'punctuation', 'deduplication', 'outlier', 'model'] | vec=[2, 1, 1, 1, 1] | utility=0.16
+2025-10-11 21:29:50,926 - DEBUG - [GridSearch] iter=9 | order=['punctuation', 'normalization', 'outlier', 'deduplication', 'model'] | vec=[2, 1, 3, 1, 1] | utility=0.16
+2025-10-11 21:29:50,936 - DEBUG - [GridSearch] iter=10 | order=['whitespace', 'model'] | vec=[1, 1] | utility=0.16
+2025-10-11 21:29:51,124 - DEBUG - [GridSearch] iter=11 | order=['whitespace', 'normalization', 'deduplication', 'stopword', 'missing_value', 'outlier', 'punctuation', 'model'] | vec=[1, 5, 1, 2, 6, 5, 2, 1] | utility=0.15
+2025-10-11 21:29:51,124 - INFO - [GridSearch] 🎯 Achieved at iter=11, utility=0.15
+2025-10-11 21:29:51,124 - INFO - [GridSearch] Start (random). Target utility = 0.15
+2025-10-11 21:29:51,133 - DEBUG - [GridSearch] iter=1 | order=['deduplication', 'whitespace', 'model'] | vec=[1, 1, 1] | utility=0.16
+2025-10-11 21:29:51,140 - DEBUG - [GridSearch] iter=2 | order=['model'] | vec=[1] | utility=0.16
+2025-10-11 21:29:51,221 - DEBUG - [GridSearch] iter=3 | order=['whitespace', 'stopword', 'outlier', 'missing_value', 'deduplication', 'punctuation', 'model'] | vec=[2, 2, 3, 6, 1, 1, 1] | utility=0.16
+2025-10-11 21:29:51,293 - DEBUG - [GridSearch] iter=4 | order=['normalization', 'whitespace', 'missing_value', 'model'] | vec=[2, 2, 6, 1] | utility=0.16
+2025-10-11 21:29:51,436 - DEBUG - [GridSearch] iter=5 | order=['missing_value', 'deduplication', 'outlier', 'normalization', 'whitespace', 'punctuation', 'model'] | vec=[2, 1, 3, 5, 1, 1, 1] | utility=0.18
+2025-10-11 21:29:51,576 - DEBUG - [GridSearch] iter=6 | order=['normalization', 'outlier', 'model'] | vec=[5, 7, 1] | utility=0.15
+2025-10-11 21:29:51,576 - INFO - [GridSearch] 🎯 Achieved at iter=6, utility=0.15
+2025-10-11 21:29:51,576 - INFO - [GridSearch] Start (random). Target utility = 0.15
+2025-10-11 21:29:51,650 - DEBUG - [GridSearch] iter=1 | order=['punctuation', 'normalization', 'stopword', 'deduplication', 'model'] | vec=[2, 1, 1, 1, 1] | utility=0.16
+2025-10-11 21:29:51,657 - DEBUG - [GridSearch] iter=2 | order=['model'] | vec=[1] | utility=0.16
+2025-10-11 21:29:51,665 - DEBUG - [GridSearch] iter=3 | order=['stopword', 'model'] | vec=[2, 1] | utility=0.16
+2025-10-11 21:29:51,810 - DEBUG - [GridSearch] iter=4 | order=['normalization', 'deduplication', 'stopword', 'whitespace', 'missing_value', 'punctuation', 'outlier', 'model'] | vec=[3, 1, 2, 2, 2, 1, 7, 1] | utility=0.16
+2025-10-11 21:29:51,952 - DEBUG - [GridSearch] iter=5 | order=['stopword', 'normalization', 'outlier', 'deduplication', 'punctuation', 'model'] | vec=[1, 3, 8, 1, 1, 1] | utility=0.14
+2025-10-11 21:29:51,952 - INFO - [GridSearch] 🎯 Achieved at iter=5, utility=0.14
+2025-10-11 21:29:51,952 - INFO - [GridSearch] Start (random). Target utility = 0.15
+2025-10-11 21:29:52,095 - DEBUG - [GridSearch] iter=1 | order=['deduplication', 'normalization', 'punctuation', 'outlier', 'whitespace', 'missing_value', 'model'] | vec=[1, 5, 1, 6, 1, 1, 1] | utility=0.16
+2025-10-11 21:29:52,172 - DEBUG - [GridSearch] iter=2 | order=['punctuation', 'whitespace', 'deduplication', 'outlier', 'model'] | vec=[2, 2, 1, 6, 1] | utility=0.13
+2025-10-11 21:29:52,172 - INFO - [GridSearch] 🎯 Achieved at iter=2, utility=0.13
+2025-10-11 21:29:52,172 - INFO - [GridSearch] Start (random). Target utility = 0.15
+2025-10-11 21:29:52,179 - DEBUG - [GridSearch] iter=1 | order=['model'] | vec=[1] | utility=0.16
+2025-10-11 21:29:52,186 - DEBUG - [GridSearch] iter=2 | order=['whitespace', 'model'] | vec=[2, 1] | utility=0.16
+2025-10-11 21:29:52,330 - DEBUG - [GridSearch] iter=3 | order=['missing_value', 'whitespace', 'stopword', 'punctuation', 'normalization', 'outlier', 'deduplication', 'model'] | vec=[9, 1, 1, 2, 5, 3, 1, 1] | utility=0.18
+2025-10-11 21:29:52,401 - DEBUG - [GridSearch] iter=4 | order=['punctuation', 'normalization', 'model'] | vec=[1, 5, 1] | utility=0.17
+2025-10-11 21:29:52,477 - DEBUG - [GridSearch] iter=5 | order=['stopword', 'normalization', 'missing_value', 'whitespace', 'deduplication', 'model'] | vec=[1, 1, 5, 2, 1, 1] | utility=0.16
+2025-10-11 21:29:52,621 - DEBUG - [GridSearch] iter=6 | order=['normalization', 'punctuation', 'deduplication', 'stopword', 'missing_value', 'outlier', 'whitespace', 'model'] | vec=[1, 1, 1, 1, 7, 5, 1, 1] | utility=0.16
+2025-10-11 21:29:52,694 - DEBUG - [GridSearch] iter=7 | order=['whitespace', 'stopword', 'outlier', 'model'] | vec=[1, 2, 1, 1] | utility=0.16
+2025-10-11 21:29:52,769 - DEBUG - [GridSearch] iter=8 | order=['deduplication', 'missing_value', 'outlier', 'whitespace', 'model'] | vec=[1, 2, 1, 1, 1] | utility=0.16
+2025-10-11 21:29:52,913 - DEBUG - [GridSearch] iter=9 | order=['stopword', 'normalization', 'deduplication', 'missing_value', 'outlier', 'punctuation', 'model'] | vec=[1, 5, 1, 9, 3, 1, 1] | utility=0.18
+2025-10-11 21:29:53,054 - DEBUG - [GridSearch] iter=10 | order=['outlier', 'deduplication', 'punctuation', 'missing_value', 'normalization', 'whitespace', 'stopword', 'model'] | vec=[5, 1, 2, 9, 1, 2, 1, 1] | utility=0.16
+2025-10-11 21:29:53,197 - DEBUG - [GridSearch] iter=11 | order=['outlier', 'whitespace', 'missing_value', 'normalization', 'stopword', 'model'] | vec=[6, 1, 9, 1, 1, 1] | utility=0.13
+2025-10-11 21:29:53,197 - INFO - [GridSearch] 🎯 Achieved at iter=11, utility=0.13
+2025-10-11 21:29:53,197 - INFO - [GridSearch] Start (random). Target utility = 0.15
+2025-10-11 21:29:53,338 - DEBUG - [GridSearch] iter=1 | order=['punctuation', 'missing_value', 'deduplication', 'normalization', 'whitespace', 'outlier', 'model'] | vec=[1, 3, 1, 1, 1, 1, 1] | utility=0.16
+2025-10-11 21:29:53,483 - DEBUG - [GridSearch] iter=2 | order=['punctuation', 'stopword', 'normalization', 'outlier', 'whitespace', 'model'] | vec=[1, 1, 1, 3, 1, 1] | utility=0.16
+2025-10-11 21:29:53,562 - DEBUG - [GridSearch] iter=3 | order=['stopword', 'deduplication', 'outlier', 'missing_value', 'model'] | vec=[1, 1, 6, 3, 1] | utility=0.13
+2025-10-11 21:29:53,562 - INFO - [GridSearch] 🎯 Achieved at iter=3, utility=0.13
+2025-10-11 21:29:53,562 - INFO - [GridSearch] Start (random). Target utility = 0.15
+2025-10-11 21:29:53,569 - DEBUG - [GridSearch] iter=1 | order=['model'] | vec=[1] | utility=0.16
+2025-10-11 21:29:53,648 - DEBUG - [GridSearch] iter=2 | order=['stopword', 'missing_value', 'outlier', 'deduplication', 'whitespace', 'punctuation', 'model'] | vec=[2, 3, 4, 1, 2, 2, 1] | utility=0.14
+2025-10-11 21:29:53,648 - INFO - [GridSearch] 🎯 Achieved at iter=2, utility=0.14
+2025-10-11 21:29:53,648 - INFO - [GridSearch] Start (random). Target utility = 0.15
+2025-10-11 21:29:53,762 - DEBUG - [GridSearch] iter=1 | order=['stopword', 'outlier', 'deduplication', 'punctuation', 'whitespace', 'missing_value', 'model'] | vec=[1, 2, 1, 1, 2, 8, 1] | utility=0.16
+2025-10-11 21:29:53,772 - DEBUG - [GridSearch] iter=2 | order=['deduplication', 'stopword', 'missing_value', 'model'] | vec=[1, 1, 1, 1] | utility=0.16
+2025-10-11 21:29:53,912 - DEBUG - [GridSearch] iter=3 | order=['outlier', 'stopword', 'normalization', 'missing_value', 'model'] | vec=[8, 1, 3, 9, 1] | utility=0.16
+2025-10-11 21:29:53,921 - DEBUG - [GridSearch] iter=4 | order=['deduplication', 'missing_value', 'model'] | vec=[1, 5, 1] | utility=0.16
+2025-10-11 21:29:54,094 - DEBUG - [GridSearch] iter=5 | order=['normalization', 'missing_value', 'outlier', 'model'] | vec=[4, 9, 2, 1] | utility=0.17
+2025-10-11 21:29:54,239 - DEBUG - [GridSearch] iter=6 | order=['normalization', 'deduplication', 'outlier', 'punctuation', 'whitespace', 'missing_value', 'stopword', 'model'] | vec=[4, 1, 6, 2, 1, 1, 2, 1] | utility=0.17
+2025-10-11 21:29:54,381 - DEBUG - [GridSearch] iter=7 | order=['whitespace', 'outlier', 'stopword', 'deduplication', 'normalization', 'punctuation', 'missing_value', 'model'] | vec=[1, 5, 1, 1, 3, 1, 8, 1] | utility=0.16
+2025-10-11 21:29:54,389 - DEBUG - [GridSearch] iter=8 | order=['stopword', 'model'] | vec=[1, 1] | utility=0.16
+2025-10-11 21:29:54,564 - DEBUG - [GridSearch] iter=9 | order=['punctuation', 'whitespace', 'normalization', 'missing_value', 'outlier', 'model'] | vec=[2, 2, 2, 4, 2, 1] | utility=0.16
+2025-10-11 21:29:54,707 - DEBUG - [GridSearch] iter=10 | order=['stopword', 'missing_value', 'deduplication', 'whitespace', 'normalization', 'outlier', 'punctuation', 'model'] | vec=[1, 2, 1, 2, 5, 5, 1, 1] | utility=0.15
+2025-10-11 21:29:54,707 - INFO - [GridSearch] 🎯 Achieved at iter=10, utility=0.15
+2025-10-11 21:29:54,707 - INFO - [GridSearch] Start (random). Target utility = 0.15
+2025-10-11 21:29:54,847 - DEBUG - [GridSearch] iter=1 | order=['missing_value', 'whitespace', 'normalization', 'outlier', 'punctuation', 'stopword', 'deduplication', 'model'] | vec=[5, 2, 5, 1, 1, 2, 1, 1] | utility=0.17
+2025-10-11 21:29:54,922 - DEBUG - [GridSearch] iter=2 | order=['missing_value', 'punctuation', 'normalization', 'whitespace', 'deduplication', 'model'] | vec=[4, 2, 4, 2, 1, 1] | utility=0.17
+2025-10-11 21:29:54,997 - DEBUG - [GridSearch] iter=3 | order=['punctuation', 'normalization', 'deduplication', 'whitespace', 'stopword', 'model'] | vec=[2, 5, 1, 2, 1, 1] | utility=0.17
+2025-10-11 21:29:55,004 - DEBUG - [GridSearch] iter=4 | order=['model'] | vec=[1] | utility=0.16
+2025-10-11 21:29:55,143 - DEBUG - [GridSearch] iter=5 | order=['stopword', 'deduplication', 'normalization', 'missing_value', 'outlier', 'model'] | vec=[2, 1, 1, 4, 1, 1] | utility=0.16
+2025-10-11 21:29:55,285 - DEBUG - [GridSearch] iter=6 | order=['outlier', 'missing_value', 'stopword', 'deduplication', 'normalization', 'punctuation', 'whitespace', 'model'] | vec=[3, 1, 2, 1, 2, 2, 1, 1] | utility=0.16
+2025-10-11 21:29:55,464 - DEBUG - [GridSearch] iter=7 | order=['deduplication', 'punctuation', 'normalization', 'stopword', 'missing_value', 'whitespace', 'outlier', 'model'] | vec=[1, 1, 1, 2, 2, 1, 2, 1] | utility=0.16
+2025-10-11 21:29:55,606 - DEBUG - [GridSearch] iter=8 | order=['stopword', 'punctuation', 'normalization', 'missing_value', 'outlier', 'deduplication', 'whitespace', 'model'] | vec=[1, 1, 5, 8, 4, 1, 2, 1] | utility=0.16
+2025-10-11 21:29:55,680 - DEBUG - [GridSearch] iter=9 | order=['normalization', 'punctuation', 'stopword', 'missing_value', 'model'] | vec=[5, 1, 2, 1, 1] | utility=0.17
+2025-10-11 21:29:55,751 - DEBUG - [GridSearch] iter=10 | order=['normalization', 'model'] | vec=[4, 1] | utility=0.17
+2025-10-11 21:29:55,823 - DEBUG - [GridSearch] iter=11 | order=['normalization', 'missing_value', 'deduplication', 'model'] | vec=[2, 7, 1, 1] | utility=0.16
+2025-10-11 21:29:55,897 - DEBUG - [GridSearch] iter=12 | order=['deduplication', 'punctuation', 'missing_value', 'whitespace', 'normalization', 'model'] | vec=[1, 2, 8, 2, 2, 1] | utility=0.16
+2025-10-11 21:29:56,040 - DEBUG - [GridSearch] iter=13 | order=['normalization', 'missing_value', 'whitespace', 'punctuation', 'outlier', 'deduplication', 'stopword', 'model'] | vec=[2, 4, 2, 1, 5, 1, 2, 1] | utility=0.14
+2025-10-11 21:29:56,040 - INFO - [GridSearch] 🎯 Achieved at iter=13, utility=0.14
+2025-10-11 21:29:56,040 - INFO - [GridSearch] Start (random). Target utility = 0.15
+2025-10-11 21:29:56,184 - DEBUG - [GridSearch] iter=1 | order=['stopword', 'deduplication', 'normalization', 'missing_value', 'outlier', 'whitespace', 'punctuation', 'model'] | vec=[1, 1, 3, 9, 7, 2, 1, 1] | utility=0.16
+2025-10-11 21:29:56,328 - DEBUG - [GridSearch] iter=2 | order=['deduplication', 'normalization', 'whitespace', 'stopword', 'outlier', 'punctuation', 'missing_value', 'model'] | vec=[1, 3, 2, 2, 8, 2, 7, 1] | utility=0.14
+2025-10-11 21:29:56,328 - INFO - [GridSearch] 🎯 Achieved at iter=2, utility=0.14
+2025-10-11 21:29:56,328 - INFO - [GridSearch] Start (random). Target utility = 0.17
+2025-10-11 21:29:56,400 - DEBUG - [GridSearch] iter=1 | order=['punctuation', 'normalization', 'model'] | vec=[1, 2, 1] | utility=0.16
+2025-10-11 21:29:56,400 - INFO - [GridSearch] 🎯 Achieved at iter=1, utility=0.16
+2025-10-11 21:29:56,400 - INFO - [GridSearch] Start (random). Target utility = 0.17
+2025-10-11 21:29:56,407 - DEBUG - [GridSearch] iter=1 | order=['model'] | vec=[1] | utility=0.16
+2025-10-11 21:29:56,407 - INFO - [GridSearch] 🎯 Achieved at iter=1, utility=0.16
+2025-10-11 21:29:56,407 - INFO - [GridSearch] Start (random). Target utility = 0.17
+2025-10-11 21:29:56,414 - DEBUG - [GridSearch] iter=1 | order=['model'] | vec=[1] | utility=0.16
+2025-10-11 21:29:56,414 - INFO - [GridSearch] 🎯 Achieved at iter=1, utility=0.16
+2025-10-11 21:29:56,414 - INFO - [GridSearch] Start (random). Target utility = 0.17
+2025-10-11 21:29:56,558 - DEBUG - [GridSearch] iter=1 | order=['punctuation', 'normalization', 'stopword', 'outlier', 'missing_value', 'deduplication', 'whitespace', 'model'] | vec=[2, 4, 1, 4, 8, 1, 2, 1] | utility=0.16
+2025-10-11 21:29:56,558 - INFO - [GridSearch] 🎯 Achieved at iter=1, utility=0.16
+2025-10-11 21:29:56,558 - INFO - [GridSearch] Start (random). Target utility = 0.17
+2025-10-11 21:29:56,634 - DEBUG - [GridSearch] iter=1 | order=['stopword', 'outlier', 'whitespace', 'model'] | vec=[2, 7, 2, 1] | utility=0.15
+2025-10-11 21:29:56,634 - INFO - [GridSearch] 🎯 Achieved at iter=1, utility=0.15
+2025-10-11 21:29:56,634 - INFO - [GridSearch] Start (random). Target utility = 0.17
+2025-10-11 21:29:56,642 - DEBUG - [GridSearch] iter=1 | order=['punctuation', 'model'] | vec=[1, 1] | utility=0.16
+2025-10-11 21:29:56,642 - INFO - [GridSearch] 🎯 Achieved at iter=1, utility=0.16
+2025-10-11 21:29:56,642 - INFO - [GridSearch] Start (random). Target utility = 0.17
+2025-10-11 21:29:56,717 - DEBUG - [GridSearch] iter=1 | order=['punctuation', 'deduplication', 'whitespace', 'outlier', 'stopword', 'model'] | vec=[1, 1, 1, 1, 1, 1] | utility=0.16
+2025-10-11 21:29:56,717 - INFO - [GridSearch] 🎯 Achieved at iter=1, utility=0.16
+2025-10-11 21:29:56,718 - INFO - [GridSearch] Start (random). Target utility = 0.17
+2025-10-11 21:29:56,724 - DEBUG - [GridSearch] iter=1 | order=['model'] | vec=[1] | utility=0.16
+2025-10-11 21:29:56,724 - INFO - [GridSearch] 🎯 Achieved at iter=1, utility=0.16
+2025-10-11 21:29:56,724 - INFO - [GridSearch] Start (random). Target utility = 0.17
+2025-10-11 21:29:56,868 - DEBUG - [GridSearch] iter=1 | order=['missing_value', 'whitespace', 'normalization', 'stopword', 'outlier', 'punctuation', 'deduplication', 'model'] | vec=[5, 2, 2, 2, 5, 1, 1, 1] | utility=0.14
+2025-10-11 21:29:56,868 - INFO - [GridSearch] 🎯 Achieved at iter=1, utility=0.14
+2025-10-11 21:29:56,868 - INFO - [GridSearch] Start (random). Target utility = 0.17
+2025-10-11 21:29:56,877 - DEBUG - [GridSearch] iter=1 | order=['whitespace', 'missing_value', 'model'] | vec=[2, 9, 1] | utility=0.16
+2025-10-11 21:29:56,877 - INFO - [GridSearch] 🎯 Achieved at iter=1, utility=0.16
+2025-10-11 21:29:56,877 - INFO - [GridSearch] Start (random). Target utility = 0.17
+2025-10-11 21:29:57,021 - DEBUG - [GridSearch] iter=1 | order=['stopword', 'whitespace', 'normalization', 'outlier', 'missing_value', 'deduplication', 'punctuation', 'model'] | vec=[2, 2, 3, 6, 6, 1, 1, 1] | utility=0.16
+2025-10-11 21:29:57,021 - INFO - [GridSearch] 🎯 Achieved at iter=1, utility=0.16
+2025-10-11 21:29:57,021 - INFO - [GridSearch] Start (random). Target utility = 0.17
+2025-10-11 21:29:57,028 - DEBUG - [GridSearch] iter=1 | order=['model'] | vec=[1] | utility=0.16
+2025-10-11 21:29:57,028 - INFO - [GridSearch] 🎯 Achieved at iter=1, utility=0.16
+2025-10-11 21:29:57,028 - INFO - [GridSearch] Start (random). Target utility = 0.17
+2025-10-11 21:29:57,035 - DEBUG - [GridSearch] iter=1 | order=['model'] | vec=[1] | utility=0.16
+2025-10-11 21:29:57,035 - INFO - [GridSearch] 🎯 Achieved at iter=1, utility=0.16
+2025-10-11 21:29:57,035 - INFO - [GridSearch] Start (random). Target utility = 0.17
+2025-10-11 21:29:57,043 - DEBUG - [GridSearch] iter=1 | order=['deduplication', 'model'] | vec=[1, 1] | utility=0.16
+2025-10-11 21:29:57,043 - INFO - [GridSearch] 🎯 Achieved at iter=1, utility=0.16
+2025-10-11 21:29:57,043 - INFO - [GridSearch] Start (random). Target utility = 0.17
+2025-10-11 21:29:57,050 - DEBUG - [GridSearch] iter=1 | order=['model'] | vec=[1] | utility=0.16
+2025-10-11 21:29:57,050 - INFO - [GridSearch] 🎯 Achieved at iter=1, utility=0.16
+2025-10-11 21:29:57,050 - INFO - [GridSearch] Start (random). Target utility = 0.17
+2025-10-11 21:29:57,191 - DEBUG - [GridSearch] iter=1 | order=['outlier', 'normalization', 'stopword', 'missing_value', 'whitespace', 'model'] | vec=[7, 2, 2, 2, 1, 1] | utility=0.15
+2025-10-11 21:29:57,191 - INFO - [GridSearch] 🎯 Achieved at iter=1, utility=0.15
+2025-10-11 21:29:57,191 - INFO - [GridSearch] Start (random). Target utility = 0.17
+2025-10-11 21:29:57,332 - DEBUG - [GridSearch] iter=1 | order=['normalization', 'punctuation', 'outlier', 'model'] | vec=[1, 2, 8, 1] | utility=0.16
+2025-10-11 21:29:57,332 - INFO - [GridSearch] 🎯 Achieved at iter=1, utility=0.16
+2025-10-11 21:29:57,333 - INFO - [GridSearch] Start (random). Target utility = 0.17
+2025-10-11 21:29:57,411 - DEBUG - [GridSearch] iter=1 | order=['whitespace', 'outlier', 'stopword', 'missing_value', 'model'] | vec=[1, 8, 1, 8, 1] | utility=0.16
+2025-10-11 21:29:57,411 - INFO - [GridSearch] 🎯 Achieved at iter=1, utility=0.16
+2025-10-11 21:29:57,411 - INFO - [GridSearch] Start (random). Target utility = 0.17
+2025-10-11 21:29:57,553 - DEBUG - [GridSearch] iter=1 | order=['deduplication', 'normalization', 'punctuation', 'outlier', 'missing_value', 'model'] | vec=[1, 5, 1, 3, 6, 1] | utility=0.18
+2025-10-11 21:29:57,560 - DEBUG - [GridSearch] iter=2 | order=['model'] | vec=[1] | utility=0.16
+2025-10-11 21:29:57,560 - INFO - [GridSearch] 🎯 Achieved at iter=2, utility=0.16
+2025-10-11 21:29:57,560 - INFO - [GridSearch] Start (random). Target utility = 0.17
+2025-10-11 21:29:57,636 - DEBUG - [GridSearch] iter=1 | order=['outlier', 'punctuation', 'whitespace', 'model'] | vec=[7, 1, 1, 1] | utility=0.15
+2025-10-11 21:29:57,636 - INFO - [GridSearch] 🎯 Achieved at iter=1, utility=0.15
+2025-10-11 21:29:57,636 - INFO - [GridSearch] Start (random). Target utility = 0.17
+2025-10-11 21:29:57,710 - DEBUG - [GridSearch] iter=1 | order=['outlier', 'model'] | vec=[7, 1] | utility=0.15
+2025-10-11 21:29:57,710 - INFO - [GridSearch] 🎯 Achieved at iter=1, utility=0.15
+2025-10-11 21:29:57,710 - INFO - [GridSearch] Start (random). Target utility = 0.17
+2025-10-11 21:29:57,822 - DEBUG - [GridSearch] iter=1 | order=['deduplication', 'punctuation', 'whitespace', 'outlier', 'stopword', 'model'] | vec=[1, 2, 1, 2, 1, 1] | utility=0.16
+2025-10-11 21:29:57,822 - INFO - [GridSearch] 🎯 Achieved at iter=1, utility=0.16
+2025-10-11 21:29:57,822 - INFO - [GridSearch] Start (random). Target utility = 0.17
+2025-10-11 21:29:57,832 - DEBUG - [GridSearch] iter=1 | order=['stopword', 'deduplication', 'missing_value', 'model'] | vec=[2, 1, 1, 1] | utility=0.16
+2025-10-11 21:29:57,832 - INFO - [GridSearch] 🎯 Achieved at iter=1, utility=0.16
+2025-10-11 21:29:57,832 - INFO - [GridSearch] Start (random). Target utility = 0.17
+2025-10-11 21:29:57,841 - DEBUG - [GridSearch] iter=1 | order=['punctuation', 'whitespace', 'model'] | vec=[1, 2, 1] | utility=0.16
+2025-10-11 21:29:57,841 - INFO - [GridSearch] 🎯 Achieved at iter=1, utility=0.16
+2025-10-11 21:29:57,841 - INFO - [GridSearch] Start (random). Target utility = 0.17
+2025-10-11 21:29:57,851 - DEBUG - [GridSearch] iter=1 | order=['punctuation', 'stopword', 'deduplication', 'model'] | vec=[2, 1, 1, 1] | utility=0.16
+2025-10-11 21:29:57,851 - INFO - [GridSearch] 🎯 Achieved at iter=1, utility=0.16
+2025-10-11 21:29:57,851 - INFO - [GridSearch] Start (random). Target utility = 0.17
+2025-10-11 21:29:58,012 - DEBUG - [GridSearch] iter=1 | order=['outlier', 'normalization', 'missing_value', 'punctuation', 'deduplication', 'whitespace', 'model'] | vec=[1, 5, 6, 1, 1, 1, 1] | utility=0.17
+2025-10-11 21:29:58,023 - DEBUG - [GridSearch] iter=2 | order=['model'] | vec=[1] | utility=0.16
+2025-10-11 21:29:58,023 - INFO - [GridSearch] 🎯 Achieved at iter=2, utility=0.16
+2025-10-11 21:29:58,023 - INFO - [GridSearch] Start (random). Target utility = 0.17
+2025-10-11 21:29:58,252 - DEBUG - [GridSearch] iter=1 | order=['normalization', 'deduplication', 'outlier', 'punctuation', 'stopword', 'whitespace', 'model'] | vec=[3, 1, 5, 2, 1, 1, 1] | utility=0.14
+2025-10-11 21:29:58,252 - INFO - [GridSearch] 🎯 Achieved at iter=1, utility=0.14
+2025-10-11 21:29:58,252 - INFO - [GridSearch] Start (random). Target utility = 0.17
+2025-10-11 21:29:58,416 - DEBUG - [GridSearch] iter=1 | order=['whitespace', 'outlier', 'missing_value', 'normalization', 'stopword', 'model'] | vec=[1, 3, 8, 4, 2, 1] | utility=0.18
+2025-10-11 21:29:58,488 - DEBUG - [GridSearch] iter=2 | order=['stopword', 'normalization', 'model'] | vec=[1, 2, 1] | utility=0.16
+2025-10-11 21:29:58,488 - INFO - [GridSearch] 🎯 Achieved at iter=2, utility=0.16
+2025-10-11 21:29:58,488 - INFO - [GridSearch] Start (random). Target utility = 0.17
+2025-10-11 21:29:58,631 - DEBUG - [GridSearch] iter=1 | order=['outlier', 'stopword', 'deduplication', 'missing_value', 'whitespace', 'normalization', 'punctuation', 'model'] | vec=[3, 1, 1, 8, 1, 4, 1, 1] | utility=0.18
+2025-10-11 21:29:58,742 - DEBUG - [GridSearch] iter=2 | order=['outlier', 'whitespace', 'punctuation', 'model'] | vec=[2, 1, 2, 1] | utility=0.16
+2025-10-11 21:29:58,742 - INFO - [GridSearch] 🎯 Achieved at iter=2, utility=0.16
+2025-10-11 21:29:58,742 - INFO - [GridSearch] Start (random). Target utility = 0.17
+2025-10-11 21:29:58,893 - DEBUG - [GridSearch] iter=1 | order=['outlier', 'missing_value', 'normalization', 'whitespace', 'model'] | vec=[3, 7, 5, 1, 1] | utility=0.18
+2025-10-11 21:29:59,042 - DEBUG - [GridSearch] iter=2 | order=['outlier', 'model'] | vec=[7, 1] | utility=0.15
+2025-10-11 21:29:59,042 - INFO - [GridSearch] 🎯 Achieved at iter=2, utility=0.15
+2025-10-11 21:29:59,042 - INFO - [GridSearch] Start (random). Target utility = 0.17
+2025-10-11 21:29:59,217 - DEBUG - [GridSearch] iter=1 | order=['outlier', 'stopword', 'model'] | vec=[2, 1, 1] | utility=0.16
+2025-10-11 21:29:59,217 - INFO - [GridSearch] 🎯 Achieved at iter=1, utility=0.16
+2025-10-11 21:29:59,217 - INFO - [GridSearch] Start (random). Target utility = 0.17
+2025-10-11 21:29:59,326 - DEBUG - [GridSearch] iter=1 | order=['outlier', 'model'] | vec=[2, 1] | utility=0.16
+2025-10-11 21:29:59,326 - INFO - [GridSearch] 🎯 Achieved at iter=1, utility=0.16
+2025-10-11 21:29:59,326 - INFO - [GridSearch] Start (random). Target utility = 0.17
+2025-10-11 21:29:59,402 - DEBUG - [GridSearch] iter=1 | order=['outlier', 'model'] | vec=[6, 1] | utility=0.13
+2025-10-11 21:29:59,402 - INFO - [GridSearch] 🎯 Achieved at iter=1, utility=0.13
+2025-10-11 21:29:59,402 - INFO - [GridSearch] Start (random). Target utility = 0.17
+2025-10-11 21:29:59,478 - DEBUG - [GridSearch] iter=1 | order=['outlier', 'deduplication', 'missing_value', 'model'] | vec=[4, 1, 1, 1] | utility=0.14
+2025-10-11 21:29:59,478 - INFO - [GridSearch] 🎯 Achieved at iter=1, utility=0.14
+2025-10-11 21:29:59,478 - INFO - [GridSearch] Start (random). Target utility = 0.17
+2025-10-11 21:29:59,489 - DEBUG - [GridSearch] iter=1 | order=['stopword', 'deduplication', 'missing_value', 'whitespace', 'model'] | vec=[1, 1, 8, 1, 1] | utility=0.16
+2025-10-11 21:29:59,489 - INFO - [GridSearch] 🎯 Achieved at iter=1, utility=0.16
+2025-10-11 21:29:59,489 - INFO - [GridSearch] Start (random). Target utility = 0.17
+2025-10-11 21:29:59,496 - DEBUG - [GridSearch] iter=1 | order=['model'] | vec=[1] | utility=0.16
+2025-10-11 21:29:59,496 - INFO - [GridSearch] 🎯 Achieved at iter=1, utility=0.16
+2025-10-11 21:29:59,496 - INFO - [GridSearch] Start (random). Target utility = 0.17
+2025-10-11 21:29:59,572 - DEBUG - [GridSearch] iter=1 | order=['stopword', 'punctuation', 'missing_value', 'normalization', 'whitespace', 'model'] | vec=[1, 1, 4, 4, 2, 1] | utility=0.17
+2025-10-11 21:29:59,714 - DEBUG - [GridSearch] iter=2 | order=['punctuation', 'stopword', 'missing_value', 'normalization', 'whitespace', 'outlier', 'deduplication', 'model'] | vec=[1, 1, 1, 5, 1, 1, 1, 1] | utility=0.17
+2025-10-11 21:29:59,722 - DEBUG - [GridSearch] iter=3 | order=['stopword', 'model'] | vec=[1, 1] | utility=0.16
+2025-10-11 21:29:59,722 - INFO - [GridSearch] 🎯 Achieved at iter=3, utility=0.16
+2025-10-11 21:29:59,722 - INFO - [GridSearch] Start (random). Target utility = 0.17
+2025-10-11 21:29:59,813 - DEBUG - [GridSearch] iter=1 | order=['deduplication', 'missing_value', 'whitespace', 'normalization', 'model'] | vec=[1, 4, 2, 4, 1] | utility=0.17
+2025-10-11 21:29:59,975 - DEBUG - [GridSearch] iter=2 | order=['deduplication', 'punctuation', 'stopword', 'outlier', 'whitespace', 'missing_value', 'model'] | vec=[1, 2, 1, 6, 2, 9, 1] | utility=0.13
+2025-10-11 21:29:59,975 - INFO - [GridSearch] 🎯 Achieved at iter=2, utility=0.13
+2025-10-11 21:29:59,975 - INFO - [GridSearch] Start (random). Target utility = 0.17
+2025-10-11 21:29:59,993 - DEBUG - [GridSearch] iter=1 | order=['punctuation', 'whitespace', 'missing_value', 'stopword', 'model'] | vec=[1, 2, 2, 1, 1] | utility=0.16
+2025-10-11 21:29:59,993 - INFO - [GridSearch] 🎯 Achieved at iter=1, utility=0.16
+2025-10-11 21:29:59,993 - INFO - [GridSearch] Start (random). Target utility = 0.17
+2025-10-11 21:30:00,111 - DEBUG - [GridSearch] iter=1 | order=['punctuation', 'normalization', 'model'] | vec=[2, 4, 1] | utility=0.17
+2025-10-11 21:30:00,189 - DEBUG - [GridSearch] iter=2 | order=['deduplication', 'whitespace', 'missing_value', 'stopword', 'outlier', 'model'] | vec=[1, 1, 4, 1, 5, 1] | utility=0.16
+2025-10-11 21:30:00,189 - INFO - [GridSearch] 🎯 Achieved at iter=2, utility=0.16
+2025-10-11 21:30:00,189 - INFO - [GridSearch] Start (random). Target utility = 0.17
+2025-10-11 21:30:00,198 - DEBUG - [GridSearch] iter=1 | order=['model'] | vec=[1] | utility=0.16
+2025-10-11 21:30:00,198 - INFO - [GridSearch] 🎯 Achieved at iter=1, utility=0.16
+2025-10-11 21:30:00,198 - INFO - [GridSearch] Start (random). Target utility = 0.17
+2025-10-11 21:30:00,271 - DEBUG - [GridSearch] iter=1 | order=['normalization', 'model'] | vec=[5, 1] | utility=0.17
+2025-10-11 21:30:00,411 - DEBUG - [GridSearch] iter=2 | order=['punctuation', 'missing_value', 'outlier', 'normalization', 'whitespace', 'deduplication', 'model'] | vec=[1, 4, 4, 3, 2, 1, 1] | utility=0.15
+2025-10-11 21:30:00,411 - INFO - [GridSearch] 🎯 Achieved at iter=2, utility=0.15
+2025-10-11 21:30:00,411 - INFO - [GridSearch] Start (random). Target utility = 0.17
+2025-10-11 21:30:00,558 - DEBUG - [GridSearch] iter=1 | order=['whitespace', 'normalization', 'missing_value', 'stopword', 'outlier', 'deduplication', 'punctuation', 'model'] | vec=[2, 5, 2, 2, 8, 1, 1, 1] | utility=0.17
+2025-10-11 21:30:00,633 - DEBUG - [GridSearch] iter=2 | order=['outlier', 'model'] | vec=[3, 1] | utility=0.16
+2025-10-11 21:30:00,633 - INFO - [GridSearch] 🎯 Achieved at iter=2, utility=0.16
+2025-10-11 21:30:00,633 - INFO - [GridSearch] Start (random). Target utility = 0.17
+2025-10-11 21:30:00,641 - DEBUG - [GridSearch] iter=1 | order=['punctuation', 'model'] | vec=[1, 1] | utility=0.16
+2025-10-11 21:30:00,641 - INFO - [GridSearch] 🎯 Achieved at iter=1, utility=0.16
+2025-10-11 21:30:00,641 - INFO - [GridSearch] Start (random). Target utility = 0.17
+2025-10-11 21:30:00,651 - DEBUG - [GridSearch] iter=1 | order=['deduplication', 'missing_value', 'punctuation', 'model'] | vec=[1, 8, 1, 1] | utility=0.16
+2025-10-11 21:30:00,651 - INFO - [GridSearch] 🎯 Achieved at iter=1, utility=0.16
+2025-10-11 21:30:00,652 - INFO - [GridSearch] Start (random). Target utility = 175.00
+2025-10-11 21:30:00,675 - DEBUG - [GridSearch] iter=1 | order=['missing_value', 'deduplication', 'model'] | vec=[2, 1, 1] | utility=0.16
+2025-10-11 21:30:00,675 - INFO - [GridSearch] 🎯 Achieved at iter=1, utility=0.16
+2025-10-11 21:30:00,675 - INFO - [GridSearch] Start (random). Target utility = 175.00
+2025-10-11 21:30:00,733 - DEBUG - [GridSearch] iter=1 | order=['model'] | vec=[1] | utility=0.16
+2025-10-11 21:30:00,733 - INFO - [GridSearch] 🎯 Achieved at iter=1, utility=0.16
+2025-10-11 21:30:00,733 - INFO - [GridSearch] Start (random). Target utility = 175.00
+2025-10-11 21:30:00,870 - DEBUG - [GridSearch] iter=1 | order=['normalization', 'deduplication', 'missing_value', 'model'] | vec=[4, 1, 9, 1] | utility=0.17
+2025-10-11 21:30:00,870 - INFO - [GridSearch] 🎯 Achieved at iter=1, utility=0.17
+2025-10-11 21:30:00,870 - INFO - [GridSearch] Start (random). Target utility = 175.00
+2025-10-11 21:30:00,887 - DEBUG - [GridSearch] iter=1 | order=['punctuation', 'model'] | vec=[2, 1] | utility=0.16
+2025-10-11 21:30:00,888 - INFO - [GridSearch] 🎯 Achieved at iter=1, utility=0.16
+2025-10-11 21:30:00,888 - INFO - [GridSearch] Start (random). Target utility = 175.00
+2025-10-11 21:30:00,995 - DEBUG - [GridSearch] iter=1 | order=['whitespace', 'normalization', 'stopword', 'punctuation', 'model'] | vec=[2, 5, 1, 1, 1] | utility=0.17
+2025-10-11 21:30:00,995 - INFO - [GridSearch] 🎯 Achieved at iter=1, utility=0.17
+2025-10-11 21:30:00,995 - INFO - [GridSearch] Start (random). Target utility = 175.00
+2025-10-11 21:30:01,008 - DEBUG - [GridSearch] iter=1 | order=['model'] | vec=[1] | utility=0.16
+2025-10-11 21:30:01,008 - INFO - [GridSearch] 🎯 Achieved at iter=1, utility=0.16
+2025-10-11 21:30:01,008 - INFO - [GridSearch] Start (random). Target utility = 175.00
+2025-10-11 21:30:01,185 - DEBUG - [GridSearch] iter=1 | order=['punctuation', 'stopword', 'whitespace', 'deduplication', 'normalization', 'outlier', 'missing_value', 'model'] | vec=[1, 1, 2, 1, 2, 5, 9, 1] | utility=0.14
+2025-10-11 21:30:01,185 - INFO - [GridSearch] 🎯 Achieved at iter=1, utility=0.14
+2025-10-11 21:30:01,185 - INFO - [GridSearch] Start (random). Target utility = 175.00
+2025-10-11 21:30:01,194 - DEBUG - [GridSearch] iter=1 | order=['whitespace', 'model'] | vec=[2, 1] | utility=0.16
+2025-10-11 21:30:01,194 - INFO - [GridSearch] 🎯 Achieved at iter=1, utility=0.16
+2025-10-11 21:30:01,194 - INFO - [GridSearch] Start (random). Target utility = 175.00
+2025-10-11 21:30:01,281 - DEBUG - [GridSearch] iter=1 | order=['outlier', 'stopword', 'punctuation', 'missing_value', 'deduplication', 'model'] | vec=[3, 1, 1, 9, 1, 1] | utility=0.16
+2025-10-11 21:30:01,281 - INFO - [GridSearch] 🎯 Achieved at iter=1, utility=0.16
+2025-10-11 21:30:01,281 - INFO - [GridSearch] Start (random). Target utility = 175.00
+2025-10-11 21:30:01,357 - DEBUG - [GridSearch] iter=1 | order=['outlier', 'deduplication', 'missing_value', 'model'] | vec=[5, 1, 3, 1] | utility=0.16
+2025-10-11 21:30:01,357 - INFO - [GridSearch] 🎯 Achieved at iter=1, utility=0.16
+2025-10-11 21:30:01,357 - INFO - [GridSearch] Start (random). Target utility = 175.00
+2025-10-11 21:30:01,433 - DEBUG - [GridSearch] iter=1 | order=['missing_value', 'whitespace', 'punctuation', 'deduplication', 'normalization', 'model'] | vec=[1, 2, 1, 1, 4, 1] | utility=0.17
+2025-10-11 21:30:01,433 - INFO - [GridSearch] 🎯 Achieved at iter=1, utility=0.17
+2025-10-11 21:30:01,433 - INFO - [GridSearch] Start (random). Target utility = 175.00
+2025-10-11 21:30:01,543 - DEBUG - [GridSearch] iter=1 | order=['outlier', 'whitespace', 'model'] | vec=[2, 1, 1] | utility=0.16
+2025-10-11 21:30:01,543 - INFO - [GridSearch] 🎯 Achieved at iter=1, utility=0.16
+2025-10-11 21:30:01,543 - INFO - [GridSearch] Start (random). Target utility = 175.00
+2025-10-11 21:30:01,729 - DEBUG - [GridSearch] iter=1 | order=['whitespace', 'missing_value', 'normalization', 'outlier', 'stopword', 'deduplication', 'punctuation', 'model'] | vec=[2, 2, 3, 5, 2, 1, 1, 1] | utility=0.14
+2025-10-11 21:30:01,729 - INFO - [GridSearch] 🎯 Achieved at iter=1, utility=0.14
+2025-10-11 21:30:01,729 - INFO - [GridSearch] Start (random). Target utility = 175.00
+2025-10-11 21:30:01,824 - DEBUG - [GridSearch] iter=1 | order=['normalization', 'model'] | vec=[2, 1] | utility=0.16
+2025-10-11 21:30:01,824 - INFO - [GridSearch] 🎯 Achieved at iter=1, utility=0.16
+2025-10-11 21:30:01,824 - INFO - [GridSearch] Start (random). Target utility = 175.00
+2025-10-11 21:30:02,028 - DEBUG - [GridSearch] iter=1 | order=['punctuation', 'stopword', 'missing_value', 'normalization', 'whitespace', 'outlier', 'model'] | vec=[2, 1, 6, 3, 1, 1, 1] | utility=0.16
+2025-10-11 21:30:02,029 - INFO - [GridSearch] 🎯 Achieved at iter=1, utility=0.16
+2025-10-11 21:30:02,029 - INFO - [GridSearch] Start (random). Target utility = 175.00
+2025-10-11 21:30:02,171 - DEBUG - [GridSearch] iter=1 | order=['normalization', 'punctuation', 'outlier', 'deduplication', 'stopword', 'model'] | vec=[4, 1, 5, 1, 2, 1] | utility=0.17
+2025-10-11 21:30:02,171 - INFO - [GridSearch] 🎯 Achieved at iter=1, utility=0.17
+2025-10-11 21:30:02,171 - INFO - [GridSearch] Start (random). Target utility = 175.00
+2025-10-11 21:30:02,179 - DEBUG - [GridSearch] iter=1 | order=['whitespace', 'model'] | vec=[2, 1] | utility=0.16
+2025-10-11 21:30:02,179 - INFO - [GridSearch] 🎯 Achieved at iter=1, utility=0.16
+2025-10-11 21:30:02,179 - INFO - [GridSearch] Start (random). Target utility = 175.00
+2025-10-11 21:30:02,321 - DEBUG - [GridSearch] iter=1 | order=['normalization', 'outlier', 'punctuation', 'deduplication', 'model'] | vec=[5, 8, 2, 1, 1] | utility=0.17
+2025-10-11 21:30:02,322 - INFO - [GridSearch] 🎯 Achieved at iter=1, utility=0.17
+2025-10-11 21:30:02,322 - INFO - [GridSearch] Start (random). Target utility = 175.00
+2025-10-11 21:30:02,330 - DEBUG - [GridSearch] iter=1 | order=['punctuation', 'model'] | vec=[2, 1] | utility=0.16
+2025-10-11 21:30:02,330 - INFO - [GridSearch] 🎯 Achieved at iter=1, utility=0.16
+2025-10-11 21:30:02,330 - INFO - [GridSearch] Start (random). Target utility = 175.00
+2025-10-11 21:30:02,341 - DEBUG - [GridSearch] iter=1 | order=['missing_value', 'whitespace', 'stopword', 'deduplication', 'model'] | vec=[8, 2, 2, 1, 1] | utility=0.16
+2025-10-11 21:30:02,341 - INFO - [GridSearch] 🎯 Achieved at iter=1, utility=0.16
+2025-10-11 21:30:02,341 - INFO - [GridSearch] Start (random). Target utility = 175.00
+2025-10-11 21:30:02,519 - DEBUG - [GridSearch] iter=1 | order=['punctuation', 'outlier', 'deduplication', 'stopword', 'whitespace', 'normalization', 'missing_value', 'model'] | vec=[1, 2, 1, 1, 1, 1, 8, 1] | utility=0.16
+2025-10-11 21:30:02,519 - INFO - [GridSearch] 🎯 Achieved at iter=1, utility=0.16
+2025-10-11 21:30:02,519 - INFO - [GridSearch] Start (random). Target utility = 175.00
+2025-10-11 21:30:02,673 - DEBUG - [GridSearch] iter=1 | order=['deduplication', 'outlier', 'whitespace', 'normalization', 'punctuation', 'model'] | vec=[1, 3, 1, 3, 2, 1] | utility=0.17
+2025-10-11 21:30:02,674 - INFO - [GridSearch] 🎯 Achieved at iter=1, utility=0.17
+2025-10-11 21:30:02,674 - INFO - [GridSearch] Start (random). Target utility = 175.00
+2025-10-11 21:30:02,786 - DEBUG - [GridSearch] iter=1 | order=['deduplication', 'whitespace', 'stopword', 'normalization', 'model'] | vec=[1, 2, 1, 1, 1] | utility=0.16
+2025-10-11 21:30:02,786 - INFO - [GridSearch] 🎯 Achieved at iter=1, utility=0.16
+2025-10-11 21:30:02,787 - INFO - [GridSearch] Start (random). Target utility = 175.00
+2025-10-11 21:30:02,920 - DEBUG - [GridSearch] iter=1 | order=['deduplication', 'normalization', 'whitespace', 'model'] | vec=[1, 5, 1, 1] | utility=0.17
+2025-10-11 21:30:02,920 - INFO - [GridSearch] 🎯 Achieved at iter=1, utility=0.17
+2025-10-11 21:30:02,920 - INFO - [GridSearch] Start (random). Target utility = 175.00
+2025-10-11 21:30:03,088 - DEBUG - [GridSearch] iter=1 | order=['outlier', 'missing_value', 'stopword', 'deduplication', 'model'] | vec=[7, 6, 2, 1, 1] | utility=0.15
+2025-10-11 21:30:03,088 - INFO - [GridSearch] 🎯 Achieved at iter=1, utility=0.15
+2025-10-11 21:30:03,088 - INFO - [GridSearch] Start (random). Target utility = 175.00
+2025-10-11 21:30:03,169 - DEBUG - [GridSearch] iter=1 | order=['deduplication', 'outlier', 'whitespace', 'punctuation', 'model'] | vec=[1, 4, 1, 2, 1] | utility=0.14
+2025-10-11 21:30:03,169 - INFO - [GridSearch] 🎯 Achieved at iter=1, utility=0.14
+2025-10-11 21:30:03,169 - INFO - [GridSearch] Start (random). Target utility = 175.00
+2025-10-11 21:30:03,176 - DEBUG - [GridSearch] iter=1 | order=['model'] | vec=[1] | utility=0.16
+2025-10-11 21:30:03,176 - INFO - [GridSearch] 🎯 Achieved at iter=1, utility=0.16
+2025-10-11 21:30:03,177 - INFO - [GridSearch] Start (random). Target utility = 175.00
+2025-10-11 21:30:03,184 - DEBUG - [GridSearch] iter=1 | order=['model'] | vec=[1] | utility=0.16
+2025-10-11 21:30:03,184 - INFO - [GridSearch] 🎯 Achieved at iter=1, utility=0.16
+2025-10-11 21:30:03,184 - INFO - [GridSearch] Start (random). Target utility = 175.00
+2025-10-11 21:30:03,258 - DEBUG - [GridSearch] iter=1 | order=['normalization', 'deduplication', 'model'] | vec=[3, 1, 1] | utility=0.16
+2025-10-11 21:30:03,258 - INFO - [GridSearch] 🎯 Achieved at iter=1, utility=0.16
+2025-10-11 21:30:03,258 - INFO - [GridSearch] Start (random). Target utility = 175.00
+2025-10-11 21:30:03,268 - DEBUG - [GridSearch] iter=1 | order=['stopword', 'missing_value', 'model'] | vec=[2, 6, 1] | utility=0.16
+2025-10-11 21:30:03,268 - INFO - [GridSearch] 🎯 Achieved at iter=1, utility=0.16
+2025-10-11 21:30:03,268 - INFO - [GridSearch] Start (random). Target utility = 175.00
+2025-10-11 21:30:03,412 - DEBUG - [GridSearch] iter=1 | order=['outlier', 'missing_value', 'stopword', 'punctuation', 'whitespace', 'normalization', 'deduplication', 'model'] | vec=[8, 5, 1, 1, 1, 1, 1, 1] | utility=0.16
+2025-10-11 21:30:03,412 - INFO - [GridSearch] 🎯 Achieved at iter=1, utility=0.16
+2025-10-11 21:30:03,412 - INFO - [GridSearch] Start (random). Target utility = 175.00
+2025-10-11 21:30:03,487 - DEBUG - [GridSearch] iter=1 | order=['whitespace', 'normalization', 'deduplication', 'model'] | vec=[1, 1, 1, 1] | utility=0.16
+2025-10-11 21:30:03,487 - INFO - [GridSearch] 🎯 Achieved at iter=1, utility=0.16
+2025-10-11 21:30:03,487 - INFO - [GridSearch] Start (random). Target utility = 175.00
+2025-10-11 21:30:03,566 - DEBUG - [GridSearch] iter=1 | order=['outlier', 'stopword', 'punctuation', 'missing_value', 'model'] | vec=[7, 1, 2, 2, 1] | utility=0.15
+2025-10-11 21:30:03,566 - INFO - [GridSearch] 🎯 Achieved at iter=1, utility=0.15
+2025-10-11 21:30:03,566 - INFO - [GridSearch] Start (random). Target utility = 175.00
+2025-10-11 21:30:03,645 - DEBUG - [GridSearch] iter=1 | order=['punctuation', 'deduplication', 'whitespace', 'outlier', 'stopword', 'missing_value', 'model'] | vec=[2, 1, 1, 5, 2, 7, 1] | utility=0.16
+2025-10-11 21:30:03,645 - INFO - [GridSearch] 🎯 Achieved at iter=1, utility=0.16
+2025-10-11 21:30:03,645 - INFO - [GridSearch] Start (random). Target utility = 175.00
+2025-10-11 21:30:03,746 - DEBUG - [GridSearch] iter=1 | order=['stopword', 'outlier', 'model'] | vec=[2, 5, 1] | utility=0.16
+2025-10-11 21:30:03,746 - INFO - [GridSearch] 🎯 Achieved at iter=1, utility=0.16
+2025-10-11 21:30:03,746 - INFO - [GridSearch] Start (random). Target utility = 175.00
+2025-10-11 21:30:03,980 - DEBUG - [GridSearch] iter=1 | order=['normalization', 'deduplication', 'punctuation', 'outlier', 'stopword', 'model'] | vec=[3, 1, 1, 5, 2, 1] | utility=0.14
+2025-10-11 21:30:03,980 - INFO - [GridSearch] 🎯 Achieved at iter=1, utility=0.14
+2025-10-11 21:30:03,980 - INFO - [GridSearch] Start (random). Target utility = 175.00
+2025-10-11 21:30:03,994 - DEBUG - [GridSearch] iter=1 | order=['stopword', 'model'] | vec=[2, 1] | utility=0.16
+2025-10-11 21:30:03,994 - INFO - [GridSearch] 🎯 Achieved at iter=1, utility=0.16
+2025-10-11 21:30:03,994 - INFO - [GridSearch] Start (random). Target utility = 175.00
+2025-10-11 21:30:04,138 - DEBUG - [GridSearch] iter=1 | order=['whitespace', 'punctuation', 'missing_value', 'stopword', 'normalization', 'outlier', 'model'] | vec=[1, 1, 7, 2, 1, 1, 1] | utility=0.16
+2025-10-11 21:30:04,138 - INFO - [GridSearch] 🎯 Achieved at iter=1, utility=0.16
+2025-10-11 21:30:04,138 - INFO - [GridSearch] Start (random). Target utility = 175.00
+2025-10-11 21:30:04,281 - DEBUG - [GridSearch] iter=1 | order=['stopword', 'punctuation', 'outlier', 'whitespace', 'deduplication', 'normalization', 'missing_value', 'model'] | vec=[1, 2, 7, 2, 1, 5, 6, 1] | utility=0.14
+2025-10-11 21:30:04,281 - INFO - [GridSearch] 🎯 Achieved at iter=1, utility=0.14
+2025-10-11 21:30:04,281 - INFO - [GridSearch] Start (random). Target utility = 175.00
+2025-10-11 21:30:04,288 - DEBUG - [GridSearch] iter=1 | order=['model'] | vec=[1] | utility=0.16
+2025-10-11 21:30:04,288 - INFO - [GridSearch] 🎯 Achieved at iter=1, utility=0.16
+2025-10-11 21:30:04,288 - INFO - [GridSearch] Start (random). Target utility = 175.00
+2025-10-11 21:30:04,431 - DEBUG - [GridSearch] iter=1 | order=['whitespace', 'stopword', 'deduplication', 'outlier', 'punctuation', 'missing_value', 'normalization', 'model'] | vec=[1, 1, 1, 7, 2, 2, 5, 1] | utility=0.14
+2025-10-11 21:30:04,432 - INFO - [GridSearch] 🎯 Achieved at iter=1, utility=0.14
+2025-10-11 21:30:04,432 - INFO - [GridSearch] Start (random). Target utility = 175.00
+2025-10-11 21:30:04,508 - DEBUG - [GridSearch] iter=1 | order=['missing_value', 'outlier', 'punctuation', 'model'] | vec=[9, 7, 1, 1] | utility=0.15
+2025-10-11 21:30:04,508 - INFO - [GridSearch] 🎯 Achieved at iter=1, utility=0.15
+2025-10-11 21:30:04,508 - INFO - [GridSearch] Start (random). Target utility = 175.00
+2025-10-11 21:30:04,586 - DEBUG - [GridSearch] iter=1 | order=['deduplication', 'outlier', 'stopword', 'punctuation', 'model'] | vec=[1, 4, 2, 1, 1] | utility=0.14
+2025-10-11 21:30:04,586 - INFO - [GridSearch] 🎯 Achieved at iter=1, utility=0.14
+2025-10-11 21:30:04,586 - INFO - [GridSearch] Start (random). Target utility = 175.00
+2025-10-11 21:30:04,682 - DEBUG - [GridSearch] iter=1 | order=['outlier', 'missing_value', 'deduplication', 'punctuation', 'model'] | vec=[3, 4, 1, 2, 1] | utility=0.16
+2025-10-11 21:30:04,682 - INFO - [GridSearch] 🎯 Achieved at iter=1, utility=0.16
+2025-10-11 21:30:04,682 - INFO - [GridSearch] Start (random). Target utility = 175.00
+2025-10-11 21:30:04,928 - DEBUG - [GridSearch] iter=1 | order=['outlier', 'whitespace', 'missing_value', 'normalization', 'punctuation', 'stopword', 'deduplication', 'model'] | vec=[5, 1, 7, 5, 2, 2, 1, 1] | utility=0.16
+2025-10-11 21:30:04,928 - INFO - [GridSearch] 🎯 Achieved at iter=1, utility=0.16

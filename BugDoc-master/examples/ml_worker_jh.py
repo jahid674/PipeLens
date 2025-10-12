@@ -5,6 +5,7 @@ Receives pipeline configurations from BugDoc, executes/evaluates them,
 and returns the result back to BugDoc.
 """
 
+
 import ast
 import os
 import sys

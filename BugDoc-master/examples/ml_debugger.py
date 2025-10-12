@@ -59,7 +59,23 @@ parameter_space = {
         '5', #'LOF_10', 
         '6', #'LOF_20', 
         '7', #'LOF_30'
-    ]
+    ],
+    'whitespace': [
+        '1', #'none',
+        '2', #'wc'
+    ],
+    'punctuation': [
+        '1', #'none',
+        '2', #'pr'
+    ],
+    'stopword': [
+        '1', #'none',
+        '2', #'sw'
+    ],
+    'unit_converter': [
+        '1', #'none',
+        '2', #'uc'
+    ],
 }
 
 # %%
@@ -69,11 +85,11 @@ parameter_space = {
 # the parameter space. The Algorithm will generate new pipeline instances and exchange messages with the *Worker*
 # script to execute and evaluate the instances. This process will be blocked if no *Worker* is running.
 
-iter=10
-dataset = 'housing'
-allrunsdata = 'historical_data_test_profile_lr_sp_adult.csv'
+iter=200
+dataset = 'adult'
+allrunsdata = 'Bugdoc_test_lr_sp_adult.csv'
 historical_data = pd.read_csv(allrunsdata)
-threshold = 0.16
+threshold = 0.06
 
 iter_dist = []
 parameters = list(parameter_space.keys())
@@ -89,6 +105,10 @@ for i in range(1,len(historical_data)):
             "missing_value": str(int(row['missing_value'])),
             "normalization": str(int(row['normalization'])),
             "outlier": str(int(row['outlier'])),
+            "whitespace": str(int(row['whitespace'])),
+            "punctuation": str(int(row['punctuation'])),
+            "stopword": str(int(row['stopword'])),
+            "unit_converter": str(int(row['unit_converter'])),
             "result": str(result)
         }
         # print(run)

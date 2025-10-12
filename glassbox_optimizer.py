@@ -3,7 +3,7 @@ import pandas as pd
 import numpy as np
 import itertools
 import operator
-
+from pipeline_component.swapping_handler import SwapHandler
 from pipeline_execution import PipelineExecutor
 from rank_method_selector import GaussianTSSelector
 #from score_lookup import ScoreLookup
@@ -167,16 +167,20 @@ class GlassBoxOptimizer:
                 cur_params = cur_params_opt.copy()
                 cur_params[original_order[idx]] = strategy
                 intervened_order = original_order.copy()
-                print('intervened order', intervened_order)
-                print('current_param',cur_params)
             else:
-                if pos > len(cur_params_opt):
-                    logging.warning(f"Skipping {component}: optimal_position {pos} out of range.")
-                    continue
-                intervened_order = original_order[:pos] + [component] + original_order[pos:]
-                cur_params_items = list(cur_params_opt.items())
-                cur_params_items = cur_params_items[:pos] + [(component, strategy)] + cur_params_items[pos:]
-                cur_params = dict(cur_params_items)
+                if component in ["swapping"]:
+                    pipeline = [m for m in original_order if m != "swapping"]
+                    handler = SwapHandler(strategy=strategy,config={"verbose": True})
+                    intervened_order, new_params= handler.apply_with_params(pipeline, [int(v) for v in cur_params.values()])
+                    cur_params = {strategy: selection for strategy, selection in zip(intervened_order, new_params)}
+                else:
+                    if pos > len(cur_params_opt):
+                        logging.warning(f"Skipping {component}: optimal_position {pos} out of range.")
+                        continue
+                    intervened_order = original_order[:pos] + [component] + original_order[pos:]
+                    cur_params_items = list(cur_params_opt.items())
+                    cur_params_items = cur_params_items[:pos] + [(component, strategy)] + cur_params_items[pos:]
+                    cur_params = dict(cur_params_items)
 
             if len(cur_params) != len(intervened_order):
                 logging.warning(f"[SKIP] Misaligned parameter length for {component}")
@@ -188,10 +192,10 @@ class GlassBoxOptimizer:
             prev_order = self.pipeline_order
 
             cur_f = self.executor_pass.current_par_lookup(intervened_order, [int(v) for v in cur_params.values()])
-            logging.info(f'current utility {cur_f}')
+            logging.info(f'current utility {cur_f:.2f}')
             self.rank_iter += 1
             self.optimisitic_iter += 1
-            logging.info(f"[TRY] {component}={strategy},pipeline: {cur_params}, Utility={cur_f:.4f}, Best={opt_f:.4f}")
+            logging.info(f"[TRY] {component}={strategy},pipeline: {cur_params}, Utility={cur_f:.2f}, Best={opt_f:.2f}")
 
             if cur_f <= f_goal:
                 logging.info("✅ Target achieved 🎯")
@@ -233,7 +237,7 @@ class GlassBoxOptimizer:
         for comp, strat, sim, util, pos, _ in self.ranked_interventions:
             if comp in base_set:
                 actions.append(("change", comp, int(strat), None, float(sim)))
-            else:
+            elif comp != "swappping":
                 actions.append(("insert", comp, int(strat), int(pos), float(sim)))
 
         actions.sort(key=lambda a: a[4], reverse=True)
@@ -317,7 +321,7 @@ class GlassBoxOptimizer:
 
             self.rank_iter += 1
             self.exhaustive_iter += 1
-            logging.info(f"[SIM-GUIDED][k={iter_size}] combo={combo}, utility={cur_f:.6f}")
+            logging.info(f"[SIM-GUIDED][k={iter_size}] combo={combo}, utility={cur_f:.2f}")
 
             if early_stop and (cur_f <= f_goal):
                 logging.info("✅ Target achieved 🎯")

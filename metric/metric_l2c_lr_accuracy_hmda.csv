@@ -1,20 +1,5 @@
-0.9,l2c,iterations q1,1.0
-0.9,l2c,iterations q2,1.0
-0.9,l2c,iterations q3,2.0
-0.9,l2c,iterations q4,10.0
-
-0.91,l2c,iterations q1,1.0
-0.91,l2c,iterations q2,1.0
-0.91,l2c,iterations q3,2.0
-0.91,l2c,iterations q4,10.0
-
-0.92,l2c,iterations q1,1.0
-0.92,l2c,iterations q2,1.0
-0.92,l2c,iterations q3,5.0
-0.92,l2c,iterations q4,13.0
-
 0.92,l2c,iterations q1,2.0
-0.92,l2c,iterations q2,4.0
-0.92,l2c,iterations q3,7.0
-0.92,l2c,iterations q4,15.0
+0.92,l2c,iterations q2,2.0
+0.92,l2c,iterations q3,2.0
+0.92,l2c,iterations q4,2.0
 

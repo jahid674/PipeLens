@@ -40,11 +40,10 @@ class GridSearch:
             execution_type='fail'
         )
 
-        # --- NEW: cache for full search space ---
         self._cached_new_components: Optional[Tuple[str, ...]] = None
         self._candidates: Optional[List[Tuple[List[str], List[int]]]] = None
 
-    # ---------- public API unchanged signature; adds reuse_cached flag ----------
+
     def grid_search(
         self,
         f_goal: float,

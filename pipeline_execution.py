@@ -22,7 +22,9 @@ from LoadDataset import LoadDataset
 from noise_injection import NoiseInjector
 from modules.profiling.profile import Profile
 from modules.outlier_detection.outlier_detector import OutlierDetector
+from pipeline_component.swapping_handler import SwapHandler
 from similarity_metric import compute_similarity
+
 np.random.seed(42)
 
 
@@ -37,7 +39,7 @@ class PipelineExecutor:
         self.execution_type = execution_type  # 'pass' or 'fail'
         self.h_sample_frac = h_sample_frac
         self.scalability_bool = scalability_bool
-        self.utiliy_threshold = 180
+        self.utiliy_threshold = 190
 
         if self.pipeline_type == 'ml':
             # structured strategies
@@ -45,7 +47,8 @@ class PipelineExecutor:
             self.norm_strategy = ['none', 'ss', 'rs', 'ma', 'mm']
             self.od_strategy = ['none', 'if', 'iqr', 'lof']
             self.fselection_strategy = ['va']
-            self.model_selection = ['reg']  # rf, 'reg' # 'nb'
+            self.swapping_strategy = [1]
+            self.model_selection = ['lr']  # rf, 'reg' # 'nb'
             self.knn_k_lst = [1, 5, 10, 20, 30]
             self.lof_k_lst = [1, 5, 10, 20, 30]
 
@@ -79,7 +82,6 @@ class PipelineExecutor:
 
             self.sensitive_var = loader.get_sensitive_variable()
             self.target_variable_name = self.y_train.name
-
             self.noise_injector = NoiseInjector(self.pipeline_type, self.dataset_name, self.target_variable_name)
 
             # strategy counts (for search space sizes)
@@ -98,6 +100,7 @@ class PipelineExecutor:
                 'spell_checker': len(self.spellcheck_strategy),
                 'special_character': len(self.specialchar_strategy),
                 'deduplication': len(self.deduplication_strategy),
+                'swapping': len(self.swapping_strategy)
             }
 
             # dataset-specific thresholds
@@ -154,6 +157,7 @@ class PipelineExecutor:
                 'spellchecker_strategy': self.spellcheck_strategy,
                 'specialchar_strategy': self.specialchar_strategy,
                 'deduplication_strategy': self.deduplication_strategy,
+                'swapping_strategy': self.swapping_strategy
             }
         elif self.pipeline_type == 'em':
             print('pipeline_type is em')
@@ -277,6 +281,7 @@ class PipelineExecutor:
     def run_pipeline_opaque(self, file_name):
         if self.execution_type == 'pass':
             X_copy, y_copy = self.X_train.copy(), self.y_train.copy()
+            _,_,sensitive_attr_train = self.getIdxSensitive(X_copy, self.sensitive_var)
         else:
             X_copy, y_copy, sensitive_attr_train = self.get_injected_data()
 
@@ -297,8 +302,15 @@ class PipelineExecutor:
             param_record = []
             utility = None
             for i, step in enumerate(self.pipeline_order):
-                handler = self._load_handler(step, combo[i])
-                X, y, sens, util_tmp, _, _, _ = self._apply_step(handler, X, y, sens)
+                if step in ['swapping']:
+                    pipeline = [m for m in self.pipeline_order if m != "swapping"]
+                    handler = SwapHandler(strategy=i-2, config={"verbose": True})
+                    new_pipeline, new_params= handler.apply_with_params(pipeline, cur_par)
+                    utility = self.current_par_lookup(new_pipeline, new_params)
+
+                else:
+                    handler = self._load_handler(step, combo[i])
+                    X, y, sens, util_tmp, _, _, _ = self._apply_step(handler, X, y, sens)
                 if util_tmp is not None:
                     utility = util_tmp
                 param_record.append(combo[i] + 1)
@@ -319,7 +331,7 @@ class PipelineExecutor:
             else:
                 X_copy, y_copy = self.X_test.copy(), self.y_test.copy()
                 X_copy = self.noise_injector.inject_noise(X_copy, noise_type='outlier', frac=self.tau)
-                X_copy, y_copy = self.noise_injector.inject_noise(X_copy, y_copy, noise_type='class_imbalance')
+                #X_copy, y_copy = self.noise_injector.inject_noise(X_copy, y_copy, noise_type='class_imbalance')
                 _, _, sensitive = self.getIdxSensitive(X_copy, self.sensitive_var)
                 X, y, sens = X_copy.copy(), y_copy.copy(), sensitive.copy()
                 X = self.noise_injector.inject_noise(X, noise_type='missing', frac=self.tau)
@@ -413,8 +425,9 @@ class PipelineExecutor:
         X_test = self.X_test.copy()
         y_test = self.y_test.copy()
         X_test = self.noise_injector.inject_noise(X_test, noise_type='outlier', frac=self.tau)
+        X_test, y_test = self.noise_injector.inject_noise(X_test, y_test, noise_type='class_imbalance')
         X = self.noise_injector.inject_noise(X_test, noise_type='missing', frac=self.tau)
-        #X_test, y_test = self.noise_injector.inject_noise(X_test, y_test, noise_type='class_imbalance')
+        
         _, _, sensitive = self.getIdxSensitive(X_test, self.sensitive_var)
         X, y, sens = X_test.copy(), y_test.copy(), sensitive.copy()
         
@@ -425,8 +438,8 @@ class PipelineExecutor:
     def current_par_lookup(self, pipeline, cur_par=[]):
         X,y,sens=self.get_injected_data()
         for i, step in enumerate(pipeline):
-            #param_index = self._safe_param_index(step, int(cur_par[i]))
-            param_index = int(cur_par[i])-1
+            param_index = self._safe_param_index(step, int(cur_par[i]))
+            #param_index = int(cur_par[i])-1
             handler = self._load_handler(step, param_index)
             #result = handler.apply(X, y, sens)
             X, y, sens, util_tmp, _, _, _ = self._apply_step(handler, X, y, sens)
@@ -733,8 +746,8 @@ class PipelineExecutor:
                     utility = util_tmp
                 param_record.append(param_index + 1)
 
-            self.headers, sens_data = last_handler.get_profile_metric(y, sens)
-            prof_data = frac_data + sens_data
+            #self.headers, sens_data = last_handler.get_profile_metric(y, sens)
+            prof_data = frac_data #+ sens_data
             profile_gen, key_profile = p.populate_profiles(
                 pd.concat([X, y], axis=1),
                 numerical_columns,
@@ -745,7 +758,8 @@ class PipelineExecutor:
 
             out_cols = eval_order
             row = param_record + prof_data + profile_gen + [utility]
-            col_headers = out_cols + self.frac_header + self.headers + key_profile + [f'utility_{self.metric_type}']
+            #col_headers = out_cols + self.frac_header + self.headers + key_profile + [f'utility_{self.metric_type}']
+            col_headers = out_cols + self.frac_header + key_profile + [f'utility_{self.metric_type}']
             row_df = pd.DataFrame([row], columns=col_headers)
             return row_df
 
@@ -800,22 +814,35 @@ class PipelineExecutor:
         for comp in new_components:
             comp_ranges = self.strategy_counts[comp]
             for strat_idx in range(1,comp_ranges+1):
-                best_for_this_strat = None  # (sim, y_pred, pos)
-                for insert_pos in insertion_positions:
-                    new_order   = original_order[:insert_pos] + [comp] + original_order[insert_pos:]
-                    new_cur_par = cur_par[:insert_pos] + [strat_idx] + cur_par[insert_pos:]
-                    row_df = _build_feature_row(new_order, new_cur_par)
+                if comp in ["swapping"]:
+                    utility_bef = self.current_par_lookup(original_order, cur_par)
+                    pipeline = [m for m in original_order if m != "swapping"]
+                    handler = SwapHandler(strategy=strat_idx-1, config={"verbose": True})
+                    new_pipeline, new_params= handler.apply_with_params(pipeline, cur_par)
+                    row_df = _build_feature_row(new_pipeline, new_params)
                     sim = _similarity_from_row_df(row_df)
                     if sim is None:
                         continue
                     y_pred = _predict_from_row_df(row_df)
-                    y_truth = row_df[f'utility_{self.metric_type}'].values[0]
-                    if (best_for_this_strat is None) or (sim > best_for_this_strat[0]):
-                        best_for_this_strat = (float(sim), float(y_pred), insert_pos)
+                    utility_aft = self.current_par_lookup(new_pipeline, new_params)
+                    fused_rows.append((comp, strat_idx, float(sim), float(y_pred), 1))
+                else:
+                    best_for_this_strat = None  # (sim, y_pred, pos)
+                    for insert_pos in insertion_positions:
+                        new_order   = original_order[:insert_pos] + [comp] + original_order[insert_pos:]
+                        new_cur_par = cur_par[:insert_pos] + [strat_idx] + cur_par[insert_pos:]
+                        row_df = _build_feature_row(new_order, new_cur_par)
+                        sim = _similarity_from_row_df(row_df)
+                        if sim is None:
+                            continue
+                        y_pred = _predict_from_row_df(row_df)
+                        y_truth = row_df[f'utility_{self.metric_type}'].values[0]
+                        if (best_for_this_strat is None) or (sim > best_for_this_strat[0]):
+                            best_for_this_strat = (float(sim), float(y_pred), insert_pos)
 
-                if best_for_this_strat is not None:
-                    sim_star, ypred_star, pos_star = best_for_this_strat
-                    fused_rows.append((comp, strat_idx, float(sim_star), float(ypred_star), pos_star))
+                    if best_for_this_strat is not None:
+                        sim_star, ypred_star, pos_star = best_for_this_strat
+                        fused_rows.append((comp, strat_idx, float(sim_star), float(ypred_star), pos_star))
 
         # ---------- Fuse & rank ----------
         if not fused_rows:
@@ -835,154 +862,14 @@ class PipelineExecutor:
         # Pretty print
         for idx, (component, strategy, sim, y_pred, pos, _) in enumerate(fused_ranking, start=1):
             if pos is not None:
-                print(f"[{idx}] NEW {component}@{pos}-->strat={strategy} | uti={y_pred:.4f} | truth={y_truth:.4f}")
+                print(f"[{idx}] NEW {component}@{pos}-->strat={strategy} | sim={sim} | uti={y_pred:.4f} | truth={y_truth:.4f}")
             else:
-                print(f"[{idx}] EXIST {component}-->strat={strategy} | uti={y_pred:.4f} | truth={y_truth:.4f}")
+                print(f"[{idx}] EXIST {component}-->strat={strategy} | sim={sim} | uti={y_pred:.4f} | truth={y_truth:.4f}")
 
         return fused_ranking
-    
-    def evaluate_interventions_swap_only(self, cur_par, filename_training=None, print_serial=True, save_csv=True):
-        """
-        Explore ONLY pairwise swaps among existing/base components in self.pipeline_order.
-        - Keeps each component's current strategy aligned with the component while swapping.
-        - Re-runs the full pipeline for each swap and records the resulting utility.
-        - Prints results serially (baseline first, then each swap).
-        
-        Args:
-            cur_par (List[int]): Current strategy indices aligned with self.pipeline_order.
-            filename_training (str|None): Ignored (kept for API compatibility with your call site).
-            print_serial (bool): If True, prints baseline and each swap line in order.
-            save_csv (bool): If True, saves the results to 'historical_data/insertion/swap_scan.csv'.
-        
-        Returns:
-            pd.DataFrame: One row per evaluation (baseline + each swap) with columns:
-                ['kind','swap_idx','i','j','comp_i','comp_j','order','vec','utility']
-        """
-        import os
-        import numpy as np
-        import pandas as pd
 
-        # ---------- helper: run the pipeline for a (order, params) and get utility ----------
-        def _compute_utility(eval_order, eval_params):
-            # fresh copy of data each evaluation
-            if self.pipeline_type == 'ml':
-                X, y, sens = self.get_injected_data()
-            else:
-                raise ValueError("This function assumes pipeline_type == 'ml'.")
-
-            param_record, utility = [], None
-            fraction_outlier = None
-            last_handler = None
-            frac_data = []
-            self.frac_header = []
-
-            # Apply steps in sequence (matching your existing idiom)
-            for k, step in enumerate(eval_order):
-                param_index = self._safe_param_index(step, int(eval_params[k]))
-                handler = self._load_handler(step, param_index)
-                last_handler = handler
-                X, y, sens, util_tmp, fraction_outlier, frac_header, frac_value = self._apply_step(
-                    handler, X, y, sens
-                )
-                if frac_header is not None:
-                    frac_data.append(frac_value)
-                    self.frac_header.append(frac_header)
-                if util_tmp is not None:
-                    utility = util_tmp
-                param_record.append(param_index + 1)
-
-            # Fallback if a handler didn't set utility
-            if utility is None:
-                utility = float("nan")
-
-            return float(utility), param_record
-
-        # ---------- baseline ----------
-        original_order = list(self.pipeline_order)
-        if len(cur_par) != len(original_order):
-            raise ValueError(f"cur_par length {len(cur_par)} does not match pipeline length {len(original_order)}")
-
-        baseline_utility, baseline_vec = _compute_utility(original_order, cur_par)
-
-        rows = []
-        rows.append({
-            "kind": "baseline",
-            "swap_idx": 0,
-            "i": None,
-            "j": None,
-            "comp_i": None,
-            "comp_j": None,
-            "order": original_order[:],
-            "vec": baseline_vec[:],
-            "utility": baseline_utility,
-        })
-
-        if print_serial:
-            print(f"[BASELINE] order={original_order} | vec={cur_par} | utility={baseline_utility:.6f}")
-
-        # ---------- enumerate pairwise swaps (i < j) ----------
-        n = len(original_order)-1
-        swap_idx = 0
-        for i in range(n):
-            for j in range(i + 1, n):
-                swap_idx += 1
-
-                # swap components
-                new_order = original_order[:]
-                new_order[i], new_order[j] = new_order[j], new_order[i]
-
-                # carry strategies with their component: swap parameter entries at i and j
-                new_par = cur_par[:]
-                new_par[i], new_par[j] = new_par[j], new_par[i]
-
-                util, vec_used = _compute_utility(new_order, new_par)
-
-                row = {
-                    "kind": "swap",
-                    "swap_idx": swap_idx,
-                    "i": i,
-                    "j": j,
-                    "comp_i": original_order[i],
-                    "comp_j": original_order[j],
-                    "order": new_order,
-                    "vec": vec_used,
-                    "utility": util,
-                }
-                rows.append(row)
-
-                if print_serial:
-                    print(f"[SWAP {swap_idx:02d}] i={i}({row['comp_i']}) <-> j={j}({row['comp_j']}) "
-                        f"| order={new_order} | vec={vec_used} | utility={util:.6f}")
-
-        # ---------- package results ----------
-        # Convert list entries that are lists into JSON strings for a clean DataFrame/CSV
-        def _to_jsonable(x):
-            if isinstance(x, (list, tuple, np.ndarray)):
-                return str(list(x))
-            return x
-
-        df = pd.DataFrame(rows)
-        df["order"] = df["order"].map(_to_jsonable)
-        df["vec"] = df["vec"].map(_to_jsonable)
-
-        if save_csv:
-            out_dir = "historical_data/insertion"
-            os.makedirs(out_dir, exist_ok=True)
-            out_file = os.path.join(out_dir, "swap_scan.csv")
-            df.to_csv(out_file, index=False)
-            if print_serial:
-                print(f"[INFO] Saved swap scan to {out_file}")
-
-        return df
     
     def run_pipeline_opaque_with_positions(self, file_name):
-        """
-        OPAQUE variant with positions (NO model_pos) and SERIAL GROUPING:
-        - Outer loop: all strategy combinations in canonical component order (incl. model).
-        - Inner loop: for each fixed strategy vector, try ALL permutations of non-model positions (model fixed last).
-        - Columns order (enforced): [<pipeline components ...>, <non-model>_pos ..., utility_<metric>]
-        - Row order (enforced): grouped by strategy tuple, then by positions.
-        """
         import time
         from itertools import product, permutations
 
@@ -1120,13 +1007,14 @@ model_type = 'reg'
 #pipeline_order = ["missing_value","normalization", "fselection", "outlier", "whitespace", "punctuation", "stopword", "deduplication", "model"]
 #new_comp=['outlier', 'whitespace', 'punctuation', 'stopword', 'deduplication']
 cur_par=[1,1,7,1]
-pipeline_order = ["missing_value","normalization","fselection", "model"]
+pipeline_order = ["missing_value", "fselection", "normalization","model"]
+new_comp=['outlier','swapping']
 
 output = f'historical_data/similarity/Noisy_vs_orig_{model_type}_{metric_type}_{dataset_name}.csv'
 output1 = f'historical_data/similarity/Noisy_vs_filterd_orig_{model_type}_{metric_type}_{dataset_name}.csv'
-filename_test = f'historical_data/noise/1BugDoc_profile_{model_type}_{metric_type}_{dataset_name}.csv'
+filename_test = f'historical_data/noise/1111BugDoc_profile_{model_type}_{metric_type}_{dataset_name}.csv'
 #filename_test = 'class_sim_historical_data_test_profile_lr_sp_adult.csv'
-filename_train = f'historical_data/partial_pipeline/1sim_historical_data_train_profile_{model_type}_{metric_type}_{dataset_name}.csv'
+filename_train = f'historical_data/partial_pipeline/sim_historical_data_train_profile_{model_type}_{metric_type}_{dataset_name}.csv'
 filename_train1 = f'historical_data/historical_data_train_profile{model_type}_{metric_type}_{dataset_name}.csv'
 
 
@@ -1136,13 +1024,13 @@ executor = PipelineExecutor(
                 dataset_name=dataset_name,
                 metric_type=metric_type,
                 pipeline_ord=pipeline_order,
-                execution_type='pass',
+                execution_type='fail',
             )
 
-executor.run_pipeline_glass(filename_train)
+#executor.run_pipeline_glass(filename_train)
 #_, rank_profile=executor.rank_profile_new_comp(filename_train1, new_comp)
 #rank_profile.remove('corr_Country')
-#executor.evaluate_parameter_intervention(cur_par, filename_train)
+#executor.evaluate_interventions_pred_and_similarity(cur_par, filename_train, new_components=new_comp)
 #executor.evaluate_with_component_insertion(cur_par, new_components=new_comp)
 #executor.evaluate_interventions_swap_only(cur_par, filename_train)
 #print(rank)

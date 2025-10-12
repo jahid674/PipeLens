@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+# coding: utf-8
 """
 Debugger script
 ===========================
@@ -15,6 +17,7 @@ import json
 import shutil
 import pandas as pd
 import numpy as np
+import time  # <-- for total execution time
 
 # If you have any helper lookups (kept for compatibility)
 # from ml_api_example import f_score_look_up2  # not strictly needed here
@@ -52,7 +55,8 @@ def infer_parameter_space(df: pd.DataFrame, metric_col: str):
     for col in param_cols:
         # Use unique observed values, keep stable ordering
         uniq = pd.unique(df[col].dropna())
-        # Normalize numeric-like values to ints if possible, then to strings (BugDoc expects strings)
+
+        # Normalize numeric-like values to ints if possible, then to strings
         def _coerce(v):
             try:
                 iv = int(v)
@@ -61,6 +65,7 @@ def infer_parameter_space(df: pd.DataFrame, metric_col: str):
             except Exception:
                 pass
             return str(v)
+
         values = sorted({_coerce(v) for v in uniq})
         space[col] = values
     return space, param_cols
@@ -76,20 +81,30 @@ def row_passes(row) -> bool:
         return False
     return (m <= THRESHOLD) if BETTER_IS_LOWER else (m >= THRESHOLD)
 
-
+# -----------------------------
+# Row subset to evaluate
+# -----------------------------
 SEED = int(os.getenv("BUGDOC_SAMPLE_SEED", "42"))
 rng = np.random.default_rng(SEED)
-mask = ( (historical_data['outlier'] == 1) &
+
+# Example mask: require specific preprocessing toggles == 1
+mask = (
+    (historical_data['outlier'] == 1) &
     (historical_data['whitespace'] == 1) &
     (historical_data['punctuation'] == 1) &
-    (historical_data['stopword'] == 1) &
-(historical_data['unit_converter'] == 1))
+    (historical_data['stopword'] == 1)
+)
 row_indices = np.flatnonzero(mask)
 
-'''row_indices = rng.choice(len(historical_data),
-                         size=min(100, len(historical_data)),
-                         replace=False)'''
+# If you prefer random sampling instead of mask, you could use:
+# row_indices = rng.choice(len(historical_data),
+#                          size=min(100, len(historical_data)),
+#                          replace=False)
 
+# -----------------------------
+# Main loop with timing
+# -----------------------------
+t_start = time.perf_counter()
 
 iter_dist = []
 
@@ -102,8 +117,10 @@ for idx in row_indices:
         continue
 
     # Build the run config with all parameters (strings) + result=False
-    run = {p: str(int(row[p])) if pd.api.types.is_numeric_dtype(historical_data[p]) else str(row[p])
-           for p in parameters}
+    run = {
+        p: (str(int(row[p])) if pd.api.types.is_numeric_dtype(historical_data[p]) else str(row[p]))
+        for p in parameters
+    }
     run["result"] = "False"
 
     with open(FILENAME, "w") as f:
@@ -128,10 +145,13 @@ for idx in row_indices:
 
 print("iter_dist is: ", iter_dist)
 
-# ------------------------------------------------------------------
-# If you want a one-shot run instead of progressive search, uncomment:
-# debugger = StackedShortcut(max_iter=MAX_OUTER_ITER)
-# result = debugger.run(FILENAME, parameter_space, outputs=["results"])
-# root, iters, _ = result
-# print("Root Cause:", root)
-# ------------------------------------------------------------------
+# -----------------------------
+# Total execution time
+# -----------------------------
+elapsed = time.perf_counter() - t_start
+hh = int(elapsed // 3600)
+mm = int((elapsed % 3600) // 60)
+ss = elapsed % 60
+print(f"Total execution time: {hh:02d}:{mm:02d}:{ss:06.3f} (hh:mm:ss)")
+# Or, if you prefer seconds only:
+# print(f"Total execution time: {elapsed:.3f} seconds")

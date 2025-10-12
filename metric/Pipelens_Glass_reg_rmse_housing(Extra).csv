@@ -1,0 +1,40 @@
+Utility Goal,Method,Iteration,Value
+1.0,ranking,iterations q1,12.0
+1.0,ranking,iterations q2,14.0
+1.0,ranking,iterations q3,16.0
+1.0,ranking,iterations q4,19.0
+1.0,ranking,Fairness q1,155.20913
+1.0,ranking,Fairness q2,155.20913
+1.0,ranking,Fairness q3,155.20913
+1.0,ranking,Fairness q4,155.20913
+
+Utility Goal,Method,Iteration,Value
+0.97,ranking,iterations q1,11.0
+0.97,ranking,iterations q2,13.0
+0.97,ranking,iterations q3,15.0
+0.97,ranking,iterations q4,18.0
+0.97,ranking,Fairness q1,159.84698
+0.97,ranking,Fairness q2,159.84698
+0.97,ranking,Fairness q3,159.84698
+0.97,ranking,Fairness q4,159.84698
+
+Utility Goal,Method,Iteration,Value
+0.91,ranking,iterations q1,11.0
+0.91,ranking,iterations q2,13.0
+0.91,ranking,iterations q3,15.0
+0.91,ranking,iterations q4,18.0
+0.91,ranking,Fairness q1,159.84698
+0.91,ranking,Fairness q2,159.84698
+0.91,ranking,Fairness q3,159.84698
+0.91,ranking,Fairness q4,159.84698
+
+Utility Goal,Method,Iteration,Value
+0.85,ranking,iterations q1,11.0
+0.85,ranking,iterations q2,13.0
+0.85,ranking,iterations q3,15.0
+0.85,ranking,iterations q4,18.0
+0.85,ranking,Fairness q1,159.84698
+0.85,ranking,Fairness q2,159.84698
+0.85,ranking,Fairness q3,159.84698
+0.85,ranking,Fairness q4,159.84698
+

@@ -75,7 +75,7 @@ def execute_pipeline(
         "outlier": "7",
         "stopword": "2",
         "whitespace": "2",
-        "tokenizer": "3",
+        "deduplicator": "2",
         "model": "1"
       }
     look up the row in `historical_data` and return whether it meets the threshold.

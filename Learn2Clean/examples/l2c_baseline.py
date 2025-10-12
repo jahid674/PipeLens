@@ -18,8 +18,8 @@ import learn2clean.qlearning.qlearner as ql  # your extended Qlearner
 from sklearn.preprocessing import LabelEncoder
 
 # --------------------------- Config --------------------------- #
-data = 'adult'            # 'adult' | 'hmda' | 'housing'
-metric_type = 'sp'  # for adult this means 1 - |SP|; for others, accuracy
+data = 'housing'            # 'adult' | 'hmda' | 'housing'
+metric_type = 'rmse'  # for adult this means 1 - |SP|; for others, accuracy
 tau = 0.1                 # missingness fraction to inject (if used below)
 
 # ---------------------- Dataset loading ----------------------- #
@@ -42,13 +42,13 @@ if data == 'hmda':
     metric_path = f"metric/metric_l2c_lr_{metric_type}_{data}.csv"
 elif data == 'adult':
     # Use train twice to keep original split behavior (reader will split internally)
-    dataset_paths = ["data/adult/adult_test.csv", 
-                     "data/adult/adult_test.csv"]
+    dataset_paths = ["data/noisy/adult_test.csv", 
+                     "data/noisy/adult_test.csv"]
     hr = rd.Reader(sep=',', verbose=False, encoding=False)
     dataset = hr.train_test_split(dataset_paths, 'income')
     # Optional: inject some NaNs to exercise imputation
     categorical_columns = dataset['train'].select_dtypes(include=['object']).columns
-    for column in categorical_columns:
+    '''for column in categorical_columns:
         le = LabelEncoder()
         column_unique = pd.unique(list(dataset['train'][column]))
         #print(f"Encoding column: {column} with unique values: {column_unique}")
@@ -57,7 +57,7 @@ elif data == 'adult':
         dataset['train'][column] = dataset['train'][column].astype('category')
         dataset['test'][column] = le.transform(dataset['test'][column])
         dataset['test'][column] = dataset['test'][column].astype('category')
-    dataset['target'] = dataset['target'].apply(lambda x: 1 if str(x).strip() in ['>50K', '>50K.'] else 0)
+    #dataset['target'] = dataset['target'].apply(lambda x: 1 if str(x).strip() in ['>50K', '>50K.'] else 0)'''
 
     idx_train = np.arange(0, len(dataset['train']), 1)
     mv_train = pd.DataFrame(idx_train).sample(frac=tau, replace=False, random_state=1).index
@@ -140,19 +140,19 @@ def write_quartiles(csv_writer, algorithm, metric, quartiles, f_goal, goals_list
 
 # --------------------- Goal thresholds ------------------------ #
 if data == 'hmda':
-    goals = [0.90, 0.91, 0.915, 0.92]
+    goals = [0.92]
     goal = 'LR'
     target_goal = 'action_taken'
     target_prepare = 'action_taken'
 
 elif data == 'housing':
-    goals = [162, 170, 180, 185]
+    goals = [155, 160, 170, 180]
     goal = 'MARS'
     target_goal = 'SalePrice'
     target_prepare = 'SalePrice'
 
 elif data == 'adult':
-    goals = [0.95, 0.94, 0.87, 0.84]
+    goals = [0.87]
     goal = 'LR'
     target_goal = 'income'
     target_prepare = 'income'
@@ -160,6 +160,9 @@ elif data == 'adult':
 # --------------------- Run experiments ------------------------ #
 random_seeds = random.sample(range(0, 1_000_000), 45)
 os.makedirs(os.path.dirname(metric_path), exist_ok=True)
+# seed 42 for effieciency
+# NEW: start timer
+t_start = time.perf_counter()
 
 with open(metric_path, 'w', newline='') as f:
     csv_writer = csv.writer(f)
@@ -187,7 +190,15 @@ with open(metric_path, 'w', newline='') as f:
         write_quartiles(csv_writer, "l2c", "iterations", rank_quartiles, g, goals, data)
         csv_writer.writerow([])
 
+# NEW: end timer and pretty print duration
+elapsed_sec = time.perf_counter() - t_start
+hours = int(elapsed_sec // 3600)
+mins  = int((elapsed_sec % 3600) // 60)
+secs  = elapsed_sec % 60
+
 print(f"Finished. Wrote results to: {metric_path}")
 print("Goals :", goals)
 print("Iterations (last goal) :", iterations)
 print(dataset['train'].dtypes)
+print(f"Total execution time: {hours:02d}:{mins:02d}:{secs:06.3f} (hh:mm:ss)")
+

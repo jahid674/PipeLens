@@ -1,0 +1,40 @@
+Utility Goal,Method,Iteration,Value
+0.94,grid search,iterations q1,3.0
+0.94,grid search,iterations q2,7.0
+0.94,grid search,iterations q3,14.0
+0.94,grid search,iterations q4,73.0
+0.94,grid search,Fairness q1,0.06031
+0.94,grid search,Fairness q2,0.06031
+0.94,grid search,Fairness q3,0.06031
+0.94,grid search,Fairness q4,0.06031
+
+Utility Goal,Method,Iteration,Value
+0.93,grid search,iterations q1,1.0
+0.93,grid search,iterations q2,3.0
+0.93,grid search,iterations q3,5.0
+0.93,grid search,iterations q4,13.0
+0.93,grid search,Fairness q1,0.06031
+0.93,grid search,Fairness q2,0.06272
+0.93,grid search,Fairness q3,0.06615
+0.93,grid search,Fairness q4,0.06796
+
+Utility Goal,Method,Iteration,Value
+0.925,grid search,iterations q1,2.0
+0.925,grid search,iterations q2,3.0
+0.925,grid search,iterations q3,5.0
+0.925,grid search,iterations q4,15.0
+0.925,grid search,Fairness q1,0.06031
+0.925,grid search,Fairness q2,0.06615
+0.925,grid search,Fairness q3,0.06796
+0.925,grid search,Fairness q4,0.07393
+
+Utility Goal,Method,Iteration,Value
+0.92,grid search,iterations q1,1.0
+0.92,grid search,iterations q2,2.0
+0.92,grid search,iterations q3,4.0
+0.92,grid search,iterations q4,24.0
+0.92,grid search,Fairness q1,0.06031
+0.92,grid search,Fairness q2,0.06383
+0.92,grid search,Fairness q3,0.06796
+0.92,grid search,Fairness q4,0.07977
+

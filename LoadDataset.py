@@ -25,7 +25,7 @@ class LoadDataset:
     def load(self):
         if self.dataset_name == 'hmda':
             train_file = "data/hmda/hmda_Orleans_X_train_1.csv"
-            test_file = "data/hmda/hmda_Orleans_X_test_1.csv"
+            test_file = "data/hmda/hmda_Calcasieu_X_test_1.csv"
             train, test = Reader(train_file, test_file).load_data()
 
             
@@ -137,13 +137,13 @@ class LoadDataset:
             self.X_test = test.drop('income', axis=1)'''
 
 
-'''dataset='adult'
+'''dataset='housing'
 loader = LoadDataset(dataset)
 dataset, X_train, y_train, X_test, y_test = loader.load()
 x_dedup=X_test.drop_duplicates().reset_index(drop=True)
 y_test=y_test.reset_index(drop=True)
 y_test=y_test.loc[x_dedup.index].reset_index(drop=True)
 
-print(f"Training data shape: {X_test.shape[0]}")
+print(f"Training data shape: {X_test.dtypes}")
 print(f"Dedup ratio: {x_dedup.shape[0]}")
 print(f"Test data shape: {y_test.shape[0]}")'''
