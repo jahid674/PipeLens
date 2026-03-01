@@ -38,6 +38,7 @@ class GlassBoxOptimizer:
             pipeline_ord=self.pipeline_order,
             execution_type='fail'
         )
+        self.fixed_data = self.executor_pass.get_injected_data()
 
         self.pasing_hist_data = pd.read_csv(self.filename_train)
         #self.coefs_profile, self.profile_ranking, self.param_coeff, self.param_rank = self.executor_pass.rank_profile_parameter(self.filename_train)
@@ -58,16 +59,17 @@ class GlassBoxOptimizer:
         self.exhaustive_iter = 0
         self.rank_f = 0
         cur_params_opt = {strategy: selection for strategy, selection in zip(self.base_strategies, init_params)}
+        print('cur_params_opt',cur_params_opt)
         cur_param_check = init_params[:len(self.base_strategies)]
 
-        opt_f = self.executor_pass.current_par_lookup(self.base_strategies, cur_param_check)
+        opt_f = self.executor_pass.current_par_lookup(self.base_strategies, cur_param_check, fixed_data=self.fixed_data)
         logging.info(f'Evaluating {[int(v) for v in cur_params_opt.values()]} -- Initial Utility {opt_f} -- Target Utility {f_goal:.2f}')
 
         if self.pipeline_type == 'ml':
             self.set_ranges()
 
         seen = set()
-        if opt_f < f_goal:
+        if np.abs(opt_f) < f_goal:
             self.rank_iter = 1
             self.rank_f = opt_f
             return
@@ -191,25 +193,25 @@ class GlassBoxOptimizer:
             #seen.add(tuple(cur_params))
             prev_order = self.pipeline_order
 
-            cur_f = self.executor_pass.current_par_lookup(intervened_order, [int(v) for v in cur_params.values()])
+            cur_f = self.executor_pass.current_par_lookup(intervened_order, [int(v) for v in cur_params.values()], fixed_data=self.fixed_data)
             logging.info(f'current utility {cur_f:.2f}')
             self.rank_iter += 1
             self.optimisitic_iter += 1
             logging.info(f"[TRY] {component}={strategy},pipeline: {cur_params}, Utility={cur_f:.2f}, Best={opt_f:.2f}")
 
-            if cur_f <= f_goal:
+            if np.abs(cur_f) <= f_goal:
                 logging.info("✅ Target achieved 🎯")
                 self.rank_f = cur_f
                 self.pass_ += 1
                 logging.info(f"required optimistic iterations: {self.optimisitic_iter}")
                 logging.info(f"passing pipeline: order={intervened_order}, vec={[int(v) for v in cur_params.values()]}")
                 return True, cur_f, cur_params
-            elif cur_f < opt_f:
+            elif np.abs(cur_f) < np.abs(opt_f):
                 opt_f = cur_f
                 print('cur_F',cur_f)
                 cur_params_opt = cur_params.copy()
                 original_order = intervened_order
-            elif cur_f > opt_f:
+            elif np.abs(cur_f) > np.abs(opt_f):
                 seen.add(tuple(cur_params.items()))
 
 
@@ -314,7 +316,7 @@ class GlassBoxOptimizer:
                 continue
             seen.add(key)
             try:
-                cur_f = self.executor_pass.current_par_lookup(eval_order, eval_vec)
+                cur_f = self.executor_pass.current_par_lookup(eval_order, eval_vec, fixed_data=self.fixed_data)
             except Exception as e:
                 logging.warning(f"[SIM-GUIDED][k={iter_size}] Skipping combo due to eval error: {e}")
                 continue
@@ -323,7 +325,7 @@ class GlassBoxOptimizer:
             self.exhaustive_iter += 1
             logging.info(f"[SIM-GUIDED][k={iter_size}] combo={combo}, utility={cur_f:.2f}")
 
-            if early_stop and (cur_f <= f_goal):
+            if early_stop and (np.abs(cur_f) <= f_goal):
                 logging.info("✅ Target achieved 🎯")
                 logging.info(f"passing pipeline: order={eval_order}, vec={eval_vec}")
                 self.rank_f = cur_f

@@ -1,4 +1,4 @@
-from modules.stopword_remover.stopword_remover import StopwordRemover
+from modules.text_processing.stopword_remover.stopword_remover import StopwordRemover
 
 class StopwordHandler:
     def __init__(self, strategy, config):

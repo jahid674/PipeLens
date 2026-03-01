@@ -1,4 +1,4 @@
-from modules.outlier_detection.outlier_detector import OutlierDetector
+from modules.data_preparation.outlier_detection.outlier_detector import OutlierDetector
 from modules.profiling.profile import Profile
 
 class OutlierHandler:

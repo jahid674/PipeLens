@@ -18,14 +18,14 @@ import learn2clean.qlearning.qlearner as ql  # your extended Qlearner
 from sklearn.preprocessing import LabelEncoder
 
 # --------------------------- Config --------------------------- #
-data = 'housing'            # 'adult' | 'hmda' | 'housing'
-metric_type = 'rmse'  # for adult this means 1 - |SP|; for others, accuracy
+data = 'hmda'            # 'adult' | 'hmda' | 'housing'
+metric_type = 'accuracy_score'  # for adult this means 1 - |SP|; for others, accuracy
 tau = 0.1                 # missingness fraction to inject (if used below)
 
 # ---------------------- Dataset loading ----------------------- #
 if data == 'hmda':
-    dataset_paths = ["data/hmda/hmda_Orleans_X_test_1.csv",
-                     "data/hmda/hmda_Orleans_X_test_1.csv"]
+    dataset_paths = ["data/noisy/noise_injected_hmda.csv",
+                     "data/noisy/noise_injected_hmda.csv"]
     hr = rd.Reader(sep=',', verbose=False, encoding=False)
     dataset = hr.train_test_split(dataset_paths, 'action_taken')
 
@@ -39,11 +39,11 @@ if data == 'hmda':
     if 'lien_status' in dataset['test'].columns:
         dataset['test'].loc[mv_test, 'lien_status'] = np.NaN
 
-    metric_path = f"metric/metric_l2c_lr_{metric_type}_{data}.csv"
+    metric_path = f"metric/metric_l2c_NN_{metric_type}_{data}.csv"
 elif data == 'adult':
     # Use train twice to keep original split behavior (reader will split internally)
-    dataset_paths = ["data/noisy/adult_test.csv", 
-                     "data/noisy/adult_test.csv"]
+    dataset_paths = ["data/noisy/noise_injected_adult.csv", 
+                     "data/noisy/noise_injected_adult.csv"]
     hr = rd.Reader(sep=',', verbose=False, encoding=False)
     dataset = hr.train_test_split(dataset_paths, 'income')
     # Optional: inject some NaNs to exercise imputation
@@ -138,27 +138,25 @@ def write_quartiles(csv_writer, algorithm, metric, quartiles, f_goal, goals_list
     csv_writer.writerow([prefix, algorithm, f"{metric} q3", round(quartiles[2], 5)])
     csv_writer.writerow([prefix, algorithm, f"{metric} q4", round(quartiles[3], 5)])
 
-# --------------------- Goal thresholds ------------------------ #
+
 if data == 'hmda':
-    goals = [0.92]
-    goal = 'LR'
+    goals = [0.93]
+    goal = 'NN'
     target_goal = 'action_taken'
     target_prepare = 'action_taken'
-
 elif data == 'housing':
     goals = [155, 160, 170, 180]
     goal = 'MARS'
     target_goal = 'SalePrice'
     target_prepare = 'SalePrice'
-
 elif data == 'adult':
-    goals = [0.87]
-    goal = 'LR'
+    goals = [0.9, 0.88, 0.86, 0.84]
+    goal = 'NN'
     target_goal = 'income'
     target_prepare = 'income'
 
 # --------------------- Run experiments ------------------------ #
-random_seeds = random.sample(range(0, 1_000_000), 45)
+random_seeds = random.sample(range(0, 1000000), 1)
 os.makedirs(os.path.dirname(metric_path), exist_ok=True)
 # seed 42 for effieciency
 # NEW: start timer

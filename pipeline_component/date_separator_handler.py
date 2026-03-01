@@ -1,4 +1,4 @@
-from modules.date_separator.date_separator import DateSeparatorReplacer
+from modules.text_processing.date_separator.date_separator import DateSeparatorReplacer
 
 class DateSeparatorHandler:
     def __init__(self, config):

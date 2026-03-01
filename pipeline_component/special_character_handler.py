@@ -1,4 +1,4 @@
-from modules.special_char_remove.special_character_remover import SpecialCharRemover
+from modules.text_processing.special_char_remove.special_character_remover import SpecialCharRemover
 
 class SpecialCharacterHandler:
     def __init__(self, strategy, config):

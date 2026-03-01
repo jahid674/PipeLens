@@ -1,0 +1,1 @@
+('house_discovered', 'learn2clean', 'NB', 'SaleCondition', None, 'CC -> LOF -> NB', 'accuracy', 0.16225975538730344, 9.72132921218872)

@@ -43,7 +43,6 @@ class ModelHandler:
         else:
             sensitive = None
 
-        y_pred = self._y_pred
         if self.metric_type in ['sp', 'accuracy_score']:
             concat_X_y = pd.concat([sensitive, y], axis=1)
             concat_X_y.columns = [self.sens_attr_name, self.target_variable_name]

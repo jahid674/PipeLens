@@ -6,24 +6,36 @@ import time
 import numpy as np
 import random
 from random import randint
-import re
 
 from ..normalization.normalizer import Normalizer
 from ..deduplication.deduplicator import Deduplicator
+
+# NOTE: keep your repo's actual path (you used "punctualion_remove" earlier)
 from ..punctualion_remove.punctuation_remover import PunctuationRemover
+
 from ..spellcheck.spellchecker import SpellChecker
 from ..stopword_remove.stopword_remover import StopwordRemover
 from ..tokenize.tokenizer import Tokenizer
-from ..unit_convert.unit_converter import UnitConverter
 from ..lowercase.lowercaser import Lowercaser
 from ..language_translator.translator import LanguageTranslator
 from ..outlier_detection.outlier_detector import Outlier_detector
 from ..consistency_checking.consistency_checker import Consistency_checker
 from ..imputation.imputer import Imputer
-from ..feature_selection.feature_selector import Feature_selector
-from ..regression.regressor import Regressor
 from ..clustering.clusterer import Clusterer
+from ..regression.regressor import Regressor
 from ..classification.classifier import Classifier
+
+# ---------------------- converted / additional modules ---------------------- #
+from ..unit_convert.unit_converter import UnitConverter
+from ..whitespace.whitespace import WhitespaceCleaner  # <-- adjust path
+from ..feature_selection.feature_selector import FeatureSelector     # <-- your L2C-compatible FS class
+
+from ..sampling.sampling import DataSampler            # <-- adjust to your actual path
+from ..invalid_value.invalid_value import InvalidValueRepair  # <-- adjust path
+from ..floating_point.floating_point import FloatingPointStabilizer  # <-- adjust path
+from ..distribution_shape.distribution_shape import DistributionShapeCorrector  # <-- adjust path
+from ..multicollinearity.multicollinearity import VIFMulticollinearityCleaner        # <-- adjust path
+from ..poly_pca.poly_pca import PolyPCATransformer       
 
 
 def remove_adjacent(nums):
@@ -39,21 +51,30 @@ def remove_adjacent(nums):
 
 class Qlearner:
     """
-    Learn2Clean Q-learning over ordered preprocessing blocks, then model
-    (MARS for regression, LR for classification).
+    Learn2Clean Q-learning over ordered preprocessing blocks, then model.
 
     Objective:
       - If dataset_name == 'adult': quality_metric = 1 - |SP| (higher is better; set f_goal accordingly)
       - Else:                       quality_metric = accuracy (higher is better)
     """
 
-    def __init__(self, dataset, goal, target_goal, target_prepare,
-                 verbose=False, file_name=None, threshold=None, f_goal=0.8,
-                 randomize_blocks=True, dataset_name=""):
+    def __init__(
+        self,
+        dataset,
+        goal,
+        target_goal,
+        target_prepare,
+        verbose=False,
+        file_name=None,
+        threshold=None,
+        f_goal=0.8,
+        randomize_blocks=True,
+        dataset_name="",
+    ):
         self.dataset = dataset
-        self.goal = goal                      # "MARS" or "LR"
-        self.target_goal = target_goal        # label column name
-        self.target_prepare = target_prepare  # column to exclude from Normalizer, etc.
+        self.goal = goal
+        self.target_goal = target_goal
+        self.target_prepare = target_prepare
         self.verbose = verbose
         self.file_name = file_name
         self.threshold = threshold
@@ -91,19 +112,38 @@ class Qlearner:
     def set_params(self, **params):
         for k, v in params.items():
             if k not in self.get_params():
-                warnings.warn("Invalid parameter(s) for Qlearner. Parameter(s) IGNORED. "
-                              "Check with `qlearner.get_params().keys()`")
+                warnings.warn(
+                    "Invalid parameter(s) for Qlearner. Parameter(s) IGNORED. "
+                    "Check with `qlearner.get_params().keys()`"
+                )
             else:
                 setattr(self, k, v)
 
-    # -------- Build blocks (unordered) -------- #
+    # -------- Build blocks -------- #
     def _build_blocks(self, check_missing):
         """
-        Ordered blocks. Each entry: (strategy_name, Class, extra_kwargs_dict).
+        Ordered blocks. Each entry in blocks is a LIST of ACTIONS.
+        Each action: (strategy_name, Class, extra_kwargs_dict).
         """
         blocks = []
 
-        # (0) Imputation – only if there are missing values
+        # (0) Data sampling (MUST keep y/sensitive aligned)
+        blocks.append([
+            ("FULL",       DataSampler, {}),
+            ("RANDOM",     DataSampler, {}),
+            ("SNAPSHOT",   DataSampler, {}),
+            ("STRATIFIED", DataSampler, {}),
+        ])
+
+        # (1) Invalid value repair
+        blocks.append([
+            ("NONE",     InvalidValueRepair, {}),
+            ("SENTINEL", InvalidValueRepair, {}),
+            ("REGEX",    InvalidValueRepair, {}),
+            ("BOTH",     InvalidValueRepair, {}),
+        ])
+
+        # (2) Imputation – only if there are missing values
         if check_missing:
             blocks.append([
                 ("DROP",   Imputer, {}),
@@ -117,25 +157,43 @@ class Qlearner:
                 ("KNN_30", Imputer, {}),
             ])
 
+        # (3) Deduplication (optional; was commented in your original build)
         blocks.append([
             ("none_dedup", Deduplicator, {}),
             ("first",      Deduplicator, {}),
         ])
 
-        # (2) Punctuation removal
+        # (4) Whitespace cleaning (text)
+        blocks.append([
+            ("none", WhitespaceCleaner, {}),
+            ("wc",   WhitespaceCleaner, {}),
+        ])
+
+        # (5) Punctuation removal
         blocks.append([
             ("NONE_punct", PunctuationRemover, {}),
             ("PR",         PunctuationRemover, {}),
         ])
 
-        # (3) Stopword removal
+        # (6) Stopword removal
         blocks.append([
             ("NONE_stopword", StopwordRemover, {}),
             ("SW",            StopwordRemover, {}),
         ])
 
+        # (7) Lowercase
+        blocks.append([
+            ("NONE_lowercase", Lowercaser, {}),
+            ("LC",             Lowercaser, {}),
+        ])
 
-        # (5) Normalization
+        # (8) Unit conversion
+        blocks.append([
+            ("NONE_convert", UnitConverter, {}),
+            ("UC",           UnitConverter, {}),
+        ])
+
+        # (9) Normalization
         blocks.append([
             ("NONE_normalization", Normalizer, {}),
             ("SS",                 Normalizer, {}),
@@ -144,7 +202,24 @@ class Qlearner:
             ("MM",                 Normalizer, {}),
         ])
 
-        # (6) Outliers
+        # (10) Floating point stabilization
+        blocks.append([
+            ("NONE",  FloatingPointStabilizer, {}),
+            ("SNAP",  FloatingPointStabilizer, {}),
+            ("ROUND", FloatingPointStabilizer, {}),
+            ("BOTH",  FloatingPointStabilizer, {}),
+        ])
+
+        # (11) Distribution shape correction
+        blocks.append([
+            ("NONE",       DistributionShapeCorrector, {}),
+            ("LOG1P",      DistributionShapeCorrector, {}),
+            ("SQRT",       DistributionShapeCorrector, {}),
+            ("BOXCOX",     DistributionShapeCorrector, {}),
+            ("YEOJOHNSON", DistributionShapeCorrector, {}),
+        ])
+
+        # (12) Outliers
         blocks.append([
             ("NONE_outlier", Outlier_detector, {}),
             ("IF",           Outlier_detector, {}),
@@ -155,7 +230,35 @@ class Qlearner:
             ("LOF_30",       Outlier_detector, {}),
         ])
 
-        # goals (order must match learn2clean -> goals_names)
+        # (13) Consistency checking (if you actually use it; otherwise keep NONE only)
+        blocks.append([
+            ("NONE_consistency", Consistency_checker, {}),
+            ("CC",               Consistency_checker, {}),
+        ])
+
+        # (14) VIF multicollinearity cleaning
+        blocks.append([
+            ("NONE",          VIFMulticollinearityCleaner, {}),
+            ("DROP_HIGH_VIF", VIFMulticollinearityCleaner, {}),
+        ])
+
+        # (15) Feature selection
+        blocks.append([
+            ("NONE",       FeatureSelector, {}),
+            ("VARIANCE",   FeatureSelector, {}),
+            ("MUTUAL_INFO", FeatureSelector, {}),
+        ])
+
+        # (16) Polynomial expansion + reducer (PCA/SPCA/MBSPCA/KPCA)
+        # PolyPCATransformer uses `reducer=` not `strategy=`.
+        blocks.append([
+            ("NONE",               PolyPCATransformer, {}),
+            ("PCA",                PolyPCATransformer, {}),
+            ("SPARSEPCA",          PolyPCATransformer, {}),
+            ("MINIBATCHSPARSEPCA", PolyPCATransformer, {}),
+            ("KERNELPCA",          PolyPCATransformer, {}),
+        ])
+
         goals = [("MARS", Regressor, {}), ("LR", Classifier, {})]
         return blocks, goals
 
@@ -173,10 +276,6 @@ class Qlearner:
         return actions, block_id_of, goal_block_idx
 
     def _build_reward_matrix(self, blocks, goals):
-        """
-        -1 = forbidden, 0 = allowed to next block,
-        100 = stepping into the **requested** goal only.
-        """
         actions, block_id_of, goal_block_idx = self._flatten_actions(blocks, goals)
         n = len(actions)
         R_full = -1.0 * np.ones((n, n), dtype="float32")
@@ -184,19 +283,13 @@ class Qlearner:
         for i in range(n):
             bi = block_id_of[i]
             if bi < goal_block_idx - 1:
-                # From block i -> any action in next block
                 for j in range(n):
                     if block_id_of[j] == bi + 1:
                         R_full[i, j] = 0.0
             elif bi == goal_block_idx - 1:
-                # Last preprocessing block -> ONLY the requested goal gets reward
                 for j in range(n):
                     if block_id_of[j] == goal_block_idx:
-                        if actions[j][0] == self.goal:
-                            R_full[i, j] = 100.0
-                        else:
-                            R_full[i, j] = -1.0  # forbid wrong goal
-            # else: goal rows remain -1 (terminal)
+                        R_full[i, j] = 100.0 if actions[j][0] == self.goal else -1.0
 
         learn_row_mask = ~np.all(R_full == -1, axis=1)
         R_learn = R_full[learn_row_mask, :]
@@ -212,7 +305,7 @@ class Qlearner:
         check_missing = dataset['train'].copy().isnull().sum().sum() > 0
         blocks, goals = self._build_blocks(check_missing)
 
-        # Optional randomization of block order
+        # randomize block order (your original behavior) — WARNING: can break dependencies
         if self.randomize_blocks:
             if self._rng is None:
                 self._rng = np.random.RandomState()
@@ -223,7 +316,6 @@ class Qlearner:
         (Q_learn, R_learn, R_full, actions, block_id_of, goal_block_idx,
          learn_row_mask, learn_rows_idx, global_to_learnrow) = self._build_reward_matrix(blocks, goals)
 
-        # cache
         self._blocks = blocks
         self._goals = goals
         self._actions = actions
@@ -238,43 +330,150 @@ class Qlearner:
         n_states = n_actions
         return Q_learn, R_learn, n_actions, n_states, check_missing
 
+    # ------------------ Pipeline execution ------------------ #
     def _instantiate_and_run(self, a_idx, dataset, target_goal, target_prepare):
         name, cls, extra = self._actions[a_idx]
 
         # preprocessing step
         if self._block_id_of[a_idx] < self._goal_block_idx:
+
+            # --- Sampler: special (must keep y/sensitive aligned) ---
+            if cls is DataSampler:
+                strat = str(name).lower()
+                if strat == "full":
+                    strategy = "full"
+                elif strat == "random":
+                    strategy = "random"
+                elif strat == "snapshot":
+                    strategy = "snapshot"
+                elif strat == "stratified":
+                    strategy = "stratified"
+                else:
+                    strategy = "full"
+
+                sampler = DataSampler(
+                    dataset=dataset["train"],
+                    strategy=strategy,
+                    random_state=42,
+                    verbose=self.verbose,
+                    **extra
+                )
+                X_new, y_new, s_new = sampler.transform(
+                    y=dataset.get("target", None),
+                    sensitive=dataset.get("sensitive", None),
+                )
+                out = dataset.copy()
+                out["train"] = X_new
+                if y_new is not None:
+                    out["target"] = y_new
+                if s_new is not None:
+                    out["sensitive"] = s_new
+                return out
+
+            # --- Normalizer: exclude target_prepare ---
             if cls is Normalizer:
-                return cls(dataset=dataset, strategy=name,
-                           exclude=target_prepare, verbose=self.verbose, **extra).transform()
-            elif cls in (Tokenizer, Lowercaser, PunctuationRemover, StopwordRemover,
-                         SpellChecker, LanguageTranslator, Deduplicator, UnitConverter):
-                return cls(dataset=dataset, strategy=name,
-                           verbose=self.verbose, **extra).transform()
-            elif cls is Imputer:
-                return cls(dataset=dataset, strategy=name,
-                           verbose=self.verbose, **extra).transform()
-            elif cls is Outlier_detector:
-                return cls(dataset=dataset, strategy=name,
-                           verbose=self.verbose, **extra).transform()
-            else:
-                return cls(dataset=dataset, strategy=name,
-                           verbose=self.verbose, **extra).transform()
+                return cls(
+                    dataset=dataset,
+                    strategy=name,
+                    exclude=target_prepare,
+                    verbose=self.verbose,
+                    **extra
+                ).transform()
 
-        # goal (terminal): refuse to run the wrong one
-        else:
-            if name != self.goal:
-                return dataset  # no-op safeguard
+            # --- PolyPCATransformer: uses reducer=... not strategy=... ---
+            if cls is PolyPCATransformer:
+                reducer = str(name).lower()
+                # map block labels -> reducer enum
+                if reducer == "none":
+                    reducer = "none"
+                elif reducer == "pca":
+                    reducer = "pca"
+                elif reducer == "sparsepca":
+                    reducer = "sparsepca"
+                elif reducer == "minibatchsparsepca":
+                    reducer = "minibatchsparsepca"
+                elif reducer == "kernelpca":
+                    reducer = "kernelpca"
+                return cls(
+                    dataset=dataset,
+                    reducer=reducer,
+                    verbose=self.verbose,
+                    **extra
+                ).transform()
 
-            if name == "MARS":
-                return Regressor(dataset=dataset, strategy="MARS",
-                                 target=target_goal, verbose=self.verbose, **extra).transform()
-            elif name == "LR":
-                # >>> Pass dataset_name so LR can output 1-|SP| for Adult <<<
-                return Classifier(dataset=dataset, strategy="LR",
-                                  target=target_goal, verbose=self.verbose,
-                                  dataset_name=self.dataset_name, **extra).transform()
-            else:
-                raise ValueError("Unknown goal: %s" % name)
+            # --- DistributionShapeCorrector: normalize strategy name ---
+            if cls is DistributionShapeCorrector:
+                s = str(name).lower()
+                return cls(
+                    dataset=dataset,
+                    strategy=s,
+                    exclude=target_prepare,
+                    verbose=self.verbose,
+                    **extra
+                ).transform()
+
+            # --- FeatureSelector: MI requires y_train ---
+            if cls is FeatureSelector:
+                y_train = dataset.get("target", None)
+                return cls(
+                    dataset=dataset,
+                    strategy=str(name).lower(),
+                    verbose=self.verbose,
+                    **extra
+                ).transform(y_train=y_train)
+
+            # --- WhitespaceCleaner: expects 'wc'/'none' (your class lowercases) ---
+            if cls is WhitespaceCleaner:
+                return cls(
+                    dataset=dataset,
+                    strategy=str(name).lower(),
+                    verbose=self.verbose,
+                    **extra
+                ).transform()
+
+            # --- Standard modules (Learn2Clean-style) ---
+            if cls in (
+                Tokenizer, Lowercaser, PunctuationRemover, StopwordRemover,
+                SpellChecker, LanguageTranslator, Deduplicator, UnitConverter,
+                Consistency_checker, Clusterer,
+                InvalidValueRepair, FloatingPointStabilizer,
+                VIFMulticollinearityCleaner
+            ):
+                return cls(dataset=dataset, strategy=name, verbose=self.verbose, **extra).transform()
+
+            if cls is Imputer:
+                return cls(dataset=dataset, strategy=name, verbose=self.verbose, **extra).transform()
+
+            if cls is Outlier_detector:
+                return cls(dataset=dataset, strategy=name, verbose=self.verbose, **extra).transform()
+
+            # fallback
+            return cls(dataset=dataset, strategy=name, verbose=self.verbose, **extra).transform()
+
+        # goal (terminal)
+        if name != self.goal:
+            return dataset  # safeguard
+
+        if name == "MARS":
+            return Regressor(
+                dataset=dataset,
+                strategy="MARS",
+                target=target_goal,
+                verbose=self.verbose,
+                **extra
+            ).transform()
+
+        if name == "LR":
+            return Classifier(
+                dataset=dataset,
+                strategy="LR",
+                target=target_goal,
+                verbose=self.verbose,
+                dataset_name=self.dataset_name,
+                **extra
+            ).transform()
+
+        raise ValueError("Unknown goal: %s" % name)
 
     def pipeline(self, dataset, actions_list, target_goal, target_prepare, check_missing):
         dataset = dataset.copy()
@@ -300,9 +499,8 @@ class Qlearner:
         actions_names = [name for (name, _cls, _extra) in self._actions]
         learn_rows_idx = self._learn_rows_idx
 
-        # compute global index for desired goal once
         goal_start = len(self._actions) - len(self._goals)
-        desired_goal_global = goal_start + g  # g = index in ["MARS","LR"]
+        desired_goal_global = goal_start + g
 
         results = []
         for i_learnrow, start_global in enumerate(learn_rows_idx):
@@ -322,9 +520,7 @@ class Qlearner:
                     break
                 current_learn_row = int(self._global_to_learnrow[next_col])
 
-            # clean plan
             actions_list = remove_adjacent(actions_list)
-            # Keep only the desired goal (strip any wrong-goal action)
             actions_list = [
                 a for a in actions_list
                 if (self._block_id_of[a] != self._goal_block_idx) or (a == desired_goal_global)
@@ -334,7 +530,6 @@ class Qlearner:
             print("\n\nStrategy#", i_learnrow, ": Greedy traversal for start", actions_names[start_global])
             print(traverse_name)
 
-            # ensure the last action is the desired goal
             if not actions_list or actions_list[-1] != desired_goal_global:
                 actions_list.append(desired_goal_global)
                 traverse_name += " -> %s" % self._goals[g][0]
@@ -342,27 +537,31 @@ class Qlearner:
             pipeline_result = self.pipeline(dataset, actions_list, target1, target2, check_missing)
             metrics = pipeline_result[1]
 
-            if metrics is not None and 'quality_metric' in metrics:
-                print("Quality metric ", metrics['quality_metric'])
+            qm = None
+            if isinstance(metrics, dict):
+                qm = metrics.get('quality_metric', None)
+                try:
+                    if qm is not None:
+                        qm = float(qm)
+                except Exception:
+                    qm = None
+                metrics['quality_metric'] = qm
+                print("Quality metric ", qm)
+
                 results.append(metrics)
 
-                # LR: higher is better (Adult uses 1-|SP|, others accuracy)
-                if self._goals[g][0] == "LR" and metrics['quality_metric'] is not None:
-                    if metrics['quality_metric'] >= self.f_goal:
-                        print("Pipeline : ", traverse_name)
-                        print(metrics)
-                        print("Achieved in ", i_learnrow + 1)
-                        return True, i_learnrow + 1
+                if self._goals[g][0] == "LR" and qm is not None and qm >= self.f_goal:
+                    print("Pipeline : ", traverse_name)
+                    print(metrics)
+                    print("Achieved in ", i_learnrow + 1)
+                    return True, i_learnrow + 1
 
-                # MARS: keep your original criterion (example assumes minimizing error)
-                if self._goals[g][0] == "MARS" and metrics['quality_metric'] is not None:
-                    if metrics['quality_metric'] <= self.f_goal:
-                        print("Pipeline : ", traverse_name)
-                        print(metrics)
-                        print("Achieved in ", i_learnrow + 1)
-                        return True, i_learnrow + 1
+                if self._goals[g][0] == "MARS" and qm is not None and qm <= self.f_goal:
+                    print("Pipeline : ", traverse_name)
+                    print(metrics)
+                    print("Achieved in ", i_learnrow + 1)
+                    return True, i_learnrow + 1
 
-        # fallback: run only the desired goal
         pipeline_result = self.pipeline(dataset, [desired_goal_global], target1, target2, check_missing)
         results.append(pipeline_result[1])
         return False, i_learnrow + 1 if 'i_learnrow' in locals() else 1
@@ -384,13 +583,12 @@ class Qlearner:
         n_episodes = int(1e3)
         epsilon = 0.05
 
-        # Seeded RNG for both Q-learning and block shuffling
         rng = np.random.RandomState(r_state)
-        self._rng = rng  # used in Initialization_Reward_Matrix
+        self._rng = rng
 
         q_learn, r_learn, n_actions, n_states, check_missing = self.Initialization_Reward_Matrix(self.dataset)
 
-        for e in range(n_episodes):
+        for _e in range(n_episodes):
             learn_row_indices = np.arange(n_actions)
             rng.shuffle(learn_row_indices)
             current_row = int(learn_row_indices[0])
@@ -420,15 +618,14 @@ class Qlearner:
 
                 qsa = q_learn[current_row, action_col]
                 target = reward + gamma * max_future
-                new_q = qsa + beta * (target - qsa)
-                q_learn[current_row, action_col] = new_q
+                q_learn[current_row, action_col] = qsa + beta * (target - qsa)
 
                 row = q_learn[current_row]
                 pos = row > 0
                 if np.any(pos):
                     q_learn[current_row, pos] = row[pos] / np.sum(row[pos])
 
-                if reward > 1:  # 100 when stepping into the (desired) goal
+                if reward > 1:
                     goal_reached = True
                 elif next_row is not None:
                     current_row = next_row
@@ -456,7 +653,6 @@ class Qlearner:
         check_missing = self.dataset['train'].isnull().sum().sum() > 0
         blocks, goals = self._build_blocks(check_missing)
 
-        # randomize block order here too for consistency (optional)
         if self.randomize_blocks:
             if self._rng is None:
                 self._rng = np.random.RandomState()
@@ -468,11 +664,12 @@ class Qlearner:
 
         chosen = []
         names = []
-        for b_idx, block in enumerate(blocks):
+        offset = 0
+        for block in blocks:
             a_local = randint(0, len(block) - 1)
-            global_idx = sum(len(b) for b in blocks[:b_idx]) + a_local
-            chosen.append(global_idx)
+            chosen.append(offset + a_local)
             names.append(block[a_local][0])
+            offset += len(block)
 
         goal_name = self.goal
         goal_global_idx = len(actions) - len(goals) + [g[0] for g in goals].index(goal_name)

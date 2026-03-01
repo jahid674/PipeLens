@@ -1,96 +1,151 @@
-# Regenerate per_pipeline_actions.csv with missing_value options 1..9
-import itertools
-import numpy as np
-import pandas as pd
-from pathlib import Path
+import streamlit as st
+import time
 
-# --- Configuration (updated MV range to 1..9) ---
-DATASETS = ["adult", "housing", "hmda"]
-MV_OPTS = range(1, 9+1)      # missing_value 1..9
-NORM_OPTS = range(1, 5+1)    # normalization 1..5
-MODEL_OPTS = [1]             # single model option
+# --- Page Configuration ---
+st.set_page_config(
+    page_title="ML Pipeline Robustness Checker",
+    page_icon="🛡️",
+    layout="wide"
+)
 
-# Thresholds and util distributions (per your last spec)
-THRESHOLDS = {"adult": 0.05, "hmda": 0.08, "housing": 170.0}
-UTIL_PARAMS = {
-    "adult":   {"mean": 0.08,  "sd": 0.02},
-    "hmda":    {"mean": 0.09,  "sd": 0.02},
-    "housing": {"mean": 165.0, "sd": 8.0},
-}
-ATTEMPT_MAX = {"adult": 12, "hmda": 4, "housing": 2}
+# --- UI Title ---
+st.title("🛡️ ML Pipeline Robustness Checker")
+st.markdown("""
+This interface allows you to simulate data drift and evaluate the vulnerability of a machine learning pipeline. 
+Adjust the settings in the left panel and click 'Run Robustness Check' to see a detailed report.
+""")
 
-ACTIONS = ["Similarity", "Prediction"]
+# --- Layout Definition ---
+# Create two columns: one for settings (inputs) and one for the report (outputs)
+settings_col, report_col = st.columns(2)
 
-rng = np.random.RandomState(12345)
-pipelines = list(itertools.product(MV_OPTS, NORM_OPTS, MODEL_OPTS))  # 9*5=45 per dataset
+# --- Settings Column (Left) ---
+with settings_col:
+    st.header("Settings (Pipeline & Drift Simulation)", divider="rainbow")
 
-# Desired action composition per dataset for 45 pipelines
-# adult: MOST Similarity -> 36 Similarity, 9 Prediction (80/20)
-# hmda:  MOST Prediction -> 36 Prediction, 9 Similarity
-# housing: HALF & HALF -> 22 Similarity, 23 Prediction
-def planned_actions_for(ds: str):
-    n = len(pipelines)  # 45
-    if ds == "adult":
-        return ["Similarity"] * 36 + ["Prediction"] * 9
-    if ds == "hmda":
-        return ["Prediction"] * 36 + ["Similarity"] * 9
-    if ds == "housing":
-        return ["Similarity"] * 22 + ["Prediction"] * 23
-    return ["Prediction"] * n
+    # 1. Dataset Selection
+    dataset = st.selectbox(
+        "**Dataset**",
+        ("German Credit", "Adult Income"),
+        help="Select the dataset for the pipeline."
+    )
 
-def sample_passing_util(ds: str, thr: float) -> float:
-    mu, sd = UTIL_PARAMS[ds]["mean"], UTIL_PARAMS[ds]["sd"]
-    for _ in range(10):
-        u = rng.normal(mu, sd)
-        if u <= thr:
-            return float(u)
-    # Push below threshold in a plausible way
-    if thr > 1.0:
-        margin = abs(rng.normal(loc=3.0, scale=2.0))
-        return float(thr - max(0.5, margin))
+    # 2. Pipeline Configuration
+    st.markdown("**Pipeline Components**")
+    # Using multiselect for flexibility, though the prompt showed a fixed pipeline.
+    # This allows for more dynamic interaction.
+    imputation_step = st.selectbox(
+        "Imputation",
+        ("Mean Imputation", "Median Imputation", "Mode Imputation"),
+        help="Method to handle missing values."
+    )
+    scaling_step = st.selectbox(
+        "Scaling / Preprocessing",
+        ("Standardization", "Min-Max Scaling", "IQR Outlier Handling"),
+        help="Data scaling or outlier removal method."
+    )
+    model_step = st.selectbox(
+        "Classifier Model",
+        ("Logistic Regression", "Random Forest", "AdaBoost"),
+        help="The prediction model to use."
+    )
+    
+    # Display the constructed pipeline
+    st.info(f"**Current Pipeline:** `{imputation_step} → {scaling_step} → {model_step}`")
+
+    # 3. Drift Simulation
+    st.markdown("**Drift Simulation**")
+    drift_type = st.selectbox(
+        "**Drift Type**",
+        ("Missing Value Injection", "Outlier Injection"),
+        help="The type of noise to introduce into the dataset."
+    )
+    noise_level = st.slider(
+        "**Noise Level (ρ)**",
+        min_value=0,
+        max_value=50,
+        value=25,
+        format="%d%%",
+        help="The percentage of data to affect with the selected drift."
+    )
+
+    # 4. Vulnerability Threshold
+    vulnerability_threshold = st.number_input(
+        "**Vulnerability Threshold (τ)**",
+        min_value=0.0,
+        max_value=10.0,
+        value=3.0,
+        step=0.1,
+        help="Set the tolerable vulnerability score. Scores above this will be flagged."
+    )
+
+    # 5. Run Button
+    run_button = st.button("🚀 Run Robustness Check", use_container_width=True)
+
+# --- Report Column (Right) ---
+with report_col:
+    st.header("Robustness Report", divider="rainbow")
+    
+    if run_button:
+        # Simulate a computation delay
+        with st.spinner("Analyzing pipeline vulnerability..."):
+            time.sleep(2) # Represents the backend calculation time
+
+        # --- Hardcoded Results (as per the prompt's example) ---
+        vulnerability_score = 4.5
+        performance_degradation = 3.5
+        most_vulnerable_component = "Mean Value Imputation"
+        suggested_pipeline = "Median Imputation → IQR Outlier Handling → Standardization"
+        retraining_needed = "No"
+
+        # --- Display Metrics ---
+        st.subheader("Key Metrics")
+        
+        # Display Vulnerability Score with a warning color if it exceeds the threshold
+        if vulnerability_score > vulnerability_threshold:
+            delta_text = f"Exceeds Threshold ({vulnerability_threshold})"
+            st.metric(
+                label="Vulnerability Score (VS)",
+                value=f"{vulnerability_score}",
+                delta=delta_text,
+                delta_color="inverse" # Displays in red
+            )
+        else:
+            delta_text = f"Within Threshold ({vulnerability_threshold})"
+            st.metric(
+                label="Vulnerability Score (VS)",
+                value=f"{vulnerability_score}",
+                delta=delta_text,
+                delta_color="normal" # Displays in green
+            )
+
+        st.metric(label="Performance Degradation (Δ)", value=f"{performance_degradation}%")
+
+        # --- Display Detailed Findings ---
+        st.subheader("Analysis")
+        st.markdown(f"**Most Vulnerable Component:** `{most_vulnerable_component}`")
+        st.markdown(f"**Retraining Needed:** **{retraining_needed}**")
+        st.markdown(f"**Suggested Pipeline:** `{suggested_pipeline}`")
+        
+        # --- Display User-Facing Explanation in a distinct container ---
+        with st.container(border=True):
+            st.subheader("User-Facing Explanation")
+            
+            st.markdown(
+                f"**📊 Quantification:** The current pipeline has a Vulnerability Score (VS) of **{vulnerability_score}**, "
+                f"which exceeds your tolerable threshold of **{vulnerability_threshold}**."
+            )
+            
+            st.markdown(
+                f"**🧐 Explanation:** The `{most_vulnerable_component}` step is highly sensitive to the "
+                f"**{drift_type.lower()}** you simulated. This sensitivity is the primary cause of the "
+                f"distributional shift, leading to a performance drop."
+            )
+            
+            st.markdown(
+                f"**🛠️ Intervention:** To improve robustness, we suggest switching to **median imputation**. "
+                f"This change significantly reduces the pipeline's vulnerability and is projected to keep "
+                f"performance degradation below 1% under similar drift conditions."
+            )
     else:
-        frac = rng.uniform(0.50, 0.98)
-        return float(thr * frac)
-
-rows = []
-for ds in DATASETS:
-    thr = THRESHOLDS[ds]
-    planned = planned_actions_for(ds)
-    assert len(planned) == len(pipelines)
-    for (mv, nm, mdl), action in zip(pipelines, planned):
-        attempts = int(rng.randint(1, ATTEMPT_MAX[ds]))  # strict "<" bound
-        util_if_pass = sample_passing_util(ds, thr)
-        rows.append({
-            "dataset_name": ds,
-            "missing_value": int(mv),
-            "normalization": int(nm),
-            "model": int(mdl),
-            "best_action": action,
-            "attempts_to_pass": attempts,
-            "passed": True,
-            "util_if_pass": round(util_if_pass, 6),
-            "threshold": float(thr),
-        })
-
-df_best = pd.DataFrame(rows, columns=[
-    "dataset_name","missing_value","normalization","model",
-    "best_action","attempts_to_pass","passed","util_if_pass","threshold"
-])
-
-# Sanity checks
-assert all(df_best["passed"])
-assert df_best.query("dataset_name=='adult' and attempts_to_pass >= 12").empty
-assert df_best.query("dataset_name=='hmda' and attempts_to_pass >= 4").empty
-assert df_best.query("dataset_name=='housing' and attempts_to_pass >= 2").empty
-assert (df_best["util_if_pass"] <= df_best["threshold"]).all()
-
-# Composition checks
-adult_counts   = df_best.query("dataset_name=='adult'")["best_action"].value_counts().to_dict()
-hmda_counts    = df_best.query("dataset_name=='hmda'")["best_action"].value_counts().to_dict()
-housing_counts = df_best.query("dataset_name=='housing'")["best_action"].value_counts().to_dict()
-
-out_path = "per_pipeline_actions.csv"
-df_best.to_csv(out_path, index=False)
-
-adult_counts, hmda_counts, housing_counts, str(out_path)
-out_path
+        st.info("Please configure your settings on the left and click 'Run Robustness Check' to generate a report.")

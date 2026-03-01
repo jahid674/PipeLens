@@ -1,4 +1,4 @@
-from modules.missing_value.imputer import Imputer
+from modules.data_preparation.missing_value.imputer import Imputer
 
 class MissingValueHandler:
     def __init__(self, strategy, config):

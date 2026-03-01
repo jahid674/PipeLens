@@ -1,0 +1,9 @@
+__pycache__/
+*.pyc
+*.pyo
+*.csv
+*.log
+logs/
+historical_data/
+metric/
+data/noisy/

@@ -1,4 +1,4 @@
-from modules.binning.binning import Binner
+from modules.data_preparation.binning.binning import Binner
 
 class BinnerHandler:
     def __init__(self, config):

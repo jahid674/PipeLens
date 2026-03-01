@@ -1,9 +1,15 @@
 __pycache__/
 *.pyc
 *.pyo
-*.csv
-*.log
+.DS_Store
+
+# logs/outputs
 logs/
+*.log
+worker_log.txt
+
+# generated data (avoid huge pushes)
+*.csv
 historical_data/
 metric/
 data/noisy/

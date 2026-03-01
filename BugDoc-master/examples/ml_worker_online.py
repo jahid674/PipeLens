@@ -221,7 +221,7 @@ while True:
     filename, values, parameters = parse_message(data)
 
     # Read dynamically per message so env changes take effect without restart
-    threshold           = float(os.getenv("BUGDOC_THRESHOLD",      "0.1"))
+    threshold           = float(os.getenv("BUGDOC_THRESHOLD",      "0.05"))
     better_is_lower     = os.getenv("BUGDOC_BETTER_IS_LOWER", "1") == "1"
     default_model_strat = os.getenv("BUGDOC_DEFAULT_MODEL",        "1")
 

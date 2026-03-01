@@ -1,4 +1,4 @@
-from modules.normalization.normalizer import Normalizer
+from modules.data_preparation.normalization.normalizer import Normalizer
 from modules.profiling.profile import Profile
 
 class NormalizationHandler:

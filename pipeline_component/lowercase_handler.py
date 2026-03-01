@@ -1,10 +1,20 @@
-from modules.lower_case.lower_caser import Lowercaser
+# =========================
+# pipeline_component/lowercase_handler.py
+# Updated to mirror WhitespaceHandler:
+# - Accepts (strategy, config)
+# - Pulls strategy list from config['lowercase_strategy']
+# - Does NOT require text_column in config anymore
+# =========================
 
-class LowercaserHandler:
-    def __init__(self, config):
-        self.text_column = config['text_column']
+from modules.text_processing.lower_case.lower_caser import Lowercaser
+
+class LowercaseHandler:
+    def __init__(self, strategy, config):
+        self.strategy = strategy
+        self.lowercase_strategy = config['lowercase_strategy']  # e.g., ['none','lc']
 
     def apply(self, X, y=None, sensitive=None):
-        processor = Lowercaser(X, text_column=self.text_column)
+        strat = self.lowercase_strategy[self.strategy]  # 0-based index
+        processor = Lowercaser(X, strategy=strat)
         X = processor.transform()
         return X, y, sensitive

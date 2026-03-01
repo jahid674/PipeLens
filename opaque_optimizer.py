@@ -48,7 +48,7 @@ class OpaqueOptimizer:
         cur_params = init_params.copy()
         cur_params_opt = {strategy: selection for strategy, selection in zip(self.base_strategies, init_params[:len(self.base_strategies)])}
         cur_param_check=cur_params[:len(self.base_strategies)]
-        opt_f = self.score_lookup.utility_look_up(self.historical_data_pd, init_params)
+        opt_f = self.executor_pass.current_par_lookup(self.base_strategies, cur_param_check)
         #opt_f = self.executor_pass.current_par_lookup(cur_param_check)
         #print(cur_params)
         if self.pipeline_type == 'ml':
@@ -73,6 +73,7 @@ class OpaqueOptimizer:
             self.fail += 1
 
     def optimistic_search(self, seen, cur_params_opt, f_goal, opt_f):
+        print('coeef',self.coef_rank)
         for val in self.coef_rank:
             cur_strategy = self.base_strategies[val]
             current_paramter_value = self.tau(cur_strategy, val)
@@ -82,7 +83,7 @@ class OpaqueOptimizer:
             if tuple(cur_params.items()) in seen:
                 continue
             #cur_f = self.executor_pass.current_par_lookup(cur_params)
-            cur_f = self.score_lookup.utility_look_up(self.historical_data_pd, list(cur_params.values()))
+            cur_f = self.executor_pass.current_par_lookup(self.base_strategies, [int(v) for v in cur_params.values()])
             seen.add(tuple(cur_params.items()))
             self.rank_iter += 1
             logging.info(f'utiltiy found : {cur_f} ,optimal utility : {opt_f}')
@@ -112,7 +113,7 @@ class OpaqueOptimizer:
                 self.rank_f = opt_f
                 logging.info(f'Next param {cur_params}')
                 #cur_f = self.executor_pass.current_par_lookup(cur_params)
-                cur_f = self.score_lookup.utility_look_up(self.historical_data_pd, list(cur_params.values()))
+                cur_f = self.executor_pass.current_par_lookup(self.base_strategies, [int(v) for v in cur_params.values()])
                 opt_f, cur_params_opt, found = self.f_lookup(cur_f, f_goal, cur_params_opt, cur_params, opt_f)
                 logging.info(f'Optimal paramater {cur_params_opt}, optimal utility {opt_f} ')
                 if found:

@@ -1,11 +1,19 @@
 import pandas as pd
 
-path = "BugDoc-master/examples/Bugdoc_test_lr_sp_adult.csv"
-data = pd.read_csv(path)
+# ===== Path to your dataset =====
+file_path = "BugDoc-master/examples/0.1_filtered_adult_sp.csv"   # change if different extension
 
-if 'model' in data.columns:
-    data = data.drop(columns=['model'])
+# ---- Load dataset ----
+df = pd.read_csv(file_path)
 
-data.to_csv(path, index=False)
+print("Original shape:", df.shape)
 
+# ---- Keep first 13 columns only ----
+df = df.iloc[:, :14]
 
+print("New shape:", df.shape)
+
+# ---- Save BACK to the same path (overwrite) ----
+df.to_csv(file_path, index=False)
+
+print("Done. Dataset updated with only first 13 columns.")

@@ -1,4 +1,4 @@
-from modules.spell_checker.spell_checker import SpellChecker
+from modules.text_processing.spell_checker.spell_checker import SpellChecker
 
 class SpellCheckerHandler:
     def __init__(self, strategy, config):

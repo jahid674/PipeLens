@@ -1,6 +1,6 @@
 # File: components/tokenizer_handler.py
 
-from modules.tokenization.tokenizer import Tokenizer
+from modules.text_processing.tokenization.tokenizer import Tokenizer
 
 class TokenizerHandler:
     def __init__(self, strategy, config):

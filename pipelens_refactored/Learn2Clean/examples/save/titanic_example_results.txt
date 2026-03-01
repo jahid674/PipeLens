@@ -1,0 +1,1 @@
+('titanic_example', 'learn2clean', 'NB', 'action_taken', None, 'DS -> IQR -> NB', 'accuracy', 0.8964980544747082, 1.1630229949951172)

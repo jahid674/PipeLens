@@ -1,4 +1,4 @@
-from modules.deduplication.deduplication import Deduplicator
+from modules.data_preparation.deduplication.deduplication import Deduplicator
 
 
 class DeduplicationHandler:

@@ -1,4 +1,4 @@
-from modules.punctuation_remover.punctuation_remover import PunctuationRemover
+from modules.text_processing.punctuation_remover.punctuation_remover import PunctuationRemover
 
 class PunctuationHandler:
     def __init__(self, strategy, config):

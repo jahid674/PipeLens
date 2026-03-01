@@ -1,40 +1,37 @@
 #!/usr/bin/env python3
 # coding: utf-8
+# Learn2Clean-compatible UnitConverter (rewritten)
 
 import warnings
 import time
 import pandas as pd
 pd.options.mode.chained_assignment = None
 
+warnings.filterwarnings("ignore", category=FutureWarning)
+warnings.simplefilter('ignore', category=ImportWarning)
+warnings.simplefilter('ignore', category=DeprecationWarning)
+
 
 class UnitConverter():
     """
-    Convert numeric values in a column using multiplier and offset.
+    Learn2Clean-compatible Unit Converter.
+
+    Convert numeric values in a column using:  x_new = x * multiplier + offset
 
     Parameters
     ----------
-    * strategy : str, default = 'NONE'
-      Available strategies:
-        - 'NONE' : do nothing (no unit conversion)
-        - 'UC'   : apply conversion with multiplier and offset
-
-    * column : str or None
-      Column to apply conversion on.
-
-    * multiplier : float, default=1.0
-      Multiplication factor.
-
-    * offset : float, default=0.0
-      Value added after multiplication.
-
-    * exclude : str or None
-      Column to safeguard from processing (restored afterward if present).
-
-    * verbose : bool, default=False
-      Print information about conversion.
-
-    * threshold : float or None
-      Unused; kept for compatibility with Learn2Clean components.
+    dataset : dict-like with keys {'train'} (DataFrame), optionally {'test'}
+    strategy : {'NONE_convert','UC'}
+        - 'NONE_convert' : no-op
+        - 'UC'           : apply conversion
+    column : str | None
+        Column to apply conversion on (must be numeric).
+    multiplier : float, default=1.0
+    offset : float, default=0.0
+    exclude : str | None
+        Column to safeguard (restored afterward if present).
+    verbose : bool
+    threshold : unused (kept for API compatibility)
     """
 
     def __init__(self, dataset, strategy='NONE_convert', column=None,
@@ -42,13 +39,15 @@ class UnitConverter():
                  exclude=None, verbose=False, threshold=None):
 
         self.dataset = dataset
-        self.strategy = strategy.upper()
+        self.strategy = str(strategy).upper().strip()
         self.column = column
-        self.multiplier = multiplier
-        self.offset = offset
+        self.multiplier = float(multiplier)
+        self.offset = float(offset)
         self.exclude = exclude
-        self.verbose = verbose
+        self.verbose = bool(verbose)
         self.threshold = threshold
+
+    # ---------------- Learn2Clean API ----------------
 
     def get_params(self, deep=True):
         return {
@@ -69,62 +68,93 @@ class UnitConverter():
                               "Check with `unitconverter.get_params().keys()`")
             else:
                 setattr(self, k, v)
+        # normalize after setting
+        self.strategy = str(self.strategy).upper().strip()
 
-    # === Strategy: do nothing ===
-    def NONE(self, dataset):
+    # ---------------- strategies ----------------
+
+    def NONE(self, df: pd.DataFrame) -> pd.DataFrame:
         if self.verbose:
-            print("No unit conversion applied (strategy='NONE').")
-        return dataset.sort_index()
+            print("No unit conversion applied (strategy='NONE_convert').")
+        return df.sort_index()
 
-    # === Strategy: unit conversion ===
-    def UC(self, dataset):
-        d = dataset
+    def UC(self, df: pd.DataFrame) -> pd.DataFrame:
+        out = df.copy()
 
-        if self.column not in d.columns:
-            warnings.warn(f"Column '{self.column}' not found. Skipping unit conversion.")
-            return d
+        if self.column is None:
+            warnings.warn("UnitConverter: `column` is None. Skipping conversion.")
+            return out
 
-        if not pd.api.types.is_numeric_dtype(d[self.column]):
-            warnings.warn(f"Column '{self.column}' is not numeric. Skipping unit conversion.")
-            return d
+        if self.column not in out.columns:
+            warnings.warn(f"UnitConverter: column '{self.column}' not found. Skipping conversion.")
+            return out
+
+        if not pd.api.types.is_numeric_dtype(out[self.column]):
+            warnings.warn(f"UnitConverter: column '{self.column}' is not numeric. Skipping conversion.")
+            return out
 
         if self.verbose:
-            print(f"Converting column '{self.column}' with multiplier={self.multiplier}, offset={self.offset}")
+            print(f"Converting '{self.column}' with multiplier={self.multiplier}, offset={self.offset}")
 
-        d[self.column] = d[self.column] * self.multiplier + self.offset
+        out[self.column] = out[self.column] * self.multiplier + self.offset
+        return out.sort_index()
 
-        if (self.exclude in list(d.columns.values)):
-            d[self.exclude] = dataset[self.exclude]
-
-        return d.sort_index()
+    # ---------------- driver ----------------
 
     def transform(self):
-        outd = self.dataset
         start_time = time.time()
+        outd = self.dataset
+
         print(">>Unit Conversion ")
 
         for key in ['train']:
-            if not isinstance(self.dataset[key], dict):
+
+            if isinstance(self.dataset, dict) and key in self.dataset and (not isinstance(self.dataset[key], dict)):
+
                 d = self.dataset[key]
                 print("* For", key, "dataset")
 
-                if self.strategy == "NONE_CONVERT":
-                    dn = self.NONE(d)
-                elif self.strategy == "UC":
-                    dn = self.UC(d)
-                else:
-                    raise ValueError("Unknown strategy. Choose 'NONE_convert' or 'UC'.")
+                # safeguard exclude column if requested
+                excl_backup = None
+                if self.exclude is not None and self.exclude in d.columns:
+                    excl_backup = d[self.exclude].copy()
 
-                if (self.exclude in list(pd.DataFrame(d).columns.values)):
-                    dn[self.exclude] = d[self.exclude]
+                if self.strategy in ("NONE_CONVERT", "NONE"):
+                    dn = self.NONE(d.copy())
+                elif self.strategy == "UC":
+                    dn = self.UC(d.copy())
+                else:
+                    raise ValueError("Unknown strategy. Choose 'NONE_convert' (or 'NONE') or 'UC'.")
+
+                # restore exclude column if needed
+                if excl_backup is not None and self.exclude in dn.columns:
+                    dn[self.exclude] = excl_backup
 
                 outd[key] = dn
                 print('...', key, 'dataset')
+
+                # If your pipeline keeps 'test', apply same conversion there too
+                if isinstance(self.dataset, dict) and "test" in self.dataset and self.dataset["test"] is not None and not isinstance(self.dataset["test"], dict):
+                    dt = self.dataset["test"]
+                    excl_backup_t = None
+                    if self.exclude is not None and self.exclude in dt.columns:
+                        excl_backup_t = dt[self.exclude].copy()
+
+                    if self.strategy in ("NONE_CONVERT", "NONE"):
+                        dnt = self.NONE(dt.copy())
+                    else:
+                        dnt = self.UC(dt.copy())
+
+                    if excl_backup_t is not None and self.exclude in dnt.columns:
+                        dnt[self.exclude] = excl_backup_t
+
+                    outd["test"] = dnt
+
             else:
-                outd[key] = self.dataset[key]
                 print('No', key, 'dataset, no unit conversion')
 
         print("Unit conversion done -- CPU time: %s seconds" %
               (time.time() - start_time))
         print()
+
         return outd

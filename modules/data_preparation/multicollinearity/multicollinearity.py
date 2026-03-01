@@ -23,7 +23,7 @@ class VIFMulticollinearityCleaner:
         strategy="drop_high_vif",
         vif_threshold=10.0,
         max_iter=50,
-        min_features=0,
+        min_features=2,
         standardize=True,
         verbose=False,
         exclude=None,
@@ -100,7 +100,7 @@ class VIFMulticollinearityCleaner:
             if vif_df.iloc[0]["vif"] <= self.vif_threshold:
                 break
 
-            #keep.remove(vif_df.iloc[0]["feature"])
+            keep.remove(vif_df.iloc[0]["feature"])
 
         self.selected_features_ = keep
 

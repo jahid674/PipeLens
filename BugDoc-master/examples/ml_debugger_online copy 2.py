@@ -54,7 +54,7 @@ DATASET        = os.getenv("BUGDOC_DATASET", "adult")
 METRIC_TYPE    = os.getenv("BUGDOC_METRIC_TYPE", "sp")
 EXEC_MODE      = os.getenv("BUGDOC_EXEC_MODE", "fail")
 
-THRESHOLD      = float(os.getenv("BUGDOC_THRESHOLD", "156"))
+THRESHOLD      = float(os.getenv("BUGDOC_THRESHOLD", ".02"))
 BETTER_IS_LOWER= os.getenv("BUGDOC_BETTER_IS_LOWER", "1") == "1"
 
 # ================= USER CONTROL =================

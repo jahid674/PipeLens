@@ -2,19 +2,37 @@
   {
     "index": 1,
     "start_config": {
+      "distribution_shape": "1",
+      "multicollinearity": "1",
       "outlier": "1",
       "deduplication": "1",
-      "missing_value": "9",
-      "normalization": "1",
-      "pos_missing_value": "1",
-      "pos_normalization": "2",
-      "pos_outlier": "3",
-      "pos_deduplication": "4"
+      "sampling": "1",
+      "invalid_value": "1",
+      "missing_value": "5",
+      "floating_point": "2",
+      "normalization": "2",
+      "punctuation": "1",
+      "stopword": "1",
+      "lowercase": "1",
+      "whitespace": "2",
+      "pos_sampling": "3",
+      "pos_invalid_value": "6",
+      "pos_missing_value": "8",
+      "pos_floating_point": "9",
+      "pos_distribution_shape": "7",
+      "pos_multicollinearity": "11",
+      "pos_normalization": "5",
+      "pos_outlier": "12",
+      "pos_deduplication": "10",
+      "pos_punctuation": "4",
+      "pos_stopword": "2",
+      "pos_lowercase": "13",
+      "pos_whitespace": "1"
     },
     "root_cause_raw": [
       [
         [
-          3,
+          25,
           "1"
         ]
       ]
@@ -22,28 +40,74 @@
     "root_cause_labeled": [
       {
         "type": "strategy",
-        "name": "(3, '1')",
+        "name": "(25, '1')",
         "value": null
       }
     ],
-    "iters": 42
+    "iters": 45
   },
   {
     "index": 2,
     "start_config": {
+      "distribution_shape": "1",
+      "multicollinearity": "1",
       "outlier": "1",
       "deduplication": "1",
-      "missing_value": "2",
+      "sampling": "2",
+      "invalid_value": "1",
+      "missing_value": "3",
+      "floating_point": "4",
       "normalization": "3",
-      "pos_missing_value": "1",
-      "pos_normalization": "2",
-      "pos_outlier": "3",
-      "pos_deduplication": "4"
+      "punctuation": "2",
+      "stopword": "1",
+      "lowercase": "1",
+      "whitespace": "2",
+      "pos_sampling": "10",
+      "pos_invalid_value": "11",
+      "pos_missing_value": "8",
+      "pos_floating_point": "4",
+      "pos_distribution_shape": "1",
+      "pos_multicollinearity": "3",
+      "pos_normalization": "5",
+      "pos_outlier": "9",
+      "pos_deduplication": "6",
+      "pos_punctuation": "12",
+      "pos_stopword": "7",
+      "pos_lowercase": "13",
+      "pos_whitespace": "2"
     },
     "root_cause_raw": [
       [
         [
+          1,
+          "2"
+        ],
+        [
           3,
+          "2"
+        ],
+        [
+          6,
+          "1"
+        ],
+        [
+          14,
+          "1"
+        ],
+        [
+          16,
+          "1"
+        ],
+        [
+          18,
+          "1"
+        ],
+        [
+          20,
+          "1"
+        ],
+        [
+          22,
           "1"
         ]
       ]
@@ -51,57 +115,282 @@
     "root_cause_labeled": [
       {
         "type": "strategy",
-        "name": "(3, '1')",
-        "value": null
+        "name": "(1, '2')",
+        "value": "(3, '2')"
       }
     ],
-    "iters": 42
+    "iters": 47
   },
   {
     "index": 3,
     "start_config": {
+      "distribution_shape": "1",
+      "multicollinearity": "1",
       "outlier": "1",
       "deduplication": "1",
-      "missing_value": "1",
-      "normalization": "2",
+      "sampling": "2",
+      "invalid_value": "1",
+      "missing_value": "9",
+      "floating_point": "3",
+      "normalization": "5",
+      "punctuation": "2",
+      "stopword": "1",
+      "lowercase": "1",
+      "whitespace": "1",
+      "pos_sampling": "13",
+      "pos_invalid_value": "8",
       "pos_missing_value": "1",
-      "pos_normalization": "2",
-      "pos_outlier": "3",
-      "pos_deduplication": "4"
+      "pos_floating_point": "6",
+      "pos_distribution_shape": "7",
+      "pos_multicollinearity": "3",
+      "pos_normalization": "9",
+      "pos_outlier": "10",
+      "pos_deduplication": "12",
+      "pos_punctuation": "2",
+      "pos_stopword": "5",
+      "pos_lowercase": "4",
+      "pos_whitespace": "11"
     },
     "root_cause_raw": [
       [
         [
-          3,
-          "1"
+          25,
+          "4"
         ]
       ]
     ],
     "root_cause_labeled": [
       {
         "type": "strategy",
-        "name": "(3, '1')",
+        "name": "(25, '4')",
         "value": null
       }
     ],
-    "iters": 42
+    "iters": 48
   },
   {
     "index": 4,
     "start_config": {
+      "distribution_shape": "1",
+      "multicollinearity": "1",
       "outlier": "1",
       "deduplication": "1",
-      "missing_value": "4",
-      "normalization": "3",
-      "pos_missing_value": "1",
-      "pos_normalization": "2",
-      "pos_outlier": "3",
-      "pos_deduplication": "4"
+      "sampling": "2",
+      "invalid_value": "2",
+      "missing_value": "5",
+      "floating_point": "1",
+      "normalization": "5",
+      "punctuation": "1",
+      "stopword": "1",
+      "lowercase": "1",
+      "whitespace": "2",
+      "pos_sampling": "10",
+      "pos_invalid_value": "3",
+      "pos_missing_value": "12",
+      "pos_floating_point": "8",
+      "pos_distribution_shape": "2",
+      "pos_multicollinearity": "1",
+      "pos_normalization": "13",
+      "pos_outlier": "6",
+      "pos_deduplication": "4",
+      "pos_punctuation": "9",
+      "pos_stopword": "11",
+      "pos_lowercase": "5",
+      "pos_whitespace": "7"
     },
     "root_cause_raw": [
       [
         [
+          0,
+          "2"
+        ]
+      ]
+    ],
+    "root_cause_labeled": [
+      {
+        "type": "strategy",
+        "name": "(0, '2')",
+        "value": null
+      }
+    ],
+    "iters": 47
+  },
+  {
+    "index": 5,
+    "start_config": {
+      "distribution_shape": "1",
+      "multicollinearity": "1",
+      "outlier": "1",
+      "deduplication": "1",
+      "sampling": "2",
+      "invalid_value": "1",
+      "missing_value": "4",
+      "floating_point": "3",
+      "normalization": "2",
+      "punctuation": "2",
+      "stopword": "2",
+      "lowercase": "2",
+      "whitespace": "1",
+      "pos_sampling": "12",
+      "pos_invalid_value": "1",
+      "pos_missing_value": "2",
+      "pos_floating_point": "7",
+      "pos_distribution_shape": "11",
+      "pos_multicollinearity": "8",
+      "pos_normalization": "6",
+      "pos_outlier": "13",
+      "pos_deduplication": "10",
+      "pos_punctuation": "9",
+      "pos_stopword": "4",
+      "pos_lowercase": "3",
+      "pos_whitespace": "5"
+    },
+    "root_cause_raw": [
+      [
+        [
+          1,
+          "1"
+        ],
+        [
           3,
+          "3"
+        ],
+        [
+          7,
+          "1"
+        ],
+        [
+          8,
+          "1"
+        ],
+        [
+          11,
+          "2"
+        ],
+        [
+          13,
+          "12"
+        ],
+        [
+          15,
+          "2"
+        ],
+        [
+          17,
+          "11"
+        ],
+        [
+          19,
+          "6"
+        ],
+        [
+          21,
+          "10"
+        ],
+        [
+          23,
+          "4"
+        ],
+        [
+          25,
+          "5"
+        ]
+      ]
+    ],
+    "root_cause_labeled": [
+      {
+        "type": "strategy",
+        "name": "(1, '1')",
+        "value": "(3, '3')"
+      }
+    ],
+    "iters": 47
+  },
+  {
+    "index": 6,
+    "start_config": {
+      "distribution_shape": "1",
+      "multicollinearity": "1",
+      "outlier": "1",
+      "deduplication": "1",
+      "sampling": "1",
+      "invalid_value": "4",
+      "missing_value": "2",
+      "floating_point": "1",
+      "normalization": "1",
+      "punctuation": "1",
+      "stopword": "1",
+      "lowercase": "2",
+      "whitespace": "1",
+      "pos_sampling": "12",
+      "pos_invalid_value": "2",
+      "pos_missing_value": "4",
+      "pos_floating_point": "3",
+      "pos_distribution_shape": "6",
+      "pos_multicollinearity": "1",
+      "pos_normalization": "11",
+      "pos_outlier": "5",
+      "pos_deduplication": "9",
+      "pos_punctuation": "8",
+      "pos_stopword": "10",
+      "pos_lowercase": "13",
+      "pos_whitespace": "7"
+    },
+    "root_cause_raw": [
+      [
+        [
+          0,
+          "2"
+        ],
+        [
+          3,
+          "2"
+        ]
+      ]
+    ],
+    "root_cause_labeled": [
+      {
+        "type": "strategy",
+        "name": "(0, '2')",
+        "value": "(3, '2')"
+      }
+    ],
+    "iters": 45
+  },
+  {
+    "index": 7,
+    "start_config": {
+      "distribution_shape": "1",
+      "multicollinearity": "1",
+      "outlier": "1",
+      "deduplication": "1",
+      "sampling": "1",
+      "invalid_value": "3",
+      "missing_value": "7",
+      "floating_point": "2",
+      "normalization": "4",
+      "punctuation": "1",
+      "stopword": "2",
+      "lowercase": "1",
+      "whitespace": "1",
+      "pos_sampling": "10",
+      "pos_invalid_value": "6",
+      "pos_missing_value": "7",
+      "pos_floating_point": "1",
+      "pos_distribution_shape": "12",
+      "pos_multicollinearity": "2",
+      "pos_normalization": "8",
+      "pos_outlier": "3",
+      "pos_deduplication": "4",
+      "pos_punctuation": "9",
+      "pos_stopword": "13",
+      "pos_lowercase": "5",
+      "pos_whitespace": "11"
+    },
+    "root_cause_raw": [
+      [
+        [
+          21,
           "1"
         ]
       ]
@@ -109,10 +398,514 @@
     "root_cause_labeled": [
       {
         "type": "strategy",
-        "name": "(3, '1')",
+        "name": "(21, '1')",
         "value": null
       }
     ],
-    "iters": 42
+    "iters": 45
+  },
+  {
+    "index": 8,
+    "start_config": {
+      "distribution_shape": "1",
+      "multicollinearity": "1",
+      "outlier": "1",
+      "deduplication": "1",
+      "sampling": "2",
+      "invalid_value": "1",
+      "missing_value": "2",
+      "floating_point": "3",
+      "normalization": "3",
+      "punctuation": "1",
+      "stopword": "1",
+      "lowercase": "1",
+      "whitespace": "1",
+      "pos_sampling": "1",
+      "pos_invalid_value": "11",
+      "pos_missing_value": "5",
+      "pos_floating_point": "7",
+      "pos_distribution_shape": "4",
+      "pos_multicollinearity": "6",
+      "pos_normalization": "10",
+      "pos_outlier": "3",
+      "pos_deduplication": "9",
+      "pos_punctuation": "13",
+      "pos_stopword": "8",
+      "pos_lowercase": "12",
+      "pos_whitespace": "2"
+    },
+    "root_cause_raw": [
+      [
+        [
+          1,
+          "1"
+        ],
+        [
+          3,
+          "3"
+        ],
+        [
+          5,
+          "1"
+        ],
+        [
+          8,
+          "1"
+        ],
+        [
+          11,
+          "1"
+        ],
+        [
+          13,
+          "1"
+        ],
+        [
+          15,
+          "5"
+        ],
+        [
+          19,
+          "10"
+        ],
+        [
+          21,
+          "9"
+        ],
+        [
+          23,
+          "8"
+        ],
+        [
+          25,
+          "2"
+        ]
+      ]
+    ],
+    "root_cause_labeled": [
+      {
+        "type": "strategy",
+        "name": "(1, '1')",
+        "value": "(3, '3')"
+      }
+    ],
+    "iters": 45
+  },
+  {
+    "index": 9,
+    "start_config": {
+      "distribution_shape": "1",
+      "multicollinearity": "1",
+      "outlier": "1",
+      "deduplication": "1",
+      "sampling": "1",
+      "invalid_value": "2",
+      "missing_value": "5",
+      "floating_point": "4",
+      "normalization": "3",
+      "punctuation": "2",
+      "stopword": "2",
+      "lowercase": "1",
+      "whitespace": "1",
+      "pos_sampling": "11",
+      "pos_invalid_value": "8",
+      "pos_missing_value": "3",
+      "pos_floating_point": "7",
+      "pos_distribution_shape": "10",
+      "pos_multicollinearity": "12",
+      "pos_normalization": "5",
+      "pos_outlier": "13",
+      "pos_deduplication": "9",
+      "pos_punctuation": "1",
+      "pos_stopword": "6",
+      "pos_lowercase": "2",
+      "pos_whitespace": "4"
+    },
+    "root_cause_raw": [
+      [
+        [
+          9,
+          "1"
+        ],
+        [
+          13,
+          "8"
+        ],
+        [
+          17,
+          "8"
+        ],
+        [
+          25,
+          "8"
+        ]
+      ]
+    ],
+    "root_cause_labeled": [
+      {
+        "type": "strategy",
+        "name": "(9, '1')",
+        "value": "(13, '8')"
+      }
+    ],
+    "iters": 51
+  },
+  {
+    "index": 10,
+    "start_config": {
+      "distribution_shape": "1",
+      "multicollinearity": "1",
+      "outlier": "1",
+      "deduplication": "1",
+      "sampling": "1",
+      "invalid_value": "1",
+      "missing_value": "1",
+      "floating_point": "3",
+      "normalization": "1",
+      "punctuation": "1",
+      "stopword": "2",
+      "lowercase": "2",
+      "whitespace": "1",
+      "pos_sampling": "5",
+      "pos_invalid_value": "12",
+      "pos_missing_value": "1",
+      "pos_floating_point": "2",
+      "pos_distribution_shape": "6",
+      "pos_multicollinearity": "13",
+      "pos_normalization": "7",
+      "pos_outlier": "4",
+      "pos_deduplication": "8",
+      "pos_punctuation": "11",
+      "pos_stopword": "10",
+      "pos_lowercase": "3",
+      "pos_whitespace": "9"
+    },
+    "root_cause_raw": [
+      [
+        [
+          1,
+          "2"
+        ],
+        [
+          4,
+          "3"
+        ],
+        [
+          5,
+          "2"
+        ],
+        [
+          6,
+          "1"
+        ],
+        [
+          13,
+          "6"
+        ],
+        [
+          15,
+          "6"
+        ]
+      ]
+    ],
+    "root_cause_labeled": [
+      {
+        "type": "strategy",
+        "name": "(1, '2')",
+        "value": "(4, '3')"
+      }
+    ],
+    "iters": 46
+  },
+  {
+    "index": 11,
+    "start_config": {
+      "distribution_shape": "1",
+      "multicollinearity": "1",
+      "outlier": "1",
+      "deduplication": "1",
+      "sampling": "2",
+      "invalid_value": "3",
+      "missing_value": "7",
+      "floating_point": "4",
+      "normalization": "4",
+      "punctuation": "1",
+      "stopword": "1",
+      "lowercase": "1",
+      "whitespace": "2",
+      "pos_sampling": "3",
+      "pos_invalid_value": "7",
+      "pos_missing_value": "1",
+      "pos_floating_point": "13",
+      "pos_distribution_shape": "11",
+      "pos_multicollinearity": "8",
+      "pos_normalization": "5",
+      "pos_outlier": "9",
+      "pos_deduplication": "10",
+      "pos_punctuation": "4",
+      "pos_stopword": "2",
+      "pos_lowercase": "6",
+      "pos_whitespace": "12"
+    },
+    "root_cause_raw": [
+      [
+        [
+          0,
+          "2"
+        ],
+        [
+          12,
+          "2"
+        ]
+      ]
+    ],
+    "root_cause_labeled": [
+      {
+        "type": "strategy",
+        "name": "(0, '2')",
+        "value": "(12, '2')"
+      }
+    ],
+    "iters": 51
+  },
+  {
+    "index": 12,
+    "start_config": {
+      "distribution_shape": "1",
+      "multicollinearity": "1",
+      "outlier": "1",
+      "deduplication": "1",
+      "sampling": "2",
+      "invalid_value": "2",
+      "missing_value": "2",
+      "floating_point": "4",
+      "normalization": "5",
+      "punctuation": "1",
+      "stopword": "1",
+      "lowercase": "1",
+      "whitespace": "1",
+      "pos_sampling": "11",
+      "pos_invalid_value": "5",
+      "pos_missing_value": "6",
+      "pos_floating_point": "10",
+      "pos_distribution_shape": "1",
+      "pos_multicollinearity": "12",
+      "pos_normalization": "2",
+      "pos_outlier": "9",
+      "pos_deduplication": "8",
+      "pos_punctuation": "7",
+      "pos_stopword": "3",
+      "pos_lowercase": "4",
+      "pos_whitespace": "13"
+    },
+    "root_cause_raw": [
+      [
+        [
+          0,
+          "2"
+        ],
+        [
+          4,
+          "3"
+        ]
+      ]
+    ],
+    "root_cause_labeled": [
+      {
+        "type": "strategy",
+        "name": "(0, '2')",
+        "value": "(4, '3')"
+      }
+    ],
+    "iters": 46
+  },
+  {
+    "index": 13,
+    "start_config": {
+      "distribution_shape": "1",
+      "multicollinearity": "1",
+      "outlier": "1",
+      "deduplication": "1",
+      "sampling": "2",
+      "invalid_value": "3",
+      "missing_value": "8",
+      "floating_point": "3",
+      "normalization": "4",
+      "punctuation": "2",
+      "stopword": "1",
+      "lowercase": "1",
+      "whitespace": "2",
+      "pos_sampling": "2",
+      "pos_invalid_value": "8",
+      "pos_missing_value": "3",
+      "pos_floating_point": "13",
+      "pos_distribution_shape": "5",
+      "pos_multicollinearity": "7",
+      "pos_normalization": "11",
+      "pos_outlier": "6",
+      "pos_deduplication": "12",
+      "pos_punctuation": "9",
+      "pos_stopword": "10",
+      "pos_lowercase": "1",
+      "pos_whitespace": "4"
+    },
+    "root_cause_raw": [
+      [
+        [
+          1,
+          "2"
+        ],
+        [
+          2,
+          "2"
+        ],
+        [
+          4,
+          "3"
+        ],
+        [
+          5,
+          "2"
+        ],
+        [
+          6,
+          "1"
+        ],
+        [
+          13,
+          "6"
+        ],
+        [
+          17,
+          "6"
+        ]
+      ]
+    ],
+    "root_cause_labeled": [
+      {
+        "type": "strategy",
+        "name": "(1, '2')",
+        "value": "(2, '2')"
+      }
+    ],
+    "iters": 44
+  },
+  {
+    "index": 14,
+    "start_config": {
+      "distribution_shape": "1",
+      "multicollinearity": "1",
+      "outlier": "1",
+      "deduplication": "1",
+      "sampling": "1",
+      "invalid_value": "1",
+      "missing_value": "3",
+      "floating_point": "1",
+      "normalization": "5",
+      "punctuation": "1",
+      "stopword": "1",
+      "lowercase": "2",
+      "whitespace": "1",
+      "pos_sampling": "7",
+      "pos_invalid_value": "9",
+      "pos_missing_value": "8",
+      "pos_floating_point": "3",
+      "pos_distribution_shape": "5",
+      "pos_multicollinearity": "6",
+      "pos_normalization": "12",
+      "pos_outlier": "2",
+      "pos_deduplication": "1",
+      "pos_punctuation": "11",
+      "pos_stopword": "13",
+      "pos_lowercase": "4",
+      "pos_whitespace": "10"
+    },
+    "root_cause_raw": [
+      [
+        [
+          9,
+          "1"
+        ],
+        [
+          13,
+          "4"
+        ],
+        [
+          15,
+          "4"
+        ],
+        [
+          17,
+          "4"
+        ],
+        [
+          19,
+          "4"
+        ]
+      ]
+    ],
+    "root_cause_labeled": [
+      {
+        "type": "strategy",
+        "name": "(9, '1')",
+        "value": "(13, '4')"
+      }
+    ],
+    "iters": 47
+  },
+  {
+    "index": 15,
+    "start_config": {
+      "distribution_shape": "1",
+      "multicollinearity": "1",
+      "outlier": "1",
+      "deduplication": "1",
+      "sampling": "2",
+      "invalid_value": "2",
+      "missing_value": "5",
+      "floating_point": "4",
+      "normalization": "2",
+      "punctuation": "2",
+      "stopword": "2",
+      "lowercase": "2",
+      "whitespace": "1",
+      "pos_sampling": "4",
+      "pos_invalid_value": "6",
+      "pos_missing_value": "13",
+      "pos_floating_point": "3",
+      "pos_distribution_shape": "7",
+      "pos_multicollinearity": "12",
+      "pos_normalization": "5",
+      "pos_outlier": "9",
+      "pos_deduplication": "2",
+      "pos_punctuation": "11",
+      "pos_stopword": "10",
+      "pos_lowercase": "8",
+      "pos_whitespace": "1"
+    },
+    "root_cause_raw": [
+      [
+        [
+          0,
+          "2"
+        ],
+        [
+          1,
+          "2"
+        ],
+        [
+          4,
+          "2"
+        ]
+      ]
+    ],
+    "root_cause_labeled": [
+      {
+        "type": "strategy",
+        "name": "(0, '2')",
+        "value": "(1, '2')"
+      }
+    ],
+    "iters": 47
   }
 ]

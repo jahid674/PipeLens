@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # coding: utf-8
-# Author:Laure Berti-Equille
+# Author: Laure Berti-Equille (extended with NN option)
 
 import time
 import warnings
@@ -17,18 +17,34 @@ from sklearn.tree import DecisionTreeClassifier
 from sklearn.metrics import classification_report, accuracy_score
 import numpy as np
 
+# ---- NN imports ----
+from sklearn.pipeline import Pipeline
+from sklearn.preprocessing import StandardScaler
+from sklearn.neural_network import MLPClassifier
+
 np.seterr(divide='ignore', invalid='ignore')
 warnings.filterwarnings("ignore", category=sklearn.exceptions.UndefinedMetricWarning)
 
 
 class Classifier:
     """
-    Classification task using a particular method.
+    Classification task using a particular method
 
-    dataset: {'train': DataFrame, 'test': DataFrame, 'target': Series, (optional) 'target_test': Series}
-    strategy: one of {'NB','LDA','CART','MNB','LR'}
-    target: name of the target variable (must equal dataset['target'].name)
-    dataset_name: string used to toggle fairness logic (e.g., 'adult')
+    Parameters
+    ----------
+    dataset : dict
+        {'train': DataFrame, 'test': DataFrame, 'target': Series}
+        Optionally can include: 'target_test'
+    strategy : str
+        One of {'NB','LDA','CART','MNB','LR','NN'}
+    target : str
+        Name of the target variable (must equal dataset['target'].name)
+    k_folds : int
+        Cross-validation folds
+    verbose : bool
+    dataset_name : Optional[str]
+        If set to 'adult' (case-insensitive), LR/NN will also compute statistical parity
+        with Sex==1 treated as the privileged group.
     """
 
     def __init__(self, dataset, target, strategy='NB', k_folds=10,
@@ -66,11 +82,10 @@ class Classifier:
             return X.drop(columns=[col])
         return X
 
-    def _compute_stat_parity(self, y_pred: pd.Series, sensitive_series: pd.Series) -> Optional[float]:
+    def _compute_stat_parity(self, y_pred, sensitive_series):
         """
         Statistical Parity (difference):
         P(Ŷ=1 | A=1) - P(Ŷ=1 | A≠1), where privileged A==1
-        Returns absolute value (non-negative).
         """
         try:
             s = sensitive_series.astype(float)
@@ -82,9 +97,15 @@ class Classifier:
 
             p_priv = (y_pred[priv_mask] == 1).mean()
             p_unpriv = (y_pred[unpriv_mask] == 1).mean()
-            return float(abs(p_priv - p_unpriv))
+            return float(p_priv - p_unpriv)
         except Exception:
             return None
+
+    def _find_sensitive_sex_col(self, df: pd.DataFrame) -> Optional[str]:
+        for cand in ['Sex', 'sex', 'SEX']:
+            if cand in df.columns:
+                return cand
+        return None
 
     # ----------------- Models ----------------- #
 
@@ -93,12 +114,13 @@ class Classifier:
         X_train = dataset['train'].select_dtypes(['number']).dropna()
 
         if (len(X_train.columns) <= 1) or (len(X_train) < k):
-            print('Error: Need at least one continous variable and', k, 'observations for classification')
+            print('Error: Need at least one continous variable and',
+                  k, 'observations for classification')
             return None
 
         y_train = dataset['target'].loc[X_train.index]
         X_test = dataset['test'].select_dtypes(['number']).dropna()
-        y_test = dataset.get('target_test', dataset['target']).loc[X_test.index]
+        y_test = dataset['target_test'] if not isinstance(self.dataset.get('target_test'), dict) else dataset['target'].loc[X_test.index]
 
         X_train = self._drop_if_present(X_train, target)
         X_test = self._drop_if_present(X_test, target)
@@ -132,12 +154,13 @@ class Classifier:
         X_train = dataset['train'].select_dtypes(['number']).dropna()
 
         if (len(X_train.columns) <= 1) or (len(X_train) < k):
-            print('Error: Need at least one continous variable and', k, 'observations for classification')
+            print('Error: Need at least one continous variable and',
+                  k, 'observations for classification')
             return None
 
         y_train = dataset['target'].loc[X_train.index]
         X_test = dataset['test'].select_dtypes(['number']).dropna()
-        y_test = dataset.get('target_test', dataset['target']).loc[X_test.index]
+        y_test = dataset['target_test'] if not isinstance(self.dataset.get('target_test'), dict) else dataset['target'].loc[X_test.index]
 
         X_train = self._drop_if_present(X_train, target)
         X_test = self._drop_if_present(X_test, target)
@@ -171,12 +194,13 @@ class Classifier:
         X_train = dataset['train'].select_dtypes(['number']).dropna()
 
         if (len(X_train.columns) <= 1) or (len(X_train) < k):
-            print('Error: Need at least one continous variable and', k, 'observations for classification')
+            print('Error: Need at least one continous variable and',
+                  k, 'observations for classification')
             return None
 
         y_train = dataset['target'].loc[X_train.index]
         X_test = dataset['test'].select_dtypes(['number']).dropna()
-        y_test = dataset.get('target_test', dataset['target']).loc[X_test.index]
+        y_test = dataset['target_test'] if not isinstance(self.dataset.get('target_test'), dict) else dataset['target'].loc[X_test.index]
 
         X_train = self._drop_if_present(X_train, target)
         X_test = self._drop_if_present(X_test, target)
@@ -206,12 +230,13 @@ class Classifier:
         X_train = dataset['train'].select_dtypes(['number']).dropna()
 
         if (len(X_train.columns) <= 1) or (len(X_train) < k):
-            print('Error: Need at least one continous variable and', k, 'observations for classification')
+            print('Error: Need at least one continous variable and',
+                  k, 'observations for classification')
             return None
 
         y_train = dataset['target'].loc[X_train.index]
         X_test = dataset['test'].select_dtypes(['number']).dropna()
-        y_test = dataset.get('target_test', dataset['target']).loc[X_test.index]
+        y_test = dataset['target_test'] if not isinstance(self.dataset.get('target_test'), dict) else dataset['target'].loc[X_test.index]
 
         X_train = self._drop_if_present(X_train, target)
         X_test = self._drop_if_present(X_test, target)
@@ -241,27 +266,22 @@ class Classifier:
 
     def LR_classification(self, dataset, target) -> Tuple[Optional[float], Optional[float]]:
         """
-        Returns (accuracy, abs_stat_parity) where SP is computed
-        only when dataset_name == 'adult' and a Sex column exists.
-        Accuracy is measured on TRAIN.
+        Returns (accuracy, statistical_parity).
+        Accuracy follows the original behavior: fit + accuracy on TRAIN.
+        Statistical parity is computed only when dataset_name == 'adult' and Sex exists.
         """
         k = self.k_folds
-        if self.dataset_name == 'adult':
-            X_train = dataset['train'].dropna()
-            X_test = dataset['test'].dropna()
-        else:
-            X_train = dataset['train'].select_dtypes(['number']).dropna()
-            X_test = dataset['test'].select_dtypes(['number']).dropna()
+        X_train = dataset['train'].select_dtypes(['number']).dropna()
 
         if (len(X_train.columns) <= 1) or (len(X_train) < k):
-            print('Error: Need at least one continous variable and', k, 'observations for classification')
+            print('Error: Need at least one continous variable and',
+                  k, 'observations for classification')
             return None, None
 
         y_train = dataset['target'].loc[X_train.index]
 
-        # keep parity with original signature even if not used
-        X_test = dataset['test'].dropna()
-        _ = dataset['target'].loc[X_test.index]
+        X_test = dataset['test'].select_dtypes(['number']).dropna()
+        _ = dataset['target'].loc[X_test.index]  # kept for parity with original
 
         X_train = self._drop_if_present(X_train, target)
         X_test = self._drop_if_present(X_test, target)
@@ -271,16 +291,75 @@ class Classifier:
         y_pred_train = model.predict(X_train)
         accuracy = float(accuracy_score(y_train, y_pred_train))
 
-
-        # Statistical parity (absolute) for Adult only
-        abs_sp = None
+        stat_parity = None
         if self.dataset_name == 'adult':
-            sensitive = dataset['train'].loc[X_train.index, 'Sex']
-            abs_sp = self._compute_stat_parity(
+            sex_col = self._find_sensitive_sex_col(dataset['train'])
+            if sex_col is not None:
+                sensitive = dataset['train'].loc[X_train.index, sex_col]
+                stat_parity = self._compute_stat_parity(
                     pd.Series(y_pred_train, index=X_train.index), sensitive
                 )
+        parity=(1-stat_parity) if stat_parity is not None else None
 
-        return accuracy, abs_sp
+        return accuracy, parity
+
+    def NN_classification(self, dataset, target) -> Tuple[Optional[float], Optional[float]]:
+        """
+        Neural network option meant to be a drop-in replacement for LR:
+        - Fit on TRAIN
+        - Return TRAIN accuracy
+        - For Adult dataset, also compute statistical parity using Sex column (privileged == 1)
+        """
+        k = self.k_folds
+        X_train = dataset['train'].select_dtypes(['number']).dropna()
+
+        if (len(X_train.columns) <= 1) or (len(X_train) < k):
+            print('Error: Need at least one continous variable and',
+                  k, 'observations for classification')
+            return None, None
+
+        y_train = dataset['target'].loc[X_train.index]
+
+        X_test = dataset['test'].select_dtypes(['number']).dropna()
+        _ = dataset['target'].loc[X_test.index]  # parity with original style
+
+        X_train = self._drop_if_present(X_train, target)
+        X_test = self._drop_if_present(X_test, target)
+
+        # --- NN tuned for Adult / HMDA tabular fairness datasets (your spec) ---
+        model = Pipeline([
+            ("scaler", StandardScaler()),
+            ("mlp", MLPClassifier(
+                hidden_layer_sizes=(256, 128, 64, 32),
+                activation="relu",
+                solver="adam",
+                alpha=0.0005,
+                learning_rate_init=0.001,
+                batch_size=256,
+                max_iter=2000,
+                early_stopping=True,
+                validation_fraction=0.2,
+                n_iter_no_change=40,
+                tol=1e-4,
+                random_state=42
+            ))
+        ])
+
+
+        model.fit(X_train, y_train)
+        y_pred_train = model.predict(X_train)
+        accuracy = float(accuracy_score(y_train, y_pred_train))
+
+        stat_parity = None
+        if self.dataset_name == 'adult':
+            sex_col = self._find_sensitive_sex_col(dataset['train'])
+            if sex_col is not None:
+                sensitive = dataset['train'].loc[X_train.index, sex_col]
+                stat_parity = self._compute_stat_parity(
+                    pd.Series(y_pred_train, index=X_train.index), sensitive
+                )
+        parity=(1-stat_parity) if stat_parity is not None else None
+        return accuracy, parity
 
     # ----------------- Public API ----------------- #
 
@@ -294,34 +373,35 @@ class Classifier:
         print("\n>>Classification task")
 
         extra = {}
+
         if self.strategy == "LDA":
             dn = self.LDA_classification(dataset=d, target=self.target)
+
         elif self.strategy == "CART":
             dn = self.CART_classification(dataset=d, target=self.target)
+
         elif self.strategy == "NB":
             dn = self.NB_classification(dataset=d, target=self.target)
+
         elif self.strategy == "MNB":
             dn = self.MNB_classification(dataset=d, target=self.target)
+
         elif self.strategy == "LR":
             print("WE are sailing into LR")
-            acc, abs_sp = self.LR_classification(dataset=d, target=self.target)
-            print(f"fairness metric (|SP|) = {abs_sp}")
-            print(f"accuracy = {acc}")
+            acc, sp = self.LR_classification(dataset=d, target=self.target)
+            dn = acc
+            # if sp is not None:
+            #     extra['statistical_parity'] = sp
 
-            # === Objective (quality_metric) ===
-            if self.dataset_name == 'adult':
-                # Use a higher-is-better fairness metric: 1 - |SP|
-                # If abs_sp is None, keep quality_metric as None to avoid false success.
-                dn = None if abs_sp is None else float(1.0 - abs_sp)
-                if acc is not None:
-                    extra['accuracy'] = float(acc)
-                if abs_sp is not None:
-                    extra['abs_statistical_parity'] = float(abs_sp)
-            else:
-                # Others => accuracy objective (higher is better)
-                dn = None if acc is None else float(acc)
+        elif self.strategy == "NN":
+            print("WE are sailing into NN")
+            acc, sp = self.NN_classification(dataset=d, target=self.target)
+            dn = acc
+            # if sp is not None:
+            #     extra['statistical_parity'] = sp
+
         else:
-            raise ValueError("The classification function should be LDA, CART, NB, MNB, or LR.")
+            raise ValueError("The classification function should be LDA, CART, NB, MNB, LR, or NN.")
 
         print("Classification done -- CPU time: %s seconds" % (time.time() - start_time))
         out = {'quality_metric': dn}

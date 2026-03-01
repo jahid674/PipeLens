@@ -1,4 +1,4 @@
-from modules.unit_converter.unit_converter import UnitConverter
+from modules.data_preparation.unit_converter.unit_converter import UnitConverter
 
 class UnitConverterHandler:
     def __init__(self, strategy, config):

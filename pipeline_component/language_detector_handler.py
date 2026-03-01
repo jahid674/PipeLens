@@ -1,4 +1,4 @@
-from modules.language_detector.language_detector import LanguageDetector
+from modules.text_processing.language_detector.language_detector import LanguageDetector
 
 class LanguageDetectorHandler:
     def __init__(self, strategy, config):

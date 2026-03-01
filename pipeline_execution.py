@@ -21,7 +21,7 @@ from regression import Regression
 from LoadDataset import LoadDataset
 from noise_injection import NoiseInjector
 from modules.profiling.profile import Profile
-from modules.outlier_detection.outlier_detector import OutlierDetector
+from modules.data_preparation.outlier_detection.outlier_detector import OutlierDetector
 from pipeline_component.swapping_handler import SwapHandler
 from similarity_metric import compute_similarity
 
@@ -42,15 +42,55 @@ class PipelineExecutor:
         self.utiliy_threshold = 190
 
         if self.pipeline_type == 'ml':
-            # structured strategies
+
             self.mv_strategy = ['drop', 'mean', 'median', 'most_frequent', 'knn']
             self.norm_strategy = ['none', 'ss', 'rs', 'ma', 'mm']
             self.od_strategy = ['none', 'if', 'iqr', 'lof']
-            self.fselection_strategy = ['va']
-            self.swapping_strategy = [1]
-            self.model_selection = ['lr']  # rf, 'reg' # 'nb'
+            self.fselection_strategy = ['none','va']
+            self.sampling_strategy = ['full', 'random', 'stratified']
+            self.swapping_strategy = [i for i in range(len(self.pipeline_order)-2)]
+            self.model_selection = ['lr']  # rf, 'reg' # 'nb' #nn
             self.knn_k_lst = [1, 5, 10, 20, 30]
             self.lof_k_lst = [1, 5, 10, 20, 30]
+            self.distribution_shape_strategy = ['none','log1p', 'sqrt', 'yeojohnson']
+            self.floating_point_strategy = ["none","snap","round","both"]
+            self.invalid_value_strategy = ['none', 'sentinel', 'regex', 'both']
+            self.multicollinearity_strategy = ['none', 'drop_high_vif']
+            self.nonlinear_transform_strategy = ["none", "quantile"]# "power"]
+            self.poly_pca_strategy = ["none", "pca", "sparsepca", "minibatchsparsepca", "kernelpca"]
+            self.sampling_strategy = ['full', 'random', 'snapshot', 'stratified']
+
+
+            # ---- RAG strategies (base pipeline) ----
+            self.query_normalizer_strategy = ["none", "lower+strip_punct", "spellfix_light"]
+
+            # Retriever strategies encode (type + topk) in ONE list (since your framework uses single strategy index)
+            self.retriever_strategy = [
+                "bm25@10", "bm25@20",
+                "dense@10", "dense@20",
+                "hybrid_rrf@10", "hybrid_rrf@20"
+            ]
+
+            self.reranker_strategy = ["none", "cross_encoder@20", "cross_encoder@50"]
+
+            self.context_builder_strategy = [
+                "fixed_chunk_top@1500", "fixed_chunk_top@3000",
+                "mmr_diverse@1500", "mmr_diverse@3000"
+            ]
+
+            self.generator_strategy = ["grounded_concise", "grounded_detailed"]
+
+            # ---- insertion space ----
+            self.translator_rewriter_strategy = [
+                "mt_generic|fr->en|literal"
+            ]
+
+            self.lang_retrieval_wrapper_strategy = [
+                "use_multilingual_dense|rrf"
+            ]
+
+
+
 
             # text strategies
             self.pr_strategy = ['none','pr']
@@ -62,6 +102,7 @@ class PipelineExecutor:
             self.stopword_strategy = ['none','sw']
             self.specialchar_strategy = ['none','sc']
             self.deduplication_strategy = ['none','dd']
+            
 
             # data
             loader = LoadDataset(self.dataset_name)
@@ -82,7 +123,7 @@ class PipelineExecutor:
 
             self.sensitive_var = loader.get_sensitive_variable()
             self.target_variable_name = self.y_train.name
-            self.noise_injector = NoiseInjector(self.pipeline_type, self.dataset_name, self.target_variable_name)
+            self.noise_injector = NoiseInjector(pipeline_type="ml", dataset_name=self.dataset_name, seed=42)
 
             # strategy counts (for search space sizes)
             self.strategy_counts = {
@@ -91,16 +132,35 @@ class PipelineExecutor:
                 'outlier': len(self.od_strategy) + len(self.lof_k_lst) - 1 if 'lof' in self.od_strategy else len(self.od_strategy),
                 'model': len(self.model_selection),
                 'fselection': len(self.fselection_strategy),
+                'sampling': len(self.sampling_strategy),
+
                 # text
                 'punctuation': len(self.pr_strategy),
                 'whitespace': len(self.whitespace_strategy),
                 'unit_converter': len(self.unit_converter_strategy),
                 'tokenizer': len(self.tokenization_strategy),
+                'lowercase': len(self.lowercase_strategy),
                 'stopword': len(self.stopword_strategy),
                 'spell_checker': len(self.spellcheck_strategy),
                 'special_character': len(self.specialchar_strategy),
                 'deduplication': len(self.deduplication_strategy),
-                'swapping': len(self.swapping_strategy)
+                'swapping': len(self.swapping_strategy),
+                'distribution_shape': len(self.distribution_shape_strategy),
+                'floating_point': len(self.floating_point_strategy),
+                'invalid_value': len(self.invalid_value_strategy),
+                'multicollinearity': len(self.multicollinearity_strategy),
+                'nonlinear_transform': len(self.nonlinear_transform_strategy),
+                'poly_pca': len(self.poly_pca_strategy),
+                'sampling': len(self.sampling_strategy),
+
+                'query_normalize': len(self.query_normalizer_strategy),
+                'retriever': len(self.retriever_strategy),
+                'reranker': len(self.reranker_strategy),
+                'context_builder': len(self.context_builder_strategy),
+                'generator': len(self.generator_strategy),
+                'translator_rewriter': len(self.translator_rewriter_strategy),
+                'lang_retrieval_wrapper': len(self.lang_retrieval_wrapper_strategy),
+
             }
 
             # dataset-specific thresholds
@@ -148,19 +208,58 @@ class PipelineExecutor:
                 'metric_type': self.metric_type,
                 'sensitive_var': self.sensitive_var,
                 'target_var': self.target_variable_name,
+                #structured
+                'distribution_shape_strategy': self.distribution_shape_strategy,
                 # text
                 'punctuation_strategy': self.pr_strategy,
                 'whitespace_strategy': self.whitespace_strategy,
                 'unit_converter_strategy': self.unit_converter_strategy,
                 'tokenization_strategy': self.tokenization_strategy,
+                'lowercase_strategy': self.lowercase_strategy,
                 'stopword_strategy': self.stopword_strategy,
                 'spellchecker_strategy': self.spellcheck_strategy,
                 'specialchar_strategy': self.specialchar_strategy,
                 'deduplication_strategy': self.deduplication_strategy,
-                'swapping_strategy': self.swapping_strategy
+                'swapping_strategy': self.swapping_strategy,
+                'sampling_strategy': self.sampling_strategy,
+                'floating_point_strategy': self.floating_point_strategy,
+                'invalid_value_strategy': self.invalid_value_strategy,
+                'multicollinearity_strategy': self.multicollinearity_strategy,
+                'nonlinear_transform_strategy': self.nonlinear_transform_strategy,
+                'poly_pca_strategy': self.poly_pca_strategy,
+                'sampling_strategy': self.sampling_strategy,
+                #
+                'query_normalize_strategy': self.query_normalizer_strategy,
+                'retriever_strategy': self.retriever_strategy,
+                'reranker_strategy': self.reranker_strategy,
+                'context_builder_strategy': self.context_builder_strategy,
+                'generator_strategy': self.generator_strategy,
+                'translator_rewriter_strategy': self.translator_rewriter_strategy,
+                'lang_retrieval_wrapper_strategy': self.lang_retrieval_wrapper_strategy,
+
+                # column convention
+                'rag_query_col': 'query',
+                'rag_context_col': 'context',
+
+
             }
         elif self.pipeline_type == 'em':
             print('pipeline_type is em')
+
+        self.noise_types = ["invalid_value", "missing", "floating_point", "class_imbalance", "multicollinearity"]
+        self.noise_params = {
+            "invalid_value": {"frac": 0.10},
+            "missing": {"frac": 0.10, "col": None},
+            "outlier": {"frac": 0.20},
+            "class_imbalance": {"frac_random": 0.2},
+            # "floating_point": {
+            #     "noise_scale": 1e-6,
+            #     "frac_rows": 0.50
+            # },
+            # "multicollinearity": {"frac_pairs": 0.5, "noise_std": 1e-6, "exclude": ["Sex"]},
+            "duplicate_rows": {"frac": 0.15},
+        }
+        
 
     # ---------- small helpers ----------
     def set_dataset(self, dataset):
@@ -184,16 +283,32 @@ class PipelineExecutor:
         return handler_class(strategy=strategy_index, config=self.shared_config)
 
     def _safe_param_index(self, step: str, raw_value: int) -> int:
+        """
+        STRICT index conversion:
+        - Accepts 1-based (1..n) and converts to 0-based (0..n-1)
+        - Accepts 0-based already (0..n-1)
+        - Raises if out of range
+        """
         n = self.strategy_counts.get(step)
         if n is None or n <= 0:
             raise ValueError(f"Unknown or empty strategy space for step '{step}'")
 
         v = int(raw_value)
+
+        # user gives 1-based
         if 1 <= v <= n:
             return v - 1
+
+        # already 0-based
         if 0 <= v < n:
             return v
-        return max(0, min(v, n - 1))
+
+        # strict: do not clamp
+        raise ValueError(
+            f"Parameter index out of range for step='{step}'. "
+            f"Got {v}, but valid are 1..{n} (1-based) or 0..{n-1} (0-based)."
+        )
+
 
     def _apply_step(self, handler, X, y, sens):
         result = handler.apply(X, y, sens)
@@ -302,6 +417,7 @@ class PipelineExecutor:
             param_record = []
             utility = None
             for i, step in enumerate(self.pipeline_order):
+                
                 if step in ['swapping']:
                     pipeline = [m for m in self.pipeline_order if m != "swapping"]
                     handler = SwapHandler(strategy=i-2, config={"verbose": True})
@@ -314,6 +430,7 @@ class PipelineExecutor:
                 if util_tmp is not None:
                     utility = util_tmp
                 param_record.append(combo[i] + 1)
+                print('dataset size after ', step, X.shape)
 
             param_lst.append(param_record + [utility])
             print(param_record + [utility])
@@ -330,11 +447,12 @@ class PipelineExecutor:
                 X_copy, y_copy = self.X_train.copy(), self.y_train.copy()
             else:
                 X_copy, y_copy = self.X_test.copy(), self.y_test.copy()
-                X_copy = self.noise_injector.inject_noise(X_copy, noise_type='outlier', frac=self.tau)
+                #X_copy = self.noise_injector.inject_noise(X_copy, noise_type='outlier', frac=self.tau)
                 #X_copy, y_copy = self.noise_injector.inject_noise(X_copy, y_copy, noise_type='class_imbalance')
                 _, _, sensitive = self.getIdxSensitive(X_copy, self.sensitive_var)
                 X, y, sens = X_copy.copy(), y_copy.copy(), sensitive.copy()
-                X = self.noise_injector.inject_noise(X, noise_type='missing', frac=self.tau)
+                #X = self.noise_injector.inject_noise(X, noise_type='missing', frac=self.tau)
+                X, y = self.noise_injector.inject_multiple_noises(X, y=y, noise_types=self.noise_types, noise_params=self.noise_params)
 
             if os.path.exists(file_name):
                 self.param_lst_df = pd.read_csv(file_name)[self.pipeline_order + [f'utility_{self.metric_type}']]
@@ -395,6 +513,168 @@ class PipelineExecutor:
             except Exception:
                 pass
 
+    def run_pipeline_glass_sample(self, file_name, n=1000, seed=42):
+
+        # ---------- 0) Load existing ----------
+        if os.path.exists(file_name):
+            print(f"[GlassRandom] File already exists -> skipping generation: {file_name}")
+            self.profile_param_lst_df = pd.read_csv(file_name)
+            return self.profile_param_lst_df
+
+        t0 = time.perf_counter()
+        rng = np.random.default_rng(seed)
+
+        # ---------- 1) Enforce full component set + model last ----------
+        if not isinstance(self.pipeline_order, (list, tuple)) or len(self.pipeline_order) == 0:
+            raise ValueError("pipeline_order must be a non-empty list/tuple.")
+
+        # remove duplicates but preserve order
+        seen = set()
+        canonical = []
+        for s in self.pipeline_order:
+            if s not in seen:
+                canonical.append(s)
+                seen.add(s)
+
+        if "model" not in canonical:
+            canonical.append("model")
+        else:
+            # move model to end
+            canonical = [c for c in canonical if c != "model"] + ["model"]
+
+        eval_order = canonical  # THIS is what we will execute & sample over
+
+        # sanity: every step must have a strategy space
+        missing_counts = [s for s in eval_order if s not in self.strategy_counts]
+        if missing_counts:
+            raise ValueError(
+                f"Missing strategy_counts for steps: {missing_counts}. "
+                f"Add them to self.strategy_counts before sampling."
+            )
+
+        # ---------- 2) Data setup (same spirit as your original) ----------
+        if self.execution_type == 'pass':
+            X_copy, y_copy = self.X_train.copy(), self.y_train.copy()
+            X_copy, y_copy = self.noise_injector.inject_multiple_noises(
+                X=X_copy, y=y_copy, noise_types=self.noise_types, noise_params=self.noise_params
+            )
+        else:
+            X_copy, y_copy = self.X_test.copy(), self.y_test.copy()
+            _, _, sensitive = self.getIdxSensitive(X_copy, self.sensitive_var)
+            X_tmp, y_tmp, sens_tmp = X_copy.copy(), y_copy.copy(), sensitive.copy()
+            X_copy, y_copy = self.noise_injector.inject_multiple_noises(
+                X=X_tmp, y=y_tmp, noise_types=self.noise_types, noise_params=self.noise_params
+            )
+
+        if self.pipeline_type == 'ml':
+            #X_copy = self.noise_injector.inject_noise(X_copy, noise_type='missing', frac=self.tau)
+            _, _, sensitive_attr_train = self.getIdxSensitive(X_copy, self.sensitive_var)
+
+        p = Profile()
+        numerical_columns = X_copy.select_dtypes(include=['int', 'float']).columns
+
+        # ---------- 3) Sampling space ----------
+        sizes = [int(self.strategy_counts[step]) for step in eval_order]
+        if any(s <= 0 for s in sizes):
+            raise ValueError(f"Invalid strategy space sizes for eval_order={eval_order}: {sizes}")
+
+        total_space = 1
+        for s in sizes:
+            total_space *= s
+
+        if n <= 0:
+            raise ValueError("n must be a positive integer.")
+        n = int(min(n, total_space))
+
+        # ---------- 4) Sample unique combos (0-based for handlers; store 1-based in CSV) ----------
+        sampled = []
+        sampled_keys = set()
+        max_attempts = 10 * n + 10_000
+        attempts = 0
+
+        while len(sampled) < n and attempts < max_attempts:
+            attempts += 1
+            combo_0b = [int(rng.integers(0, sizes[i])) for i in range(len(sizes))]
+            combo_1b = [c + 1 for c in combo_0b]
+            key = ",".join(map(str, combo_1b))
+            if key in sampled_keys:
+                continue
+            sampled_keys.add(key)
+            sampled.append(combo_0b)
+
+        if len(sampled) < n:
+            print(f"[WARN] Only sampled {len(sampled)} unique combos (requested {n}).")
+
+        # ---------- 5) Evaluate sampled combos ----------
+        param_lst = []
+        utility_col = f'utility_{self.metric_type}'
+        # print(f"[GlassRandom] Evaluating {len(sampled)} random combinations (seed={seed})...")
+        # print(f"[GlassRandom] eval_order (model forced last): {eval_order}")
+
+        for run_idx, combo_0b in enumerate(sampled, start=1):
+            if self.pipeline_type == 'ml':
+                X, y, sens = X_copy.copy(), y_copy.copy(), sensitive_attr_train.copy()
+            else:
+                raise ValueError("run_pipeline_glass_sample currently assumes pipeline_type == 'ml'.")
+
+            param_record, frac_data = [], []
+            self.frac_header = []
+            utility, fraction_outlier = None, None
+            last_handler = None
+
+            for step_i, step in enumerate(eval_order):
+                handler = self._load_handler(step, combo_0b[step_i])
+                last_handler = handler
+
+                X, y, sens, util_tmp, fraction_outlier, frac_header, frac_value = self._apply_step(handler, X, y, sens)
+
+                if frac_header is not None:
+                    frac_data.append(frac_value)
+                    self.frac_header.append(frac_header)
+
+                if util_tmp is not None:
+                    utility = util_tmp
+
+                # store 1-based param id
+                param_record.append(combo_0b[step_i] + 1)
+
+            # profile metrics
+            self.headers, sens_data = last_handler.get_profile_metric(y, sens)
+            prof_data = frac_data + sens_data
+
+            profile_gen, key_profile = p.populate_profiles(
+                pd.concat([X, y], axis=1),
+                numerical_columns,
+                self.target_variable_name,
+                fraction_outlier,
+                self.metric_type
+            )
+
+            param_lst.append(param_record + prof_data + profile_gen + [utility])
+            if run_idx % 25 == 0 or run_idx == 1 or run_idx == len(sampled):
+                print(f"[Sample] {run_idx}/{len(sampled)} | params={param_record} | utility={utility}")
+
+        # ---------- 6) Write output ----------
+        cols = eval_order + self.frac_header + self.headers + key_profile + [utility_col]
+        df_new = pd.DataFrame(param_lst, columns=cols)
+
+        out_dir = os.path.dirname(file_name)
+        if out_dir:
+            os.makedirs(out_dir, exist_ok=True)
+
+        df_new.to_csv(file_name, index=False)
+
+        elapsed = time.perf_counter() - t0
+        print(f"[run_pipeline_glass_sample] wrote {len(df_new)} rows to {file_name} | runtime={elapsed:.3f}s")
+        try:
+            logging.info(f"run_pipeline_glass_sample_runtime_seconds={elapsed:.6f}")
+        except Exception:
+            pass
+
+        self.profile_param_lst_df = df_new
+        return df_new
+
+
 
     # ---------- scoring ----------
     def score_parameter(self, param_lst_df):
@@ -424,29 +704,27 @@ class PipelineExecutor:
     def get_injected_data(self):
         X_test = self.X_test.copy()
         y_test = self.y_test.copy()
-        X_test = self.noise_injector.inject_noise(X_test, noise_type='outlier', frac=self.tau)
-        X_test, y_test = self.noise_injector.inject_noise(X_test, y_test, noise_type='class_imbalance')
-        X = self.noise_injector.inject_noise(X_test, noise_type='missing', frac=self.tau)
-        
+        X_test, y_test = self.noise_injector.inject_multiple_noises(X=X_test, y=y_test, noise_types=self.noise_types, noise_params=self.noise_params)  
         _, _, sensitive = self.getIdxSensitive(X_test, self.sensitive_var)
         X, y, sens = X_test.copy(), y_test.copy(), sensitive.copy()
-        
-
         return X, y, sens
         
     # ---------- look up current pipeline’s utility ----------
-    def current_par_lookup(self, pipeline, cur_par=[]):
-        X,y,sens=self.get_injected_data()
+    def current_par_lookup(self, pipeline, cur_par=[], fixed_data=None):
+        if fixed_data is None:
+            X, y, sens = self.get_injected_data()
+        else:
+            X, y, sens = fixed_data
+
         for i, step in enumerate(pipeline):
             param_index = self._safe_param_index(step, int(cur_par[i]))
-            #param_index = int(cur_par[i])-1
             handler = self._load_handler(step, param_index)
-            #result = handler.apply(X, y, sens)
             X, y, sens, util_tmp, _, _, _ = self._apply_step(handler, X, y, sens)
             if isinstance(util_tmp, (float, int)):
                 return util_tmp
 
         raise ValueError("No output returned from final pipeline component.")
+
 
     # ---------- headers / profiles (the later-defined versions are preserved) ----------
     def get_header(self, file_name):
@@ -544,7 +822,7 @@ class PipelineExecutor:
         df_train = pd.read_csv(train_file)
         if target_column not in df_train.columns:
             raise ValueError(f"'{target_column}' not found in training file.")
-        df_filtered = df_train[df_train[target_column] < threshold_val]
+        df_filtered = df_train[np.abs(df_train[target_column]) < threshold_val]
         if df_filtered.empty:
             print("No rows satisfy the threshold filter.")
             return None
@@ -558,19 +836,36 @@ class PipelineExecutor:
         df1 = pd.read_csv(file_train)
         df2 = pd.read_csv(file_test)
 
+        # Filter training rows by pipeline parameters
         param_dict = dict(zip(self.pipeline_order, param))
         for col, val in param_dict.items():
             if col in df1.columns:
                 df1 = df1[df1[col].astype(str) == str(val)]
+
         if df1.empty or df2.empty:
             print("Pipeline parameter not found in one or both datasets.")
             return None
 
-        v1 = df1[profile_cols].iloc[0].astype(float).values.reshape(1, -1)
-        v2 = df2[profile_cols].iloc[0].astype(float).values.reshape(1, -1)
+        # --- STRICT: remove pipeline-order columns before similarity ---
+        drop_cols = [c for c in self.pipeline_order if c in df1.columns]
+
+        df1_prof = df1.drop(columns=drop_cols, errors="ignore")
+        df2_prof = df2.drop(columns=drop_cols, errors="ignore")
+
+        # Keep only profile columns (intersection for safety)
+        prof_cols = [c for c in profile_cols if c in df1_prof.columns and c in df2_prof.columns]
+
+        if len(prof_cols) == 0:
+            raise ValueError("No valid profile columns left after dropping pipeline parameters.")
+
+        v1 = df1_prof[prof_cols].iloc[0].astype(float).values.reshape(1, -1)
+        v2 = df2_prof[prof_cols].iloc[0].astype(float).values.reshape(1, -1)
+
         similarity = compute_similarity(v1, v2, metric=metric)
-        print("Cosine Similarity:", similarity)
+        print(f"{metric.capitalize()} similarity:", similarity)
+
         return similarity
+
     
 
     def profile_similarity_df_average(self, file_train, file_test,
@@ -680,6 +975,7 @@ class PipelineExecutor:
 
     # ---------- intervention evaluation ----------
     def evaluate_interventions_pred_and_similarity(self, cur_par, filename_training, new_components, wS=1.0, wU=1.0):
+        np.random.seed(42)
         
 
         # ---------- 0) Train predictor on training CSV ----------
@@ -693,6 +989,7 @@ class PipelineExecutor:
         
         prof_cols = self.get_header(filename_training)
         passing_par = self.get_passing_pipeline(filename_training, f'utility_{self.metric_type}', threshold_val=self.utiliy_threshold)
+        #passing_par = cur_par
 
         feature_cols = [c for c in df_train.columns if c != utility_col]
         X_all = df_train[feature_cols].apply(pd.to_numeric, errors='coerce').fillna(0.0).values
@@ -732,22 +1029,31 @@ class PipelineExecutor:
             self.frac_header = []
             utility = None
             fraction_outlier = None
-            last_handler = None
+            #last_handler = None
 
-            for i, step in enumerate(eval_order):
+            for i, step in enumerate(eval_order[:-1]):
                 param_index = self._safe_param_index(step, int(eval_params[i]))
                 handler = self._load_handler(step, param_index)
-                last_handler = handler
+                #last_handler = handler
                 X, y, sens, util_tmp, fraction_outlier, frac_header, frac_value = self._apply_step(handler, X, y, sens)
                 if frac_header is not None:
                     frac_data.append(frac_value)
                     self.frac_header.append(frac_header)
                 if util_tmp is not None:
                     utility = util_tmp
+                else:
+                    utility = 0.0
                 param_record.append(param_index + 1)
 
-            #self.headers, sens_data = last_handler.get_profile_metric(y, sens)
-            prof_data = frac_data #+ sens_data
+            model_param_1b = 1
+            param_record.append(model_param_1b)
+
+            # ---- set last_handler manually to model (0-based) ----
+            last_handler = self._load_handler("model", 0)
+
+            self.headers, sens_data = last_handler.get_profile_metric(y, sens)
+            prof_data = frac_data + sens_data
+
             profile_gen, key_profile = p.populate_profiles(
                 pd.concat([X, y], axis=1),
                 numerical_columns,
@@ -758,8 +1064,7 @@ class PipelineExecutor:
 
             out_cols = eval_order
             row = param_record + prof_data + profile_gen + [utility]
-            #col_headers = out_cols + self.frac_header + self.headers + key_profile + [f'utility_{self.metric_type}']
-            col_headers = out_cols + self.frac_header + key_profile + [f'utility_{self.metric_type}']
+            col_headers = out_cols + self.frac_header + self.headers + key_profile + [f'utility_{self.metric_type}']
             row_df = pd.DataFrame([row], columns=col_headers)
             return row_df
 
@@ -856,15 +1161,15 @@ class PipelineExecutor:
         fused = self.fuse_scores(S, U, method='arith', wS=wS, wU=wU)
         fused_ranking = [(*t, float(f)) for t, f in zip(fused_rows, fused)]
         #fused_ranking.sort(key=lambda x: x[-1], reverse=True)
-        fused_ranking.sort(key=lambda x: x[3])#, reverse=True)
+        fused_ranking.sort(key=lambda x: x[2], reverse=True)
         
 
-        # Pretty print
-        for idx, (component, strategy, sim, y_pred, pos, _) in enumerate(fused_ranking, start=1):
-            if pos is not None:
-                print(f"[{idx}] NEW {component}@{pos}-->strat={strategy} | sim={sim} | uti={y_pred:.4f} | truth={y_truth:.4f}")
-            else:
-                print(f"[{idx}] EXIST {component}-->strat={strategy} | sim={sim} | uti={y_pred:.4f} | truth={y_truth:.4f}")
+        # # Pretty print
+        # for idx, (component, strategy, sim, y_pred, pos, _) in enumerate(fused_ranking, start=1):
+        #     if pos is not None:
+        #         print(f"[{idx}] NEW {component}@{pos}-->strat={strategy} | sim={sim} | uti={y_pred:.4f} | truth={y_truth:.4f}")
+        #     else:
+        #         print(f"[{idx}] EXIST {component}-->strat={strategy} | sim={sim} | uti={y_pred:.4f} | truth={y_truth:.4f}")
 
         return fused_ranking
 
@@ -1001,42 +1306,81 @@ class PipelineExecutor:
             self.run_pipeline_glass(file_name)
 
 
-dataset_name = 'housing'
-metric_type = 'rmse'
-model_type = 'reg'
-#pipeline_order = ["missing_value","normalization", "fselection", "outlier", "whitespace", "punctuation", "stopword", "deduplication", "model"]
-#new_comp=['outlier', 'whitespace', 'punctuation', 'stopword', 'deduplication']
-cur_par=[1,1,7,1]
-pipeline_order = ["missing_value", "fselection", "normalization","model"]
-new_comp=['outlier','swapping']
+# dataset_name = 'adult'
+# metric_type = 'sp'
+# model_type = 'lr'
 
-output = f'historical_data/similarity/Noisy_vs_orig_{model_type}_{metric_type}_{dataset_name}.csv'
-output1 = f'historical_data/similarity/Noisy_vs_filterd_orig_{model_type}_{metric_type}_{dataset_name}.csv'
-filename_test = f'historical_data/noise/1111BugDoc_profile_{model_type}_{metric_type}_{dataset_name}.csv'
-#filename_test = 'class_sim_historical_data_test_profile_lr_sp_adult.csv'
-filename_train = f'historical_data/partial_pipeline/sim_historical_data_train_profile_{model_type}_{metric_type}_{dataset_name}.csv'
-filename_train1 = f'historical_data/historical_data_train_profile{model_type}_{metric_type}_{dataset_name}.csv'
+# pipeline_order = ["sampling","invalid_value","missing_value","floating_point","unit_converter","distribution_shape","multicollinearity","normalization","outlier","punctuation","stopword", "lowercase","whitespace","model"]
+
+# #pipeline_order = ["sampling","missing_value","nonlinear_transform","model"]
+# # pipeline_order = [
+# #   "query_normalize",
+# #   "retriever",
+# #   "reranker",
+# #   "context_builder",
+# #   "generator"
+# # ]
+
+# # new_comp=['swapping']
+
+# # output = f'historical_data/similarity/Noisy_vs_orig_{model_type}_{metric_type}_{dataset_name}.csv'
+# # output1 = f'historical_data/similarity/Noisy_vs_filterd_orig_{model_type}_{metric_type}_{dataset_name}.csv'
+# # filename_test = f'historical_data/noise/1111BugDoc_profile_{model_type}_{metric_type}_{dataset_name}.csv'
+# # #filename_test = 'class_sim_historical_data_test_profile_lr_sp_adult.csv'
+# # filename_train = f'historical_data/revision/2000_sample_historical_data_train_profile_{model_type}_{metric_type}_{dataset_name}.csv'
+# # # filename_train1 = f'historical_data/historical_data_train_profile{model_type}_{metric_type}_{dataset_name}.csv'
+# executor = PipelineExecutor(
+#                  pipeline_type='ml',
+#                  dataset_name=dataset_name,
+#                  metric_type=metric_type,
+#                  pipeline_ord=pipeline_order,
+#                  execution_type='fail',
+#              )
+
+# fixed_data = executor.get_injected_data()
+
+# X, y, sens = fixed_data
+
+# df_injected = X.copy()
+# df_injected[y.name] = y.values
+# df_injected[executor.sensitive_var] = sens.values
+
+# out_path = f"historical_data/noise_injected_{dataset_name}.csv"
+# os.makedirs(os.path.dirname(out_path), exist_ok=True)
+# df_injected.to_csv(out_path, index=False)
+
+# print("Saved:", out_path, "| shape:", df_injected.shape)
 
 
 
-executor = PipelineExecutor(
-                pipeline_type='ml',
-                dataset_name=dataset_name,
-                metric_type=metric_type,
-                pipeline_ord=pipeline_order,
-                execution_type='fail',
-            )
-
-#executor.run_pipeline_glass(filename_train)
-#_, rank_profile=executor.rank_profile_new_comp(filename_train1, new_comp)
-#rank_profile.remove('corr_Country')
-#executor.evaluate_interventions_pred_and_similarity(cur_par, filename_train, new_components=new_comp)
-#executor.evaluate_with_component_insertion(cur_par, new_components=new_comp)
-#executor.evaluate_interventions_swap_only(cur_par, filename_train)
-#print(rank)
-#executor.profile_similarity_all_rows(filename_test, filename_test, pd.read_csv(filename_train), output1)
-#executor.profile_similarity_df(filename_train, filename_test, cur_par, pd.read_csv(filename_test), metric='cosine')
-#Change the cur_par_lookUp fucntion
-
-
-#similarities = executor.profile_similarity_df_filtered(filename_train,filename_test,param=cur_par,profile_cols=pd.read_csv(filename_train).columns,threshold_col='utility_sp',threshold_val=0.055,output_file=output1,metric='cosine')'''
+# # #cur_par = [2, 2, 2, 1]  # example current parameter combination (1-based indexing)
+# # for k in ['pass']:
+# #     executor = PipelineExecutor(
+# #                  pipeline_type='ml',
+# #                  dataset_name=dataset_name,
+# #                  metric_type=metric_type,
+# #                  pipeline_ord=pipeline_order,
+# #                  execution_type=k,
+# #              )
+# #     if k=='pass':
+# #         j='train'
+# #     else:
+# #         j='test'
+# #     fixed_data = executor.get_injected_data()
+# #     for i in [500, 1000, 1500, 2000]:
+# #         filename_train = f'historical_data/revision/{i}_sample_historical_data_{j}_profile_{model_type}_{metric_type}_{dataset_name}.csv'
+# #         executor.run_pipeline_glass_sample(filename_train, n=i)
+# # #_, rank_profile=executor.rank_profile_new_comp(filename_train1, new_comp)
+# #rank_profile.remove('corr_Country')
+# #executor.evaluate_interventions_pred_and_similarity(cur_par, filename_train, new_components=new_comp)
+# #executor.evaluate_with_component_insertion(cur_par, new_components=new_comp)
+# #executor.evaluate_interventions_swap_only(cur_par, filename_train)
+# #print(rank)
+# #executor.profile_similarity_all_rows(filename_test, filename_test, pd.read_csv(filename_train), output1)
+# #executor.profile_similarity_df(filename_train, filename_test, cur_par, pd.read_csv(filename_test), metric='cosine')
+# #Change the cur_par_lookUp fucntion
+# #print(executor.current_par_lookup(pipeline_order, cur_par, fixed_data))
+# #u1 = executor.current_par_lookup(pipeline_order, cur_par, fixed_data=fixed_data)
+# #u2 = executor.current_par_lookup(pipeline_order, cur_par, fixed_data=fixed_data)
+# #print(u1, u2)
+# #similarities = executor.profile_similarity_df_filtered(filename_train,filename_test,param=cur_par,profile_cols=pd.read_csv(filename_train).columns,threshold_col='utility_sp',threshold_val=0.055,output_file=output1,metric='cosine')'''

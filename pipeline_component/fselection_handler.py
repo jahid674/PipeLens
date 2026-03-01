@@ -1,4 +1,4 @@
-from modules.fselection.fselector import FeatureSelector
+from modules.feature_engineering.fselection.fselector import FeatureSelector
 
 
 class FselectionHandler:

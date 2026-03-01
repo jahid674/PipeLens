@@ -1,21 +1,21 @@
 {
-  "dataset_name": "adult",
-  "model_type": "lr",
-  "metric_type": "sp",
+  "dataset_name": "hmda",
+  "model_type": "nn",
+  "metric_type": "accuracy_score",
   "pipeline_type": "ml",
-  "pipeline_order": ["missing_value", "normalization", "model"],
-  "new_components": ["outlier", "whitespace","swapping"],
-  "method": "PipeLens_effciency",
+  "pipeline_order": ["sampling","invalid_value","missing_value","floating_point","unit_converter","normalization","outlier","punctuation","stopword", "lowercase","whitespace","model"],
+  "new_components": ["deduplication"],
+  "method": "PipeLens_Final",
 
    "f_goals": {
-    "adult": [0.05, 0.06, 0.13, 0.16],
-    "hmda": [0.145, 0.154, 0.164, 0.17],
+    "adult": [0.1, 0.12, 0.14, 0.16],
+    "hmda": [0.07, 0.08, 0.09, 0.1],
     "housing": [156, 160, 170, 180]
   },
   
   "paths": {
-    "train_data": "historical_data/partial_pipeline/sim_historical_data_train_profile_{model_type}_{metric_type}_{dataset_name}.csv",
-    "test_data": "historical_data/noise/sim_historical_data_test_profile_{model_type}_{metric_type}_{dataset_name}.csv",
-    "metric_output": "metric/{method}_Glass_{model_type}_{metric_type}_{dataset_name}.csv"
+    "train_data": "historical_data/revision/1000_sample_historical_data_train_profile_nn_accuracy_score_hmda.csv",
+    "test_data": "historical_data/revision/filtered/0.1_filtered_hmda_nn_accuracy_score.csv",
+    "metric_output": "metric/revision/{method}_{model_type}_{metric_type}_{dataset_name}.csv"
   }
 }

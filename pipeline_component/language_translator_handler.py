@@ -1,4 +1,4 @@
-from modules.language_translator.language_translator import LanguageTranslator
+from modules.text_processing.language_translator.language_translator import LanguageTranslator
 
 class LanguageTranslatorHandler:
     def __init__(self, strategy, config):

@@ -1,4 +1,4 @@
-from modules.whitespace_cleaning.whitespace_cleaner import WhitespaceCleaner
+from modules.text_processing.whitespace_cleaning.whitespace_cleaner import WhitespaceCleaner
 
 class WhitespaceHandler:
     def __init__(self, strategy, config):
