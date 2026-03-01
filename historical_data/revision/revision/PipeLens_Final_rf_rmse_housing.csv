@@ -1,0 +1,40 @@
+Utility Goal,Method,Iteration,Value
+-155,PipeLens,iterations q1,1.0
+-155,PipeLens,iterations q2,1.0
+-155,PipeLens,iterations q3,1.0
+-155,PipeLens,iterations q4,1.0
+-155,PipeLens,Fairness q1,31.62067
+-155,PipeLens,Fairness q2,36.7147
+-155,PipeLens,Fairness q3,41.09653
+-155,PipeLens,Fairness q4,42.37565
+
+Utility Goal,Method,Iteration,Value
+-159,PipeLens,iterations q1,1.0
+-159,PipeLens,iterations q2,1.0
+-159,PipeLens,iterations q3,1.0
+-159,PipeLens,iterations q4,1.0
+-159,PipeLens,Fairness q1,31.62067
+-159,PipeLens,Fairness q2,36.7147
+-159,PipeLens,Fairness q3,41.09653
+-159,PipeLens,Fairness q4,42.37565
+
+Utility Goal,Method,Iteration,Value
+-169,PipeLens,iterations q1,1.0
+-169,PipeLens,iterations q2,1.0
+-169,PipeLens,iterations q3,1.0
+-169,PipeLens,iterations q4,1.0
+-169,PipeLens,Fairness q1,31.62067
+-169,PipeLens,Fairness q2,36.7147
+-169,PipeLens,Fairness q3,41.09653
+-169,PipeLens,Fairness q4,42.37565
+
+Utility Goal,Method,Iteration,Value
+-179,PipeLens,iterations q1,1.0
+-179,PipeLens,iterations q2,1.0
+-179,PipeLens,iterations q3,1.0
+-179,PipeLens,iterations q4,1.0
+-179,PipeLens,Fairness q1,31.62067
+-179,PipeLens,Fairness q2,36.7147
+-179,PipeLens,Fairness q3,41.09653
+-179,PipeLens,Fairness q4,42.37565
+

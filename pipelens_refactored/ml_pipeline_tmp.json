@@ -1,2 +1,0 @@
-{"outlier": "1", "missing_value": "2", "normalization": "3", "pos_missing_value": "1", "pos_normalization": "2", "pos_outlier": "3", "result": "False"}
-{"missing_value": "1", "normalization": "1", "outlier": "1", "pos_missing_value": "1", "pos_normalization": "1", "pos_outlier": "1", "result": "False"}

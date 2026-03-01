@@ -1,0 +1,14 @@
+2025-11-18 13:49:18,393 - INFO - Evaluating [1, 4, 2, 1] -- Initial Utility 0.19909109619423696 -- Target Utility 0.05
+2025-11-18 13:51:18,328 - INFO - [OPTIMIZE] Trying combo size k=1
+2025-11-18 13:51:18,329 - INFO - [INFO] Running optimistic search with combined interventions...
+2025-11-18 13:51:18,329 - INFO - [SEARCH] Trying intervention: normalization → 1
+2025-11-18 13:51:18,769 - INFO - current utility 0.10
+2025-11-18 13:51:18,769 - INFO - [TRY] normalization=1,pipeline: {'sampling': 1, 'missing_value': 4, 'normalization': 1, 'model': 1}, Utility=0.10, Best=0.20
+2025-11-18 13:51:18,769 - INFO - [SEARCH] Trying intervention: deduplication → 2
+2025-11-18 13:51:19,316 - INFO - current utility -0.00
+2025-11-18 13:51:19,316 - INFO - [TRY] deduplication=2,pipeline: {'sampling': 1, 'missing_value': 4, 'deduplication': 2, 'normalization': 1, 'model': 1}, Utility=-0.00, Best=0.10
+2025-11-18 13:51:19,316 - INFO - ✅ Target achieved 🎯
+2025-11-18 13:51:19,316 - INFO - required optimistic iterations: 2
+2025-11-18 13:51:19,316 - INFO - passing pipeline: order=['sampling', 'missing_value', 'deduplication', 'normalization', 'model'], vec=[1, 4, 2, 1, 1]
+2025-11-18 13:51:19,316 - INFO - Total iterations so far: 2
+2025-11-18 13:51:19,316 - INFO - pipeline[1, 4, 2]

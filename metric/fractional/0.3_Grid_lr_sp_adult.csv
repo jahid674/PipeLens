@@ -1,0 +1,10 @@
+Utility Goal,Method,Iteration,Value
+0.95,grid search,iterations q1,40.0
+0.95,grid search,iterations q2,40.0
+0.95,grid search,iterations q3,40.0
+0.95,grid search,iterations q4,40.0
+0.95,grid search,Fairness q1,0.04221
+0.95,grid search,Fairness q2,0.04221
+0.95,grid search,Fairness q3,0.04221
+0.95,grid search,Fairness q4,0.04221
+

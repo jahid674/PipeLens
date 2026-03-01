@@ -1,6 +1,0 @@
-('house_example2', 'learn2clean', 'NB', 'SaleCondition', None, 'CC -> LOF -> NB', 'accuracy', 0.13248270170761126, 4.580179929733276)
-('house_example2', 'learn2clean', 'CART', 'SaleCondition', None, 'CC -> LOF -> CART', 'accuracy', 0.8929061131213103, 1092.185662984848)
-('house_example2', 'learn2clean', 'LR', 'SaleCondition', None, 'MICE -> LR', 'accuracy', 0.811672945040085, 18.350093126296997)
-('house_example2', 'learn2clean', 'LR', 'SaleCondition', None, 'MICE -> LR', 'accuracy', 0.811672945040085, 19.112534999847412)
-('house_example2', 'learn2clean', 'LR', 'SaleCondition', None, 'MICE -> LR', 'accuracy', 0.811672945040085, 15.994238138198853)
-('house_example2', 'learn2clean', 'LR', 'SaleCondition', None, 'MICE -> LR', 'accuracy', 0.811672945040085, 20.935247898101807)

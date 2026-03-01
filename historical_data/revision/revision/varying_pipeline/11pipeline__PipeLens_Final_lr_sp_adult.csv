@@ -1,0 +1,10 @@
+Utility Goal,Method,Iteration,Value
+0.95,PipeLens,iterations q1,4.5
+0.95,PipeLens,iterations q2,12.5
+0.95,PipeLens,iterations q3,22.0
+0.95,PipeLens,iterations q4,27.0
+0.95,PipeLens,Fairness q1,0.02602
+0.95,PipeLens,Fairness q2,0.03417
+0.95,PipeLens,Fairness q3,0.04425
+0.95,PipeLens,Fairness q4,0.04839
+

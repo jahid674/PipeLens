@@ -1,0 +1,953 @@
+2026-02-17 10:48:42,999 - INFO - Evaluating [1, 2, 4, 4, 2, 1, 2, 1, 6, 2, 2, 1, 2, 1] -- Initial Utility 0.11512492292642619 -- Target Utility 0.02
+2026-02-17 10:52:03,000 - INFO - [OPTIMIZE] Trying combo size k=1
+2026-02-17 10:52:03,000 - INFO - [INFO] Running optimistic search with combined interventions...
+2026-02-17 10:52:03,000 - INFO - [SEARCH] Trying intervention: distribution_shape → 4
+2026-02-17 10:52:05,506 - INFO - current utility 0.19
+2026-02-17 10:52:05,506 - INFO - [TRY] distribution_shape=4,pipeline: {'sampling': 1.0, 'invalid_value': 2.0, 'missing_value': 4.0, 'floating_point': 4.0, 'unit_converter': 2.0, 'distribution_shape': 4, 'multicollinearity': 2.0, 'normalization': 1.0, 'outlier': 6.0, 'punctuation': 2.0, 'stopword': 2.0, 'lowercase': 1.0, 'whitespace': 2.0, 'model': 1.0}, Utility=0.19, Best=0.12
+2026-02-17 10:52:05,506 - INFO - [SEARCH] Trying intervention: outlier → 3
+2026-02-17 10:52:06,862 - INFO - current utility 0.09
+2026-02-17 10:52:06,862 - INFO - [TRY] outlier=3,pipeline: {'sampling': 1.0, 'invalid_value': 2.0, 'missing_value': 4.0, 'floating_point': 4.0, 'unit_converter': 2.0, 'distribution_shape': 1.0, 'multicollinearity': 2.0, 'normalization': 1.0, 'outlier': 3, 'punctuation': 2.0, 'stopword': 2.0, 'lowercase': 1.0, 'whitespace': 2.0, 'model': 1.0}, Utility=0.09, Best=0.12
+2026-02-17 10:52:06,862 - INFO - [SEARCH] Trying intervention: invalid_value → 3
+2026-02-17 10:52:08,153 - INFO - current utility 0.07
+2026-02-17 10:52:08,153 - INFO - [TRY] invalid_value=3,pipeline: {'sampling': 1.0, 'invalid_value': 3, 'missing_value': 4.0, 'floating_point': 4.0, 'unit_converter': 2.0, 'distribution_shape': 1.0, 'multicollinearity': 2.0, 'normalization': 1.0, 'outlier': 3, 'punctuation': 2.0, 'stopword': 2.0, 'lowercase': 1.0, 'whitespace': 2.0, 'model': 1.0}, Utility=0.07, Best=0.09
+2026-02-17 10:52:08,153 - INFO - [SEARCH] Trying intervention: distribution_shape → 2
+2026-02-17 10:52:09,588 - INFO - current utility 0.16
+2026-02-17 10:52:09,588 - INFO - [TRY] distribution_shape=2,pipeline: {'sampling': 1.0, 'invalid_value': 3, 'missing_value': 4.0, 'floating_point': 4.0, 'unit_converter': 2.0, 'distribution_shape': 2, 'multicollinearity': 2.0, 'normalization': 1.0, 'outlier': 3, 'punctuation': 2.0, 'stopword': 2.0, 'lowercase': 1.0, 'whitespace': 2.0, 'model': 1.0}, Utility=0.16, Best=0.07
+2026-02-17 10:52:09,588 - INFO - [SEARCH] Trying intervention: outlier → 4
+2026-02-17 10:52:11,213 - INFO - current utility 0.13
+2026-02-17 10:52:11,213 - INFO - [TRY] outlier=4,pipeline: {'sampling': 1.0, 'invalid_value': 3, 'missing_value': 4.0, 'floating_point': 4.0, 'unit_converter': 2.0, 'distribution_shape': 1.0, 'multicollinearity': 2.0, 'normalization': 1.0, 'outlier': 4, 'punctuation': 2.0, 'stopword': 2.0, 'lowercase': 1.0, 'whitespace': 2.0, 'model': 1.0}, Utility=0.13, Best=0.07
+2026-02-17 10:52:11,213 - INFO - [SEARCH] Trying intervention: outlier → 5
+2026-02-17 10:52:13,051 - INFO - current utility 0.12
+2026-02-17 10:52:13,051 - INFO - [TRY] outlier=5,pipeline: {'sampling': 1.0, 'invalid_value': 3, 'missing_value': 4.0, 'floating_point': 4.0, 'unit_converter': 2.0, 'distribution_shape': 1.0, 'multicollinearity': 2.0, 'normalization': 1.0, 'outlier': 5, 'punctuation': 2.0, 'stopword': 2.0, 'lowercase': 1.0, 'whitespace': 2.0, 'model': 1.0}, Utility=0.12, Best=0.07
+2026-02-17 10:52:13,051 - INFO - [SEARCH] Trying intervention: deduplication → 1
+2026-02-17 10:52:14,328 - INFO - current utility 0.07
+2026-02-17 10:52:14,328 - INFO - [TRY] deduplication=1,pipeline: {'sampling': 1.0, 'invalid_value': 3, 'missing_value': 4.0, 'floating_point': 4.0, 'unit_converter': 2.0, 'distribution_shape': 1.0, 'multicollinearity': 2.0, 'normalization': 1.0, 'outlier': 3, 'punctuation': 2.0, 'stopword': 2.0, 'lowercase': 1.0, 'whitespace': 2.0, 'deduplication': 1, 'model': 1.0}, Utility=0.07, Best=0.07
+2026-02-17 10:52:14,328 - INFO - [SEARCH] Trying intervention: deduplication → 2
+2026-02-17 10:52:15,486 - INFO - current utility 0.00
+2026-02-17 10:52:15,486 - INFO - [TRY] deduplication=2,pipeline: {'sampling': 1.0, 'invalid_value': 3, 'missing_value': 4.0, 'deduplication': 2, 'floating_point': 4.0, 'unit_converter': 2.0, 'distribution_shape': 1.0, 'multicollinearity': 2.0, 'normalization': 1.0, 'outlier': 3, 'punctuation': 2.0, 'stopword': 2.0, 'lowercase': 1.0, 'whitespace': 2.0, 'model': 1.0}, Utility=0.00, Best=0.07
+2026-02-17 10:52:15,486 - INFO - ✅ Target achieved 🎯
+2026-02-17 10:52:15,486 - INFO - required optimistic iterations: 8
+2026-02-17 10:52:15,486 - INFO - passing pipeline: order=['sampling', 'invalid_value', 'missing_value', 'deduplication', 'floating_point', 'unit_converter', 'distribution_shape', 'multicollinearity', 'normalization', 'outlier', 'punctuation', 'stopword', 'lowercase', 'whitespace', 'model'], vec=[1, 3, 4, 2, 4, 2, 1, 2, 1, 3, 2, 2, 1, 2, 1]
+2026-02-17 10:52:15,486 - INFO - Total iterations so far: 8
+2026-02-17 10:52:15,486 - INFO - pipeline[1. 2. 4.]
+2026-02-17 10:52:16,018 - INFO - Evaluating [4, 2, 3, 4, 1, 2, 1, 1, 3, 2, 2, 2, 2, 1] -- Initial Utility 0.11330511848812987 -- Target Utility 0.02
+2026-02-17 10:53:26,782 - INFO - [OPTIMIZE] Trying combo size k=1
+2026-02-17 10:53:26,783 - INFO - [INFO] Running optimistic search with combined interventions...
+2026-02-17 10:53:26,783 - INFO - [SEARCH] Trying intervention: deduplication → 1
+2026-02-17 10:53:27,232 - INFO - current utility 0.13
+2026-02-17 10:53:27,232 - INFO - [TRY] deduplication=1,pipeline: {'sampling': 4.0, 'invalid_value': 2.0, 'deduplication': 1, 'missing_value': 3.0, 'floating_point': 4.0, 'unit_converter': 1.0, 'distribution_shape': 2.0, 'multicollinearity': 1.0, 'normalization': 1.0, 'outlier': 3.0, 'punctuation': 2.0, 'stopword': 2.0, 'lowercase': 2.0, 'whitespace': 2.0, 'model': 1.0}, Utility=0.13, Best=0.11
+2026-02-17 10:53:27,232 - INFO - [SEARCH] Trying intervention: missing_value → 7
+2026-02-17 10:53:28,412 - INFO - current utility 0.13
+2026-02-17 10:53:28,412 - INFO - [TRY] missing_value=7,pipeline: {'sampling': 4.0, 'invalid_value': 2.0, 'missing_value': 7, 'floating_point': 4.0, 'unit_converter': 1.0, 'distribution_shape': 2.0, 'multicollinearity': 1.0, 'normalization': 1.0, 'outlier': 3.0, 'punctuation': 2.0, 'stopword': 2.0, 'lowercase': 2.0, 'whitespace': 2.0, 'model': 1.0}, Utility=0.13, Best=0.11
+2026-02-17 10:53:28,412 - INFO - [SEARCH] Trying intervention: punctuation → 1
+2026-02-17 10:53:28,999 - INFO - current utility 0.11
+2026-02-17 10:53:28,999 - INFO - [TRY] punctuation=1,pipeline: {'sampling': 4.0, 'invalid_value': 2.0, 'missing_value': 3.0, 'floating_point': 4.0, 'unit_converter': 1.0, 'distribution_shape': 2.0, 'multicollinearity': 1.0, 'normalization': 1.0, 'outlier': 3.0, 'punctuation': 1, 'stopword': 2.0, 'lowercase': 2.0, 'whitespace': 2.0, 'model': 1.0}, Utility=0.11, Best=0.11
+2026-02-17 10:53:28,999 - INFO - [SEARCH] Trying intervention: floating_point → 3
+2026-02-17 10:53:29,572 - INFO - current utility 0.11
+2026-02-17 10:53:29,572 - INFO - [TRY] floating_point=3,pipeline: {'sampling': 4.0, 'invalid_value': 2.0, 'missing_value': 3.0, 'floating_point': 3, 'unit_converter': 1.0, 'distribution_shape': 2.0, 'multicollinearity': 1.0, 'normalization': 1.0, 'outlier': 3.0, 'punctuation': 2.0, 'stopword': 2.0, 'lowercase': 2.0, 'whitespace': 2.0, 'model': 1.0}, Utility=0.11, Best=0.11
+2026-02-17 10:53:29,572 - INFO - [SEARCH] Trying intervention: missing_value → 5
+2026-02-17 10:53:30,607 - INFO - current utility 0.13
+2026-02-17 10:53:30,607 - INFO - [TRY] missing_value=5,pipeline: {'sampling': 4.0, 'invalid_value': 2.0, 'missing_value': 5, 'floating_point': 4.0, 'unit_converter': 1.0, 'distribution_shape': 2.0, 'multicollinearity': 1.0, 'normalization': 1.0, 'outlier': 3.0, 'punctuation': 2.0, 'stopword': 2.0, 'lowercase': 2.0, 'whitespace': 2.0, 'model': 1.0}, Utility=0.13, Best=0.11
+2026-02-17 10:53:30,607 - INFO - [SEARCH] Trying intervention: multicollinearity → 2
+2026-02-17 10:53:31,219 - INFO - current utility 0.11
+2026-02-17 10:53:31,219 - INFO - [TRY] multicollinearity=2,pipeline: {'sampling': 4.0, 'invalid_value': 2.0, 'missing_value': 3.0, 'floating_point': 4.0, 'unit_converter': 1.0, 'distribution_shape': 2.0, 'multicollinearity': 2, 'normalization': 1.0, 'outlier': 3.0, 'punctuation': 2.0, 'stopword': 2.0, 'lowercase': 2.0, 'whitespace': 2.0, 'model': 1.0}, Utility=0.11, Best=0.11
+2026-02-17 10:53:31,219 - INFO - [SEARCH] Trying intervention: deduplication → 2
+2026-02-17 10:53:31,882 - INFO - current utility 0.02
+2026-02-17 10:53:31,882 - INFO - [TRY] deduplication=2,pipeline: {'sampling': 4.0, 'invalid_value': 2.0, 'missing_value': 3.0, 'deduplication': 2, 'floating_point': 4.0, 'unit_converter': 1.0, 'distribution_shape': 2.0, 'multicollinearity': 2, 'normalization': 1.0, 'outlier': 3.0, 'punctuation': 2.0, 'stopword': 2.0, 'lowercase': 2.0, 'whitespace': 2.0, 'model': 1.0}, Utility=0.02, Best=0.11
+2026-02-17 10:53:31,882 - INFO - [SEARCH] Trying intervention: missing_value → 6
+2026-02-17 10:53:33,069 - INFO - current utility 0.03
+2026-02-17 10:53:33,069 - INFO - [TRY] missing_value=6,pipeline: {'sampling': 4.0, 'invalid_value': 2.0, 'missing_value': 6, 'deduplication': 2, 'floating_point': 4.0, 'unit_converter': 1.0, 'distribution_shape': 2.0, 'multicollinearity': 2, 'normalization': 1.0, 'outlier': 3.0, 'punctuation': 2.0, 'stopword': 2.0, 'lowercase': 2.0, 'whitespace': 2.0, 'model': 1.0}, Utility=0.03, Best=0.02
+2026-02-17 10:53:33,069 - INFO - [SEARCH] Trying intervention: missing_value → 1
+2026-02-17 10:53:33,715 - INFO - current utility 0.02
+2026-02-17 10:53:33,715 - INFO - [TRY] missing_value=1,pipeline: {'sampling': 4.0, 'invalid_value': 2.0, 'missing_value': 1, 'deduplication': 2, 'floating_point': 4.0, 'unit_converter': 1.0, 'distribution_shape': 2.0, 'multicollinearity': 2, 'normalization': 1.0, 'outlier': 3.0, 'punctuation': 2.0, 'stopword': 2.0, 'lowercase': 2.0, 'whitespace': 2.0, 'model': 1.0}, Utility=0.02, Best=0.02
+2026-02-17 10:53:33,715 - INFO - ✅ Target achieved 🎯
+2026-02-17 10:53:33,715 - INFO - required optimistic iterations: 9
+2026-02-17 10:53:33,715 - INFO - passing pipeline: order=['sampling', 'invalid_value', 'missing_value', 'deduplication', 'floating_point', 'unit_converter', 'distribution_shape', 'multicollinearity', 'normalization', 'outlier', 'punctuation', 'stopword', 'lowercase', 'whitespace', 'model'], vec=[4, 2, 1, 2, 4, 1, 2, 2, 1, 3, 2, 2, 2, 2, 1]
+2026-02-17 10:53:33,715 - INFO - Total iterations so far: 9
+2026-02-17 10:53:33,716 - INFO - pipeline[4. 2. 3.]
+2026-02-17 10:53:35,576 - INFO - Evaluating [1, 2, 4, 4, 2, 1, 2, 1, 6, 2, 2, 1, 2, 1] -- Initial Utility 0.11512492292642619 -- Target Utility 0.03
+2026-02-17 10:56:55,549 - INFO - [OPTIMIZE] Trying combo size k=1
+2026-02-17 10:56:55,549 - INFO - [INFO] Running optimistic search with combined interventions...
+2026-02-17 10:56:55,549 - INFO - [SEARCH] Trying intervention: distribution_shape → 4
+2026-02-17 10:56:58,183 - INFO - current utility 0.19
+2026-02-17 10:56:58,183 - INFO - [TRY] distribution_shape=4,pipeline: {'sampling': 1.0, 'invalid_value': 2.0, 'missing_value': 4.0, 'floating_point': 4.0, 'unit_converter': 2.0, 'distribution_shape': 4, 'multicollinearity': 2.0, 'normalization': 1.0, 'outlier': 6.0, 'punctuation': 2.0, 'stopword': 2.0, 'lowercase': 1.0, 'whitespace': 2.0, 'model': 1.0}, Utility=0.19, Best=0.12
+2026-02-17 10:56:58,183 - INFO - [SEARCH] Trying intervention: outlier → 3
+2026-02-17 10:56:59,627 - INFO - current utility 0.09
+2026-02-17 10:56:59,627 - INFO - [TRY] outlier=3,pipeline: {'sampling': 1.0, 'invalid_value': 2.0, 'missing_value': 4.0, 'floating_point': 4.0, 'unit_converter': 2.0, 'distribution_shape': 1.0, 'multicollinearity': 2.0, 'normalization': 1.0, 'outlier': 3, 'punctuation': 2.0, 'stopword': 2.0, 'lowercase': 1.0, 'whitespace': 2.0, 'model': 1.0}, Utility=0.09, Best=0.12
+2026-02-17 10:56:59,627 - INFO - [SEARCH] Trying intervention: distribution_shape → 2
+2026-02-17 10:57:01,354 - INFO - current utility 0.14
+2026-02-17 10:57:01,354 - INFO - [TRY] distribution_shape=2,pipeline: {'sampling': 1.0, 'invalid_value': 2.0, 'missing_value': 4.0, 'floating_point': 4.0, 'unit_converter': 2.0, 'distribution_shape': 2, 'multicollinearity': 2.0, 'normalization': 1.0, 'outlier': 3, 'punctuation': 2.0, 'stopword': 2.0, 'lowercase': 1.0, 'whitespace': 2.0, 'model': 1.0}, Utility=0.14, Best=0.09
+2026-02-17 10:57:01,355 - INFO - [SEARCH] Trying intervention: outlier → 4
+2026-02-17 10:57:03,137 - INFO - current utility 0.15
+2026-02-17 10:57:03,138 - INFO - [TRY] outlier=4,pipeline: {'sampling': 1.0, 'invalid_value': 2.0, 'missing_value': 4.0, 'floating_point': 4.0, 'unit_converter': 2.0, 'distribution_shape': 1.0, 'multicollinearity': 2.0, 'normalization': 1.0, 'outlier': 4, 'punctuation': 2.0, 'stopword': 2.0, 'lowercase': 1.0, 'whitespace': 2.0, 'model': 1.0}, Utility=0.15, Best=0.09
+2026-02-17 10:57:03,138 - INFO - [SEARCH] Trying intervention: outlier → 5
+2026-02-17 10:57:05,029 - INFO - current utility 0.12
+2026-02-17 10:57:05,029 - INFO - [TRY] outlier=5,pipeline: {'sampling': 1.0, 'invalid_value': 2.0, 'missing_value': 4.0, 'floating_point': 4.0, 'unit_converter': 2.0, 'distribution_shape': 1.0, 'multicollinearity': 2.0, 'normalization': 1.0, 'outlier': 5, 'punctuation': 2.0, 'stopword': 2.0, 'lowercase': 1.0, 'whitespace': 2.0, 'model': 1.0}, Utility=0.12, Best=0.09
+2026-02-17 10:57:05,029 - INFO - [SEARCH] Trying intervention: stopword → 1
+2026-02-17 10:57:06,360 - INFO - current utility 0.09
+2026-02-17 10:57:06,360 - INFO - [TRY] stopword=1,pipeline: {'sampling': 1.0, 'invalid_value': 2.0, 'missing_value': 4.0, 'floating_point': 4.0, 'unit_converter': 2.0, 'distribution_shape': 1.0, 'multicollinearity': 2.0, 'normalization': 1.0, 'outlier': 3, 'punctuation': 2.0, 'stopword': 1, 'lowercase': 1.0, 'whitespace': 2.0, 'model': 1.0}, Utility=0.09, Best=0.09
+2026-02-17 10:57:06,360 - INFO - [SEARCH] Trying intervention: deduplication → 2
+2026-02-17 10:57:07,377 - INFO - current utility 0.00
+2026-02-17 10:57:07,377 - INFO - [TRY] deduplication=2,pipeline: {'sampling': 1.0, 'invalid_value': 2.0, 'missing_value': 4.0, 'floating_point': 4.0, 'unit_converter': 2.0, 'distribution_shape': 1.0, 'multicollinearity': 2.0, 'normalization': 1.0, 'outlier': 3, 'punctuation': 2.0, 'stopword': 2.0, 'deduplication': 2, 'lowercase': 1.0, 'whitespace': 2.0, 'model': 1.0}, Utility=0.00, Best=0.09
+2026-02-17 10:57:07,377 - INFO - ✅ Target achieved 🎯
+2026-02-17 10:57:07,377 - INFO - required optimistic iterations: 7
+2026-02-17 10:57:07,377 - INFO - passing pipeline: order=['sampling', 'invalid_value', 'missing_value', 'floating_point', 'unit_converter', 'distribution_shape', 'multicollinearity', 'normalization', 'outlier', 'punctuation', 'stopword', 'deduplication', 'lowercase', 'whitespace', 'model'], vec=[1, 2, 4, 4, 2, 1, 2, 1, 3, 2, 2, 2, 1, 2, 1]
+2026-02-17 10:57:07,377 - INFO - Total iterations so far: 7
+2026-02-17 10:57:07,377 - INFO - pipeline[1. 2. 4.]
+2026-02-17 10:57:07,979 - INFO - Evaluating [4, 2, 3, 4, 1, 2, 1, 1, 3, 2, 2, 2, 2, 1] -- Initial Utility 0.11330511848812987 -- Target Utility 0.03
+2026-02-17 10:58:21,488 - INFO - [OPTIMIZE] Trying combo size k=1
+2026-02-17 10:58:21,489 - INFO - [INFO] Running optimistic search with combined interventions...
+2026-02-17 10:58:21,489 - INFO - [SEARCH] Trying intervention: deduplication → 1
+2026-02-17 10:58:21,996 - INFO - current utility 0.13
+2026-02-17 10:58:21,996 - INFO - [TRY] deduplication=1,pipeline: {'sampling': 4.0, 'invalid_value': 2.0, 'deduplication': 1, 'missing_value': 3.0, 'floating_point': 4.0, 'unit_converter': 1.0, 'distribution_shape': 2.0, 'multicollinearity': 1.0, 'normalization': 1.0, 'outlier': 3.0, 'punctuation': 2.0, 'stopword': 2.0, 'lowercase': 2.0, 'whitespace': 2.0, 'model': 1.0}, Utility=0.13, Best=0.11
+2026-02-17 10:58:21,996 - INFO - [SEARCH] Trying intervention: missing_value → 5
+2026-02-17 10:58:23,078 - INFO - current utility 0.13
+2026-02-17 10:58:23,078 - INFO - [TRY] missing_value=5,pipeline: {'sampling': 4.0, 'invalid_value': 2.0, 'missing_value': 5, 'floating_point': 4.0, 'unit_converter': 1.0, 'distribution_shape': 2.0, 'multicollinearity': 1.0, 'normalization': 1.0, 'outlier': 3.0, 'punctuation': 2.0, 'stopword': 2.0, 'lowercase': 2.0, 'whitespace': 2.0, 'model': 1.0}, Utility=0.13, Best=0.11
+2026-02-17 10:58:23,078 - INFO - [SEARCH] Trying intervention: stopword → 1
+2026-02-17 10:58:23,692 - INFO - current utility 0.11
+2026-02-17 10:58:23,692 - INFO - [TRY] stopword=1,pipeline: {'sampling': 4.0, 'invalid_value': 2.0, 'missing_value': 3.0, 'floating_point': 4.0, 'unit_converter': 1.0, 'distribution_shape': 2.0, 'multicollinearity': 1.0, 'normalization': 1.0, 'outlier': 3.0, 'punctuation': 2.0, 'stopword': 1, 'lowercase': 2.0, 'whitespace': 2.0, 'model': 1.0}, Utility=0.11, Best=0.11
+2026-02-17 10:58:23,692 - INFO - [SEARCH] Trying intervention: missing_value → 9
+2026-02-17 10:58:24,851 - INFO - current utility 0.13
+2026-02-17 10:58:24,851 - INFO - [TRY] missing_value=9,pipeline: {'sampling': 4.0, 'invalid_value': 2.0, 'missing_value': 9, 'floating_point': 4.0, 'unit_converter': 1.0, 'distribution_shape': 2.0, 'multicollinearity': 1.0, 'normalization': 1.0, 'outlier': 3.0, 'punctuation': 2.0, 'stopword': 2.0, 'lowercase': 2.0, 'whitespace': 2.0, 'model': 1.0}, Utility=0.13, Best=0.11
+2026-02-17 10:58:24,851 - INFO - [SEARCH] Trying intervention: punctuation → 1
+2026-02-17 10:58:25,469 - INFO - current utility 0.11
+2026-02-17 10:58:25,469 - INFO - [TRY] punctuation=1,pipeline: {'sampling': 4.0, 'invalid_value': 2.0, 'missing_value': 3.0, 'floating_point': 4.0, 'unit_converter': 1.0, 'distribution_shape': 2.0, 'multicollinearity': 1.0, 'normalization': 1.0, 'outlier': 3.0, 'punctuation': 1, 'stopword': 2.0, 'lowercase': 2.0, 'whitespace': 2.0, 'model': 1.0}, Utility=0.11, Best=0.11
+2026-02-17 10:58:25,469 - INFO - [SEARCH] Trying intervention: missing_value → 8
+2026-02-17 10:58:26,531 - INFO - current utility 0.13
+2026-02-17 10:58:26,531 - INFO - [TRY] missing_value=8,pipeline: {'sampling': 4.0, 'invalid_value': 2.0, 'missing_value': 8, 'floating_point': 4.0, 'unit_converter': 1.0, 'distribution_shape': 2.0, 'multicollinearity': 1.0, 'normalization': 1.0, 'outlier': 3.0, 'punctuation': 2.0, 'stopword': 2.0, 'lowercase': 2.0, 'whitespace': 2.0, 'model': 1.0}, Utility=0.13, Best=0.11
+2026-02-17 10:58:26,532 - INFO - [SEARCH] Trying intervention: floating_point → 2
+2026-02-17 10:58:27,132 - INFO - current utility 0.11
+2026-02-17 10:58:27,132 - INFO - [TRY] floating_point=2,pipeline: {'sampling': 4.0, 'invalid_value': 2.0, 'missing_value': 3.0, 'floating_point': 2, 'unit_converter': 1.0, 'distribution_shape': 2.0, 'multicollinearity': 1.0, 'normalization': 1.0, 'outlier': 3.0, 'punctuation': 2.0, 'stopword': 2.0, 'lowercase': 2.0, 'whitespace': 2.0, 'model': 1.0}, Utility=0.11, Best=0.11
+2026-02-17 10:58:27,132 - INFO - [SEARCH] Trying intervention: missing_value → 2
+2026-02-17 10:58:27,801 - INFO - current utility 0.11
+2026-02-17 10:58:27,801 - INFO - [TRY] missing_value=2,pipeline: {'sampling': 4.0, 'invalid_value': 2.0, 'missing_value': 2, 'floating_point': 4.0, 'unit_converter': 1.0, 'distribution_shape': 2.0, 'multicollinearity': 1.0, 'normalization': 1.0, 'outlier': 3.0, 'punctuation': 2.0, 'stopword': 2.0, 'lowercase': 2.0, 'whitespace': 2.0, 'model': 1.0}, Utility=0.11, Best=0.11
+2026-02-17 10:58:27,801 - INFO - [SEARCH] Trying intervention: deduplication → 2
+2026-02-17 10:58:28,482 - INFO - current utility 0.02
+2026-02-17 10:58:28,482 - INFO - [TRY] deduplication=2,pipeline: {'sampling': 4.0, 'invalid_value': 2.0, 'deduplication': 2, 'missing_value': 2, 'floating_point': 4.0, 'unit_converter': 1.0, 'distribution_shape': 2.0, 'multicollinearity': 1.0, 'normalization': 1.0, 'outlier': 3.0, 'punctuation': 2.0, 'stopword': 2.0, 'lowercase': 2.0, 'whitespace': 2.0, 'model': 1.0}, Utility=0.02, Best=0.11
+2026-02-17 10:58:28,482 - INFO - ✅ Target achieved 🎯
+2026-02-17 10:58:28,482 - INFO - required optimistic iterations: 9
+2026-02-17 10:58:28,482 - INFO - passing pipeline: order=['sampling', 'invalid_value', 'deduplication', 'missing_value', 'floating_point', 'unit_converter', 'distribution_shape', 'multicollinearity', 'normalization', 'outlier', 'punctuation', 'stopword', 'lowercase', 'whitespace', 'model'], vec=[4, 2, 2, 2, 4, 1, 2, 1, 1, 3, 2, 2, 2, 2, 1]
+2026-02-17 10:58:28,482 - INFO - Total iterations so far: 9
+2026-02-17 10:58:28,482 - INFO - pipeline[4. 2. 3.]
+2026-02-17 10:58:30,555 - INFO - Evaluating [1, 2, 4, 4, 2, 1, 2, 1, 6, 2, 2, 1, 2, 1] -- Initial Utility 0.11512492292642619 -- Target Utility 0.04
+2026-02-17 11:01:58,533 - INFO - [OPTIMIZE] Trying combo size k=1
+2026-02-17 11:01:58,533 - INFO - [INFO] Running optimistic search with combined interventions...
+2026-02-17 11:01:58,533 - INFO - [SEARCH] Trying intervention: invalid_value → 1
+2026-02-17 11:02:00,656 - INFO - current utility 0.11
+2026-02-17 11:02:00,656 - INFO - [TRY] invalid_value=1,pipeline: {'sampling': 1.0, 'invalid_value': 1, 'missing_value': 4.0, 'floating_point': 4.0, 'unit_converter': 2.0, 'distribution_shape': 1.0, 'multicollinearity': 2.0, 'normalization': 1.0, 'outlier': 6.0, 'punctuation': 2.0, 'stopword': 2.0, 'lowercase': 1.0, 'whitespace': 2.0, 'model': 1.0}, Utility=0.11, Best=0.12
+2026-02-17 11:02:00,656 - INFO - [SEARCH] Trying intervention: distribution_shape → 4
+2026-02-17 11:02:03,310 - INFO - current utility 0.17
+2026-02-17 11:02:03,310 - INFO - [TRY] distribution_shape=4,pipeline: {'sampling': 1.0, 'invalid_value': 1, 'missing_value': 4.0, 'floating_point': 4.0, 'unit_converter': 2.0, 'distribution_shape': 4, 'multicollinearity': 2.0, 'normalization': 1.0, 'outlier': 6.0, 'punctuation': 2.0, 'stopword': 2.0, 'lowercase': 1.0, 'whitespace': 2.0, 'model': 1.0}, Utility=0.17, Best=0.11
+2026-02-17 11:02:03,310 - INFO - [SEARCH] Trying intervention: outlier → 3
+2026-02-17 11:02:04,684 - INFO - current utility 0.07
+2026-02-17 11:02:04,684 - INFO - [TRY] outlier=3,pipeline: {'sampling': 1.0, 'invalid_value': 1, 'missing_value': 4.0, 'floating_point': 4.0, 'unit_converter': 2.0, 'distribution_shape': 1.0, 'multicollinearity': 2.0, 'normalization': 1.0, 'outlier': 3, 'punctuation': 2.0, 'stopword': 2.0, 'lowercase': 1.0, 'whitespace': 2.0, 'model': 1.0}, Utility=0.07, Best=0.11
+2026-02-17 11:02:04,684 - INFO - [SEARCH] Trying intervention: distribution_shape → 2
+2026-02-17 11:02:06,232 - INFO - current utility 0.16
+2026-02-17 11:02:06,232 - INFO - [TRY] distribution_shape=2,pipeline: {'sampling': 1.0, 'invalid_value': 1, 'missing_value': 4.0, 'floating_point': 4.0, 'unit_converter': 2.0, 'distribution_shape': 2, 'multicollinearity': 2.0, 'normalization': 1.0, 'outlier': 3, 'punctuation': 2.0, 'stopword': 2.0, 'lowercase': 1.0, 'whitespace': 2.0, 'model': 1.0}, Utility=0.16, Best=0.07
+2026-02-17 11:02:06,232 - INFO - [SEARCH] Trying intervention: outlier → 4
+2026-02-17 11:02:08,007 - INFO - current utility 0.13
+2026-02-17 11:02:08,007 - INFO - [TRY] outlier=4,pipeline: {'sampling': 1.0, 'invalid_value': 1, 'missing_value': 4.0, 'floating_point': 4.0, 'unit_converter': 2.0, 'distribution_shape': 1.0, 'multicollinearity': 2.0, 'normalization': 1.0, 'outlier': 4, 'punctuation': 2.0, 'stopword': 2.0, 'lowercase': 1.0, 'whitespace': 2.0, 'model': 1.0}, Utility=0.13, Best=0.07
+2026-02-17 11:02:08,007 - INFO - [SEARCH] Trying intervention: outlier → 5
+2026-02-17 11:02:09,882 - INFO - current utility 0.12
+2026-02-17 11:02:09,882 - INFO - [TRY] outlier=5,pipeline: {'sampling': 1.0, 'invalid_value': 1, 'missing_value': 4.0, 'floating_point': 4.0, 'unit_converter': 2.0, 'distribution_shape': 1.0, 'multicollinearity': 2.0, 'normalization': 1.0, 'outlier': 5, 'punctuation': 2.0, 'stopword': 2.0, 'lowercase': 1.0, 'whitespace': 2.0, 'model': 1.0}, Utility=0.12, Best=0.07
+2026-02-17 11:02:09,883 - INFO - [SEARCH] Trying intervention: missing_value → 9
+2026-02-17 11:02:11,233 - INFO - current utility 0.07
+2026-02-17 11:02:11,233 - INFO - [TRY] missing_value=9,pipeline: {'sampling': 1.0, 'invalid_value': 1, 'missing_value': 9, 'floating_point': 4.0, 'unit_converter': 2.0, 'distribution_shape': 1.0, 'multicollinearity': 2.0, 'normalization': 1.0, 'outlier': 3, 'punctuation': 2.0, 'stopword': 2.0, 'lowercase': 1.0, 'whitespace': 2.0, 'model': 1.0}, Utility=0.07, Best=0.07
+2026-02-17 11:02:11,233 - INFO - [SEARCH] Trying intervention: deduplication → 2
+2026-02-17 11:02:12,444 - INFO - current utility 0.00
+2026-02-17 11:02:12,444 - INFO - [TRY] deduplication=2,pipeline: {'sampling': 1.0, 'invalid_value': 1, 'missing_value': 4.0, 'floating_point': 4.0, 'unit_converter': 2.0, 'deduplication': 2, 'distribution_shape': 1.0, 'multicollinearity': 2.0, 'normalization': 1.0, 'outlier': 3, 'punctuation': 2.0, 'stopword': 2.0, 'lowercase': 1.0, 'whitespace': 2.0, 'model': 1.0}, Utility=0.00, Best=0.07
+2026-02-17 11:02:12,444 - INFO - ✅ Target achieved 🎯
+2026-02-17 11:02:12,444 - INFO - required optimistic iterations: 8
+2026-02-17 11:02:12,444 - INFO - passing pipeline: order=['sampling', 'invalid_value', 'missing_value', 'floating_point', 'unit_converter', 'deduplication', 'distribution_shape', 'multicollinearity', 'normalization', 'outlier', 'punctuation', 'stopword', 'lowercase', 'whitespace', 'model'], vec=[1, 1, 4, 4, 2, 2, 1, 2, 1, 3, 2, 2, 1, 2, 1]
+2026-02-17 11:02:12,444 - INFO - Total iterations so far: 8
+2026-02-17 11:02:12,444 - INFO - pipeline[1. 2. 4.]
+2026-02-17 11:02:13,174 - INFO - Evaluating [4, 2, 3, 4, 1, 2, 1, 1, 3, 2, 2, 2, 2, 1] -- Initial Utility 0.11330511848812987 -- Target Utility 0.04
+2026-02-17 11:03:25,500 - INFO - [OPTIMIZE] Trying combo size k=1
+2026-02-17 11:03:25,501 - INFO - [INFO] Running optimistic search with combined interventions...
+2026-02-17 11:03:25,501 - INFO - [SEARCH] Trying intervention: deduplication → 1
+2026-02-17 11:03:25,996 - INFO - current utility 0.11
+2026-02-17 11:03:25,996 - INFO - [TRY] deduplication=1,pipeline: {'sampling': 4.0, 'invalid_value': 2.0, 'missing_value': 3.0, 'floating_point': 4.0, 'unit_converter': 1.0, 'distribution_shape': 2.0, 'deduplication': 1, 'multicollinearity': 1.0, 'normalization': 1.0, 'outlier': 3.0, 'punctuation': 2.0, 'stopword': 2.0, 'lowercase': 2.0, 'whitespace': 2.0, 'model': 1.0}, Utility=0.11, Best=0.11
+2026-02-17 11:03:25,996 - INFO - [SEARCH] Trying intervention: missing_value → 9
+2026-02-17 11:03:27,078 - INFO - current utility 0.13
+2026-02-17 11:03:27,078 - INFO - [TRY] missing_value=9,pipeline: {'sampling': 4.0, 'invalid_value': 2.0, 'missing_value': 9, 'floating_point': 4.0, 'unit_converter': 1.0, 'distribution_shape': 2.0, 'multicollinearity': 1.0, 'normalization': 1.0, 'outlier': 3.0, 'punctuation': 2.0, 'stopword': 2.0, 'lowercase': 2.0, 'whitespace': 2.0, 'model': 1.0}, Utility=0.13, Best=0.11
+2026-02-17 11:03:27,078 - INFO - [SEARCH] Trying intervention: missing_value → 6
+2026-02-17 11:03:28,168 - INFO - current utility 0.13
+2026-02-17 11:03:28,168 - INFO - [TRY] missing_value=6,pipeline: {'sampling': 4.0, 'invalid_value': 2.0, 'missing_value': 6, 'floating_point': 4.0, 'unit_converter': 1.0, 'distribution_shape': 2.0, 'multicollinearity': 1.0, 'normalization': 1.0, 'outlier': 3.0, 'punctuation': 2.0, 'stopword': 2.0, 'lowercase': 2.0, 'whitespace': 2.0, 'model': 1.0}, Utility=0.13, Best=0.11
+2026-02-17 11:03:28,168 - INFO - [SEARCH] Trying intervention: lowercase → 1
+2026-02-17 11:03:28,729 - INFO - current utility 0.11
+2026-02-17 11:03:28,729 - INFO - [TRY] lowercase=1,pipeline: {'sampling': 4.0, 'invalid_value': 2.0, 'missing_value': 3.0, 'floating_point': 4.0, 'unit_converter': 1.0, 'distribution_shape': 2.0, 'multicollinearity': 1.0, 'normalization': 1.0, 'outlier': 3.0, 'punctuation': 2.0, 'stopword': 2.0, 'lowercase': 1, 'whitespace': 2.0, 'model': 1.0}, Utility=0.11, Best=0.11
+2026-02-17 11:03:28,729 - INFO - [SEARCH] Trying intervention: deduplication → 2
+2026-02-17 11:03:29,313 - INFO - current utility 0.11
+2026-02-17 11:03:29,314 - INFO - [TRY] deduplication=2,pipeline: {'sampling': 4.0, 'invalid_value': 2.0, 'missing_value': 3.0, 'floating_point': 4.0, 'unit_converter': 1.0, 'distribution_shape': 2.0, 'multicollinearity': 1.0, 'normalization': 1.0, 'outlier': 3.0, 'punctuation': 2.0, 'stopword': 2.0, 'lowercase': 2.0, 'whitespace': 2.0, 'deduplication': 2, 'model': 1.0}, Utility=0.11, Best=0.11
+2026-02-17 11:03:29,314 - INFO - [SEARCH] Trying intervention: missing_value → 7
+2026-02-17 11:03:30,498 - INFO - current utility 0.13
+2026-02-17 11:03:30,499 - INFO - [TRY] missing_value=7,pipeline: {'sampling': 4.0, 'invalid_value': 2.0, 'missing_value': 7, 'floating_point': 4.0, 'unit_converter': 1.0, 'distribution_shape': 2.0, 'multicollinearity': 1.0, 'normalization': 1.0, 'outlier': 3.0, 'punctuation': 2.0, 'stopword': 2.0, 'lowercase': 2.0, 'whitespace': 2.0, 'model': 1.0}, Utility=0.13, Best=0.11
+2026-02-17 11:03:30,499 - INFO - [SEARCH] Trying intervention: missing_value → 5
+2026-02-17 11:03:31,593 - INFO - current utility 0.13
+2026-02-17 11:03:31,593 - INFO - [TRY] missing_value=5,pipeline: {'sampling': 4.0, 'invalid_value': 2.0, 'missing_value': 5, 'floating_point': 4.0, 'unit_converter': 1.0, 'distribution_shape': 2.0, 'multicollinearity': 1.0, 'normalization': 1.0, 'outlier': 3.0, 'punctuation': 2.0, 'stopword': 2.0, 'lowercase': 2.0, 'whitespace': 2.0, 'model': 1.0}, Utility=0.13, Best=0.11
+2026-02-17 11:03:31,593 - INFO - [SEARCH] Trying intervention: invalid_value → 4
+2026-02-17 11:03:32,111 - INFO - current utility 0.11
+2026-02-17 11:03:32,111 - INFO - [TRY] invalid_value=4,pipeline: {'sampling': 4.0, 'invalid_value': 4, 'missing_value': 3.0, 'floating_point': 4.0, 'unit_converter': 1.0, 'distribution_shape': 2.0, 'multicollinearity': 1.0, 'normalization': 1.0, 'outlier': 3.0, 'punctuation': 2.0, 'stopword': 2.0, 'lowercase': 2.0, 'whitespace': 2.0, 'model': 1.0}, Utility=0.11, Best=0.11
+2026-02-17 11:03:32,111 - INFO - [SEARCH] Trying intervention: whitespace → 1
+2026-02-17 11:03:32,644 - INFO - current utility 0.11
+2026-02-17 11:03:32,644 - INFO - [TRY] whitespace=1,pipeline: {'sampling': 4.0, 'invalid_value': 2.0, 'missing_value': 3.0, 'floating_point': 4.0, 'unit_converter': 1.0, 'distribution_shape': 2.0, 'multicollinearity': 1.0, 'normalization': 1.0, 'outlier': 3.0, 'punctuation': 2.0, 'stopword': 2.0, 'lowercase': 2.0, 'whitespace': 1, 'model': 1.0}, Utility=0.11, Best=0.11
+2026-02-17 11:03:32,644 - INFO - [SEARCH] Trying intervention: missing_value → 8
+2026-02-17 11:03:33,654 - INFO - current utility 0.13
+2026-02-17 11:03:33,654 - INFO - [TRY] missing_value=8,pipeline: {'sampling': 4.0, 'invalid_value': 2.0, 'missing_value': 8, 'floating_point': 4.0, 'unit_converter': 1.0, 'distribution_shape': 2.0, 'multicollinearity': 1.0, 'normalization': 1.0, 'outlier': 3.0, 'punctuation': 2.0, 'stopword': 2.0, 'lowercase': 2.0, 'whitespace': 2.0, 'model': 1.0}, Utility=0.13, Best=0.11
+2026-02-17 11:03:33,654 - INFO - [SEARCH] Trying intervention: stopword → 1
+2026-02-17 11:03:34,235 - INFO - current utility 0.11
+2026-02-17 11:03:34,235 - INFO - [TRY] stopword=1,pipeline: {'sampling': 4.0, 'invalid_value': 2.0, 'missing_value': 3.0, 'floating_point': 4.0, 'unit_converter': 1.0, 'distribution_shape': 2.0, 'multicollinearity': 1.0, 'normalization': 1.0, 'outlier': 3.0, 'punctuation': 2.0, 'stopword': 1, 'lowercase': 2.0, 'whitespace': 2.0, 'model': 1.0}, Utility=0.11, Best=0.11
+2026-02-17 11:03:34,235 - INFO - [SEARCH] Trying intervention: missing_value → 4
+2026-02-17 11:03:34,871 - INFO - current utility 0.11
+2026-02-17 11:03:34,871 - INFO - [TRY] missing_value=4,pipeline: {'sampling': 4.0, 'invalid_value': 2.0, 'missing_value': 4, 'floating_point': 4.0, 'unit_converter': 1.0, 'distribution_shape': 2.0, 'multicollinearity': 1.0, 'normalization': 1.0, 'outlier': 3.0, 'punctuation': 2.0, 'stopword': 2.0, 'lowercase': 2.0, 'whitespace': 2.0, 'model': 1.0}, Utility=0.11, Best=0.11
+2026-02-17 11:03:34,871 - INFO - [SEARCH] Trying intervention: unit_converter → 2
+2026-02-17 11:03:35,581 - INFO - current utility 0.11
+2026-02-17 11:03:35,581 - INFO - [TRY] unit_converter=2,pipeline: {'sampling': 4.0, 'invalid_value': 2.0, 'missing_value': 4, 'floating_point': 4.0, 'unit_converter': 2, 'distribution_shape': 2.0, 'multicollinearity': 1.0, 'normalization': 1.0, 'outlier': 3.0, 'punctuation': 2.0, 'stopword': 2.0, 'lowercase': 2.0, 'whitespace': 2.0, 'model': 1.0}, Utility=0.11, Best=0.11
+2026-02-17 11:03:35,581 - INFO - [SEARCH] Trying intervention: floating_point → 2
+2026-02-17 11:03:36,206 - INFO - current utility 0.11
+2026-02-17 11:03:36,206 - INFO - [TRY] floating_point=2,pipeline: {'sampling': 4.0, 'invalid_value': 2.0, 'missing_value': 4, 'floating_point': 2, 'unit_converter': 1.0, 'distribution_shape': 2.0, 'multicollinearity': 1.0, 'normalization': 1.0, 'outlier': 3.0, 'punctuation': 2.0, 'stopword': 2.0, 'lowercase': 2.0, 'whitespace': 2.0, 'model': 1.0}, Utility=0.11, Best=0.11
+2026-02-17 11:03:36,206 - INFO - [SEARCH] Trying intervention: sampling → 3
+2026-02-17 11:03:36,666 - INFO - current utility 0.12
+2026-02-17 11:03:36,666 - INFO - [TRY] sampling=3,pipeline: {'sampling': 3, 'invalid_value': 2.0, 'missing_value': 4, 'floating_point': 4.0, 'unit_converter': 1.0, 'distribution_shape': 2.0, 'multicollinearity': 1.0, 'normalization': 1.0, 'outlier': 3.0, 'punctuation': 2.0, 'stopword': 2.0, 'lowercase': 2.0, 'whitespace': 2.0, 'model': 1.0}, Utility=0.12, Best=0.11
+2026-02-17 11:03:36,666 - INFO - [SEARCH] Trying intervention: sampling → 1
+2026-02-17 11:03:38,008 - INFO - current utility 0.14
+2026-02-17 11:03:38,009 - INFO - [TRY] sampling=1,pipeline: {'sampling': 1, 'invalid_value': 2.0, 'missing_value': 4, 'floating_point': 4.0, 'unit_converter': 1.0, 'distribution_shape': 2.0, 'multicollinearity': 1.0, 'normalization': 1.0, 'outlier': 3.0, 'punctuation': 2.0, 'stopword': 2.0, 'lowercase': 2.0, 'whitespace': 2.0, 'model': 1.0}, Utility=0.14, Best=0.11
+2026-02-17 11:03:38,009 - INFO - [SEARCH] Trying intervention: sampling → 2
+2026-02-17 11:03:38,593 - INFO - current utility 0.12
+2026-02-17 11:03:38,593 - INFO - [TRY] sampling=2,pipeline: {'sampling': 2, 'invalid_value': 2.0, 'missing_value': 4, 'floating_point': 4.0, 'unit_converter': 1.0, 'distribution_shape': 2.0, 'multicollinearity': 1.0, 'normalization': 1.0, 'outlier': 3.0, 'punctuation': 2.0, 'stopword': 2.0, 'lowercase': 2.0, 'whitespace': 2.0, 'model': 1.0}, Utility=0.12, Best=0.11
+2026-02-17 11:03:38,594 - INFO - [SEARCH] Trying intervention: missing_value → 1
+2026-02-17 11:03:39,183 - INFO - current utility 0.13
+2026-02-17 11:03:39,183 - INFO - [TRY] missing_value=1,pipeline: {'sampling': 4.0, 'invalid_value': 2.0, 'missing_value': 1, 'floating_point': 4.0, 'unit_converter': 1.0, 'distribution_shape': 2.0, 'multicollinearity': 1.0, 'normalization': 1.0, 'outlier': 3.0, 'punctuation': 2.0, 'stopword': 2.0, 'lowercase': 2.0, 'whitespace': 2.0, 'model': 1.0}, Utility=0.13, Best=0.11
+2026-02-17 11:03:39,183 - INFO - [SEARCH] Trying intervention: multicollinearity → 2
+2026-02-17 11:03:39,900 - INFO - current utility 0.11
+2026-02-17 11:03:39,901 - INFO - [TRY] multicollinearity=2,pipeline: {'sampling': 4.0, 'invalid_value': 2.0, 'missing_value': 4, 'floating_point': 4.0, 'unit_converter': 1.0, 'distribution_shape': 2.0, 'multicollinearity': 2, 'normalization': 1.0, 'outlier': 3.0, 'punctuation': 2.0, 'stopword': 2.0, 'lowercase': 2.0, 'whitespace': 2.0, 'model': 1.0}, Utility=0.11, Best=0.11
+2026-02-17 11:03:39,901 - INFO - [SEARCH] Trying intervention: floating_point → 3
+2026-02-17 11:03:40,553 - INFO - current utility 0.11
+2026-02-17 11:03:40,553 - INFO - [TRY] floating_point=3,pipeline: {'sampling': 4.0, 'invalid_value': 2.0, 'missing_value': 4, 'floating_point': 3, 'unit_converter': 1.0, 'distribution_shape': 2.0, 'multicollinearity': 1.0, 'normalization': 1.0, 'outlier': 3.0, 'punctuation': 2.0, 'stopword': 2.0, 'lowercase': 2.0, 'whitespace': 2.0, 'model': 1.0}, Utility=0.11, Best=0.11
+2026-02-17 11:03:40,553 - INFO - [SEARCH] Trying intervention: missing_value → 2
+2026-02-17 11:03:41,176 - INFO - current utility 0.11
+2026-02-17 11:03:41,176 - INFO - [TRY] missing_value=2,pipeline: {'sampling': 4.0, 'invalid_value': 2.0, 'missing_value': 2, 'floating_point': 4.0, 'unit_converter': 1.0, 'distribution_shape': 2.0, 'multicollinearity': 1.0, 'normalization': 1.0, 'outlier': 3.0, 'punctuation': 2.0, 'stopword': 2.0, 'lowercase': 2.0, 'whitespace': 2.0, 'model': 1.0}, Utility=0.11, Best=0.11
+2026-02-17 11:03:41,176 - INFO - [SEARCH] Trying intervention: floating_point → 1
+2026-02-17 11:03:41,773 - INFO - current utility 0.11
+2026-02-17 11:03:41,773 - INFO - [TRY] floating_point=1,pipeline: {'sampling': 4.0, 'invalid_value': 2.0, 'missing_value': 2, 'floating_point': 1, 'unit_converter': 1.0, 'distribution_shape': 2.0, 'multicollinearity': 1.0, 'normalization': 1.0, 'outlier': 3.0, 'punctuation': 2.0, 'stopword': 2.0, 'lowercase': 2.0, 'whitespace': 2.0, 'model': 1.0}, Utility=0.11, Best=0.11
+2026-02-17 11:03:41,773 - INFO - [SEARCH] Trying intervention: punctuation → 1
+2026-02-17 11:03:42,394 - INFO - current utility 0.11
+2026-02-17 11:03:42,394 - INFO - [TRY] punctuation=1,pipeline: {'sampling': 4.0, 'invalid_value': 2.0, 'missing_value': 2, 'floating_point': 4.0, 'unit_converter': 1.0, 'distribution_shape': 2.0, 'multicollinearity': 1.0, 'normalization': 1.0, 'outlier': 3.0, 'punctuation': 1, 'stopword': 2.0, 'lowercase': 2.0, 'whitespace': 2.0, 'model': 1.0}, Utility=0.11, Best=0.11
+2026-02-17 11:03:42,394 - INFO - [SEARCH] Trying intervention: distribution_shape → 4
+2026-02-17 11:03:42,970 - INFO - current utility 0.10
+2026-02-17 11:03:42,970 - INFO - [TRY] distribution_shape=4,pipeline: {'sampling': 4.0, 'invalid_value': 2.0, 'missing_value': 2, 'floating_point': 4.0, 'unit_converter': 1.0, 'distribution_shape': 4, 'multicollinearity': 1.0, 'normalization': 1.0, 'outlier': 3.0, 'punctuation': 2.0, 'stopword': 2.0, 'lowercase': 2.0, 'whitespace': 2.0, 'model': 1.0}, Utility=0.10, Best=0.11
+2026-02-17 11:03:42,970 - INFO - [SEARCH] Trying intervention: invalid_value → 1
+2026-02-17 11:03:43,572 - INFO - current utility 0.14
+2026-02-17 11:03:43,572 - INFO - [TRY] invalid_value=1,pipeline: {'sampling': 4.0, 'invalid_value': 1, 'missing_value': 2, 'floating_point': 4.0, 'unit_converter': 1.0, 'distribution_shape': 4, 'multicollinearity': 1.0, 'normalization': 1.0, 'outlier': 3.0, 'punctuation': 2.0, 'stopword': 2.0, 'lowercase': 2.0, 'whitespace': 2.0, 'model': 1.0}, Utility=0.14, Best=0.10
+2026-02-17 11:03:43,572 - INFO - [SEARCH] Trying intervention: invalid_value → 3
+2026-02-17 11:03:44,165 - INFO - current utility 0.14
+2026-02-17 11:03:44,165 - INFO - [TRY] invalid_value=3,pipeline: {'sampling': 4.0, 'invalid_value': 3, 'missing_value': 2, 'floating_point': 4.0, 'unit_converter': 1.0, 'distribution_shape': 4, 'multicollinearity': 1.0, 'normalization': 1.0, 'outlier': 3.0, 'punctuation': 2.0, 'stopword': 2.0, 'lowercase': 2.0, 'whitespace': 2.0, 'model': 1.0}, Utility=0.14, Best=0.10
+2026-02-17 11:03:44,165 - INFO - [SEARCH] Trying intervention: distribution_shape → 1
+2026-02-17 11:03:44,769 - INFO - current utility 0.08
+2026-02-17 11:03:44,769 - INFO - [TRY] distribution_shape=1,pipeline: {'sampling': 4.0, 'invalid_value': 2.0, 'missing_value': 2, 'floating_point': 4.0, 'unit_converter': 1.0, 'distribution_shape': 1, 'multicollinearity': 1.0, 'normalization': 1.0, 'outlier': 3.0, 'punctuation': 2.0, 'stopword': 2.0, 'lowercase': 2.0, 'whitespace': 2.0, 'model': 1.0}, Utility=0.08, Best=0.10
+2026-02-17 11:03:44,769 - INFO - [SEARCH] Trying intervention: outlier → 2
+2026-02-17 11:03:45,556 - INFO - current utility 0.09
+2026-02-17 11:03:45,556 - INFO - [TRY] outlier=2,pipeline: {'sampling': 4.0, 'invalid_value': 2.0, 'missing_value': 2, 'floating_point': 4.0, 'unit_converter': 1.0, 'distribution_shape': 1, 'multicollinearity': 1.0, 'normalization': 1.0, 'outlier': 2, 'punctuation': 2.0, 'stopword': 2.0, 'lowercase': 2.0, 'whitespace': 2.0, 'model': 1.0}, Utility=0.09, Best=0.08
+2026-02-17 11:03:45,556 - INFO - [SEARCH] Trying intervention: outlier → 1
+2026-02-17 11:03:46,398 - INFO - current utility 0.09
+2026-02-17 11:03:46,399 - INFO - [TRY] outlier=1,pipeline: {'sampling': 4.0, 'invalid_value': 2.0, 'missing_value': 2, 'floating_point': 4.0, 'unit_converter': 1.0, 'distribution_shape': 1, 'multicollinearity': 1.0, 'normalization': 1.0, 'outlier': 1, 'punctuation': 2.0, 'stopword': 2.0, 'lowercase': 2.0, 'whitespace': 2.0, 'model': 1.0}, Utility=0.09, Best=0.08
+2026-02-17 11:03:46,399 - INFO - [SEARCH] Trying intervention: outlier → 8
+2026-02-17 11:03:47,175 - INFO - current utility 0.06
+2026-02-17 11:03:47,175 - INFO - [TRY] outlier=8,pipeline: {'sampling': 4.0, 'invalid_value': 2.0, 'missing_value': 2, 'floating_point': 4.0, 'unit_converter': 1.0, 'distribution_shape': 1, 'multicollinearity': 1.0, 'normalization': 1.0, 'outlier': 8, 'punctuation': 2.0, 'stopword': 2.0, 'lowercase': 2.0, 'whitespace': 2.0, 'model': 1.0}, Utility=0.06, Best=0.08
+2026-02-17 11:03:47,175 - INFO - [SEARCH] Trying intervention: outlier → 7
+2026-02-17 11:03:47,939 - INFO - current utility 0.06
+2026-02-17 11:03:47,939 - INFO - [TRY] outlier=7,pipeline: {'sampling': 4.0, 'invalid_value': 2.0, 'missing_value': 2, 'floating_point': 4.0, 'unit_converter': 1.0, 'distribution_shape': 1, 'multicollinearity': 1.0, 'normalization': 1.0, 'outlier': 7, 'punctuation': 2.0, 'stopword': 2.0, 'lowercase': 2.0, 'whitespace': 2.0, 'model': 1.0}, Utility=0.06, Best=0.06
+2026-02-17 11:03:47,939 - INFO - [SEARCH] Trying intervention: outlier → 5
+2026-02-17 11:03:48,722 - INFO - current utility 0.08
+2026-02-17 11:03:48,722 - INFO - [TRY] outlier=5,pipeline: {'sampling': 4.0, 'invalid_value': 2.0, 'missing_value': 2, 'floating_point': 4.0, 'unit_converter': 1.0, 'distribution_shape': 1, 'multicollinearity': 1.0, 'normalization': 1.0, 'outlier': 5, 'punctuation': 2.0, 'stopword': 2.0, 'lowercase': 2.0, 'whitespace': 2.0, 'model': 1.0}, Utility=0.08, Best=0.06
+2026-02-17 11:03:48,722 - INFO - [SEARCH] Trying intervention: outlier → 4
+2026-02-17 11:03:49,652 - INFO - current utility 0.09
+2026-02-17 11:03:49,652 - INFO - [TRY] outlier=4,pipeline: {'sampling': 4.0, 'invalid_value': 2.0, 'missing_value': 2, 'floating_point': 4.0, 'unit_converter': 1.0, 'distribution_shape': 1, 'multicollinearity': 1.0, 'normalization': 1.0, 'outlier': 4, 'punctuation': 2.0, 'stopword': 2.0, 'lowercase': 2.0, 'whitespace': 2.0, 'model': 1.0}, Utility=0.09, Best=0.06
+2026-02-17 11:03:49,652 - INFO - [SEARCH] Trying intervention: outlier → 6
+2026-02-17 11:03:50,490 - INFO - current utility 0.07
+2026-02-17 11:03:50,490 - INFO - [TRY] outlier=6,pipeline: {'sampling': 4.0, 'invalid_value': 2.0, 'missing_value': 2, 'floating_point': 4.0, 'unit_converter': 1.0, 'distribution_shape': 1, 'multicollinearity': 1.0, 'normalization': 1.0, 'outlier': 6, 'punctuation': 2.0, 'stopword': 2.0, 'lowercase': 2.0, 'whitespace': 2.0, 'model': 1.0}, Utility=0.07, Best=0.06
+2026-02-17 11:03:50,490 - INFO - [SEARCH] Trying intervention: normalization → 4
+2026-02-17 11:03:51,240 - INFO - current utility 0.17
+2026-02-17 11:03:51,240 - INFO - [TRY] normalization=4,pipeline: {'sampling': 4.0, 'invalid_value': 2.0, 'missing_value': 2, 'floating_point': 4.0, 'unit_converter': 1.0, 'distribution_shape': 1, 'multicollinearity': 1.0, 'normalization': 4, 'outlier': 7, 'punctuation': 2.0, 'stopword': 2.0, 'lowercase': 2.0, 'whitespace': 2.0, 'model': 1.0}, Utility=0.17, Best=0.06
+2026-02-17 11:03:51,240 - INFO - [SEARCH] Trying intervention: normalization → 3
+2026-02-17 11:03:52,512 - INFO - current utility 0.17
+2026-02-17 11:03:52,513 - INFO - [TRY] normalization=3,pipeline: {'sampling': 4.0, 'invalid_value': 2.0, 'missing_value': 2, 'floating_point': 4.0, 'unit_converter': 1.0, 'distribution_shape': 1, 'multicollinearity': 1.0, 'normalization': 3, 'outlier': 7, 'punctuation': 2.0, 'stopword': 2.0, 'lowercase': 2.0, 'whitespace': 2.0, 'model': 1.0}, Utility=0.17, Best=0.06
+2026-02-17 11:03:52,513 - INFO - [SEARCH] Trying intervention: distribution_shape → 3
+2026-02-17 11:03:53,316 - INFO - current utility 0.18
+2026-02-17 11:03:53,316 - INFO - [TRY] distribution_shape=3,pipeline: {'sampling': 4.0, 'invalid_value': 2.0, 'missing_value': 2, 'floating_point': 4.0, 'unit_converter': 1.0, 'distribution_shape': 3, 'multicollinearity': 1.0, 'normalization': 1.0, 'outlier': 7, 'punctuation': 2.0, 'stopword': 2.0, 'lowercase': 2.0, 'whitespace': 2.0, 'model': 1.0}, Utility=0.18, Best=0.06
+2026-02-17 11:03:53,316 - INFO - [SEARCH] Trying intervention: normalization → 5
+2026-02-17 11:03:54,070 - INFO - current utility 0.17
+2026-02-17 11:03:54,070 - INFO - [TRY] normalization=5,pipeline: {'sampling': 4.0, 'invalid_value': 2.0, 'missing_value': 2, 'floating_point': 4.0, 'unit_converter': 1.0, 'distribution_shape': 1, 'multicollinearity': 1.0, 'normalization': 5, 'outlier': 7, 'punctuation': 2.0, 'stopword': 2.0, 'lowercase': 2.0, 'whitespace': 2.0, 'model': 1.0}, Utility=0.17, Best=0.06
+2026-02-17 11:03:54,071 - INFO - [SEARCH] Trying intervention: normalization → 2
+2026-02-17 11:03:55,137 - INFO - current utility 0.17
+2026-02-17 11:03:55,137 - INFO - [TRY] normalization=2,pipeline: {'sampling': 4.0, 'invalid_value': 2.0, 'missing_value': 2, 'floating_point': 4.0, 'unit_converter': 1.0, 'distribution_shape': 1, 'multicollinearity': 1.0, 'normalization': 2, 'outlier': 7, 'punctuation': 2.0, 'stopword': 2.0, 'lowercase': 2.0, 'whitespace': 2.0, 'model': 1.0}, Utility=0.17, Best=0.06
+2026-02-17 11:03:55,137 - INFO - [SEARCH] Trying intervention: distribution_shape → 5
+2026-02-17 11:03:56,376 - INFO - current utility 0.09
+2026-02-17 11:03:56,376 - INFO - [TRY] distribution_shape=5,pipeline: {'sampling': 4.0, 'invalid_value': 2.0, 'missing_value': 2, 'floating_point': 4.0, 'unit_converter': 1.0, 'distribution_shape': 5, 'multicollinearity': 1.0, 'normalization': 1.0, 'outlier': 7, 'punctuation': 2.0, 'stopword': 2.0, 'lowercase': 2.0, 'whitespace': 2.0, 'model': 1.0}, Utility=0.09, Best=0.06
+2026-02-17 11:03:56,377 - INFO - Total iterations so far: 40
+2026-02-17 11:03:56,377 - INFO - [OPTIMIZE] Trying combo size k=2
+2026-02-17 11:03:56,377 - INFO - [INFO] Running optimistic search with combined interventions...
+2026-02-17 11:03:57,622 - INFO - [SIM-GUIDED][k=2] combo=(('insert', 'deduplication', 1, 6, 0.9892894282818518), ('change', 'missing_value', 9, None, 0.9887633391267729)), utility=0.06
+2026-02-17 11:03:58,858 - INFO - [SIM-GUIDED][k=2] combo=(('insert', 'deduplication', 1, 6, 0.9892894282818518), ('change', 'missing_value', 6, None, 0.9886317726725931)), utility=0.06
+2026-02-17 11:03:59,673 - INFO - [SIM-GUIDED][k=2] combo=(('insert', 'deduplication', 1, 6, 0.9892894282818518), ('change', 'lowercase', 1, None, 0.9884755635756627)), utility=0.06
+2026-02-17 11:04:01,076 - INFO - [SIM-GUIDED][k=2] combo=(('insert', 'deduplication', 1, 6, 0.9892894282818518), ('change', 'missing_value', 7, None, 0.9884241366981187)), utility=0.05
+2026-02-17 11:04:02,304 - INFO - [SIM-GUIDED][k=2] combo=(('insert', 'deduplication', 1, 6, 0.9892894282818518), ('change', 'missing_value', 5, None, 0.9884097983762)), utility=0.06
+2026-02-17 11:04:03,089 - INFO - [SIM-GUIDED][k=2] combo=(('insert', 'deduplication', 1, 6, 0.9892894282818518), ('change', 'invalid_value', 4, None, 0.9883147111187046)), utility=0.06
+2026-02-17 11:04:03,910 - INFO - [SIM-GUIDED][k=2] combo=(('insert', 'deduplication', 1, 6, 0.9892894282818518), ('change', 'whitespace', 1, None, 0.9880412024496623)), utility=0.06
+2026-02-17 11:04:05,146 - INFO - [SIM-GUIDED][k=2] combo=(('insert', 'deduplication', 1, 6, 0.9892894282818518), ('change', 'missing_value', 8, None, 0.9874680782736119)), utility=0.05
+2026-02-17 11:04:06,062 - INFO - [SIM-GUIDED][k=2] combo=(('insert', 'deduplication', 1, 6, 0.9892894282818518), ('change', 'stopword', 1, None, 0.986963713271031)), utility=0.06
+2026-02-17 11:04:06,874 - INFO - [SIM-GUIDED][k=2] combo=(('insert', 'deduplication', 1, 6, 0.9892894282818518), ('change', 'missing_value', 4, None, 0.9869159434119628)), utility=0.06
+2026-02-17 11:04:07,618 - INFO - [SIM-GUIDED][k=2] combo=(('insert', 'deduplication', 1, 6, 0.9892894282818518), ('change', 'unit_converter', 2, None, 0.9867239513699193)), utility=0.06
+2026-02-17 11:04:08,409 - INFO - [SIM-GUIDED][k=2] combo=(('insert', 'deduplication', 1, 6, 0.9892894282818518), ('change', 'floating_point', 2, None, 0.9865705007772676)), utility=0.06
+2026-02-17 11:04:08,974 - INFO - [SIM-GUIDED][k=2] combo=(('insert', 'deduplication', 1, 6, 0.9892894282818518), ('change', 'sampling', 3, None, 0.9784413251666317)), utility=0.06
+2026-02-17 11:04:10,778 - INFO - [SIM-GUIDED][k=2] combo=(('insert', 'deduplication', 1, 6, 0.9892894282818518), ('change', 'sampling', 1, None, 0.9756469404191795)), utility=0.10
+2026-02-17 11:04:11,482 - INFO - [SIM-GUIDED][k=2] combo=(('insert', 'deduplication', 1, 6, 0.9892894282818518), ('change', 'sampling', 2, None, 0.9690891776249968)), utility=0.08
+2026-02-17 11:04:12,224 - INFO - [SIM-GUIDED][k=2] combo=(('insert', 'deduplication', 1, 6, 0.9892894282818518), ('change', 'missing_value', 1, None, 0.9647042877751042)), utility=0.06
+2026-02-17 11:04:13,041 - INFO - [SIM-GUIDED][k=2] combo=(('insert', 'deduplication', 1, 6, 0.9892894282818518), ('change', 'multicollinearity', 2, None, 0.9040617319695904)), utility=0.06
+2026-02-17 11:04:13,884 - INFO - [SIM-GUIDED][k=2] combo=(('insert', 'deduplication', 1, 6, 0.9892894282818518), ('change', 'floating_point', 3, None, 0.9033327689680124)), utility=0.06
+2026-02-17 11:04:14,808 - INFO - [SIM-GUIDED][k=2] combo=(('insert', 'deduplication', 1, 6, 0.9892894282818518), ('change', 'missing_value', 2, None, 0.9026050721899415)), utility=0.06
+2026-02-17 11:04:15,698 - INFO - [SIM-GUIDED][k=2] combo=(('insert', 'deduplication', 1, 6, 0.9892894282818518), ('change', 'floating_point', 1, None, 0.9023125769402678)), utility=0.06
+2026-02-17 11:04:16,497 - INFO - [SIM-GUIDED][k=2] combo=(('insert', 'deduplication', 1, 6, 0.9892894282818518), ('change', 'punctuation', 1, None, 0.901417852606578)), utility=0.06
+2026-02-17 11:04:17,469 - INFO - [SIM-GUIDED][k=2] combo=(('insert', 'deduplication', 1, 6, 0.9892894282818518), ('change', 'distribution_shape', 4, None, 0.8740580547215798)), utility=0.17
+2026-02-17 11:04:18,232 - INFO - [SIM-GUIDED][k=2] combo=(('insert', 'deduplication', 1, 6, 0.9892894282818518), ('change', 'invalid_value', 1, None, 0.8685397054473708)), utility=0.06
+2026-02-17 11:04:19,009 - INFO - [SIM-GUIDED][k=2] combo=(('insert', 'deduplication', 1, 6, 0.9892894282818518), ('change', 'invalid_value', 3, None, 0.8683075090257879)), utility=0.06
+2026-02-17 11:04:19,827 - INFO - [SIM-GUIDED][k=2] combo=(('insert', 'deduplication', 1, 6, 0.9892894282818518), ('change', 'outlier', 2, None, 0.7601362081623403)), utility=0.09
+2026-02-17 11:04:20,786 - INFO - [SIM-GUIDED][k=2] combo=(('insert', 'deduplication', 1, 6, 0.9892894282818518), ('change', 'outlier', 1, None, 0.7401010254032281)), utility=0.09
+2026-02-17 11:04:21,603 - INFO - [SIM-GUIDED][k=2] combo=(('insert', 'deduplication', 1, 6, 0.9892894282818518), ('change', 'outlier', 8, None, 0.7393843492988007)), utility=0.06
+2026-02-17 11:04:22,358 - INFO - [SIM-GUIDED][k=2] combo=(('insert', 'deduplication', 1, 6, 0.9892894282818518), ('change', 'outlier', 5, None, 0.7360061047851393)), utility=0.08
+2026-02-17 11:04:23,063 - INFO - [SIM-GUIDED][k=2] combo=(('insert', 'deduplication', 1, 6, 0.9892894282818518), ('change', 'outlier', 4, None, 0.7357284294651149)), utility=0.09
+2026-02-17 11:04:23,836 - INFO - [SIM-GUIDED][k=2] combo=(('insert', 'deduplication', 1, 6, 0.9892894282818518), ('change', 'outlier', 6, None, 0.7348792572636851)), utility=0.07
+2026-02-17 11:04:24,542 - INFO - [SIM-GUIDED][k=2] combo=(('insert', 'deduplication', 1, 6, 0.9892894282818518), ('change', 'normalization', 4, None, 0.6434901962627435)), utility=0.17
+2026-02-17 11:04:25,896 - INFO - [SIM-GUIDED][k=2] combo=(('insert', 'deduplication', 1, 6, 0.9892894282818518), ('change', 'normalization', 3, None, 0.5477969545812971)), utility=0.17
+2026-02-17 11:04:26,882 - INFO - [SIM-GUIDED][k=2] combo=(('insert', 'deduplication', 1, 6, 0.9892894282818518), ('change', 'distribution_shape', 3, None, 0.43424460317074015)), utility=0.18
+2026-02-17 11:04:27,633 - INFO - [SIM-GUIDED][k=2] combo=(('insert', 'deduplication', 1, 6, 0.9892894282818518), ('change', 'normalization', 5, None, 0.42407032713504433)), utility=0.17
+2026-02-17 11:04:28,709 - INFO - [SIM-GUIDED][k=2] combo=(('insert', 'deduplication', 1, 6, 0.9892894282818518), ('change', 'normalization', 2, None, 0.05224216900474344)), utility=0.17
+2026-02-17 11:04:29,960 - INFO - [SIM-GUIDED][k=2] combo=(('insert', 'deduplication', 1, 6, 0.9892894282818518), ('change', 'distribution_shape', 5, None, 0.0031019120345807433)), utility=0.09
+2026-02-17 11:04:31,283 - INFO - [SIM-GUIDED][k=2] combo=(('change', 'missing_value', 9, None, 0.9887633391267729), ('change', 'lowercase', 1, None, 0.9884755635756627)), utility=0.06
+2026-02-17 11:04:32,498 - INFO - [SIM-GUIDED][k=2] combo=(('change', 'missing_value', 9, None, 0.9887633391267729), ('insert', 'deduplication', 2, 13, 0.9884396765650364)), utility=0.01
+2026-02-17 11:04:32,498 - INFO - ✅ Target achieved 🎯
+2026-02-17 11:04:32,498 - INFO - passing pipeline: order=['sampling', 'invalid_value', 'missing_value', 'floating_point', 'unit_converter', 'distribution_shape', 'multicollinearity', 'normalization', 'outlier', 'punctuation', 'stopword', 'lowercase', 'whitespace', 'deduplication', 'model'], vec=[4, 2, 9, 4, 1, 1, 1, 1, 7, 2, 2, 2, 2, 2, 1]
+2026-02-17 11:04:32,498 - INFO - required exhaustive iterations: 38
+2026-02-17 11:04:32,498 - INFO - Total iterations so far: 78
+2026-02-17 11:04:32,499 - INFO - pipeline[4. 2. 3.]
+2026-02-17 11:04:34,318 - INFO - Evaluating [1, 2, 4, 4, 2, 1, 2, 1, 6, 2, 2, 1, 2, 1] -- Initial Utility 0.11512492292642619 -- Target Utility 0.05
+2026-02-17 11:07:49,208 - INFO - [OPTIMIZE] Trying combo size k=1
+2026-02-17 11:07:49,208 - INFO - [INFO] Running optimistic search with combined interventions...
+2026-02-17 11:07:49,208 - INFO - [SEARCH] Trying intervention: invalid_value → 1
+2026-02-17 11:07:51,526 - INFO - current utility 0.11
+2026-02-17 11:07:51,526 - INFO - [TRY] invalid_value=1,pipeline: {'sampling': 1.0, 'invalid_value': 1, 'missing_value': 4.0, 'floating_point': 4.0, 'unit_converter': 2.0, 'distribution_shape': 1.0, 'multicollinearity': 2.0, 'normalization': 1.0, 'outlier': 6.0, 'punctuation': 2.0, 'stopword': 2.0, 'lowercase': 1.0, 'whitespace': 2.0, 'model': 1.0}, Utility=0.11, Best=0.12
+2026-02-17 11:07:51,526 - INFO - [SEARCH] Trying intervention: distribution_shape → 4
+2026-02-17 11:07:54,087 - INFO - current utility 0.17
+2026-02-17 11:07:54,087 - INFO - [TRY] distribution_shape=4,pipeline: {'sampling': 1.0, 'invalid_value': 1, 'missing_value': 4.0, 'floating_point': 4.0, 'unit_converter': 2.0, 'distribution_shape': 4, 'multicollinearity': 2.0, 'normalization': 1.0, 'outlier': 6.0, 'punctuation': 2.0, 'stopword': 2.0, 'lowercase': 1.0, 'whitespace': 2.0, 'model': 1.0}, Utility=0.17, Best=0.11
+2026-02-17 11:07:54,087 - INFO - [SEARCH] Trying intervention: outlier → 3
+2026-02-17 11:07:55,290 - INFO - current utility 0.07
+2026-02-17 11:07:55,290 - INFO - [TRY] outlier=3,pipeline: {'sampling': 1.0, 'invalid_value': 1, 'missing_value': 4.0, 'floating_point': 4.0, 'unit_converter': 2.0, 'distribution_shape': 1.0, 'multicollinearity': 2.0, 'normalization': 1.0, 'outlier': 3, 'punctuation': 2.0, 'stopword': 2.0, 'lowercase': 1.0, 'whitespace': 2.0, 'model': 1.0}, Utility=0.07, Best=0.11
+2026-02-17 11:07:55,290 - INFO - [SEARCH] Trying intervention: outlier → 4
+2026-02-17 11:07:56,901 - INFO - current utility 0.13
+2026-02-17 11:07:56,901 - INFO - [TRY] outlier=4,pipeline: {'sampling': 1.0, 'invalid_value': 1, 'missing_value': 4.0, 'floating_point': 4.0, 'unit_converter': 2.0, 'distribution_shape': 1.0, 'multicollinearity': 2.0, 'normalization': 1.0, 'outlier': 4, 'punctuation': 2.0, 'stopword': 2.0, 'lowercase': 1.0, 'whitespace': 2.0, 'model': 1.0}, Utility=0.13, Best=0.07
+2026-02-17 11:07:56,901 - INFO - [SEARCH] Trying intervention: distribution_shape → 2
+2026-02-17 11:07:58,360 - INFO - current utility 0.16
+2026-02-17 11:07:58,360 - INFO - [TRY] distribution_shape=2,pipeline: {'sampling': 1.0, 'invalid_value': 1, 'missing_value': 4.0, 'floating_point': 4.0, 'unit_converter': 2.0, 'distribution_shape': 2, 'multicollinearity': 2.0, 'normalization': 1.0, 'outlier': 3, 'punctuation': 2.0, 'stopword': 2.0, 'lowercase': 1.0, 'whitespace': 2.0, 'model': 1.0}, Utility=0.16, Best=0.07
+2026-02-17 11:07:58,360 - INFO - [SEARCH] Trying intervention: outlier → 5
+2026-02-17 11:08:00,203 - INFO - current utility 0.12
+2026-02-17 11:08:00,203 - INFO - [TRY] outlier=5,pipeline: {'sampling': 1.0, 'invalid_value': 1, 'missing_value': 4.0, 'floating_point': 4.0, 'unit_converter': 2.0, 'distribution_shape': 1.0, 'multicollinearity': 2.0, 'normalization': 1.0, 'outlier': 5, 'punctuation': 2.0, 'stopword': 2.0, 'lowercase': 1.0, 'whitespace': 2.0, 'model': 1.0}, Utility=0.12, Best=0.07
+2026-02-17 11:08:00,203 - INFO - [SEARCH] Trying intervention: floating_point → 3
+2026-02-17 11:08:01,526 - INFO - current utility 0.07
+2026-02-17 11:08:01,526 - INFO - [TRY] floating_point=3,pipeline: {'sampling': 1.0, 'invalid_value': 1, 'missing_value': 4.0, 'floating_point': 3, 'unit_converter': 2.0, 'distribution_shape': 1.0, 'multicollinearity': 2.0, 'normalization': 1.0, 'outlier': 3, 'punctuation': 2.0, 'stopword': 2.0, 'lowercase': 1.0, 'whitespace': 2.0, 'model': 1.0}, Utility=0.07, Best=0.07
+2026-02-17 11:08:01,526 - INFO - [SEARCH] Trying intervention: deduplication → 2
+2026-02-17 11:08:02,723 - INFO - current utility 0.00
+2026-02-17 11:08:02,723 - INFO - [TRY] deduplication=2,pipeline: {'sampling': 1.0, 'invalid_value': 1, 'missing_value': 4.0, 'floating_point': 4.0, 'unit_converter': 2.0, 'distribution_shape': 1.0, 'multicollinearity': 2.0, 'normalization': 1.0, 'outlier': 3, 'punctuation': 2.0, 'stopword': 2.0, 'deduplication': 2, 'lowercase': 1.0, 'whitespace': 2.0, 'model': 1.0}, Utility=0.00, Best=0.07
+2026-02-17 11:08:02,723 - INFO - ✅ Target achieved 🎯
+2026-02-17 11:08:02,723 - INFO - required optimistic iterations: 8
+2026-02-17 11:08:02,723 - INFO - passing pipeline: order=['sampling', 'invalid_value', 'missing_value', 'floating_point', 'unit_converter', 'distribution_shape', 'multicollinearity', 'normalization', 'outlier', 'punctuation', 'stopword', 'deduplication', 'lowercase', 'whitespace', 'model'], vec=[1, 1, 4, 4, 2, 1, 2, 1, 3, 2, 2, 2, 1, 2, 1]
+2026-02-17 11:08:02,723 - INFO - Total iterations so far: 8
+2026-02-17 11:08:02,723 - INFO - pipeline[1. 2. 4.]
+2026-02-17 11:08:03,295 - INFO - Evaluating [4, 2, 3, 4, 1, 2, 1, 1, 3, 2, 2, 2, 2, 1] -- Initial Utility 0.11330511848812987 -- Target Utility 0.05
+2026-02-17 11:09:15,390 - INFO - [OPTIMIZE] Trying combo size k=1
+2026-02-17 11:09:15,390 - INFO - [INFO] Running optimistic search with combined interventions...
+2026-02-17 11:09:15,390 - INFO - [SEARCH] Trying intervention: deduplication → 1
+2026-02-17 11:09:15,832 - INFO - current utility 0.13
+2026-02-17 11:09:15,832 - INFO - [TRY] deduplication=1,pipeline: {'sampling': 4.0, 'invalid_value': 2.0, 'deduplication': 1, 'missing_value': 3.0, 'floating_point': 4.0, 'unit_converter': 1.0, 'distribution_shape': 2.0, 'multicollinearity': 1.0, 'normalization': 1.0, 'outlier': 3.0, 'punctuation': 2.0, 'stopword': 2.0, 'lowercase': 2.0, 'whitespace': 2.0, 'model': 1.0}, Utility=0.13, Best=0.11
+2026-02-17 11:09:15,832 - INFO - [SEARCH] Trying intervention: missing_value → 1
+2026-02-17 11:09:16,332 - INFO - current utility 0.13
+2026-02-17 11:09:16,332 - INFO - [TRY] missing_value=1,pipeline: {'sampling': 4.0, 'invalid_value': 2.0, 'missing_value': 1, 'floating_point': 4.0, 'unit_converter': 1.0, 'distribution_shape': 2.0, 'multicollinearity': 1.0, 'normalization': 1.0, 'outlier': 3.0, 'punctuation': 2.0, 'stopword': 2.0, 'lowercase': 2.0, 'whitespace': 2.0, 'model': 1.0}, Utility=0.13, Best=0.11
+2026-02-17 11:09:16,332 - INFO - [SEARCH] Trying intervention: stopword → 1
+2026-02-17 11:09:16,889 - INFO - current utility 0.11
+2026-02-17 11:09:16,889 - INFO - [TRY] stopword=1,pipeline: {'sampling': 4.0, 'invalid_value': 2.0, 'missing_value': 3.0, 'floating_point': 4.0, 'unit_converter': 1.0, 'distribution_shape': 2.0, 'multicollinearity': 1.0, 'normalization': 1.0, 'outlier': 3.0, 'punctuation': 2.0, 'stopword': 1, 'lowercase': 2.0, 'whitespace': 2.0, 'model': 1.0}, Utility=0.11, Best=0.11
+2026-02-17 11:09:16,889 - INFO - [SEARCH] Trying intervention: floating_point → 2
+2026-02-17 11:09:17,460 - INFO - current utility 0.11
+2026-02-17 11:09:17,460 - INFO - [TRY] floating_point=2,pipeline: {'sampling': 4.0, 'invalid_value': 2.0, 'missing_value': 3.0, 'floating_point': 2, 'unit_converter': 1.0, 'distribution_shape': 2.0, 'multicollinearity': 1.0, 'normalization': 1.0, 'outlier': 3.0, 'punctuation': 2.0, 'stopword': 2.0, 'lowercase': 2.0, 'whitespace': 2.0, 'model': 1.0}, Utility=0.11, Best=0.11
+2026-02-17 11:09:17,460 - INFO - [SEARCH] Trying intervention: floating_point → 1
+2026-02-17 11:09:18,031 - INFO - current utility 0.11
+2026-02-17 11:09:18,031 - INFO - [TRY] floating_point=1,pipeline: {'sampling': 4.0, 'invalid_value': 2.0, 'missing_value': 3.0, 'floating_point': 1, 'unit_converter': 1.0, 'distribution_shape': 2.0, 'multicollinearity': 1.0, 'normalization': 1.0, 'outlier': 3.0, 'punctuation': 2.0, 'stopword': 2.0, 'lowercase': 2.0, 'whitespace': 2.0, 'model': 1.0}, Utility=0.11, Best=0.11
+2026-02-17 11:09:18,031 - INFO - [SEARCH] Trying intervention: deduplication → 2
+2026-02-17 11:09:18,646 - INFO - current utility 0.02
+2026-02-17 11:09:18,646 - INFO - [TRY] deduplication=2,pipeline: {'sampling': 4.0, 'invalid_value': 2.0, 'missing_value': 3.0, 'floating_point': 4.0, 'unit_converter': 1.0, 'distribution_shape': 2.0, 'multicollinearity': 1.0, 'deduplication': 2, 'normalization': 1.0, 'outlier': 3.0, 'punctuation': 2.0, 'stopword': 2.0, 'lowercase': 2.0, 'whitespace': 2.0, 'model': 1.0}, Utility=0.02, Best=0.11
+2026-02-17 11:09:18,646 - INFO - ✅ Target achieved 🎯
+2026-02-17 11:09:18,646 - INFO - required optimistic iterations: 6
+2026-02-17 11:09:18,646 - INFO - passing pipeline: order=['sampling', 'invalid_value', 'missing_value', 'floating_point', 'unit_converter', 'distribution_shape', 'multicollinearity', 'deduplication', 'normalization', 'outlier', 'punctuation', 'stopword', 'lowercase', 'whitespace', 'model'], vec=[4, 2, 3, 4, 1, 2, 1, 2, 1, 3, 2, 2, 2, 2, 1]
+2026-02-17 11:09:18,646 - INFO - Total iterations so far: 6
+2026-02-17 11:09:18,646 - INFO - pipeline[4. 2. 3.]
+2026-02-17 11:09:20,605 - INFO - Evaluating [1, 2, 4, 4, 2, 1, 2, 1, 6, 2, 2, 1, 2, 1] -- Initial Utility 0.11512492292642619 -- Target Utility 0.06
+2026-02-17 11:12:48,419 - INFO - [OPTIMIZE] Trying combo size k=1
+2026-02-17 11:12:48,420 - INFO - [INFO] Running optimistic search with combined interventions...
+2026-02-17 11:12:48,420 - INFO - [SEARCH] Trying intervention: distribution_shape → 4
+2026-02-17 11:12:51,250 - INFO - current utility 0.19
+2026-02-17 11:12:51,250 - INFO - [TRY] distribution_shape=4,pipeline: {'sampling': 1.0, 'invalid_value': 2.0, 'missing_value': 4.0, 'floating_point': 4.0, 'unit_converter': 2.0, 'distribution_shape': 4, 'multicollinearity': 2.0, 'normalization': 1.0, 'outlier': 6.0, 'punctuation': 2.0, 'stopword': 2.0, 'lowercase': 1.0, 'whitespace': 2.0, 'model': 1.0}, Utility=0.19, Best=0.12
+2026-02-17 11:12:51,250 - INFO - [SEARCH] Trying intervention: outlier → 3
+2026-02-17 11:12:52,556 - INFO - current utility 0.09
+2026-02-17 11:12:52,556 - INFO - [TRY] outlier=3,pipeline: {'sampling': 1.0, 'invalid_value': 2.0, 'missing_value': 4.0, 'floating_point': 4.0, 'unit_converter': 2.0, 'distribution_shape': 1.0, 'multicollinearity': 2.0, 'normalization': 1.0, 'outlier': 3, 'punctuation': 2.0, 'stopword': 2.0, 'lowercase': 1.0, 'whitespace': 2.0, 'model': 1.0}, Utility=0.09, Best=0.12
+2026-02-17 11:12:52,556 - INFO - [SEARCH] Trying intervention: invalid_value → 1
+2026-02-17 11:12:53,974 - INFO - current utility 0.07
+2026-02-17 11:12:53,974 - INFO - [TRY] invalid_value=1,pipeline: {'sampling': 1.0, 'invalid_value': 1, 'missing_value': 4.0, 'floating_point': 4.0, 'unit_converter': 2.0, 'distribution_shape': 1.0, 'multicollinearity': 2.0, 'normalization': 1.0, 'outlier': 3, 'punctuation': 2.0, 'stopword': 2.0, 'lowercase': 1.0, 'whitespace': 2.0, 'model': 1.0}, Utility=0.07, Best=0.09
+2026-02-17 11:12:53,974 - INFO - [SEARCH] Trying intervention: outlier → 4
+2026-02-17 11:12:55,840 - INFO - current utility 0.13
+2026-02-17 11:12:55,840 - INFO - [TRY] outlier=4,pipeline: {'sampling': 1.0, 'invalid_value': 1, 'missing_value': 4.0, 'floating_point': 4.0, 'unit_converter': 2.0, 'distribution_shape': 1.0, 'multicollinearity': 2.0, 'normalization': 1.0, 'outlier': 4, 'punctuation': 2.0, 'stopword': 2.0, 'lowercase': 1.0, 'whitespace': 2.0, 'model': 1.0}, Utility=0.13, Best=0.07
+2026-02-17 11:12:55,840 - INFO - [SEARCH] Trying intervention: distribution_shape → 2
+2026-02-17 11:12:57,391 - INFO - current utility 0.16
+2026-02-17 11:12:57,391 - INFO - [TRY] distribution_shape=2,pipeline: {'sampling': 1.0, 'invalid_value': 1, 'missing_value': 4.0, 'floating_point': 4.0, 'unit_converter': 2.0, 'distribution_shape': 2, 'multicollinearity': 2.0, 'normalization': 1.0, 'outlier': 3, 'punctuation': 2.0, 'stopword': 2.0, 'lowercase': 1.0, 'whitespace': 2.0, 'model': 1.0}, Utility=0.16, Best=0.07
+2026-02-17 11:12:57,391 - INFO - [SEARCH] Trying intervention: invalid_value → 4
+2026-02-17 11:12:58,755 - INFO - current utility 0.09
+2026-02-17 11:12:58,755 - INFO - [TRY] invalid_value=4,pipeline: {'sampling': 1.0, 'invalid_value': 4, 'missing_value': 4.0, 'floating_point': 4.0, 'unit_converter': 2.0, 'distribution_shape': 1.0, 'multicollinearity': 2.0, 'normalization': 1.0, 'outlier': 3, 'punctuation': 2.0, 'stopword': 2.0, 'lowercase': 1.0, 'whitespace': 2.0, 'model': 1.0}, Utility=0.09, Best=0.07
+2026-02-17 11:12:58,755 - INFO - [SEARCH] Trying intervention: deduplication → 1
+2026-02-17 11:13:00,074 - INFO - current utility 0.07
+2026-02-17 11:13:00,075 - INFO - [TRY] deduplication=1,pipeline: {'sampling': 1.0, 'invalid_value': 1, 'missing_value': 4.0, 'floating_point': 4.0, 'deduplication': 1, 'unit_converter': 2.0, 'distribution_shape': 1.0, 'multicollinearity': 2.0, 'normalization': 1.0, 'outlier': 3, 'punctuation': 2.0, 'stopword': 2.0, 'lowercase': 1.0, 'whitespace': 2.0, 'model': 1.0}, Utility=0.07, Best=0.07
+2026-02-17 11:13:00,075 - INFO - [SEARCH] Trying intervention: missing_value → 8
+2026-02-17 11:13:01,447 - INFO - current utility 0.07
+2026-02-17 11:13:01,447 - INFO - [TRY] missing_value=8,pipeline: {'sampling': 1.0, 'invalid_value': 1, 'missing_value': 8, 'floating_point': 4.0, 'unit_converter': 2.0, 'distribution_shape': 1.0, 'multicollinearity': 2.0, 'normalization': 1.0, 'outlier': 3, 'punctuation': 2.0, 'stopword': 2.0, 'lowercase': 1.0, 'whitespace': 2.0, 'model': 1.0}, Utility=0.07, Best=0.07
+2026-02-17 11:13:01,447 - INFO - [SEARCH] Trying intervention: floating_point → 3
+2026-02-17 11:13:02,867 - INFO - current utility 0.07
+2026-02-17 11:13:02,867 - INFO - [TRY] floating_point=3,pipeline: {'sampling': 1.0, 'invalid_value': 1, 'missing_value': 4.0, 'floating_point': 3, 'unit_converter': 2.0, 'distribution_shape': 1.0, 'multicollinearity': 2.0, 'normalization': 1.0, 'outlier': 3, 'punctuation': 2.0, 'stopword': 2.0, 'lowercase': 1.0, 'whitespace': 2.0, 'model': 1.0}, Utility=0.07, Best=0.07
+2026-02-17 11:13:02,867 - INFO - [SEARCH] Trying intervention: deduplication → 2
+2026-02-17 11:13:04,095 - INFO - current utility 0.00
+2026-02-17 11:13:04,095 - INFO - [TRY] deduplication=2,pipeline: {'sampling': 1.0, 'invalid_value': 1, 'missing_value': 4.0, 'floating_point': 4.0, 'unit_converter': 2.0, 'distribution_shape': 1.0, 'multicollinearity': 2.0, 'normalization': 1.0, 'outlier': 3, 'punctuation': 2.0, 'stopword': 2.0, 'lowercase': 1.0, 'deduplication': 2, 'whitespace': 2.0, 'model': 1.0}, Utility=0.00, Best=0.07
+2026-02-17 11:13:04,095 - INFO - ✅ Target achieved 🎯
+2026-02-17 11:13:04,095 - INFO - required optimistic iterations: 10
+2026-02-17 11:13:04,096 - INFO - passing pipeline: order=['sampling', 'invalid_value', 'missing_value', 'floating_point', 'unit_converter', 'distribution_shape', 'multicollinearity', 'normalization', 'outlier', 'punctuation', 'stopword', 'lowercase', 'deduplication', 'whitespace', 'model'], vec=[1, 1, 4, 4, 2, 1, 2, 1, 3, 2, 2, 1, 2, 2, 1]
+2026-02-17 11:13:04,096 - INFO - Total iterations so far: 10
+2026-02-17 11:13:04,096 - INFO - pipeline[1. 2. 4.]
+2026-02-17 11:13:04,702 - INFO - Evaluating [4, 2, 3, 4, 1, 2, 1, 1, 3, 2, 2, 2, 2, 1] -- Initial Utility 0.11330511848812987 -- Target Utility 0.06
+2026-02-17 11:14:14,482 - INFO - [OPTIMIZE] Trying combo size k=1
+2026-02-17 11:14:14,482 - INFO - [INFO] Running optimistic search with combined interventions...
+2026-02-17 11:14:14,482 - INFO - [SEARCH] Trying intervention: missing_value → 8
+2026-02-17 11:14:15,537 - INFO - current utility 0.13
+2026-02-17 11:14:15,538 - INFO - [TRY] missing_value=8,pipeline: {'sampling': 4.0, 'invalid_value': 2.0, 'missing_value': 8, 'floating_point': 4.0, 'unit_converter': 1.0, 'distribution_shape': 2.0, 'multicollinearity': 1.0, 'normalization': 1.0, 'outlier': 3.0, 'punctuation': 2.0, 'stopword': 2.0, 'lowercase': 2.0, 'whitespace': 2.0, 'model': 1.0}, Utility=0.13, Best=0.11
+2026-02-17 11:14:15,538 - INFO - [SEARCH] Trying intervention: punctuation → 1
+2026-02-17 11:14:16,075 - INFO - current utility 0.11
+2026-02-17 11:14:16,075 - INFO - [TRY] punctuation=1,pipeline: {'sampling': 4.0, 'invalid_value': 2.0, 'missing_value': 3.0, 'floating_point': 4.0, 'unit_converter': 1.0, 'distribution_shape': 2.0, 'multicollinearity': 1.0, 'normalization': 1.0, 'outlier': 3.0, 'punctuation': 1, 'stopword': 2.0, 'lowercase': 2.0, 'whitespace': 2.0, 'model': 1.0}, Utility=0.11, Best=0.11
+2026-02-17 11:14:16,075 - INFO - [SEARCH] Trying intervention: missing_value → 1
+2026-02-17 11:14:16,734 - INFO - current utility 0.13
+2026-02-17 11:14:16,734 - INFO - [TRY] missing_value=1,pipeline: {'sampling': 4.0, 'invalid_value': 2.0, 'missing_value': 1, 'floating_point': 4.0, 'unit_converter': 1.0, 'distribution_shape': 2.0, 'multicollinearity': 1.0, 'normalization': 1.0, 'outlier': 3.0, 'punctuation': 2.0, 'stopword': 2.0, 'lowercase': 2.0, 'whitespace': 2.0, 'model': 1.0}, Utility=0.13, Best=0.11
+2026-02-17 11:14:16,734 - INFO - [SEARCH] Trying intervention: deduplication → 1
+2026-02-17 11:14:17,297 - INFO - current utility 0.11
+2026-02-17 11:14:17,298 - INFO - [TRY] deduplication=1,pipeline: {'sampling': 4.0, 'invalid_value': 2.0, 'missing_value': 3.0, 'floating_point': 4.0, 'unit_converter': 1.0, 'distribution_shape': 2.0, 'multicollinearity': 1.0, 'normalization': 1.0, 'outlier': 3.0, 'punctuation': 2.0, 'stopword': 2.0, 'lowercase': 2.0, 'deduplication': 1, 'whitespace': 2.0, 'model': 1.0}, Utility=0.11, Best=0.11
+2026-02-17 11:14:17,298 - INFO - [SEARCH] Trying intervention: floating_point → 3
+2026-02-17 11:14:17,831 - INFO - current utility 0.11
+2026-02-17 11:14:17,831 - INFO - [TRY] floating_point=3,pipeline: {'sampling': 4.0, 'invalid_value': 2.0, 'missing_value': 3.0, 'floating_point': 3, 'unit_converter': 1.0, 'distribution_shape': 2.0, 'multicollinearity': 1.0, 'normalization': 1.0, 'outlier': 3.0, 'punctuation': 2.0, 'stopword': 2.0, 'lowercase': 2.0, 'whitespace': 2.0, 'model': 1.0}, Utility=0.11, Best=0.11
+2026-02-17 11:14:17,831 - INFO - [SEARCH] Trying intervention: missing_value → 6
+2026-02-17 11:14:18,912 - INFO - current utility 0.13
+2026-02-17 11:14:18,912 - INFO - [TRY] missing_value=6,pipeline: {'sampling': 4.0, 'invalid_value': 2.0, 'missing_value': 6, 'floating_point': 4.0, 'unit_converter': 1.0, 'distribution_shape': 2.0, 'multicollinearity': 1.0, 'normalization': 1.0, 'outlier': 3.0, 'punctuation': 2.0, 'stopword': 2.0, 'lowercase': 2.0, 'whitespace': 2.0, 'model': 1.0}, Utility=0.13, Best=0.11
+2026-02-17 11:14:18,912 - INFO - [SEARCH] Trying intervention: missing_value → 9
+2026-02-17 11:14:20,002 - INFO - current utility 0.13
+2026-02-17 11:14:20,002 - INFO - [TRY] missing_value=9,pipeline: {'sampling': 4.0, 'invalid_value': 2.0, 'missing_value': 9, 'floating_point': 4.0, 'unit_converter': 1.0, 'distribution_shape': 2.0, 'multicollinearity': 1.0, 'normalization': 1.0, 'outlier': 3.0, 'punctuation': 2.0, 'stopword': 2.0, 'lowercase': 2.0, 'whitespace': 2.0, 'model': 1.0}, Utility=0.13, Best=0.11
+2026-02-17 11:14:20,002 - INFO - [SEARCH] Trying intervention: missing_value → 7
+2026-02-17 11:14:21,113 - INFO - current utility 0.13
+2026-02-17 11:14:21,113 - INFO - [TRY] missing_value=7,pipeline: {'sampling': 4.0, 'invalid_value': 2.0, 'missing_value': 7, 'floating_point': 4.0, 'unit_converter': 1.0, 'distribution_shape': 2.0, 'multicollinearity': 1.0, 'normalization': 1.0, 'outlier': 3.0, 'punctuation': 2.0, 'stopword': 2.0, 'lowercase': 2.0, 'whitespace': 2.0, 'model': 1.0}, Utility=0.13, Best=0.11
+2026-02-17 11:14:21,113 - INFO - [SEARCH] Trying intervention: floating_point → 1
+2026-02-17 11:14:21,610 - INFO - current utility 0.11
+2026-02-17 11:14:21,610 - INFO - [TRY] floating_point=1,pipeline: {'sampling': 4.0, 'invalid_value': 2.0, 'missing_value': 3.0, 'floating_point': 1, 'unit_converter': 1.0, 'distribution_shape': 2.0, 'multicollinearity': 1.0, 'normalization': 1.0, 'outlier': 3.0, 'punctuation': 2.0, 'stopword': 2.0, 'lowercase': 2.0, 'whitespace': 2.0, 'model': 1.0}, Utility=0.11, Best=0.11
+2026-02-17 11:14:21,610 - INFO - [SEARCH] Trying intervention: missing_value → 2
+2026-02-17 11:14:22,253 - INFO - current utility 0.11
+2026-02-17 11:14:22,253 - INFO - [TRY] missing_value=2,pipeline: {'sampling': 4.0, 'invalid_value': 2.0, 'missing_value': 2, 'floating_point': 4.0, 'unit_converter': 1.0, 'distribution_shape': 2.0, 'multicollinearity': 1.0, 'normalization': 1.0, 'outlier': 3.0, 'punctuation': 2.0, 'stopword': 2.0, 'lowercase': 2.0, 'whitespace': 2.0, 'model': 1.0}, Utility=0.11, Best=0.11
+2026-02-17 11:14:22,253 - INFO - [SEARCH] Trying intervention: lowercase → 1
+2026-02-17 11:14:22,892 - INFO - current utility 0.11
+2026-02-17 11:14:22,892 - INFO - [TRY] lowercase=1,pipeline: {'sampling': 4.0, 'invalid_value': 2.0, 'missing_value': 2, 'floating_point': 4.0, 'unit_converter': 1.0, 'distribution_shape': 2.0, 'multicollinearity': 1.0, 'normalization': 1.0, 'outlier': 3.0, 'punctuation': 2.0, 'stopword': 2.0, 'lowercase': 1, 'whitespace': 2.0, 'model': 1.0}, Utility=0.11, Best=0.11
+2026-02-17 11:14:22,892 - INFO - [SEARCH] Trying intervention: deduplication → 2
+2026-02-17 11:14:23,547 - INFO - current utility 0.11
+2026-02-17 11:14:23,547 - INFO - [TRY] deduplication=2,pipeline: {'sampling': 4.0, 'invalid_value': 2.0, 'missing_value': 2, 'floating_point': 4.0, 'unit_converter': 1.0, 'distribution_shape': 2.0, 'multicollinearity': 1.0, 'normalization': 1.0, 'outlier': 3.0, 'punctuation': 2.0, 'stopword': 2.0, 'lowercase': 2.0, 'whitespace': 2.0, 'deduplication': 2, 'model': 1.0}, Utility=0.11, Best=0.11
+2026-02-17 11:14:23,547 - INFO - [SEARCH] Trying intervention: sampling → 3
+2026-02-17 11:14:23,989 - INFO - current utility 0.11
+2026-02-17 11:14:23,989 - INFO - [TRY] sampling=3,pipeline: {'sampling': 3, 'invalid_value': 2.0, 'missing_value': 2, 'floating_point': 4.0, 'unit_converter': 1.0, 'distribution_shape': 2.0, 'multicollinearity': 1.0, 'normalization': 1.0, 'outlier': 3.0, 'punctuation': 2.0, 'stopword': 2.0, 'lowercase': 2.0, 'whitespace': 2.0, 'model': 1.0}, Utility=0.11, Best=0.11
+2026-02-17 11:14:23,989 - INFO - [SEARCH] Trying intervention: sampling → 2
+2026-02-17 11:14:24,572 - INFO - current utility 0.12
+2026-02-17 11:14:24,572 - INFO - [TRY] sampling=2,pipeline: {'sampling': 2, 'invalid_value': 2.0, 'missing_value': 2, 'floating_point': 4.0, 'unit_converter': 1.0, 'distribution_shape': 2.0, 'multicollinearity': 1.0, 'normalization': 1.0, 'outlier': 3.0, 'punctuation': 2.0, 'stopword': 2.0, 'lowercase': 2.0, 'whitespace': 2.0, 'model': 1.0}, Utility=0.12, Best=0.11
+2026-02-17 11:14:24,572 - INFO - [SEARCH] Trying intervention: sampling → 1
+2026-02-17 11:14:26,021 - INFO - current utility 0.13
+2026-02-17 11:14:26,021 - INFO - [TRY] sampling=1,pipeline: {'sampling': 1, 'invalid_value': 2.0, 'missing_value': 2, 'floating_point': 4.0, 'unit_converter': 1.0, 'distribution_shape': 2.0, 'multicollinearity': 1.0, 'normalization': 1.0, 'outlier': 3.0, 'punctuation': 2.0, 'stopword': 2.0, 'lowercase': 2.0, 'whitespace': 2.0, 'model': 1.0}, Utility=0.13, Best=0.11
+2026-02-17 11:14:26,021 - INFO - [SEARCH] Trying intervention: missing_value → 5
+2026-02-17 11:14:27,031 - INFO - current utility 0.13
+2026-02-17 11:14:27,031 - INFO - [TRY] missing_value=5,pipeline: {'sampling': 4.0, 'invalid_value': 2.0, 'missing_value': 5, 'floating_point': 4.0, 'unit_converter': 1.0, 'distribution_shape': 2.0, 'multicollinearity': 1.0, 'normalization': 1.0, 'outlier': 3.0, 'punctuation': 2.0, 'stopword': 2.0, 'lowercase': 2.0, 'whitespace': 2.0, 'model': 1.0}, Utility=0.13, Best=0.11
+2026-02-17 11:14:27,031 - INFO - [SEARCH] Trying intervention: unit_converter → 2
+2026-02-17 11:14:27,615 - INFO - current utility 0.11
+2026-02-17 11:14:27,615 - INFO - [TRY] unit_converter=2,pipeline: {'sampling': 4.0, 'invalid_value': 2.0, 'missing_value': 2, 'floating_point': 4.0, 'unit_converter': 2, 'distribution_shape': 2.0, 'multicollinearity': 1.0, 'normalization': 1.0, 'outlier': 3.0, 'punctuation': 2.0, 'stopword': 2.0, 'lowercase': 2.0, 'whitespace': 2.0, 'model': 1.0}, Utility=0.11, Best=0.11
+2026-02-17 11:14:27,615 - INFO - [SEARCH] Trying intervention: multicollinearity → 2
+2026-02-17 11:14:28,162 - INFO - current utility 0.11
+2026-02-17 11:14:28,162 - INFO - [TRY] multicollinearity=2,pipeline: {'sampling': 4.0, 'invalid_value': 2.0, 'missing_value': 2, 'floating_point': 4.0, 'unit_converter': 1.0, 'distribution_shape': 2.0, 'multicollinearity': 2, 'normalization': 1.0, 'outlier': 3.0, 'punctuation': 2.0, 'stopword': 2.0, 'lowercase': 2.0, 'whitespace': 2.0, 'model': 1.0}, Utility=0.11, Best=0.11
+2026-02-17 11:14:28,162 - INFO - [SEARCH] Trying intervention: invalid_value → 4
+2026-02-17 11:14:28,784 - INFO - current utility 0.11
+2026-02-17 11:14:28,784 - INFO - [TRY] invalid_value=4,pipeline: {'sampling': 4.0, 'invalid_value': 4, 'missing_value': 2, 'floating_point': 4.0, 'unit_converter': 1.0, 'distribution_shape': 2.0, 'multicollinearity': 1.0, 'normalization': 1.0, 'outlier': 3.0, 'punctuation': 2.0, 'stopword': 2.0, 'lowercase': 2.0, 'whitespace': 2.0, 'model': 1.0}, Utility=0.11, Best=0.11
+2026-02-17 11:14:28,784 - INFO - [SEARCH] Trying intervention: stopword → 1
+2026-02-17 11:14:29,410 - INFO - current utility 0.11
+2026-02-17 11:14:29,411 - INFO - [TRY] stopword=1,pipeline: {'sampling': 4.0, 'invalid_value': 2.0, 'missing_value': 2, 'floating_point': 4.0, 'unit_converter': 1.0, 'distribution_shape': 2.0, 'multicollinearity': 1.0, 'normalization': 1.0, 'outlier': 3.0, 'punctuation': 2.0, 'stopword': 1, 'lowercase': 2.0, 'whitespace': 2.0, 'model': 1.0}, Utility=0.11, Best=0.11
+2026-02-17 11:14:29,411 - INFO - [SEARCH] Trying intervention: missing_value → 4
+2026-02-17 11:14:30,060 - INFO - current utility 0.11
+2026-02-17 11:14:30,060 - INFO - [TRY] missing_value=4,pipeline: {'sampling': 4.0, 'invalid_value': 2.0, 'missing_value': 4, 'floating_point': 4.0, 'unit_converter': 1.0, 'distribution_shape': 2.0, 'multicollinearity': 1.0, 'normalization': 1.0, 'outlier': 3.0, 'punctuation': 2.0, 'stopword': 2.0, 'lowercase': 2.0, 'whitespace': 2.0, 'model': 1.0}, Utility=0.11, Best=0.11
+2026-02-17 11:14:30,060 - INFO - [SEARCH] Trying intervention: invalid_value → 1
+2026-02-17 11:14:30,708 - INFO - current utility 0.14
+2026-02-17 11:14:30,708 - INFO - [TRY] invalid_value=1,pipeline: {'sampling': 4.0, 'invalid_value': 1, 'missing_value': 2, 'floating_point': 4.0, 'unit_converter': 1.0, 'distribution_shape': 2.0, 'multicollinearity': 1.0, 'normalization': 1.0, 'outlier': 3.0, 'punctuation': 2.0, 'stopword': 2.0, 'lowercase': 2.0, 'whitespace': 2.0, 'model': 1.0}, Utility=0.14, Best=0.11
+2026-02-17 11:14:30,708 - INFO - [SEARCH] Trying intervention: whitespace → 1
+2026-02-17 11:14:31,325 - INFO - current utility 0.11
+2026-02-17 11:14:31,325 - INFO - [TRY] whitespace=1,pipeline: {'sampling': 4.0, 'invalid_value': 2.0, 'missing_value': 2, 'floating_point': 4.0, 'unit_converter': 1.0, 'distribution_shape': 2.0, 'multicollinearity': 1.0, 'normalization': 1.0, 'outlier': 3.0, 'punctuation': 2.0, 'stopword': 2.0, 'lowercase': 2.0, 'whitespace': 1, 'model': 1.0}, Utility=0.11, Best=0.11
+2026-02-17 11:14:31,325 - INFO - [SEARCH] Trying intervention: floating_point → 2
+2026-02-17 11:14:31,938 - INFO - current utility 0.11
+2026-02-17 11:14:31,938 - INFO - [TRY] floating_point=2,pipeline: {'sampling': 4.0, 'invalid_value': 2.0, 'missing_value': 2, 'floating_point': 2, 'unit_converter': 1.0, 'distribution_shape': 2.0, 'multicollinearity': 1.0, 'normalization': 1.0, 'outlier': 3.0, 'punctuation': 2.0, 'stopword': 2.0, 'lowercase': 2.0, 'whitespace': 2.0, 'model': 1.0}, Utility=0.11, Best=0.11
+2026-02-17 11:14:31,938 - INFO - [SEARCH] Trying intervention: distribution_shape → 4
+2026-02-17 11:14:32,528 - INFO - current utility 0.10
+2026-02-17 11:14:32,528 - INFO - [TRY] distribution_shape=4,pipeline: {'sampling': 4.0, 'invalid_value': 2.0, 'missing_value': 2, 'floating_point': 4.0, 'unit_converter': 1.0, 'distribution_shape': 4, 'multicollinearity': 1.0, 'normalization': 1.0, 'outlier': 3.0, 'punctuation': 2.0, 'stopword': 2.0, 'lowercase': 2.0, 'whitespace': 2.0, 'model': 1.0}, Utility=0.10, Best=0.11
+2026-02-17 11:14:32,528 - INFO - [SEARCH] Trying intervention: distribution_shape → 1
+2026-02-17 11:14:33,050 - INFO - current utility 0.08
+2026-02-17 11:14:33,050 - INFO - [TRY] distribution_shape=1,pipeline: {'sampling': 4.0, 'invalid_value': 2.0, 'missing_value': 2, 'floating_point': 4.0, 'unit_converter': 1.0, 'distribution_shape': 1, 'multicollinearity': 1.0, 'normalization': 1.0, 'outlier': 3.0, 'punctuation': 2.0, 'stopword': 2.0, 'lowercase': 2.0, 'whitespace': 2.0, 'model': 1.0}, Utility=0.08, Best=0.10
+2026-02-17 11:14:33,050 - INFO - [SEARCH] Trying intervention: invalid_value → 3
+2026-02-17 11:14:33,661 - INFO - current utility 0.05
+2026-02-17 11:14:33,661 - INFO - [TRY] invalid_value=3,pipeline: {'sampling': 4.0, 'invalid_value': 3, 'missing_value': 2, 'floating_point': 4.0, 'unit_converter': 1.0, 'distribution_shape': 1, 'multicollinearity': 1.0, 'normalization': 1.0, 'outlier': 3.0, 'punctuation': 2.0, 'stopword': 2.0, 'lowercase': 2.0, 'whitespace': 2.0, 'model': 1.0}, Utility=0.05, Best=0.08
+2026-02-17 11:14:33,661 - INFO - ✅ Target achieved 🎯
+2026-02-17 11:14:33,661 - INFO - required optimistic iterations: 27
+2026-02-17 11:14:33,661 - INFO - passing pipeline: order=['sampling', 'invalid_value', 'missing_value', 'floating_point', 'unit_converter', 'distribution_shape', 'multicollinearity', 'normalization', 'outlier', 'punctuation', 'stopword', 'lowercase', 'whitespace', 'model'], vec=[4, 3, 2, 4, 1, 1, 1, 1, 3, 2, 2, 2, 2, 1]
+2026-02-17 11:14:33,661 - INFO - Total iterations so far: 27
+2026-02-17 11:14:33,661 - INFO - pipeline[4. 2. 3.]
+2026-02-17 11:14:35,465 - INFO - Evaluating [1, 2, 4, 4, 2, 1, 2, 1, 6, 2, 2, 1, 2, 1] -- Initial Utility 0.11512492292642619 -- Target Utility 0.07
+2026-02-17 11:17:56,313 - INFO - [OPTIMIZE] Trying combo size k=1
+2026-02-17 11:17:56,314 - INFO - [INFO] Running optimistic search with combined interventions...
+2026-02-17 11:17:56,314 - INFO - [SEARCH] Trying intervention: invalid_value → 3
+2026-02-17 11:17:58,144 - INFO - current utility 0.11
+2026-02-17 11:17:58,144 - INFO - [TRY] invalid_value=3,pipeline: {'sampling': 1.0, 'invalid_value': 3, 'missing_value': 4.0, 'floating_point': 4.0, 'unit_converter': 2.0, 'distribution_shape': 1.0, 'multicollinearity': 2.0, 'normalization': 1.0, 'outlier': 6.0, 'punctuation': 2.0, 'stopword': 2.0, 'lowercase': 1.0, 'whitespace': 2.0, 'model': 1.0}, Utility=0.11, Best=0.12
+2026-02-17 11:17:58,144 - INFO - [SEARCH] Trying intervention: distribution_shape → 4
+2026-02-17 11:18:00,891 - INFO - current utility 0.17
+2026-02-17 11:18:00,892 - INFO - [TRY] distribution_shape=4,pipeline: {'sampling': 1.0, 'invalid_value': 3, 'missing_value': 4.0, 'floating_point': 4.0, 'unit_converter': 2.0, 'distribution_shape': 4, 'multicollinearity': 2.0, 'normalization': 1.0, 'outlier': 6.0, 'punctuation': 2.0, 'stopword': 2.0, 'lowercase': 1.0, 'whitespace': 2.0, 'model': 1.0}, Utility=0.17, Best=0.11
+2026-02-17 11:18:00,892 - INFO - [SEARCH] Trying intervention: outlier → 3
+2026-02-17 11:18:02,129 - INFO - current utility 0.07
+2026-02-17 11:18:02,129 - INFO - [TRY] outlier=3,pipeline: {'sampling': 1.0, 'invalid_value': 3, 'missing_value': 4.0, 'floating_point': 4.0, 'unit_converter': 2.0, 'distribution_shape': 1.0, 'multicollinearity': 2.0, 'normalization': 1.0, 'outlier': 3, 'punctuation': 2.0, 'stopword': 2.0, 'lowercase': 1.0, 'whitespace': 2.0, 'model': 1.0}, Utility=0.07, Best=0.11
+2026-02-17 11:18:02,129 - INFO - [SEARCH] Trying intervention: distribution_shape → 2
+2026-02-17 11:18:03,532 - INFO - current utility 0.16
+2026-02-17 11:18:03,532 - INFO - [TRY] distribution_shape=2,pipeline: {'sampling': 1.0, 'invalid_value': 3, 'missing_value': 4.0, 'floating_point': 4.0, 'unit_converter': 2.0, 'distribution_shape': 2, 'multicollinearity': 2.0, 'normalization': 1.0, 'outlier': 3, 'punctuation': 2.0, 'stopword': 2.0, 'lowercase': 1.0, 'whitespace': 2.0, 'model': 1.0}, Utility=0.16, Best=0.07
+2026-02-17 11:18:03,532 - INFO - [SEARCH] Trying intervention: outlier → 4
+2026-02-17 11:18:05,158 - INFO - current utility 0.13
+2026-02-17 11:18:05,158 - INFO - [TRY] outlier=4,pipeline: {'sampling': 1.0, 'invalid_value': 3, 'missing_value': 4.0, 'floating_point': 4.0, 'unit_converter': 2.0, 'distribution_shape': 1.0, 'multicollinearity': 2.0, 'normalization': 1.0, 'outlier': 4, 'punctuation': 2.0, 'stopword': 2.0, 'lowercase': 1.0, 'whitespace': 2.0, 'model': 1.0}, Utility=0.13, Best=0.07
+2026-02-17 11:18:05,158 - INFO - [SEARCH] Trying intervention: outlier → 5
+2026-02-17 11:18:07,076 - INFO - current utility 0.12
+2026-02-17 11:18:07,076 - INFO - [TRY] outlier=5,pipeline: {'sampling': 1.0, 'invalid_value': 3, 'missing_value': 4.0, 'floating_point': 4.0, 'unit_converter': 2.0, 'distribution_shape': 1.0, 'multicollinearity': 2.0, 'normalization': 1.0, 'outlier': 5, 'punctuation': 2.0, 'stopword': 2.0, 'lowercase': 1.0, 'whitespace': 2.0, 'model': 1.0}, Utility=0.12, Best=0.07
+2026-02-17 11:18:07,076 - INFO - [SEARCH] Trying intervention: deduplication → 2
+2026-02-17 11:18:08,297 - INFO - current utility 0.00
+2026-02-17 11:18:08,297 - INFO - [TRY] deduplication=2,pipeline: {'sampling': 1.0, 'invalid_value': 3, 'missing_value': 4.0, 'floating_point': 4.0, 'unit_converter': 2.0, 'distribution_shape': 1.0, 'multicollinearity': 2.0, 'normalization': 1.0, 'outlier': 3, 'punctuation': 2.0, 'stopword': 2.0, 'lowercase': 1.0, 'deduplication': 2, 'whitespace': 2.0, 'model': 1.0}, Utility=0.00, Best=0.07
+2026-02-17 11:18:08,297 - INFO - ✅ Target achieved 🎯
+2026-02-17 11:18:08,297 - INFO - required optimistic iterations: 7
+2026-02-17 11:18:08,297 - INFO - passing pipeline: order=['sampling', 'invalid_value', 'missing_value', 'floating_point', 'unit_converter', 'distribution_shape', 'multicollinearity', 'normalization', 'outlier', 'punctuation', 'stopword', 'lowercase', 'deduplication', 'whitespace', 'model'], vec=[1, 3, 4, 4, 2, 1, 2, 1, 3, 2, 2, 1, 2, 2, 1]
+2026-02-17 11:18:08,297 - INFO - Total iterations so far: 7
+2026-02-17 11:18:08,297 - INFO - pipeline[1. 2. 4.]
+2026-02-17 11:18:08,830 - INFO - Evaluating [4, 2, 3, 4, 1, 2, 1, 1, 3, 2, 2, 2, 2, 1] -- Initial Utility 0.11330511848812987 -- Target Utility 0.07
+2026-02-17 11:19:19,293 - INFO - [OPTIMIZE] Trying combo size k=1
+2026-02-17 11:19:19,293 - INFO - [INFO] Running optimistic search with combined interventions...
+2026-02-17 11:19:19,293 - INFO - [SEARCH] Trying intervention: deduplication → 2
+2026-02-17 11:19:19,745 - INFO - current utility 0.11
+2026-02-17 11:19:19,745 - INFO - [TRY] deduplication=2,pipeline: {'sampling': 4.0, 'invalid_value': 2.0, 'missing_value': 3.0, 'floating_point': 4.0, 'unit_converter': 1.0, 'distribution_shape': 2.0, 'multicollinearity': 1.0, 'normalization': 1.0, 'outlier': 3.0, 'punctuation': 2.0, 'stopword': 2.0, 'lowercase': 2.0, 'whitespace': 2.0, 'deduplication': 2, 'model': 1.0}, Utility=0.11, Best=0.11
+2026-02-17 11:19:19,745 - INFO - [SEARCH] Trying intervention: missing_value → 7
+2026-02-17 11:19:20,858 - INFO - current utility 0.13
+2026-02-17 11:19:20,858 - INFO - [TRY] missing_value=7,pipeline: {'sampling': 4.0, 'invalid_value': 2.0, 'missing_value': 7, 'floating_point': 4.0, 'unit_converter': 1.0, 'distribution_shape': 2.0, 'multicollinearity': 1.0, 'normalization': 1.0, 'outlier': 3.0, 'punctuation': 2.0, 'stopword': 2.0, 'lowercase': 2.0, 'whitespace': 2.0, 'model': 1.0}, Utility=0.13, Best=0.11
+2026-02-17 11:19:20,858 - INFO - [SEARCH] Trying intervention: deduplication → 1
+2026-02-17 11:19:21,408 - INFO - current utility 0.13
+2026-02-17 11:19:21,408 - INFO - [TRY] deduplication=1,pipeline: {'sampling': 4.0, 'invalid_value': 2.0, 'deduplication': 1, 'missing_value': 3.0, 'floating_point': 4.0, 'unit_converter': 1.0, 'distribution_shape': 2.0, 'multicollinearity': 1.0, 'normalization': 1.0, 'outlier': 3.0, 'punctuation': 2.0, 'stopword': 2.0, 'lowercase': 2.0, 'whitespace': 2.0, 'model': 1.0}, Utility=0.13, Best=0.11
+2026-02-17 11:19:21,408 - INFO - [SEARCH] Trying intervention: missing_value → 1
+2026-02-17 11:19:21,925 - INFO - current utility 0.13
+2026-02-17 11:19:21,925 - INFO - [TRY] missing_value=1,pipeline: {'sampling': 4.0, 'invalid_value': 2.0, 'missing_value': 1, 'floating_point': 4.0, 'unit_converter': 1.0, 'distribution_shape': 2.0, 'multicollinearity': 1.0, 'normalization': 1.0, 'outlier': 3.0, 'punctuation': 2.0, 'stopword': 2.0, 'lowercase': 2.0, 'whitespace': 2.0, 'model': 1.0}, Utility=0.13, Best=0.11
+2026-02-17 11:19:21,925 - INFO - [SEARCH] Trying intervention: missing_value → 8
+2026-02-17 11:19:22,975 - INFO - current utility 0.13
+2026-02-17 11:19:22,975 - INFO - [TRY] missing_value=8,pipeline: {'sampling': 4.0, 'invalid_value': 2.0, 'missing_value': 8, 'floating_point': 4.0, 'unit_converter': 1.0, 'distribution_shape': 2.0, 'multicollinearity': 1.0, 'normalization': 1.0, 'outlier': 3.0, 'punctuation': 2.0, 'stopword': 2.0, 'lowercase': 2.0, 'whitespace': 2.0, 'model': 1.0}, Utility=0.13, Best=0.11
+2026-02-17 11:19:22,975 - INFO - [SEARCH] Trying intervention: floating_point → 2
+2026-02-17 11:19:23,616 - INFO - current utility 0.11
+2026-02-17 11:19:23,617 - INFO - [TRY] floating_point=2,pipeline: {'sampling': 4.0, 'invalid_value': 2.0, 'missing_value': 3.0, 'floating_point': 2, 'unit_converter': 1.0, 'distribution_shape': 2.0, 'multicollinearity': 1.0, 'normalization': 1.0, 'outlier': 3.0, 'punctuation': 2.0, 'stopword': 2.0, 'lowercase': 2.0, 'whitespace': 2.0, 'model': 1.0}, Utility=0.11, Best=0.11
+2026-02-17 11:19:23,617 - INFO - [SEARCH] Trying intervention: missing_value → 2
+2026-02-17 11:19:24,214 - INFO - current utility 0.11
+2026-02-17 11:19:24,214 - INFO - [TRY] missing_value=2,pipeline: {'sampling': 4.0, 'invalid_value': 2.0, 'missing_value': 2, 'floating_point': 4.0, 'unit_converter': 1.0, 'distribution_shape': 2.0, 'multicollinearity': 1.0, 'normalization': 1.0, 'outlier': 3.0, 'punctuation': 2.0, 'stopword': 2.0, 'lowercase': 2.0, 'whitespace': 2.0, 'model': 1.0}, Utility=0.11, Best=0.11
+2026-02-17 11:19:24,214 - INFO - [SEARCH] Trying intervention: unit_converter → 2
+2026-02-17 11:19:24,771 - INFO - current utility 0.11
+2026-02-17 11:19:24,771 - INFO - [TRY] unit_converter=2,pipeline: {'sampling': 4.0, 'invalid_value': 2.0, 'missing_value': 2, 'floating_point': 4.0, 'unit_converter': 2, 'distribution_shape': 2.0, 'multicollinearity': 1.0, 'normalization': 1.0, 'outlier': 3.0, 'punctuation': 2.0, 'stopword': 2.0, 'lowercase': 2.0, 'whitespace': 2.0, 'model': 1.0}, Utility=0.11, Best=0.11
+2026-02-17 11:19:24,771 - INFO - [SEARCH] Trying intervention: missing_value → 5
+2026-02-17 11:19:25,816 - INFO - current utility 0.13
+2026-02-17 11:19:25,816 - INFO - [TRY] missing_value=5,pipeline: {'sampling': 4.0, 'invalid_value': 2.0, 'missing_value': 5, 'floating_point': 4.0, 'unit_converter': 1.0, 'distribution_shape': 2.0, 'multicollinearity': 1.0, 'normalization': 1.0, 'outlier': 3.0, 'punctuation': 2.0, 'stopword': 2.0, 'lowercase': 2.0, 'whitespace': 2.0, 'model': 1.0}, Utility=0.13, Best=0.11
+2026-02-17 11:19:25,816 - INFO - [SEARCH] Trying intervention: whitespace → 1
+2026-02-17 11:19:26,444 - INFO - current utility 0.11
+2026-02-17 11:19:26,444 - INFO - [TRY] whitespace=1,pipeline: {'sampling': 4.0, 'invalid_value': 2.0, 'missing_value': 2, 'floating_point': 4.0, 'unit_converter': 1.0, 'distribution_shape': 2.0, 'multicollinearity': 1.0, 'normalization': 1.0, 'outlier': 3.0, 'punctuation': 2.0, 'stopword': 2.0, 'lowercase': 2.0, 'whitespace': 1, 'model': 1.0}, Utility=0.11, Best=0.11
+2026-02-17 11:19:26,444 - INFO - [SEARCH] Trying intervention: missing_value → 6
+2026-02-17 11:19:27,541 - INFO - current utility 0.13
+2026-02-17 11:19:27,541 - INFO - [TRY] missing_value=6,pipeline: {'sampling': 4.0, 'invalid_value': 2.0, 'missing_value': 6, 'floating_point': 4.0, 'unit_converter': 1.0, 'distribution_shape': 2.0, 'multicollinearity': 1.0, 'normalization': 1.0, 'outlier': 3.0, 'punctuation': 2.0, 'stopword': 2.0, 'lowercase': 2.0, 'whitespace': 2.0, 'model': 1.0}, Utility=0.13, Best=0.11
+2026-02-17 11:19:27,541 - INFO - [SEARCH] Trying intervention: missing_value → 9
+2026-02-17 11:19:28,621 - INFO - current utility 0.13
+2026-02-17 11:19:28,621 - INFO - [TRY] missing_value=9,pipeline: {'sampling': 4.0, 'invalid_value': 2.0, 'missing_value': 9, 'floating_point': 4.0, 'unit_converter': 1.0, 'distribution_shape': 2.0, 'multicollinearity': 1.0, 'normalization': 1.0, 'outlier': 3.0, 'punctuation': 2.0, 'stopword': 2.0, 'lowercase': 2.0, 'whitespace': 2.0, 'model': 1.0}, Utility=0.13, Best=0.11
+2026-02-17 11:19:28,621 - INFO - [SEARCH] Trying intervention: stopword → 1
+2026-02-17 11:19:29,225 - INFO - current utility 0.11
+2026-02-17 11:19:29,227 - INFO - [TRY] stopword=1,pipeline: {'sampling': 4.0, 'invalid_value': 2.0, 'missing_value': 2, 'floating_point': 4.0, 'unit_converter': 1.0, 'distribution_shape': 2.0, 'multicollinearity': 1.0, 'normalization': 1.0, 'outlier': 3.0, 'punctuation': 2.0, 'stopword': 1, 'lowercase': 2.0, 'whitespace': 2.0, 'model': 1.0}, Utility=0.11, Best=0.11
+2026-02-17 11:19:29,227 - INFO - [SEARCH] Trying intervention: floating_point → 1
+2026-02-17 11:19:29,822 - INFO - current utility 0.11
+2026-02-17 11:19:29,822 - INFO - [TRY] floating_point=1,pipeline: {'sampling': 4.0, 'invalid_value': 2.0, 'missing_value': 2, 'floating_point': 1, 'unit_converter': 1.0, 'distribution_shape': 2.0, 'multicollinearity': 1.0, 'normalization': 1.0, 'outlier': 3.0, 'punctuation': 2.0, 'stopword': 2.0, 'lowercase': 2.0, 'whitespace': 2.0, 'model': 1.0}, Utility=0.11, Best=0.11
+2026-02-17 11:19:29,822 - INFO - [SEARCH] Trying intervention: missing_value → 4
+2026-02-17 11:19:30,465 - INFO - current utility 0.11
+2026-02-17 11:19:30,465 - INFO - [TRY] missing_value=4,pipeline: {'sampling': 4.0, 'invalid_value': 2.0, 'missing_value': 4, 'floating_point': 4.0, 'unit_converter': 1.0, 'distribution_shape': 2.0, 'multicollinearity': 1.0, 'normalization': 1.0, 'outlier': 3.0, 'punctuation': 2.0, 'stopword': 2.0, 'lowercase': 2.0, 'whitespace': 2.0, 'model': 1.0}, Utility=0.11, Best=0.11
+2026-02-17 11:19:30,465 - INFO - [SEARCH] Trying intervention: sampling → 3
+2026-02-17 11:19:31,026 - INFO - current utility 0.11
+2026-02-17 11:19:31,027 - INFO - [TRY] sampling=3,pipeline: {'sampling': 3, 'invalid_value': 2.0, 'missing_value': 2, 'floating_point': 4.0, 'unit_converter': 1.0, 'distribution_shape': 2.0, 'multicollinearity': 1.0, 'normalization': 1.0, 'outlier': 3.0, 'punctuation': 2.0, 'stopword': 2.0, 'lowercase': 2.0, 'whitespace': 2.0, 'model': 1.0}, Utility=0.11, Best=0.11
+2026-02-17 11:19:31,027 - INFO - [SEARCH] Trying intervention: sampling → 2
+2026-02-17 11:19:31,703 - INFO - current utility 0.12
+2026-02-17 11:19:31,704 - INFO - [TRY] sampling=2,pipeline: {'sampling': 2, 'invalid_value': 2.0, 'missing_value': 2, 'floating_point': 4.0, 'unit_converter': 1.0, 'distribution_shape': 2.0, 'multicollinearity': 1.0, 'normalization': 1.0, 'outlier': 3.0, 'punctuation': 2.0, 'stopword': 2.0, 'lowercase': 2.0, 'whitespace': 2.0, 'model': 1.0}, Utility=0.12, Best=0.11
+2026-02-17 11:19:31,704 - INFO - [SEARCH] Trying intervention: sampling → 1
+2026-02-17 11:19:33,082 - INFO - current utility 0.13
+2026-02-17 11:19:33,082 - INFO - [TRY] sampling=1,pipeline: {'sampling': 1, 'invalid_value': 2.0, 'missing_value': 2, 'floating_point': 4.0, 'unit_converter': 1.0, 'distribution_shape': 2.0, 'multicollinearity': 1.0, 'normalization': 1.0, 'outlier': 3.0, 'punctuation': 2.0, 'stopword': 2.0, 'lowercase': 2.0, 'whitespace': 2.0, 'model': 1.0}, Utility=0.13, Best=0.11
+2026-02-17 11:19:33,082 - INFO - [SEARCH] Trying intervention: lowercase → 1
+2026-02-17 11:19:33,705 - INFO - current utility 0.11
+2026-02-17 11:19:33,706 - INFO - [TRY] lowercase=1,pipeline: {'sampling': 4.0, 'invalid_value': 2.0, 'missing_value': 2, 'floating_point': 4.0, 'unit_converter': 1.0, 'distribution_shape': 2.0, 'multicollinearity': 1.0, 'normalization': 1.0, 'outlier': 3.0, 'punctuation': 2.0, 'stopword': 2.0, 'lowercase': 1, 'whitespace': 2.0, 'model': 1.0}, Utility=0.11, Best=0.11
+2026-02-17 11:19:33,706 - INFO - [SEARCH] Trying intervention: multicollinearity → 2
+2026-02-17 11:19:34,275 - INFO - current utility 0.11
+2026-02-17 11:19:34,275 - INFO - [TRY] multicollinearity=2,pipeline: {'sampling': 4.0, 'invalid_value': 2.0, 'missing_value': 2, 'floating_point': 4.0, 'unit_converter': 1.0, 'distribution_shape': 2.0, 'multicollinearity': 2, 'normalization': 1.0, 'outlier': 3.0, 'punctuation': 2.0, 'stopword': 2.0, 'lowercase': 2.0, 'whitespace': 2.0, 'model': 1.0}, Utility=0.11, Best=0.11
+2026-02-17 11:19:34,275 - INFO - [SEARCH] Trying intervention: floating_point → 3
+2026-02-17 11:19:34,927 - INFO - current utility 0.11
+2026-02-17 11:19:34,927 - INFO - [TRY] floating_point=3,pipeline: {'sampling': 4.0, 'invalid_value': 2.0, 'missing_value': 2, 'floating_point': 3, 'unit_converter': 1.0, 'distribution_shape': 2.0, 'multicollinearity': 1.0, 'normalization': 1.0, 'outlier': 3.0, 'punctuation': 2.0, 'stopword': 2.0, 'lowercase': 2.0, 'whitespace': 2.0, 'model': 1.0}, Utility=0.11, Best=0.11
+2026-02-17 11:19:34,927 - INFO - [SEARCH] Trying intervention: punctuation → 1
+2026-02-17 11:19:35,606 - INFO - current utility 0.11
+2026-02-17 11:19:35,606 - INFO - [TRY] punctuation=1,pipeline: {'sampling': 4.0, 'invalid_value': 2.0, 'missing_value': 2, 'floating_point': 4.0, 'unit_converter': 1.0, 'distribution_shape': 2.0, 'multicollinearity': 1.0, 'normalization': 1.0, 'outlier': 3.0, 'punctuation': 1, 'stopword': 2.0, 'lowercase': 2.0, 'whitespace': 2.0, 'model': 1.0}, Utility=0.11, Best=0.11
+2026-02-17 11:19:35,606 - INFO - [SEARCH] Trying intervention: invalid_value → 4
+2026-02-17 11:19:36,290 - INFO - current utility 0.11
+2026-02-17 11:19:36,290 - INFO - [TRY] invalid_value=4,pipeline: {'sampling': 4.0, 'invalid_value': 4, 'missing_value': 2, 'floating_point': 4.0, 'unit_converter': 1.0, 'distribution_shape': 2.0, 'multicollinearity': 1.0, 'normalization': 1.0, 'outlier': 3.0, 'punctuation': 2.0, 'stopword': 2.0, 'lowercase': 2.0, 'whitespace': 2.0, 'model': 1.0}, Utility=0.11, Best=0.11
+2026-02-17 11:19:36,290 - INFO - [SEARCH] Trying intervention: distribution_shape → 4
+2026-02-17 11:19:36,910 - INFO - current utility 0.10
+2026-02-17 11:19:36,910 - INFO - [TRY] distribution_shape=4,pipeline: {'sampling': 4.0, 'invalid_value': 2.0, 'missing_value': 2, 'floating_point': 4.0, 'unit_converter': 1.0, 'distribution_shape': 4, 'multicollinearity': 1.0, 'normalization': 1.0, 'outlier': 3.0, 'punctuation': 2.0, 'stopword': 2.0, 'lowercase': 2.0, 'whitespace': 2.0, 'model': 1.0}, Utility=0.10, Best=0.11
+2026-02-17 11:19:36,910 - INFO - [SEARCH] Trying intervention: invalid_value → 3
+2026-02-17 11:19:37,623 - INFO - current utility 0.14
+2026-02-17 11:19:37,624 - INFO - [TRY] invalid_value=3,pipeline: {'sampling': 4.0, 'invalid_value': 3, 'missing_value': 2, 'floating_point': 4.0, 'unit_converter': 1.0, 'distribution_shape': 4, 'multicollinearity': 1.0, 'normalization': 1.0, 'outlier': 3.0, 'punctuation': 2.0, 'stopword': 2.0, 'lowercase': 2.0, 'whitespace': 2.0, 'model': 1.0}, Utility=0.14, Best=0.10
+2026-02-17 11:19:37,624 - INFO - [SEARCH] Trying intervention: distribution_shape → 1
+2026-02-17 11:19:38,248 - INFO - current utility 0.08
+2026-02-17 11:19:38,248 - INFO - [TRY] distribution_shape=1,pipeline: {'sampling': 4.0, 'invalid_value': 2.0, 'missing_value': 2, 'floating_point': 4.0, 'unit_converter': 1.0, 'distribution_shape': 1, 'multicollinearity': 1.0, 'normalization': 1.0, 'outlier': 3.0, 'punctuation': 2.0, 'stopword': 2.0, 'lowercase': 2.0, 'whitespace': 2.0, 'model': 1.0}, Utility=0.08, Best=0.10
+2026-02-17 11:19:38,248 - INFO - [SEARCH] Trying intervention: outlier → 2
+2026-02-17 11:19:39,006 - INFO - current utility 0.09
+2026-02-17 11:19:39,006 - INFO - [TRY] outlier=2,pipeline: {'sampling': 4.0, 'invalid_value': 2.0, 'missing_value': 2, 'floating_point': 4.0, 'unit_converter': 1.0, 'distribution_shape': 1, 'multicollinearity': 1.0, 'normalization': 1.0, 'outlier': 2, 'punctuation': 2.0, 'stopword': 2.0, 'lowercase': 2.0, 'whitespace': 2.0, 'model': 1.0}, Utility=0.09, Best=0.08
+2026-02-17 11:19:39,006 - INFO - [SEARCH] Trying intervention: outlier → 8
+2026-02-17 11:19:39,857 - INFO - current utility 0.06
+2026-02-17 11:19:39,857 - INFO - [TRY] outlier=8,pipeline: {'sampling': 4.0, 'invalid_value': 2.0, 'missing_value': 2, 'floating_point': 4.0, 'unit_converter': 1.0, 'distribution_shape': 1, 'multicollinearity': 1.0, 'normalization': 1.0, 'outlier': 8, 'punctuation': 2.0, 'stopword': 2.0, 'lowercase': 2.0, 'whitespace': 2.0, 'model': 1.0}, Utility=0.06, Best=0.08
+2026-02-17 11:19:39,857 - INFO - ✅ Target achieved 🎯
+2026-02-17 11:19:39,857 - INFO - required optimistic iterations: 28
+2026-02-17 11:19:39,857 - INFO - passing pipeline: order=['sampling', 'invalid_value', 'missing_value', 'floating_point', 'unit_converter', 'distribution_shape', 'multicollinearity', 'normalization', 'outlier', 'punctuation', 'stopword', 'lowercase', 'whitespace', 'model'], vec=[4, 2, 2, 4, 1, 1, 1, 1, 8, 2, 2, 2, 2, 1]
+2026-02-17 11:19:39,857 - INFO - Total iterations so far: 28
+2026-02-17 11:19:39,857 - INFO - pipeline[4. 2. 3.]
+2026-02-17 11:19:41,683 - INFO - Evaluating [1, 2, 4, 4, 2, 1, 2, 1, 6, 2, 2, 1, 2, 1] -- Initial Utility 0.11512492292642619 -- Target Utility 0.08
+2026-02-17 11:23:16,773 - INFO - [OPTIMIZE] Trying combo size k=1
+2026-02-17 11:23:16,773 - INFO - [INFO] Running optimistic search with combined interventions...
+2026-02-17 11:23:16,773 - INFO - [SEARCH] Trying intervention: invalid_value → 3
+2026-02-17 11:23:18,938 - INFO - current utility 0.11
+2026-02-17 11:23:18,939 - INFO - [TRY] invalid_value=3,pipeline: {'sampling': 1.0, 'invalid_value': 3, 'missing_value': 4.0, 'floating_point': 4.0, 'unit_converter': 2.0, 'distribution_shape': 1.0, 'multicollinearity': 2.0, 'normalization': 1.0, 'outlier': 6.0, 'punctuation': 2.0, 'stopword': 2.0, 'lowercase': 1.0, 'whitespace': 2.0, 'model': 1.0}, Utility=0.11, Best=0.12
+2026-02-17 11:23:18,939 - INFO - [SEARCH] Trying intervention: distribution_shape → 4
+2026-02-17 11:23:22,051 - INFO - current utility 0.17
+2026-02-17 11:23:22,051 - INFO - [TRY] distribution_shape=4,pipeline: {'sampling': 1.0, 'invalid_value': 3, 'missing_value': 4.0, 'floating_point': 4.0, 'unit_converter': 2.0, 'distribution_shape': 4, 'multicollinearity': 2.0, 'normalization': 1.0, 'outlier': 6.0, 'punctuation': 2.0, 'stopword': 2.0, 'lowercase': 1.0, 'whitespace': 2.0, 'model': 1.0}, Utility=0.17, Best=0.11
+2026-02-17 11:23:22,051 - INFO - [SEARCH] Trying intervention: outlier → 3
+2026-02-17 11:23:23,409 - INFO - current utility 0.07
+2026-02-17 11:23:23,409 - INFO - [TRY] outlier=3,pipeline: {'sampling': 1.0, 'invalid_value': 3, 'missing_value': 4.0, 'floating_point': 4.0, 'unit_converter': 2.0, 'distribution_shape': 1.0, 'multicollinearity': 2.0, 'normalization': 1.0, 'outlier': 3, 'punctuation': 2.0, 'stopword': 2.0, 'lowercase': 1.0, 'whitespace': 2.0, 'model': 1.0}, Utility=0.07, Best=0.11
+2026-02-17 11:23:23,409 - INFO - ✅ Target achieved 🎯
+2026-02-17 11:23:23,409 - INFO - required optimistic iterations: 3
+2026-02-17 11:23:23,409 - INFO - passing pipeline: order=['sampling', 'invalid_value', 'missing_value', 'floating_point', 'unit_converter', 'distribution_shape', 'multicollinearity', 'normalization', 'outlier', 'punctuation', 'stopword', 'lowercase', 'whitespace', 'model'], vec=[1, 3, 4, 4, 2, 1, 2, 1, 3, 2, 2, 1, 2, 1]
+2026-02-17 11:23:23,409 - INFO - Total iterations so far: 3
+2026-02-17 11:23:23,409 - INFO - pipeline[1. 2. 4.]
+2026-02-17 11:23:23,999 - INFO - Evaluating [4, 2, 3, 4, 1, 2, 1, 1, 3, 2, 2, 2, 2, 1] -- Initial Utility 0.11330511848812987 -- Target Utility 0.08
+2026-02-17 11:24:42,409 - INFO - [OPTIMIZE] Trying combo size k=1
+2026-02-17 11:24:42,409 - INFO - [INFO] Running optimistic search with combined interventions...
+2026-02-17 11:24:42,409 - INFO - [SEARCH] Trying intervention: missing_value → 9
+2026-02-17 11:24:43,750 - INFO - current utility 0.13
+2026-02-17 11:24:43,751 - INFO - [TRY] missing_value=9,pipeline: {'sampling': 4.0, 'invalid_value': 2.0, 'missing_value': 9, 'floating_point': 4.0, 'unit_converter': 1.0, 'distribution_shape': 2.0, 'multicollinearity': 1.0, 'normalization': 1.0, 'outlier': 3.0, 'punctuation': 2.0, 'stopword': 2.0, 'lowercase': 2.0, 'whitespace': 2.0, 'model': 1.0}, Utility=0.13, Best=0.11
+2026-02-17 11:24:43,751 - INFO - [SEARCH] Trying intervention: stopword → 1
+2026-02-17 11:24:44,725 - INFO - current utility 0.11
+2026-02-17 11:24:44,725 - INFO - [TRY] stopword=1,pipeline: {'sampling': 4.0, 'invalid_value': 2.0, 'missing_value': 3.0, 'floating_point': 4.0, 'unit_converter': 1.0, 'distribution_shape': 2.0, 'multicollinearity': 1.0, 'normalization': 1.0, 'outlier': 3.0, 'punctuation': 2.0, 'stopword': 1, 'lowercase': 2.0, 'whitespace': 2.0, 'model': 1.0}, Utility=0.11, Best=0.11
+2026-02-17 11:24:44,725 - INFO - [SEARCH] Trying intervention: deduplication → 1
+2026-02-17 11:24:45,408 - INFO - current utility 0.11
+2026-02-17 11:24:45,408 - INFO - [TRY] deduplication=1,pipeline: {'sampling': 4.0, 'invalid_value': 2.0, 'missing_value': 3.0, 'floating_point': 4.0, 'unit_converter': 1.0, 'distribution_shape': 2.0, 'multicollinearity': 1.0, 'normalization': 1.0, 'deduplication': 1, 'outlier': 3.0, 'punctuation': 2.0, 'stopword': 2.0, 'lowercase': 2.0, 'whitespace': 2.0, 'model': 1.0}, Utility=0.11, Best=0.11
+2026-02-17 11:24:45,409 - INFO - [SEARCH] Trying intervention: missing_value → 2
+2026-02-17 11:24:46,198 - INFO - current utility 0.11
+2026-02-17 11:24:46,198 - INFO - [TRY] missing_value=2,pipeline: {'sampling': 4.0, 'invalid_value': 2.0, 'missing_value': 2, 'floating_point': 4.0, 'unit_converter': 1.0, 'distribution_shape': 2.0, 'multicollinearity': 1.0, 'normalization': 1.0, 'outlier': 3.0, 'punctuation': 2.0, 'stopword': 2.0, 'lowercase': 2.0, 'whitespace': 2.0, 'model': 1.0}, Utility=0.11, Best=0.11
+2026-02-17 11:24:46,198 - INFO - [SEARCH] Trying intervention: deduplication → 2
+2026-02-17 11:24:46,890 - INFO - current utility 0.11
+2026-02-17 11:24:46,891 - INFO - [TRY] deduplication=2,pipeline: {'sampling': 4.0, 'invalid_value': 2.0, 'missing_value': 2, 'floating_point': 4.0, 'unit_converter': 1.0, 'distribution_shape': 2.0, 'multicollinearity': 1.0, 'normalization': 1.0, 'outlier': 3.0, 'punctuation': 2.0, 'stopword': 2.0, 'lowercase': 2.0, 'whitespace': 2.0, 'deduplication': 2, 'model': 1.0}, Utility=0.11, Best=0.11
+2026-02-17 11:24:46,891 - INFO - [SEARCH] Trying intervention: missing_value → 6
+2026-02-17 11:24:48,192 - INFO - current utility 0.13
+2026-02-17 11:24:48,192 - INFO - [TRY] missing_value=6,pipeline: {'sampling': 4.0, 'invalid_value': 2.0, 'missing_value': 6, 'floating_point': 4.0, 'unit_converter': 1.0, 'distribution_shape': 2.0, 'multicollinearity': 1.0, 'normalization': 1.0, 'outlier': 3.0, 'punctuation': 2.0, 'stopword': 2.0, 'lowercase': 2.0, 'whitespace': 2.0, 'model': 1.0}, Utility=0.13, Best=0.11
+2026-02-17 11:24:48,192 - INFO - [SEARCH] Trying intervention: missing_value → 8
+2026-02-17 11:24:49,316 - INFO - current utility 0.13
+2026-02-17 11:24:49,316 - INFO - [TRY] missing_value=8,pipeline: {'sampling': 4.0, 'invalid_value': 2.0, 'missing_value': 8, 'floating_point': 4.0, 'unit_converter': 1.0, 'distribution_shape': 2.0, 'multicollinearity': 1.0, 'normalization': 1.0, 'outlier': 3.0, 'punctuation': 2.0, 'stopword': 2.0, 'lowercase': 2.0, 'whitespace': 2.0, 'model': 1.0}, Utility=0.13, Best=0.11
+2026-02-17 11:24:49,316 - INFO - [SEARCH] Trying intervention: multicollinearity → 2
+2026-02-17 11:24:50,068 - INFO - current utility 0.11
+2026-02-17 11:24:50,069 - INFO - [TRY] multicollinearity=2,pipeline: {'sampling': 4.0, 'invalid_value': 2.0, 'missing_value': 2, 'floating_point': 4.0, 'unit_converter': 1.0, 'distribution_shape': 2.0, 'multicollinearity': 2, 'normalization': 1.0, 'outlier': 3.0, 'punctuation': 2.0, 'stopword': 2.0, 'lowercase': 2.0, 'whitespace': 2.0, 'model': 1.0}, Utility=0.11, Best=0.11
+2026-02-17 11:24:50,069 - INFO - [SEARCH] Trying intervention: missing_value → 5
+2026-02-17 11:24:51,181 - INFO - current utility 0.13
+2026-02-17 11:24:51,181 - INFO - [TRY] missing_value=5,pipeline: {'sampling': 4.0, 'invalid_value': 2.0, 'missing_value': 5, 'floating_point': 4.0, 'unit_converter': 1.0, 'distribution_shape': 2.0, 'multicollinearity': 1.0, 'normalization': 1.0, 'outlier': 3.0, 'punctuation': 2.0, 'stopword': 2.0, 'lowercase': 2.0, 'whitespace': 2.0, 'model': 1.0}, Utility=0.13, Best=0.11
+2026-02-17 11:24:51,182 - INFO - [SEARCH] Trying intervention: invalid_value → 4
+2026-02-17 11:24:52,073 - INFO - current utility 0.11
+2026-02-17 11:24:52,073 - INFO - [TRY] invalid_value=4,pipeline: {'sampling': 4.0, 'invalid_value': 4, 'missing_value': 2, 'floating_point': 4.0, 'unit_converter': 1.0, 'distribution_shape': 2.0, 'multicollinearity': 1.0, 'normalization': 1.0, 'outlier': 3.0, 'punctuation': 2.0, 'stopword': 2.0, 'lowercase': 2.0, 'whitespace': 2.0, 'model': 1.0}, Utility=0.11, Best=0.11
+2026-02-17 11:24:52,073 - INFO - [SEARCH] Trying intervention: missing_value → 7
+2026-02-17 11:24:53,178 - INFO - current utility 0.13
+2026-02-17 11:24:53,178 - INFO - [TRY] missing_value=7,pipeline: {'sampling': 4.0, 'invalid_value': 2.0, 'missing_value': 7, 'floating_point': 4.0, 'unit_converter': 1.0, 'distribution_shape': 2.0, 'multicollinearity': 1.0, 'normalization': 1.0, 'outlier': 3.0, 'punctuation': 2.0, 'stopword': 2.0, 'lowercase': 2.0, 'whitespace': 2.0, 'model': 1.0}, Utility=0.13, Best=0.11
+2026-02-17 11:24:53,178 - INFO - [SEARCH] Trying intervention: whitespace → 1
+2026-02-17 11:24:53,882 - INFO - current utility 0.11
+2026-02-17 11:24:53,882 - INFO - [TRY] whitespace=1,pipeline: {'sampling': 4.0, 'invalid_value': 2.0, 'missing_value': 2, 'floating_point': 4.0, 'unit_converter': 1.0, 'distribution_shape': 2.0, 'multicollinearity': 1.0, 'normalization': 1.0, 'outlier': 3.0, 'punctuation': 2.0, 'stopword': 2.0, 'lowercase': 2.0, 'whitespace': 1, 'model': 1.0}, Utility=0.11, Best=0.11
+2026-02-17 11:24:53,882 - INFO - [SEARCH] Trying intervention: lowercase → 1
+2026-02-17 11:24:54,664 - INFO - current utility 0.11
+2026-02-17 11:24:54,664 - INFO - [TRY] lowercase=1,pipeline: {'sampling': 4.0, 'invalid_value': 2.0, 'missing_value': 2, 'floating_point': 4.0, 'unit_converter': 1.0, 'distribution_shape': 2.0, 'multicollinearity': 1.0, 'normalization': 1.0, 'outlier': 3.0, 'punctuation': 2.0, 'stopword': 2.0, 'lowercase': 1, 'whitespace': 2.0, 'model': 1.0}, Utility=0.11, Best=0.11
+2026-02-17 11:24:54,664 - INFO - [SEARCH] Trying intervention: floating_point → 2
+2026-02-17 11:24:55,315 - INFO - current utility 0.11
+2026-02-17 11:24:55,315 - INFO - [TRY] floating_point=2,pipeline: {'sampling': 4.0, 'invalid_value': 2.0, 'missing_value': 2, 'floating_point': 2, 'unit_converter': 1.0, 'distribution_shape': 2.0, 'multicollinearity': 1.0, 'normalization': 1.0, 'outlier': 3.0, 'punctuation': 2.0, 'stopword': 2.0, 'lowercase': 2.0, 'whitespace': 2.0, 'model': 1.0}, Utility=0.11, Best=0.11
+2026-02-17 11:24:55,315 - INFO - [SEARCH] Trying intervention: floating_point → 1
+2026-02-17 11:24:56,075 - INFO - current utility 0.11
+2026-02-17 11:24:56,075 - INFO - [TRY] floating_point=1,pipeline: {'sampling': 4.0, 'invalid_value': 2.0, 'missing_value': 2, 'floating_point': 1, 'unit_converter': 1.0, 'distribution_shape': 2.0, 'multicollinearity': 1.0, 'normalization': 1.0, 'outlier': 3.0, 'punctuation': 2.0, 'stopword': 2.0, 'lowercase': 2.0, 'whitespace': 2.0, 'model': 1.0}, Utility=0.11, Best=0.11
+2026-02-17 11:24:56,075 - INFO - [SEARCH] Trying intervention: missing_value → 1
+2026-02-17 11:24:56,679 - INFO - current utility 0.13
+2026-02-17 11:24:56,680 - INFO - [TRY] missing_value=1,pipeline: {'sampling': 4.0, 'invalid_value': 2.0, 'missing_value': 1, 'floating_point': 4.0, 'unit_converter': 1.0, 'distribution_shape': 2.0, 'multicollinearity': 1.0, 'normalization': 1.0, 'outlier': 3.0, 'punctuation': 2.0, 'stopword': 2.0, 'lowercase': 2.0, 'whitespace': 2.0, 'model': 1.0}, Utility=0.13, Best=0.11
+2026-02-17 11:24:56,680 - INFO - [SEARCH] Trying intervention: sampling → 3
+2026-02-17 11:24:57,163 - INFO - current utility 0.11
+2026-02-17 11:24:57,163 - INFO - [TRY] sampling=3,pipeline: {'sampling': 3, 'invalid_value': 2.0, 'missing_value': 2, 'floating_point': 4.0, 'unit_converter': 1.0, 'distribution_shape': 2.0, 'multicollinearity': 1.0, 'normalization': 1.0, 'outlier': 3.0, 'punctuation': 2.0, 'stopword': 2.0, 'lowercase': 2.0, 'whitespace': 2.0, 'model': 1.0}, Utility=0.11, Best=0.11
+2026-02-17 11:24:57,163 - INFO - [SEARCH] Trying intervention: sampling → 1
+2026-02-17 11:24:58,626 - INFO - current utility 0.13
+2026-02-17 11:24:58,626 - INFO - [TRY] sampling=1,pipeline: {'sampling': 1, 'invalid_value': 2.0, 'missing_value': 2, 'floating_point': 4.0, 'unit_converter': 1.0, 'distribution_shape': 2.0, 'multicollinearity': 1.0, 'normalization': 1.0, 'outlier': 3.0, 'punctuation': 2.0, 'stopword': 2.0, 'lowercase': 2.0, 'whitespace': 2.0, 'model': 1.0}, Utility=0.13, Best=0.11
+2026-02-17 11:24:58,626 - INFO - [SEARCH] Trying intervention: sampling → 2
+2026-02-17 11:24:59,532 - INFO - current utility 0.12
+2026-02-17 11:24:59,532 - INFO - [TRY] sampling=2,pipeline: {'sampling': 2, 'invalid_value': 2.0, 'missing_value': 2, 'floating_point': 4.0, 'unit_converter': 1.0, 'distribution_shape': 2.0, 'multicollinearity': 1.0, 'normalization': 1.0, 'outlier': 3.0, 'punctuation': 2.0, 'stopword': 2.0, 'lowercase': 2.0, 'whitespace': 2.0, 'model': 1.0}, Utility=0.12, Best=0.11
+2026-02-17 11:24:59,532 - INFO - [SEARCH] Trying intervention: invalid_value → 1
+2026-02-17 11:25:00,171 - INFO - current utility 0.14
+2026-02-17 11:25:00,171 - INFO - [TRY] invalid_value=1,pipeline: {'sampling': 4.0, 'invalid_value': 1, 'missing_value': 2, 'floating_point': 4.0, 'unit_converter': 1.0, 'distribution_shape': 2.0, 'multicollinearity': 1.0, 'normalization': 1.0, 'outlier': 3.0, 'punctuation': 2.0, 'stopword': 2.0, 'lowercase': 2.0, 'whitespace': 2.0, 'model': 1.0}, Utility=0.14, Best=0.11
+2026-02-17 11:25:00,171 - INFO - [SEARCH] Trying intervention: missing_value → 4
+2026-02-17 11:25:01,058 - INFO - current utility 0.11
+2026-02-17 11:25:01,058 - INFO - [TRY] missing_value=4,pipeline: {'sampling': 4.0, 'invalid_value': 2.0, 'missing_value': 4, 'floating_point': 4.0, 'unit_converter': 1.0, 'distribution_shape': 2.0, 'multicollinearity': 1.0, 'normalization': 1.0, 'outlier': 3.0, 'punctuation': 2.0, 'stopword': 2.0, 'lowercase': 2.0, 'whitespace': 2.0, 'model': 1.0}, Utility=0.11, Best=0.11
+2026-02-17 11:25:01,058 - INFO - [SEARCH] Trying intervention: unit_converter → 2
+2026-02-17 11:25:01,856 - INFO - current utility 0.11
+2026-02-17 11:25:01,856 - INFO - [TRY] unit_converter=2,pipeline: {'sampling': 4.0, 'invalid_value': 2.0, 'missing_value': 2, 'floating_point': 4.0, 'unit_converter': 2, 'distribution_shape': 2.0, 'multicollinearity': 1.0, 'normalization': 1.0, 'outlier': 3.0, 'punctuation': 2.0, 'stopword': 2.0, 'lowercase': 2.0, 'whitespace': 2.0, 'model': 1.0}, Utility=0.11, Best=0.11
+2026-02-17 11:25:01,856 - INFO - [SEARCH] Trying intervention: floating_point → 3
+2026-02-17 11:25:02,593 - INFO - current utility 0.11
+2026-02-17 11:25:02,593 - INFO - [TRY] floating_point=3,pipeline: {'sampling': 4.0, 'invalid_value': 2.0, 'missing_value': 2, 'floating_point': 3, 'unit_converter': 1.0, 'distribution_shape': 2.0, 'multicollinearity': 1.0, 'normalization': 1.0, 'outlier': 3.0, 'punctuation': 2.0, 'stopword': 2.0, 'lowercase': 2.0, 'whitespace': 2.0, 'model': 1.0}, Utility=0.11, Best=0.11
+2026-02-17 11:25:02,593 - INFO - [SEARCH] Trying intervention: invalid_value → 3
+2026-02-17 11:25:03,412 - INFO - current utility 0.14
+2026-02-17 11:25:03,412 - INFO - [TRY] invalid_value=3,pipeline: {'sampling': 4.0, 'invalid_value': 3, 'missing_value': 2, 'floating_point': 4.0, 'unit_converter': 1.0, 'distribution_shape': 2.0, 'multicollinearity': 1.0, 'normalization': 1.0, 'outlier': 3.0, 'punctuation': 2.0, 'stopword': 2.0, 'lowercase': 2.0, 'whitespace': 2.0, 'model': 1.0}, Utility=0.14, Best=0.11
+2026-02-17 11:25:03,412 - INFO - [SEARCH] Trying intervention: distribution_shape → 4
+2026-02-17 11:25:04,060 - INFO - current utility 0.10
+2026-02-17 11:25:04,060 - INFO - [TRY] distribution_shape=4,pipeline: {'sampling': 4.0, 'invalid_value': 2.0, 'missing_value': 2, 'floating_point': 4.0, 'unit_converter': 1.0, 'distribution_shape': 4, 'multicollinearity': 1.0, 'normalization': 1.0, 'outlier': 3.0, 'punctuation': 2.0, 'stopword': 2.0, 'lowercase': 2.0, 'whitespace': 2.0, 'model': 1.0}, Utility=0.10, Best=0.11
+2026-02-17 11:25:04,060 - INFO - [SEARCH] Trying intervention: punctuation → 1
+2026-02-17 11:25:04,792 - INFO - current utility 0.10
+2026-02-17 11:25:04,792 - INFO - [TRY] punctuation=1,pipeline: {'sampling': 4.0, 'invalid_value': 2.0, 'missing_value': 2, 'floating_point': 4.0, 'unit_converter': 1.0, 'distribution_shape': 4, 'multicollinearity': 1.0, 'normalization': 1.0, 'outlier': 3.0, 'punctuation': 1, 'stopword': 2.0, 'lowercase': 2.0, 'whitespace': 2.0, 'model': 1.0}, Utility=0.10, Best=0.10
+2026-02-17 11:25:04,792 - INFO - [SEARCH] Trying intervention: distribution_shape → 1
+2026-02-17 11:25:05,612 - INFO - current utility 0.08
+2026-02-17 11:25:05,612 - INFO - [TRY] distribution_shape=1,pipeline: {'sampling': 4.0, 'invalid_value': 2.0, 'missing_value': 2, 'floating_point': 4.0, 'unit_converter': 1.0, 'distribution_shape': 1, 'multicollinearity': 1.0, 'normalization': 1.0, 'outlier': 3.0, 'punctuation': 2.0, 'stopword': 2.0, 'lowercase': 2.0, 'whitespace': 2.0, 'model': 1.0}, Utility=0.08, Best=0.10
+2026-02-17 11:25:05,612 - INFO - [SEARCH] Trying intervention: outlier → 2
+2026-02-17 11:25:06,536 - INFO - current utility 0.09
+2026-02-17 11:25:06,536 - INFO - [TRY] outlier=2,pipeline: {'sampling': 4.0, 'invalid_value': 2.0, 'missing_value': 2, 'floating_point': 4.0, 'unit_converter': 1.0, 'distribution_shape': 1, 'multicollinearity': 1.0, 'normalization': 1.0, 'outlier': 2, 'punctuation': 2.0, 'stopword': 2.0, 'lowercase': 2.0, 'whitespace': 2.0, 'model': 1.0}, Utility=0.09, Best=0.08
+2026-02-17 11:25:06,536 - INFO - [SEARCH] Trying intervention: outlier → 7
+2026-02-17 11:25:07,502 - INFO - current utility 0.06
+2026-02-17 11:25:07,502 - INFO - [TRY] outlier=7,pipeline: {'sampling': 4.0, 'invalid_value': 2.0, 'missing_value': 2, 'floating_point': 4.0, 'unit_converter': 1.0, 'distribution_shape': 1, 'multicollinearity': 1.0, 'normalization': 1.0, 'outlier': 7, 'punctuation': 2.0, 'stopword': 2.0, 'lowercase': 2.0, 'whitespace': 2.0, 'model': 1.0}, Utility=0.06, Best=0.08
+2026-02-17 11:25:07,502 - INFO - ✅ Target achieved 🎯
+2026-02-17 11:25:07,502 - INFO - required optimistic iterations: 29
+2026-02-17 11:25:07,502 - INFO - passing pipeline: order=['sampling', 'invalid_value', 'missing_value', 'floating_point', 'unit_converter', 'distribution_shape', 'multicollinearity', 'normalization', 'outlier', 'punctuation', 'stopword', 'lowercase', 'whitespace', 'model'], vec=[4, 2, 2, 4, 1, 1, 1, 1, 7, 2, 2, 2, 2, 1]
+2026-02-17 11:25:07,502 - INFO - Total iterations so far: 29
+2026-02-17 11:25:07,502 - INFO - pipeline[4. 2. 3.]
+2026-02-17 11:25:09,546 - INFO - Evaluating [1, 2, 4, 4, 2, 1, 2, 1, 6, 2, 2, 1, 2, 1] -- Initial Utility 0.11512492292642619 -- Target Utility 0.09
+2026-02-17 11:28:35,433 - INFO - [OPTIMIZE] Trying combo size k=1
+2026-02-17 11:28:35,433 - INFO - [INFO] Running optimistic search with combined interventions...
+2026-02-17 11:28:35,433 - INFO - [SEARCH] Trying intervention: invalid_value → 1
+2026-02-17 11:28:37,521 - INFO - current utility 0.11
+2026-02-17 11:28:37,521 - INFO - [TRY] invalid_value=1,pipeline: {'sampling': 1.0, 'invalid_value': 1, 'missing_value': 4.0, 'floating_point': 4.0, 'unit_converter': 2.0, 'distribution_shape': 1.0, 'multicollinearity': 2.0, 'normalization': 1.0, 'outlier': 6.0, 'punctuation': 2.0, 'stopword': 2.0, 'lowercase': 1.0, 'whitespace': 2.0, 'model': 1.0}, Utility=0.11, Best=0.12
+2026-02-17 11:28:37,521 - INFO - [SEARCH] Trying intervention: distribution_shape → 4
+2026-02-17 11:28:40,038 - INFO - current utility 0.17
+2026-02-17 11:28:40,038 - INFO - [TRY] distribution_shape=4,pipeline: {'sampling': 1.0, 'invalid_value': 1, 'missing_value': 4.0, 'floating_point': 4.0, 'unit_converter': 2.0, 'distribution_shape': 4, 'multicollinearity': 2.0, 'normalization': 1.0, 'outlier': 6.0, 'punctuation': 2.0, 'stopword': 2.0, 'lowercase': 1.0, 'whitespace': 2.0, 'model': 1.0}, Utility=0.17, Best=0.11
+2026-02-17 11:28:40,038 - INFO - [SEARCH] Trying intervention: outlier → 3
+2026-02-17 11:28:41,277 - INFO - current utility 0.07
+2026-02-17 11:28:41,277 - INFO - [TRY] outlier=3,pipeline: {'sampling': 1.0, 'invalid_value': 1, 'missing_value': 4.0, 'floating_point': 4.0, 'unit_converter': 2.0, 'distribution_shape': 1.0, 'multicollinearity': 2.0, 'normalization': 1.0, 'outlier': 3, 'punctuation': 2.0, 'stopword': 2.0, 'lowercase': 1.0, 'whitespace': 2.0, 'model': 1.0}, Utility=0.07, Best=0.11
+2026-02-17 11:28:41,277 - INFO - ✅ Target achieved 🎯
+2026-02-17 11:28:41,277 - INFO - required optimistic iterations: 3
+2026-02-17 11:28:41,277 - INFO - passing pipeline: order=['sampling', 'invalid_value', 'missing_value', 'floating_point', 'unit_converter', 'distribution_shape', 'multicollinearity', 'normalization', 'outlier', 'punctuation', 'stopword', 'lowercase', 'whitespace', 'model'], vec=[1, 1, 4, 4, 2, 1, 2, 1, 3, 2, 2, 1, 2, 1]
+2026-02-17 11:28:41,278 - INFO - Total iterations so far: 3
+2026-02-17 11:28:41,278 - INFO - pipeline[1. 2. 4.]
+2026-02-17 11:28:41,853 - INFO - Evaluating [4, 2, 3, 4, 1, 2, 1, 1, 3, 2, 2, 2, 2, 1] -- Initial Utility 0.11330511848812987 -- Target Utility 0.09
+2026-02-17 11:29:54,196 - INFO - [OPTIMIZE] Trying combo size k=1
+2026-02-17 11:29:54,196 - INFO - [INFO] Running optimistic search with combined interventions...
+2026-02-17 11:29:54,196 - INFO - [SEARCH] Trying intervention: deduplication → 2
+2026-02-17 11:29:54,644 - INFO - current utility 0.11
+2026-02-17 11:29:54,644 - INFO - [TRY] deduplication=2,pipeline: {'sampling': 4.0, 'invalid_value': 2.0, 'missing_value': 3.0, 'floating_point': 4.0, 'unit_converter': 1.0, 'distribution_shape': 2.0, 'multicollinearity': 1.0, 'normalization': 1.0, 'outlier': 3.0, 'deduplication': 2, 'punctuation': 2.0, 'stopword': 2.0, 'lowercase': 2.0, 'whitespace': 2.0, 'model': 1.0}, Utility=0.11, Best=0.11
+2026-02-17 11:29:54,644 - INFO - [SEARCH] Trying intervention: missing_value → 7
+2026-02-17 11:29:55,757 - INFO - current utility 0.13
+2026-02-17 11:29:55,757 - INFO - [TRY] missing_value=7,pipeline: {'sampling': 4.0, 'invalid_value': 2.0, 'missing_value': 7, 'floating_point': 4.0, 'unit_converter': 1.0, 'distribution_shape': 2.0, 'multicollinearity': 1.0, 'normalization': 1.0, 'outlier': 3.0, 'punctuation': 2.0, 'stopword': 2.0, 'lowercase': 2.0, 'whitespace': 2.0, 'model': 1.0}, Utility=0.13, Best=0.11
+2026-02-17 11:29:55,757 - INFO - [SEARCH] Trying intervention: deduplication → 1
+2026-02-17 11:29:56,296 - INFO - current utility 0.13
+2026-02-17 11:29:56,296 - INFO - [TRY] deduplication=1,pipeline: {'sampling': 4.0, 'invalid_value': 2.0, 'deduplication': 1, 'missing_value': 3.0, 'floating_point': 4.0, 'unit_converter': 1.0, 'distribution_shape': 2.0, 'multicollinearity': 1.0, 'normalization': 1.0, 'outlier': 3.0, 'punctuation': 2.0, 'stopword': 2.0, 'lowercase': 2.0, 'whitespace': 2.0, 'model': 1.0}, Utility=0.13, Best=0.11
+2026-02-17 11:29:56,296 - INFO - [SEARCH] Trying intervention: missing_value → 6
+2026-02-17 11:29:57,502 - INFO - current utility 0.13
+2026-02-17 11:29:57,502 - INFO - [TRY] missing_value=6,pipeline: {'sampling': 4.0, 'invalid_value': 2.0, 'missing_value': 6, 'floating_point': 4.0, 'unit_converter': 1.0, 'distribution_shape': 2.0, 'multicollinearity': 1.0, 'normalization': 1.0, 'outlier': 3.0, 'punctuation': 2.0, 'stopword': 2.0, 'lowercase': 2.0, 'whitespace': 2.0, 'model': 1.0}, Utility=0.13, Best=0.11
+2026-02-17 11:29:57,502 - INFO - [SEARCH] Trying intervention: stopword → 1
+2026-02-17 11:29:58,039 - INFO - current utility 0.11
+2026-02-17 11:29:58,039 - INFO - [TRY] stopword=1,pipeline: {'sampling': 4.0, 'invalid_value': 2.0, 'missing_value': 3.0, 'floating_point': 4.0, 'unit_converter': 1.0, 'distribution_shape': 2.0, 'multicollinearity': 1.0, 'normalization': 1.0, 'outlier': 3.0, 'punctuation': 2.0, 'stopword': 1, 'lowercase': 2.0, 'whitespace': 2.0, 'model': 1.0}, Utility=0.11, Best=0.11
+2026-02-17 11:29:58,039 - INFO - [SEARCH] Trying intervention: multicollinearity → 2
+2026-02-17 11:29:58,604 - INFO - current utility 0.11
+2026-02-17 11:29:58,605 - INFO - [TRY] multicollinearity=2,pipeline: {'sampling': 4.0, 'invalid_value': 2.0, 'missing_value': 3.0, 'floating_point': 4.0, 'unit_converter': 1.0, 'distribution_shape': 2.0, 'multicollinearity': 2, 'normalization': 1.0, 'outlier': 3.0, 'punctuation': 2.0, 'stopword': 2.0, 'lowercase': 2.0, 'whitespace': 2.0, 'model': 1.0}, Utility=0.11, Best=0.11
+2026-02-17 11:29:58,605 - INFO - [SEARCH] Trying intervention: whitespace → 1
+2026-02-17 11:29:59,258 - INFO - current utility 0.11
+2026-02-17 11:29:59,258 - INFO - [TRY] whitespace=1,pipeline: {'sampling': 4.0, 'invalid_value': 2.0, 'missing_value': 3.0, 'floating_point': 4.0, 'unit_converter': 1.0, 'distribution_shape': 2.0, 'multicollinearity': 2, 'normalization': 1.0, 'outlier': 3.0, 'punctuation': 2.0, 'stopword': 2.0, 'lowercase': 2.0, 'whitespace': 1, 'model': 1.0}, Utility=0.11, Best=0.11
+2026-02-17 11:29:59,258 - INFO - [SEARCH] Trying intervention: unit_converter → 2
+2026-02-17 11:29:59,849 - INFO - current utility 0.11
+2026-02-17 11:29:59,849 - INFO - [TRY] unit_converter=2,pipeline: {'sampling': 4.0, 'invalid_value': 2.0, 'missing_value': 3.0, 'floating_point': 4.0, 'unit_converter': 2, 'distribution_shape': 2.0, 'multicollinearity': 2, 'normalization': 1.0, 'outlier': 3.0, 'punctuation': 2.0, 'stopword': 2.0, 'lowercase': 2.0, 'whitespace': 2.0, 'model': 1.0}, Utility=0.11, Best=0.11
+2026-02-17 11:29:59,849 - INFO - [SEARCH] Trying intervention: missing_value → 8
+2026-02-17 11:30:01,102 - INFO - current utility 0.13
+2026-02-17 11:30:01,105 - INFO - [TRY] missing_value=8,pipeline: {'sampling': 4.0, 'invalid_value': 2.0, 'missing_value': 8, 'floating_point': 4.0, 'unit_converter': 1.0, 'distribution_shape': 2.0, 'multicollinearity': 2, 'normalization': 1.0, 'outlier': 3.0, 'punctuation': 2.0, 'stopword': 2.0, 'lowercase': 2.0, 'whitespace': 2.0, 'model': 1.0}, Utility=0.13, Best=0.11
+2026-02-17 11:30:01,105 - INFO - [SEARCH] Trying intervention: missing_value → 5
+2026-02-17 11:30:02,335 - INFO - current utility 0.13
+2026-02-17 11:30:02,336 - INFO - [TRY] missing_value=5,pipeline: {'sampling': 4.0, 'invalid_value': 2.0, 'missing_value': 5, 'floating_point': 4.0, 'unit_converter': 1.0, 'distribution_shape': 2.0, 'multicollinearity': 2, 'normalization': 1.0, 'outlier': 3.0, 'punctuation': 2.0, 'stopword': 2.0, 'lowercase': 2.0, 'whitespace': 2.0, 'model': 1.0}, Utility=0.13, Best=0.11
+2026-02-17 11:30:02,337 - INFO - [SEARCH] Trying intervention: floating_point → 3
+2026-02-17 11:30:03,196 - INFO - current utility 0.11
+2026-02-17 11:30:03,196 - INFO - [TRY] floating_point=3,pipeline: {'sampling': 4.0, 'invalid_value': 2.0, 'missing_value': 3.0, 'floating_point': 3, 'unit_converter': 1.0, 'distribution_shape': 2.0, 'multicollinearity': 2, 'normalization': 1.0, 'outlier': 3.0, 'punctuation': 2.0, 'stopword': 2.0, 'lowercase': 2.0, 'whitespace': 2.0, 'model': 1.0}, Utility=0.11, Best=0.11
+2026-02-17 11:30:03,196 - INFO - [SEARCH] Trying intervention: lowercase → 1
+2026-02-17 11:30:03,925 - INFO - current utility 0.11
+2026-02-17 11:30:03,925 - INFO - [TRY] lowercase=1,pipeline: {'sampling': 4.0, 'invalid_value': 2.0, 'missing_value': 3.0, 'floating_point': 4.0, 'unit_converter': 1.0, 'distribution_shape': 2.0, 'multicollinearity': 2, 'normalization': 1.0, 'outlier': 3.0, 'punctuation': 2.0, 'stopword': 2.0, 'lowercase': 1, 'whitespace': 2.0, 'model': 1.0}, Utility=0.11, Best=0.11
+2026-02-17 11:30:03,925 - INFO - [SEARCH] Trying intervention: missing_value → 4
+2026-02-17 11:30:04,910 - INFO - current utility 0.11
+2026-02-17 11:30:04,910 - INFO - [TRY] missing_value=4,pipeline: {'sampling': 4.0, 'invalid_value': 2.0, 'missing_value': 4, 'floating_point': 4.0, 'unit_converter': 1.0, 'distribution_shape': 2.0, 'multicollinearity': 2, 'normalization': 1.0, 'outlier': 3.0, 'punctuation': 2.0, 'stopword': 2.0, 'lowercase': 2.0, 'whitespace': 2.0, 'model': 1.0}, Utility=0.11, Best=0.11
+2026-02-17 11:30:04,910 - INFO - [SEARCH] Trying intervention: sampling → 3
+2026-02-17 11:30:05,434 - INFO - current utility 0.12
+2026-02-17 11:30:05,434 - INFO - [TRY] sampling=3,pipeline: {'sampling': 3, 'invalid_value': 2.0, 'missing_value': 4, 'floating_point': 4.0, 'unit_converter': 1.0, 'distribution_shape': 2.0, 'multicollinearity': 2, 'normalization': 1.0, 'outlier': 3.0, 'punctuation': 2.0, 'stopword': 2.0, 'lowercase': 2.0, 'whitespace': 2.0, 'model': 1.0}, Utility=0.12, Best=0.11
+2026-02-17 11:30:05,434 - INFO - [SEARCH] Trying intervention: sampling → 1
+2026-02-17 11:30:08,085 - INFO - current utility 0.14
+2026-02-17 11:30:08,085 - INFO - [TRY] sampling=1,pipeline: {'sampling': 1, 'invalid_value': 2.0, 'missing_value': 4, 'floating_point': 4.0, 'unit_converter': 1.0, 'distribution_shape': 2.0, 'multicollinearity': 2, 'normalization': 1.0, 'outlier': 3.0, 'punctuation': 2.0, 'stopword': 2.0, 'lowercase': 2.0, 'whitespace': 2.0, 'model': 1.0}, Utility=0.14, Best=0.11
+2026-02-17 11:30:08,085 - INFO - [SEARCH] Trying intervention: sampling → 2
+2026-02-17 11:30:08,900 - INFO - current utility 0.12
+2026-02-17 11:30:08,901 - INFO - [TRY] sampling=2,pipeline: {'sampling': 2, 'invalid_value': 2.0, 'missing_value': 4, 'floating_point': 4.0, 'unit_converter': 1.0, 'distribution_shape': 2.0, 'multicollinearity': 2, 'normalization': 1.0, 'outlier': 3.0, 'punctuation': 2.0, 'stopword': 2.0, 'lowercase': 2.0, 'whitespace': 2.0, 'model': 1.0}, Utility=0.12, Best=0.11
+2026-02-17 11:30:08,901 - INFO - [SEARCH] Trying intervention: missing_value → 9
+2026-02-17 11:30:10,390 - INFO - current utility 0.13
+2026-02-17 11:30:10,391 - INFO - [TRY] missing_value=9,pipeline: {'sampling': 4.0, 'invalid_value': 2.0, 'missing_value': 9, 'floating_point': 4.0, 'unit_converter': 1.0, 'distribution_shape': 2.0, 'multicollinearity': 2, 'normalization': 1.0, 'outlier': 3.0, 'punctuation': 2.0, 'stopword': 2.0, 'lowercase': 2.0, 'whitespace': 2.0, 'model': 1.0}, Utility=0.13, Best=0.11
+2026-02-17 11:30:10,391 - INFO - [SEARCH] Trying intervention: missing_value → 1
+2026-02-17 11:30:11,824 - INFO - current utility 0.13
+2026-02-17 11:30:11,824 - INFO - [TRY] missing_value=1,pipeline: {'sampling': 4.0, 'invalid_value': 2.0, 'missing_value': 1, 'floating_point': 4.0, 'unit_converter': 1.0, 'distribution_shape': 2.0, 'multicollinearity': 2, 'normalization': 1.0, 'outlier': 3.0, 'punctuation': 2.0, 'stopword': 2.0, 'lowercase': 2.0, 'whitespace': 2.0, 'model': 1.0}, Utility=0.13, Best=0.11
+2026-02-17 11:30:11,825 - INFO - [SEARCH] Trying intervention: invalid_value → 1
+2026-02-17 11:30:12,562 - INFO - current utility 0.14
+2026-02-17 11:30:12,562 - INFO - [TRY] invalid_value=1,pipeline: {'sampling': 4.0, 'invalid_value': 1, 'missing_value': 4, 'floating_point': 4.0, 'unit_converter': 1.0, 'distribution_shape': 2.0, 'multicollinearity': 2, 'normalization': 1.0, 'outlier': 3.0, 'punctuation': 2.0, 'stopword': 2.0, 'lowercase': 2.0, 'whitespace': 2.0, 'model': 1.0}, Utility=0.14, Best=0.11
+2026-02-17 11:30:12,562 - INFO - [SEARCH] Trying intervention: floating_point → 1
+2026-02-17 11:30:13,332 - INFO - current utility 0.11
+2026-02-17 11:30:13,332 - INFO - [TRY] floating_point=1,pipeline: {'sampling': 4.0, 'invalid_value': 2.0, 'missing_value': 4, 'floating_point': 1, 'unit_converter': 1.0, 'distribution_shape': 2.0, 'multicollinearity': 2, 'normalization': 1.0, 'outlier': 3.0, 'punctuation': 2.0, 'stopword': 2.0, 'lowercase': 2.0, 'whitespace': 2.0, 'model': 1.0}, Utility=0.11, Best=0.11
+2026-02-17 11:30:13,332 - INFO - [SEARCH] Trying intervention: invalid_value → 4
+2026-02-17 11:30:14,038 - INFO - current utility 0.11
+2026-02-17 11:30:14,038 - INFO - [TRY] invalid_value=4,pipeline: {'sampling': 4.0, 'invalid_value': 4, 'missing_value': 4, 'floating_point': 4.0, 'unit_converter': 1.0, 'distribution_shape': 2.0, 'multicollinearity': 2, 'normalization': 1.0, 'outlier': 3.0, 'punctuation': 2.0, 'stopword': 2.0, 'lowercase': 2.0, 'whitespace': 2.0, 'model': 1.0}, Utility=0.11, Best=0.11
+2026-02-17 11:30:14,038 - INFO - [SEARCH] Trying intervention: distribution_shape → 4
+2026-02-17 11:30:14,661 - INFO - current utility 0.11
+2026-02-17 11:30:14,661 - INFO - [TRY] distribution_shape=4,pipeline: {'sampling': 4.0, 'invalid_value': 2.0, 'missing_value': 4, 'floating_point': 4.0, 'unit_converter': 1.0, 'distribution_shape': 4, 'multicollinearity': 2, 'normalization': 1.0, 'outlier': 3.0, 'punctuation': 2.0, 'stopword': 2.0, 'lowercase': 2.0, 'whitespace': 2.0, 'model': 1.0}, Utility=0.11, Best=0.11
+2026-02-17 11:30:14,662 - INFO - [SEARCH] Trying intervention: punctuation → 1
+2026-02-17 11:30:15,283 - INFO - current utility 0.11
+2026-02-17 11:30:15,283 - INFO - [TRY] punctuation=1,pipeline: {'sampling': 4.0, 'invalid_value': 2.0, 'missing_value': 4, 'floating_point': 4.0, 'unit_converter': 1.0, 'distribution_shape': 4, 'multicollinearity': 2, 'normalization': 1.0, 'outlier': 3.0, 'punctuation': 1, 'stopword': 2.0, 'lowercase': 2.0, 'whitespace': 2.0, 'model': 1.0}, Utility=0.11, Best=0.11
+2026-02-17 11:30:15,283 - INFO - [SEARCH] Trying intervention: floating_point → 2
+2026-02-17 11:30:15,912 - INFO - current utility 0.11
+2026-02-17 11:30:15,912 - INFO - [TRY] floating_point=2,pipeline: {'sampling': 4.0, 'invalid_value': 2.0, 'missing_value': 4, 'floating_point': 2, 'unit_converter': 1.0, 'distribution_shape': 4, 'multicollinearity': 2, 'normalization': 1.0, 'outlier': 3.0, 'punctuation': 2.0, 'stopword': 2.0, 'lowercase': 2.0, 'whitespace': 2.0, 'model': 1.0}, Utility=0.11, Best=0.11
+2026-02-17 11:30:15,912 - INFO - [SEARCH] Trying intervention: missing_value → 2
+2026-02-17 11:30:16,543 - INFO - current utility 0.12
+2026-02-17 11:30:16,543 - INFO - [TRY] missing_value=2,pipeline: {'sampling': 4.0, 'invalid_value': 2.0, 'missing_value': 2, 'floating_point': 4.0, 'unit_converter': 1.0, 'distribution_shape': 4, 'multicollinearity': 2, 'normalization': 1.0, 'outlier': 3.0, 'punctuation': 2.0, 'stopword': 2.0, 'lowercase': 2.0, 'whitespace': 2.0, 'model': 1.0}, Utility=0.12, Best=0.11
+2026-02-17 11:30:16,543 - INFO - [SEARCH] Trying intervention: invalid_value → 3
+2026-02-17 11:30:17,289 - INFO - current utility 0.14
+2026-02-17 11:30:17,289 - INFO - [TRY] invalid_value=3,pipeline: {'sampling': 4.0, 'invalid_value': 3, 'missing_value': 4, 'floating_point': 4.0, 'unit_converter': 1.0, 'distribution_shape': 4, 'multicollinearity': 2, 'normalization': 1.0, 'outlier': 3.0, 'punctuation': 2.0, 'stopword': 2.0, 'lowercase': 2.0, 'whitespace': 2.0, 'model': 1.0}, Utility=0.14, Best=0.11
+2026-02-17 11:30:17,289 - INFO - [SEARCH] Trying intervention: distribution_shape → 1
+2026-02-17 11:30:18,027 - INFO - current utility 0.06
+2026-02-17 11:30:18,027 - INFO - [TRY] distribution_shape=1,pipeline: {'sampling': 4.0, 'invalid_value': 2.0, 'missing_value': 4, 'floating_point': 4.0, 'unit_converter': 1.0, 'distribution_shape': 1, 'multicollinearity': 2, 'normalization': 1.0, 'outlier': 3.0, 'punctuation': 2.0, 'stopword': 2.0, 'lowercase': 2.0, 'whitespace': 2.0, 'model': 1.0}, Utility=0.06, Best=0.11
+2026-02-17 11:30:18,027 - INFO - ✅ Target achieved 🎯
+2026-02-17 11:30:18,027 - INFO - required optimistic iterations: 27
+2026-02-17 11:30:18,027 - INFO - passing pipeline: order=['sampling', 'invalid_value', 'missing_value', 'floating_point', 'unit_converter', 'distribution_shape', 'multicollinearity', 'normalization', 'outlier', 'punctuation', 'stopword', 'lowercase', 'whitespace', 'model'], vec=[4, 2, 4, 4, 1, 1, 2, 1, 3, 2, 2, 2, 2, 1]
+2026-02-17 11:30:18,027 - INFO - Total iterations so far: 27
+2026-02-17 11:30:18,028 - INFO - pipeline[4. 2. 3.]
+2026-02-17 11:30:19,962 - INFO - Evaluating [1, 2, 4, 4, 2, 1, 2, 1, 6, 2, 2, 1, 2, 1] -- Initial Utility 0.11512492292642619 -- Target Utility 0.10
+2026-02-17 11:33:38,248 - INFO - [OPTIMIZE] Trying combo size k=1
+2026-02-17 11:33:38,249 - INFO - [INFO] Running optimistic search with combined interventions...
+2026-02-17 11:33:38,249 - INFO - [SEARCH] Trying intervention: invalid_value → 3
+2026-02-17 11:33:40,171 - INFO - current utility 0.11
+2026-02-17 11:33:40,171 - INFO - [TRY] invalid_value=3,pipeline: {'sampling': 1.0, 'invalid_value': 3, 'missing_value': 4.0, 'floating_point': 4.0, 'unit_converter': 2.0, 'distribution_shape': 1.0, 'multicollinearity': 2.0, 'normalization': 1.0, 'outlier': 6.0, 'punctuation': 2.0, 'stopword': 2.0, 'lowercase': 1.0, 'whitespace': 2.0, 'model': 1.0}, Utility=0.11, Best=0.12
+2026-02-17 11:33:40,171 - INFO - [SEARCH] Trying intervention: distribution_shape → 4
+2026-02-17 11:33:42,712 - INFO - current utility 0.17
+2026-02-17 11:33:42,712 - INFO - [TRY] distribution_shape=4,pipeline: {'sampling': 1.0, 'invalid_value': 3, 'missing_value': 4.0, 'floating_point': 4.0, 'unit_converter': 2.0, 'distribution_shape': 4, 'multicollinearity': 2.0, 'normalization': 1.0, 'outlier': 6.0, 'punctuation': 2.0, 'stopword': 2.0, 'lowercase': 1.0, 'whitespace': 2.0, 'model': 1.0}, Utility=0.17, Best=0.11
+2026-02-17 11:33:42,712 - INFO - [SEARCH] Trying intervention: outlier → 3
+2026-02-17 11:33:44,122 - INFO - current utility 0.07
+2026-02-17 11:33:44,122 - INFO - [TRY] outlier=3,pipeline: {'sampling': 1.0, 'invalid_value': 3, 'missing_value': 4.0, 'floating_point': 4.0, 'unit_converter': 2.0, 'distribution_shape': 1.0, 'multicollinearity': 2.0, 'normalization': 1.0, 'outlier': 3, 'punctuation': 2.0, 'stopword': 2.0, 'lowercase': 1.0, 'whitespace': 2.0, 'model': 1.0}, Utility=0.07, Best=0.11
+2026-02-17 11:33:44,122 - INFO - ✅ Target achieved 🎯
+2026-02-17 11:33:44,122 - INFO - required optimistic iterations: 3
+2026-02-17 11:33:44,122 - INFO - passing pipeline: order=['sampling', 'invalid_value', 'missing_value', 'floating_point', 'unit_converter', 'distribution_shape', 'multicollinearity', 'normalization', 'outlier', 'punctuation', 'stopword', 'lowercase', 'whitespace', 'model'], vec=[1, 3, 4, 4, 2, 1, 2, 1, 3, 2, 2, 1, 2, 1]
+2026-02-17 11:33:44,122 - INFO - Total iterations so far: 3
+2026-02-17 11:33:44,122 - INFO - pipeline[1. 2. 4.]
+2026-02-17 11:33:44,818 - INFO - Evaluating [4, 2, 3, 4, 1, 2, 1, 1, 3, 2, 2, 2, 2, 1] -- Initial Utility 0.11330511848812987 -- Target Utility 0.10
+2026-02-17 11:34:59,710 - INFO - [OPTIMIZE] Trying combo size k=1
+2026-02-17 11:34:59,710 - INFO - [INFO] Running optimistic search with combined interventions...
+2026-02-17 11:34:59,710 - INFO - [SEARCH] Trying intervention: missing_value → 6
+2026-02-17 11:35:00,904 - INFO - current utility 0.13
+2026-02-17 11:35:00,904 - INFO - [TRY] missing_value=6,pipeline: {'sampling': 4.0, 'invalid_value': 2.0, 'missing_value': 6, 'floating_point': 4.0, 'unit_converter': 1.0, 'distribution_shape': 2.0, 'multicollinearity': 1.0, 'normalization': 1.0, 'outlier': 3.0, 'punctuation': 2.0, 'stopword': 2.0, 'lowercase': 2.0, 'whitespace': 2.0, 'model': 1.0}, Utility=0.13, Best=0.11
+2026-02-17 11:35:00,904 - INFO - [SEARCH] Trying intervention: deduplication → 1
+2026-02-17 11:35:01,446 - INFO - current utility 0.11
+2026-02-17 11:35:01,446 - INFO - [TRY] deduplication=1,pipeline: {'sampling': 4.0, 'invalid_value': 2.0, 'missing_value': 3.0, 'floating_point': 4.0, 'unit_converter': 1.0, 'deduplication': 1, 'distribution_shape': 2.0, 'multicollinearity': 1.0, 'normalization': 1.0, 'outlier': 3.0, 'punctuation': 2.0, 'stopword': 2.0, 'lowercase': 2.0, 'whitespace': 2.0, 'model': 1.0}, Utility=0.11, Best=0.11
+2026-02-17 11:35:01,446 - INFO - [SEARCH] Trying intervention: missing_value → 9
+2026-02-17 11:35:02,540 - INFO - current utility 0.13
+2026-02-17 11:35:02,540 - INFO - [TRY] missing_value=9,pipeline: {'sampling': 4.0, 'invalid_value': 2.0, 'missing_value': 9, 'floating_point': 4.0, 'unit_converter': 1.0, 'distribution_shape': 2.0, 'multicollinearity': 1.0, 'normalization': 1.0, 'outlier': 3.0, 'punctuation': 2.0, 'stopword': 2.0, 'lowercase': 2.0, 'whitespace': 2.0, 'model': 1.0}, Utility=0.13, Best=0.11
+2026-02-17 11:35:02,540 - INFO - [SEARCH] Trying intervention: missing_value → 1
+2026-02-17 11:35:03,069 - INFO - current utility 0.13
+2026-02-17 11:35:03,069 - INFO - [TRY] missing_value=1,pipeline: {'sampling': 4.0, 'invalid_value': 2.0, 'missing_value': 1, 'floating_point': 4.0, 'unit_converter': 1.0, 'distribution_shape': 2.0, 'multicollinearity': 1.0, 'normalization': 1.0, 'outlier': 3.0, 'punctuation': 2.0, 'stopword': 2.0, 'lowercase': 2.0, 'whitespace': 2.0, 'model': 1.0}, Utility=0.13, Best=0.11
+2026-02-17 11:35:03,069 - INFO - [SEARCH] Trying intervention: deduplication → 2
+2026-02-17 11:35:03,599 - INFO - current utility 0.11
+2026-02-17 11:35:03,599 - INFO - [TRY] deduplication=2,pipeline: {'sampling': 4.0, 'invalid_value': 2.0, 'missing_value': 3.0, 'floating_point': 4.0, 'unit_converter': 1.0, 'distribution_shape': 2.0, 'multicollinearity': 1.0, 'normalization': 1.0, 'outlier': 3.0, 'punctuation': 2.0, 'stopword': 2.0, 'deduplication': 2, 'lowercase': 2.0, 'whitespace': 2.0, 'model': 1.0}, Utility=0.11, Best=0.11
+2026-02-17 11:35:03,599 - INFO - [SEARCH] Trying intervention: punctuation → 1
+2026-02-17 11:35:04,162 - INFO - current utility 0.11
+2026-02-17 11:35:04,162 - INFO - [TRY] punctuation=1,pipeline: {'sampling': 4.0, 'invalid_value': 2.0, 'missing_value': 3.0, 'floating_point': 4.0, 'unit_converter': 1.0, 'distribution_shape': 2.0, 'multicollinearity': 1.0, 'normalization': 1.0, 'outlier': 3.0, 'punctuation': 1, 'stopword': 2.0, 'lowercase': 2.0, 'whitespace': 2.0, 'model': 1.0}, Utility=0.11, Best=0.11
+2026-02-17 11:35:04,162 - INFO - [SEARCH] Trying intervention: lowercase → 1
+2026-02-17 11:35:04,736 - INFO - current utility 0.11
+2026-02-17 11:35:04,736 - INFO - [TRY] lowercase=1,pipeline: {'sampling': 4.0, 'invalid_value': 2.0, 'missing_value': 3.0, 'floating_point': 4.0, 'unit_converter': 1.0, 'distribution_shape': 2.0, 'multicollinearity': 1.0, 'normalization': 1.0, 'outlier': 3.0, 'punctuation': 2.0, 'stopword': 2.0, 'lowercase': 1, 'whitespace': 2.0, 'model': 1.0}, Utility=0.11, Best=0.11
+2026-02-17 11:35:04,736 - INFO - [SEARCH] Trying intervention: missing_value → 8
+2026-02-17 11:35:05,816 - INFO - current utility 0.13
+2026-02-17 11:35:05,816 - INFO - [TRY] missing_value=8,pipeline: {'sampling': 4.0, 'invalid_value': 2.0, 'missing_value': 8, 'floating_point': 4.0, 'unit_converter': 1.0, 'distribution_shape': 2.0, 'multicollinearity': 1.0, 'normalization': 1.0, 'outlier': 3.0, 'punctuation': 2.0, 'stopword': 2.0, 'lowercase': 2.0, 'whitespace': 2.0, 'model': 1.0}, Utility=0.13, Best=0.11
+2026-02-17 11:35:05,816 - INFO - [SEARCH] Trying intervention: floating_point → 2
+2026-02-17 11:35:06,364 - INFO - current utility 0.11
+2026-02-17 11:35:06,364 - INFO - [TRY] floating_point=2,pipeline: {'sampling': 4.0, 'invalid_value': 2.0, 'missing_value': 3.0, 'floating_point': 2, 'unit_converter': 1.0, 'distribution_shape': 2.0, 'multicollinearity': 1.0, 'normalization': 1.0, 'outlier': 3.0, 'punctuation': 2.0, 'stopword': 2.0, 'lowercase': 2.0, 'whitespace': 2.0, 'model': 1.0}, Utility=0.11, Best=0.11
+2026-02-17 11:35:06,364 - INFO - [SEARCH] Trying intervention: missing_value → 2
+2026-02-17 11:35:06,965 - INFO - current utility 0.11
+2026-02-17 11:35:06,965 - INFO - [TRY] missing_value=2,pipeline: {'sampling': 4.0, 'invalid_value': 2.0, 'missing_value': 2, 'floating_point': 4.0, 'unit_converter': 1.0, 'distribution_shape': 2.0, 'multicollinearity': 1.0, 'normalization': 1.0, 'outlier': 3.0, 'punctuation': 2.0, 'stopword': 2.0, 'lowercase': 2.0, 'whitespace': 2.0, 'model': 1.0}, Utility=0.11, Best=0.11
+2026-02-17 11:35:06,965 - INFO - [SEARCH] Trying intervention: missing_value → 7
+2026-02-17 11:35:08,085 - INFO - current utility 0.13
+2026-02-17 11:35:08,085 - INFO - [TRY] missing_value=7,pipeline: {'sampling': 4.0, 'invalid_value': 2.0, 'missing_value': 7, 'floating_point': 4.0, 'unit_converter': 1.0, 'distribution_shape': 2.0, 'multicollinearity': 1.0, 'normalization': 1.0, 'outlier': 3.0, 'punctuation': 2.0, 'stopword': 2.0, 'lowercase': 2.0, 'whitespace': 2.0, 'model': 1.0}, Utility=0.13, Best=0.11
+2026-02-17 11:35:08,085 - INFO - [SEARCH] Trying intervention: multicollinearity → 2
+2026-02-17 11:35:08,671 - INFO - current utility 0.11
+2026-02-17 11:35:08,672 - INFO - [TRY] multicollinearity=2,pipeline: {'sampling': 4.0, 'invalid_value': 2.0, 'missing_value': 2, 'floating_point': 4.0, 'unit_converter': 1.0, 'distribution_shape': 2.0, 'multicollinearity': 2, 'normalization': 1.0, 'outlier': 3.0, 'punctuation': 2.0, 'stopword': 2.0, 'lowercase': 2.0, 'whitespace': 2.0, 'model': 1.0}, Utility=0.11, Best=0.11
+2026-02-17 11:35:08,672 - INFO - [SEARCH] Trying intervention: floating_point → 3
+2026-02-17 11:35:09,336 - INFO - current utility 0.11
+2026-02-17 11:35:09,336 - INFO - [TRY] floating_point=3,pipeline: {'sampling': 4.0, 'invalid_value': 2.0, 'missing_value': 2, 'floating_point': 3, 'unit_converter': 1.0, 'distribution_shape': 2.0, 'multicollinearity': 1.0, 'normalization': 1.0, 'outlier': 3.0, 'punctuation': 2.0, 'stopword': 2.0, 'lowercase': 2.0, 'whitespace': 2.0, 'model': 1.0}, Utility=0.11, Best=0.11
+2026-02-17 11:35:09,336 - INFO - [SEARCH] Trying intervention: missing_value → 5
+2026-02-17 11:35:10,329 - INFO - current utility 0.13
+2026-02-17 11:35:10,329 - INFO - [TRY] missing_value=5,pipeline: {'sampling': 4.0, 'invalid_value': 2.0, 'missing_value': 5, 'floating_point': 4.0, 'unit_converter': 1.0, 'distribution_shape': 2.0, 'multicollinearity': 1.0, 'normalization': 1.0, 'outlier': 3.0, 'punctuation': 2.0, 'stopword': 2.0, 'lowercase': 2.0, 'whitespace': 2.0, 'model': 1.0}, Utility=0.13, Best=0.11
+2026-02-17 11:35:10,329 - INFO - [SEARCH] Trying intervention: stopword → 1
+2026-02-17 11:35:10,961 - INFO - current utility 0.11
+2026-02-17 11:35:10,961 - INFO - [TRY] stopword=1,pipeline: {'sampling': 4.0, 'invalid_value': 2.0, 'missing_value': 2, 'floating_point': 4.0, 'unit_converter': 1.0, 'distribution_shape': 2.0, 'multicollinearity': 1.0, 'normalization': 1.0, 'outlier': 3.0, 'punctuation': 2.0, 'stopword': 1, 'lowercase': 2.0, 'whitespace': 2.0, 'model': 1.0}, Utility=0.11, Best=0.11
+2026-02-17 11:35:10,961 - INFO - [SEARCH] Trying intervention: invalid_value → 4
+2026-02-17 11:35:11,549 - INFO - current utility 0.11
+2026-02-17 11:35:11,549 - INFO - [TRY] invalid_value=4,pipeline: {'sampling': 4.0, 'invalid_value': 4, 'missing_value': 2, 'floating_point': 4.0, 'unit_converter': 1.0, 'distribution_shape': 2.0, 'multicollinearity': 1.0, 'normalization': 1.0, 'outlier': 3.0, 'punctuation': 2.0, 'stopword': 2.0, 'lowercase': 2.0, 'whitespace': 2.0, 'model': 1.0}, Utility=0.11, Best=0.11
+2026-02-17 11:35:11,549 - INFO - [SEARCH] Trying intervention: unit_converter → 2
+2026-02-17 11:35:12,173 - INFO - current utility 0.11
+2026-02-17 11:35:12,173 - INFO - [TRY] unit_converter=2,pipeline: {'sampling': 4.0, 'invalid_value': 2.0, 'missing_value': 2, 'floating_point': 4.0, 'unit_converter': 2, 'distribution_shape': 2.0, 'multicollinearity': 1.0, 'normalization': 1.0, 'outlier': 3.0, 'punctuation': 2.0, 'stopword': 2.0, 'lowercase': 2.0, 'whitespace': 2.0, 'model': 1.0}, Utility=0.11, Best=0.11
+2026-02-17 11:35:12,173 - INFO - [SEARCH] Trying intervention: floating_point → 1
+2026-02-17 11:35:12,810 - INFO - current utility 0.11
+2026-02-17 11:35:12,810 - INFO - [TRY] floating_point=1,pipeline: {'sampling': 4.0, 'invalid_value': 2.0, 'missing_value': 2, 'floating_point': 1, 'unit_converter': 1.0, 'distribution_shape': 2.0, 'multicollinearity': 1.0, 'normalization': 1.0, 'outlier': 3.0, 'punctuation': 2.0, 'stopword': 2.0, 'lowercase': 2.0, 'whitespace': 2.0, 'model': 1.0}, Utility=0.11, Best=0.11
+2026-02-17 11:35:12,810 - INFO - [SEARCH] Trying intervention: sampling → 3
+2026-02-17 11:35:13,245 - INFO - current utility 0.11
+2026-02-17 11:35:13,245 - INFO - [TRY] sampling=3,pipeline: {'sampling': 3, 'invalid_value': 2.0, 'missing_value': 2, 'floating_point': 4.0, 'unit_converter': 1.0, 'distribution_shape': 2.0, 'multicollinearity': 1.0, 'normalization': 1.0, 'outlier': 3.0, 'punctuation': 2.0, 'stopword': 2.0, 'lowercase': 2.0, 'whitespace': 2.0, 'model': 1.0}, Utility=0.11, Best=0.11
+2026-02-17 11:35:13,245 - INFO - [SEARCH] Trying intervention: sampling → 1
+2026-02-17 11:35:14,627 - INFO - current utility 0.13
+2026-02-17 11:35:14,627 - INFO - [TRY] sampling=1,pipeline: {'sampling': 1, 'invalid_value': 2.0, 'missing_value': 2, 'floating_point': 4.0, 'unit_converter': 1.0, 'distribution_shape': 2.0, 'multicollinearity': 1.0, 'normalization': 1.0, 'outlier': 3.0, 'punctuation': 2.0, 'stopword': 2.0, 'lowercase': 2.0, 'whitespace': 2.0, 'model': 1.0}, Utility=0.13, Best=0.11
+2026-02-17 11:35:14,627 - INFO - [SEARCH] Trying intervention: sampling → 2
+2026-02-17 11:35:15,191 - INFO - current utility 0.12
+2026-02-17 11:35:15,191 - INFO - [TRY] sampling=2,pipeline: {'sampling': 2, 'invalid_value': 2.0, 'missing_value': 2, 'floating_point': 4.0, 'unit_converter': 1.0, 'distribution_shape': 2.0, 'multicollinearity': 1.0, 'normalization': 1.0, 'outlier': 3.0, 'punctuation': 2.0, 'stopword': 2.0, 'lowercase': 2.0, 'whitespace': 2.0, 'model': 1.0}, Utility=0.12, Best=0.11
+2026-02-17 11:35:15,191 - INFO - [SEARCH] Trying intervention: missing_value → 4
+2026-02-17 11:35:15,845 - INFO - current utility 0.11
+2026-02-17 11:35:15,846 - INFO - [TRY] missing_value=4,pipeline: {'sampling': 4.0, 'invalid_value': 2.0, 'missing_value': 4, 'floating_point': 4.0, 'unit_converter': 1.0, 'distribution_shape': 2.0, 'multicollinearity': 1.0, 'normalization': 1.0, 'outlier': 3.0, 'punctuation': 2.0, 'stopword': 2.0, 'lowercase': 2.0, 'whitespace': 2.0, 'model': 1.0}, Utility=0.11, Best=0.11
+2026-02-17 11:35:15,846 - INFO - [SEARCH] Trying intervention: whitespace → 1
+2026-02-17 11:35:16,443 - INFO - current utility 0.11
+2026-02-17 11:35:16,443 - INFO - [TRY] whitespace=1,pipeline: {'sampling': 4.0, 'invalid_value': 2.0, 'missing_value': 2, 'floating_point': 4.0, 'unit_converter': 1.0, 'distribution_shape': 2.0, 'multicollinearity': 1.0, 'normalization': 1.0, 'outlier': 3.0, 'punctuation': 2.0, 'stopword': 2.0, 'lowercase': 2.0, 'whitespace': 1, 'model': 1.0}, Utility=0.11, Best=0.11
+2026-02-17 11:35:16,443 - INFO - [SEARCH] Trying intervention: distribution_shape → 4
+2026-02-17 11:35:17,090 - INFO - current utility 0.10
+2026-02-17 11:35:17,090 - INFO - [TRY] distribution_shape=4,pipeline: {'sampling': 4.0, 'invalid_value': 2.0, 'missing_value': 2, 'floating_point': 4.0, 'unit_converter': 1.0, 'distribution_shape': 4, 'multicollinearity': 1.0, 'normalization': 1.0, 'outlier': 3.0, 'punctuation': 2.0, 'stopword': 2.0, 'lowercase': 2.0, 'whitespace': 2.0, 'model': 1.0}, Utility=0.10, Best=0.11
+2026-02-17 11:35:17,090 - INFO - ✅ Target achieved 🎯
+2026-02-17 11:35:17,090 - INFO - required optimistic iterations: 24
+2026-02-17 11:35:17,090 - INFO - passing pipeline: order=['sampling', 'invalid_value', 'missing_value', 'floating_point', 'unit_converter', 'distribution_shape', 'multicollinearity', 'normalization', 'outlier', 'punctuation', 'stopword', 'lowercase', 'whitespace', 'model'], vec=[4, 2, 2, 4, 1, 4, 1, 1, 3, 2, 2, 2, 2, 1]
+2026-02-17 11:35:17,090 - INFO - Total iterations so far: 24
+2026-02-17 11:35:17,090 - INFO - pipeline[4. 2. 3.]

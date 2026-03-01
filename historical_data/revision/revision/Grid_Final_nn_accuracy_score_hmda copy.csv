@@ -1,0 +1,54 @@
+0.95,Grid,iterations q1,625.5
+0.95,Grid,iterations q2,1000.0
+0.95,Grid,iterations q3,1000.0
+0.95,Grid,iterations q4,1000.0
+0.95,Grid,Fairness q1,0.04545
+0.95,Grid,Fairness q2,0.05195
+0.95,Grid,Fairness q3,0.05634
+0.95,Grid,Fairness q4,0.06286
+
+0.94,Grid,iterations q1,81.5
+0.94,Grid,iterations q2,217.0
+0.94,Grid,iterations q3,371.5
+0.94,Grid,iterations q4,1000.0
+0.94,Grid,Fairness q1,0.05768
+0.94,Grid,Fairness q2,0.05837
+0.94,Grid,Fairness q3,0.05844
+0.94,Grid,Fairness q4,0.06031
+
+0.93,Grid,iterations q1,13.0
+0.93,Grid,iterations q2,35.0
+0.93,Grid,iterations q3,88.0
+0.93,Grid,iterations q4,270.0
+0.93,Grid,Fairness q1,0.05938
+0.93,Grid,Fairness q2,0.06494
+0.93,Grid,Fairness q3,0.06773
+0.93,Grid,Fairness q4,0.06897
+
+0.92,Grid,iterations q1,3.0
+0.92,Grid,iterations q2,10.0
+0.92,Grid,iterations q3,20.5
+0.92,Grid,iterations q4,51.0
+0.92,Grid,Fairness q1,0.0749
+0.92,Grid,Fairness q2,0.07767
+0.92,Grid,Fairness q3,0.07896
+0.92,Grid,Fairness q4,0.07977
+
+0.91,Grid,iterations q1,2.0
+0.91,Grid,iterations q2,3.0
+0.91,Grid,iterations q3,9.0
+0.91,Grid,iterations q4,33.0
+0.91,Grid,Fairness q1,0.07787
+0.91,Grid,Fairness q2,0.07977
+0.91,Grid,Fairness q3,0.08483
+0.91,Grid,Fairness q4,0.08949
+
+0.99,Grid,iterations q1,1000.0
+0.99,Grid,iterations q2,1000.0
+0.99,Grid,iterations q3,1000.0
+0.99,Grid,iterations q4,1000.0
+0.99,Grid,Fairness q1,0.05195
+0.99,Grid,Fairness q2,0.05195
+0.99,Grid,Fairness q3,0.0584
+0.99,Grid,Fairness q4,0.06226
+
