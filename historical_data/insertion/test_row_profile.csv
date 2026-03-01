@@ -1,2 +1,2 @@
 sampling,invalid_value,missing_value,floating_point,unit_converter,normalization,outlier,punctuation,stopword,lowercase,whitespace,model,outlier_bef_normalization_strat,outlier_bef_outlier_strat,class_imbalance_ratio,corr_race,ot_race,corr_gender,ot_gender,corr_loan_type,ot_loan_type,corr_applicant_age,ot_applicant_age,corr_lien_status,ot_lien_status,corr_LV,ot_LV,corr_DI,ot_DI,corr_income_brackets,ot_income_brackets,utility_accuracy_score
-2,1,7,3,2,3,2,2,1,2,1,1,0.3005181347150259,0.3005181347150259,2.85,395.97,0.25,395.97,0.39,14.09,0.29,5.15,0.32,2.59,0.23,399.41,0.36,6.27,0.25,2.59,0.2,0.0
+2,3,3,3,2,3,2,2,1,2,1,1,0.34196891191709844,0.34196891191709844,2.85,1.98,0.29,3.0,0.02,113.3,0.19,69.08,0.31,113.3,0.25,3.0,0.2,14.8,0.26,29.3,0.22,0.0
