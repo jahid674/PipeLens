@@ -8,7 +8,7 @@ import logging
 from opaque_optimizer import OpaqueOptimizer
 #from RL_glassbox import GlassBoxOptimizer
 from glassbox_optimizer import GlassBoxOptimizer
-from grid_online3 import GridSearch
+from grid_online_randomized import GridSearch
 from pipeline_execution import PipelineExecutor
 np.random.seed(42)
 import random

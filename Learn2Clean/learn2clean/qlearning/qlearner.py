@@ -304,13 +304,13 @@ class Qlearner:
             ("BOTH",  FloatingPointStabilizer, {}),
         ])
 
-        # # (11) Distribution shape correction
-        # blocks.append([
-        #     ("NONE",       DistributionShapeCorrector, {}),
-        #     ("LOG1P",      DistributionShapeCorrector, {}),
-        #     ("SQRT",       DistributionShapeCorrector, {}),
-        #     ("YEOJOHNSON", DistributionShapeCorrector, {}),
-        # ])
+        # (11) Distribution shape correction
+        blocks.append([
+            ("NONE",       DistributionShapeCorrector, {}),
+            ("LOG1P",      DistributionShapeCorrector, {}),
+            ("SQRT",       DistributionShapeCorrector, {}),
+            ("YEOJOHNSON", DistributionShapeCorrector, {}),
+        ])
 
         # (12) Outliers
         blocks.append([
@@ -330,18 +330,18 @@ class Qlearner:
                 ("PC", Consistency_checker, {}),
             ])
 
-        # # (14) VIF multicollinearity cleaning
-        # blocks.append([
-        #     ("NONE",          VIFMulticollinearityCleaner, {}),
-        #     ("DROP_HIGH_VIF", VIFMulticollinearityCleaner, {}),
-        # ])
+        # (14) VIF multicollinearity cleaning
+        blocks.append([
+            ("NONE",          VIFMulticollinearityCleaner, {}),
+            ("DROP_HIGH_VIF", VIFMulticollinearityCleaner, {}),
+        ])
 
-        # # (15) Feature Selection
-        # blocks.append([
-        #     ("NONE",        FeatureSelector, {}),
-        #     ("VARIANCE",    FeatureSelector, {}),
-        #     ("MUTUAL_INFO", FeatureSelector, {}),
-        # ])
+        # (15) Feature Selection
+        blocks.append([
+            ("NONE",        FeatureSelector, {}),
+            ("VARIANCE",    FeatureSelector, {}),
+            ("MUTUAL_INFO", FeatureSelector, {}),
+        ])
 
         # # (16) Polynomial + reducer
         # blocks.append([
