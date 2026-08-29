@@ -27,10 +27,10 @@ source .venv/bin/activate
 python -m pip install --upgrade pip
 python -m pip install -r requirements.txt
 python -m unittest discover -s tests -v
-python reproduce_example.py
+jupyter lab example.ipynb
 ```
 
-The final command executes `example.ipynb` from the repository root and writes the executed notebook to `artifacts/example.executed.ipynb`. To explore it interactively, run `jupyter lab example.ipynb`.
+The final command opens `example.ipynb` from the repository root for interactive execution.
 
 ## Reproducibility inputs
 
@@ -55,7 +55,6 @@ The smoke test verifies imports, configuration, and SHA-256 checksums for all tu
 ├── historical_data/tutorial/
 ├── config_example.json
 ├── example.ipynb
-├── reproduce_example.py
 └── tests/
 ```
 
