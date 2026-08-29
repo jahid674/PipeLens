@@ -1,0 +1,2 @@
+sampling,invalid_value,missing_value,floating_point,normalization,model,outlier_bef_normalization_strat,class_imbalance_ratio,corr_race,ot_race,corr_gender,ot_gender,corr_loan_type,ot_loan_type,corr_applicant_age,ot_applicant_age,corr_lien_status,ot_lien_status,corr_LV,ot_LV,corr_DI,ot_DI,corr_income_brackets,ot_income_brackets,utility_accuracy_score
+2,1,4,1,2,1,0.40932642487046633,5.892857142857143,124.85,0.3,124.85,0.36,124.85,0.26,124.85,0.34,124.85,0.02,124.85,0.37,124.85,0.22,124.85,0.23,0.13471502590673579

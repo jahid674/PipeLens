@@ -1,0 +1,15 @@
+{
+  "method": "PipeLens",
+  "dataset_name": "hmda",
+  "model_type": "lr",
+  "metric_type": "accuracy_score",
+  "pipeline_type": "ml",
+  "pipeline_order": ["sampling", "invalid_value", "missing_value", "floating_point", "normalization", "model"],
+  "new_components": ["outlier", "deduplication"],
+  "f_goals": {"hmda": [0.1]},
+  "paths": {
+    "train_data": "historical_data/tutorial/train_profile_{model_type}_{metric_type}_{dataset_name}.csv",
+    "test_data": "historical_data/tutorial/test_current_profile_{model_type}_{metric_type}_{dataset_name}.csv",
+    "metric_output": "historical_data/tutorial/{method}_{model_type}_{metric_type}_{dataset_name}_result.csv"
+  }
+}

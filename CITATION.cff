@@ -1,0 +1,41 @@
+cff-version: 1.2.0
+message: "If you use PipeLens, please cite the following paper."
+title: "PipeLens: Identifying Interventions for Resolving Malfunctioning Data Science Pipelines"
+type: software
+authors:
+  - family-names: Hasan
+    given-names: Jahid
+  - family-names: Jiang
+    given-names: Stanley
+  - family-names: Singh
+    given-names: Tejendra
+  - family-names: Galhotra
+    given-names: Sainyam
+  - family-names: Pradhan
+    given-names: Romila
+  - family-names: Srivastava
+    given-names: Divesh
+repository-code: "https://github.com/jahid674/PipeLens"
+preferred-citation:
+  type: article
+  title: "PipeLens: Identifying Interventions for Resolving Malfunctioning Data Science Pipelines"
+  authors:
+    - family-names: Hasan
+      given-names: Jahid
+    - family-names: Jiang
+      given-names: Stanley
+    - family-names: Singh
+      given-names: Tejendra
+    - family-names: Galhotra
+      given-names: Sainyam
+    - family-names: Pradhan
+      given-names: Romila
+    - family-names: Srivastava
+      given-names: Divesh
+  journal: "Proceedings of the VLDB Endowment"
+  volume: 19
+  issue: 11
+  start: 3188
+  end: 3201
+  year: 2026
+  doi: "10.14778/3836663.3836682"
